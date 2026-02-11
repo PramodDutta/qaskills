@@ -11,12 +11,18 @@ export default async function middleware(req: NextRequest) {
       const { clerkMiddleware, createRouteMatcher } = await import(
         '@clerk/nextjs/server'
       );
+      const isPublicWebhook = createRouteMatcher([
+        '/api/webhooks(.*)',
+      ]);
       const isProtectedRoute = createRouteMatcher([
         '/dashboard(.*)',
         '/api/skills/create(.*)',
       ]);
 
       const handler = clerkMiddleware(async (auth, request) => {
+        if (isPublicWebhook(request)) {
+          return;
+        }
         if (isProtectedRoute(request)) {
           await auth.protect();
         }

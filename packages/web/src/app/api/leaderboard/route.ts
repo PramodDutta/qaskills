@@ -2,41 +2,36 @@ import { NextResponse } from 'next/server';
 import { db } from '@/db';
 import { skills } from '@/db/schema';
 import { desc } from 'drizzle-orm';
-import { cacheGet, cacheSet } from '@/lib/cache';
+import { cacheGetOrSet } from '@/lib/cache';
 
 export async function GET() {
   try {
-    // Check cache first
-    const cached = await cacheGet<unknown>('leaderboard:alltime');
-    if (cached) return NextResponse.json(cached);
+    const result = await cacheGetOrSet('leaderboard:all', async () => {
+      const rows = await db
+        .select({
+          id: skills.id,
+          name: skills.name,
+          slug: skills.slug,
+          author: skills.authorName,
+          installCount: skills.installCount,
+          weeklyInstalls: skills.weeklyInstalls,
+          qualityScore: skills.qualityScore,
+          testingTypes: skills.testingTypes,
+          frameworks: skills.frameworks,
+          verified: skills.verified,
+        })
+        .from(skills)
+        .orderBy(desc(skills.installCount))
+        .limit(50);
 
-    const rows = await db
-      .select({
-        id: skills.id,
-        name: skills.name,
-        slug: skills.slug,
-        author: skills.authorName,
-        installCount: skills.installCount,
-        weeklyInstalls: skills.weeklyInstalls,
-        qualityScore: skills.qualityScore,
-        testingTypes: skills.testingTypes,
-        frameworks: skills.frameworks,
-        verified: skills.verified,
-      })
-      .from(skills)
-      .orderBy(desc(skills.installCount))
-      .limit(50);
-
-    const result = {
-      skills: rows.map((row, i) => ({
-        rank: i + 1,
-        ...row,
-      })),
-      updatedAt: new Date().toISOString(),
-    };
-
-    // Cache for 5 minutes
-    await cacheSet('leaderboard:alltime', result, 300);
+      return {
+        skills: rows.map((row, i) => ({
+          rank: i + 1,
+          ...row,
+        })),
+        updatedAt: new Date().toISOString(),
+      };
+    }, 300);
 
     return NextResponse.json(result);
   } catch (error) {

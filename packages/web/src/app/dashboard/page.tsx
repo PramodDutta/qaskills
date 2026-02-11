@@ -5,32 +5,131 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { QualityBadge } from '@/components/skills/quality-badge';
 import { formatNumber } from '@/lib/utils';
+import { eq, or } from 'drizzle-orm';
 
 export const metadata = {
   title: 'Dashboard',
   description: 'Manage your published QA skills',
 };
 
-export default function DashboardPage() {
-  // TODO: Fetch real data from DB based on authenticated user
-  const stats = {
-    totalInstalls: 3420,
-    skillsPublished: 5,
-    averageQuality: 87,
+async function getClerkUserId(): Promise<string | null> {
+  try {
+    const { auth } = await import('@clerk/nextjs/server');
+    const { userId } = await auth();
+    return userId;
+  } catch {
+    return null;
+  }
+}
+
+interface DashboardSkill {
+  name: string;
+  slug: string;
+  installs: number;
+  quality: number;
+  status: string;
+  createdAt: Date;
+}
+
+interface DashboardData {
+  stats: {
+    totalInstalls: number;
+    skillsPublished: number;
+    averageQuality: number;
+  };
+  publishedSkills: DashboardSkill[];
+  userName: string | null;
+  hasUser: boolean;
+}
+
+async function getDashboardData(): Promise<DashboardData> {
+  const fallback: DashboardData = {
+    stats: { totalInstalls: 0, skillsPublished: 0, averageQuality: 0 },
+    publishedSkills: [],
+    userName: null,
+    hasUser: false,
   };
 
-  const publishedSkills = [
-    { name: 'Playwright E2E Testing', slug: 'playwright-e2e', installs: 1250, quality: 92, status: 'published' },
-    { name: 'Playwright API Testing', slug: 'playwright-api', installs: 890, quality: 88, status: 'published' },
-    { name: 'Visual Regression Testing', slug: 'visual-regression', installs: 430, quality: 86, status: 'published' },
-  ];
+  try {
+    const clerkId = await getClerkUserId();
+    if (!clerkId) return fallback;
+
+    const { db } = await import('@/db');
+    const { users, skills } = await import('@/db/schema');
+
+    // Find user by clerkId
+    const [user] = await db
+      .select()
+      .from(users)
+      .where(eq(users.clerkId, clerkId))
+      .limit(1);
+
+    if (!user) {
+      return { ...fallback, hasUser: false };
+    }
+
+    // Find skills authored by this user (by authorId or username match)
+    const userSkills = await db
+      .select()
+      .from(skills)
+      .where(
+        or(
+          eq(skills.authorId, user.id),
+          eq(skills.authorName, user.username),
+        ),
+      );
+
+    const totalInstalls = userSkills.reduce(
+      (sum, s) => sum + (s.installCount || 0),
+      0,
+    );
+    const averageQuality =
+      userSkills.length > 0
+        ? Math.round(
+            userSkills.reduce((sum, s) => sum + (s.qualityScore || 0), 0) /
+              userSkills.length,
+          )
+        : 0;
+
+    const publishedSkills: DashboardSkill[] = userSkills.map((s) => ({
+      name: s.name,
+      slug: s.slug,
+      installs: s.installCount || 0,
+      quality: s.qualityScore || 0,
+      status: 'published',
+      createdAt: s.createdAt,
+    }));
+
+    return {
+      stats: {
+        totalInstalls,
+        skillsPublished: userSkills.length,
+        averageQuality,
+      },
+      publishedSkills,
+      userName: user.name || user.username,
+      hasUser: true,
+    };
+  } catch (error) {
+    console.error('Dashboard data fetch error:', error);
+    return fallback;
+  }
+}
+
+export default async function DashboardPage() {
+  const { stats, publishedSkills, userName, hasUser } =
+    await getDashboardData();
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl font-bold">Dashboard</h1>
-          <p className="mt-1 text-muted-foreground">Manage your published QA skills</p>
+          <p className="mt-1 text-muted-foreground">
+            {userName
+              ? `Welcome back, ${userName}`
+              : 'Manage your published QA skills'}
+          </p>
         </div>
         <Button asChild>
           <Link href="/dashboard/publish">
@@ -38,6 +137,23 @@ export default function DashboardPage() {
           </Link>
         </Button>
       </div>
+
+      {!hasUser && (
+        <Card className="mb-8">
+          <CardContent className="py-12 text-center">
+            <Package className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
+            <h3 className="text-lg font-semibold">Welcome! Publish your first skill</h3>
+            <p className="mt-2 text-muted-foreground">
+              Get started by publishing a QA skill to the directory.
+            </p>
+            <Button asChild className="mt-4">
+              <Link href="/dashboard/publish">
+                <Plus className="h-4 w-4" /> Publish Skill
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Stats */}
       <div className="grid gap-4 md:grid-cols-3 mb-8">
@@ -87,14 +203,22 @@ export default function DashboardPage() {
                   <th className="px-6 py-3 font-medium text-right">Installs</th>
                   <th className="px-6 py-3 font-medium text-right">Quality</th>
                   <th className="px-6 py-3 font-medium">Status</th>
+                  <th className="px-6 py-3 font-medium text-right">Created</th>
                   <th className="px-6 py-3 font-medium text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
+                {publishedSkills.length === 0 && (
+                  <tr>
+                    <td colSpan={6} className="px-6 py-8 text-center text-muted-foreground">
+                      No skills published yet. Click &quot;Publish Skill&quot; to get started.
+                    </td>
+                  </tr>
+                )}
                 {publishedSkills.map((skill) => (
                   <tr key={skill.slug} className="hover:bg-muted/50">
                     <td className="px-6 py-4">
-                      <Link href={`/skills/thetestingacademy/${skill.slug}`} className="font-medium hover:underline">
+                      <Link href={`/skills/${skill.slug}`} className="font-medium hover:underline">
                         {skill.name}
                       </Link>
                     </td>
@@ -104,6 +228,9 @@ export default function DashboardPage() {
                     </td>
                     <td className="px-6 py-4">
                       <Badge variant="success" className="text-xs">{skill.status}</Badge>
+                    </td>
+                    <td className="px-6 py-4 text-right text-sm text-muted-foreground">
+                      {new Date(skill.createdAt).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex gap-2 justify-end">

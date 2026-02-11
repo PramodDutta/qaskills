@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import type { SkillSummary } from '@qaskills/shared';
 import { db } from '@/db';
 import { skills } from '@/db/schema';
-import { desc, ilike, sql } from 'drizzle-orm';
+import { desc, ilike, sql, and, or, type SQL } from 'drizzle-orm';
 
 export const metadata = {
   title: 'Browse QA Skills',
@@ -20,35 +20,172 @@ interface SkillsPageProps {
     testingType?: string | string[];
     framework?: string | string[];
     language?: string | string[];
+    domain?: string | string[];
+    agent?: string | string[];
     sort?: string;
     page?: string;
   }>;
 }
 
-async function getSkills(searchParams: Awaited<SkillsPageProps['searchParams']>): Promise<SkillSummary[]> {
-  try {
-    const rows = await db
-      .select()
-      .from(skills)
-      .orderBy(desc(skills.installCount))
-      .limit(50);
+function toArray(val: string | string[] | undefined): string[] {
+  if (!val) return [];
+  return Array.isArray(val) ? val : [val];
+}
 
-    return rows.map((row) => ({
-      id: row.id,
-      name: row.name,
-      slug: row.slug,
-      description: row.description,
-      author: row.authorName,
-      qualityScore: row.qualityScore,
-      installCount: row.installCount,
-      testingTypes: row.testingTypes,
-      frameworks: row.frameworks,
-      featured: row.featured,
-      verified: row.verified,
-    }));
+interface SkillsResult {
+  skills: SkillSummary[];
+  total: number;
+  page: number;
+  totalPages: number;
+}
+
+async function getSkills(searchParams: Awaited<SkillsPageProps['searchParams']>): Promise<SkillsResult> {
+  const query = searchParams.q || '';
+  const sort = searchParams.sort || 'trending';
+  const page = Math.max(1, parseInt(searchParams.page || '1', 10));
+  const limit = 20;
+  const offset = (page - 1) * limit;
+
+  const testingTypes = toArray(searchParams.testingType);
+  const frameworks = toArray(searchParams.framework);
+  const languages = toArray(searchParams.language);
+  const domains = toArray(searchParams.domain);
+  const agents = toArray(searchParams.agent);
+
+  try {
+    // Build conditions array
+    const conditions: SQL[] = [];
+
+    // Text search on name and description
+    if (query) {
+      conditions.push(
+        or(
+          ilike(skills.name, `%${query}%`),
+          ilike(skills.description, `%${query}%`),
+        )!,
+      );
+    }
+
+    // JSONB array filters using @> (contains) operator
+    if (testingTypes.length > 0) {
+      const typeConditions = testingTypes.map(
+        (t) => sql`${skills.testingTypes} @> ${JSON.stringify([t])}::jsonb`,
+      );
+      conditions.push(or(...typeConditions)!);
+    }
+
+    if (frameworks.length > 0) {
+      const fwConditions = frameworks.map(
+        (f) => sql`${skills.frameworks} @> ${JSON.stringify([f])}::jsonb`,
+      );
+      conditions.push(or(...fwConditions)!);
+    }
+
+    if (languages.length > 0) {
+      const langConditions = languages.map(
+        (l) => sql`${skills.languages} @> ${JSON.stringify([l])}::jsonb`,
+      );
+      conditions.push(or(...langConditions)!);
+    }
+
+    if (domains.length > 0) {
+      const domainConditions = domains.map(
+        (d) => sql`${skills.domains} @> ${JSON.stringify([d])}::jsonb`,
+      );
+      conditions.push(or(...domainConditions)!);
+    }
+
+    if (agents.length > 0) {
+      const agentConditions = agents.map(
+        (a) => sql`${skills.agents} @> ${JSON.stringify([a])}::jsonb`,
+      );
+      conditions.push(or(...agentConditions)!);
+    }
+
+    const whereClause = conditions.length > 0 ? and(...conditions) : undefined;
+
+    // Sort order
+    let orderBy;
+    switch (sort) {
+      case 'newest':
+        orderBy = desc(skills.createdAt);
+        break;
+      case 'highest_quality':
+        orderBy = desc(skills.qualityScore);
+        break;
+      case 'most_installed':
+        orderBy = desc(skills.installCount);
+        break;
+      case 'trending':
+      default:
+        orderBy = desc(skills.weeklyInstalls);
+        break;
+    }
+
+    const [rows, countResult] = await Promise.all([
+      db
+        .select()
+        .from(skills)
+        .where(whereClause)
+        .orderBy(orderBy)
+        .limit(limit)
+        .offset(offset),
+      db
+        .select({ count: sql<number>`count(*)` })
+        .from(skills)
+        .where(whereClause),
+    ]);
+
+    const total = Number(countResult[0]?.count || 0);
+    const totalPages = Math.ceil(total / limit);
+
+    return {
+      skills: rows.map((row) => ({
+        id: row.id,
+        name: row.name,
+        slug: row.slug,
+        description: row.description,
+        author: row.authorName,
+        qualityScore: row.qualityScore,
+        installCount: row.installCount,
+        testingTypes: row.testingTypes,
+        frameworks: row.frameworks,
+        featured: row.featured,
+        verified: row.verified,
+      })),
+      total,
+      page,
+      totalPages,
+    };
   } catch {
     // Fallback: return seed skills data when DB is not connected
-    return getSeedSkills();
+    const fallback = getSeedSkills();
+    let filtered = fallback;
+
+    // Apply client-side filtering on fallback data
+    if (query) {
+      const q = query.toLowerCase();
+      filtered = filtered.filter(
+        (s) => s.name.toLowerCase().includes(q) || s.description.toLowerCase().includes(q),
+      );
+    }
+    if (testingTypes.length > 0) {
+      filtered = filtered.filter((s) =>
+        testingTypes.some((t) => s.testingTypes.includes(t)),
+      );
+    }
+    if (frameworks.length > 0) {
+      filtered = filtered.filter((s) =>
+        frameworks.some((f) => s.frameworks.includes(f)),
+      );
+    }
+
+    return {
+      skills: filtered,
+      total: filtered.length,
+      page: 1,
+      totalPages: 1,
+    };
   }
 }
 
@@ -79,16 +216,7 @@ function getSeedSkills(): SkillSummary[] {
 
 export default async function SkillsPage({ searchParams }: SkillsPageProps) {
   const params = await searchParams;
-  const allSkills = await getSkills(params);
-
-  // Client-side-compatible filtering for seed data fallback
-  let filteredSkills = allSkills;
-  if (params.q) {
-    const q = params.q.toLowerCase();
-    filteredSkills = filteredSkills.filter(
-      (s) => s.name.toLowerCase().includes(q) || s.description.toLowerCase().includes(q),
-    );
-  }
+  const result = await getSkills(params);
 
   const sortOptions = [
     { value: 'trending', label: 'Trending' },
@@ -103,7 +231,7 @@ export default async function SkillsPage({ searchParams }: SkillsPageProps) {
       <div className="mb-8">
         <h1 className="text-3xl font-bold">Browse QA Skills</h1>
         <p className="mt-2 text-muted-foreground">
-          {filteredSkills.length} skills available for 27+ AI coding agents
+          {result.total} skills available for 27+ AI coding agents
         </p>
       </div>
 
@@ -143,17 +271,32 @@ export default async function SkillsPage({ searchParams }: SkillsPageProps) {
         {/* Skills grid */}
         <div className="flex-1">
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {filteredSkills.map((skill) => (
+            {result.skills.map((skill) => (
               <SkillCard key={skill.id} skill={skill} />
             ))}
           </div>
 
-          {filteredSkills.length === 0 && (
+          {result.skills.length === 0 && (
             <div className="py-16 text-center">
               <p className="text-lg text-muted-foreground">No skills found</p>
               <p className="mt-2 text-sm text-muted-foreground">
                 Try a different search query or remove some filters
               </p>
+            </div>
+          )}
+
+          {/* Pagination */}
+          {result.totalPages > 1 && (
+            <div className="mt-8 flex justify-center gap-2">
+              {Array.from({ length: result.totalPages }, (_, i) => i + 1).map((p) => (
+                <Badge
+                  key={p}
+                  variant={p === result.page ? 'default' : 'outline'}
+                  className="cursor-pointer"
+                >
+                  {p}
+                </Badge>
+              ))}
             </div>
           )}
         </div>
