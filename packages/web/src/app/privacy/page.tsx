@@ -1,4 +1,8 @@
-export const metadata = { title: 'Privacy Policy' };
+export const metadata = {
+  title: 'Privacy Policy',
+  description:
+    'Privacy Policy for QASkills.sh — how we handle your data, CLI telemetry, and authentication.',
+};
 
 export default function PrivacyPage() {
   return (

@@ -3,9 +3,11 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Menu, X, Search, Terminal } from 'lucide-react';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const navLinks = [
   { href: '/skills', label: 'Skills' },
+  { href: '/getting-started', label: 'Get Started' },
   { href: '/leaderboard', label: 'Leaderboard' },
   { href: '/packs', label: 'Packs' },
 ];
@@ -71,6 +73,8 @@ export function Header() {
             </kbd>
           </Link>
 
+          <ThemeToggle />
+
           {clerkLoaded && ClerkUI ? (
             <>
               <ClerkUI.SignedOut>
@@ -123,6 +127,9 @@ export function Header() {
               {link.label}
             </Link>
           ))}
+          <div className="pt-3 mt-3 border-t border-border">
+            <ThemeToggle />
+          </div>
         </nav>
       )}
     </header>

@@ -1,4 +1,8 @@
-export const metadata = { title: 'Terms of Service' };
+export const metadata = {
+  title: 'Terms of Service',
+  description:
+    'Terms of Service for QASkills.sh — the QA skills directory for AI coding agents.',
+};
 
 export default function TermsPage() {
   return (

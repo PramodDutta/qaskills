@@ -9,7 +9,11 @@ import { eq, or } from 'drizzle-orm';
 
 export const metadata = {
   title: 'Dashboard',
-  description: 'Manage your published QA skills',
+  description: 'Manage your published QA skills, view install analytics, and publish new skills.',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 async function getClerkUserId(): Promise<string | null> {

@@ -5,7 +5,8 @@ import { Card, CardContent } from '@/components/ui/card';
 
 export const metadata = {
   title: 'About',
-  description: 'About QA Skills and The Testing Academy',
+  description:
+    'QASkills.sh is built by The Testing Academy (189K+ YouTube subscribers). Learn how we are bridging QA expertise and AI coding agents.',
 };
 
 export default function AboutPage() {

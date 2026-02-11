@@ -4,7 +4,8 @@ import { Badge } from '@/components/ui/badge';
 
 export const metadata = {
   title: 'Blog',
-  description: 'QA testing insights, AI agent tips, and skill development guides',
+  description:
+    'QA testing insights, tutorials, and guides for using AI coding agents with curated testing skills. By The Testing Academy.',
 };
 
 const posts = [

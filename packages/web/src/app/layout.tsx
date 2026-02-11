@@ -9,38 +9,56 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://qaskills.sh'),
   title: {
-    default: 'QA Skills — Agent Skills Directory for QA Testing',
-    template: '%s | QA Skills',
+    default: 'QASkills.sh — The QA Skills Directory for AI Agents',
+    template: '%s | QASkills.sh',
   },
   description:
-    'The curated QA skills directory for AI coding agents. Install testing skills for Claude Code, Cursor, Copilot, Windsurf, and 27+ agents.',
+    'Install curated QA testing skills into Claude Code, Cursor, Copilot, Windsurf, and 27+ AI coding agents. By The Testing Academy.',
   keywords: [
-    'QA testing',
-    'AI agent skills',
-    'Playwright',
-    'Cypress',
-    'test automation',
+    'QA',
+    'testing',
+    'AI agents',
     'Claude Code',
     'Cursor',
     'Copilot',
+    'Playwright',
+    'Cypress',
+    'test automation',
+    'skills',
+    'The Testing Academy',
   ],
-  authors: [{ name: 'The Testing Academy' }],
+  authors: [{ name: 'Pramod Dutta', url: 'https://youtube.com/@TheTestingAcademy' }],
+  creator: 'The Testing Academy',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://qaskills.sh',
-    siteName: 'QA Skills',
-    title: 'QA Skills — Agent Skills Directory for QA Testing',
+    siteName: 'QASkills.sh',
+    title: 'QASkills.sh — The QA Skills Directory for AI Agents',
     description:
-      'The curated QA skills directory for AI coding agents. Install testing skills for 27+ agents.',
+      'Install curated QA testing skills into 27+ AI coding agents. One command. Instant expertise.',
+    images: [
+      {
+        url: '/api/og?title=QASkills.sh&description=The+QA+Skills+Directory+for+AI+Agents',
+        width: 1200,
+        height: 630,
+        alt: 'QASkills.sh',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'QA Skills',
-    description: 'Agent Skills Directory for QA Testing',
+    title: 'QASkills.sh — The QA Skills Directory for AI Agents',
+    description: 'Install curated QA testing skills into 27+ AI coding agents.',
+    images: ['/api/og?title=QASkills.sh&description=The+QA+Skills+Directory+for+AI+Agents'],
+    creator: '@tabordasolutions',
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -48,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <ClerkWrapper>
       <html lang="en" suppressHydrationWarning>
         <body className={`${inter.variable} font-sans antialiased`}>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <div className="flex min-h-screen flex-col">
               <Header />
               <main className="flex-1">{children}</main>

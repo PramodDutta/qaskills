@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/db';
 import { skills } from '@/db/schema';
-import { eq, or } from 'drizzle-orm';
+import { eq } from 'drizzle-orm';
+
+const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 export async function GET(
   request: NextRequest,
@@ -10,10 +12,12 @@ export async function GET(
   const { id } = await params;
 
   try {
+    const isUuid = UUID_REGEX.test(id);
+
     const rows = await db
       .select()
       .from(skills)
-      .where(or(eq(skills.id, id), eq(skills.slug, id)))
+      .where(isUuid ? eq(skills.id, id) : eq(skills.slug, id))
       .limit(1);
 
     if (rows.length === 0) {
@@ -44,7 +48,7 @@ export async function GET(
       createdAt: row.createdAt,
       updatedAt: row.updatedAt,
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to fetch skill' }, { status: 500 });
   }
 }

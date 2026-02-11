@@ -8,6 +8,7 @@ const footerLinks = {
     { href: '/leaderboard', label: 'Leaderboard' },
   ],
   Resources: [
+    { href: '/getting-started', label: 'Getting Started' },
     { href: '/about', label: 'About' },
     { href: '/blog', label: 'Blog' },
     { href: 'https://github.com/PramodDutta/qaskills', label: 'GitHub' },

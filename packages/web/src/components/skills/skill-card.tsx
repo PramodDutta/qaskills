@@ -13,7 +13,7 @@ interface SkillCardProps {
 export function SkillCard({ skill }: SkillCardProps) {
   return (
     <Link href={`/skills/${skill.author}/${skill.slug}`}>
-      <Card className="h-full transition-all hover:shadow-md hover:border-primary/30">
+      <Card className="h-full transition-all duration-200 hover:shadow-md hover:border-primary/30 hover:-translate-y-0.5">
         <CardHeader className="pb-3">
           <div className="flex items-start justify-between">
             <div className="flex-1 min-w-0">

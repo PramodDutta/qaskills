@@ -1,6 +1,7 @@
 import { neon } from '@neondatabase/serverless';
 import { drizzle } from 'drizzle-orm/neon-http';
-import { skills, categories } from './schema';
+import { eq } from 'drizzle-orm';
+import { skills, categories, skillPacks, skillPackItems } from './schema';
 import { TESTING_TYPES, FRAMEWORKS, LANGUAGES, DOMAINS } from '@qaskills/shared';
 
 async function seed() {
@@ -59,6 +60,98 @@ async function seed() {
   }
 
   console.log(`Seeded ${seedSkills.length} skills`);
+
+  // Seed skill packs
+  console.log('Seeding skill packs...');
+
+  const seedPacks = [
+    {
+      name: 'Complete Playwright Suite',
+      slug: 'playwright-suite',
+      description: 'Everything you need for Playwright testing — E2E, API, visual regression, and accessibility.',
+      featured: true,
+      installCount: 820,
+      skillSlugs: ['playwright-e2e', 'playwright-api', 'visual-regression', 'axe-accessibility'],
+    },
+    {
+      name: 'API Testing Toolkit',
+      slug: 'api-testing-toolkit',
+      description: 'Comprehensive API testing with REST, GraphQL, contract testing, and performance.',
+      featured: true,
+      installCount: 560,
+      skillSlugs: ['playwright-api', 'rest-assured-api', 'postman-api', 'contract-testing-pact', 'k6-performance'],
+    },
+    {
+      name: 'Performance & Load Testing',
+      slug: 'performance-suite',
+      description: 'Load test your applications with k6 and JMeter, plus CI/CD integration.',
+      featured: false,
+      installCount: 340,
+      skillSlugs: ['k6-performance', 'jmeter-load', 'cicd-pipeline'],
+    },
+    {
+      name: 'Security & Compliance',
+      slug: 'security-compliance',
+      description: 'OWASP security testing and accessibility compliance in one pack.',
+      featured: false,
+      installCount: 280,
+      skillSlugs: ['owasp-security', 'axe-accessibility'],
+    },
+    {
+      name: 'Mobile Testing Kit',
+      slug: 'mobile-testing-kit',
+      description: 'Mobile app testing automation for iOS and Android with Appium and cross-platform tools.',
+      featured: false,
+      installCount: 190,
+      skillSlugs: ['appium-mobile', 'bug-report-writing'],
+    },
+    {
+      name: 'Full Stack QA',
+      slug: 'full-stack-qa',
+      description: 'A curated mix of the best featured QA skills across all testing types.',
+      featured: true,
+      installCount: 750,
+      skillSlugs: ['playwright-e2e', 'cypress-e2e', 'k6-performance', 'owasp-security', 'jest-unit', 'pytest-patterns', 'cicd-pipeline', 'test-data-generation'],
+    },
+  ];
+
+  for (const pack of seedPacks) {
+    const { skillSlugs, ...packData } = pack;
+
+    // Insert the pack
+    await db.insert(skillPacks).values(packData).onConflictDoNothing();
+
+    // Look up the pack ID by slug
+    const [insertedPack] = await db
+      .select({ id: skillPacks.id })
+      .from(skillPacks)
+      .where(eq(skillPacks.slug, pack.slug))
+      .limit(1);
+
+    if (!insertedPack) continue;
+
+    // Link skills to pack
+    for (let i = 0; i < skillSlugs.length; i++) {
+      const [skill] = await db
+        .select({ id: skills.id })
+        .from(skills)
+        .where(eq(skills.slug, skillSlugs[i]))
+        .limit(1);
+
+      if (skill) {
+        await db
+          .insert(skillPackItems)
+          .values({
+            packId: insertedPack.id,
+            skillId: skill.id,
+            order: i,
+          })
+          .onConflictDoNothing();
+      }
+    }
+  }
+
+  console.log(`Seeded ${seedPacks.length} skill packs with items`);
   console.log('Seed complete!');
 }
 

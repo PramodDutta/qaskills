@@ -5,13 +5,17 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { InstallButton } from '@/components/skills/install-button';
 import { formatNumber } from '@/lib/utils';
+import { db } from '@/db';
+import { skills } from '@/db/schema';
+import { sql } from 'drizzle-orm';
 
 export const metadata = {
   title: 'Skill Packs',
-  description: 'Curated collections of QA skills — install multiple skills at once',
+  description:
+    'Curated bundles of QA testing skills for AI agents. Install an entire Playwright, API, or performance testing toolkit with one command.',
 };
 
-const packs = [
+const fallbackPacks = [
   {
     name: 'Complete Playwright Suite',
     slug: 'playwright-suite',
@@ -68,7 +72,105 @@ const packs = [
   },
 ];
 
-export default function PacksPage() {
+interface PackQuery {
+  name: string;
+  slug: string;
+  description: string;
+  featured: boolean;
+  query: ReturnType<typeof sql>;
+  limit?: number;
+}
+
+const packQueries: PackQuery[] = [
+  {
+    name: 'Complete Playwright Suite',
+    slug: 'playwright-suite',
+    description: 'Everything you need for Playwright testing — E2E, API, visual regression, and accessibility.',
+    featured: true,
+    query: sql`${skills.frameworks} @> ${JSON.stringify(['playwright'])}::jsonb`,
+  },
+  {
+    name: 'API Testing Toolkit',
+    slug: 'api-testing-toolkit',
+    description: 'Comprehensive API testing with REST, GraphQL, contract testing, and performance.',
+    featured: true,
+    query: sql`${skills.testingTypes} @> ${JSON.stringify(['api'])}::jsonb`,
+  },
+  {
+    name: 'Performance & Load Testing',
+    slug: 'performance-suite',
+    description: 'Load test your applications with k6 and JMeter, plus CI/CD integration.',
+    featured: false,
+    query: sql`${skills.testingTypes} @> ${JSON.stringify(['performance'])}::jsonb OR ${skills.testingTypes} @> ${JSON.stringify(['load'])}::jsonb`,
+  },
+  {
+    name: 'Security & Compliance',
+    slug: 'security-compliance',
+    description: 'OWASP security testing and accessibility compliance in one pack.',
+    featured: false,
+    query: sql`${skills.testingTypes} @> ${JSON.stringify(['security'])}::jsonb`,
+  },
+  {
+    name: 'Mobile Testing Kit',
+    slug: 'mobile-testing-kit',
+    description: 'Mobile app testing automation for iOS and Android with Appium and cross-platform tools.',
+    featured: false,
+    query: sql`${skills.domains} @> ${JSON.stringify(['mobile'])}::jsonb`,
+  },
+  {
+    name: 'Full Stack QA',
+    slug: 'full-stack-qa',
+    description: 'A curated mix of the best featured QA skills across all testing types.',
+    featured: true,
+    query: sql`${skills.featured} = true`,
+    limit: 8,
+  },
+];
+
+async function getPacksFromDb() {
+  const enrichedPacks = await Promise.all(
+    packQueries.map(async (pack) => {
+      const matchedSkills = await db
+        .select({
+          slug: skills.slug,
+          name: skills.name,
+          installCount: skills.installCount,
+        })
+        .from(skills)
+        .where(pack.query)
+        .limit(pack.limit ?? 20);
+
+      const skillSlugs = matchedSkills.map((s) => s.slug);
+      const totalInstalls = matchedSkills.reduce((sum, s) => sum + s.installCount, 0);
+
+      return {
+        name: pack.name,
+        slug: pack.slug,
+        description: pack.description,
+        skills: skillSlugs,
+        skillCount: skillSlugs.length,
+        installs: totalInstalls,
+        featured: pack.featured,
+      };
+    }),
+  );
+
+  return enrichedPacks;
+}
+
+export default async function PacksPage() {
+  let packs = fallbackPacks;
+
+  try {
+    const dbPacks = await getPacksFromDb();
+    // Only use DB packs if we actually got results
+    if (dbPacks.some((p) => p.skillCount > 0)) {
+      packs = dbPacks;
+    }
+  } catch (error) {
+    console.error('Failed to fetch packs from DB, using fallback:', error);
+  }
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="mb-8">

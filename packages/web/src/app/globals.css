@@ -25,22 +25,22 @@
 }
 
 .dark {
-  --color-background: #0a0a0a;
+  --color-background: #09090b;
   --color-foreground: #fafafa;
-  --color-muted: #262626;
-  --color-muted-foreground: #a3a3a3;
-  --color-border: #262626;
+  --color-muted: #18181b;
+  --color-muted-foreground: #a1a1aa;
+  --color-border: #27272a;
   --color-primary: #818cf8;
-  --color-primary-foreground: #0a0a0a;
-  --color-secondary: #262626;
+  --color-primary-foreground: #09090b;
+  --color-secondary: #27272a;
   --color-secondary-foreground: #fafafa;
-  --color-accent: #262626;
+  --color-accent: #27272a;
   --color-accent-foreground: #fafafa;
   --color-destructive: #dc2626;
   --color-destructive-foreground: #fafafa;
-  --color-card: #0a0a0a;
+  --color-card: #0f0f12;
   --color-card-foreground: #fafafa;
-  --color-popover: #0a0a0a;
+  --color-popover: #18181b;
   --color-popover-foreground: #fafafa;
   --color-ring: #818cf8;
 }
@@ -51,5 +51,48 @@
   }
   body {
     @apply bg-background text-foreground;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+}
+
+@layer utilities {
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out both;
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  .animate-blink { animation: blink 1s step-end infinite; }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee { animation: marquee 25s linear infinite; }
+
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.1); }
+    50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.25); }
+  }
+  .animate-glow { animation: glow-pulse 3s ease-in-out infinite; }
+
+  @keyframes count-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-count-up {
+    animation: count-up 0.4s ease-out both;
   }
 }
