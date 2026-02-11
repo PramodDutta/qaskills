@@ -1,0 +1,42 @@
+name: CLI CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/cli/**'
+      - 'packages/shared/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'packages/cli/**'
+      - 'packages/shared/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build shared
+        run: pnpm --filter @qaskills/shared build
+
+      - name: Lint
+        run: pnpm --filter @qaskills/cli lint
+
+      - name: Build CLI
+        run: pnpm --filter @qaskills/cli build
+
+      - name: Test
+        run: pnpm --filter @qaskills/cli test
