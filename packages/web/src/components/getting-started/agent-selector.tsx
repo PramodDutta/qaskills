@@ -15,7 +15,7 @@ export function AgentSelector({ selectedSkill }: AgentSelectorProps) {
   const [selectedAgent, setSelectedAgent] = useState(topAgents[0]);
   const [copied, setCopied] = useState(false);
 
-  const command = `npx qaskills add ${selectedSkill}`;
+  const command = `npx @qaskills/cli add ${selectedSkill}`;
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(command);

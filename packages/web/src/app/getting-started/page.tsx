@@ -55,7 +55,7 @@ export default function GettingStartedPage() {
             agent and installs the skill to the right config directory.
           </p>
           <div className="mt-4 rounded-lg border border-border bg-muted/50 p-4 font-mono text-sm">
-            <p className="text-green-400">$ npx qaskills add playwright-e2e</p>
+            <p className="text-green-400">$ npx @qaskills/cli add playwright-e2e</p>
             <p className="text-muted-foreground mt-1">✓ Detected agent: Claude Code</p>
             <p className="text-muted-foreground">✓ Downloading skill...</p>
             <p className="text-muted-foreground">✓ Installing to ~/.claude/commands</p>

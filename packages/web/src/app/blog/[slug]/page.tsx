@@ -31,7 +31,7 @@ AI coding agents like Claude Code, Cursor, and Copilot are incredibly powerful g
 QA Skills is a curated directory of testing-specific skills that you can install into any AI coding agent with a single command:
 
 \`\`\`bash
-npx qaskills add playwright-e2e
+npx @qaskills/cli add playwright-e2e
 \`\`\`
 
 This installs expert Playwright knowledge into your AI agent. Now when you ask it to write tests, it follows proven patterns and best practices.
@@ -51,7 +51,7 @@ We're launching with 20 curated skills covering:
 Browse our skills directory at [qaskills.sh/skills](/skills) or install one now:
 
 \`\`\`bash
-npx qaskills search
+npx @qaskills/cli search
 \`\`\`
 `,
   },
@@ -68,7 +68,7 @@ Writing E2E tests that are fast, reliable, and maintainable is hard. Teaching an
 The skill teaches AI agents to always use the Page Object Model pattern. Instead of writing raw selectors in tests, it creates reusable page classes:
 
 \`\`\`bash
-npx qaskills add playwright-e2e
+npx @qaskills/cli add playwright-e2e
 \`\`\`
 
 Once installed, your AI agent structures every test with proper page objects, separating selectors from test logic.
@@ -97,7 +97,7 @@ After installing the Playwright E2E skill:
 Try it yourself:
 
 \`\`\`bash
-npx qaskills add playwright-e2e
+npx @qaskills/cli add playwright-e2e
 \`\`\`
 `,
   },
@@ -140,7 +140,7 @@ We believe the future of QA is AI agents augmented with specialized testing know
 Give your AI agent QA superpowers:
 
 \`\`\`bash
-npx qaskills add playwright-e2e
+npx @qaskills/cli add playwright-e2e
 \`\`\`
 
 Browse all 20+ skills at [qaskills.sh/skills](/skills).

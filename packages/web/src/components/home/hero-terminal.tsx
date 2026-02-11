@@ -5,7 +5,7 @@ import { Copy, Check } from 'lucide-react';
 
 export function HeroTerminal() {
   const [copied, setCopied] = useState(false);
-  const command = 'npx qaskills add playwright-e2e';
+  const command = 'npx @qaskills/cli add playwright-e2e';
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(command);

@@ -289,7 +289,7 @@ export default function HomePage() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <div className="rounded-lg border border-border bg-card px-4 py-3 font-mono text-sm shadow-sm">
-              <code>npx qaskills search</code>
+              <code>npx @qaskills/cli search</code>
             </div>
             <Button size="lg" asChild>
               <Link href="/skills">

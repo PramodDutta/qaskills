@@ -6,17 +6,25 @@ const footerLinks = {
     { href: '/skills', label: 'Browse Skills' },
     { href: '/packs', label: 'Skill Packs' },
     { href: '/leaderboard', label: 'Leaderboard' },
+    { href: '/pricing', label: 'Pricing' },
   ],
   Resources: [
     { href: '/getting-started', label: 'Getting Started' },
-    { href: '/about', label: 'About' },
+    { href: '/how-to-publish', label: 'Publish a Skill' },
+    { href: '/faq', label: 'FAQ' },
     { href: '/blog', label: 'Blog' },
-    { href: 'https://github.com/PramodDutta/qaskills', label: 'GitHub' },
-    { href: 'https://youtube.com/@TheTestingAcademy', label: 'YouTube' },
+    { href: '/about', label: 'About' },
+    { href: '/contact', label: 'Contact Us' },
   ],
   Legal: [
-    { href: '/terms', label: 'Terms' },
-    { href: '/privacy', label: 'Privacy' },
+    { href: '/terms', label: 'Terms of Service' },
+    { href: '/privacy', label: 'Privacy Policy' },
+    { href: '/refund-policy', label: 'Refund Policy' },
+  ],
+  Community: [
+    { href: 'https://github.com/PramodDutta/qaskills', label: 'GitHub' },
+    { href: 'https://youtube.com/@TheTestingAcademy', label: 'YouTube' },
+    { href: 'https://github.com/PramodDutta/qaskills/discussions', label: 'Discussions' },
   ],
 };
 
@@ -24,7 +32,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-muted/30">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 font-bold text-lg">
@@ -39,7 +47,7 @@ export function Footer() {
             </p>
             <div className="mt-4">
               <code className="rounded bg-muted px-2 py-1 text-xs text-muted-foreground">
-                npx qaskills add playwright-e2e
+                npx @qaskills/cli add playwright-e2e
               </code>
             </div>
           </div>
@@ -62,7 +70,7 @@ export function Footer() {
                       </a>
                     ) : (
                       <Link
-                        href={link.href as '/skills' | '/packs' | '/leaderboard' | '/about' | '/blog' | '/terms' | '/privacy'}
+                        href={link.href}
                         className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                       >
                         {link.label}

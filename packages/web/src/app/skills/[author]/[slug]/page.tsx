@@ -185,7 +185,7 @@ export default async function SkillDetailPage({ params }: SkillPageProps) {
                   <h4 className="text-sm font-medium mb-2">GitHub Actions</h4>
                   <pre className="rounded-md bg-muted p-3 text-sm overflow-x-auto">
                     <code>{`- name: Install QA Skills
-  run: npx qaskills add ${slug}`}</code>
+  run: npx @qaskills/cli add ${slug}`}</code>
                   </pre>
                 </div>
               </div>

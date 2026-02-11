@@ -10,7 +10,7 @@ interface InstallButtonProps {
 
 export function InstallButton({ skillSlug }: InstallButtonProps) {
   const [copied, setCopied] = useState(false);
-  const command = `npx qaskills add ${skillSlug}`;
+  const command = `npx @qaskills/cli add ${skillSlug}`;
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(command);

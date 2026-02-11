@@ -85,7 +85,7 @@ export async function GET(request: NextRequest) {
             }}
           >
             <code style={{ fontSize: '22px', color: '#6366f1' }}>
-              $ npx qaskills add ...
+              $ npx @qaskills/cli add ...
             </code>
           </div>
         )}
