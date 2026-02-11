@@ -85,6 +85,53 @@ export default function GettingStartedPage() {
         </StepCard>
       </div>
 
+      {/* CLI Reference */}
+      <div className="mt-16">
+        <h2 className="text-2xl font-bold mb-6">CLI Commands</h2>
+        <p className="text-muted-foreground mb-6">
+          All the commands you need to manage your QA skills.
+        </p>
+        <div className="rounded-lg border border-border bg-card overflow-hidden">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b border-border text-left text-sm text-muted-foreground">
+                <th className="px-4 py-3 font-medium">Command</th>
+                <th className="px-4 py-3 font-medium">Description</th>
+              </tr>
+            </thead>
+            <tbody className="text-sm">
+              {[
+                { cmd: 'npx @qaskills/cli add <skill>', desc: 'Install a skill into your AI agent' },
+                { cmd: 'npx @qaskills/cli remove <skill>', desc: 'Uninstall a skill from your AI agent' },
+                { cmd: 'npx @qaskills/cli search <query>', desc: 'Search the skill directory' },
+                { cmd: 'npx @qaskills/cli list', desc: 'List all installed skills' },
+                { cmd: 'npx @qaskills/cli info <skill>', desc: 'Show details about a skill' },
+                { cmd: 'npx @qaskills/cli update <skill>', desc: 'Update a skill to the latest version' },
+                { cmd: 'npx @qaskills/cli init', desc: 'Initialize QASkills in your project' },
+                { cmd: 'npx @qaskills/cli publish ./SKILL.md', desc: 'Publish your own skill to the directory' },
+              ].map((row) => (
+                <tr key={row.cmd} className="border-b border-border/50 last:border-0">
+                  <td className="px-4 py-3">
+                    <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">
+                      {row.cmd}
+                    </code>
+                  </td>
+                  <td className="px-4 py-3 text-muted-foreground">{row.desc}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-4 text-sm text-muted-foreground">
+          Install globally for faster access:{' '}
+          <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">
+            npm i -g @qaskills/cli
+          </code>{' '}
+          then use <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">qaskills</code> instead of{' '}
+          <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">npx @qaskills/cli</code>.
+        </p>
+      </div>
+
       {/* What's Next */}
       <div className="mt-16">
         <h2 className="text-2xl font-bold mb-6">What&apos;s next?</h2>

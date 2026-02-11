@@ -246,19 +246,45 @@ export default async function SkillsPage({ searchParams }: SkillsPageProps) {
             defaultValue={params.q}
             className="pl-10"
           />
+          {/* Preserve current filters in hidden fields */}
+          {params.sort && <input type="hidden" name="sort" value={params.sort} />}
+          {toArray(params.testingType).map((t) => (
+            <input key={t} type="hidden" name="testingType" value={t} />
+          ))}
+          {toArray(params.framework).map((f) => (
+            <input key={f} type="hidden" name="framework" value={f} />
+          ))}
+          {toArray(params.language).map((l) => (
+            <input key={l} type="hidden" name="language" value={l} />
+          ))}
         </form>
         <div className="flex gap-2">
-          {sortOptions.map((opt) => (
-            <Badge
-              key={opt.value}
-              variant={params.sort === opt.value || (!params.sort && opt.value === 'trending') ? 'default' : 'outline'}
-              className="cursor-pointer"
-              data-fast-goal="sort_skills"
-              data-fast-goal-sort-type={opt.value}
-            >
-              {opt.label}
-            </Badge>
-          ))}
+          {sortOptions.map((opt) => {
+            const sortParams = new URLSearchParams();
+            if (params.q) sortParams.set('q', params.q);
+            const testingTypes = toArray(params.testingType);
+            testingTypes.forEach((t) => sortParams.append('testingType', t));
+            const frameworks = toArray(params.framework);
+            frameworks.forEach((f) => sortParams.append('framework', f));
+            const languages = toArray(params.language);
+            languages.forEach((l) => sortParams.append('language', l));
+            const domains = toArray(params.domain);
+            domains.forEach((d) => sortParams.append('domain', d));
+            const agents = toArray(params.agent);
+            agents.forEach((a) => sortParams.append('agent', a));
+            if (opt.value !== 'trending') sortParams.set('sort', opt.value);
+            const isActive = params.sort === opt.value || (!params.sort && opt.value === 'trending');
+            return (
+              <a key={opt.value} href={`/skills?${sortParams.toString()}`}>
+                <Badge
+                  variant={isActive ? 'default' : 'outline'}
+                  className="cursor-pointer"
+                >
+                  {opt.label}
+                </Badge>
+              </a>
+            );
+          })}
         </div>
       </div>
 
@@ -300,15 +326,27 @@ export default async function SkillsPage({ searchParams }: SkillsPageProps) {
           {/* Pagination */}
           {result.totalPages > 1 && (
             <div className="mt-8 flex justify-center gap-2">
-              {Array.from({ length: result.totalPages }, (_, i) => i + 1).map((p) => (
-                <Badge
-                  key={p}
-                  variant={p === result.page ? 'default' : 'outline'}
-                  className="cursor-pointer"
-                >
-                  {p}
-                </Badge>
-              ))}
+              {Array.from({ length: result.totalPages }, (_, i) => i + 1).map((p) => {
+                const pageParams = new URLSearchParams();
+                if (params.q) pageParams.set('q', params.q);
+                toArray(params.testingType).forEach((t) => pageParams.append('testingType', t));
+                toArray(params.framework).forEach((f) => pageParams.append('framework', f));
+                toArray(params.language).forEach((l) => pageParams.append('language', l));
+                toArray(params.domain).forEach((d) => pageParams.append('domain', d));
+                toArray(params.agent).forEach((a) => pageParams.append('agent', a));
+                if (params.sort) pageParams.set('sort', params.sort);
+                if (p > 1) pageParams.set('page', String(p));
+                return (
+                  <a key={p} href={`/skills?${pageParams.toString()}`}>
+                    <Badge
+                      variant={p === result.page ? 'default' : 'outline'}
+                      className="cursor-pointer"
+                    >
+                      {p}
+                    </Badge>
+                  </a>
+                );
+              })}
             </div>
           )}
         </div>
