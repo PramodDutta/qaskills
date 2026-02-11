@@ -28,7 +28,6 @@ const navLinks = [
   { href: '/skills', label: 'Skills' },
   { href: '/leaderboard', label: 'Leaderboard' },
   { href: '/packs', label: 'Packs' },
-  { href: '/pricing', label: 'Pricing' },
 ];
 
 export function Header() {

@@ -6,12 +6,11 @@ const footerLinks = {
     { href: '/skills', label: 'Browse Skills' },
     { href: '/packs', label: 'Skill Packs' },
     { href: '/leaderboard', label: 'Leaderboard' },
-    { href: '/pricing', label: 'Pricing' },
   ],
   Resources: [
     { href: '/about', label: 'About' },
     { href: '/blog', label: 'Blog' },
-    { href: 'https://github.com/TheTestingAcademy/qaskills', label: 'GitHub' },
+    { href: 'https://github.com/PramodDutta/qaskills', label: 'GitHub' },
     { href: 'https://youtube.com/@TheTestingAcademy', label: 'YouTube' },
   ],
   Legal: [
@@ -62,7 +61,7 @@ export function Footer() {
                       </a>
                     ) : (
                       <Link
-                        href={link.href as '/skills' | '/packs' | '/leaderboard' | '/pricing' | '/about' | '/blog' | '/terms' | '/privacy'}
+                        href={link.href as '/skills' | '/packs' | '/leaderboard' | '/about' | '/blog' | '/terms' | '/privacy'}
                         className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                       >
                         {link.label}

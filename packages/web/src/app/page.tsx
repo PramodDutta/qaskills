@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Terminal, Search, Download, Zap, Shield, Eye, Gauge, Smartphone, Code2, TestTube } from 'lucide-react';
+import { ArrowRight, Terminal, Search, Download, Zap, Shield, Eye, Gauge, Smartphone, Code2, TestTube, Heart, Coffee } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -160,7 +160,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Support & CTA */}
       <section className="border-t border-border bg-primary/5 py-24">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold">Ready to level up your QA?</h2>
@@ -176,6 +176,36 @@ export default function HomePage() {
                 Browse All Skills <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
+          </div>
+
+          {/* Buy Me a Coffee + TheTestingAcademy */}
+          <div className="mt-16 flex flex-col items-center gap-4">
+            <p className="text-sm text-muted-foreground">
+              QASkills.sh is free &amp; open source. If it helps you, consider supporting us!
+            </p>
+            <a
+              href="https://www.buymeacoffee.com/thetestingacademy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#FFDD00] px-6 py-3 text-sm font-semibold text-black shadow-md hover:bg-[#FFDD00]/90 transition-colors"
+            >
+              <Coffee className="h-5 w-5" />
+              Buy Me a Coffee
+            </a>
+            <div className="mt-4 flex items-center gap-3">
+              <a
+                href="https://youtube.com/@TheTestingAcademy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Heart className="h-4 w-4 text-red-500" />
+                @TheTestingAcademy — 189K+ Subscribers
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground mt-2">
+              Built with love by Pramod Dutta &amp; The Testing Academy community
+            </p>
           </div>
         </div>
       </section>
