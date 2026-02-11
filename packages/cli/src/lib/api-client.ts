@@ -4,15 +4,16 @@ import type {
   SkillSearchResult,
   Category,
 } from '@qaskills/shared';
-import { API_BASE_URL } from '@qaskills/shared';
 
 /**
  * HTTP client for the qaskills.sh API.
  * Uses native fetch (Node 18+). All methods are non-throwing by default --
  * callers should inspect the returned Result or catch as needed.
+ *
+ * The base URL can be overridden via the QASKILLS_API_URL environment variable.
  */
 
-const BASE = API_BASE_URL.replace(/\/$/, '');
+const BASE = (process.env.QASKILLS_API_URL || 'https://qaskills.sh').replace(/\/$/, '');
 const DEFAULT_TIMEOUT_MS = 10_000;
 
 // ---------------------------------------------------------------------------

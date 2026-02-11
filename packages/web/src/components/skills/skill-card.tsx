@@ -8,9 +8,10 @@ import type { SkillSummary } from '@qaskills/shared';
 
 interface SkillCardProps {
   skill: SkillSummary;
+  averageRating?: number;
 }
 
-export function SkillCard({ skill }: SkillCardProps) {
+export function SkillCard({ skill, averageRating }: SkillCardProps) {
   return (
     <Link href={`/skills/${skill.author}/${skill.slug}`}>
       <Card className="h-full transition-all duration-200 hover:shadow-md hover:border-primary/30 hover:-translate-y-0.5">
@@ -53,6 +54,12 @@ export function SkillCard({ skill }: SkillCardProps) {
               <Star className="h-3 w-3" />
               {skill.qualityScore}/100
             </span>
+            {averageRating !== undefined && averageRating > 0 && (
+              <span className="flex items-center gap-1">
+                <span className="text-yellow-500">★</span>
+                {averageRating.toFixed(1)}
+              </span>
+            )}
           </div>
           {skill.featured && (
             <Badge variant="success" className="ml-auto text-xs">

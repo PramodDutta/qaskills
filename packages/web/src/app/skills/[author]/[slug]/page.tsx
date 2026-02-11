@@ -13,6 +13,7 @@ import { db } from '@/db';
 import { skills } from '@/db/schema';
 import { eq, and } from 'drizzle-orm';
 import { generateSkillJsonLd } from '@/lib/json-ld';
+import { ReviewSection } from '@/components/skills/review-section';
 
 interface SkillPageProps {
   params: Promise<{ author: string; slug: string }>;
@@ -190,6 +191,9 @@ export default async function SkillDetailPage({ params }: SkillPageProps) {
               </div>
             </CardContent>
           </Card>
+
+          {/* Reviews & Ratings */}
+          <ReviewSection skillId={skill.id} />
         </div>
 
         {/* Sidebar */}
