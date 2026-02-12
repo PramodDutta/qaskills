@@ -1,8 +1,26 @@
 import { neon } from '@neondatabase/serverless';
 import { drizzle } from 'drizzle-orm/neon-http';
 import { eq } from 'drizzle-orm';
+import { readFileSync } from 'fs';
+import { resolve } from 'path';
 import { skills, categories, skillPacks, skillPackItems } from './schema';
 import { TESTING_TYPES, FRAMEWORKS, LANGUAGES, DOMAINS } from '@qaskills/shared';
+
+/**
+ * Read the markdown body (everything after YAML frontmatter) from a seed-skills SKILL.md file.
+ * Returns empty string if the file doesn't exist.
+ */
+function readSkillBody(slug: string): string {
+  try {
+    const filePath = resolve(__dirname, '../../../../seed-skills', slug, 'SKILL.md');
+    const content = readFileSync(filePath, 'utf-8');
+    // Strip YAML frontmatter: content between first --- and second ---
+    const match = content.match(/^---\n[\s\S]*?\n---\n([\s\S]*)$/);
+    return match ? match[1].trim() : content;
+  } catch {
+    return '';
+  }
+}
 
 async function seed() {
   if (!process.env.DATABASE_URL) {
@@ -83,9 +101,15 @@ async function seed() {
   ];
 
   for (const skill of seedSkills) {
-    await db.insert(skills).values(skill).onConflictDoUpdate({
+    const fullDescription = readSkillBody(skill.slug);
+    await db.insert(skills).values({ ...skill, fullDescription }).onConflictDoUpdate({
       target: skills.slug,
-      set: { installCount: skill.installCount, weeklyInstalls: skill.weeklyInstalls, qualityScore: skill.qualityScore },
+      set: {
+        installCount: skill.installCount,
+        weeklyInstalls: skill.weeklyInstalls,
+        qualityScore: skill.qualityScore,
+        fullDescription,
+      },
     });
   }
 

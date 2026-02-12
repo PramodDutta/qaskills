@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import os from 'os';
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
 import type { AgentDefinition } from '@qaskills/shared';
 
 export interface ResolvedSkill {
@@ -30,7 +30,10 @@ export async function resolveSkill(nameOrUrl: string): Promise<ResolvedSkill> {
 }
 
 export async function downloadSkill(skill: ResolvedSkill): Promise<string> {
-  const tmpDir = path.join(os.tmpdir(), 'qaskills', skill.name);
+  const safeName = skill.name.replace(/[^a-zA-Z0-9_-]/g, '_');
+  const tmpDir = path.join(os.tmpdir(), 'qaskills', safeName);
+  // Clean up any previous download to avoid stale data / git clone conflicts
+  await fs.rm(tmpDir, { recursive: true, force: true }).catch(() => {});
   await fs.mkdir(tmpDir, { recursive: true });
 
   if (skill.source === 'local') {
@@ -40,8 +43,8 @@ export async function downloadSkill(skill: ResolvedSkill): Promise<string> {
   }
 
   if (skill.source === 'github' && skill.url) {
-    // Shallow clone
-    execSync(`git clone --depth 1 ${skill.url} "${tmpDir}"`, { stdio: 'pipe' });
+    // Shallow clone — use execFileSync to avoid shell injection
+    execFileSync('git', ['clone', '--depth', '1', skill.url, tmpDir], { stdio: 'pipe' });
     return tmpDir;
   }
 
@@ -50,9 +53,37 @@ export async function downloadSkill(skill: ResolvedSkill): Promise<string> {
     const res = await fetch(skill.url);
     if (!res.ok) throw new Error(`Skill "${skill.name}" not found in registry`);
     const data = await res.json();
+
+    let cloned = false;
     if (data.githubUrl) {
-      execSync(`git clone --depth 1 ${data.githubUrl} "${tmpDir}"`, { stdio: 'pipe' });
+      try {
+        execFileSync('git', ['clone', '--depth', '1', data.githubUrl, tmpDir], { stdio: 'pipe' });
+        cloned = true;
+      } catch {
+        // Git clone failed — fall through to content endpoint / reconstruction
+      }
     }
+
+    if (!cloned) {
+      // Try the /content endpoint for full SKILL.md (frontmatter + complete body)
+      const contentUrl = `${skill.url}/content`;
+      const contentRes = await fetch(contentUrl).catch(() => null);
+      if (contentRes && contentRes.ok) {
+        const skillMd = await contentRes.text();
+        await fs.writeFile(path.join(tmpDir, 'SKILL.md'), skillMd, 'utf-8');
+      } else {
+        // Last resort: reconstruct from metadata JSON
+        const skillMd = buildSkillMd(data);
+        await fs.writeFile(path.join(tmpDir, 'SKILL.md'), skillMd, 'utf-8');
+      }
+    }
+  }
+
+  // Validate that the download produced at least one file
+  const entries = await fs.readdir(tmpDir);
+  const meaningful = entries.filter((e) => e !== '.git');
+  if (meaningful.length === 0) {
+    throw new Error(`Download produced no files for skill "${skill.name}"`);
   }
 
   return tmpDir;
@@ -81,6 +112,36 @@ export async function uninstallFromAgent(skillName: string, agent: AgentDefiniti
   } catch {
     // Already removed
   }
+}
+
+function buildSkillMd(data: Record<string, unknown>): string {
+  const frontmatter: Record<string, unknown> = {};
+  const fields = [
+    'name', 'description', 'version', 'author', 'license',
+    'tags', 'testingTypes', 'frameworks', 'languages', 'domains', 'agents',
+  ];
+  for (const key of fields) {
+    if (data[key] !== undefined && data[key] !== null && data[key] !== '') {
+      frontmatter[key] = data[key];
+    }
+  }
+
+  const yamlLines: string[] = [];
+  for (const [key, value] of Object.entries(frontmatter)) {
+    if (Array.isArray(value)) {
+      const quoted = value.map((v: unknown) => String(v).replace(/"/g, '\\"'));
+      yamlLines.push(`${key}: [${quoted.join(', ')}]`);
+    } else {
+      const escaped = String(value).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+      yamlLines.push(`${key}: "${escaped}"`);
+    }
+  }
+
+  const body = typeof data.fullDescription === 'string' && data.fullDescription.length > 0
+    ? data.fullDescription
+    : `# ${data.name || 'Skill'}\n\n${data.description || ''}`;
+
+  return `---\n${yamlLines.join('\n')}\n---\n\n${body}\n`;
 }
 
 async function copyDir(src: string, dest: string): Promise<void> {
