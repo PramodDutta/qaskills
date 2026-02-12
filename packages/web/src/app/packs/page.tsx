@@ -4,12 +4,10 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { InstallButton } from '@/components/skills/install-button';
-import { SignupGate } from '@/components/auth/signup-gate';
 import { formatNumber } from '@/lib/utils';
 import { db } from '@/db';
 import { skills } from '@/db/schema';
 import { sql } from 'drizzle-orm';
-import { currentUser } from '@clerk/nextjs/server';
 
 export const metadata = {
   title: 'Skill Packs',
@@ -173,55 +171,6 @@ export default async function PacksPage() {
     console.error('Failed to fetch packs from DB, using fallback:', error);
   }
 
-  let isSignedIn = false;
-  try {
-    const user = await currentUser();
-    isSignedIn = !!user;
-  } catch {
-    // Clerk not configured or auth failed — show public view
-    isSignedIn = false;
-  }
-
-  // Show only 2 packs as preview if not signed in
-  const previewPacks = isSignedIn ? packs : packs.slice(0, 2);
-
-  const PackCard = ({ pack }: { pack: typeof packs[0] }) => {
-    return (
-      <Card key={pack.slug} className="flex flex-col">
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Package className="h-5 w-5 text-primary" />
-              {pack.featured && <Badge variant="success" className="text-xs">Featured</Badge>}
-            </div>
-            <span className="text-sm text-muted-foreground flex items-center gap-1">
-              <Download className="h-3 w-3" /> {formatNumber(pack.installs)}
-            </span>
-          </div>
-          <CardTitle className="mt-2">{pack.name}</CardTitle>
-          <CardDescription>{pack.description}</CardDescription>
-        </CardHeader>
-        <CardContent className="flex-1">
-          <div className="space-y-2">
-            <p className="text-xs font-medium text-muted-foreground uppercase">
-              {pack.skillCount} Skills Included
-            </p>
-            <div className="flex flex-wrap gap-1.5">
-              {pack.skills.map((s) => (
-                <Badge key={s} variant="outline" className="text-xs">
-                  {s}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        </CardContent>
-        <CardFooter className="flex-col gap-3">
-          <InstallButton skillSlug={pack.slug} />
-        </CardFooter>
-      </Card>
-    );
-  };
-
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="mb-8">
@@ -232,26 +181,41 @@ export default async function PacksPage() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {previewPacks.map((pack) => (
-          <PackCard key={pack.slug} pack={pack} />
+        {packs.map((pack) => (
+          <Card key={pack.slug} className="flex flex-col">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Package className="h-5 w-5 text-primary" />
+                  {pack.featured && <Badge variant="success" className="text-xs">Featured</Badge>}
+                </div>
+                <span className="text-sm text-muted-foreground flex items-center gap-1">
+                  <Download className="h-3 w-3" /> {formatNumber(pack.installs)}
+                </span>
+              </div>
+              <CardTitle className="mt-2">{pack.name}</CardTitle>
+              <CardDescription>{pack.description}</CardDescription>
+            </CardHeader>
+            <CardContent className="flex-1">
+              <div className="space-y-2">
+                <p className="text-xs font-medium text-muted-foreground uppercase">
+                  {pack.skillCount} Skills Included
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {pack.skills.map((s) => (
+                    <Badge key={s} variant="outline" className="text-xs">
+                      {s}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            </CardContent>
+            <CardFooter className="flex-col gap-3">
+              <InstallButton skillSlug={pack.slug} />
+            </CardFooter>
+          </Card>
         ))}
       </div>
-
-      {!isSignedIn && packs.length > 2 && (
-        <div className="mt-8">
-          <SignupGate
-            feature="packs_full_list"
-            title={`Sign in to view all ${packs.length} skill packs`}
-            description="Get access to our complete collection of curated skill bundles for every testing need."
-          >
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {packs.slice(2).map((pack) => (
-                <PackCard key={pack.slug} pack={pack} />
-              ))}
-            </div>
-          </SignupGate>
-        </div>
-      )}
     </div>
   );
 }
