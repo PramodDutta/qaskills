@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: '%s | QASkills.sh',
   },
   description:
-    'Install curated QA testing skills into Claude Code, Cursor, Copilot, Windsurf, and 30+ AI coding agents. By The Testing Academy.',
+    'Install curated QA testing skills into Claude Code, Cursor, Copilot, and 30+ AI agents. One command, instant expertise.',
   keywords: [
     'QA',
     'testing',
@@ -62,15 +62,6 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
-  },
-  verification: {
-    google: 'GOOGLE_VERIFICATION_CODE',
-    other: {
-      'msvalidate.01': 'BING_VERIFICATION_CODE',
-    },
-  },
-  alternates: {
-    canonical: 'https://qaskills.sh',
   },
 };
 

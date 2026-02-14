@@ -11,7 +11,7 @@ import { QualityBadge } from '@/components/skills/quality-badge';
 import { formatNumber } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'Accessibility Testing Skills for AI Agents | QASkills.sh',
+  title: 'Accessibility Testing Skills for AI Agents',
   description:
     'Accessibility testing skills for AI coding agents. WCAG compliance, axe-core, and a11y testing automation — one command install.',
   alternates: { canonical: 'https://qaskills.sh/categories/accessibility-testing' },

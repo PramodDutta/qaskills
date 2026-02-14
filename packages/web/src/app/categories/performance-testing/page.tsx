@@ -11,7 +11,7 @@ import { QualityBadge } from '@/components/skills/quality-badge';
 import { formatNumber } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'Performance Testing Skills for AI Agents | QASkills.sh',
+  title: 'Performance Testing Skills for AI Agents',
   description:
     'Performance and load testing skills for AI coding agents. Lighthouse, k6, and performance optimization — curated by The Testing Academy.',
   alternates: { canonical: 'https://qaskills.sh/categories/performance-testing' },

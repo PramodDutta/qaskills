@@ -64,6 +64,7 @@ export async function generateMetadata({ params }: SkillPageProps): Promise<Meta
       description,
       images: [ogImageUrl],
     },
+    alternates: { canonical: `https://qaskills.sh/skills/${author}/${slug}` },
   };
 }
 

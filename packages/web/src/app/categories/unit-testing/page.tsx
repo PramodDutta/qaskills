@@ -11,7 +11,7 @@ import { QualityBadge } from '@/components/skills/quality-badge';
 import { formatNumber } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'Unit Testing Skills for AI Agents | QASkills.sh',
+  title: 'Unit Testing Skills for AI Agents',
   description:
     'Unit testing skills for AI coding agents. Jest, Vitest, pytest, and more — curated testing expertise for your AI pair programmer.',
   alternates: { canonical: 'https://qaskills.sh/categories/unit-testing' },

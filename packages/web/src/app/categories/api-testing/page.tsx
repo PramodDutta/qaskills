@@ -11,7 +11,7 @@ import { QualityBadge } from '@/components/skills/quality-badge';
 import { formatNumber } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'API Testing Skills for AI Agents | QASkills.sh',
+  title: 'API Testing Skills for AI Agents',
   description:
     'API testing skills for AI coding agents. REST, GraphQL, and HTTP testing automation — install expert skills in seconds.',
   alternates: { canonical: 'https://qaskills.sh/categories/api-testing' },

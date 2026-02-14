@@ -172,6 +172,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       description: post.description,
       images: [ogImageUrl],
     },
+    alternates: { canonical: `https://qaskills.sh/blog/${slug}` },
   };
 }
 
@@ -192,6 +193,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               description: post.description,
               date: post.date,
               slug,
+              image: `https://qaskills.sh/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description)}`,
             }),
           ),
         }}

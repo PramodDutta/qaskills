@@ -19,7 +19,12 @@ export function generateOrganizationJsonLd() {
     '@type': 'Organization',
     name: 'The Testing Academy',
     url: 'https://qaskills.sh',
-    logo: 'https://qaskills.sh/logo.png',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://qaskills.sh/logo.png',
+      width: 512,
+      height: 512,
+    },
     founder: {
       '@type': 'Person',
       name: 'Pramod Dutta',
@@ -39,6 +44,7 @@ export function generateSkillJsonLd(skill: {
   installCount: number;
   qualityScore: number;
   slug: string;
+  reviewCount?: number;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -53,9 +59,9 @@ export function generateSkillJsonLd(skill: {
       '@type': 'AggregateRating',
       ratingValue: (skill.qualityScore / 20).toFixed(1),
       bestRating: '5',
-      ratingCount: skill.installCount,
+      ratingCount: skill.reviewCount || Math.max(1, Math.floor(skill.installCount / 100)),
     },
-    url: `https://qaskills.sh/skills/thetestingacademy/${skill.slug}`,
+    url: `https://qaskills.sh/skills/${skill.author}/${skill.slug}`,
   };
 }
 

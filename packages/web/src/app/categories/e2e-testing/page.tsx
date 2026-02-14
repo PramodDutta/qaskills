@@ -11,7 +11,7 @@ import { QualityBadge } from '@/components/skills/quality-badge';
 import { formatNumber } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'E2E Testing Skills for AI Agents | QASkills.sh',
+  title: 'E2E Testing Skills for AI Agents',
   description:
     'End-to-end testing skills for AI coding agents. Playwright, Cypress, Selenium, and browser automation — install with one command.',
   alternates: { canonical: 'https://qaskills.sh/categories/e2e-testing' },
