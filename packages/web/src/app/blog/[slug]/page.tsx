@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import type { Metadata } from 'next';
 import { generateBlogPostJsonLd, generateBreadcrumbJsonLd } from '@/lib/json-ld';
 import { posts } from '../posts';
+import { BlogContent } from '@/components/blog/blog-content';
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -87,63 +88,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <p className="mt-4 text-lg text-muted-foreground">{post.description}</p>
         </div>
 
-        <div className="prose dark:prose-invert max-w-none">
-          {post.content.split('\n\n').map((paragraph, i) => {
-            if (paragraph.startsWith('## ')) {
-              return <h2 key={i}>{paragraph.replace('## ', '')}</h2>;
-            }
-            if (paragraph.startsWith('### ')) {
-              return <h3 key={i}>{paragraph.replace('### ', '')}</h3>;
-            }
-            if (paragraph.startsWith('```')) {
-              const lines = paragraph.split('\n');
-              const code = lines.slice(1, -1).join('\n');
-              return <pre key={i}><code>{code}</code></pre>;
-            }
-            if (paragraph.startsWith('- ')) {
-              return (
-                <ul key={i}>
-                  {paragraph.split('\n').map((li, j) => (
-                    <li key={j}>{li.replace(/^- \*\*(.+?)\*\*: /, '$1: ').replace(/^- \*\*(.+?)\*\*/, '$1').replace(/^- /, '')}</li>
-                  ))}
-                </ul>
-              );
-            }
-            if (paragraph.startsWith('| ')) {
-              const rows = paragraph.split('\n').filter(r => r.trim());
-              if (rows.length < 2) return <p key={i}>{paragraph}</p>;
-              const headers = rows[0].split('|').filter(c => c.trim()).map(c => c.trim());
-              const dataRows = rows.slice(2).map(r => r.split('|').filter(c => c.trim()).map(c => c.trim()));
-              return (
-                <div key={i} className="overflow-x-auto">
-                  <table>
-                    <thead>
-                      <tr>{headers.map((h, hi) => <th key={hi}>{h}</th>)}</tr>
-                    </thead>
-                    <tbody>
-                      {dataRows.map((row, ri) => (
-                        <tr key={ri}>{row.map((cell, ci) => <td key={ci}>{cell}</td>)}</tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              );
-            }
-            if (paragraph.startsWith('---')) {
-              return <hr key={i} />;
-            }
-            if (paragraph.startsWith('1. ') || paragraph.startsWith('2. ')) {
-              return (
-                <ol key={i}>
-                  {paragraph.split('\n').map((li, j) => (
-                    <li key={j}>{li.replace(/^\d+\.\s+/, '').replace(/\*\*(.+?)\*\*/g, '$1')}</li>
-                  ))}
-                </ol>
-              );
-            }
-            return <p key={i}>{paragraph}</p>;
-          })}
-        </div>
+        <BlogContent content={post.content} />
       </article>
     </div>
   );
