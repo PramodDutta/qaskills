@@ -17,6 +17,11 @@ import { post as fixFlakyTests } from './fix-flaky-tests-guide';
 import { post as securityTestingAiCode } from './security-testing-ai-generated-code';
 import { post as shiftLeftTesting } from './shift-left-testing-ai-agents';
 import { post as apiTestingGuide } from './api-testing-complete-guide';
+import { post as seleniumVsPlaywright } from './selenium-vs-playwright-2026';
+import { post as jestVsVitest } from './jest-vs-vitest-2026';
+import { post as playwrightTutorial } from './playwright-tutorial-beginners-2026';
+import { post as cicdPipeline } from './cicd-testing-pipeline-github-actions';
+import { post as aiTestAutomation } from './ai-test-automation-tools-2026';
 
 // Original posts
 const introducingQaskills: BlogPost = {
@@ -175,10 +180,35 @@ export const posts: Record<string, BlogPost> = {
   'security-testing-ai-generated-code': securityTestingAiCode,
   'shift-left-testing-ai-agents': shiftLeftTesting,
   'api-testing-complete-guide': apiTestingGuide,
+  'selenium-vs-playwright-2026': seleniumVsPlaywright,
+  'jest-vs-vitest-2026': jestVsVitest,
+  'playwright-tutorial-beginners-2026': playwrightTutorial,
+  'cicd-testing-pipeline-github-actions': cicdPipeline,
+  'ai-test-automation-tools-2026': aiTestAutomation,
 };
 
 // Ordered list for the blog listing page (newest first)
 export const postList = [
+  {
+    slug: 'ai-test-automation-tools-2026',
+    ...aiTestAutomation,
+  },
+  {
+    slug: 'cicd-testing-pipeline-github-actions',
+    ...cicdPipeline,
+  },
+  {
+    slug: 'playwright-tutorial-beginners-2026',
+    ...playwrightTutorial,
+  },
+  {
+    slug: 'jest-vs-vitest-2026',
+    ...jestVsVitest,
+  },
+  {
+    slug: 'selenium-vs-playwright-2026',
+    ...seleniumVsPlaywright,
+  },
   {
     slug: 'api-testing-complete-guide',
     ...apiTestingGuide,

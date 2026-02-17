@@ -51,6 +51,18 @@ export default function HomePage() {
               <HeroTerminal />
             </div>
 
+            <div className="mt-10 mx-auto max-w-2xl w-full animate-fade-in-up delay-350">
+              <div className="relative rounded-xl overflow-hidden border border-border shadow-lg" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  src="https://www.loom.com/embed/8cce720ebed54c8a9eae992087062f07"
+                  frameBorder="0"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                  title="QA Skills Demo Video"
+                />
+              </div>
+            </div>
+
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-400">
               <Button size="lg" asChild>
                 <Link href="/skills">
