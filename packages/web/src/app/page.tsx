@@ -8,14 +8,16 @@ import { AgentMarquee } from '@/components/home/agent-marquee';
 import { generateWebsiteJsonLd, generateOrganizationJsonLd } from '@/lib/json-ld';
 
 const topSkills = [
-  { rank: 1, name: 'Playwright E2E', slug: 'playwright-e2e', type: 'E2E', installs: 86, quality: 92 },
-  { rank: 2, name: 'Agent Browser', slug: 'agent-browser', type: 'Browser', installs: 72, quality: 95 },
-  { rank: 3, name: 'Browser Use', slug: 'browser-use', type: 'Browser', installs: 68, quality: 94 },
-  { rank: 4, name: 'Web App Testing', slug: 'webapp-testing', type: 'E2E', installs: 65, quality: 93 },
-  { rank: 5, name: 'Jest Unit', slug: 'jest-unit', type: 'Unit', installs: 64, quality: 91 },
-  { rank: 6, name: 'TDD Patterns', slug: 'test-driven-development', type: 'TDD', installs: 61, quality: 92 },
-  { rank: 7, name: 'Code Review', slug: 'code-review-excellence', type: 'Quality', installs: 59, quality: 91 },
-  { rank: 8, name: 'Cypress E2E', slug: 'cypress-e2e', type: 'E2E', installs: 58, quality: 90 },
+  { rank: 1, name: 'Playwright E2E', slug: 'playwright-e2e', type: 'E2E', installs: 86, quality: 92, author: 'thetestingacademy' },
+  { rank: 2, name: 'Agent Browser', slug: 'agent-browser', type: 'Browser', installs: 72, quality: 95, author: 'thetestingacademy' },
+  { rank: 3, name: 'API Test Suite Generator', slug: 'api-test-suite-generator', type: 'API', installs: 71, quality: 91, author: 'Pramod' },
+  { rank: 4, name: 'Flaky Test Quarantine', slug: 'flaky-test-quarantine', type: 'CI/CD', installs: 69, quality: 89, author: 'Pramod' },
+  { rank: 5, name: 'Auth Bypass Tester', slug: 'auth-bypass-tester', type: 'Security', installs: 67, quality: 90, author: 'Pramod' },
+  { rank: 6, name: 'Accessibility Auditor', slug: 'accessibility-auditor', type: 'A11y', installs: 65, quality: 91, author: 'Pramod' },
+  { rank: 7, name: 'Jest Unit', slug: 'jest-unit', type: 'Unit', installs: 64, quality: 91, author: 'thetestingacademy' },
+  { rank: 8, name: 'Production Smoke Suite', slug: 'production-smoke-suite', type: 'E2E', installs: 62, quality: 88, author: 'Pramod' },
+  { rank: 9, name: 'Race Condition Finder', slug: 'race-condition-finder', type: 'Debug', installs: 60, quality: 89, author: 'Pramod' },
+  { rank: 10, name: 'Memory Leak Detector', slug: 'memory-leak-detector', type: 'Perf', installs: 58, quality: 87, author: 'Pramod' },
 ];
 
 export default function HomePage() {
@@ -36,7 +38,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="text-center">
             <Badge variant="secondary" className="mb-6 animate-fade-in-up">
-              Open Source &middot; 45+ Skills
+              Open Source &middot; 95+ Skills
             </Badge>
             <h1 className="animate-fade-in-up delay-100 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
               QA Skills for
@@ -120,7 +122,7 @@ export default function HomePage() {
                     </td>
                     <td className="px-4 py-3">
                       <Link
-                        href={`/skills/thetestingacademy/${skill.slug}`}
+                        href={`/skills/${skill.author}/${skill.slug}`}
                         className="font-medium hover:text-primary transition-colors"
                       >
                         {skill.name}
