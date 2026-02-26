@@ -1,7 +1,9 @@
 import { Command } from 'commander';
+import * as path from 'node:path';
+import * as os from 'node:os';
 import * as p from '@clack/prompts';
 import pc from 'picocolors';
-import { detectAgents } from '../lib/agent-detector';
+import { detectAgents, getAllAgents } from '../lib/agent-detector';
 import { uninstallFromAgent } from '../lib/installer';
 import { sendTelemetry } from '../lib/telemetry';
 
@@ -16,11 +18,33 @@ export const removeCommand = new Command('remove')
 
     let targetAgents = detected;
     if (options.agent) {
-      targetAgents = detected.filter((a) => a.definition.id === options.agent || a.definition.name === options.agent);
+      // First check detected agents
+      targetAgents = detected.filter(
+        (a) => a.definition.id === options.agent || a.definition.name === options.agent,
+      );
+      // If not detected, check all known agents (allows removing from agents not currently detected)
       if (targetAgents.length === 0) {
-        p.log.error(`Agent "${options.agent}" not found among detected agents.`);
-        p.outro(pc.dim('Detected agents: ' + detected.map((a) => a.definition.id).join(', ')));
-        return;
+        const allAgents = getAllAgents();
+        const knownAgent = allAgents.find(
+          (a) => a.id === options.agent || a.name === options.agent,
+        );
+        if (knownAgent) {
+          const resolvedSkillsDir = knownAgent.skillsDir.startsWith('~')
+            ? knownAgent.skillsDir.replace('~', os.homedir())
+            : path.resolve(process.cwd(), knownAgent.skillsDir);
+          targetAgents = [
+            {
+              definition: knownAgent,
+              skillsDir: resolvedSkillsDir,
+              exists: false,
+              scope: knownAgent.configDir.startsWith('~') ? 'global' : 'project',
+            },
+          ];
+        } else {
+          p.log.error(`Agent "${options.agent}" is not a known agent.`);
+          p.outro(pc.dim('Run `qaskills list --agents` to see supported agents'));
+          return;
+        }
       }
     }
 
