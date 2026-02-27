@@ -298,6 +298,28 @@ export const AGENTS: AgentDefinition[] = [
     installMethod: 'copy',
     website: 'https://privy.dev',
   },
+  {
+    id: 'gemini-cli',
+    name: 'Gemini CLI',
+    slug: 'gemini-cli',
+    description: 'Google AI terminal coding agent',
+    configDir: '~/.gemini',
+    skillsDir: '~/.gemini/instructions',
+    configFile: 'GEMINI.md',
+    installMethod: 'symlink',
+    website: 'https://github.com/google-gemini/gemini-cli',
+  },
+  {
+    id: 'amp',
+    name: 'Amp',
+    slug: 'amp',
+    description: 'Sourcegraph AI coding agent',
+    configDir: '.amp',
+    skillsDir: '.amp/rules',
+    configFile: '.amp/config.json',
+    installMethod: 'copy',
+    website: 'https://ampcode.com',
+  },
 ];
 
 export const AGENT_IDS = AGENTS.map((a) => a.id);

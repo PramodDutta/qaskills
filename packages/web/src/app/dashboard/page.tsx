@@ -1,4 +1,4 @@
-import { Download, Package, Star, Plus, BarChart3 } from 'lucide-react';
+import { Download, Package, Star, Plus, BarChart3, Code } from 'lucide-react';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -137,11 +137,18 @@ export default async function DashboardPage() {
               : 'Manage your published QA skills'}
           </p>
         </div>
-        <Button asChild>
-          <Link href="/dashboard/publish">
-            <Plus className="h-4 w-4" /> Publish Skill
-          </Link>
-        </Button>
+        <div className="flex gap-2">
+          <Button variant="outline" asChild>
+            <Link href="/dashboard/create">
+              <Code className="h-4 w-4" /> Create with Editor
+            </Link>
+          </Button>
+          <Button asChild>
+            <Link href="/dashboard/publish">
+              <Plus className="h-4 w-4" /> Publish Skill
+            </Link>
+          </Button>
+        </div>
       </div>
 
       {!hasUser && (

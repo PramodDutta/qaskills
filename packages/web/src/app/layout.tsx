@@ -92,7 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
           <script
             defer
-            data-website-id="dfid_TEyVnxZ4O5OJH68zC0zzA"
+            data-website-id="dfid_M89zv5zLlxDWoDHEHHnOB"
             data-domain="qaskills.sh"
             src="https://datafa.st/js/script.js"
           />

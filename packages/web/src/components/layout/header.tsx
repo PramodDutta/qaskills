@@ -6,11 +6,10 @@ import { Menu, X, Search, Terminal } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 
 const navLinks = [
-  { href: '/skills', label: 'Skills' },
-  { href: '/agents', label: 'Agents' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/getting-started', label: 'Get Started' },
   { href: '/leaderboard', label: 'Leaderboard' },
+  { href: '/skills', label: 'Skills' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/agents', label: 'Agents' },
   { href: '/packs', label: 'Packs' },
 ];
 

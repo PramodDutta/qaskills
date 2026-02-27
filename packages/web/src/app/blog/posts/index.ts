@@ -27,6 +27,46 @@ import { post as playwrightTestAgents } from './playwright-test-agents-claude-co
 import { post as testingAiGeneratedCode } from './testing-ai-generated-code-sdet-playbook';
 import { post as autonomousTestingBuildVsBuy } from './autonomous-testing-agents-build-vs-buy';
 import { post as mcpForQaEngineers } from './mcp-for-qa-engineers-guide';
+import { post as k6VsJmeter } from './k6-vs-jmeter-performance-testing';
+import { post as visualRegressionGuide } from './visual-regression-testing-guide';
+import { post as apiContractTesting } from './api-contract-testing-microservices';
+import { post as mobileTestingGuide } from './mobile-testing-automation-guide';
+import { post as accessibilityTestingGuide } from './accessibility-testing-automation-guide';
+import { post as mutationTestingGuide } from './mutation-testing-stryker-guide';
+import { post as testDataManagement } from './test-data-management-strategies';
+import { post as bddCucumberGuide } from './bdd-cucumber-testing-guide';
+import { post as databaseTestingGuide } from './database-testing-automation-guide';
+import { post as exploratoryTestingGuide } from './exploratory-testing-ai-agents-guide';
+import { post as qaEngineerSkillsCareerGuide } from './qa-engineer-skills-career-guide-2026';
+import { post as testingLegacyCodeGuide } from './testing-legacy-code-refactoring-guide';
+import { post as playwrightVsPuppeteer } from './playwright-vs-puppeteer-2026';
+import { post as testingInProduction } from './testing-in-production-strategies';
+import { post as pytestGuide } from './pytest-testing-complete-guide';
+import { post as seleniumGridDocker } from './selenium-grid-docker-parallel-testing';
+import { post as postmanApiGuide } from './postman-api-testing-guide';
+import { post as restAssuredGuide } from './rest-assured-java-api-testing';
+import { post as regressionTestingGuide } from './regression-testing-strategies-guide';
+import { post as smokeVsSanity } from './smoke-testing-vs-sanity-testing';
+import { post as testCaseDesign } from './test-case-design-techniques-guide';
+import { post as loadTestingGuide } from './load-testing-beginners-guide';
+import { post as graphqlTestingGuide } from './graphql-testing-complete-guide';
+import { post as chaosEngineeringGuide } from './chaos-engineering-resilience-testing';
+import { post as websocketTestingGuide } from './websocket-testing-guide';
+import { post as microservicesTestingGuide } from './microservices-testing-strategies';
+import { post as testAutomationRoi } from './test-automation-roi-business-case';
+import { post as crossBrowserGuide } from './cross-browser-testing-guide';
+import { post as qaMetricsGuide } from './qa-metrics-kpis-dashboard-guide';
+import { post as testPyramidGuide } from './test-pyramid-testing-strategy';
+import { post as continuousTestingGuide } from './continuous-testing-devops-guide';
+import { post as i18nTestingGuide } from './internationalization-testing-i18n-guide';
+import { post as errorHandlingGuide } from './error-handling-testing-patterns';
+import { post as apiMockingGuide } from './api-mocking-service-virtualization-guide';
+import { post as testReportingGuide } from './test-reporting-allure-dashboards-guide';
+import { post as performanceMonitoringGuide } from './performance-monitoring-testing-guide';
+import { post as storybookTestingGuide } from './storybook-component-testing-guide';
+import { post as testPlanningGuide } from './test-planning-strategy-guide';
+import { post as codeReviewQaGuide } from './code-review-qa-testing-guide';
+import { post as aiTestGenerationGuide } from './ai-test-generation-tools-guide';
 
 // Original posts
 const introducingQaskills: BlogPost = {
@@ -195,10 +235,210 @@ export const posts: Record<string, BlogPost> = {
   'testing-ai-generated-code-sdet-playbook': testingAiGeneratedCode,
   'autonomous-testing-agents-build-vs-buy': autonomousTestingBuildVsBuy,
   'mcp-for-qa-engineers-guide': mcpForQaEngineers,
+  'k6-vs-jmeter-performance-testing': k6VsJmeter,
+  'visual-regression-testing-guide': visualRegressionGuide,
+  'api-contract-testing-microservices': apiContractTesting,
+  'mobile-testing-automation-guide': mobileTestingGuide,
+  'accessibility-testing-automation-guide': accessibilityTestingGuide,
+  'mutation-testing-stryker-guide': mutationTestingGuide,
+  'test-data-management-strategies': testDataManagement,
+  'bdd-cucumber-testing-guide': bddCucumberGuide,
+  'database-testing-automation-guide': databaseTestingGuide,
+  'exploratory-testing-ai-agents-guide': exploratoryTestingGuide,
+  'qa-engineer-skills-career-guide-2026': qaEngineerSkillsCareerGuide,
+  'testing-legacy-code-refactoring-guide': testingLegacyCodeGuide,
+  'playwright-vs-puppeteer-2026': playwrightVsPuppeteer,
+  'testing-in-production-strategies': testingInProduction,
+  'pytest-testing-complete-guide': pytestGuide,
+  'selenium-grid-docker-parallel-testing': seleniumGridDocker,
+  'postman-api-testing-guide': postmanApiGuide,
+  'rest-assured-java-api-testing': restAssuredGuide,
+  'regression-testing-strategies-guide': regressionTestingGuide,
+  'smoke-testing-vs-sanity-testing': smokeVsSanity,
+  'test-case-design-techniques-guide': testCaseDesign,
+  'load-testing-beginners-guide': loadTestingGuide,
+  'graphql-testing-complete-guide': graphqlTestingGuide,
+  'chaos-engineering-resilience-testing': chaosEngineeringGuide,
+  'websocket-testing-guide': websocketTestingGuide,
+  'microservices-testing-strategies': microservicesTestingGuide,
+  'test-automation-roi-business-case': testAutomationRoi,
+  'cross-browser-testing-guide': crossBrowserGuide,
+  'qa-metrics-kpis-dashboard-guide': qaMetricsGuide,
+  'test-pyramid-testing-strategy': testPyramidGuide,
+  'continuous-testing-devops-guide': continuousTestingGuide,
+  'internationalization-testing-i18n-guide': i18nTestingGuide,
+  'error-handling-testing-patterns': errorHandlingGuide,
+  'api-mocking-service-virtualization-guide': apiMockingGuide,
+  'test-reporting-allure-dashboards-guide': testReportingGuide,
+  'performance-monitoring-testing-guide': performanceMonitoringGuide,
+  'storybook-component-testing-guide': storybookTestingGuide,
+  'test-planning-strategy-guide': testPlanningGuide,
+  'code-review-qa-testing-guide': codeReviewQaGuide,
+  'ai-test-generation-tools-guide': aiTestGenerationGuide,
 };
 
 // Ordered list for the blog listing page (newest first)
 export const postList = [
+  {
+    slug: 'ai-test-generation-tools-guide',
+    ...aiTestGenerationGuide,
+  },
+  {
+    slug: 'code-review-qa-testing-guide',
+    ...codeReviewQaGuide,
+  },
+  {
+    slug: 'test-planning-strategy-guide',
+    ...testPlanningGuide,
+  },
+  {
+    slug: 'storybook-component-testing-guide',
+    ...storybookTestingGuide,
+  },
+  {
+    slug: 'performance-monitoring-testing-guide',
+    ...performanceMonitoringGuide,
+  },
+  {
+    slug: 'test-reporting-allure-dashboards-guide',
+    ...testReportingGuide,
+  },
+  {
+    slug: 'api-mocking-service-virtualization-guide',
+    ...apiMockingGuide,
+  },
+  {
+    slug: 'error-handling-testing-patterns',
+    ...errorHandlingGuide,
+  },
+  {
+    slug: 'internationalization-testing-i18n-guide',
+    ...i18nTestingGuide,
+  },
+  {
+    slug: 'continuous-testing-devops-guide',
+    ...continuousTestingGuide,
+  },
+  {
+    slug: 'test-pyramid-testing-strategy',
+    ...testPyramidGuide,
+  },
+  {
+    slug: 'qa-metrics-kpis-dashboard-guide',
+    ...qaMetricsGuide,
+  },
+  {
+    slug: 'cross-browser-testing-guide',
+    ...crossBrowserGuide,
+  },
+  {
+    slug: 'test-automation-roi-business-case',
+    ...testAutomationRoi,
+  },
+  {
+    slug: 'microservices-testing-strategies',
+    ...microservicesTestingGuide,
+  },
+  {
+    slug: 'websocket-testing-guide',
+    ...websocketTestingGuide,
+  },
+  {
+    slug: 'chaos-engineering-resilience-testing',
+    ...chaosEngineeringGuide,
+  },
+  {
+    slug: 'graphql-testing-complete-guide',
+    ...graphqlTestingGuide,
+  },
+  {
+    slug: 'load-testing-beginners-guide',
+    ...loadTestingGuide,
+  },
+  {
+    slug: 'test-case-design-techniques-guide',
+    ...testCaseDesign,
+  },
+  {
+    slug: 'smoke-testing-vs-sanity-testing',
+    ...smokeVsSanity,
+  },
+  {
+    slug: 'regression-testing-strategies-guide',
+    ...regressionTestingGuide,
+  },
+  {
+    slug: 'rest-assured-java-api-testing',
+    ...restAssuredGuide,
+  },
+  {
+    slug: 'postman-api-testing-guide',
+    ...postmanApiGuide,
+  },
+  {
+    slug: 'selenium-grid-docker-parallel-testing',
+    ...seleniumGridDocker,
+  },
+  {
+    slug: 'pytest-testing-complete-guide',
+    ...pytestGuide,
+  },
+  {
+    slug: 'testing-in-production-strategies',
+    ...testingInProduction,
+  },
+  {
+    slug: 'playwright-vs-puppeteer-2026',
+    ...playwrightVsPuppeteer,
+  },
+  {
+    slug: 'testing-legacy-code-refactoring-guide',
+    ...testingLegacyCodeGuide,
+  },
+  {
+    slug: 'qa-engineer-skills-career-guide-2026',
+    ...qaEngineerSkillsCareerGuide,
+  },
+  {
+    slug: 'mutation-testing-stryker-guide',
+    ...mutationTestingGuide,
+  },
+  {
+    slug: 'test-data-management-strategies',
+    ...testDataManagement,
+  },
+  {
+    slug: 'bdd-cucumber-testing-guide',
+    ...bddCucumberGuide,
+  },
+  {
+    slug: 'database-testing-automation-guide',
+    ...databaseTestingGuide,
+  },
+  {
+    slug: 'exploratory-testing-ai-agents-guide',
+    ...exploratoryTestingGuide,
+  },
+  {
+    slug: 'k6-vs-jmeter-performance-testing',
+    ...k6VsJmeter,
+  },
+  {
+    slug: 'visual-regression-testing-guide',
+    ...visualRegressionGuide,
+  },
+  {
+    slug: 'api-contract-testing-microservices',
+    ...apiContractTesting,
+  },
+  {
+    slug: 'mobile-testing-automation-guide',
+    ...mobileTestingGuide,
+  },
+  {
+    slug: 'accessibility-testing-automation-guide',
+    ...accessibilityTestingGuide,
+  },
   {
     slug: 'vibe-testing-ai-first-qa-guide',
     ...vibeTestingGuide,

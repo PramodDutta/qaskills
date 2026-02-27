@@ -1,10 +1,11 @@
 import { neon } from '@neondatabase/serverless';
 import { drizzle } from 'drizzle-orm/neon-http';
 import { eq } from 'drizzle-orm';
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
+import { readFileSync, readdirSync, existsSync } from 'fs';
+import { resolve, join } from 'path';
 import { skills, categories, skillPacks, skillPackItems } from './schema';
 import { TESTING_TYPES, FRAMEWORKS, LANGUAGES, DOMAINS } from '@qaskills/shared';
+const SEED_SKILLS_DIR = resolve(__dirname, '../../../../seed-skills');
 
 /**
  * Read the markdown body (everything after YAML frontmatter) from a seed-skills SKILL.md file.
@@ -12,7 +13,7 @@ import { TESTING_TYPES, FRAMEWORKS, LANGUAGES, DOMAINS } from '@qaskills/shared'
  */
 function readSkillBody(slug: string): string {
   try {
-    const filePath = resolve(__dirname, '../../../../seed-skills', slug, 'SKILL.md');
+    const filePath = resolve(SEED_SKILLS_DIR, slug, 'SKILL.md');
     const content = readFileSync(filePath, 'utf-8');
     // Strip YAML frontmatter: content between first --- and second ---
     const match = content.match(/^---\n[\s\S]*?\n---\n([\s\S]*)$/);
@@ -20,6 +21,77 @@ function readSkillBody(slug: string): string {
   } catch {
     return '';
   }
+}
+
+/**
+ * Auto-discover all seed-skills directories and parse their SKILL.md frontmatter.
+ * Returns skill entries for any directories not already in the hardcoded list.
+ */
+function discoverAdditionalSkills(existingSlugs: Set<string>) {
+  const additional: Array<{
+    name: string; slug: string; description: string; authorName: string;
+    qualityScore: number; installCount: number; weeklyInstalls: number;
+    testingTypes: string[]; frameworks: string[]; languages: string[];
+    domains: string[]; agents: string[]; featured: boolean; verified: boolean;
+  }> = [];
+
+  const dirs = readdirSync(SEED_SKILLS_DIR, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => d.name);
+
+  for (const dir of dirs) {
+    if (existingSlugs.has(dir)) continue;
+    const skillMdPath = join(SEED_SKILLS_DIR, dir, 'SKILL.md');
+    if (!existsSync(skillMdPath)) continue;
+
+    try {
+      const raw = readFileSync(skillMdPath, 'utf-8');
+      const fmMatch = raw.match(/^---\n([\s\S]*?)\n---/);
+      if (!fmMatch) continue;
+      const yaml = fmMatch[1];
+      const getVal = (key: string): string => {
+        const m = yaml.match(new RegExp(`^${key}:\\s*"?([^"\\n]*)"?`, 'm'));
+        return m ? m[1].trim() : '';
+      };
+      const getArr = (key: string): string[] => {
+        const m = yaml.match(new RegExp(`^${key}:\\s*\\[([^\\]]*)]`, 'm'));
+        if (m) return m[1].split(',').map((s: string) => s.trim().replace(/^["']|["']$/g, '')).filter(Boolean);
+        return [];
+      };
+      const data = {
+        name: getVal('name'),
+        description: getVal('description'),
+        author: getVal('author'),
+        testingTypes: getArr('testingTypes'),
+        frameworks: getArr('frameworks'),
+        languages: getArr('languages'),
+        domains: getArr('domains'),
+        agents: getArr('agents'),
+      };
+      if (!data.name || !data.description) continue;
+
+      additional.push({
+        name: data.name,
+        slug: dir,
+        description: data.description.slice(0, 500),
+        authorName: data.author || 'community',
+        qualityScore: 80 + Math.floor(Math.random() * 10),
+        installCount: 3 + Math.floor(Math.random() * 15),
+        weeklyInstalls: 1 + Math.floor(Math.random() * 8),
+        testingTypes: data.testingTypes,
+        frameworks: data.frameworks,
+        languages: data.languages,
+        domains: data.domains,
+        agents: data.agents,
+        featured: false,
+        verified: true,
+      });
+    } catch {
+      // Skip malformed files
+    }
+  }
+
+  return additional;
 }
 
 async function seed() {
@@ -71,7 +143,7 @@ async function seed() {
     { name: 'CI/CD Pipeline Config', slug: 'cicd-pipeline', description: 'Configure testing in CI/CD pipelines for GitHub Actions, Jenkins, and GitLab CI', authorName: 'thetestingacademy', qualityScore: 85, installCount: 28, weeklyInstalls: 28, testingTypes: ['integration'], frameworks: [], languages: ['typescript'], domains: ['devops'], agents: ['claude-code', 'cursor', 'github-copilot', 'windsurf', 'codex', 'aider', 'continue', 'cline', 'zed', 'bolt'], featured: false, verified: true },
     { name: 'Visual Regression Testing', slug: 'visual-regression', description: 'Visual regression testing with Playwright screenshots and diff comparison', authorName: 'thetestingacademy', qualityScore: 86, installCount: 16, weeklyInstalls: 16, testingTypes: ['visual', 'e2e'], frameworks: ['playwright'], languages: ['typescript'], domains: ['web'], agents: ['claude-code', 'cursor', 'github-copilot', 'windsurf', 'codex', 'aider', 'continue', 'cline', 'zed', 'bolt'], featured: false, verified: true },
     { name: 'Contract Testing (Pact)', slug: 'contract-testing-pact', description: 'Consumer-driven contract testing with Pact and Pact Broker', authorName: 'thetestingacademy', qualityScore: 84, installCount: 7, weeklyInstalls: 7, testingTypes: ['contract', 'api'], frameworks: ['pact'], languages: ['typescript', 'java'], domains: ['api'], agents: ['claude-code', 'cursor', 'github-copilot', 'windsurf', 'codex', 'aider', 'continue', 'cline', 'zed', 'bolt'], featured: false, verified: true },
-    { name: 'Vibe Check - Browser Automation', slug: 'vibe-check', description: 'Automate Chrome browser interactions via CLI with persistent daemon mode. Navigate pages, extract content, click elements, type text, manage tabs, and take screenshots.', authorName: 'vibiumdev', qualityScore: 88, installCount: 60, weeklyInstalls: 60, testingTypes: ['e2e', 'visual'], frameworks: ['playwright'], languages: ['typescript', 'javascript'], domains: ['web'], agents: ['claude-code', 'cursor', 'github-copilot', 'opencode', 'gemini-cli', 'codex', 'amp'], featured: true, verified: true, githubUrl: 'https://github.com/vibiumdev/vibium' },
+    { name: 'Vibe Check - Browser Automation', slug: 'vibe-check', description: 'AI-native browser automation — 81 CLI commands for navigating pages, filling forms, clicking elements, taking screenshots, and managing tabs. 2.6k+ GitHub stars.', authorName: 'vibiumdev', qualityScore: 95, installCount: 75, weeklyInstalls: 75, testingTypes: ['e2e', 'visual', 'accessibility'], frameworks: ['playwright'], languages: ['typescript', 'javascript', 'python', 'go'], domains: ['web', 'mobile'], agents: ['claude-code', 'cursor', 'github-copilot', 'windsurf', 'codex', 'aider', 'continue', 'cline', 'zed', 'bolt', 'opencode', 'gemini-cli', 'amp'], featured: true, verified: true, githubUrl: 'https://github.com/VibiumDev/vibium' },
     { name: 'Agent Browser', slug: 'agent-browser', description: 'Browser automation tool by Vercel Labs enabling programmatic web interaction. Navigate URLs, capture interactive elements with refs, fill forms, take screenshots, generate PDFs, and run parallel sessions.', authorName: 'vercel-labs', qualityScore: 95, installCount: 47, weeklyInstalls: 47, testingTypes: ['e2e', 'visual', 'accessibility'], frameworks: ['playwright'], languages: ['typescript', 'javascript'], domains: ['web', 'mobile'], agents: ['claude-code', 'cursor', 'github-copilot', 'opencode', 'gemini-cli', 'codex', 'amp', 'windsurf', 'aider', 'continue', 'cline', 'zed', 'bolt'], featured: true, verified: true, githubUrl: 'https://github.com/vercel-labs/agent-browser' },
     { name: 'Storybook Component Testing', slug: 'storybook-testing', description: 'Test React, Vue, and Angular components in isolation with Storybook interactions and play functions', authorName: 'thetestingacademy', qualityScore: 87, installCount: 29, weeklyInstalls: 29, testingTypes: ['unit', 'visual'], frameworks: ['jest'], languages: ['typescript', 'javascript'], domains: ['web'], agents: ['claude-code', 'cursor', 'github-copilot', 'windsurf', 'codex', 'aider', 'continue', 'cline', 'zed', 'bolt'], featured: false, verified: true },
     { name: 'WebdriverIO E2E', slug: 'webdriverio-e2e', description: 'Cross-browser E2E testing with WebdriverIO, Cucumber integration, and visual regression', authorName: 'thetestingacademy', qualityScore: 84, installCount: 17, weeklyInstalls: 17, testingTypes: ['e2e', 'visual'], frameworks: ['selenium'], languages: ['typescript', 'javascript'], domains: ['web'], agents: ['claude-code', 'cursor', 'github-copilot', 'windsurf', 'codex', 'aider', 'continue', 'cline', 'zed', 'bolt'], featured: false, verified: true },
@@ -171,7 +243,22 @@ async function seed() {
     });
   }
 
-  console.log(`Seeded ${seedSkills.length} skills`);
+  console.log(`Seeded ${seedSkills.length} hardcoded skills`);
+
+  // Auto-discover additional skills from seed-skills directory
+  const existingSlugs = new Set(seedSkills.map((s) => s.slug));
+  const additionalSkills = discoverAdditionalSkills(existingSlugs);
+
+  for (const skill of additionalSkills) {
+    const fullDescription = readSkillBody(skill.slug);
+    await db.insert(skills).values({ ...skill, fullDescription }).onConflictDoUpdate({
+      target: skills.slug,
+      set: { fullDescription },
+    });
+  }
+
+  console.log(`Discovered and seeded ${additionalSkills.length} additional skills from seed-skills/`);
+  console.log(`Total: ${seedSkills.length + additionalSkills.length} skills`);
 
   // Seed skill packs
   console.log('Seeding skill packs...');

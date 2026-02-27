@@ -4,7 +4,7 @@ import { skills, users } from '@/db/schema';
 import { postList } from './blog/posts';
 
 const baseUrl = 'https://qaskills.sh';
-const today = '2026-02-15';
+const today = '2026-02-23';
 
 const staticPages: MetadataRoute.Sitemap = [
   { url: baseUrl, lastModified: today, changeFrequency: 'daily', priority: 1.0 },

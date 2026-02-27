@@ -15,6 +15,8 @@ import { eq, and } from 'drizzle-orm';
 import { generateSkillJsonLd, generateBreadcrumbJsonLd } from '@/lib/json-ld';
 import { ReviewSection } from '@/components/skills/review-section';
 import { SkillDescription } from '@/components/skills/skill-description';
+import { SkillDownloadButtons } from '@/components/skills/skill-download-buttons';
+import { CloneButton } from '@/components/skills/clone-button';
 
 interface SkillPageProps {
   params: Promise<{ author: string; slug: string }>;
@@ -169,6 +171,13 @@ export default async function SkillDetailPage({ params }: SkillPageProps) {
               <p className="mt-3 text-sm text-muted-foreground">
                 Auto-detects your AI agent and installs the skill. Works with Claude Code, Cursor, Copilot, and more.
               </p>
+              <SkillDownloadButtons
+                slug={slug}
+                name={skill.name}
+                version={skill.version}
+                description={skill.description}
+                agents={agents}
+              />
             </CardContent>
           </Card>
 
@@ -263,6 +272,10 @@ export default async function SkillDetailPage({ params }: SkillPageProps) {
                   </Button>
                 </div>
               )}
+
+              <div className="mt-4 pt-4 border-t border-border">
+                <CloneButton author={skill.authorName} slug={skill.slug} />
+              </div>
             </CardContent>
           </Card>
 
