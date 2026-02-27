@@ -1,10 +1,10 @@
 ---
 name: Cognitive Load Analyzer
-description: Analyze web application interfaces for cognitive overload using automated heuristics covering information density, choice complexity, visual hierarchy, and interaction patterns
+description: Evaluate interface complexity by measuring information density, decision points, visual hierarchy, and task completion paths to reduce user cognitive burden.
 version: 1.0.0
 author: Pramod
 license: MIT
-tags: [cognitive-load, ux-analysis, information-density, visual-hierarchy, heuristic-evaluation, usability, mental-model]
+tags: [cognitive-load, ux, information-architecture, complexity, usability, heuristics]
 testingTypes: [e2e, accessibility]
 frameworks: [playwright]
 languages: [typescript, javascript]
@@ -14,1153 +14,1015 @@ agents: [claude-code, cursor, github-copilot, windsurf, codex, aider, continue, 
 
 # Cognitive Load Analyzer Skill
 
-You are an expert QA engineer specializing in cognitive load analysis for web applications. When the user asks you to analyze interfaces for cognitive overload, evaluate information density, or assess visual hierarchy, follow these detailed instructions to apply systematic heuristics that measure and flag potential usability issues caused by excessive cognitive demands.
+You are an expert QA engineer specializing in cognitive load assessment, usability heuristic evaluation, and information architecture analysis. When asked to evaluate interface complexity, measure decision overload, audit visual hierarchy, or analyze task completion paths in a web application, follow these comprehensive instructions to systematically identify and quantify sources of unnecessary cognitive burden.
 
 ## Core Principles
 
-1. **Measure, do not guess** -- Cognitive load can be quantified through proxy metrics: element count per viewport, unique colors, font variations, navigation depth, and interactive element density. Automate these measurements rather than relying on subjective judgment.
-2. **Hick's Law governs choice** -- The time to make a decision increases logarithmically with the number of choices. Pages presenting more than seven primary actions force users into decision paralysis. Count and limit choices systematically.
-3. **Miller's Law constrains working memory** -- Users can hold approximately seven (plus or minus two) items in working memory. Forms, navigation menus, and data tables exceeding this threshold overload short-term memory. Chunk related items into groups.
-4. **Visual hierarchy directs attention** -- When everything is bold, nothing is bold. A clear visual hierarchy uses size, color, weight, and spacing to create a scannable path from primary to secondary to tertiary information.
-5. **Progressive disclosure reduces upfront load** -- Show only the information needed for the current step. Advanced options, detailed settings, and edge-case flows should be hidden behind expandable sections, tooltips, or secondary pages.
-6. **Consistency reduces learning cost** -- Every inconsistency in layout, terminology, or interaction pattern adds cognitive overhead. Users must re-learn what they already understood. Measure consistency across pages.
-7. **White space is functional** -- Dense layouts with minimal spacing force users to parse boundaries between elements. Adequate white space (margins, padding, line height) reduces parsing effort and improves comprehension.
-8. **Navigation depth creates memory load** -- Each level of navigation requires users to remember where they are and how to return. Measure navigation depth and breadcrumb availability.
+1. **Cognitive Load Is Measurable** -- While cognitive load is a psychological phenomenon, its proxies are measurable: number of choices per screen, information density per viewport, navigation depth to complete tasks, consistency of patterns, and visual hierarchy clarity. By quantifying these proxies, you can objectively compare designs and detect regressions.
+
+2. **Three Types of Cognitive Load** -- Intrinsic load comes from the inherent complexity of the task itself. Extraneous load comes from poor interface design that adds unnecessary complexity. Germane load is the productive mental effort of learning and understanding. The goal is to minimize extraneous load while preserving intrinsic and germane load.
+
+3. **Miller's Law Applies to Interfaces** -- The human working memory can hold roughly 7 plus or minus 2 items simultaneously. Navigation menus with 15 items, forms with 20 fields, and dashboards with 12 data widgets all exceed cognitive capacity. Chunk information into groups of 5-7 items maximum.
+
+4. **Hick's Law Governs Decision Time** -- The time to make a decision increases logarithmically with the number of choices. A page with 3 clear options is cognitively easy. A page with 30 options of similar visual weight creates decision paralysis. Reduce choices or create clear visual hierarchy to guide attention.
+
+5. **Consistency Reduces Load** -- When interface patterns are consistent, users build mental models that reduce the cognitive effort of future interactions. When the same action requires different steps on different pages, users must relearn the interface each time.
+
+6. **Progressive Disclosure Is a Strategy** -- Not all information needs to be visible at once. Show the essential information first and provide clear paths to details. An accordion, a "Show more" link, or a drill-down pattern reduces the initial cognitive load without hiding information.
+
+7. **Visual Hierarchy Guides Attention** -- When everything on a page has equal visual weight, the user must scan everything to find what matters. Clear size, color, contrast, and spacing differences create a hierarchy that guides the eye from most important to least important.
 
 ## Project Structure
+
+Organize your cognitive load analysis suite with this directory structure:
 
 ```
 tests/
   cognitive-load/
-    metrics/
-      element-density.spec.ts
-      color-audit.spec.ts
-      font-audit.spec.ts
-      action-density.spec.ts
-      navigation-depth.spec.ts
-      form-complexity.spec.ts
-    heuristics/
-      hicks-law.spec.ts
-      millers-law.spec.ts
-      progressive-disclosure.spec.ts
-      consistency-check.spec.ts
-    visual-hierarchy/
-      heading-structure.spec.ts
-      contrast-ratio.spec.ts
-      whitespace-analysis.spec.ts
-      focal-points.spec.ts
-    interaction/
-      modal-frequency.spec.ts
-      click-depth.spec.ts
-      decision-points.spec.ts
-      reading-level.spec.ts
-    reports/
-      cognitive-load-report.spec.ts
-    fixtures/
-      page-inventory.ts
-      thresholds.ts
-    utils/
-      cognitive-helpers.ts
-      color-utils.ts
-      text-analysis.ts
+    information-density.spec.ts
+    choice-overload.spec.ts
+    navigation-complexity.spec.ts
+    form-complexity.spec.ts
+    visual-hierarchy.spec.ts
+    consistency-audit.spec.ts
+    task-completion-paths.spec.ts
+  fixtures/
+    cognitive-page.fixture.ts
+  helpers/
+    density-calculator.ts
+    choice-counter.ts
+    hierarchy-analyzer.ts
+    consistency-checker.ts
+    task-path-tracer.ts
+    cognitive-score.ts
+  reports/
+    cognitive-load-report.json
+    cognitive-load-report.html
+  thresholds/
+    cognitive-thresholds.json
 playwright.config.ts
+```
+
+Each spec file measures a different dimension of cognitive load. The helpers directory contains the measurement algorithms. Thresholds define the acceptable limits for each metric.
+
+## Detailed Guide
+
+### Step 1: Build an Information Density Calculator
+
+Information density measures how much content is presented per unit of viewport area. High density overwhelms users; low density wastes space and requires excessive scrolling.
+
+```typescript
+// helpers/density-calculator.ts
+import { Page } from '@playwright/test';
+
+export interface DensityMetrics {
+  totalTextElements: number;
+  totalWordCount: number;
+  totalInteractiveElements: number;
+  totalImages: number;
+  viewportArea: number;
+  visibleContentArea: number;
+  textDensity: number;          // words per 1000px of viewport height
+  interactiveDensity: number;   // interactive elements per viewport
+  informationUnits: number;     // distinct information groups
+  densityScore: number;         // 0-100 composite score
+}
+
+export class DensityCalculator {
+  async calculate(page: Page): Promise<DensityMetrics> {
+    const viewport = page.viewportSize();
+    if (!viewport) throw new Error('No viewport size available');
+
+    const viewportArea = viewport.width * viewport.height;
+
+    const measurements = await page.evaluate(() => {
+      // Count visible text elements
+      const textSelectors = 'p, h1, h2, h3, h4, h5, h6, span, li, td, th, label, a, button';
+      const textElements = document.querySelectorAll(textSelectors);
+      let totalWords = 0;
+      let visibleTextElements = 0;
+
+      textElements.forEach((el) => {
+        const style = window.getComputedStyle(el);
+        if (style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0') {
+          const text = el.textContent?.trim();
+          if (text && text.length > 0) {
+            visibleTextElements++;
+            totalWords += text.split(/\s+/).filter((w) => w.length > 0).length;
+          }
+        }
+      });
+
+      // Count interactive elements visible in the viewport
+      const interactiveSelectors = [
+        'a[href]', 'button', 'input', 'select', 'textarea',
+        '[role="button"]', '[role="link"]', '[role="tab"]',
+        '[role="menuitem"]', '[onclick]', '[tabindex]:not([tabindex="-1"])',
+      ];
+      const interactiveElements = document.querySelectorAll(interactiveSelectors.join(', '));
+      let visibleInteractive = 0;
+      interactiveElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.width > 0 && rect.height > 0 && rect.top < window.innerHeight && rect.bottom > 0) {
+          visibleInteractive++;
+        }
+      });
+
+      // Count images in viewport
+      const images = document.querySelectorAll('img, svg, [role="img"]');
+      let visibleImages = 0;
+      images.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.width > 0 && rect.height > 0 && rect.top < window.innerHeight) {
+          visibleImages++;
+        }
+      });
+
+      // Calculate visible content area
+      const bodyRect = document.body.getBoundingClientRect();
+      const visibleContentArea = Math.min(bodyRect.height, window.innerHeight) * bodyRect.width;
+
+      // Count distinct information groups (sections, cards, panels)
+      const groupSelectors = 'section, article, .card, .panel, [role="region"], [role="group"], fieldset';
+      const groups = document.querySelectorAll(groupSelectors);
+      let visibleGroups = 0;
+      groups.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.width > 0 && rect.height > 0 && rect.top < window.innerHeight) {
+          visibleGroups++;
+        }
+      });
+
+      return {
+        visibleTextElements,
+        totalWords,
+        visibleInteractive,
+        visibleImages,
+        visibleContentArea,
+        visibleGroups,
+      };
+    });
+
+    const viewportHeightK = viewport.height / 1000;
+    const textDensity = measurements.totalWords / viewportHeightK;
+    const interactiveDensity = measurements.visibleInteractive;
+
+    // Composite density score (0-100, lower is less dense)
+    let densityScore = 50;
+    if (textDensity > 500) densityScore += 15;
+    if (textDensity > 800) densityScore += 15;
+    if (textDensity < 100) densityScore -= 10;
+    if (interactiveDensity > 20) densityScore += 10;
+    if (interactiveDensity > 40) densityScore += 10;
+    if (measurements.visibleGroups > 8) densityScore += 10;
+    densityScore = Math.max(0, Math.min(100, densityScore));
+
+    return {
+      totalTextElements: measurements.visibleTextElements,
+      totalWordCount: measurements.totalWords,
+      totalInteractiveElements: measurements.visibleInteractive,
+      totalImages: measurements.visibleImages,
+      viewportArea,
+      visibleContentArea: measurements.visibleContentArea,
+      textDensity,
+      interactiveDensity,
+      informationUnits: measurements.visibleGroups,
+      densityScore,
+    };
+  }
+}
+```
+
+### Step 2: Build a Choice Overload Counter
+
+Choice overload occurs when users face too many options of similar visual weight, causing decision paralysis.
+
+```typescript
+// helpers/choice-counter.ts
+import { Page } from '@playwright/test';
+
+export interface ChoiceMetrics {
+  navigationItemCount: number;
+  formFieldCount: number;
+  callToActionCount: number;
+  filterOptionCount: number;
+  tabCount: number;
+  cardChoiceCount: number;
+  totalDecisionPoints: number;
+  choiceOverloadScore: number;  // 0-100, higher = more overload
+  issues: string[];
+}
+
+export class ChoiceCounter {
+  async count(page: Page): Promise<ChoiceMetrics> {
+    const metrics = await page.evaluate(() => {
+      const issues: string[] = [];
+
+      // Count top-level navigation items
+      const navItems = document.querySelectorAll(
+        'nav a, nav button, [role="navigation"] a, [role="navigation"] button'
+      );
+      const visibleNavItems = Array.from(navItems).filter((el) => {
+        const rect = el.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0;
+      });
+      const navigationItemCount = visibleNavItems.length;
+      if (navigationItemCount > 7) {
+        issues.push(`Navigation has ${navigationItemCount} items (recommended: 5-7)`);
+      }
+
+      // Count visible form fields
+      const formFields = document.querySelectorAll(
+        'input:not([type="hidden"]), select, textarea, [role="combobox"]'
+      );
+      const visibleFormFields = Array.from(formFields).filter((el) => {
+        const rect = el.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0 && rect.top < window.innerHeight;
+      });
+      const formFieldCount = visibleFormFields.length;
+      if (formFieldCount > 7) {
+        issues.push(`${formFieldCount} form fields visible (recommended: 3-5 per step)`);
+      }
+
+      // Count call-to-action buttons
+      const ctaButtons = document.querySelectorAll(
+        'button[type="submit"], .btn-primary, .cta, [data-testid*="cta"]'
+      );
+      const visibleCTAs = Array.from(ctaButtons).filter((el) => {
+        const rect = el.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0 && rect.top < window.innerHeight;
+      });
+      const callToActionCount = visibleCTAs.length;
+      if (callToActionCount > 2) {
+        issues.push(`${callToActionCount} CTAs competing for attention (recommended: 1-2)`);
+      }
+
+      // Count filter options
+      const filterElements = document.querySelectorAll(
+        '[data-testid*="filter"], .filter-option, .facet'
+      );
+      const filterOptionCount = filterElements.length;
+      if (filterOptionCount > 10) {
+        issues.push(`${filterOptionCount} filter options visible (use progressive disclosure)`);
+      }
+
+      // Count tabs
+      const tabs = document.querySelectorAll('[role="tab"], .tab, .nav-tab');
+      const tabCount = tabs.length;
+      if (tabCount > 6) {
+        issues.push(`${tabCount} tabs visible (recommended: 4-6, use overflow for more)`);
+      }
+
+      // Count choice cards in viewport
+      const cards = document.querySelectorAll('.card, article, .product-card, .pricing-card');
+      const visibleCards = Array.from(cards).filter((el) => {
+        const rect = el.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0 && rect.top < window.innerHeight;
+      });
+      const cardChoiceCount = visibleCards.length;
+      if (cardChoiceCount > 9) {
+        issues.push(`${cardChoiceCount} choice cards in viewport (recommended: 6-9)`);
+      }
+
+      return {
+        navigationItemCount,
+        formFieldCount,
+        callToActionCount,
+        filterOptionCount,
+        tabCount,
+        cardChoiceCount,
+        issues,
+      };
+    });
+
+    const totalDecisionPoints =
+      metrics.navigationItemCount +
+      metrics.formFieldCount +
+      metrics.callToActionCount +
+      metrics.tabCount +
+      metrics.cardChoiceCount;
+
+    let overloadScore = 0;
+    if (totalDecisionPoints > 10) overloadScore += 15;
+    if (totalDecisionPoints > 20) overloadScore += 15;
+    if (totalDecisionPoints > 30) overloadScore += 20;
+    if (metrics.navigationItemCount > 7) overloadScore += 10;
+    if (metrics.formFieldCount > 7) overloadScore += 10;
+    if (metrics.callToActionCount > 2) overloadScore += 10;
+    if (metrics.cardChoiceCount > 9) overloadScore += 10;
+    if (metrics.tabCount > 6) overloadScore += 10;
+    overloadScore = Math.min(100, overloadScore);
+
+    return {
+      ...metrics,
+      totalDecisionPoints,
+      choiceOverloadScore: overloadScore,
+    };
+  }
+}
+```
+
+### Step 3: Build a Visual Hierarchy Analyzer
+
+Visual hierarchy determines the order in which users process page information. A clear hierarchy guides the eye efficiently; a flat hierarchy forces exhaustive scanning.
+
+```typescript
+// helpers/hierarchy-analyzer.ts
+import { Page } from '@playwright/test';
+
+export interface HierarchyMetrics {
+  headingLevels: Array<{ level: number; count: number; text: string[] }>;
+  headingHierarchyValid: boolean;
+  fontSizeVariations: number;
+  whitespaceRatio: number;
+  primaryActionClear: boolean;
+  visualWeightDistribution: 'balanced' | 'top-heavy' | 'flat' | 'clear-hierarchy';
+  hierarchyScore: number;  // 0-100, higher is better
+  issues: string[];
+}
+
+export class HierarchyAnalyzer {
+  async analyze(page: Page): Promise<HierarchyMetrics> {
+    const data = await page.evaluate(() => {
+      const issues: string[] = [];
+
+      // Analyze heading hierarchy
+      const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      const levelMap = new Map<number, string[]>();
+      headings.forEach((h) => {
+        const level = parseInt(h.tagName.charAt(1));
+        if (!levelMap.has(level)) levelMap.set(level, []);
+        levelMap.get(level)?.push(h.textContent?.trim().substring(0, 50) || '');
+      });
+
+      const headingLevels = Array.from(levelMap.entries()).map(([level, texts]) => ({
+        level,
+        count: texts.length,
+        text: texts,
+      }));
+
+      // Check for skipped heading levels
+      const sortedLevels = Array.from(levelMap.keys()).sort();
+      let hierarchyValid = true;
+      for (let i = 1; i < sortedLevels.length; i++) {
+        if (sortedLevels[i] - sortedLevels[i - 1] > 1) {
+          hierarchyValid = false;
+          issues.push(`Heading hierarchy skips from h${sortedLevels[i - 1]} to h${sortedLevels[i]}`);
+        }
+      }
+
+      const h1Count = levelMap.get(1)?.length || 0;
+      if (h1Count === 0) {
+        issues.push('Page has no h1 heading');
+        hierarchyValid = false;
+      }
+      if (h1Count > 1) {
+        issues.push(`Page has ${h1Count} h1 headings (recommended: exactly 1)`);
+      }
+
+      // Count distinct font sizes
+      const allElements = document.querySelectorAll('body *');
+      const fontSizes = new Set<string>();
+      allElements.forEach((el) => {
+        const style = window.getComputedStyle(el);
+        if (style.display !== 'none' && el.textContent?.trim()) {
+          fontSizes.add(style.fontSize);
+        }
+      });
+      const fontSizeVariations = fontSizes.size;
+      if (fontSizeVariations > 8) {
+        issues.push(`${fontSizeVariations} distinct font sizes (recommended: 4-6)`);
+      }
+
+      // Calculate whitespace ratio
+      const bodyRect = document.body.getBoundingClientRect();
+      const totalArea = bodyRect.width * Math.min(bodyRect.height, window.innerHeight);
+      let contentArea = 0;
+      const contentEls = document.querySelectorAll(
+        'p, h1, h2, h3, h4, h5, h6, img, button, input, select, textarea, table, ul, ol'
+      );
+      contentEls.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.width > 0 && rect.height > 0 && rect.top < window.innerHeight && rect.bottom > 0) {
+          contentArea += rect.width * rect.height;
+        }
+      });
+      const whitespaceRatio = totalArea > 0 ? 1 - contentArea / totalArea : 0;
+      if (whitespaceRatio < 0.2) {
+        issues.push(`Only ${(whitespaceRatio * 100).toFixed(0)}% whitespace (recommended: 30-50%)`);
+      }
+
+      // Check primary CTA clarity
+      const primaryButtons = document.querySelectorAll(
+        'button[type="submit"], .btn-primary, [data-testid*="primary"]'
+      );
+      let primaryActionClear = false;
+      if (primaryButtons.length === 1) {
+        const style = window.getComputedStyle(primaryButtons[0]);
+        const bg = style.backgroundColor;
+        primaryActionClear =
+          bg !== 'rgba(0, 0, 0, 0)' && bg !== 'rgb(255, 255, 255)' && bg !== 'transparent';
+      }
+      if (primaryButtons.length > 1) {
+        issues.push(`${primaryButtons.length} primary CTAs compete for attention`);
+      }
+
+      return {
+        headingLevels,
+        headingHierarchyValid: hierarchyValid,
+        fontSizeVariations,
+        whitespaceRatio,
+        primaryActionClear,
+        issues,
+      };
+    });
+
+    let distribution: HierarchyMetrics['visualWeightDistribution'];
+    if (data.headingHierarchyValid && data.whitespaceRatio > 0.3 && data.fontSizeVariations <= 6) {
+      distribution = 'clear-hierarchy';
+    } else if (data.fontSizeVariations <= 3) {
+      distribution = 'flat';
+    } else if (data.whitespaceRatio < 0.2) {
+      distribution = 'top-heavy';
+    } else {
+      distribution = 'balanced';
+    }
+
+    let score = 50;
+    if (data.headingHierarchyValid) score += 15;
+    if (data.primaryActionClear) score += 10;
+    if (data.whitespaceRatio >= 0.3 && data.whitespaceRatio <= 0.5) score += 10;
+    if (data.fontSizeVariations >= 4 && data.fontSizeVariations <= 6) score += 10;
+    if (data.fontSizeVariations > 8) score -= 10;
+    if (data.whitespaceRatio < 0.2) score -= 15;
+    if (!data.headingHierarchyValid) score -= 10;
+    score = Math.max(0, Math.min(100, score));
+
+    return {
+      ...data,
+      visualWeightDistribution: distribution,
+      hierarchyScore: score,
+    };
+  }
+}
+```
+
+### Step 4: Build a Consistency Checker
+
+Consistency across pages reduces the cognitive cost of learning the interface.
+
+```typescript
+// helpers/consistency-checker.ts
+import { Page } from '@playwright/test';
+
+export interface ConsistencyIssue {
+  category: 'naming' | 'layout' | 'interaction' | 'visual' | 'navigation';
+  description: string;
+  severity: 'high' | 'medium' | 'low';
+  pages: string[];
+  recommendation: string;
+}
+
+export interface ConsistencyMetrics {
+  issues: ConsistencyIssue[];
+  consistencyScore: number;
+}
+
+export class ConsistencyChecker {
+  private snapshots: Array<{
+    url: string;
+    buttonLabels: string[];
+    navStructure: string[];
+    headingPattern: string[];
+    layoutPattern: string;
+  }> = [];
+
+  async captureSnapshot(page: Page): Promise<void> {
+    const snapshot = await page.evaluate(() => {
+      const buttons = document.querySelectorAll('button, [role="button"]');
+      const buttonLabels = Array.from(buttons)
+        .map((b) => b.textContent?.trim())
+        .filter(Boolean) as string[];
+
+      const navLinks = document.querySelectorAll('nav a, [role="navigation"] a');
+      const navStructure = Array.from(navLinks)
+        .map((a) => a.textContent?.trim())
+        .filter(Boolean) as string[];
+
+      const headings = document.querySelectorAll('h1, h2, h3');
+      const headingPattern = Array.from(headings).map(
+        (h) => `${h.tagName}:${h.textContent?.trim().substring(0, 30)}`
+      );
+
+      const mainContent = document.querySelector('main, [role="main"]');
+      let layoutPattern = 'unknown';
+      if (mainContent) {
+        const style = window.getComputedStyle(mainContent);
+        if (style.display === 'grid') layoutPattern = 'grid';
+        else if (style.display === 'flex') layoutPattern = 'flex';
+        else layoutPattern = 'block';
+      }
+
+      return { buttonLabels, navStructure, headingPattern, layoutPattern };
+    });
+
+    this.snapshots.push({ url: page.url(), ...snapshot });
+  }
+
+  analyze(): ConsistencyMetrics {
+    const issues: ConsistencyIssue[] = [];
+
+    if (this.snapshots.length < 2) {
+      return { issues, consistencyScore: 100 };
+    }
+
+    // Check navigation consistency
+    const navStructures = this.snapshots.map((s) => JSON.stringify(s.navStructure));
+    if (new Set(navStructures).size > 1) {
+      issues.push({
+        category: 'navigation',
+        description: 'Navigation structure differs across pages',
+        severity: 'high',
+        pages: this.snapshots.map((s) => s.url),
+        recommendation: 'Use a consistent navigation component on all pages',
+      });
+    }
+
+    // Check button label consistency for common actions
+    const allLabels = this.snapshots.flatMap((s) => s.buttonLabels);
+    const saveVariants = allLabels.filter((l) =>
+      /^(save|submit|confirm|apply|done|ok|update)$/i.test(l)
+    );
+    const uniqueSaveLabels = new Set(saveVariants.map((l) => l.toLowerCase()));
+    if (uniqueSaveLabels.size > 2) {
+      issues.push({
+        category: 'naming',
+        description: `Multiple labels for save action: ${Array.from(uniqueSaveLabels).join(', ')}`,
+        severity: 'medium',
+        pages: this.snapshots.map((s) => s.url),
+        recommendation: 'Standardize on a single label for the primary save action',
+      });
+    }
+
+    const cancelVariants = allLabels.filter((l) =>
+      /^(cancel|close|dismiss|back|discard)$/i.test(l)
+    );
+    const uniqueCancelLabels = new Set(cancelVariants.map((l) => l.toLowerCase()));
+    if (uniqueCancelLabels.size > 2) {
+      issues.push({
+        category: 'naming',
+        description: `Multiple labels for cancel action: ${Array.from(uniqueCancelLabels).join(', ')}`,
+        severity: 'medium',
+        pages: this.snapshots.map((s) => s.url),
+        recommendation: 'Standardize on a single label for the cancel action',
+      });
+    }
+
+    // Check layout consistency
+    const layouts = this.snapshots.map((s) => s.layoutPattern);
+    if (new Set(layouts).size > 2) {
+      issues.push({
+        category: 'layout',
+        description: `${new Set(layouts).size} different layout patterns across pages`,
+        severity: 'medium',
+        pages: this.snapshots.map((s) => s.url),
+        recommendation: 'Use a consistent layout system for similar page types',
+      });
+    }
+
+    let score = 100;
+    for (const issue of issues) {
+      if (issue.severity === 'high') score -= 20;
+      else if (issue.severity === 'medium') score -= 10;
+      else score -= 5;
+    }
+
+    return { issues, consistencyScore: Math.max(0, score) };
+  }
+}
+```
+
+### Step 5: Build a Task Path Tracer
+
+Measuring how many steps common tasks require reveals unnecessary workflow complexity.
+
+```typescript
+// helpers/task-path-tracer.ts
+import { Page } from '@playwright/test';
+
+export interface TaskStep {
+  action: string;
+  url: string;
+  elementInteracted: string;
+  timestamp: number;
+  cognitiveEffort: 'low' | 'medium' | 'high';
+}
+
+export interface TaskPath {
+  taskName: string;
+  steps: TaskStep[];
+  totalSteps: number;
+  totalTimeMs: number;
+  pagesVisited: number;
+  backtrackCount: number;
+  cognitiveScore: number;
+}
+
+export class TaskPathTracer {
+  private steps: TaskStep[] = [];
+  private startTime: number = 0;
+  private visitedUrls: Set<string> = new Set();
+  private urlSequence: string[] = [];
+
+  startTask(): void {
+    this.steps = [];
+    this.startTime = Date.now();
+    this.visitedUrls = new Set();
+    this.urlSequence = [];
+  }
+
+  recordStep(
+    action: string,
+    page: Page,
+    elementDescription: string,
+    effort: TaskStep['cognitiveEffort'] = 'low'
+  ): void {
+    const url = page.url();
+    this.visitedUrls.add(url);
+    this.urlSequence.push(url);
+
+    this.steps.push({
+      action,
+      url,
+      elementInteracted: elementDescription,
+      timestamp: Date.now(),
+      cognitiveEffort: effort,
+    });
+  }
+
+  completeTask(taskName: string): TaskPath {
+    const totalTimeMs = Date.now() - this.startTime;
+
+    let backtrackCount = 0;
+    const seen = new Set<string>();
+    for (const url of this.urlSequence) {
+      if (seen.has(url)) backtrackCount++;
+      seen.add(url);
+    }
+
+    let cognitiveScore = 0;
+    cognitiveScore += this.steps.length * 5;
+    cognitiveScore += backtrackCount * 15;
+    cognitiveScore += (this.visitedUrls.size - 1) * 10;
+    for (const step of this.steps) {
+      if (step.cognitiveEffort === 'high') cognitiveScore += 10;
+      else if (step.cognitiveEffort === 'medium') cognitiveScore += 5;
+    }
+
+    return {
+      taskName,
+      steps: [...this.steps],
+      totalSteps: this.steps.length,
+      totalTimeMs,
+      pagesVisited: this.visitedUrls.size,
+      backtrackCount,
+      cognitiveScore: Math.min(100, cognitiveScore),
+    };
+  }
+}
+```
+
+### Step 6: Write Cognitive Load Tests
+
+```typescript
+// tests/cognitive-load/information-density.spec.ts
+import { test, expect } from '@playwright/test';
+import { DensityCalculator } from '../helpers/density-calculator';
+
+const pages = [
+  { name: 'Homepage', path: '/' },
+  { name: 'Dashboard', path: '/dashboard' },
+  { name: 'Settings', path: '/settings' },
+  { name: 'Product Listing', path: '/products' },
+];
+
+test.describe('Information Density Analysis', () => {
+  const calculator = new DensityCalculator();
+
+  for (const pg of pages) {
+    test(`${pg.name} has acceptable information density`, async ({ page }) => {
+      await page.goto(pg.path);
+      await page.waitForLoadState('networkidle');
+
+      const metrics = await calculator.calculate(page);
+
+      expect(metrics.textDensity).toBeGreaterThan(50);
+      expect(metrics.textDensity).toBeLessThan(800);
+      expect(metrics.totalInteractiveElements).toBeLessThanOrEqual(30);
+
+      if (metrics.informationUnits > 0) {
+        expect(metrics.informationUnits).toBeLessThanOrEqual(8);
+      }
+
+      expect(metrics.densityScore).toBeLessThan(80);
+    });
+  }
+});
+```
+
+```typescript
+// tests/cognitive-load/choice-overload.spec.ts
+import { test, expect } from '@playwright/test';
+import { ChoiceCounter } from '../helpers/choice-counter';
+
+test.describe('Choice Overload Analysis', () => {
+  const counter = new ChoiceCounter();
+
+  test('navigation has 7 or fewer top-level items', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    const metrics = await counter.count(page);
+    expect(metrics.navigationItemCount).toBeLessThanOrEqual(7);
+  });
+
+  test('forms show 7 or fewer fields at once', async ({ page }) => {
+    await page.goto('/register');
+    await page.waitForLoadState('networkidle');
+    const metrics = await counter.count(page);
+    expect(metrics.formFieldCount).toBeLessThanOrEqual(7);
+  });
+
+  test('no more than 2 competing CTAs per viewport', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    const metrics = await counter.count(page);
+    expect(metrics.callToActionCount).toBeLessThanOrEqual(2);
+  });
+
+  test('total decision points stay under threshold', async ({ page }) => {
+    await page.goto('/dashboard');
+    await page.waitForLoadState('networkidle');
+    const metrics = await counter.count(page);
+    expect(metrics.totalDecisionPoints).toBeLessThanOrEqual(25);
+    expect(metrics.choiceOverloadScore).toBeLessThan(50);
+  });
+});
+```
+
+```typescript
+// tests/cognitive-load/visual-hierarchy.spec.ts
+import { test, expect } from '@playwright/test';
+import { HierarchyAnalyzer } from '../helpers/hierarchy-analyzer';
+
+test.describe('Visual Hierarchy Analysis', () => {
+  const analyzer = new HierarchyAnalyzer();
+
+  test('heading hierarchy does not skip levels', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    const metrics = await analyzer.analyze(page);
+    expect(metrics.headingHierarchyValid).toBe(true);
+  });
+
+  test('whitespace ratio is between 20% and 70%', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    const metrics = await analyzer.analyze(page);
+    expect(metrics.whitespaceRatio).toBeGreaterThan(0.2);
+    expect(metrics.whitespaceRatio).toBeLessThan(0.7);
+  });
+
+  test('font size variations stay reasonable', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    const metrics = await analyzer.analyze(page);
+    expect(metrics.fontSizeVariations).toBeLessThanOrEqual(8);
+  });
+
+  test('hierarchy score meets minimum threshold', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    const metrics = await analyzer.analyze(page);
+    expect(metrics.hierarchyScore).toBeGreaterThanOrEqual(50);
+  });
+});
+```
+
+```typescript
+// tests/cognitive-load/consistency-audit.spec.ts
+import { test, expect } from '@playwright/test';
+import { ConsistencyChecker } from '../helpers/consistency-checker';
+
+test.describe('Cross-Page Consistency Audit', () => {
+  test('navigation and terminology are consistent across pages', async ({ page }) => {
+    const checker = new ConsistencyChecker();
+    const pagesToVisit = ['/', '/dashboard', '/settings', '/products', '/about'];
+
+    for (const path of pagesToVisit) {
+      await page.goto(path);
+      await page.waitForLoadState('networkidle');
+      await checker.captureSnapshot(page);
+    }
+
+    const result = checker.analyze();
+
+    const highSeverity = result.issues.filter((i) => i.severity === 'high');
+    expect(highSeverity.length).toBe(0);
+    expect(result.consistencyScore).toBeGreaterThanOrEqual(70);
+  });
+});
+```
+
+```typescript
+// tests/cognitive-load/task-completion-paths.spec.ts
+import { test, expect } from '@playwright/test';
+import { TaskPathTracer } from '../helpers/task-path-tracer';
+
+test.describe('Task Completion Path Complexity', () => {
+  test('user registration takes 5 or fewer steps', async ({ page }) => {
+    const tracer = new TaskPathTracer();
+    tracer.startTask();
+
+    await page.goto('/register');
+    tracer.recordStep('Navigate to registration', page, 'URL', 'low');
+
+    await page.fill('[name="name"]', 'Test User');
+    tracer.recordStep('Enter name', page, 'name input', 'low');
+
+    await page.fill('[name="email"]', 'test@example.com');
+    tracer.recordStep('Enter email', page, 'email input', 'low');
+
+    await page.fill('[name="password"]', 'SecurePass123!');
+    tracer.recordStep('Enter password', page, 'password input', 'medium');
+
+    await page.click('button[type="submit"]');
+    tracer.recordStep('Submit form', page, 'submit button', 'low');
+
+    const result = tracer.completeTask('User Registration');
+    expect(result.totalSteps).toBeLessThanOrEqual(6);
+    expect(result.backtrackCount).toBe(0);
+    expect(result.pagesVisited).toBeLessThanOrEqual(2);
+  });
+
+  test('search task takes 3 or fewer steps', async ({ page }) => {
+    const tracer = new TaskPathTracer();
+    tracer.startTask();
+
+    await page.goto('/');
+    tracer.recordStep('Start at homepage', page, 'homepage', 'low');
+
+    await page.fill('input[type="search"], [data-testid="search-input"]', 'test');
+    tracer.recordStep('Enter search query', page, 'search input', 'low');
+
+    await page.keyboard.press('Enter');
+    tracer.recordStep('Execute search', page, 'keyboard', 'low');
+
+    const result = tracer.completeTask('Search');
+    expect(result.totalSteps).toBeLessThanOrEqual(4);
+    expect(result.backtrackCount).toBe(0);
+  });
+});
 ```
 
 ## Configuration
 
+### Playwright Configuration
+
 ```typescript
 // playwright.config.ts
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests/cognitive-load',
-  fullyParallel: true,
+  timeout: 30000,
   retries: 0,
-  workers: process.env.CI ? 2 : undefined,
-  reporter: [
-    ['html', { open: 'never' }],
-    ['json', { outputFile: 'cognitive-load-report.json' }],
-  ],
   use: {
     baseURL: process.env.BASE_URL || 'http://localhost:3000',
-    trace: 'retain-on-failure',
     screenshot: 'on',
+    video: 'off',
+    trace: 'on-first-retry',
   },
+  reporter: [
+    ['html', { open: 'never' }],
+    ['json', { outputFile: 'reports/cognitive-load-results.json' }],
+  ],
   projects: [
     {
-      name: 'desktop-1920',
-      use: { ...devices['Desktop Chrome'], viewport: { width: 1920, height: 1080 } },
+      name: 'cognitive-desktop',
+      use: { browserName: 'chromium', viewport: { width: 1440, height: 900 } },
     },
     {
-      name: 'desktop-1366',
-      use: { ...devices['Desktop Chrome'], viewport: { width: 1366, height: 768 } },
-    },
-    {
-      name: 'mobile',
-      use: { ...devices['iPhone 14'] },
+      name: 'cognitive-mobile',
+      use: {
+        browserName: 'chromium',
+        viewport: { width: 375, height: 812 },
+        isMobile: true,
+      },
     },
   ],
 });
 ```
 
-```typescript
-// tests/cognitive-load/fixtures/thresholds.ts
+### Cognitive Load Thresholds Configuration
 
-/**
- * Cognitive load thresholds derived from UX research.
- * These values define acceptable limits for various metrics.
- * Exceeding these thresholds indicates potential cognitive overload.
- */
-export const THRESHOLDS = {
-  // Hick's Law: maximum primary actions visible at once
-  MAX_PRIMARY_ACTIONS: 7,
-
-  // Miller's Law: maximum items in a group without chunking
-  MAX_UNCHUNKED_ITEMS: 9,
-
-  // Element density: maximum interactive elements per viewport
-  MAX_INTERACTIVE_ELEMENTS_PER_VIEWPORT: 50,
-
-  // Visual variety: maximum unique colors on a single page
-  MAX_UNIQUE_COLORS: 12,
-
-  // Typography: maximum unique font size/weight combinations
-  MAX_FONT_VARIATIONS: 8,
-
-  // Navigation: maximum depth without breadcrumbs
-  MAX_NAV_DEPTH_WITHOUT_BREADCRUMBS: 2,
-
-  // Forms: maximum fields per visible section
-  MAX_FORM_FIELDS_PER_SECTION: 7,
-
-  // Reading level: maximum Flesch-Kincaid grade level for UI text
-  MAX_READING_GRADE_LEVEL: 8,
-
-  // Modals: maximum sequential modals without returning to base page
-  MAX_SEQUENTIAL_MODALS: 2,
-
-  // Whitespace: minimum percentage of viewport that should be whitespace
-  MIN_WHITESPACE_PERCENTAGE: 30,
-
-  // Decision points: maximum yes/no decisions per task flow
-  MAX_DECISION_POINTS_PER_FLOW: 5,
-};
-```
-
-```typescript
-// tests/cognitive-load/fixtures/page-inventory.ts
-export interface PageUnderTest {
-  name: string;
-  route: string;
-  category: 'dashboard' | 'form' | 'list' | 'detail' | 'settings' | 'onboarding';
-  criticalFlow?: boolean;
+```json
+{
+  "informationDensity": {
+    "maxWordsPerViewportK": 600,
+    "maxInteractiveElements": 30,
+    "maxInformationUnits": 8,
+    "maxDensityScore": 75
+  },
+  "choiceOverload": {
+    "maxNavigationItems": 7,
+    "maxFormFieldsVisible": 7,
+    "maxCTAs": 2,
+    "maxTabs": 6,
+    "maxCardChoices": 9,
+    "maxTotalDecisionPoints": 25,
+    "maxOverloadScore": 50
+  },
+  "visualHierarchy": {
+    "maxFontSizeVariations": 6,
+    "minWhitespaceRatio": 0.3,
+    "maxWhitespaceRatio": 0.6,
+    "minHierarchyScore": 60
+  },
+  "taskComplexity": {
+    "maxStepsForCommonTask": 5,
+    "maxPagesForCommonTask": 3,
+    "maxBacktracks": 0,
+    "maxCognitiveScore": 40
+  }
 }
-
-export const pageInventory: PageUnderTest[] = [
-  { name: 'Dashboard', route: '/dashboard', category: 'dashboard', criticalFlow: true },
-  { name: 'Project List', route: '/projects', category: 'list', criticalFlow: true },
-  { name: 'Project Detail', route: '/projects/1', category: 'detail' },
-  { name: 'Create Project', route: '/projects/new', category: 'form', criticalFlow: true },
-  { name: 'Settings', route: '/settings', category: 'settings' },
-  { name: 'User Profile', route: '/profile', category: 'form' },
-  { name: 'Search Results', route: '/search?q=test', category: 'list' },
-  { name: 'Onboarding Step 1', route: '/onboarding/1', category: 'onboarding', criticalFlow: true },
-  { name: 'Reports', route: '/reports', category: 'dashboard' },
-  { name: 'Team Management', route: '/team', category: 'list' },
-];
-```
-
-## How-To Guides
-
-### Measuring Element Density Per Viewport
-
-Element density is the most fundamental cognitive load metric. Too many interactive elements per viewport overwhelm users and make it difficult to identify the primary action.
-
-```typescript
-// tests/cognitive-load/metrics/element-density.spec.ts
-import { test, expect } from '@playwright/test';
-import { pageInventory } from '../fixtures/page-inventory';
-import { THRESHOLDS } from '../fixtures/thresholds';
-
-test.describe('Element Density Analysis', () => {
-  for (const page_info of pageInventory) {
-    test(`${page_info.name}: interactive elements within threshold`, async ({ page }) => {
-      await page.goto(page_info.route);
-      await page.waitForLoadState('networkidle');
-
-      const viewportHeight = page.viewportSize()?.height || 1080;
-
-      // Count all interactive elements in the visible viewport
-      const interactiveCount = await page.evaluate((vpHeight) => {
-        const interactiveSelectors = [
-          'a[href]',
-          'button',
-          'input',
-          'select',
-          'textarea',
-          '[role="button"]',
-          '[role="link"]',
-          '[role="tab"]',
-          '[role="menuitem"]',
-          '[tabindex]:not([tabindex="-1"])',
-          '[onclick]',
-        ];
-
-        const elements = document.querySelectorAll(interactiveSelectors.join(','));
-        let visibleCount = 0;
-
-        elements.forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          const isVisible =
-            rect.top >= 0 &&
-            rect.top < vpHeight &&
-            rect.width > 0 &&
-            rect.height > 0 &&
-            window.getComputedStyle(el).display !== 'none' &&
-            window.getComputedStyle(el).visibility !== 'hidden';
-
-          if (isVisible) visibleCount++;
-        });
-
-        return visibleCount;
-      }, viewportHeight);
-
-      // Log the count for reporting
-      console.log(
-        `[Cognitive Load] ${page_info.name}: ${interactiveCount} interactive elements in viewport`
-      );
-
-      expect(
-        interactiveCount,
-        `${page_info.name} has ${interactiveCount} interactive elements (threshold: ${THRESHOLDS.MAX_INTERACTIVE_ELEMENTS_PER_VIEWPORT})`
-      ).toBeLessThanOrEqual(THRESHOLDS.MAX_INTERACTIVE_ELEMENTS_PER_VIEWPORT);
-    });
-  }
-
-  test('above-the-fold content has a clear primary action', async ({ page }) => {
-    await page.goto('/dashboard');
-    await page.waitForLoadState('networkidle');
-
-    // Identify primary action buttons (usually larger, more prominent)
-    const primaryActions = await page.evaluate(() => {
-      const buttons = Array.from(document.querySelectorAll('button, a[role="button"]'));
-      const viewport = window.innerHeight;
-
-      return buttons
-        .filter((btn) => {
-          const rect = btn.getBoundingClientRect();
-          return rect.top < viewport && rect.width > 0;
-        })
-        .map((btn) => {
-          const styles = window.getComputedStyle(btn);
-          const rect = btn.getBoundingClientRect();
-          return {
-            text: btn.textContent?.trim() || '',
-            area: rect.width * rect.height,
-            fontSize: parseFloat(styles.fontSize),
-            fontWeight: parseInt(styles.fontWeight, 10),
-            backgroundColor: styles.backgroundColor,
-          };
-        })
-        .sort((a, b) => b.area - a.area);
-    });
-
-    // The largest, most prominent button should be clearly distinct
-    if (primaryActions.length >= 2) {
-      const primary = primaryActions[0];
-      const secondary = primaryActions[1];
-
-      // Primary action should be meaningfully larger than secondary
-      expect(primary.area).toBeGreaterThan(secondary.area * 1.2);
-    }
-  });
-});
-```
-
-### Auditing Color and Font Variations
-
-Excessive color and font variations create visual noise that increases the effort required to parse a page.
-
-```typescript
-// tests/cognitive-load/metrics/color-audit.spec.ts
-import { test, expect } from '@playwright/test';
-import { pageInventory } from '../fixtures/page-inventory';
-import { THRESHOLDS } from '../fixtures/thresholds';
-
-test.describe('Color Variation Analysis', () => {
-  for (const page_info of pageInventory) {
-    test(`${page_info.name}: unique colors within threshold`, async ({ page }) => {
-      await page.goto(page_info.route);
-      await page.waitForLoadState('networkidle');
-
-      const colorAnalysis = await page.evaluate(() => {
-        const allElements = document.querySelectorAll('*');
-        const colors = new Set<string>();
-        const bgColors = new Set<string>();
-
-        allElements.forEach((el) => {
-          const styles = window.getComputedStyle(el);
-          const rect = el.getBoundingClientRect();
-
-          // Only analyze visible elements
-          if (rect.width === 0 || rect.height === 0) return;
-          if (styles.display === 'none' || styles.visibility === 'hidden') return;
-
-          // Normalize colors to hex
-          const textColor = styles.color;
-          const bgColor = styles.backgroundColor;
-
-          if (textColor && textColor !== 'rgba(0, 0, 0, 0)') {
-            colors.add(textColor);
-          }
-          if (bgColor && bgColor !== 'rgba(0, 0, 0, 0)' && bgColor !== 'transparent') {
-            bgColors.add(bgColor);
-          }
-        });
-
-        return {
-          textColors: colors.size,
-          backgroundColors: bgColors.size,
-          totalUniqueColors: new Set([...colors, ...bgColors]).size,
-        };
-      });
-
-      console.log(
-        `[Cognitive Load] ${page_info.name}: ${colorAnalysis.totalUniqueColors} unique colors ` +
-        `(${colorAnalysis.textColors} text, ${colorAnalysis.backgroundColors} background)`
-      );
-
-      expect(
-        colorAnalysis.totalUniqueColors,
-        `${page_info.name} uses ${colorAnalysis.totalUniqueColors} unique colors (threshold: ${THRESHOLDS.MAX_UNIQUE_COLORS})`
-      ).toBeLessThanOrEqual(THRESHOLDS.MAX_UNIQUE_COLORS);
-    });
-  }
-});
-
-// tests/cognitive-load/metrics/font-audit.spec.ts
-import { test as fontTest, expect as fontExpect } from '@playwright/test';
-import { pageInventory } from '../fixtures/page-inventory';
-import { THRESHOLDS } from '../fixtures/thresholds';
-
-fontTest.describe('Font Variation Analysis', () => {
-  for (const page_info of pageInventory) {
-    fontTest(`${page_info.name}: font variations within threshold`, async ({ page }) => {
-      await page.goto(page_info.route);
-      await page.waitForLoadState('networkidle');
-
-      const fontVariations = await page.evaluate(() => {
-        const allText = document.querySelectorAll(
-          'p, h1, h2, h3, h4, h5, h6, span, a, button, label, li, td, th, div'
-        );
-        const variations = new Set<string>();
-
-        allText.forEach((el) => {
-          const styles = window.getComputedStyle(el);
-          const rect = el.getBoundingClientRect();
-
-          if (rect.width === 0 || rect.height === 0) return;
-          if (!el.textContent?.trim()) return;
-
-          const key = `${styles.fontFamily.split(',')[0].trim()}-${Math.round(parseFloat(styles.fontSize))}-${styles.fontWeight}`;
-          variations.add(key);
-        });
-
-        return {
-          count: variations.size,
-          details: Array.from(variations).sort(),
-        };
-      });
-
-      console.log(
-        `[Cognitive Load] ${page_info.name}: ${fontVariations.count} font variations`
-      );
-
-      fontExpect(
-        fontVariations.count,
-        `${page_info.name} uses ${fontVariations.count} font variations (threshold: ${THRESHOLDS.MAX_FONT_VARIATIONS})`
-      ).toBeLessThanOrEqual(THRESHOLDS.MAX_FONT_VARIATIONS);
-    });
-  }
-});
-```
-
-### Applying Hick's Law to Navigation and Action Menus
-
-Hick's Law states that decision time increases with the number and complexity of choices. Test that navigation menus, action bars, and option lists stay within manageable bounds.
-
-```typescript
-// tests/cognitive-load/heuristics/hicks-law.spec.ts
-import { test, expect } from '@playwright/test';
-import { THRESHOLDS } from '../fixtures/thresholds';
-
-test.describe('Hick\'s Law: Choice Complexity', () => {
-  test('primary navigation has manageable number of items', async ({ page }) => {
-    await page.goto('/');
-    await page.waitForLoadState('networkidle');
-
-    const navItems = await page.evaluate(() => {
-      const nav = document.querySelector('nav[role="navigation"], nav, [data-testid="main-nav"]');
-      if (!nav) return { topLevel: 0, total: 0 };
-
-      const topLevelLinks = nav.querySelectorAll(':scope > ul > li > a, :scope > a');
-      const allLinks = nav.querySelectorAll('a');
-
-      return {
-        topLevel: topLevelLinks.length,
-        total: allLinks.length,
-      };
-    });
-
-    console.log(
-      `[Cognitive Load] Navigation: ${navItems.topLevel} top-level items, ${navItems.total} total`
-    );
-
-    expect(
-      navItems.topLevel,
-      `Navigation has ${navItems.topLevel} top-level items (Hick's threshold: ${THRESHOLDS.MAX_PRIMARY_ACTIONS})`
-    ).toBeLessThanOrEqual(THRESHOLDS.MAX_PRIMARY_ACTIONS);
-  });
-
-  test('dropdown menus do not exceed manageable item count', async ({ page }) => {
-    await page.goto('/dashboard');
-    await page.waitForLoadState('networkidle');
-
-    // Find all dropdown triggers
-    const dropdownTriggers = page.locator(
-      '[data-testid*="dropdown"], [aria-haspopup="menu"], [aria-haspopup="listbox"]'
-    );
-    const count = await dropdownTriggers.count();
-
-    for (let i = 0; i < count; i++) {
-      const trigger = dropdownTriggers.nth(i);
-      if (!(await trigger.isVisible())) continue;
-
-      await trigger.click();
-
-      // Wait for dropdown to appear
-      const dropdown = page.locator('[role="menu"], [role="listbox"]').first();
-      if (await dropdown.isVisible()) {
-        const items = await dropdown.locator('[role="menuitem"], [role="option"], li').all();
-
-        console.log(
-          `[Cognitive Load] Dropdown ${i}: ${items.length} items`
-        );
-
-        expect(
-          items.length,
-          `Dropdown menu has ${items.length} items (Hick's threshold: ${THRESHOLDS.MAX_UNCHUNKED_ITEMS})`
-        ).toBeLessThanOrEqual(THRESHOLDS.MAX_UNCHUNKED_ITEMS);
-
-        // Close the dropdown
-        await page.keyboard.press('Escape');
-      }
-    }
-  });
-
-  test('action bar presents focused set of actions', async ({ page }) => {
-    await page.goto('/projects/1');
-    await page.waitForLoadState('networkidle');
-
-    const actionButtons = await page.evaluate(() => {
-      const actionBar = document.querySelector(
-        '[data-testid="action-bar"], .action-bar, [role="toolbar"]'
-      );
-      if (!actionBar) return 0;
-
-      const buttons = actionBar.querySelectorAll('button, a[role="button"]');
-      return Array.from(buttons).filter((btn) => {
-        const rect = btn.getBoundingClientRect();
-        return rect.width > 0 && rect.height > 0;
-      }).length;
-    });
-
-    expect(
-      actionButtons,
-      `Action bar has ${actionButtons} visible actions`
-    ).toBeLessThanOrEqual(THRESHOLDS.MAX_PRIMARY_ACTIONS);
-  });
-});
-```
-
-### Measuring Form Complexity
-
-Forms are high-cognitive-load surfaces. Measure field counts, grouping quality, and progressive disclosure usage.
-
-```typescript
-// tests/cognitive-load/metrics/form-complexity.spec.ts
-import { test, expect } from '@playwright/test';
-import { pageInventory } from '../fixtures/page-inventory';
-import { THRESHOLDS } from '../fixtures/thresholds';
-
-test.describe('Form Complexity Analysis', () => {
-  const formPages = pageInventory.filter((p) => p.category === 'form');
-
-  for (const page_info of formPages) {
-    test(`${page_info.name}: form fields per section within threshold`, async ({ page }) => {
-      await page.goto(page_info.route);
-      await page.waitForLoadState('networkidle');
-
-      const formAnalysis = await page.evaluate((maxFields) => {
-        const forms = document.querySelectorAll('form');
-        const results: Array<{
-          fieldCount: number;
-          sectionCount: number;
-          maxFieldsInSection: number;
-          hasProgressIndicator: boolean;
-          requiredFieldCount: number;
-        }> = [];
-
-        forms.forEach((form) => {
-          const fields = form.querySelectorAll(
-            'input:not([type="hidden"]), select, textarea, [role="combobox"], [role="slider"]'
-          );
-
-          // Check for fieldset/section grouping
-          const sections = form.querySelectorAll(
-            'fieldset, [data-testid*="section"], .form-section'
-          );
-
-          let maxFieldsInSection = fields.length; // Default: all in one section
-          if (sections.length > 0) {
-            const sectionFieldCounts = Array.from(sections).map(
-              (section) =>
-                section.querySelectorAll(
-                  'input:not([type="hidden"]), select, textarea'
-                ).length
-            );
-            maxFieldsInSection = Math.max(...sectionFieldCounts);
-          }
-
-          const requiredFields = form.querySelectorAll(
-            '[required], [aria-required="true"]'
-          );
-          const progress = document.querySelector(
-            '[role="progressbar"], .step-indicator, [data-testid="form-progress"]'
-          );
-
-          results.push({
-            fieldCount: fields.length,
-            sectionCount: Math.max(sections.length, 1),
-            maxFieldsInSection,
-            hasProgressIndicator: !!progress,
-            requiredFieldCount: requiredFields.length,
-          });
-        });
-
-        return results;
-      }, THRESHOLDS.MAX_FORM_FIELDS_PER_SECTION);
-
-      for (const form of formAnalysis) {
-        console.log(
-          `[Cognitive Load] ${page_info.name}: ${form.fieldCount} fields, ` +
-          `${form.sectionCount} sections, max ${form.maxFieldsInSection} per section`
-        );
-
-        // Each visible section should have no more than the threshold
-        expect(
-          form.maxFieldsInSection,
-          `Form has ${form.maxFieldsInSection} fields in one section (threshold: ${THRESHOLDS.MAX_FORM_FIELDS_PER_SECTION})`
-        ).toBeLessThanOrEqual(THRESHOLDS.MAX_FORM_FIELDS_PER_SECTION);
-
-        // Long forms should have a progress indicator
-        if (form.fieldCount > 10) {
-          expect(
-            form.hasProgressIndicator,
-            `Form with ${form.fieldCount} fields lacks a progress indicator`
-          ).toBe(true);
-        }
-      }
-    });
-  }
-});
-```
-
-### Analyzing Navigation Depth and Breadcrumbs
-
-Deep navigation structures strain working memory. Users must remember where they are and how to navigate back.
-
-```typescript
-// tests/cognitive-load/metrics/navigation-depth.spec.ts
-import { test, expect } from '@playwright/test';
-import { THRESHOLDS } from '../fixtures/thresholds';
-
-test.describe('Navigation Depth Analysis', () => {
-  test('pages beyond depth 2 have breadcrumbs', async ({ page }) => {
-    // Crawl the site to discover deep pages
-    const deepPages = [
-      '/projects/1/settings/notifications',
-      '/team/members/123/permissions',
-      '/reports/custom/2024/january',
-      '/settings/integrations/github/configure',
-    ];
-
-    for (const route of deepPages) {
-      const depth = route.split('/').filter(Boolean).length;
-
-      if (depth > THRESHOLDS.MAX_NAV_DEPTH_WITHOUT_BREADCRUMBS) {
-        await page.goto(route);
-        await page.waitForLoadState('networkidle');
-
-        // Check for breadcrumbs
-        const breadcrumbs = page.locator(
-          'nav[aria-label="breadcrumb"], [data-testid="breadcrumbs"], .breadcrumbs, nav[aria-label="Breadcrumb"]'
-        );
-
-        const hasBreadcrumbs = await breadcrumbs.isVisible().catch(() => false);
-
-        expect(
-          hasBreadcrumbs,
-          `Page at depth ${depth} (${route}) lacks breadcrumb navigation`
-        ).toBe(true);
-
-        if (hasBreadcrumbs) {
-          // Breadcrumbs should show the full path
-          const crumbs = await breadcrumbs.getByRole('listitem').all();
-          expect(crumbs.length).toBeGreaterThanOrEqual(2);
-        }
-      }
-    }
-  });
-
-  test('back navigation is always available on deep pages', async ({ page }) => {
-    await page.goto('/projects/1/settings/notifications');
-    await page.waitForLoadState('networkidle');
-
-    // Either breadcrumbs or a back button must be present
-    const hasBreadcrumbs = await page
-      .locator('nav[aria-label="breadcrumb"], [data-testid="breadcrumbs"]')
-      .isVisible()
-      .catch(() => false);
-
-    const hasBackButton = await page
-      .locator('[data-testid="back-button"], a[aria-label*="back" i], button[aria-label*="back" i]')
-      .isVisible()
-      .catch(() => false);
-
-    expect(
-      hasBreadcrumbs || hasBackButton,
-      'Deep page lacks both breadcrumbs and a back button'
-    ).toBe(true);
-  });
-});
-```
-
-### Evaluating Progressive Disclosure
-
-Progressive disclosure hides complexity behind expandable sections, "Show more" links, and multi-step flows. Verify that it is used where appropriate.
-
-```typescript
-// tests/cognitive-load/heuristics/progressive-disclosure.spec.ts
-import { test, expect } from '@playwright/test';
-
-test.describe('Progressive Disclosure', () => {
-  test('advanced settings are hidden by default', async ({ page }) => {
-    await page.goto('/settings');
-    await page.waitForLoadState('networkidle');
-
-    // Advanced sections should be collapsed
-    const advancedSection = page.locator(
-      '[data-testid="advanced-settings"], details:has(summary:text-matches("advanced", "i"))'
-    );
-
-    if (await advancedSection.count() > 0) {
-      const isExpanded = await advancedSection.first().evaluate((el) => {
-        if (el.tagName === 'DETAILS') return (el as HTMLDetailsElement).open;
-        return el.getAttribute('aria-expanded') === 'true';
-      });
-
-      expect(
-        isExpanded,
-        'Advanced settings should be collapsed by default'
-      ).toBe(false);
-    }
-  });
-
-  test('long content has show-more controls', async ({ page }) => {
-    await page.goto('/projects/1');
-    await page.waitForLoadState('networkidle');
-
-    const longTextBlocks = await page.evaluate(() => {
-      const textBlocks = document.querySelectorAll('p, [data-testid*="description"]');
-      const longBlocks: Array<{ text: string; isTruncated: boolean }> = [];
-
-      textBlocks.forEach((el) => {
-        const text = el.textContent || '';
-        if (text.length > 300) {
-          const styles = window.getComputedStyle(el);
-          const isTruncated =
-            styles.overflow === 'hidden' ||
-            styles.textOverflow === 'ellipsis' ||
-            styles.webkitLineClamp !== 'none';
-
-          longBlocks.push({
-            text: text.substring(0, 50) + '...',
-            isTruncated,
-          });
-        }
-      });
-
-      return longBlocks;
-    });
-
-    for (const block of longTextBlocks) {
-      expect(
-        block.isTruncated,
-        `Long text block "${block.text}" should be truncated with show-more`
-      ).toBe(true);
-    }
-  });
-
-  test('multi-step forms show only current step fields', async ({ page }) => {
-    await page.goto('/onboarding/1');
-    await page.waitForLoadState('networkidle');
-
-    const allFields = await page.locator('input:visible, select:visible, textarea:visible').all();
-    const fieldCount = allFields.length;
-
-    console.log(
-      `[Cognitive Load] Onboarding step 1: ${fieldCount} visible fields`
-    );
-
-    // Each step should have a manageable number of fields
-    expect(fieldCount).toBeLessThanOrEqual(7);
-
-    // Progress indicator should show total steps
-    const progress = page.locator(
-      '[data-testid="step-indicator"], [role="progressbar"]'
-    );
-    await expect(progress).toBeVisible();
-  });
-});
-```
-
-### Analyzing Whitespace and Information Density
-
-Whitespace is a cognitive relief mechanism. Pages with insufficient whitespace force users to work harder to parse content boundaries.
-
-```typescript
-// tests/cognitive-load/visual-hierarchy/whitespace-analysis.spec.ts
-import { test, expect } from '@playwright/test';
-import { pageInventory } from '../fixtures/page-inventory';
-import { THRESHOLDS } from '../fixtures/thresholds';
-
-test.describe('Whitespace Analysis', () => {
-  for (const page_info of pageInventory.filter((p) => p.criticalFlow)) {
-    test(`${page_info.name}: whitespace percentage meets minimum`, async ({ page }) => {
-      await page.goto(page_info.route);
-      await page.waitForLoadState('networkidle');
-
-      const whitespaceAnalysis = await page.evaluate(() => {
-        const canvas = document.createElement('canvas');
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
-        canvas.width = viewportWidth;
-        canvas.height = viewportHeight;
-
-        // Count elements that occupy space
-        const elements = document.querySelectorAll('*');
-        let occupiedArea = 0;
-        const totalArea = viewportWidth * viewportHeight;
-
-        const rects: DOMRect[] = [];
-        elements.forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          if (
-            rect.width > 0 &&
-            rect.height > 0 &&
-            rect.top < viewportHeight &&
-            rect.bottom > 0
-          ) {
-            const styles = window.getComputedStyle(el);
-            if (styles.display !== 'none' && styles.visibility !== 'hidden') {
-              // Only count leaf nodes with content
-              if (
-                el.children.length === 0 ||
-                el.textContent?.trim() ||
-                styles.backgroundImage !== 'none'
-              ) {
-                rects.push(rect);
-              }
-            }
-          }
-        });
-
-        // Approximate occupied area using bounding rects
-        // This is a simplification but gives a reasonable estimate
-        const occupiedPixels = new Set<string>();
-        for (const rect of rects) {
-          const top = Math.max(0, Math.floor(rect.top));
-          const bottom = Math.min(viewportHeight, Math.ceil(rect.bottom));
-          const left = Math.max(0, Math.floor(rect.left));
-          const right = Math.min(viewportWidth, Math.ceil(rect.right));
-
-          // Sample every 10th pixel for performance
-          for (let y = top; y < bottom; y += 10) {
-            for (let x = left; x < right; x += 10) {
-              occupiedPixels.add(`${x},${y}`);
-            }
-          }
-        }
-
-        const sampledTotal = Math.floor(viewportWidth / 10) * Math.floor(viewportHeight / 10);
-        const whitespacePercentage =
-          ((sampledTotal - occupiedPixels.size) / sampledTotal) * 100;
-
-        return {
-          whitespacePercentage: Math.round(whitespacePercentage),
-          totalElements: rects.length,
-        };
-      });
-
-      console.log(
-        `[Cognitive Load] ${page_info.name}: ${whitespaceAnalysis.whitespacePercentage}% whitespace`
-      );
-
-      expect(
-        whitespaceAnalysis.whitespacePercentage,
-        `${page_info.name} has ${whitespaceAnalysis.whitespacePercentage}% whitespace (minimum: ${THRESHOLDS.MIN_WHITESPACE_PERCENTAGE}%)`
-      ).toBeGreaterThanOrEqual(THRESHOLDS.MIN_WHITESPACE_PERCENTAGE);
-    });
-  }
-});
-```
-
-### Measuring Reading Level of UI Text
-
-User interface text should be written at a reading level accessible to the broadest audience. Use the Flesch-Kincaid grade level formula to assess readability.
-
-```typescript
-// tests/cognitive-load/utils/text-analysis.ts
-
-/**
- * Calculate the Flesch-Kincaid grade level of a text.
- * Lower scores indicate easier readability.
- * Target: grade level 8 or below for UI text.
- */
-export function fleschKincaidGradeLevel(text: string): number {
-  const sentences = text.split(/[.!?]+/).filter((s) => s.trim().length > 0);
-  const words = text.split(/\s+/).filter((w) => w.length > 0);
-  const syllables = words.reduce((total, word) => total + countSyllables(word), 0);
-
-  if (sentences.length === 0 || words.length === 0) return 0;
-
-  const gradeLevel =
-    0.39 * (words.length / sentences.length) +
-    11.8 * (syllables / words.length) -
-    15.59;
-
-  return Math.max(0, Math.round(gradeLevel * 10) / 10);
-}
-
-function countSyllables(word: string): number {
-  word = word.toLowerCase().replace(/[^a-z]/g, '');
-  if (word.length <= 3) return 1;
-
-  const vowelGroups = word.match(/[aeiouy]+/g);
-  let count = vowelGroups ? vowelGroups.length : 1;
-
-  // Adjust for silent e
-  if (word.endsWith('e')) count--;
-  if (word.endsWith('le') && word.length > 2) count++;
-
-  return Math.max(1, count);
-}
-
-// tests/cognitive-load/interaction/reading-level.spec.ts
-import { test, expect } from '@playwright/test';
-import { pageInventory } from '../fixtures/page-inventory';
-import { THRESHOLDS } from '../fixtures/thresholds';
-import { fleschKincaidGradeLevel } from '../utils/text-analysis';
-
-test.describe('Reading Level Analysis', () => {
-  for (const page_info of pageInventory) {
-    test(`${page_info.name}: UI text reading level`, async ({ page }) => {
-      await page.goto(page_info.route);
-      await page.waitForLoadState('networkidle');
-
-      const uiText = await page.evaluate(() => {
-        const textElements = document.querySelectorAll(
-          'h1, h2, h3, h4, p, label, button, a, [role="alert"], [role="status"]'
-        );
-        const texts: string[] = [];
-
-        textElements.forEach((el) => {
-          const text = el.textContent?.trim();
-          if (text && text.length > 10) {
-            texts.push(text);
-          }
-        });
-
-        return texts.join('. ');
-      });
-
-      if (uiText.length > 50) {
-        const gradeLevel = fleschKincaidGradeLevel(uiText);
-
-        console.log(
-          `[Cognitive Load] ${page_info.name}: Flesch-Kincaid grade level ${gradeLevel}`
-        );
-
-        expect(
-          gradeLevel,
-          `${page_info.name} text is at grade level ${gradeLevel} (threshold: ${THRESHOLDS.MAX_READING_GRADE_LEVEL})`
-        ).toBeLessThanOrEqual(THRESHOLDS.MAX_READING_GRADE_LEVEL);
-      }
-    });
-  }
-});
-```
-
-### Measuring Modal and Popup Frequency
-
-Modals interrupt the user's flow and add cognitive overhead. Sequential modals compound this effect and should be flagged.
-
-```typescript
-// tests/cognitive-load/interaction/modal-frequency.spec.ts
-import { test, expect } from '@playwright/test';
-import { THRESHOLDS } from '../fixtures/thresholds';
-
-test.describe('Modal and Popup Frequency', () => {
-  test('completing a task does not trigger sequential modals', async ({ page }) => {
-    await page.goto('/projects/new');
-    await page.waitForLoadState('networkidle');
-
-    let modalCount = 0;
-
-    // Monitor for modal appearances
-    page.on('console', () => {});
-
-    // Fill out a form and submit
-    await page.getByTestId('project-name').fill('Test Project');
-    await page.getByTestId('project-description').fill('A test description');
-    await page.getByTestId('submit-button').click();
-
-    // Count modals that appear sequentially
-    const checkForModals = async () => {
-      const modal = page.locator(
-        '[role="dialog"], [role="alertdialog"], [data-testid*="modal"]'
-      );
-      if (await modal.isVisible().catch(() => false)) {
-        modalCount++;
-
-        // Dismiss the modal
-        const closeButton = modal.getByRole('button', { name: /close|dismiss|ok|got it/i });
-        if (await closeButton.isVisible().catch(() => false)) {
-          await closeButton.click();
-          await page.waitForTimeout(500);
-
-          // Check if another modal appeared
-          await checkForModals();
-        }
-      }
-    };
-
-    await page.waitForTimeout(2000);
-    await checkForModals();
-
-    expect(
-      modalCount,
-      `Task triggered ${modalCount} sequential modals (threshold: ${THRESHOLDS.MAX_SEQUENTIAL_MODALS})`
-    ).toBeLessThanOrEqual(THRESHOLDS.MAX_SEQUENTIAL_MODALS);
-  });
-
-  test('page load does not trigger immediate modal', async ({ page }) => {
-    // First visit should not immediately show a modal (cookie consent excluded)
-    await page.goto('/dashboard');
-    await page.waitForLoadState('networkidle');
-
-    const modal = page.locator(
-      '[role="dialog"]:not([data-testid="cookie-consent"]), [role="alertdialog"]'
-    );
-
-    // Give any modals time to appear
-    await page.waitForTimeout(2000);
-
-    const isModalVisible = await modal.isVisible().catch(() => false);
-
-    if (isModalVisible) {
-      const modalText = await modal.textContent();
-      console.log(`[Cognitive Load] Unexpected modal on page load: ${modalText?.substring(0, 100)}`);
-    }
-
-    expect(
-      isModalVisible,
-      'Page load triggered an unexpected modal dialog'
-    ).toBe(false);
-  });
-});
-```
-
-## Generating a Cognitive Load Report
-
-Aggregate all metrics into a single report for stakeholder review.
-
-```typescript
-// tests/cognitive-load/reports/cognitive-load-report.spec.ts
-import { test, expect } from '@playwright/test';
-import { pageInventory } from '../fixtures/page-inventory';
-import { THRESHOLDS } from '../fixtures/thresholds';
-import { fleschKincaidGradeLevel } from '../utils/text-analysis';
-
-interface PageReport {
-  name: string;
-  route: string;
-  metrics: {
-    interactiveElements: number;
-    uniqueColors: number;
-    fontVariations: number;
-    formFields: number;
-    readingGradeLevel: number;
-  };
-  score: 'low' | 'medium' | 'high';
-  issues: string[];
-}
-
-test('generate cognitive load report for all pages', async ({ page }) => {
-  const reports: PageReport[] = [];
-
-  for (const pageInfo of pageInventory) {
-    await page.goto(pageInfo.route);
-    await page.waitForLoadState('networkidle');
-
-    const metrics = await page.evaluate(() => {
-      // Collect all metrics in a single evaluation for efficiency
-      const interactiveElements = document.querySelectorAll(
-        'a[href], button, input, select, textarea, [role="button"]'
-      ).length;
-
-      const colors = new Set<string>();
-      const fonts = new Set<string>();
-      const allElements = document.querySelectorAll('*');
-
-      allElements.forEach((el) => {
-        const styles = window.getComputedStyle(el);
-        colors.add(styles.color);
-        colors.add(styles.backgroundColor);
-        fonts.add(`${styles.fontFamily.split(',')[0]}-${Math.round(parseFloat(styles.fontSize))}-${styles.fontWeight}`);
-      });
-
-      const formFields = document.querySelectorAll(
-        'form input:not([type="hidden"]), form select, form textarea'
-      ).length;
-
-      const textContent = document.body.textContent || '';
-
-      return {
-        interactiveElements,
-        uniqueColors: colors.size,
-        fontVariations: fonts.size,
-        formFields,
-        textContent: textContent.substring(0, 5000),
-      };
-    });
-
-    const readingGradeLevel = fleschKincaidGradeLevel(metrics.textContent);
-    const issues: string[] = [];
-
-    if (metrics.interactiveElements > THRESHOLDS.MAX_INTERACTIVE_ELEMENTS_PER_VIEWPORT) {
-      issues.push(`Too many interactive elements: ${metrics.interactiveElements}`);
-    }
-    if (metrics.uniqueColors > THRESHOLDS.MAX_UNIQUE_COLORS) {
-      issues.push(`Too many colors: ${metrics.uniqueColors}`);
-    }
-    if (metrics.fontVariations > THRESHOLDS.MAX_FONT_VARIATIONS) {
-      issues.push(`Too many font variations: ${metrics.fontVariations}`);
-    }
-    if (readingGradeLevel > THRESHOLDS.MAX_READING_GRADE_LEVEL) {
-      issues.push(`Reading level too high: grade ${readingGradeLevel}`);
-    }
-
-    const score = issues.length === 0 ? 'low' : issues.length <= 2 ? 'medium' : 'high';
-
-    reports.push({
-      name: pageInfo.name,
-      route: pageInfo.route,
-      metrics: {
-        interactiveElements: metrics.interactiveElements,
-        uniqueColors: metrics.uniqueColors,
-        fontVariations: metrics.fontVariations,
-        formFields: metrics.formFields,
-        readingGradeLevel,
-      },
-      score,
-      issues,
-    });
-  }
-
-  // Output the report
-  console.log('\n=== Cognitive Load Report ===\n');
-  for (const report of reports) {
-    console.log(`${report.score.toUpperCase()} | ${report.name} (${report.route})`);
-    if (report.issues.length > 0) {
-      report.issues.forEach((issue) => console.log(`  - ${issue}`));
-    }
-  }
-
-  // Fail if any critical-flow page has high cognitive load
-  const criticalPages = pageInventory.filter((p) => p.criticalFlow).map((p) => p.name);
-  const criticalHighLoad = reports.filter(
-    (r) => criticalPages.includes(r.name) && r.score === 'high'
-  );
-
-  expect(
-    criticalHighLoad.length,
-    `${criticalHighLoad.length} critical pages have high cognitive load: ${criticalHighLoad.map((r) => r.name).join(', ')}`
-  ).toBe(0);
-});
 ```
 
 ## Best Practices
 
-1. **Establish baselines before optimizing** -- Run the full cognitive load analysis on the current state of the application before making changes. Use these baselines to measure improvement and prevent regression.
+1. **Measure cognitive load on every critical page.** Homepage, dashboard, checkout, settings, and search results are high-traffic pages where cognitive load directly impacts conversion.
 
-2. **Prioritize critical user flows** -- Not every page needs the same level of cognitive load optimization. Focus analysis on onboarding flows, core task completion paths, and high-traffic pages first.
+2. **Test at mobile viewport sizes.** Mobile screens increase information density. A dashboard manageable at 1440px may be overwhelming at 375px.
 
-3. **Use thresholds from research, not opinion** -- The thresholds in this skill are derived from established UX research (Miller's Law, Hick's Law, Flesch-Kincaid). Adjust them based on your user base, but always ground changes in evidence.
+3. **Count decisions, not just elements.** A list of 20 read-only rows differs from 20 selectable options. Focus on elements requiring user decisions.
 
-4. **Run cognitive load tests on every viewport** -- Desktop, tablet, and mobile layouts present different cognitive challenges. A sidebar navigation that works on desktop may become an overwhelming hamburger menu on mobile.
+4. **Audit consistency across at least 5 pages.** Single-page checks reveal nothing about cross-page coherence. Compare navigation, terminology, and layout patterns.
 
-5. **Track metrics over time** -- Cognitive load tends to increase gradually as features are added. Track key metrics (element count, color count, font variations) in CI and alert when they trend upward.
+5. **Measure task completion paths for the top 5 user tasks.** Registration, search, purchase, settings change, and content creation paths should all be under 5 steps.
 
-6. **Combine automated metrics with manual review** -- Automated heuristics catch quantifiable issues but miss qualitative problems like confusing iconography, misleading labels, or inconsistent mental models. Use automated metrics as a first pass, followed by periodic manual review.
+6. **Use progressive disclosure to reduce visible complexity.** Hide secondary information behind expandable sections, tabs, or drill-down patterns.
 
-7. **Test with real user data volumes** -- A dashboard with three items looks manageable. The same dashboard with three hundred items may be overwhelming. Test cognitive load at realistic data scales.
+7. **Apply Miller's Law to every grouping.** Navigation menus, form sections, card grids, and tab bars should contain 5-7 items maximum.
 
-8. **Validate chunking and grouping** -- When content exceeds Miller's Law thresholds, verify that it is grouped into meaningful chunks with clear section headers, dividers, or visual grouping cues.
+8. **Apply Hick's Law to CTAs.** One primary CTA and at most one secondary per viewport. Multiple competing CTAs cause paralysis.
 
-9. **Measure cognitive load during onboarding** -- New users have zero context. The onboarding experience must have the lowest possible cognitive load. Test every onboarding step independently.
+9. **Validate heading hierarchy semantically.** Headings must follow logical order without skipping levels for both accessibility and scannability.
 
-10. **Assert progressive disclosure in settings pages** -- Settings pages are notorious for overwhelming users. Verify that advanced options are collapsed, rarely-used features are behind "Show more" toggles, and sections are clearly labeled.
+10. **Maintain 30-50% whitespace.** Whitespace is a cognitive aid that separates information into digestible chunks. Below 30% feels cramped.
 
-11. **Check heading hierarchy for scannability** -- Pages should have a logical heading hierarchy (H1 > H2 > H3) that allows users to scan and find information quickly. Skipped heading levels or multiple H1 tags break the scanning pattern.
+11. **Standardize action labels across the application.** "Save" on one page and "Submit" on another for the same action forces reinterpretation.
+
+12. **Track cognitive load metrics over time.** As features accumulate, complexity creeps upward. Monitor per sprint to catch it early.
 
 ## Anti-Patterns to Avoid
 
-1. **Treating all pages equally** -- A settings page can tolerate higher element density than a landing page. Do not apply identical thresholds to every page category. Calibrate thresholds by page type.
+1. **Showing everything at once.** Displaying all settings, all options, and all data on a single page forces users to process hundreds of items.
 
-2. **Counting invisible elements** -- Elements that are hidden, off-screen, or behind collapsed sections should not count toward cognitive load metrics. Always filter to visible elements within the current viewport.
+2. **Too many navigation levels.** Navigation deeper than 3 levels forces users to track their position, consuming working memory.
 
-3. **Ignoring dynamic content** -- Pages that load additional content via infinite scroll, lazy loading, or real-time updates can exceed cognitive load thresholds after the initial render. Measure after dynamic content loads.
+3. **Inconsistent terminology.** Using "Save," "Submit," "Apply," "Confirm," and "Done" interchangeably for the same action creates confusion.
 
-4. **Using cognitive load as the sole quality metric** -- Low cognitive load is necessary but not sufficient. A page with one button and no text has low cognitive load but also low utility. Balance simplicity with functionality.
+4. **Visual monotony.** When every element has the same size, color, and weight, there is no hierarchy to guide scanning.
 
-5. **Applying Hick's Law to dissimilar choices** -- Hick's Law applies most strongly when choices are similar and require comparison. A navigation menu with clearly distinct items (Dashboard, Settings, Profile) imposes less decision cost than a list of similarly-named reports.
+5. **Hidden primary actions.** When the most important action is buried below the fold or styled identically to secondary actions, users cannot find it.
 
-6. **Optimizing for experts at the expense of novices** -- Dense, information-rich interfaces serve expert users but overwhelm newcomers. Design for the novice experience and provide expert shortcuts (keyboard commands, power-user views) as progressive enhancements.
+6. **Excessive form fields on one screen.** A 15-field registration form is intimidating. Break it into 3-4 steps of 3-5 fields.
+
+7. **No default selections.** Forcing every choice from scratch instead of providing smart defaults adds unnecessary cognitive work.
+
+8. **Ambiguous icons without labels.** Unlabeled icons require guessing. A gear icon could mean settings, configuration, tools, or preferences.
+
+9. **Identical visual weight for different importance levels.** When errors, info, and success messages look the same, users cannot quickly triage.
+
+10. **Context switching between pages for sub-tasks.** Navigating to a separate page for a sub-task during checkout disrupts the primary workflow.
 
 ## Debugging Tips
 
-- **Metric inconsistencies across browsers**: Different browsers compute styles slightly differently. If color or font counts vary between Chrome and Firefox, normalize computed values by rounding pixel sizes and converting color spaces before comparison.
+1. **Use the squint test.** Squint at the page until text is unreadable. The hierarchy should still be apparent through size, color, and spacing. If everything blurs uniformly, the hierarchy is flat.
 
-- **False positives in element density**: Navigation headers, footers, and fixed sidebars contribute to element counts on every page. Consider excluding global chrome elements from per-page analysis by subtracting a baseline element count.
+2. **Count decisions per viewport.** Scroll to any point and count every element requiring a user decision. More than 7 indicates overload.
 
-- **Whitespace calculation inaccuracy**: The sampling-based whitespace calculation is an approximation. For precise measurements, use a canvas-based approach that renders the page to a bitmap and counts white pixels. This is slower but more accurate.
+3. **Time yourself completing common tasks.** If you, an expert, take more than 30 seconds, a new user will struggle significantly more.
 
-- **Reading level skewed by code snippets**: If the page contains code examples or technical identifiers, the Flesch-Kincaid formula produces inflated grade levels. Filter out code blocks and data-testid attributes before measuring reading level.
+4. **Screenshot at multiple breakpoints** (320px, 375px, 768px, 1024px, 1440px) and compare density. Mobile breakpoints often reveal hidden problems.
 
-- **Dynamic content loading changes metrics**: If element density tests produce different results on each run, check for A/B tests, personalized content, or real-time data feeds that change the page composition. Use a deterministic test account with controlled content.
+5. **Map the information architecture.** Draw a tree of the page structure. Any branch deeper than 3 levels is a simplification candidate.
 
-- **Modal detection fails for custom implementations**: Some applications use custom modal implementations that lack standard `role="dialog"` attributes. Add fallback selectors for application-specific modal patterns.
+6. **Read headings as a table of contents.** Extract all headings and read them as a list. If they do not tell a coherent story, the structure needs work.
 
-- **Color audit counts transparent colors**: The CSS value `rgba(0, 0, 0, 0)` is technically a color but adds no visual load. Filter out fully transparent colors and colors that match the background.
+7. **Use a contrast checker** to verify the visual hierarchy uses sufficient differentiation. Prominent elements need high contrast; secondary ones need less.
+
+8. **Test with first-time users.** Cognitive load is highest for newcomers. Observe someone unfamiliar completing tasks. Note every hesitation, wrong click, and backtrack.
+
+9. **Track scroll depth and time-on-page.** Users scrolling past important content or spending disproportionate time indicates architecture problems.
+
+10. **Compare similar pages side by side.** Place settings next to profile, or search results next to category page. Inconsistencies become immediately visible.
