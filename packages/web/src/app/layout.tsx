@@ -104,7 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             Skip to main content
           </a>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} storageKey="qaskills-theme">
             <div className="flex min-h-screen flex-col">
               <Header />
               <main id="main-content" className="flex-1">{children}</main>

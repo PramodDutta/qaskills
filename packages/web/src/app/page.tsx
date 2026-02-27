@@ -27,8 +27,8 @@ const HIGHLIGHTED_HOME_SLUGS = new Set([
 ]);
 
 function getHomeRowStyle(slug: string, rank: number): string {
-  if (rank === 1) return 'bg-gradient-to-r from-sky-100 to-cyan-50 dark:from-sky-950/40 dark:to-cyan-950/20 border-sky-200 dark:border-sky-800/50';
-  if (HIGHLIGHTED_HOME_SLUGS.has(slug) || rank === 2) return 'bg-gradient-to-r from-yellow-100 to-amber-50 dark:from-yellow-950/40 dark:to-amber-950/20 border-yellow-300 dark:border-yellow-700/50';
+  if (rank === 1) return 'bg-gradient-to-r from-sky-100 to-cyan-50 dark:from-sky-900/60 dark:to-cyan-900/30 border-sky-200 dark:border-sky-700 text-sky-950 dark:text-sky-100';
+  if (HIGHLIGHTED_HOME_SLUGS.has(slug) || rank === 2) return 'bg-gradient-to-r from-yellow-100 to-amber-50 dark:from-yellow-900/60 dark:to-amber-900/30 border-yellow-300 dark:border-yellow-600 text-yellow-950 dark:text-yellow-100';
   return 'bg-card border-border hover:border-border/80';
 }
 
