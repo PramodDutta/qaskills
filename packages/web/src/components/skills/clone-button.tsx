@@ -4,6 +4,7 @@ import { useAuth, SignInButton } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import { GitFork } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { trackEvent } from '@/lib/analytics';
 
 interface CloneButtonProps {
   author: string;
@@ -15,7 +16,7 @@ export function CloneButton({ author, slug }: CloneButtonProps) {
   const router = useRouter();
 
   const handleClone = () => {
-    window?.datafast?.('clone_skill', { skill: slug, author });
+    trackEvent('clone_skill', { skill: slug, author });
     router.push(`/dashboard/create?clone=${encodeURIComponent(`${author}/${slug}`)}`);
   };
 

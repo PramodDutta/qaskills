@@ -82,19 +82,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <ClerkWrapper>
       <html lang="en" suppressHydrationWarning>
         <head>
-          <link rel="preconnect" href="https://datafa.st" />
-          <link rel="dns-prefetch" href="https://datafa.st" />
+          {/* Google Tag Manager (gtag.js) */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-DBRNT5VNQ3" />
           <script
-            id="datafast-queue"
+            id="gtag-init"
             dangerouslySetInnerHTML={{
-              __html: `window.datafast=window.datafast||function(){window.datafast.q=window.datafast.q||[];window.datafast.q.push(arguments)};`,
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-DBRNT5VNQ3', {
+                  page_title: document.title,
+                  send_page_view: true
+                });
+              `,
             }}
-          />
-          <script
-            defer
-            data-website-id="dfid_M89zv5zLlxDWoDHEHHnOB"
-            data-domain="qaskills.sh"
-            src="https://datafa.st/js/script.js"
           />
         </head>
         <body className={`${inter.variable} font-sans antialiased`}>

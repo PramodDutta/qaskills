@@ -312,7 +312,7 @@ npx @qaskills/cli add cicd-pipeline
 
 Each skill adds structured knowledge to your agent. The \`code-review-excellence\` skill, for example, teaches the agent to look for the specific patterns that AI-generated code gets wrong: missing error handling, implicit type coercions, unsanitized inputs, and duplicated logic. The \`javascript-testing-patterns\` skill teaches idiomatic test structures for Jest and Vitest, including proper mocking, assertion patterns, and test organization.
 
-Browse the full catalog of 45+ QA skills at [qaskills.sh/skills](/skills).
+Browse the full catalog of 300+ QA skills at [qaskills.sh/skills](/skills).
 
 The combination of TDD skills (to generate tests before code) and review skills (to catch what tests miss) creates a layered defense against AI code quality issues. For guidance on using TDD effectively with AI agents, see our [TDD best practices guide](/blog/tdd-ai-agents-best-practices).
 

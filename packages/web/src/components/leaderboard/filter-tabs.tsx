@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Trophy, TrendingUp, Flame, Clock } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { trackEvent } from '@/lib/analytics';
 
 const iconMap = {
   Trophy,
@@ -36,7 +37,7 @@ export function FilterTabs({ tabs, activeFilter }: FilterTabsProps) {
             key={tab.id}
             href={href}
             onClick={() => {
-              window?.datafast?.('leaderboard_filter_click', { filter: tab.id });
+              trackEvent('leaderboard_filter_click', { filter: tab.id });
             }}
           >
             <Badge

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { FileDown, BookOpenCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { trackEvent } from '@/lib/analytics';
 
 interface SkillDownloadButtonsProps {
   slug: string;
@@ -114,7 +115,7 @@ export function SkillDownloadButtons({
       if (!res.ok) throw new Error('Failed to fetch');
       const content = await res.text();
       triggerDownload(`${slug}.SKILL.md`, content);
-      window?.datafast?.('download_skill_md', { skill: slug });
+      trackEvent('download_skill_md', { skill_slug: slug, content_type: 'skill' });
     } catch {
       // User can retry — button returns to default state
     } finally {
@@ -125,7 +126,7 @@ export function SkillDownloadButtons({
   const handleDownloadGuide = () => {
     const guide = generateInstallGuide(slug, name, version, description, agents);
     triggerDownload(`${slug}-install-guide.md`, guide);
-    window?.datafast?.('download_install_guide', { skill: slug });
+    trackEvent('download_install_guide', { skill_slug: slug, content_type: 'guide' });
   };
 
   return (
@@ -135,8 +136,6 @@ export function SkillDownloadButtons({
         onClick={handleDownloadSkillMd}
         disabled={downloading}
         className="bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm"
-        data-fast-goal="download_skill_md"
-        data-fast-goal-skill={slug}
       >
         <FileDown className="h-4 w-4" />
         {downloading ? 'Downloading...' : 'Download SKILL.md'}
@@ -145,8 +144,6 @@ export function SkillDownloadButtons({
         size="sm"
         onClick={handleDownloadGuide}
         className="bg-blue-600 text-white hover:bg-blue-700 shadow-sm"
-        data-fast-goal="download_install_guide"
-        data-fast-goal-skill={slug}
       >
         <BookOpenCheck className="h-4 w-4" />
         How to Install

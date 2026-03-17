@@ -20,6 +20,7 @@ import {
   Code,
 } from 'lucide-react';
 import Link from 'next/link';
+import { trackEvent } from '@/lib/analytics';
 
 const STARTER_TEMPLATE = (username: string) => `---
 name: "My QA Skill"
@@ -217,7 +218,7 @@ export function SkillCreator() {
       } else {
         setPublishedSlug(data.skill.slug);
         setPublishedAuthor(data.skill.authorName);
-        window?.datafast?.('publish_skill_editor', { slug: data.skill.slug });
+        trackEvent('skill_published', { slug: data.skill.slug });
       }
     } catch (e) {
       setPublishError(e instanceof Error ? e.message : 'Network error');

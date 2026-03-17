@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Copy, Check, Terminal } from 'lucide-react';
 import { AGENTS } from '@qaskills/shared';
 import { cn } from '@/lib/utils';
+import { trackCommandCopy, trackEvent } from '@/lib/analytics';
 
 const topAgents = AGENTS.slice(0, 10);
 
@@ -20,7 +21,7 @@ export function AgentSelector({ selectedSkill }: AgentSelectorProps) {
   const handleCopy = async () => {
     await navigator.clipboard.writeText(command);
     setCopied(true);
-    window?.datafast?.('copy_install_command', { skill: selectedSkill, agent: selectedAgent.id });
+    trackCommandCopy(command, selectedSkill);
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -31,7 +32,7 @@ export function AgentSelector({ selectedSkill }: AgentSelectorProps) {
         {topAgents.map((agent) => (
           <button
             key={agent.id}
-            onClick={() => { setSelectedAgent(agent); window?.datafast?.('select_agent', { agent: agent.id }); }}
+            onClick={() => { setSelectedAgent(agent); trackEvent('select_agent', { agent: agent.id }); }}
             className={cn(
               'rounded-lg border px-3 py-3 text-sm font-medium transition-all duration-200 text-left',
               selectedAgent.id === agent.id

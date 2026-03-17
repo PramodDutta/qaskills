@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Copy, Check, Terminal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { trackSkillInstall, trackCommandCopy } from '@/lib/analytics';
 
 interface InstallButtonProps {
   skillSlug: string;
@@ -15,7 +16,8 @@ export function InstallButton({ skillSlug }: InstallButtonProps) {
   const handleCopy = async () => {
     await navigator.clipboard.writeText(command);
     setCopied(true);
-    window?.datafast?.('copy_install_command', { skill: skillSlug });
+    trackCommandCopy(command, skillSlug);
+    trackSkillInstall(skillSlug);
     setTimeout(() => setCopied(false), 2000);
   };
 

@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { TESTING_TYPES, FRAMEWORKS, LANGUAGES, DOMAINS } from '@qaskills/shared';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
+import { trackFilter } from '@/lib/analytics';
 
 interface FilterPanelProps {
   activeFacets?: {
@@ -19,7 +20,7 @@ export function FilterPanel({ activeFacets }: FilterPanelProps) {
   const searchParams = useSearchParams();
 
   const toggleFilter = (key: string, value: string) => {
-    window?.datafast?.('filter_skills', { filter_type: key, filter_value: value });
+    trackFilter(key, value);
     const params = new URLSearchParams(searchParams.toString());
     const current = params.getAll(key);
     if (current.includes(value)) {

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { trackEvent } from '@/lib/analytics';
 
 interface ReviewUser {
   name: string;
@@ -201,7 +202,7 @@ export function ReviewSection({ skillId }: { skillId: string }) {
 
       // Success
       setSubmitSuccess(true);
-      window?.datafast?.('review_submitted', { skill_id: skillId, rating: String(formRating) });
+      trackEvent('review_submitted', { skill_id: skillId, rating: formRating });
       setFormRating(0);
       setFormComment('');
       setShowForm(false);

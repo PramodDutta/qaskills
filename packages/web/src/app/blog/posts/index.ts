@@ -67,6 +67,21 @@ import { post as storybookTestingGuide } from './storybook-component-testing-gui
 import { post as testPlanningGuide } from './test-planning-strategy-guide';
 import { post as codeReviewQaGuide } from './code-review-qa-testing-guide';
 import { post as aiTestGenerationGuide } from './ai-test-generation-tools-guide';
+import { post as testcontainersDockerGuide } from './testcontainers-docker-integration-testing';
+import { post as aiAgentTestingWorkflows } from './ai-agent-testing-workflows-comparison';
+import { post as reactNextjsTestingGuide } from './react-nextjs-testing-complete-guide';
+import { post as testAutomationFrameworkArchitecture } from './test-automation-framework-architecture';
+import { post as observabilityDrivenTestingGuide } from './observability-driven-testing-guide';
+import { post as dockerTestingGuide } from './docker-testing-strategies-guide';
+import { post as typescriptTestingGuide } from './typescript-testing-patterns-guide';
+import { post as aiDebuggingGuide } from './ai-powered-debugging-testing-guide';
+import { post as eventDrivenTestingGuide } from './event-driven-architecture-testing-guide';
+import { post as serverlessTestingGuide } from './serverless-testing-complete-guide';
+import { post as propertyBasedTestingGuide } from './property-based-testing-complete-guide';
+import { post as designSystemsTestingGuide } from './testing-design-systems-component-libraries';
+import { post as testEnvironmentGuide } from './test-environment-management-guide';
+import { post as aiCodeReviewGuide } from './ai-code-review-qa-engineers-guide';
+import { post as testingLlmAppsGuide } from './testing-llm-applications-guide';
 
 // Original posts
 const introducingQaskills: BlogPost = {
@@ -207,7 +222,7 @@ Give your AI agent QA superpowers:
 npx @qaskills/cli add playwright-e2e
 \`\`\`
 
-Browse all 45+ skills at [qaskills.sh/skills](/skills).
+Browse all 300+ skills at [qaskills.sh/skills](/skills).
 `,
 };
 
@@ -275,10 +290,85 @@ export const posts: Record<string, BlogPost> = {
   'test-planning-strategy-guide': testPlanningGuide,
   'code-review-qa-testing-guide': codeReviewQaGuide,
   'ai-test-generation-tools-guide': aiTestGenerationGuide,
+  'testcontainers-docker-integration-testing': testcontainersDockerGuide,
+  'ai-agent-testing-workflows-comparison': aiAgentTestingWorkflows,
+  'react-nextjs-testing-complete-guide': reactNextjsTestingGuide,
+  'test-automation-framework-architecture': testAutomationFrameworkArchitecture,
+  'observability-driven-testing-guide': observabilityDrivenTestingGuide,
+  'docker-testing-strategies-guide': dockerTestingGuide,
+  'typescript-testing-patterns-guide': typescriptTestingGuide,
+  'ai-powered-debugging-testing-guide': aiDebuggingGuide,
+  'event-driven-architecture-testing-guide': eventDrivenTestingGuide,
+  'serverless-testing-complete-guide': serverlessTestingGuide,
+  'property-based-testing-complete-guide': propertyBasedTestingGuide,
+  'testing-design-systems-component-libraries': designSystemsTestingGuide,
+  'test-environment-management-guide': testEnvironmentGuide,
+  'ai-code-review-qa-engineers-guide': aiCodeReviewGuide,
+  'testing-llm-applications-guide': testingLlmAppsGuide,
 };
 
 // Ordered list for the blog listing page (newest first)
 export const postList = [
+  {
+    slug: 'testing-llm-applications-guide',
+    ...testingLlmAppsGuide,
+  },
+  {
+    slug: 'ai-code-review-qa-engineers-guide',
+    ...aiCodeReviewGuide,
+  },
+  {
+    slug: 'test-environment-management-guide',
+    ...testEnvironmentGuide,
+  },
+  {
+    slug: 'testing-design-systems-component-libraries',
+    ...designSystemsTestingGuide,
+  },
+  {
+    slug: 'property-based-testing-complete-guide',
+    ...propertyBasedTestingGuide,
+  },
+  {
+    slug: 'serverless-testing-complete-guide',
+    ...serverlessTestingGuide,
+  },
+  {
+    slug: 'event-driven-architecture-testing-guide',
+    ...eventDrivenTestingGuide,
+  },
+  {
+    slug: 'ai-powered-debugging-testing-guide',
+    ...aiDebuggingGuide,
+  },
+  {
+    slug: 'typescript-testing-patterns-guide',
+    ...typescriptTestingGuide,
+  },
+  {
+    slug: 'docker-testing-strategies-guide',
+    ...dockerTestingGuide,
+  },
+  {
+    slug: 'observability-driven-testing-guide',
+    ...observabilityDrivenTestingGuide,
+  },
+  {
+    slug: 'test-automation-framework-architecture',
+    ...testAutomationFrameworkArchitecture,
+  },
+  {
+    slug: 'react-nextjs-testing-complete-guide',
+    ...reactNextjsTestingGuide,
+  },
+  {
+    slug: 'ai-agent-testing-workflows-comparison',
+    ...aiAgentTestingWorkflows,
+  },
+  {
+    slug: 'testcontainers-docker-integration-testing',
+    ...testcontainersDockerGuide,
+  },
   {
     slug: 'ai-test-generation-tools-guide',
     ...aiTestGenerationGuide,

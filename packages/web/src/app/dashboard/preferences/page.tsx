@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Bell, Mail, CheckCircle, AlertCircle } from 'lucide-react';
+import { trackEvent } from '@/lib/analytics';
 
 export default function PreferencesPage() {
   const [loading, setLoading] = useState(true);
@@ -51,7 +52,7 @@ export default function PreferencesPage() {
 
       if (res.ok) {
         // Track preference update
-        window?.datafast?.('email_preferences_updated', {
+        trackEvent('email_preferences_updated', {
           email_notifications: String(preferences.emailNotifications),
           weekly_digest: String(preferences.weeklyDigest),
           new_skill_alerts: String(preferences.newSkillAlerts),
@@ -82,7 +83,7 @@ export default function PreferencesPage() {
     setPreferences((prev) => ({ ...prev, [key]: newValue }));
 
     // Track toggle
-    window?.datafast?.('preference_toggled', {
+    trackEvent('preference_toggled', {
       preference: key,
       enabled: String(newValue),
     });

@@ -72,7 +72,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="text-center">
             <Badge variant="secondary" className="mb-6 animate-fade-in-up">
-              Open Source &middot; 280+ Skills
+              Open Source &middot; 300+ Skills
             </Badge>
             <h1 className="animate-fade-in-up delay-100 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
               QA Skills for
@@ -116,7 +116,7 @@ export default function HomePage() {
                 className="flex items-center gap-2 rounded-lg border border-border bg-muted px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Search className="h-3.5 w-3.5" />
-                <span>Search 280+ skills...</span>
+                <span>Search 300+ skills...</span>
               </Link>
               <Button variant="ghost" size="sm" asChild>
                 <Link href="/leaderboard">

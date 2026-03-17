@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import { trackEvent } from '@/lib/analytics';
 
 const steps = ['Repository', 'Parse SKILL.md', 'Categories', 'Preview', 'Publish'];
 
@@ -147,7 +148,7 @@ export default function PublishPage() {
 
       setPublishResult(json as PublishResult);
       setCurrentStep(4);
-      window?.datafast?.('skill_published', {
+      trackEvent('skill_published', {
         skill_name: formData.name,
         frameworks: formData.frameworks.join(','),
         testing_types: formData.testingTypes.join(','),

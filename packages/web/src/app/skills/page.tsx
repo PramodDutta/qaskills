@@ -13,7 +13,7 @@ import { generateBreadcrumbJsonLd } from '@/lib/json-ld';
 export const metadata = {
   title: 'Browse QA Skills',
   description:
-    'Search and filter 45+ curated QA testing skills by framework, testing type, and language. Install into Claude Code, Cursor, Copilot, and 30+ AI agents.',
+    'Search and filter 300+ curated QA testing skills by framework, testing type, and language. Install into Claude Code, Cursor, Copilot, and 30+ AI agents.',
 };
 
 interface SkillsPageProps {
@@ -237,7 +237,7 @@ export default async function SkillsPage({ searchParams }: SkillsPageProps) {
             '@type': 'CollectionPage',
             name: 'Browse QA Skills',
             description:
-              'Search and filter curated QA testing skills for AI coding agents. Playwright, Cypress, Jest, and 45+ skills.',
+              'Search and filter curated QA testing skills for AI coding agents. Playwright, Cypress, Jest, and 300+ skills.',
             url: 'https://qaskills.sh/skills',
             mainEntity: {
               '@type': 'ItemList',

@@ -14,6 +14,7 @@ import { Badge } from '@/components/ui/badge';
 import { InstallButton } from '@/components/skills/install-button';
 import { SignupGate } from '@/components/auth/signup-gate';
 import { formatNumber } from '@/lib/utils';
+import { trackPackAction } from '@/lib/analytics';
 
 interface Pack {
   name: string;
@@ -35,11 +36,7 @@ function PackCard({ pack }: { pack: Pack }) {
       key={pack.slug}
       className="flex flex-col"
       onClick={() => {
-        window?.datafast?.('pack_viewed', {
-          pack_name: pack.slug,
-          skill_count: String(pack.skillCount),
-          featured: String(pack.featured),
-        });
+        trackPackAction('view', pack.slug);
       }}
     >
       <CardHeader>

@@ -1,5 +1,7 @@
 'use client';
 
+import { trackPackAction } from '@/lib/analytics';
+
 interface PackCardTrackerProps {
   packSlug: string;
   skillCount: number;
@@ -16,11 +18,7 @@ export function PackCardTracker({
   return (
     <div
       onClick={() => {
-        window?.datafast?.('pack_viewed', {
-          pack_name: packSlug,
-          skill_count: String(skillCount),
-          featured: String(featured),
-        });
+        trackPackAction('view', packSlug);
       }}
     >
       {children}

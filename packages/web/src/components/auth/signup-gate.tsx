@@ -5,6 +5,7 @@ import { ReactNode, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Lock } from 'lucide-react';
+import { trackEvent } from '@/lib/analytics';
 
 interface SignupGateProps {
   feature: string;
@@ -24,9 +25,8 @@ export function SignupGate({
   const { isSignedIn, isLoaded } = useAuth();
 
   useEffect(() => {
-    // Track gate hit in datafa.st
-    if (isLoaded && !isSignedIn && typeof window !== 'undefined') {
-      window?.datafast?.('gate_hit', { feature });
+    if (isLoaded && !isSignedIn) {
+      trackEvent('gate_hit', { feature });
     }
   }, [isLoaded, isSignedIn, feature]);
 

@@ -12,7 +12,7 @@ import { desc, sql, ilike } from 'drizzle-orm';
 export const metadata = {
   title: 'Leaderboard',
   description:
-    'Top QA skills from 280+ curated testing skills ranked by installs, quality score, and trending activity. See which testing skills AI agents use most.',
+    'Top QA skills from 300+ curated testing skills ranked by installs, quality score, and trending activity. See which testing skills AI agents use most.',
 };
 
 // Revalidate every 5 minutes
@@ -166,7 +166,7 @@ export default async function LeaderboardPage({
         <div>
           <h1 className="text-3xl font-bold">Leaderboard</h1>
           <p className="mt-2 text-muted-foreground">
-            Top QA skills ranked by installs and quality across 280+ curated skills
+            Top QA skills ranked by installs and quality across 300+ curated skills
           </p>
         </div>
         <LeaderboardSearch initialQuery={search} />

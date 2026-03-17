@@ -21,7 +21,7 @@ The gap between "tests that pass" and "tests that a senior QA engineer would app
 
 This is where **Claude Code testing skills** come in. A QA skill is a structured knowledge file that you install into your agent. It contains expert-level testing patterns, framework-specific idioms, project structure recommendations, anti-patterns to avoid, and real-world code examples. When Claude Code has a skill loaded, every test it writes follows proven, production-grade patterns.
 
-You can browse the full catalog of 45+ skills at [qaskills.sh/skills](/skills), or check out the [Claude Code agent page](/agents/claude-code) for skills optimized specifically for this agent.
+You can browse the full catalog of 300+ skills at [qaskills.sh/skills](/skills), or check out the [Claude Code agent page](/agents/claude-code) for skills optimized specifically for this agent.
 
 Let us walk through the five skills that deliver the most impact.
 
@@ -237,7 +237,7 @@ npx @qaskills/cli add accessibility-axe
 
 Verify installation with \`npx @qaskills/cli list\`, then open Claude Code and ask it to write a test. You will immediately notice the difference: proper Page Object Model structure, correct fixture usage, comprehensive assertions, and production-grade patterns throughout.
 
-Browse the full directory at [qaskills.sh/skills](/skills), or visit the [Getting Started guide](/getting-started) for a detailed walkthrough. With 45+ curated QA skills and growing, QASkills.sh is the fastest way to give your AI coding agent the testing expertise it needs.
+Browse the full directory at [qaskills.sh/skills](/skills), or visit the [Getting Started guide](/getting-started) for a detailed walkthrough. With 300+ curated QA skills and growing, QASkills.sh is the fastest way to give your AI coding agent the testing expertise it needs.
 
 ---
 

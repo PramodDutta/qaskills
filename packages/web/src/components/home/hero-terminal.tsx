@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Copy, Check } from 'lucide-react';
+import { trackCommandCopy } from '@/lib/analytics';
 
 const SKILLS = [
   'playwright-e2e',
@@ -73,7 +74,7 @@ export function HeroTerminal() {
     try {
       await navigator.clipboard.writeText(`${BASE_COMMAND}${currentSlug}`);
       setCopied(true);
-      window?.datafast?.('copy_hero_command');
+      trackCommandCopy(`${BASE_COMMAND}${currentSlug}`);
       setTimeout(() => setCopied(false), 2000);
     } catch {
       // Clipboard API unavailable or permission denied
