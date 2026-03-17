@@ -883,14 +883,14 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run tests (shard ${{ matrix.shard }})
-        run: npx playwright test --shard=${{ matrix.shard }}
+      - name: Run tests (shard $\{{ matrix.shard }})
+        run: npx playwright test --shard=$\{{ matrix.shard }}
 
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results-${{ strategy.job-index }}
+          name: test-results-$\{{ strategy.job-index }}
           path: |
             test-results/
             playwright-report/
