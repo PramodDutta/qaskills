@@ -897,6 +897,6 @@ npx @qaskills/cli add zod-validation-testing
 
 Then let your AI agent generate type-safe tests that compile correctly from the start. The combination of TypeScript's static analysis, modern test runners like Vitest, and AI-assisted test generation makes 2026 the best time to invest in type-safe testing practices.
 
-Browse 300+ QA skills at [qaskills.sh/skills](https://qaskills.sh/skills).
+Browse 450+ QA skills at [qaskills.sh/skills](https://qaskills.sh/skills).
 `,
 };

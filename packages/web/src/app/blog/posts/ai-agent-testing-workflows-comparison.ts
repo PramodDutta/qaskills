@@ -18,7 +18,7 @@ This guide provides a comprehensive, side-by-side comparison of **Claude Code**,
 - **GitHub Copilot** excels at inline test completions and chat-based generation but offers limited persistent testing knowledge
 - **Skill stacking** -- installing multiple complementary QA skills -- produces dramatically better test output than any single agent configuration
 - The best workflow for most teams in 2026 is a **hybrid approach**: use qaskills.sh to install domain-specific testing knowledge, then leverage whichever agent fits your editor preference
-- **300+ QA skills** are available on qaskills.sh, covering every major testing framework, pattern, and domain
+- **450+ QA skills** are available on qaskills.sh, covering every major testing framework, pattern, and domain
 
 ---
 

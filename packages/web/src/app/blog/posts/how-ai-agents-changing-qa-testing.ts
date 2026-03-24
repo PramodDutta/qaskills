@@ -180,7 +180,7 @@ npx @qaskills/cli search
 npx @qaskills/cli add playwright-e2e
 \`\`\`
 
-Browse all 300+ skills at [qaskills.sh/skills](/skills). Give your AI agent QA superpowers.
+Browse all 450+ skills at [qaskills.sh/skills](/skills). Give your AI agent QA superpowers.
 
 ---
 

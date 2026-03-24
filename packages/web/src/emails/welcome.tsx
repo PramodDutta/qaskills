@@ -43,7 +43,7 @@ export default function WelcomeEmail({ username, unsubscribeUrl }: WelcomeEmailP
           <Text style={text}>Here's what you can do now:</Text>
           <ul style={list}>
             <li style={listItem}>
-              <strong>Explore Skills:</strong> Browse 300+ curated QA testing skills for AI agents
+              <strong>Explore Skills:</strong> Browse 450+ curated QA testing skills for AI agents
             </li>
             <li style={listItem}>
               <strong>Install Skills:</strong> Use our CLI to add skills to your AI agent instantly

@@ -1394,6 +1394,6 @@ npx @qaskills/cli add playwright-e2e
 
 Then build your test suite layer by layer, starting with the data layer and working up to E2E flows. Your future self -- and your team -- will thank you.
 
-Browse 300+ QA skills at [qaskills.sh/skills](https://qaskills.sh/skills).
+Browse 450+ QA skills at [qaskills.sh/skills](https://qaskills.sh/skills).
 `,
 };

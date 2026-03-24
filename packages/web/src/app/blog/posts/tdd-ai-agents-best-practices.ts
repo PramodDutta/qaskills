@@ -257,7 +257,7 @@ npx @qaskills/cli list
 
 Then give your AI agent a test-first instruction: "Write a failing test for a \`calculateDiscount\` function. Do not write the implementation yet." Watch the Red-Green-Refactor cycle in action.
 
-Browse all 300+ QA skills at [qaskills.sh/skills](/skills).
+Browse all 450+ QA skills at [qaskills.sh/skills](/skills).
 
 ---
 

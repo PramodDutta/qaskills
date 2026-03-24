@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import type { Metadata } from 'next';
@@ -16,7 +17,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const post = posts[slug];
   if (!post) return { title: 'Post Not Found' };
 
-  const ogImageUrl = `/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description)}`;
+  const ogImageUrl =
+    post.image ||
+    `/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description)}`;
 
   return {
     title: post.title,
@@ -56,7 +59,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               description: post.description,
               date: post.date,
               slug,
-              image: `https://qaskills.sh/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description)}`,
+              image:
+                post.image ||
+                `https://qaskills.sh/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description)}`,
             }),
           ),
         }}
@@ -87,6 +92,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <h1 className="text-4xl font-bold">{post.title}</h1>
           <p className="mt-4 text-lg text-muted-foreground">{post.description}</p>
         </div>
+
+        {post.image ? (
+          <div className="mb-10 overflow-hidden rounded-xl border border-border">
+            <Image
+              src={post.image}
+              alt={post.imageAlt || post.title}
+              width={1600}
+              height={900}
+              className="h-auto w-full object-cover"
+              priority
+            />
+          </div>
+        ) : null}
 
         <BlogContent content={post.content} />
       </article>
