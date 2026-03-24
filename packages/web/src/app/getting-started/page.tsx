@@ -22,7 +22,7 @@ export default function GettingStartedPage() {
           Get Started in <span className="text-primary">30 Seconds</span>
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Install your first QA testing skill into your AI agent. Choose from 300+ professional skills trusted by the testing community.
+          Install your first QA testing skill into your AI agent. Choose from 450+ professional skills trusted by the testing community.
         </p>
       </div>
 
@@ -384,7 +384,7 @@ export default function GettingStartedPage() {
           >
             <p className="font-medium group-hover:text-primary transition-colors">Browse Skills</p>
             <p className="mt-1 text-sm text-muted-foreground">
-              Explore 300+ curated QA skills for every testing need.
+              Explore 450+ curated QA skills for every testing need.
             </p>
           </Link>
           <Link

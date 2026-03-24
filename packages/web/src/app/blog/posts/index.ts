@@ -4,6 +4,8 @@ export interface BlogPost {
   date: string;
   category: string;
   content: string;
+  image?: string;
+  imageAlt?: string;
 }
 
 // Import all posts
@@ -82,6 +84,45 @@ import { post as designSystemsTestingGuide } from './testing-design-systems-comp
 import { post as testEnvironmentGuide } from './test-environment-management-guide';
 import { post as aiCodeReviewGuide } from './ai-code-review-qa-engineers-guide';
 import { post as testingLlmAppsGuide } from './testing-llm-applications-guide';
+import { post as cypressAiAgentsGuide } from './cypress-e2e-testing-ai-agents-guide';
+import { post as seleniumAiAgentsGuide } from './selenium-testing-ai-agents-guide';
+import { post as openapiContractTestingGuide } from './openapi-contract-testing-guide';
+import { post as authzTestingGuide } from './authentication-authorization-testing-guide';
+import { post as qaSkillPublisherGuide } from './how-to-write-high-quality-qa-skills';
+import { post as stateOfAiTestingGuide } from './state-of-ai-powered-testing-2026';
+import { post as cursorSkillsGuide } from './qa-skills-for-cursor-2026';
+import { post as copilotSkillsGuide } from './qa-skills-for-github-copilot-2026';
+import { post as windsurfSkillsGuide } from './qa-skills-for-windsurf-2026';
+import { post as clineSkillsGuide } from './qa-skills-for-cline-2026';
+import { post as webdriverioGuide } from './webdriverio-testing-complete-guide';
+import { post as junit5Guide } from './junit5-testing-java-guide';
+import { post as testngVsJunit5Guide } from './testng-vs-junit5-comparison';
+import { post as mochaChaiGuide } from './mocha-chai-testing-guide';
+import { post as robotFrameworkGuide } from './robot-framework-testing-guide';
+import { post as rspecGuide } from './rspec-ruby-testing-guide';
+import { post as phpunitGuide } from './phpunit-testing-complete-guide';
+import { post as dotnetTestingGuide } from './dotnet-testing-xunit-nunit-guide';
+import { post as bddComparisonGuide } from './bdd-frameworks-comparison-2026';
+import { post as puppeteerVsPlaywrightGuide } from './puppeteer-vs-playwright-testing';
+import { post as nightwatchGuide } from './nightwatchjs-testing-guide';
+import { post as testcafeGuide } from './testcafe-e2e-testing-guide';
+import { post as specflowGuide } from './specflow-bdd-dotnet-guide';
+import { post as gaugeGuide } from './gauge-testing-complete-guide';
+import { post as serenityBddGuide } from './serenity-bdd-testing-guide';
+import { post as capybaraGuide } from './capybara-ruby-testing-guide';
+import { post as selenideGuide } from './selenide-java-testing-guide';
+import { post as laravelDuskGuide } from './laravel-testing-dusk-guide';
+import { post as pythonUnittestVsPytestGuide } from './python-unittest-vs-pytest';
+import { post as karmaJasmineGuide } from './karma-jasmine-angular-testing';
+import { post as aiQaSkillsDirectoryGuide } from './ai-qa-skills-directory-2026';
+import { post as migratingFrameworksGuide } from './migrating-test-frameworks-guide';
+import { generatedSeoBatch2026Posts } from './generated-seo-batch-2026';
+import { seoPriorityOverrides2026 } from './seo-priority-overrides-2026';
+
+const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
+const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
+  ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
+);
 
 // Original posts
 const introducingQaskills: BlogPost = {
@@ -222,7 +263,7 @@ Give your AI agent QA superpowers:
 npx @qaskills/cli add playwright-e2e
 \`\`\`
 
-Browse all 300+ skills at [qaskills.sh/skills](/skills).
+Browse all 450+ skills at [qaskills.sh/skills](/skills).
 `,
 };
 
@@ -305,10 +346,176 @@ export const posts: Record<string, BlogPost> = {
   'test-environment-management-guide': testEnvironmentGuide,
   'ai-code-review-qa-engineers-guide': aiCodeReviewGuide,
   'testing-llm-applications-guide': testingLlmAppsGuide,
+  'cypress-e2e-testing-ai-agents-guide': cypressAiAgentsGuide,
+  'selenium-testing-ai-agents-guide': seleniumAiAgentsGuide,
+  'openapi-contract-testing-guide': openapiContractTestingGuide,
+  'authentication-authorization-testing-guide': authzTestingGuide,
+  'how-to-write-high-quality-qa-skills': qaSkillPublisherGuide,
+  'state-of-ai-powered-testing-2026': stateOfAiTestingGuide,
+  'qa-skills-for-cursor-2026': cursorSkillsGuide,
+  'qa-skills-for-github-copilot-2026': copilotSkillsGuide,
+  'qa-skills-for-windsurf-2026': windsurfSkillsGuide,
+  'qa-skills-for-cline-2026': clineSkillsGuide,
+  'webdriverio-testing-complete-guide': webdriverioGuide,
+  'junit5-testing-java-guide': junit5Guide,
+  'testng-vs-junit5-comparison': testngVsJunit5Guide,
+  'mocha-chai-testing-guide': mochaChaiGuide,
+  'robot-framework-testing-guide': robotFrameworkGuide,
+  'rspec-ruby-testing-guide': rspecGuide,
+  'phpunit-testing-complete-guide': phpunitGuide,
+  'dotnet-testing-xunit-nunit-guide': dotnetTestingGuide,
+  'bdd-frameworks-comparison-2026': bddComparisonGuide,
+  'puppeteer-vs-playwright-testing': puppeteerVsPlaywrightGuide,
+  'nightwatchjs-testing-guide': nightwatchGuide,
+  'testcafe-e2e-testing-guide': testcafeGuide,
+  'specflow-bdd-dotnet-guide': specflowGuide,
+  'gauge-testing-complete-guide': gaugeGuide,
+  'serenity-bdd-testing-guide': serenityBddGuide,
+  'capybara-ruby-testing-guide': capybaraGuide,
+  'selenide-java-testing-guide': selenideGuide,
+  'laravel-testing-dusk-guide': laravelDuskGuide,
+  'python-unittest-vs-pytest': pythonUnittestVsPytestGuide,
+  'karma-jasmine-angular-testing': karmaJasmineGuide,
+  'ai-qa-skills-directory-2026': aiQaSkillsDirectoryGuide,
+  'migrating-test-frameworks-guide': migratingFrameworksGuide,
+  ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
+  ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
 };
 
 // Ordered list for the blog listing page (newest first)
 export const postList = [
+  {
+    slug: 'ai-qa-skills-directory-2026',
+    ...aiQaSkillsDirectoryGuide,
+  },
+  {
+    slug: 'migrating-test-frameworks-guide',
+    ...migratingFrameworksGuide,
+  },
+  {
+    slug: 'webdriverio-testing-complete-guide',
+    ...webdriverioGuide,
+  },
+  {
+    slug: 'junit5-testing-java-guide',
+    ...junit5Guide,
+  },
+  {
+    slug: 'testng-vs-junit5-comparison',
+    ...testngVsJunit5Guide,
+  },
+  {
+    slug: 'mocha-chai-testing-guide',
+    ...mochaChaiGuide,
+  },
+  {
+    slug: 'robot-framework-testing-guide',
+    ...robotFrameworkGuide,
+  },
+  {
+    slug: 'rspec-ruby-testing-guide',
+    ...rspecGuide,
+  },
+  {
+    slug: 'phpunit-testing-complete-guide',
+    ...phpunitGuide,
+  },
+  {
+    slug: 'dotnet-testing-xunit-nunit-guide',
+    ...dotnetTestingGuide,
+  },
+  {
+    slug: 'bdd-frameworks-comparison-2026',
+    ...bddComparisonGuide,
+  },
+  {
+    slug: 'puppeteer-vs-playwright-testing',
+    ...puppeteerVsPlaywrightGuide,
+  },
+  {
+    slug: 'nightwatchjs-testing-guide',
+    ...nightwatchGuide,
+  },
+  {
+    slug: 'testcafe-e2e-testing-guide',
+    ...testcafeGuide,
+  },
+  {
+    slug: 'specflow-bdd-dotnet-guide',
+    ...specflowGuide,
+  },
+  {
+    slug: 'gauge-testing-complete-guide',
+    ...gaugeGuide,
+  },
+  {
+    slug: 'serenity-bdd-testing-guide',
+    ...serenityBddGuide,
+  },
+  {
+    slug: 'capybara-ruby-testing-guide',
+    ...capybaraGuide,
+  },
+  {
+    slug: 'selenide-java-testing-guide',
+    ...selenideGuide,
+  },
+  {
+    slug: 'laravel-testing-dusk-guide',
+    ...laravelDuskGuide,
+  },
+  {
+    slug: 'python-unittest-vs-pytest',
+    ...pythonUnittestVsPytestGuide,
+  },
+  {
+    slug: 'karma-jasmine-angular-testing',
+    ...karmaJasmineGuide,
+  },
+  {
+    slug: 'state-of-ai-powered-testing-2026',
+    ...stateOfAiTestingGuide,
+  },
+  ...seoPriorityOverrides2026.map(({ slug, post }) => ({
+    slug,
+    ...post,
+  })),
+  {
+    slug: 'how-to-write-high-quality-qa-skills',
+    ...qaSkillPublisherGuide,
+  },
+  {
+    slug: 'cypress-e2e-testing-ai-agents-guide',
+    ...cypressAiAgentsGuide,
+  },
+  {
+    slug: 'selenium-testing-ai-agents-guide',
+    ...seleniumAiAgentsGuide,
+  },
+  {
+    slug: 'openapi-contract-testing-guide',
+    ...openapiContractTestingGuide,
+  },
+  {
+    slug: 'authentication-authorization-testing-guide',
+    ...authzTestingGuide,
+  },
+  {
+    slug: 'qa-skills-for-cursor-2026',
+    ...cursorSkillsGuide,
+  },
+  {
+    slug: 'qa-skills-for-github-copilot-2026',
+    ...copilotSkillsGuide,
+  },
+  {
+    slug: 'qa-skills-for-windsurf-2026',
+    ...windsurfSkillsGuide,
+  },
+  {
+    slug: 'qa-skills-for-cline-2026',
+    ...clineSkillsGuide,
+  },
   {
     slug: 'testing-llm-applications-guide',
     ...testingLlmAppsGuide,
@@ -621,4 +828,8 @@ export const postList = [
     slug: 'ai-agents-qa-revolution',
     ...aiAgentsRevolution,
   },
+  ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
+    slug,
+    ...post,
+  })),
 ];
