@@ -10,7 +10,7 @@ import { skills } from '@/db/schema';
 import { desc, sql, ilike } from 'drizzle-orm';
 
 export const metadata = {
-  title: 'Leaderboard',
+  title: 'Top QA Skills Leaderboard: Most Installed Testing Skills for AI Agents',
   description:
     'Top QA skills from 450+ curated testing skills ranked by installs, quality score, and trending activity. See which testing skills AI agents use most.',
 };

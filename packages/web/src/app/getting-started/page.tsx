@@ -16,6 +16,42 @@ export const metadata: Metadata = {
 export default function GettingStartedPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'HowTo',
+            name: 'Install QA Skills into AI Coding Agents',
+            description: 'Install your first QA testing skill into Claude Code, Cursor, Copilot, or any AI coding agent in under 30 seconds.',
+            totalTime: 'PT30S',
+            tool: [
+              { '@type': 'HowToTool', name: 'Node.js 18+' },
+              { '@type': 'HowToTool', name: 'npx (comes with Node.js)' },
+            ],
+            step: [
+              {
+                '@type': 'HowToStep',
+                position: 1,
+                name: 'Choose your agent and pick a skill',
+                text: 'Select the AI agent you use (Claude Code, Cursor, Copilot, etc.) and pick a starter skill from 450+ available options.',
+              },
+              {
+                '@type': 'HowToStep',
+                position: 2,
+                name: 'Run the install command',
+                text: 'Run npx @qaskills/cli add <skill-name> in your terminal. The CLI auto-detects your AI agent.',
+              },
+              {
+                '@type': 'HowToStep',
+                position: 3,
+                name: 'Start using the skill',
+                text: 'Open your AI agent and ask it to write tests. It now has expert-level QA knowledge from the installed skill.',
+              },
+            ],
+          }),
+        }}
+      />
       {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">

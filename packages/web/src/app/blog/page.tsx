@@ -5,9 +5,9 @@ import { generateBreadcrumbJsonLd } from '@/lib/json-ld';
 import { postList } from './posts';
 
 export const metadata = {
-  title: 'Blog',
+  title: 'QA Testing Blog: Tutorials, Guides & AI Agent Tips',
   description:
-    'QA testing insights, tutorials, and guides for using AI coding agents with curated testing skills. By The Testing Academy.',
+    'Expert QA testing tutorials, framework comparisons, and AI agent guides. Playwright, Cypress, Selenium, Jest, pytest, and 100+ testing topics. By The Testing Academy.',
 };
 
 export default function BlogPage() {
