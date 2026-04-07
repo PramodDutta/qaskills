@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { PromoBanner } from '@/components/layout/promo-banner';
 import { ClerkWrapper } from '@/components/clerk-wrapper';
 import './globals.css';
 
@@ -114,6 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </a>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} storageKey="qaskills-theme">
             <div className="flex min-h-screen flex-col">
+              <PromoBanner />
               <Header />
               <main id="main-content" className="flex-1">{children}</main>
               <Footer />

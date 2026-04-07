@@ -4,16 +4,8 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge';
 import { QualityBadge } from './quality-badge';
 import { formatNumber } from '@/lib/utils';
+import { getSkillPromotionLabel, isHighlightedSkill } from '@/lib/skills-promotion';
 import type { SkillSummary } from '@qaskills/shared';
-
-// Skills to highlight with yellow glow (synced with leaderboard)
-const HIGHLIGHTED_SLUGS = new Set([
-  'playwright-e2e',
-  'playwright-advance-e2e',
-  'playwright-skill-enhanced',
-  'selenium-java',
-  'selenium-advance-pom',
-]);
 
 // Accent colors by testing type (synced with leaderboard + homepage)
 const typeAccents: Record<string, string> = {
@@ -35,7 +27,9 @@ interface SkillCardProps {
 }
 
 export function SkillCard({ skill, averageRating }: SkillCardProps) {
-  const isHighlighted = HIGHLIGHTED_SLUGS.has(skill.slug);
+  const isHighlighted = isHighlightedSkill(skill.slug);
+  const promotionLabel = getSkillPromotionLabel(skill.slug, skill.createdAt);
+  const isNew = promotionLabel === 'NEW';
   const primaryType = skill.testingTypes[0] || 'e2e';
   const accent = typeAccents[primaryType] ?? 'bg-gray-500';
 
@@ -61,9 +55,15 @@ export function SkillCard({ skill, averageRating }: SkillCardProps) {
                 {skill.verified && (
                   <CheckCircle className="h-4 w-4 text-primary shrink-0" />
                 )}
-                {isHighlighted && (
-                  <span className="shrink-0 text-[10px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-                    HOT
+                {promotionLabel && (
+                  <span
+                    className={`shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
+                      isNew
+                        ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300'
+                        : 'text-amber-600 dark:text-amber-400'
+                    }`}
+                  >
+                    {promotionLabel}
                   </span>
                 )}
               </div>

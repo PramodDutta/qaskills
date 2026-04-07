@@ -36,6 +36,7 @@ async function getUserData(username: string) {
         frameworks: skills.frameworks,
         featured: skills.featured,
         verified: skills.verified,
+        createdAt: skills.createdAt,
       })
       .from(skills)
       .where(eq(skills.authorName, username));
@@ -68,6 +69,7 @@ async function getUserData(username: string) {
           frameworks: s.frameworks as string[],
           featured: s.featured,
           verified: s.verified,
+          createdAt: s.createdAt.toISOString(),
         })),
       };
     }
@@ -98,6 +100,7 @@ async function getUserData(username: string) {
           frameworks: s.frameworks as string[],
           featured: s.featured,
           verified: s.verified,
+          createdAt: s.createdAt.toISOString(),
         })),
       };
     }

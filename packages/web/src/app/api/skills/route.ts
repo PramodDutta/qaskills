@@ -353,6 +353,7 @@ export async function GET(request: NextRequest) {
         domains: row.domains,
         featured: row.featured,
         verified: row.verified,
+        createdAt: row.createdAt.toISOString(),
       })),
       total,
       page,

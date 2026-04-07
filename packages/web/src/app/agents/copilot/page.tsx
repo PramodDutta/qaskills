@@ -109,6 +109,7 @@ export default async function CopilotAgentPage() {
               frameworks: skill.frameworks,
               featured: skill.featured,
               verified: skill.verified,
+              createdAt: skill.createdAt.toISOString(),
             }}
           />
         ))}

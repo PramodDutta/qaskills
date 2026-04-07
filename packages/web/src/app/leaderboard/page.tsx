@@ -5,6 +5,7 @@ import { FilterTabs, type Tab } from '@/components/leaderboard/filter-tabs';
 import { LeaderboardSearch } from '@/components/leaderboard/leaderboard-search';
 import Link from 'next/link';
 import { formatNumber } from '@/lib/utils';
+import { getSkillPromotionLabel, isHighlightedSkill } from '@/lib/skills-promotion';
 import { db } from '@/db';
 import { skills } from '@/db/schema';
 import { desc, sql, ilike } from 'drizzle-orm';
@@ -80,15 +81,6 @@ const typeColors: Record<string, { accent: string; badge: string }> = {
   },
 };
 
-// Skills to highlight with yellow background (like RemoteOK featured)
-const HIGHLIGHTED_SLUGS = new Set([
-  'playwright-e2e',
-  'playwright-advance-e2e',
-  'playwright-skill-enhanced',
-  'selenium-java',
-  'selenium-advance-pom',
-]);
-
 // Top 3 get special teal/blue gradient (like RemoteOK promoted)
 const TOP_ROW_STYLES = [
   'bg-gradient-to-r from-sky-100 to-cyan-50 dark:from-sky-950/40 dark:to-cyan-950/20 border-sky-200 dark:border-sky-800/50',
@@ -101,7 +93,7 @@ const HIGHLIGHT_STYLE =
 
 function getRowStyle(slug: string, rank: number): string {
   if (rank <= 3) return TOP_ROW_STYLES[rank - 1];
-  if (HIGHLIGHTED_SLUGS.has(slug)) return HIGHLIGHT_STYLE;
+  if (isHighlightedSkill(slug)) return HIGHLIGHT_STYLE;
   return 'bg-card border-border hover:border-border/80';
 }
 
@@ -179,6 +171,9 @@ export default async function LeaderboardPage({
       <div className="flex flex-col gap-2.5">
         {leaderboardData.map((skill, idx) => {
           const rank = idx + 1;
+          const isHighlighted = isHighlightedSkill(skill.slug);
+          const promotionLabel = getSkillPromotionLabel(skill.slug, skill.createdAt);
+          const isNew = promotionLabel === 'NEW';
           const testingTypes = skill.testingTypes as string[];
           const frameworks = skill.frameworks as string[];
           const primaryType = getPrimaryType(testingTypes);
@@ -230,9 +225,15 @@ export default async function LeaderboardPage({
                   {skill.verified && (
                     <CheckCircle className="h-3.5 w-3.5 text-primary shrink-0" />
                   )}
-                  {HIGHLIGHTED_SLUGS.has(skill.slug) && rank > 3 && (
-                    <span className="shrink-0 text-[10px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-                      HOT
+                  {promotionLabel && (isNew || rank > 3) && (
+                    <span
+                      className={`shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
+                        isNew
+                          ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300'
+                          : 'text-amber-600 dark:text-amber-400'
+                      }`}
+                    >
+                      {promotionLabel}
                     </span>
                   )}
                 </div>

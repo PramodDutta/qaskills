@@ -52,6 +52,7 @@ export interface SkillSummary {
   frameworks: string[];
   featured: boolean;
   verified: boolean;
+  createdAt: string;
 }
 
 export interface ParsedSkill {

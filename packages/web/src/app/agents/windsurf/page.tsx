@@ -106,6 +106,7 @@ export default async function WindsurfAgentPage() {
               frameworks: skill.frameworks,
               featured: skill.featured,
               verified: skill.verified,
+              createdAt: skill.createdAt.toISOString(),
             }}
           />
         ))}

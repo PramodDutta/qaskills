@@ -21,6 +21,7 @@ export async function GET(request: Request) {
         testingTypes: skills.testingTypes,
         frameworks: skills.frameworks,
         verified: skills.verified,
+        createdAt: skills.createdAt,
       };
 
       let rows;
@@ -60,10 +61,14 @@ export async function GET(request: Request) {
       }
 
       return {
-        skills: rows.map((row, i) => ({
-          rank: i + 1,
-          ...row,
-        })),
+        skills: rows.map((row, i) => {
+          const { createdAt, ...rest } = row;
+          return {
+            rank: i + 1,
+            ...rest,
+            createdAt: createdAt.toISOString(),
+          };
+        }),
         filter,
         updatedAt: new Date().toISOString(),
       };

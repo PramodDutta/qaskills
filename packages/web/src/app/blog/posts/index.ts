@@ -117,6 +117,7 @@ import { post as karmaJasmineGuide } from './karma-jasmine-angular-testing';
 import { post as aiQaSkillsDirectoryGuide } from './ai-qa-skills-directory-2026';
 import { post as migratingFrameworksGuide } from './migrating-test-frameworks-guide';
 import { generatedSeoBatch2026Posts } from './generated-seo-batch-2026';
+import { playwrightLongTail2026Posts } from './playwright-long-tail-batch-2026';
 import { seoPriorityOverrides2026 } from './seo-priority-overrides-2026';
 
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
@@ -378,12 +379,17 @@ export const posts: Record<string, BlogPost> = {
   'karma-jasmine-angular-testing': karmaJasmineGuide,
   'ai-qa-skills-directory-2026': aiQaSkillsDirectoryGuide,
   'migrating-test-frameworks-guide': migratingFrameworksGuide,
+  ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
 };
 
 // Ordered list for the blog listing page (newest first)
 export const postList = [
+  ...playwrightLongTail2026Posts.map(({ slug, post }) => ({
+    slug,
+    ...post,
+  })),
   {
     slug: 'ai-qa-skills-directory-2026',
     ...aiQaSkillsDirectoryGuide,

@@ -63,6 +63,10 @@ export async function searchSkills(params: SkillSearchParams): Promise<SkillSear
       frameworks: doc.frameworks as string[],
       featured: doc.featured as boolean,
       verified: doc.verified as boolean,
+      createdAt:
+        (doc.createdAt as string | undefined) ||
+        (doc.created_at as string | undefined) ||
+        new Date(0).toISOString(),
     };
   });
 
