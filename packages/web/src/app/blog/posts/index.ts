@@ -119,6 +119,21 @@ import { post as migratingFrameworksGuide } from './migrating-test-frameworks-gu
 import { generatedSeoBatch2026Posts } from './generated-seo-batch-2026';
 import { playwrightLongTail2026Posts } from './playwright-long-tail-batch-2026';
 import { seoPriorityOverrides2026 } from './seo-priority-overrides-2026';
+import { post as seleniumVsCypressVsPlaywright } from './selenium-vs-cypress-vs-playwright-2026';
+import { post as bestTestFrameworks2026 } from './best-test-automation-frameworks-2026';
+import { post as bestAiTestingTools } from './best-ai-testing-tools-2026';
+import { post as installSkillsClaudeCode } from './how-to-install-skills-claude-code';
+import { post as installSkillsCursor } from './how-to-install-skills-cursor';
+import { post as playwrightAgentsGuide } from './playwright-agents-guide-2026';
+import { post as agenticTestingGuide } from './agentic-testing-complete-guide';
+import { post as mcpTestingGuide } from './mcp-testing-automation-guide';
+import { post as sdetInterviewQuestions } from './sdet-interview-questions-2026';
+import { post as qaToSdetRoadmap } from './qa-to-sdet-roadmap-2026';
+import { post as vibeTestingToolsComparison } from './vibe-testing-tools-comparison';
+import { post as skillMdFormatGuide } from './skill-md-format-guide';
+import { post as aiAgentEvalGuide } from './ai-agent-eval-testing-guide';
+import { post as playwrightVsSeleniumComplete } from './playwright-vs-selenium-complete-2026';
+import { post as autonomousQaGuide } from './autonomous-qa-testing-guide';
 
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
@@ -379,6 +394,21 @@ export const posts: Record<string, BlogPost> = {
   'karma-jasmine-angular-testing': karmaJasmineGuide,
   'ai-qa-skills-directory-2026': aiQaSkillsDirectoryGuide,
   'migrating-test-frameworks-guide': migratingFrameworksGuide,
+  'selenium-vs-cypress-vs-playwright-2026': seleniumVsCypressVsPlaywright,
+  'best-test-automation-frameworks-2026': bestTestFrameworks2026,
+  'best-ai-testing-tools-2026': bestAiTestingTools,
+  'how-to-install-skills-claude-code': installSkillsClaudeCode,
+  'how-to-install-skills-cursor': installSkillsCursor,
+  'playwright-agents-guide-2026': playwrightAgentsGuide,
+  'agentic-testing-complete-guide': agenticTestingGuide,
+  'mcp-testing-automation-guide': mcpTestingGuide,
+  'sdet-interview-questions-2026': sdetInterviewQuestions,
+  'qa-to-sdet-roadmap-2026': qaToSdetRoadmap,
+  'vibe-testing-tools-comparison': vibeTestingToolsComparison,
+  'skill-md-format-guide': skillMdFormatGuide,
+  'ai-agent-eval-testing-guide': aiAgentEvalGuide,
+  'playwright-vs-selenium-complete-2026': playwrightVsSeleniumComplete,
+  'autonomous-qa-testing-guide': autonomousQaGuide,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -386,6 +416,66 @@ export const posts: Record<string, BlogPost> = {
 
 // Ordered list for the blog listing page (newest first)
 export const postList = [
+  {
+    slug: 'selenium-vs-cypress-vs-playwright-2026',
+    ...seleniumVsCypressVsPlaywright,
+  },
+  {
+    slug: 'best-test-automation-frameworks-2026',
+    ...bestTestFrameworks2026,
+  },
+  {
+    slug: 'best-ai-testing-tools-2026',
+    ...bestAiTestingTools,
+  },
+  {
+    slug: 'how-to-install-skills-claude-code',
+    ...installSkillsClaudeCode,
+  },
+  {
+    slug: 'how-to-install-skills-cursor',
+    ...installSkillsCursor,
+  },
+  {
+    slug: 'playwright-agents-guide-2026',
+    ...playwrightAgentsGuide,
+  },
+  {
+    slug: 'agentic-testing-complete-guide',
+    ...agenticTestingGuide,
+  },
+  {
+    slug: 'mcp-testing-automation-guide',
+    ...mcpTestingGuide,
+  },
+  {
+    slug: 'sdet-interview-questions-2026',
+    ...sdetInterviewQuestions,
+  },
+  {
+    slug: 'qa-to-sdet-roadmap-2026',
+    ...qaToSdetRoadmap,
+  },
+  {
+    slug: 'vibe-testing-tools-comparison',
+    ...vibeTestingToolsComparison,
+  },
+  {
+    slug: 'skill-md-format-guide',
+    ...skillMdFormatGuide,
+  },
+  {
+    slug: 'ai-agent-eval-testing-guide',
+    ...aiAgentEvalGuide,
+  },
+  {
+    slug: 'playwright-vs-selenium-complete-2026',
+    ...playwrightVsSeleniumComplete,
+  },
+  {
+    slug: 'autonomous-qa-testing-guide',
+    ...autonomousQaGuide,
+  },
   ...playwrightLongTail2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
