@@ -62,7 +62,7 @@ export function PromoBanner() {
 
           {/* Date & time */}
           <span className="hidden text-xs text-gray-300 md:inline">
-            New Batch &bull; 29 Apr 2026, 7 AM IST
+            New Batch &bull; 30 Jun 2026, 7 AM IST
           </span>
         </a>
 
