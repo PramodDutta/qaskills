@@ -119,6 +119,30 @@ import { post as migratingFrameworksGuide } from './migrating-test-frameworks-gu
 import { generatedSeoBatch2026Posts } from './generated-seo-batch-2026';
 import { playwrightLongTail2026Posts } from './playwright-long-tail-batch-2026';
 import { seoPriorityOverrides2026 } from './seo-priority-overrides-2026';
+import { post as cypressTutorialBeginners } from './cypress-tutorial-beginners-2026';
+import { post as seleniumPythonTutorial } from './selenium-python-tutorial-2026';
+import { post as playwrightPythonGuide } from './playwright-python-testing-guide';
+import { post as pomCompleteGuide } from './page-object-model-complete-guide';
+import { post as dataDrivenTestingGuide } from './data-driven-testing-complete-guide';
+import { post as agileTestingGuide } from './agile-testing-complete-guide';
+import { post as apiAutomationFramework } from './api-automation-framework-guide';
+import { post as perfTestingCompleteGuide } from './performance-testing-complete-guide';
+import { post as securityTestingCompleteGuide } from './security-testing-complete-guide';
+import { post as testManagementTools } from './test-management-tools-comparison-2026';
+import { post as qaLeadInterview } from './qa-lead-interview-questions-2026';
+import { post as frameworkDesignPatterns } from './automation-framework-design-patterns';
+import { post as cucumberBddTutorial } from './cucumber-bdd-tutorial-beginners';
+import { post as restAssuredVsKarate } from './restassured-vs-karate-api-testing';
+import { post as seleniumGridTutorial } from './selenium-grid-tutorial-parallel-testing';
+import { post as jiraForQaGuide } from './jira-for-qa-engineers-guide';
+import { post as hybridFrameworkGuide } from './hybrid-automation-framework-guide';
+import { post as devopsTestingGuide } from './devops-testing-strategy-guide';
+import { post as testAutoRoadmap } from './test-automation-roadmap-2026';
+import { post as pwVsCypressDetailed } from './playwright-vs-cypress-detailed-2026';
+import { post as e2eBestPractices } from './end-to-end-testing-best-practices';
+import { post as apiBestPractices } from './api-testing-best-practices-guide';
+import { post as testMetricsKpis } from './test-automation-metrics-kpis-guide';
+import { post as qaSalaryGuide } from './qa-salary-guide-worldwide-2026';
 import { post as appiumMobileGuide } from './appium-mobile-testing-complete-guide';
 import { post as testAutoInterviewQuestions } from './test-automation-interview-questions-2026';
 import { post as playwrightMcpGuide } from './playwright-mcp-browser-automation-guide';
@@ -406,6 +430,30 @@ export const posts: Record<string, BlogPost> = {
   'karma-jasmine-angular-testing': karmaJasmineGuide,
   'ai-qa-skills-directory-2026': aiQaSkillsDirectoryGuide,
   'migrating-test-frameworks-guide': migratingFrameworksGuide,
+  'cypress-tutorial-beginners-2026': cypressTutorialBeginners,
+  'selenium-python-tutorial-2026': seleniumPythonTutorial,
+  'playwright-python-testing-guide': playwrightPythonGuide,
+  'page-object-model-complete-guide': pomCompleteGuide,
+  'data-driven-testing-complete-guide': dataDrivenTestingGuide,
+  'agile-testing-complete-guide': agileTestingGuide,
+  'api-automation-framework-guide': apiAutomationFramework,
+  'performance-testing-complete-guide': perfTestingCompleteGuide,
+  'security-testing-complete-guide': securityTestingCompleteGuide,
+  'test-management-tools-comparison-2026': testManagementTools,
+  'qa-lead-interview-questions-2026': qaLeadInterview,
+  'automation-framework-design-patterns': frameworkDesignPatterns,
+  'cucumber-bdd-tutorial-beginners': cucumberBddTutorial,
+  'restassured-vs-karate-api-testing': restAssuredVsKarate,
+  'selenium-grid-tutorial-parallel-testing': seleniumGridTutorial,
+  'jira-for-qa-engineers-guide': jiraForQaGuide,
+  'hybrid-automation-framework-guide': hybridFrameworkGuide,
+  'devops-testing-strategy-guide': devopsTestingGuide,
+  'test-automation-roadmap-2026': testAutoRoadmap,
+  'playwright-vs-cypress-detailed-2026': pwVsCypressDetailed,
+  'end-to-end-testing-best-practices': e2eBestPractices,
+  'api-testing-best-practices-guide': apiBestPractices,
+  'test-automation-metrics-kpis-guide': testMetricsKpis,
+  'qa-salary-guide-worldwide-2026': qaSalaryGuide,
   'appium-mobile-testing-complete-guide': appiumMobileGuide,
   'test-automation-interview-questions-2026': testAutoInterviewQuestions,
   'playwright-mcp-browser-automation-guide': playwrightMcpGuide,
@@ -440,6 +488,102 @@ export const posts: Record<string, BlogPost> = {
 
 // Ordered list for the blog listing page (newest first)
 export const postList = [
+  {
+    slug: 'cypress-tutorial-beginners-2026',
+    ...cypressTutorialBeginners,
+  },
+  {
+    slug: 'selenium-python-tutorial-2026',
+    ...seleniumPythonTutorial,
+  },
+  {
+    slug: 'playwright-python-testing-guide',
+    ...playwrightPythonGuide,
+  },
+  {
+    slug: 'page-object-model-complete-guide',
+    ...pomCompleteGuide,
+  },
+  {
+    slug: 'data-driven-testing-complete-guide',
+    ...dataDrivenTestingGuide,
+  },
+  {
+    slug: 'agile-testing-complete-guide',
+    ...agileTestingGuide,
+  },
+  {
+    slug: 'api-automation-framework-guide',
+    ...apiAutomationFramework,
+  },
+  {
+    slug: 'performance-testing-complete-guide',
+    ...perfTestingCompleteGuide,
+  },
+  {
+    slug: 'security-testing-complete-guide',
+    ...securityTestingCompleteGuide,
+  },
+  {
+    slug: 'test-management-tools-comparison-2026',
+    ...testManagementTools,
+  },
+  {
+    slug: 'qa-lead-interview-questions-2026',
+    ...qaLeadInterview,
+  },
+  {
+    slug: 'automation-framework-design-patterns',
+    ...frameworkDesignPatterns,
+  },
+  {
+    slug: 'cucumber-bdd-tutorial-beginners',
+    ...cucumberBddTutorial,
+  },
+  {
+    slug: 'restassured-vs-karate-api-testing',
+    ...restAssuredVsKarate,
+  },
+  {
+    slug: 'selenium-grid-tutorial-parallel-testing',
+    ...seleniumGridTutorial,
+  },
+  {
+    slug: 'jira-for-qa-engineers-guide',
+    ...jiraForQaGuide,
+  },
+  {
+    slug: 'hybrid-automation-framework-guide',
+    ...hybridFrameworkGuide,
+  },
+  {
+    slug: 'devops-testing-strategy-guide',
+    ...devopsTestingGuide,
+  },
+  {
+    slug: 'test-automation-roadmap-2026',
+    ...testAutoRoadmap,
+  },
+  {
+    slug: 'playwright-vs-cypress-detailed-2026',
+    ...pwVsCypressDetailed,
+  },
+  {
+    slug: 'end-to-end-testing-best-practices',
+    ...e2eBestPractices,
+  },
+  {
+    slug: 'api-testing-best-practices-guide',
+    ...apiBestPractices,
+  },
+  {
+    slug: 'test-automation-metrics-kpis-guide',
+    ...testMetricsKpis,
+  },
+  {
+    slug: 'qa-salary-guide-worldwide-2026',
+    ...qaSalaryGuide,
+  },
   {
     slug: 'appium-mobile-testing-complete-guide',
     ...appiumMobileGuide,
