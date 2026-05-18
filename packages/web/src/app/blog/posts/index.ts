@@ -119,6 +119,18 @@ import { post as migratingFrameworksGuide } from './migrating-test-frameworks-gu
 import { generatedSeoBatch2026Posts } from './generated-seo-batch-2026';
 import { playwrightLongTail2026Posts } from './playwright-long-tail-batch-2026';
 import { seoPriorityOverrides2026 } from './seo-priority-overrides-2026';
+import { post as appiumMobileGuide } from './appium-mobile-testing-complete-guide';
+import { post as testAutoInterviewQuestions } from './test-automation-interview-questions-2026';
+import { post as playwrightMcpGuide } from './playwright-mcp-browser-automation-guide';
+import { post as cypressSeleniumPlaywrightPerf } from './cypress-vs-selenium-vs-playwright-performance';
+import { post as softwareTestingTypes } from './software-testing-types-complete-guide';
+import { post as apiTestingToolsComparison } from './api-testing-tools-comparison-2026';
+import { post as testAutoWithAi } from './test-automation-with-ai-complete-guide';
+import { post as playwrightBestPractices } from './playwright-best-practices-2026';
+import { post as seleniumTutorialBeginners } from './selenium-tutorial-complete-beginners-2026';
+import { post as manualToAutomation } from './manual-to-automation-testing-transition';
+import { post as githubActionsTestingGuide } from './github-actions-testing-ci-cd-guide';
+import { post as webTestingChecklist } from './web-testing-checklist-2026';
 import { post as seleniumVsCypressVsPlaywright } from './selenium-vs-cypress-vs-playwright-2026';
 import { post as bestTestFrameworks2026 } from './best-test-automation-frameworks-2026';
 import { post as bestAiTestingTools } from './best-ai-testing-tools-2026';
@@ -394,6 +406,18 @@ export const posts: Record<string, BlogPost> = {
   'karma-jasmine-angular-testing': karmaJasmineGuide,
   'ai-qa-skills-directory-2026': aiQaSkillsDirectoryGuide,
   'migrating-test-frameworks-guide': migratingFrameworksGuide,
+  'appium-mobile-testing-complete-guide': appiumMobileGuide,
+  'test-automation-interview-questions-2026': testAutoInterviewQuestions,
+  'playwright-mcp-browser-automation-guide': playwrightMcpGuide,
+  'cypress-vs-selenium-vs-playwright-performance': cypressSeleniumPlaywrightPerf,
+  'software-testing-types-complete-guide': softwareTestingTypes,
+  'api-testing-tools-comparison-2026': apiTestingToolsComparison,
+  'test-automation-with-ai-complete-guide': testAutoWithAi,
+  'playwright-best-practices-2026': playwrightBestPractices,
+  'selenium-tutorial-complete-beginners-2026': seleniumTutorialBeginners,
+  'manual-to-automation-testing-transition': manualToAutomation,
+  'github-actions-testing-ci-cd-guide': githubActionsTestingGuide,
+  'web-testing-checklist-2026': webTestingChecklist,
   'selenium-vs-cypress-vs-playwright-2026': seleniumVsCypressVsPlaywright,
   'best-test-automation-frameworks-2026': bestTestFrameworks2026,
   'best-ai-testing-tools-2026': bestAiTestingTools,
@@ -416,6 +440,54 @@ export const posts: Record<string, BlogPost> = {
 
 // Ordered list for the blog listing page (newest first)
 export const postList = [
+  {
+    slug: 'appium-mobile-testing-complete-guide',
+    ...appiumMobileGuide,
+  },
+  {
+    slug: 'test-automation-interview-questions-2026',
+    ...testAutoInterviewQuestions,
+  },
+  {
+    slug: 'playwright-mcp-browser-automation-guide',
+    ...playwrightMcpGuide,
+  },
+  {
+    slug: 'cypress-vs-selenium-vs-playwright-performance',
+    ...cypressSeleniumPlaywrightPerf,
+  },
+  {
+    slug: 'software-testing-types-complete-guide',
+    ...softwareTestingTypes,
+  },
+  {
+    slug: 'api-testing-tools-comparison-2026',
+    ...apiTestingToolsComparison,
+  },
+  {
+    slug: 'test-automation-with-ai-complete-guide',
+    ...testAutoWithAi,
+  },
+  {
+    slug: 'playwright-best-practices-2026',
+    ...playwrightBestPractices,
+  },
+  {
+    slug: 'selenium-tutorial-complete-beginners-2026',
+    ...seleniumTutorialBeginners,
+  },
+  {
+    slug: 'manual-to-automation-testing-transition',
+    ...manualToAutomation,
+  },
+  {
+    slug: 'github-actions-testing-ci-cd-guide',
+    ...githubActionsTestingGuide,
+  },
+  {
+    slug: 'web-testing-checklist-2026',
+    ...webTestingChecklist,
+  },
   {
     slug: 'selenium-vs-cypress-vs-playwright-2026',
     ...seleniumVsCypressVsPlaywright,
