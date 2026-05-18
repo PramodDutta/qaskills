@@ -126,7 +126,7 @@ import { post as cypressSeleniumPlaywrightPerf } from './cypress-vs-selenium-vs-
 import { post as softwareTestingTypes } from './software-testing-types-complete-guide';
 import { post as apiTestingToolsComparison } from './api-testing-tools-comparison-2026';
 import { post as testAutoWithAi } from './test-automation-with-ai-complete-guide';
-import { post as playwrightBestPractices } from './playwright-best-practices-2026';
+import { post as playwrightBestPractices2026 } from './playwright-best-practices-2026';
 import { post as seleniumTutorialBeginners } from './selenium-tutorial-complete-beginners-2026';
 import { post as manualToAutomation } from './manual-to-automation-testing-transition';
 import { post as githubActionsTestingGuide } from './github-actions-testing-ci-cd-guide';
@@ -413,7 +413,7 @@ export const posts: Record<string, BlogPost> = {
   'software-testing-types-complete-guide': softwareTestingTypes,
   'api-testing-tools-comparison-2026': apiTestingToolsComparison,
   'test-automation-with-ai-complete-guide': testAutoWithAi,
-  'playwright-best-practices-2026': playwrightBestPractices,
+  'playwright-best-practices-2026': playwrightBestPractices2026,
   'selenium-tutorial-complete-beginners-2026': seleniumTutorialBeginners,
   'manual-to-automation-testing-transition': manualToAutomation,
   'github-actions-testing-ci-cd-guide': githubActionsTestingGuide,
@@ -470,7 +470,7 @@ export const postList = [
   },
   {
     slug: 'playwright-best-practices-2026',
-    ...playwrightBestPractices,
+    ...playwrightBestPractices2026,
   },
   {
     slug: 'selenium-tutorial-complete-beginners-2026',
