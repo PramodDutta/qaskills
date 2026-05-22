@@ -170,6 +170,32 @@ import { post as skillMdFormatGuide } from './skill-md-format-guide';
 import { post as aiAgentEvalGuide } from './ai-agent-eval-testing-guide';
 import { post as playwrightVsSeleniumComplete } from './playwright-vs-selenium-complete-2026';
 import { post as autonomousQaGuide } from './autonomous-qa-testing-guide';
+import { post as pythonVsPytestExplained } from './python-vs-pytest-explained';
+import { post as unittestVsPytest2026 } from './unittest-vs-pytest-2026';
+import { post as playwrightTraceViewer } from './playwright-trace-viewer-complete-guide-2026';
+import { post as playwrightStorageState } from './playwright-storagestate-authentication-reference';
+import { post as playwrightSetInputFiles } from './playwright-setinputfiles-file-upload-guide';
+import { post as playwrightVsCypress2026Detailed } from './playwright-vs-cypress-2026-detailed-comparison';
+import { post as playwrightVsPuppeteer2026Deep } from './playwright-vs-puppeteer-2026-deep-dive';
+import { post as playwrightVsSelenium2026Which } from './playwright-vs-selenium-2026-which-better';
+import { post as playwrightMcpCursorSetup } from './playwright-mcp-cursor-ide-setup-2026';
+import { post as playwrightMcpClaudeCodeSetup } from './playwright-mcp-claude-code-setup-2026';
+import { post as openaiEvalsCompleteGuide } from './openai-evals-complete-guide-2026';
+import { post as openaiEvalsBestPractices } from './openai-evals-best-practices-2026';
+import { post as promptfooCompleteGuide } from './promptfoo-complete-guide-2026';
+import { post as promptfooRedTeaming } from './promptfoo-red-teaming-llm-applications';
+import { post as bestClaudeCodeSkillsTesting } from './best-claude-code-skills-for-testing-2026';
+import { post as bestClaudeCodeSkillsAutomated } from './best-claude-code-skills-for-automated-testing';
+import { post as seleniumNewsMay2026 } from './selenium-news-may-2026-updates';
+import { post as seleniumWebdriverUpdates } from './selenium-webdriver-updates-2026-changelog';
+import { post as cypressBestPractices2026 } from './cypress-best-practices-2026-guide';
+import { post as cypress2026LatestFeatures } from './cypress-2026-latest-version-features';
+import { post as k6VsJmeter2026Which } from './k6-vs-jmeter-2026-which-better';
+import { post as testcontainersKafkaNode } from './testcontainers-kafka-node-complete-guide';
+import { post as selenideAllureIntegration } from './selenide-allure-integration-complete-reference';
+import { post as selenideShouldnotConditions } from './selenide-shouldnot-exist-conditions-reference';
+import { post as robotFrameworkKeywordDriven } from './robot-framework-keyword-driven-testing-guide';
+import { post as bestAiTestAutomationToolsDetailed } from './best-ai-test-automation-tools-detailed-2026';
 
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
@@ -481,6 +507,32 @@ export const posts: Record<string, BlogPost> = {
   'ai-agent-eval-testing-guide': aiAgentEvalGuide,
   'playwright-vs-selenium-complete-2026': playwrightVsSeleniumComplete,
   'autonomous-qa-testing-guide': autonomousQaGuide,
+  'python-vs-pytest-explained': pythonVsPytestExplained,
+  'unittest-vs-pytest-2026': unittestVsPytest2026,
+  'playwright-trace-viewer-complete-guide-2026': playwrightTraceViewer,
+  'playwright-storagestate-authentication-reference': playwrightStorageState,
+  'playwright-setinputfiles-file-upload-guide': playwrightSetInputFiles,
+  'playwright-vs-cypress-2026-detailed-comparison': playwrightVsCypress2026Detailed,
+  'playwright-vs-puppeteer-2026-deep-dive': playwrightVsPuppeteer2026Deep,
+  'playwright-vs-selenium-2026-which-better': playwrightVsSelenium2026Which,
+  'playwright-mcp-cursor-ide-setup-2026': playwrightMcpCursorSetup,
+  'playwright-mcp-claude-code-setup-2026': playwrightMcpClaudeCodeSetup,
+  'openai-evals-complete-guide-2026': openaiEvalsCompleteGuide,
+  'openai-evals-best-practices-2026': openaiEvalsBestPractices,
+  'promptfoo-complete-guide-2026': promptfooCompleteGuide,
+  'promptfoo-red-teaming-llm-applications': promptfooRedTeaming,
+  'best-claude-code-skills-for-testing-2026': bestClaudeCodeSkillsTesting,
+  'best-claude-code-skills-for-automated-testing': bestClaudeCodeSkillsAutomated,
+  'selenium-news-may-2026-updates': seleniumNewsMay2026,
+  'selenium-webdriver-updates-2026-changelog': seleniumWebdriverUpdates,
+  'cypress-best-practices-2026-guide': cypressBestPractices2026,
+  'cypress-2026-latest-version-features': cypress2026LatestFeatures,
+  'k6-vs-jmeter-2026-which-better': k6VsJmeter2026Which,
+  'testcontainers-kafka-node-complete-guide': testcontainersKafkaNode,
+  'selenide-allure-integration-complete-reference': selenideAllureIntegration,
+  'selenide-shouldnot-exist-conditions-reference': selenideShouldnotConditions,
+  'robot-framework-keyword-driven-testing-guide': robotFrameworkKeywordDriven,
+  'best-ai-test-automation-tools-detailed-2026': bestAiTestAutomationToolsDetailed,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -1140,6 +1192,32 @@ export const postList = [
     slug: 'ai-agents-qa-revolution',
     ...aiAgentsRevolution,
   },
+  { slug: 'python-vs-pytest-explained', ...pythonVsPytestExplained },
+  { slug: 'unittest-vs-pytest-2026', ...unittestVsPytest2026 },
+  { slug: 'playwright-trace-viewer-complete-guide-2026', ...playwrightTraceViewer },
+  { slug: 'playwright-storagestate-authentication-reference', ...playwrightStorageState },
+  { slug: 'playwright-setinputfiles-file-upload-guide', ...playwrightSetInputFiles },
+  { slug: 'playwright-vs-cypress-2026-detailed-comparison', ...playwrightVsCypress2026Detailed },
+  { slug: 'playwright-vs-puppeteer-2026-deep-dive', ...playwrightVsPuppeteer2026Deep },
+  { slug: 'playwright-vs-selenium-2026-which-better', ...playwrightVsSelenium2026Which },
+  { slug: 'playwright-mcp-cursor-ide-setup-2026', ...playwrightMcpCursorSetup },
+  { slug: 'playwright-mcp-claude-code-setup-2026', ...playwrightMcpClaudeCodeSetup },
+  { slug: 'openai-evals-complete-guide-2026', ...openaiEvalsCompleteGuide },
+  { slug: 'openai-evals-best-practices-2026', ...openaiEvalsBestPractices },
+  { slug: 'promptfoo-complete-guide-2026', ...promptfooCompleteGuide },
+  { slug: 'promptfoo-red-teaming-llm-applications', ...promptfooRedTeaming },
+  { slug: 'best-claude-code-skills-for-testing-2026', ...bestClaudeCodeSkillsTesting },
+  { slug: 'best-claude-code-skills-for-automated-testing', ...bestClaudeCodeSkillsAutomated },
+  { slug: 'selenium-news-may-2026-updates', ...seleniumNewsMay2026 },
+  { slug: 'selenium-webdriver-updates-2026-changelog', ...seleniumWebdriverUpdates },
+  { slug: 'cypress-best-practices-2026-guide', ...cypressBestPractices2026 },
+  { slug: 'cypress-2026-latest-version-features', ...cypress2026LatestFeatures },
+  { slug: 'k6-vs-jmeter-2026-which-better', ...k6VsJmeter2026Which },
+  { slug: 'testcontainers-kafka-node-complete-guide', ...testcontainersKafkaNode },
+  { slug: 'selenide-allure-integration-complete-reference', ...selenideAllureIntegration },
+  { slug: 'selenide-shouldnot-exist-conditions-reference', ...selenideShouldnotConditions },
+  { slug: 'robot-framework-keyword-driven-testing-guide', ...robotFrameworkKeywordDriven },
+  { slug: 'best-ai-test-automation-tools-detailed-2026', ...bestAiTestAutomationToolsDetailed },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
