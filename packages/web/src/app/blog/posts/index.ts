@@ -197,6 +197,212 @@ import { post as selenideShouldnotConditions } from './selenide-shouldnot-exist-
 import { post as robotFrameworkKeywordDriven } from './robot-framework-keyword-driven-testing-guide';
 import { post as bestAiTestAutomationToolsDetailed } from './best-ai-test-automation-tools-detailed-2026';
 
+import { post as aiDefectPredictionMachineLearningQa } from './ai-defect-prediction-machine-learning-qa';
+import { post as aiTestDataGenerationTools2026 } from './ai-test-data-generation-tools-2026';
+import { post as aiTestGenerationLlmPromptingGuide } from './ai-test-generation-llm-prompting-guide';
+import { post as aiTestMaintenanceSelfHealingStrategies } from './ai-test-maintenance-self-healing-strategies';
+import { post as aiderQaEngineersGuide } from './aider-qa-engineers-guide';
+import { post as ampAiQaEngineersGuide } from './amp-ai-qa-engineers-guide';
+import { post as apickliCucumberApiTestingGuide } from './apickli-cucumber-api-testing-guide';
+import { post as applitoolsVisualAiTestingCompleteGuide } from './applitools-visual-ai-testing-complete-guide';
+import { post as arizePhoenixLlmEvaluationGuide } from './arize-phoenix-llm-evaluation-guide';
+import { post as artilleryNodeLoadTestingCompleteGuide } from './artillery-node-load-testing-complete-guide';
+import { post as autonomousTestingMablFunctionizeApplitools } from './autonomous-testing-mabl-functionize-applitools';
+import { post as bddTestDataManagementBestPractices } from './bdd-test-data-management-best-practices';
+import { post as bddVsTddDecisionGuide } from './bdd-vs-tdd-decision-guide';
+import { post as behavePythonBddCompleteTutorial } from './behave-python-bdd-complete-tutorial';
+import { post as behavioralInterviewQuestionsQaEngineers } from './behavioral-interview-questions-qa-engineers';
+import { post as brunoApiTestingCompleteGuide } from './bruno-api-testing-complete-guide';
+import { post as chromaticStorybookVisualTestingGuide } from './chromatic-storybook-visual-testing-guide';
+import { post as claudeCodeQaTestingWorkflows2026 } from './claude-code-qa-testing-workflows-2026';
+import { post as claudeForQaEngineersCompleteGuide } from './claude-for-qa-engineers-complete-guide';
+import { post as claudeQaAgentSetupGuide } from './claude-qa-agent-setup-guide';
+import { post as clineQaEngineersCompleteGuide } from './cline-qa-engineers-complete-guide';
+import { post as codexCliQaEngineersGuide } from './codex-cli-qa-engineers-guide';
+import { post as comparingPopularBddFrameworks2026CompleteGuide } from './comparing-popular-bdd-frameworks-2026-complete-guide';
+import { post as continueDevQaEngineersGuide } from './continue-dev-qa-engineers-guide';
+import { post as cucumberJavaBddBestPractices2026 } from './cucumber-java-bdd-best-practices-2026';
+import { post as cucumberJsToPlaywrightMigrationGuide } from './cucumber-js-to-playwright-migration-guide';
+import { post as cucumberRubyBddCompleteGuide } from './cucumber-ruby-bdd-complete-guide';
+import { post as cucumberTagsHooksCompleteReference } from './cucumber-tags-hooks-complete-reference';
+import { post as cucumberVsBehavePythonBddComparison } from './cucumber-vs-behave-python-bdd-comparison';
+import { post as cursorForQaEngineersCompleteGuide } from './cursor-for-qa-engineers-complete-guide';
+import { post as cursorPlaywrightSkillSetupGuide } from './cursor-playwright-skill-setup-guide';
+import { post as cursorSkillsMdBestPractices } from './cursor-skills-md-best-practices';
+import { post as cypressApplitoolsVisualTestingGuide } from './cypress-applitools-visual-testing-guide';
+import { post as cypressAxeAccessibilityTestingGuide } from './cypress-axe-accessibility-testing-guide';
+import { post as cypressComponentTestingAngularGuide } from './cypress-component-testing-angular-guide';
+import { post as cypressComponentTestingReactCompleteGuide } from './cypress-component-testing-react-complete-guide';
+import { post as cypressComponentTestingVueCompleteGuide } from './cypress-component-testing-vue-complete-guide';
+import { post as cypressCucumberBddPreprocessorGuide } from './cypress-cucumber-bdd-preprocessor-guide';
+import { post as cypressCucumberPreprocessorBddGuide } from './cypress-cucumber-preprocessor-bdd-guide';
+import { post as cypressCustomCommandsBestPractices } from './cypress-custom-commands-best-practices';
+import { post as cypressCySessionAuthenticationGuide } from './cypress-cy-session-authentication-guide';
+import { post as cypressEnvironmentsConfigBestPractices } from './cypress-environments-config-best-practices';
+import { post as cypressFixturesDataManagementGuide } from './cypress-fixtures-data-management-guide';
+import { post as cypressGithubActionsCiGuide2026 } from './cypress-github-actions-ci-guide-2026';
+import { post as cypressImageSnapshotVisualGuide } from './cypress-image-snapshot-visual-guide';
+import { post as cypressInterceptNetworkStubbingReference } from './cypress-intercept-network-stubbing-reference';
+import { post as cypressMochawesomeAllureReporterGuide } from './cypress-mochawesome-allure-reporter-guide';
+import { post as cypressPercyVisualTestingGuide } from './cypress-percy-visual-testing-guide';
+import { post as cypressToPlaywrightMigrationCompleteGuide } from './cypress-to-playwright-migration-complete-guide';
+import { post as deepevalPytestLlmTestingGuide } from './deepeval-pytest-llm-testing-guide';
+import { post as dreddApiBlueprintTestingGuide } from './dredd-api-blueprint-testing-guide';
+import { post as enzymeToReactTestingLibraryMigrationGuide } from './enzyme-to-react-testing-library-migration-guide';
+import { post as evidentlyAiLlmTestingGuide } from './evidently-ai-llm-testing-guide';
+import { post as gatlingScalaLoadTestingCompleteGuide } from './gatling-scala-load-testing-complete-guide';
+import { post as gaugeVsCucumberBddFrameworks } from './gauge-vs-cucumber-bdd-frameworks';
+import { post as geminiCliQaEngineersGuide } from './gemini-cli-qa-engineers-guide';
+import { post as githubCopilotQaEngineersDeepGuide } from './github-copilot-qa-engineers-deep-guide';
+import { post as heliconeLlmMonitoringCompleteGuide } from './helicone-llm-monitoring-complete-guide';
+import { post as hoppscotchApiTestingCompleteGuide } from './hoppscotch-api-testing-complete-guide';
+import { post as insomniaApiTestingCompleteGuide } from './insomnia-api-testing-complete-guide';
+import { post as jasmineToJestMigrationGuide } from './jasmine-to-jest-migration-guide';
+import { post as jestToVitestMigrationGuide } from './jest-to-vitest-migration-guide';
+import { post as jmeterDistributedLoadTestingCompleteGuide } from './jmeter-distributed-load-testing-complete-guide';
+import { post as jmeterVsLocustVsGatlingComparison } from './jmeter-vs-locust-vs-gatling-comparison';
+import { post as junit4ToJunit5MigrationGuide } from './junit4-to-junit5-migration-guide';
+import { post as k6BrowserRecorderTestBuilderGuide } from './k6-browser-recorder-test-builder-guide';
+import { post as k6CloudGrafanaCloudCompleteGuide } from './k6-cloud-grafana-cloud-complete-guide';
+import { post as k6ExtensionsXk6CompleteReference } from './k6-extensions-xk6-complete-reference';
+import { post as karateBddApiTestingCompleteGuide } from './karate-bdd-api-testing-complete-guide';
+import { post as karateDslBddApiTestingCompleteGuide } from './karate-dsl-bdd-api-testing-complete-guide';
+import { post as karmaToJestMigrationGuide } from './karma-to-jest-migration-guide';
+import { post as katalonStudioTestAutomationCompleteGuide } from './katalon-studio-test-automation-complete-guide';
+import { post as langchainEvaluatorsCompleteGuide } from './langchain-evaluators-complete-guide';
+import { post as langsmithEvaluationPlatformGuide } from './langsmith-evaluation-platform-guide';
+import { post as livingDocumentationBddCucumber } from './living-documentation-bdd-cucumber';
+import { post as llmEvalsComparisonOpenaiPromptfooRagas } from './llm-evals-comparison-openai-promptfoo-ragas';
+import { post as locustPythonLoadTestingCompleteGuide } from './locust-python-load-testing-complete-guide';
+import { post as mochaToJestMigrationGuide } from './mocha-to-jest-migration-guide';
+import { post as mockoonApiMockingToolGuide } from './mockoon-api-mocking-tool-guide';
+import { post as neoloadTricentisPerformanceTestingGuide } from './neoload-tricentis-performance-testing-guide';
+import { post as nightwatchToPlaywrightMigrationGuide } from './nightwatch-to-playwright-migration-guide';
+import { post as openaiAgentEvalsCompleteGuide2026 } from './openai-agent-evals-complete-guide-2026';
+import { post as openaiEvalsDesignBestPractices } from './openai-evals-design-best-practices';
+import { post as openaiEvalsGradersCompleteReference } from './openai-evals-graders-complete-reference';
+import { post as pactContractTestingCompleteGuide2026 } from './pact-contract-testing-complete-guide-2026';
+import { post as pactflowContractTestingBrokerGuide } from './pactflow-contract-testing-broker-guide';
+import { post as percyVisualTestingCompleteGuide } from './percy-visual-testing-complete-guide';
+import { post as playwrightAccessibilityTestingAxeCompleteGuide } from './playwright-accessibility-testing-axe-complete-guide';
+import { post as playwrightApiTestingContextRequestGuide } from './playwright-api-testing-context-request-guide';
+import { post as playwrightBestPracticesLocators2026 } from './playwright-best-practices-locators-2026';
+import { post as playwrightBrowserContextsIsolationGuide } from './playwright-browser-contexts-isolation-guide';
+import { post as playwrightCiGithubActionsCompleteGuide2026 } from './playwright-ci-github-actions-complete-guide-2026';
+import { post as playwrightClockTimeControlTestingGuide } from './playwright-clock-time-control-testing-guide';
+import { post as playwrightCodegenRecordingCompleteGuide } from './playwright-codegen-recording-complete-guide';
+import { post as playwrightComponentTestingReactCompleteGuide } from './playwright-component-testing-react-complete-guide';
+import { post as playwrightComponentTestingSvelteGuide } from './playwright-component-testing-svelte-guide';
+import { post as playwrightComponentTestingVueCompleteGuide } from './playwright-component-testing-vue-complete-guide';
+import { post as playwrightCucumberBddIntegrationGuide } from './playwright-cucumber-bdd-integration-guide';
+import { post as playwrightDebugModeInspectorGuide } from './playwright-debug-mode-inspector-guide';
+import { post as playwrightEmulationGeolocationPermissionsGuide } from './playwright-emulation-geolocation-permissions-guide';
+import { post as playwrightFileDownloadHandlingGuide } from './playwright-file-download-handling-guide';
+import { post as playwrightFixturesCompleteReference2026 } from './playwright-fixtures-complete-reference-2026';
+import { post as playwrightIframeShadowDomGuide } from './playwright-iframe-shadow-dom-guide';
+import { post as playwrightKeyboardMouseInteractionsReference } from './playwright-keyboard-mouse-interactions-reference';
+import { post as playwrightLocatorStrategiesGetbyroleGuide } from './playwright-locator-strategies-getbyrole-guide';
+import { post as playwrightMcpAccessibilitySnapshotsReference } from './playwright-mcp-accessibility-snapshots-reference';
+import { post as playwrightMcpServerConfiguration2026 } from './playwright-mcp-server-configuration-2026';
+import { post as playwrightMobileEmulationDevicesReference } from './playwright-mobile-emulation-devices-reference';
+import { post as playwrightMultiPagePopupHandlingGuide } from './playwright-multi-page-popup-handling-guide';
+import { post as playwrightNetworkMockingRouteHandlerGuide } from './playwright-network-mocking-route-handler-guide';
+import { post as playwrightParallelShardingExecutionGuide } from './playwright-parallel-sharding-execution-guide';
+import { post as playwrightRetriesFlakyTestHandlingGuide } from './playwright-retries-flaky-test-handling-guide';
+import { post as playwrightScreenshotsVideosTracesCompleteGuide } from './playwright-screenshots-videos-traces-complete-guide';
+import { post as playwrightTestAgentsPlannerGeneratorHealerGuide } from './playwright-test-agents-planner-generator-healer-guide';
+import { post as playwrightTestConfigOptionsCompleteReference } from './playwright-test-config-options-complete-reference';
+import { post as playwrightTestReportersHtmlAllureJunitGuide } from './playwright-test-reporters-html-allure-junit-guide';
+import { post as playwrightUiModeComplete2026Guide } from './playwright-ui-mode-complete-2026-guide';
+import { post as playwrightVisualComparisonSnapshotsGuide } from './playwright-visual-comparison-snapshots-guide';
+import { post as promptfooVsOpenaiEvalsComparison2026 } from './promptfoo-vs-openai-evals-comparison-2026';
+import { post as protractorToPlaywrightMigrationGuide } from './protractor-to-playwright-migration-guide';
+import { post as puppeteerToPlaywrightMigrationGuide } from './puppeteer-to-playwright-migration-guide';
+import { post as qaEngineerVsSdetVsTestArchitect } from './qa-engineer-vs-sdet-vs-test-architect';
+import { post as ragasContextPrecisionRecallFaithfulnessGuide } from './ragas-context-precision-recall-faithfulness-guide';
+import { post as ragasRagEvaluationMetricsCompleteGuide } from './ragas-rag-evaluation-metrics-complete-guide';
+import { post as ranorexTestAutomation2026Guide } from './ranorex-test-automation-2026-guide';
+import { post as restAssuredVsKarateDetailedComparison2026 } from './rest-assured-vs-karate-detailed-comparison-2026';
+import { post as robotFrameworkApiTestingRequestsLibrary } from './robot-framework-api-testing-requests-library';
+import { post as robotFrameworkAppiumMobileTestingGuide } from './robot-framework-appium-mobile-testing-guide';
+import { post as robotFrameworkBrowserLibraryPlaywrightGuide } from './robot-framework-browser-library-playwright-guide';
+import { post as robotFrameworkCiCdJenkinsGithubActions } from './robot-framework-ci-cd-jenkins-github-actions';
+import { post as robotFrameworkCustomLibrariesPythonGuide } from './robot-framework-custom-libraries-python-guide';
+import { post as robotFrameworkDataDrivenTestingCompleteGuide } from './robot-framework-data-driven-testing-complete-guide';
+import { post as robotFrameworkDatabaseTestingLibraryGuide } from './robot-framework-database-testing-library-guide';
+import { post as robotFrameworkListenersCompleteReference } from './robot-framework-listeners-complete-reference';
+import { post as robotFrameworkPabotParallelExecutionGuide } from './robot-framework-pabot-parallel-execution-guide';
+import { post as robotFrameworkPytestIntegrationGuide } from './robot-framework-pytest-integration-guide';
+import { post as robotFrameworkRestInstanceLibraryGuide } from './robot-framework-rest-instance-library-guide';
+import { post as robotFrameworkSeleniumLibraryCompleteReference } from './robot-framework-selenium-library-complete-reference';
+import { post as robotFrameworkSmsOtpTestingCompleteGuide } from './robot-framework-sms-otp-testing-complete-guide';
+import { post as robotFrameworkTagsTaggingBestPractices } from './robot-framework-tags-tagging-best-practices';
+import { post as robotFrameworkWaitUntilKeywordSucceedsGuide } from './robot-framework-wait-until-keyword-succeeds-guide';
+import { post as sdetMockInterviewQuestionsWithAnswers } from './sdet-mock-interview-questions-with-answers';
+import { post as sdetRoadmapDayByDay90DayPlan } from './sdet-roadmap-day-by-day-90-day-plan';
+import { post as selenideAllureselenideIncludeselenidestepsReference } from './selenide-allureselenide-includeselenidesteps-reference';
+import { post as selenideCollectionShouldhaveReference } from './selenide-collection-shouldhave-reference';
+import { post as selenideConditionCheatsheet2026 } from './selenide-condition-cheatsheet-2026';
+import { post as selenideFileDownloadUploadGuide } from './selenide-file-download-upload-guide';
+import { post as selenideGridParallelTestingGuide } from './selenide-grid-parallel-testing-guide';
+import { post as selenideHeadlessChromiumFirefoxGuide } from './selenide-headless-chromium-firefox-guide';
+import { post as selenideIframeHandlingCompleteGuide } from './selenide-iframe-handling-complete-guide';
+import { post as selenideJunit5SpringBootIntegration } from './selenide-junit5-spring-boot-integration';
+import { post as selenidePageFactoryCompleteGuide } from './selenide-page-factory-complete-guide';
+import { post as selenidePageObjectPatternBestPractices } from './selenide-page-object-pattern-best-practices';
+import { post as selenideScreenshotOnFailureGuide } from './selenide-screenshot-on-failure-guide';
+import { post as selenideShadowDomElementsGuide } from './selenide-shadow-dom-elements-guide';
+import { post as selenideSoftAssertionsCompleteReference } from './selenide-soft-assertions-complete-reference';
+import { post as selenideVsSeleniumWebdriver2026 } from './selenide-vs-selenium-webdriver-2026';
+import { post as selenideWaitStrategiesExplicitImplicit } from './selenide-wait-strategies-explicit-implicit';
+import { post as seleniumAllureReportingJavaCompleteGuide } from './selenium-allure-reporting-java-complete-guide';
+import { post as seleniumAzureDevopsPipelineGuide } from './selenium-azure-devops-pipeline-guide';
+import { post as seleniumBidirectionalBidiProtocolGuide } from './selenium-bidirectional-bidi-protocol-guide';
+import { post as seleniumCdpChromeDevtoolsProtocolGuide } from './selenium-cdp-chrome-devtools-protocol-guide';
+import { post as seleniumCucumberJavaBddCompleteGuide } from './selenium-cucumber-java-bdd-complete-guide';
+import { post as seleniumGrid3To4MigrationGuide } from './selenium-grid-3-to-4-migration-guide';
+import { post as seleniumGrid4DockerKubernetesGuide } from './selenium-grid-4-docker-kubernetes-guide';
+import { post as seleniumJavaTestngPageObjectGuide } from './selenium-java-testng-page-object-guide';
+import { post as seleniumJenkinsPipelineCompleteGuide } from './selenium-jenkins-pipeline-complete-guide';
+import { post as seleniumManagerBrowserDriver2026 } from './selenium-manager-browser-driver-2026';
+import { post as seleniumPythonPytestIntegrationCompleteGuide } from './selenium-python-pytest-integration-complete-guide';
+import { post as seleniumToPlaywrightMigrationGuide2026 } from './selenium-to-playwright-migration-guide-2026';
+import { post as selfHealingTestAutomationToolsComparison2026 } from './self-healing-test-automation-tools-comparison-2026';
+import { post as specflowNetBdd2026CompleteGuide } from './specflow-net-bdd-2026-complete-guide';
+import { post as specflowVsCucumberDetailedComparison } from './specflow-vs-cucumber-detailed-comparison';
+import { post as springCloudContractTestingGuide } from './spring-cloud-contract-testing-guide';
+import { post as supertestNodeApiTestingCompleteGuide } from './supertest-node-api-testing-complete-guide';
+import { post as swaggerOpenapiSpecValidationGuide } from './swagger-openapi-spec-validation-guide';
+import { post as tavernPytestApiTestingCompleteGuide } from './tavern-pytest-api-testing-complete-guide';
+import { post as testArchitectRoadmap2026 } from './test-architect-roadmap-2026';
+import { post as testAutomationEngineerResumeTemplate } from './test-automation-engineer-resume-template';
+import { post as testcafeToPlaywrightMigrationGuide } from './testcafe-to-playwright-migration-guide';
+import { post as testcontainersBestPractices2026 } from './testcontainers-best-practices-2026';
+import { post as testcontainersDotnetDatabaseTestingGuide } from './testcontainers-dotnet-database-testing-guide';
+import { post as testcontainersElasticsearchNodeGuide } from './testcontainers-elasticsearch-node-guide';
+import { post as testcontainersGoDatabaseTestingGuide } from './testcontainers-go-database-testing-guide';
+import { post as testcontainersKafkaJavaSpringBootGuide } from './testcontainers-kafka-java-spring-boot-guide';
+import { post as testcontainersLocalstackAwsMockingGuide } from './testcontainers-localstack-aws-mocking-guide';
+import { post as testcontainersMongodbNodeIntegrationTesting } from './testcontainers-mongodb-node-integration-testing';
+import { post as testcontainersMysqlNodeIntegrationTesting } from './testcontainers-mysql-node-integration-testing';
+import { post as testcontainersPostgresJavaSpringBootGuide } from './testcontainers-postgres-java-spring-boot-guide';
+import { post as testcontainersPostgresqlNodeCompleteGuide } from './testcontainers-postgresql-node-complete-guide';
+import { post as testcontainersPythonPytestIntegrationGuide } from './testcontainers-python-pytest-integration-guide';
+import { post as testcontainersRabbitmqNodeIntegrationTesting } from './testcontainers-rabbitmq-node-integration-testing';
+import { post as testcontainersRedisNodeCompleteGuide } from './testcontainers-redis-node-complete-guide';
+import { post as testcontainersRustIntegrationTestingGuide } from './testcontainers-rust-integration-testing-guide';
+import { post as testcontainersSeleniumGridGuide } from './testcontainers-selenium-grid-guide';
+import { post as testimVsMablVsFunctionizeComparison } from './testim-vs-mabl-vs-functionize-comparison';
+import { post as testsigmaCodelessAutomationGuide } from './testsigma-codeless-automation-guide';
+import { post as tricentisToscaCodelessTestingGuide } from './tricentis-tosca-codeless-testing-guide';
+import { post as trulensLlmEvaluationFrameworkGuide } from './trulens-llm-evaluation-framework-guide';
+import { post as webdriverioToPlaywrightMigrationGuide } from './webdriverio-to-playwright-migration-guide';
+import { post as weightsBiasesLlmEvalsGuide } from './weights-biases-llm-evals-guide';
+import { post as windsurfQaEngineersCompleteGuide } from './windsurf-qa-engineers-complete-guide';
+import { post as wiremockApiMockingCompleteGuide } from './wiremock-api-mocking-complete-guide';
+import { post as wrkWrk2HttpBenchmarkingGuide } from './wrk-wrk2-http-benchmarking-guide';
+import { post as zedAiQaEngineersGuide } from './zed-ai-qa-engineers-guide';
+
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -533,6 +739,211 @@ export const posts: Record<string, BlogPost> = {
   'selenide-shouldnot-exist-conditions-reference': selenideShouldnotConditions,
   'robot-framework-keyword-driven-testing-guide': robotFrameworkKeywordDriven,
   'best-ai-test-automation-tools-detailed-2026': bestAiTestAutomationToolsDetailed,
+  'ai-defect-prediction-machine-learning-qa': aiDefectPredictionMachineLearningQa,
+  'ai-test-data-generation-tools-2026': aiTestDataGenerationTools2026,
+  'ai-test-generation-llm-prompting-guide': aiTestGenerationLlmPromptingGuide,
+  'ai-test-maintenance-self-healing-strategies': aiTestMaintenanceSelfHealingStrategies,
+  'aider-qa-engineers-guide': aiderQaEngineersGuide,
+  'amp-ai-qa-engineers-guide': ampAiQaEngineersGuide,
+  'apickli-cucumber-api-testing-guide': apickliCucumberApiTestingGuide,
+  'applitools-visual-ai-testing-complete-guide': applitoolsVisualAiTestingCompleteGuide,
+  'arize-phoenix-llm-evaluation-guide': arizePhoenixLlmEvaluationGuide,
+  'artillery-node-load-testing-complete-guide': artilleryNodeLoadTestingCompleteGuide,
+  'autonomous-testing-mabl-functionize-applitools': autonomousTestingMablFunctionizeApplitools,
+  'bdd-test-data-management-best-practices': bddTestDataManagementBestPractices,
+  'bdd-vs-tdd-decision-guide': bddVsTddDecisionGuide,
+  'behave-python-bdd-complete-tutorial': behavePythonBddCompleteTutorial,
+  'behavioral-interview-questions-qa-engineers': behavioralInterviewQuestionsQaEngineers,
+  'bruno-api-testing-complete-guide': brunoApiTestingCompleteGuide,
+  'chromatic-storybook-visual-testing-guide': chromaticStorybookVisualTestingGuide,
+  'claude-code-qa-testing-workflows-2026': claudeCodeQaTestingWorkflows2026,
+  'claude-for-qa-engineers-complete-guide': claudeForQaEngineersCompleteGuide,
+  'claude-qa-agent-setup-guide': claudeQaAgentSetupGuide,
+  'cline-qa-engineers-complete-guide': clineQaEngineersCompleteGuide,
+  'codex-cli-qa-engineers-guide': codexCliQaEngineersGuide,
+  'comparing-popular-bdd-frameworks-2026-complete-guide': comparingPopularBddFrameworks2026CompleteGuide,
+  'continue-dev-qa-engineers-guide': continueDevQaEngineersGuide,
+  'cucumber-java-bdd-best-practices-2026': cucumberJavaBddBestPractices2026,
+  'cucumber-js-to-playwright-migration-guide': cucumberJsToPlaywrightMigrationGuide,
+  'cucumber-ruby-bdd-complete-guide': cucumberRubyBddCompleteGuide,
+  'cucumber-tags-hooks-complete-reference': cucumberTagsHooksCompleteReference,
+  'cucumber-vs-behave-python-bdd-comparison': cucumberVsBehavePythonBddComparison,
+  'cursor-for-qa-engineers-complete-guide': cursorForQaEngineersCompleteGuide,
+  'cursor-playwright-skill-setup-guide': cursorPlaywrightSkillSetupGuide,
+  'cursor-skills-md-best-practices': cursorSkillsMdBestPractices,
+  'cypress-applitools-visual-testing-guide': cypressApplitoolsVisualTestingGuide,
+  'cypress-axe-accessibility-testing-guide': cypressAxeAccessibilityTestingGuide,
+  'cypress-component-testing-angular-guide': cypressComponentTestingAngularGuide,
+  'cypress-component-testing-react-complete-guide': cypressComponentTestingReactCompleteGuide,
+  'cypress-component-testing-vue-complete-guide': cypressComponentTestingVueCompleteGuide,
+  'cypress-cucumber-bdd-preprocessor-guide': cypressCucumberBddPreprocessorGuide,
+  'cypress-cucumber-preprocessor-bdd-guide': cypressCucumberPreprocessorBddGuide,
+  'cypress-custom-commands-best-practices': cypressCustomCommandsBestPractices,
+  'cypress-cy-session-authentication-guide': cypressCySessionAuthenticationGuide,
+  'cypress-environments-config-best-practices': cypressEnvironmentsConfigBestPractices,
+  'cypress-fixtures-data-management-guide': cypressFixturesDataManagementGuide,
+  'cypress-github-actions-ci-guide-2026': cypressGithubActionsCiGuide2026,
+  'cypress-image-snapshot-visual-guide': cypressImageSnapshotVisualGuide,
+  'cypress-intercept-network-stubbing-reference': cypressInterceptNetworkStubbingReference,
+  'cypress-mochawesome-allure-reporter-guide': cypressMochawesomeAllureReporterGuide,
+  'cypress-percy-visual-testing-guide': cypressPercyVisualTestingGuide,
+  'cypress-to-playwright-migration-complete-guide': cypressToPlaywrightMigrationCompleteGuide,
+  'deepeval-pytest-llm-testing-guide': deepevalPytestLlmTestingGuide,
+  'dredd-api-blueprint-testing-guide': dreddApiBlueprintTestingGuide,
+  'enzyme-to-react-testing-library-migration-guide': enzymeToReactTestingLibraryMigrationGuide,
+  'evidently-ai-llm-testing-guide': evidentlyAiLlmTestingGuide,
+  'gatling-scala-load-testing-complete-guide': gatlingScalaLoadTestingCompleteGuide,
+  'gauge-vs-cucumber-bdd-frameworks': gaugeVsCucumberBddFrameworks,
+  'gemini-cli-qa-engineers-guide': geminiCliQaEngineersGuide,
+  'github-copilot-qa-engineers-deep-guide': githubCopilotQaEngineersDeepGuide,
+  'helicone-llm-monitoring-complete-guide': heliconeLlmMonitoringCompleteGuide,
+  'hoppscotch-api-testing-complete-guide': hoppscotchApiTestingCompleteGuide,
+  'insomnia-api-testing-complete-guide': insomniaApiTestingCompleteGuide,
+  'jasmine-to-jest-migration-guide': jasmineToJestMigrationGuide,
+  'jest-to-vitest-migration-guide': jestToVitestMigrationGuide,
+  'jmeter-distributed-load-testing-complete-guide': jmeterDistributedLoadTestingCompleteGuide,
+  'jmeter-vs-locust-vs-gatling-comparison': jmeterVsLocustVsGatlingComparison,
+  'junit4-to-junit5-migration-guide': junit4ToJunit5MigrationGuide,
+  'k6-browser-recorder-test-builder-guide': k6BrowserRecorderTestBuilderGuide,
+  'k6-cloud-grafana-cloud-complete-guide': k6CloudGrafanaCloudCompleteGuide,
+  'k6-extensions-xk6-complete-reference': k6ExtensionsXk6CompleteReference,
+  'karate-bdd-api-testing-complete-guide': karateBddApiTestingCompleteGuide,
+  'karate-dsl-bdd-api-testing-complete-guide': karateDslBddApiTestingCompleteGuide,
+  'karma-to-jest-migration-guide': karmaToJestMigrationGuide,
+  'katalon-studio-test-automation-complete-guide': katalonStudioTestAutomationCompleteGuide,
+  'langchain-evaluators-complete-guide': langchainEvaluatorsCompleteGuide,
+  'langsmith-evaluation-platform-guide': langsmithEvaluationPlatformGuide,
+  'living-documentation-bdd-cucumber': livingDocumentationBddCucumber,
+  'llm-evals-comparison-openai-promptfoo-ragas': llmEvalsComparisonOpenaiPromptfooRagas,
+  'locust-python-load-testing-complete-guide': locustPythonLoadTestingCompleteGuide,
+  'mocha-to-jest-migration-guide': mochaToJestMigrationGuide,
+  'mockoon-api-mocking-tool-guide': mockoonApiMockingToolGuide,
+  'neoload-tricentis-performance-testing-guide': neoloadTricentisPerformanceTestingGuide,
+  'nightwatch-to-playwright-migration-guide': nightwatchToPlaywrightMigrationGuide,
+  'openai-agent-evals-complete-guide-2026': openaiAgentEvalsCompleteGuide2026,
+  'openai-evals-design-best-practices': openaiEvalsDesignBestPractices,
+  'openai-evals-graders-complete-reference': openaiEvalsGradersCompleteReference,
+  'pact-contract-testing-complete-guide-2026': pactContractTestingCompleteGuide2026,
+  'pactflow-contract-testing-broker-guide': pactflowContractTestingBrokerGuide,
+  'percy-visual-testing-complete-guide': percyVisualTestingCompleteGuide,
+  'playwright-accessibility-testing-axe-complete-guide': playwrightAccessibilityTestingAxeCompleteGuide,
+  'playwright-api-testing-context-request-guide': playwrightApiTestingContextRequestGuide,
+  'playwright-best-practices-locators-2026': playwrightBestPracticesLocators2026,
+  'playwright-browser-contexts-isolation-guide': playwrightBrowserContextsIsolationGuide,
+  'playwright-ci-github-actions-complete-guide-2026': playwrightCiGithubActionsCompleteGuide2026,
+  'playwright-clock-time-control-testing-guide': playwrightClockTimeControlTestingGuide,
+  'playwright-codegen-recording-complete-guide': playwrightCodegenRecordingCompleteGuide,
+  'playwright-component-testing-react-complete-guide': playwrightComponentTestingReactCompleteGuide,
+  'playwright-component-testing-svelte-guide': playwrightComponentTestingSvelteGuide,
+  'playwright-component-testing-vue-complete-guide': playwrightComponentTestingVueCompleteGuide,
+  'playwright-cucumber-bdd-integration-guide': playwrightCucumberBddIntegrationGuide,
+  'playwright-debug-mode-inspector-guide': playwrightDebugModeInspectorGuide,
+  'playwright-emulation-geolocation-permissions-guide': playwrightEmulationGeolocationPermissionsGuide,
+  'playwright-file-download-handling-guide': playwrightFileDownloadHandlingGuide,
+  'playwright-fixtures-complete-reference-2026': playwrightFixturesCompleteReference2026,
+  'playwright-iframe-shadow-dom-guide': playwrightIframeShadowDomGuide,
+  'playwright-keyboard-mouse-interactions-reference': playwrightKeyboardMouseInteractionsReference,
+  'playwright-locator-strategies-getbyrole-guide': playwrightLocatorStrategiesGetbyroleGuide,
+  'playwright-mcp-accessibility-snapshots-reference': playwrightMcpAccessibilitySnapshotsReference,
+  'playwright-mcp-server-configuration-2026': playwrightMcpServerConfiguration2026,
+  'playwright-mobile-emulation-devices-reference': playwrightMobileEmulationDevicesReference,
+  'playwright-multi-page-popup-handling-guide': playwrightMultiPagePopupHandlingGuide,
+  'playwright-network-mocking-route-handler-guide': playwrightNetworkMockingRouteHandlerGuide,
+  'playwright-parallel-sharding-execution-guide': playwrightParallelShardingExecutionGuide,
+  'playwright-retries-flaky-test-handling-guide': playwrightRetriesFlakyTestHandlingGuide,
+  'playwright-screenshots-videos-traces-complete-guide': playwrightScreenshotsVideosTracesCompleteGuide,
+  'playwright-test-agents-planner-generator-healer-guide': playwrightTestAgentsPlannerGeneratorHealerGuide,
+  'playwright-test-config-options-complete-reference': playwrightTestConfigOptionsCompleteReference,
+  'playwright-test-reporters-html-allure-junit-guide': playwrightTestReportersHtmlAllureJunitGuide,
+  'playwright-ui-mode-complete-2026-guide': playwrightUiModeComplete2026Guide,
+  'playwright-visual-comparison-snapshots-guide': playwrightVisualComparisonSnapshotsGuide,
+  'promptfoo-vs-openai-evals-comparison-2026': promptfooVsOpenaiEvalsComparison2026,
+  'protractor-to-playwright-migration-guide': protractorToPlaywrightMigrationGuide,
+  'puppeteer-to-playwright-migration-guide': puppeteerToPlaywrightMigrationGuide,
+  'qa-engineer-vs-sdet-vs-test-architect': qaEngineerVsSdetVsTestArchitect,
+  'ragas-context-precision-recall-faithfulness-guide': ragasContextPrecisionRecallFaithfulnessGuide,
+  'ragas-rag-evaluation-metrics-complete-guide': ragasRagEvaluationMetricsCompleteGuide,
+  'ranorex-test-automation-2026-guide': ranorexTestAutomation2026Guide,
+  'rest-assured-vs-karate-detailed-comparison-2026': restAssuredVsKarateDetailedComparison2026,
+  'robot-framework-api-testing-requests-library': robotFrameworkApiTestingRequestsLibrary,
+  'robot-framework-appium-mobile-testing-guide': robotFrameworkAppiumMobileTestingGuide,
+  'robot-framework-browser-library-playwright-guide': robotFrameworkBrowserLibraryPlaywrightGuide,
+  'robot-framework-ci-cd-jenkins-github-actions': robotFrameworkCiCdJenkinsGithubActions,
+  'robot-framework-custom-libraries-python-guide': robotFrameworkCustomLibrariesPythonGuide,
+  'robot-framework-data-driven-testing-complete-guide': robotFrameworkDataDrivenTestingCompleteGuide,
+  'robot-framework-database-testing-library-guide': robotFrameworkDatabaseTestingLibraryGuide,
+  'robot-framework-listeners-complete-reference': robotFrameworkListenersCompleteReference,
+  'robot-framework-pabot-parallel-execution-guide': robotFrameworkPabotParallelExecutionGuide,
+  'robot-framework-pytest-integration-guide': robotFrameworkPytestIntegrationGuide,
+  'robot-framework-rest-instance-library-guide': robotFrameworkRestInstanceLibraryGuide,
+  'robot-framework-selenium-library-complete-reference': robotFrameworkSeleniumLibraryCompleteReference,
+  'robot-framework-sms-otp-testing-complete-guide': robotFrameworkSmsOtpTestingCompleteGuide,
+  'robot-framework-tags-tagging-best-practices': robotFrameworkTagsTaggingBestPractices,
+  'robot-framework-wait-until-keyword-succeeds-guide': robotFrameworkWaitUntilKeywordSucceedsGuide,
+  'sdet-mock-interview-questions-with-answers': sdetMockInterviewQuestionsWithAnswers,
+  'sdet-roadmap-day-by-day-90-day-plan': sdetRoadmapDayByDay90DayPlan,
+  'selenide-allureselenide-includeselenidesteps-reference': selenideAllureselenideIncludeselenidestepsReference,
+  'selenide-collection-shouldhave-reference': selenideCollectionShouldhaveReference,
+  'selenide-condition-cheatsheet-2026': selenideConditionCheatsheet2026,
+  'selenide-file-download-upload-guide': selenideFileDownloadUploadGuide,
+  'selenide-grid-parallel-testing-guide': selenideGridParallelTestingGuide,
+  'selenide-headless-chromium-firefox-guide': selenideHeadlessChromiumFirefoxGuide,
+  'selenide-iframe-handling-complete-guide': selenideIframeHandlingCompleteGuide,
+  'selenide-junit5-spring-boot-integration': selenideJunit5SpringBootIntegration,
+  'selenide-page-factory-complete-guide': selenidePageFactoryCompleteGuide,
+  'selenide-page-object-pattern-best-practices': selenidePageObjectPatternBestPractices,
+  'selenide-screenshot-on-failure-guide': selenideScreenshotOnFailureGuide,
+  'selenide-shadow-dom-elements-guide': selenideShadowDomElementsGuide,
+  'selenide-soft-assertions-complete-reference': selenideSoftAssertionsCompleteReference,
+  'selenide-vs-selenium-webdriver-2026': selenideVsSeleniumWebdriver2026,
+  'selenide-wait-strategies-explicit-implicit': selenideWaitStrategiesExplicitImplicit,
+  'selenium-allure-reporting-java-complete-guide': seleniumAllureReportingJavaCompleteGuide,
+  'selenium-azure-devops-pipeline-guide': seleniumAzureDevopsPipelineGuide,
+  'selenium-bidirectional-bidi-protocol-guide': seleniumBidirectionalBidiProtocolGuide,
+  'selenium-cdp-chrome-devtools-protocol-guide': seleniumCdpChromeDevtoolsProtocolGuide,
+  'selenium-cucumber-java-bdd-complete-guide': seleniumCucumberJavaBddCompleteGuide,
+  'selenium-grid-3-to-4-migration-guide': seleniumGrid3To4MigrationGuide,
+  'selenium-grid-4-docker-kubernetes-guide': seleniumGrid4DockerKubernetesGuide,
+  'selenium-java-testng-page-object-guide': seleniumJavaTestngPageObjectGuide,
+  'selenium-jenkins-pipeline-complete-guide': seleniumJenkinsPipelineCompleteGuide,
+  'selenium-manager-browser-driver-2026': seleniumManagerBrowserDriver2026,
+  'selenium-python-pytest-integration-complete-guide': seleniumPythonPytestIntegrationCompleteGuide,
+  'selenium-to-playwright-migration-guide-2026': seleniumToPlaywrightMigrationGuide2026,
+  'self-healing-test-automation-tools-comparison-2026': selfHealingTestAutomationToolsComparison2026,
+  'specflow-net-bdd-2026-complete-guide': specflowNetBdd2026CompleteGuide,
+  'specflow-vs-cucumber-detailed-comparison': specflowVsCucumberDetailedComparison,
+  'spring-cloud-contract-testing-guide': springCloudContractTestingGuide,
+  'supertest-node-api-testing-complete-guide': supertestNodeApiTestingCompleteGuide,
+  'swagger-openapi-spec-validation-guide': swaggerOpenapiSpecValidationGuide,
+  'tavern-pytest-api-testing-complete-guide': tavernPytestApiTestingCompleteGuide,
+  'test-architect-roadmap-2026': testArchitectRoadmap2026,
+  'test-automation-engineer-resume-template': testAutomationEngineerResumeTemplate,
+  'testcafe-to-playwright-migration-guide': testcafeToPlaywrightMigrationGuide,
+  'testcontainers-best-practices-2026': testcontainersBestPractices2026,
+  'testcontainers-dotnet-database-testing-guide': testcontainersDotnetDatabaseTestingGuide,
+  'testcontainers-elasticsearch-node-guide': testcontainersElasticsearchNodeGuide,
+  'testcontainers-go-database-testing-guide': testcontainersGoDatabaseTestingGuide,
+  'testcontainers-kafka-java-spring-boot-guide': testcontainersKafkaJavaSpringBootGuide,
+  'testcontainers-localstack-aws-mocking-guide': testcontainersLocalstackAwsMockingGuide,
+  'testcontainers-mongodb-node-integration-testing': testcontainersMongodbNodeIntegrationTesting,
+  'testcontainers-mysql-node-integration-testing': testcontainersMysqlNodeIntegrationTesting,
+  'testcontainers-postgres-java-spring-boot-guide': testcontainersPostgresJavaSpringBootGuide,
+  'testcontainers-postgresql-node-complete-guide': testcontainersPostgresqlNodeCompleteGuide,
+  'testcontainers-python-pytest-integration-guide': testcontainersPythonPytestIntegrationGuide,
+  'testcontainers-rabbitmq-node-integration-testing': testcontainersRabbitmqNodeIntegrationTesting,
+  'testcontainers-redis-node-complete-guide': testcontainersRedisNodeCompleteGuide,
+  'testcontainers-rust-integration-testing-guide': testcontainersRustIntegrationTestingGuide,
+  'testcontainers-selenium-grid-guide': testcontainersSeleniumGridGuide,
+  'testim-vs-mabl-vs-functionize-comparison': testimVsMablVsFunctionizeComparison,
+  'testsigma-codeless-automation-guide': testsigmaCodelessAutomationGuide,
+  'tricentis-tosca-codeless-testing-guide': tricentisToscaCodelessTestingGuide,
+  'trulens-llm-evaluation-framework-guide': trulensLlmEvaluationFrameworkGuide,
+  'webdriverio-to-playwright-migration-guide': webdriverioToPlaywrightMigrationGuide,
+  'weights-biases-llm-evals-guide': weightsBiasesLlmEvalsGuide,
+  'windsurf-qa-engineers-complete-guide': windsurfQaEngineersCompleteGuide,
+  'wiremock-api-mocking-complete-guide': wiremockApiMockingCompleteGuide,
+  'wrk-wrk2-http-benchmarking-guide': wrkWrk2HttpBenchmarkingGuide,
+  'zed-ai-qa-engineers-guide': zedAiQaEngineersGuide,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -1218,6 +1629,211 @@ export const postList = [
   { slug: 'selenide-shouldnot-exist-conditions-reference', ...selenideShouldnotConditions },
   { slug: 'robot-framework-keyword-driven-testing-guide', ...robotFrameworkKeywordDriven },
   { slug: 'best-ai-test-automation-tools-detailed-2026', ...bestAiTestAutomationToolsDetailed },
+  { slug: 'ai-defect-prediction-machine-learning-qa', ...aiDefectPredictionMachineLearningQa },
+  { slug: 'ai-test-data-generation-tools-2026', ...aiTestDataGenerationTools2026 },
+  { slug: 'ai-test-generation-llm-prompting-guide', ...aiTestGenerationLlmPromptingGuide },
+  { slug: 'ai-test-maintenance-self-healing-strategies', ...aiTestMaintenanceSelfHealingStrategies },
+  { slug: 'aider-qa-engineers-guide', ...aiderQaEngineersGuide },
+  { slug: 'amp-ai-qa-engineers-guide', ...ampAiQaEngineersGuide },
+  { slug: 'apickli-cucumber-api-testing-guide', ...apickliCucumberApiTestingGuide },
+  { slug: 'applitools-visual-ai-testing-complete-guide', ...applitoolsVisualAiTestingCompleteGuide },
+  { slug: 'arize-phoenix-llm-evaluation-guide', ...arizePhoenixLlmEvaluationGuide },
+  { slug: 'artillery-node-load-testing-complete-guide', ...artilleryNodeLoadTestingCompleteGuide },
+  { slug: 'autonomous-testing-mabl-functionize-applitools', ...autonomousTestingMablFunctionizeApplitools },
+  { slug: 'bdd-test-data-management-best-practices', ...bddTestDataManagementBestPractices },
+  { slug: 'bdd-vs-tdd-decision-guide', ...bddVsTddDecisionGuide },
+  { slug: 'behave-python-bdd-complete-tutorial', ...behavePythonBddCompleteTutorial },
+  { slug: 'behavioral-interview-questions-qa-engineers', ...behavioralInterviewQuestionsQaEngineers },
+  { slug: 'bruno-api-testing-complete-guide', ...brunoApiTestingCompleteGuide },
+  { slug: 'chromatic-storybook-visual-testing-guide', ...chromaticStorybookVisualTestingGuide },
+  { slug: 'claude-code-qa-testing-workflows-2026', ...claudeCodeQaTestingWorkflows2026 },
+  { slug: 'claude-for-qa-engineers-complete-guide', ...claudeForQaEngineersCompleteGuide },
+  { slug: 'claude-qa-agent-setup-guide', ...claudeQaAgentSetupGuide },
+  { slug: 'cline-qa-engineers-complete-guide', ...clineQaEngineersCompleteGuide },
+  { slug: 'codex-cli-qa-engineers-guide', ...codexCliQaEngineersGuide },
+  { slug: 'comparing-popular-bdd-frameworks-2026-complete-guide', ...comparingPopularBddFrameworks2026CompleteGuide },
+  { slug: 'continue-dev-qa-engineers-guide', ...continueDevQaEngineersGuide },
+  { slug: 'cucumber-java-bdd-best-practices-2026', ...cucumberJavaBddBestPractices2026 },
+  { slug: 'cucumber-js-to-playwright-migration-guide', ...cucumberJsToPlaywrightMigrationGuide },
+  { slug: 'cucumber-ruby-bdd-complete-guide', ...cucumberRubyBddCompleteGuide },
+  { slug: 'cucumber-tags-hooks-complete-reference', ...cucumberTagsHooksCompleteReference },
+  { slug: 'cucumber-vs-behave-python-bdd-comparison', ...cucumberVsBehavePythonBddComparison },
+  { slug: 'cursor-for-qa-engineers-complete-guide', ...cursorForQaEngineersCompleteGuide },
+  { slug: 'cursor-playwright-skill-setup-guide', ...cursorPlaywrightSkillSetupGuide },
+  { slug: 'cursor-skills-md-best-practices', ...cursorSkillsMdBestPractices },
+  { slug: 'cypress-applitools-visual-testing-guide', ...cypressApplitoolsVisualTestingGuide },
+  { slug: 'cypress-axe-accessibility-testing-guide', ...cypressAxeAccessibilityTestingGuide },
+  { slug: 'cypress-component-testing-angular-guide', ...cypressComponentTestingAngularGuide },
+  { slug: 'cypress-component-testing-react-complete-guide', ...cypressComponentTestingReactCompleteGuide },
+  { slug: 'cypress-component-testing-vue-complete-guide', ...cypressComponentTestingVueCompleteGuide },
+  { slug: 'cypress-cucumber-bdd-preprocessor-guide', ...cypressCucumberBddPreprocessorGuide },
+  { slug: 'cypress-cucumber-preprocessor-bdd-guide', ...cypressCucumberPreprocessorBddGuide },
+  { slug: 'cypress-custom-commands-best-practices', ...cypressCustomCommandsBestPractices },
+  { slug: 'cypress-cy-session-authentication-guide', ...cypressCySessionAuthenticationGuide },
+  { slug: 'cypress-environments-config-best-practices', ...cypressEnvironmentsConfigBestPractices },
+  { slug: 'cypress-fixtures-data-management-guide', ...cypressFixturesDataManagementGuide },
+  { slug: 'cypress-github-actions-ci-guide-2026', ...cypressGithubActionsCiGuide2026 },
+  { slug: 'cypress-image-snapshot-visual-guide', ...cypressImageSnapshotVisualGuide },
+  { slug: 'cypress-intercept-network-stubbing-reference', ...cypressInterceptNetworkStubbingReference },
+  { slug: 'cypress-mochawesome-allure-reporter-guide', ...cypressMochawesomeAllureReporterGuide },
+  { slug: 'cypress-percy-visual-testing-guide', ...cypressPercyVisualTestingGuide },
+  { slug: 'cypress-to-playwright-migration-complete-guide', ...cypressToPlaywrightMigrationCompleteGuide },
+  { slug: 'deepeval-pytest-llm-testing-guide', ...deepevalPytestLlmTestingGuide },
+  { slug: 'dredd-api-blueprint-testing-guide', ...dreddApiBlueprintTestingGuide },
+  { slug: 'enzyme-to-react-testing-library-migration-guide', ...enzymeToReactTestingLibraryMigrationGuide },
+  { slug: 'evidently-ai-llm-testing-guide', ...evidentlyAiLlmTestingGuide },
+  { slug: 'gatling-scala-load-testing-complete-guide', ...gatlingScalaLoadTestingCompleteGuide },
+  { slug: 'gauge-vs-cucumber-bdd-frameworks', ...gaugeVsCucumberBddFrameworks },
+  { slug: 'gemini-cli-qa-engineers-guide', ...geminiCliQaEngineersGuide },
+  { slug: 'github-copilot-qa-engineers-deep-guide', ...githubCopilotQaEngineersDeepGuide },
+  { slug: 'helicone-llm-monitoring-complete-guide', ...heliconeLlmMonitoringCompleteGuide },
+  { slug: 'hoppscotch-api-testing-complete-guide', ...hoppscotchApiTestingCompleteGuide },
+  { slug: 'insomnia-api-testing-complete-guide', ...insomniaApiTestingCompleteGuide },
+  { slug: 'jasmine-to-jest-migration-guide', ...jasmineToJestMigrationGuide },
+  { slug: 'jest-to-vitest-migration-guide', ...jestToVitestMigrationGuide },
+  { slug: 'jmeter-distributed-load-testing-complete-guide', ...jmeterDistributedLoadTestingCompleteGuide },
+  { slug: 'jmeter-vs-locust-vs-gatling-comparison', ...jmeterVsLocustVsGatlingComparison },
+  { slug: 'junit4-to-junit5-migration-guide', ...junit4ToJunit5MigrationGuide },
+  { slug: 'k6-browser-recorder-test-builder-guide', ...k6BrowserRecorderTestBuilderGuide },
+  { slug: 'k6-cloud-grafana-cloud-complete-guide', ...k6CloudGrafanaCloudCompleteGuide },
+  { slug: 'k6-extensions-xk6-complete-reference', ...k6ExtensionsXk6CompleteReference },
+  { slug: 'karate-bdd-api-testing-complete-guide', ...karateBddApiTestingCompleteGuide },
+  { slug: 'karate-dsl-bdd-api-testing-complete-guide', ...karateDslBddApiTestingCompleteGuide },
+  { slug: 'karma-to-jest-migration-guide', ...karmaToJestMigrationGuide },
+  { slug: 'katalon-studio-test-automation-complete-guide', ...katalonStudioTestAutomationCompleteGuide },
+  { slug: 'langchain-evaluators-complete-guide', ...langchainEvaluatorsCompleteGuide },
+  { slug: 'langsmith-evaluation-platform-guide', ...langsmithEvaluationPlatformGuide },
+  { slug: 'living-documentation-bdd-cucumber', ...livingDocumentationBddCucumber },
+  { slug: 'llm-evals-comparison-openai-promptfoo-ragas', ...llmEvalsComparisonOpenaiPromptfooRagas },
+  { slug: 'locust-python-load-testing-complete-guide', ...locustPythonLoadTestingCompleteGuide },
+  { slug: 'mocha-to-jest-migration-guide', ...mochaToJestMigrationGuide },
+  { slug: 'mockoon-api-mocking-tool-guide', ...mockoonApiMockingToolGuide },
+  { slug: 'neoload-tricentis-performance-testing-guide', ...neoloadTricentisPerformanceTestingGuide },
+  { slug: 'nightwatch-to-playwright-migration-guide', ...nightwatchToPlaywrightMigrationGuide },
+  { slug: 'openai-agent-evals-complete-guide-2026', ...openaiAgentEvalsCompleteGuide2026 },
+  { slug: 'openai-evals-design-best-practices', ...openaiEvalsDesignBestPractices },
+  { slug: 'openai-evals-graders-complete-reference', ...openaiEvalsGradersCompleteReference },
+  { slug: 'pact-contract-testing-complete-guide-2026', ...pactContractTestingCompleteGuide2026 },
+  { slug: 'pactflow-contract-testing-broker-guide', ...pactflowContractTestingBrokerGuide },
+  { slug: 'percy-visual-testing-complete-guide', ...percyVisualTestingCompleteGuide },
+  { slug: 'playwright-accessibility-testing-axe-complete-guide', ...playwrightAccessibilityTestingAxeCompleteGuide },
+  { slug: 'playwright-api-testing-context-request-guide', ...playwrightApiTestingContextRequestGuide },
+  { slug: 'playwright-best-practices-locators-2026', ...playwrightBestPracticesLocators2026 },
+  { slug: 'playwright-browser-contexts-isolation-guide', ...playwrightBrowserContextsIsolationGuide },
+  { slug: 'playwright-ci-github-actions-complete-guide-2026', ...playwrightCiGithubActionsCompleteGuide2026 },
+  { slug: 'playwright-clock-time-control-testing-guide', ...playwrightClockTimeControlTestingGuide },
+  { slug: 'playwright-codegen-recording-complete-guide', ...playwrightCodegenRecordingCompleteGuide },
+  { slug: 'playwright-component-testing-react-complete-guide', ...playwrightComponentTestingReactCompleteGuide },
+  { slug: 'playwright-component-testing-svelte-guide', ...playwrightComponentTestingSvelteGuide },
+  { slug: 'playwright-component-testing-vue-complete-guide', ...playwrightComponentTestingVueCompleteGuide },
+  { slug: 'playwright-cucumber-bdd-integration-guide', ...playwrightCucumberBddIntegrationGuide },
+  { slug: 'playwright-debug-mode-inspector-guide', ...playwrightDebugModeInspectorGuide },
+  { slug: 'playwright-emulation-geolocation-permissions-guide', ...playwrightEmulationGeolocationPermissionsGuide },
+  { slug: 'playwright-file-download-handling-guide', ...playwrightFileDownloadHandlingGuide },
+  { slug: 'playwright-fixtures-complete-reference-2026', ...playwrightFixturesCompleteReference2026 },
+  { slug: 'playwright-iframe-shadow-dom-guide', ...playwrightIframeShadowDomGuide },
+  { slug: 'playwright-keyboard-mouse-interactions-reference', ...playwrightKeyboardMouseInteractionsReference },
+  { slug: 'playwright-locator-strategies-getbyrole-guide', ...playwrightLocatorStrategiesGetbyroleGuide },
+  { slug: 'playwright-mcp-accessibility-snapshots-reference', ...playwrightMcpAccessibilitySnapshotsReference },
+  { slug: 'playwright-mcp-server-configuration-2026', ...playwrightMcpServerConfiguration2026 },
+  { slug: 'playwright-mobile-emulation-devices-reference', ...playwrightMobileEmulationDevicesReference },
+  { slug: 'playwright-multi-page-popup-handling-guide', ...playwrightMultiPagePopupHandlingGuide },
+  { slug: 'playwright-network-mocking-route-handler-guide', ...playwrightNetworkMockingRouteHandlerGuide },
+  { slug: 'playwright-parallel-sharding-execution-guide', ...playwrightParallelShardingExecutionGuide },
+  { slug: 'playwright-retries-flaky-test-handling-guide', ...playwrightRetriesFlakyTestHandlingGuide },
+  { slug: 'playwright-screenshots-videos-traces-complete-guide', ...playwrightScreenshotsVideosTracesCompleteGuide },
+  { slug: 'playwright-test-agents-planner-generator-healer-guide', ...playwrightTestAgentsPlannerGeneratorHealerGuide },
+  { slug: 'playwright-test-config-options-complete-reference', ...playwrightTestConfigOptionsCompleteReference },
+  { slug: 'playwright-test-reporters-html-allure-junit-guide', ...playwrightTestReportersHtmlAllureJunitGuide },
+  { slug: 'playwright-ui-mode-complete-2026-guide', ...playwrightUiModeComplete2026Guide },
+  { slug: 'playwright-visual-comparison-snapshots-guide', ...playwrightVisualComparisonSnapshotsGuide },
+  { slug: 'promptfoo-vs-openai-evals-comparison-2026', ...promptfooVsOpenaiEvalsComparison2026 },
+  { slug: 'protractor-to-playwright-migration-guide', ...protractorToPlaywrightMigrationGuide },
+  { slug: 'puppeteer-to-playwright-migration-guide', ...puppeteerToPlaywrightMigrationGuide },
+  { slug: 'qa-engineer-vs-sdet-vs-test-architect', ...qaEngineerVsSdetVsTestArchitect },
+  { slug: 'ragas-context-precision-recall-faithfulness-guide', ...ragasContextPrecisionRecallFaithfulnessGuide },
+  { slug: 'ragas-rag-evaluation-metrics-complete-guide', ...ragasRagEvaluationMetricsCompleteGuide },
+  { slug: 'ranorex-test-automation-2026-guide', ...ranorexTestAutomation2026Guide },
+  { slug: 'rest-assured-vs-karate-detailed-comparison-2026', ...restAssuredVsKarateDetailedComparison2026 },
+  { slug: 'robot-framework-api-testing-requests-library', ...robotFrameworkApiTestingRequestsLibrary },
+  { slug: 'robot-framework-appium-mobile-testing-guide', ...robotFrameworkAppiumMobileTestingGuide },
+  { slug: 'robot-framework-browser-library-playwright-guide', ...robotFrameworkBrowserLibraryPlaywrightGuide },
+  { slug: 'robot-framework-ci-cd-jenkins-github-actions', ...robotFrameworkCiCdJenkinsGithubActions },
+  { slug: 'robot-framework-custom-libraries-python-guide', ...robotFrameworkCustomLibrariesPythonGuide },
+  { slug: 'robot-framework-data-driven-testing-complete-guide', ...robotFrameworkDataDrivenTestingCompleteGuide },
+  { slug: 'robot-framework-database-testing-library-guide', ...robotFrameworkDatabaseTestingLibraryGuide },
+  { slug: 'robot-framework-listeners-complete-reference', ...robotFrameworkListenersCompleteReference },
+  { slug: 'robot-framework-pabot-parallel-execution-guide', ...robotFrameworkPabotParallelExecutionGuide },
+  { slug: 'robot-framework-pytest-integration-guide', ...robotFrameworkPytestIntegrationGuide },
+  { slug: 'robot-framework-rest-instance-library-guide', ...robotFrameworkRestInstanceLibraryGuide },
+  { slug: 'robot-framework-selenium-library-complete-reference', ...robotFrameworkSeleniumLibraryCompleteReference },
+  { slug: 'robot-framework-sms-otp-testing-complete-guide', ...robotFrameworkSmsOtpTestingCompleteGuide },
+  { slug: 'robot-framework-tags-tagging-best-practices', ...robotFrameworkTagsTaggingBestPractices },
+  { slug: 'robot-framework-wait-until-keyword-succeeds-guide', ...robotFrameworkWaitUntilKeywordSucceedsGuide },
+  { slug: 'sdet-mock-interview-questions-with-answers', ...sdetMockInterviewQuestionsWithAnswers },
+  { slug: 'sdet-roadmap-day-by-day-90-day-plan', ...sdetRoadmapDayByDay90DayPlan },
+  { slug: 'selenide-allureselenide-includeselenidesteps-reference', ...selenideAllureselenideIncludeselenidestepsReference },
+  { slug: 'selenide-collection-shouldhave-reference', ...selenideCollectionShouldhaveReference },
+  { slug: 'selenide-condition-cheatsheet-2026', ...selenideConditionCheatsheet2026 },
+  { slug: 'selenide-file-download-upload-guide', ...selenideFileDownloadUploadGuide },
+  { slug: 'selenide-grid-parallel-testing-guide', ...selenideGridParallelTestingGuide },
+  { slug: 'selenide-headless-chromium-firefox-guide', ...selenideHeadlessChromiumFirefoxGuide },
+  { slug: 'selenide-iframe-handling-complete-guide', ...selenideIframeHandlingCompleteGuide },
+  { slug: 'selenide-junit5-spring-boot-integration', ...selenideJunit5SpringBootIntegration },
+  { slug: 'selenide-page-factory-complete-guide', ...selenidePageFactoryCompleteGuide },
+  { slug: 'selenide-page-object-pattern-best-practices', ...selenidePageObjectPatternBestPractices },
+  { slug: 'selenide-screenshot-on-failure-guide', ...selenideScreenshotOnFailureGuide },
+  { slug: 'selenide-shadow-dom-elements-guide', ...selenideShadowDomElementsGuide },
+  { slug: 'selenide-soft-assertions-complete-reference', ...selenideSoftAssertionsCompleteReference },
+  { slug: 'selenide-vs-selenium-webdriver-2026', ...selenideVsSeleniumWebdriver2026 },
+  { slug: 'selenide-wait-strategies-explicit-implicit', ...selenideWaitStrategiesExplicitImplicit },
+  { slug: 'selenium-allure-reporting-java-complete-guide', ...seleniumAllureReportingJavaCompleteGuide },
+  { slug: 'selenium-azure-devops-pipeline-guide', ...seleniumAzureDevopsPipelineGuide },
+  { slug: 'selenium-bidirectional-bidi-protocol-guide', ...seleniumBidirectionalBidiProtocolGuide },
+  { slug: 'selenium-cdp-chrome-devtools-protocol-guide', ...seleniumCdpChromeDevtoolsProtocolGuide },
+  { slug: 'selenium-cucumber-java-bdd-complete-guide', ...seleniumCucumberJavaBddCompleteGuide },
+  { slug: 'selenium-grid-3-to-4-migration-guide', ...seleniumGrid3To4MigrationGuide },
+  { slug: 'selenium-grid-4-docker-kubernetes-guide', ...seleniumGrid4DockerKubernetesGuide },
+  { slug: 'selenium-java-testng-page-object-guide', ...seleniumJavaTestngPageObjectGuide },
+  { slug: 'selenium-jenkins-pipeline-complete-guide', ...seleniumJenkinsPipelineCompleteGuide },
+  { slug: 'selenium-manager-browser-driver-2026', ...seleniumManagerBrowserDriver2026 },
+  { slug: 'selenium-python-pytest-integration-complete-guide', ...seleniumPythonPytestIntegrationCompleteGuide },
+  { slug: 'selenium-to-playwright-migration-guide-2026', ...seleniumToPlaywrightMigrationGuide2026 },
+  { slug: 'self-healing-test-automation-tools-comparison-2026', ...selfHealingTestAutomationToolsComparison2026 },
+  { slug: 'specflow-net-bdd-2026-complete-guide', ...specflowNetBdd2026CompleteGuide },
+  { slug: 'specflow-vs-cucumber-detailed-comparison', ...specflowVsCucumberDetailedComparison },
+  { slug: 'spring-cloud-contract-testing-guide', ...springCloudContractTestingGuide },
+  { slug: 'supertest-node-api-testing-complete-guide', ...supertestNodeApiTestingCompleteGuide },
+  { slug: 'swagger-openapi-spec-validation-guide', ...swaggerOpenapiSpecValidationGuide },
+  { slug: 'tavern-pytest-api-testing-complete-guide', ...tavernPytestApiTestingCompleteGuide },
+  { slug: 'test-architect-roadmap-2026', ...testArchitectRoadmap2026 },
+  { slug: 'test-automation-engineer-resume-template', ...testAutomationEngineerResumeTemplate },
+  { slug: 'testcafe-to-playwright-migration-guide', ...testcafeToPlaywrightMigrationGuide },
+  { slug: 'testcontainers-best-practices-2026', ...testcontainersBestPractices2026 },
+  { slug: 'testcontainers-dotnet-database-testing-guide', ...testcontainersDotnetDatabaseTestingGuide },
+  { slug: 'testcontainers-elasticsearch-node-guide', ...testcontainersElasticsearchNodeGuide },
+  { slug: 'testcontainers-go-database-testing-guide', ...testcontainersGoDatabaseTestingGuide },
+  { slug: 'testcontainers-kafka-java-spring-boot-guide', ...testcontainersKafkaJavaSpringBootGuide },
+  { slug: 'testcontainers-localstack-aws-mocking-guide', ...testcontainersLocalstackAwsMockingGuide },
+  { slug: 'testcontainers-mongodb-node-integration-testing', ...testcontainersMongodbNodeIntegrationTesting },
+  { slug: 'testcontainers-mysql-node-integration-testing', ...testcontainersMysqlNodeIntegrationTesting },
+  { slug: 'testcontainers-postgres-java-spring-boot-guide', ...testcontainersPostgresJavaSpringBootGuide },
+  { slug: 'testcontainers-postgresql-node-complete-guide', ...testcontainersPostgresqlNodeCompleteGuide },
+  { slug: 'testcontainers-python-pytest-integration-guide', ...testcontainersPythonPytestIntegrationGuide },
+  { slug: 'testcontainers-rabbitmq-node-integration-testing', ...testcontainersRabbitmqNodeIntegrationTesting },
+  { slug: 'testcontainers-redis-node-complete-guide', ...testcontainersRedisNodeCompleteGuide },
+  { slug: 'testcontainers-rust-integration-testing-guide', ...testcontainersRustIntegrationTestingGuide },
+  { slug: 'testcontainers-selenium-grid-guide', ...testcontainersSeleniumGridGuide },
+  { slug: 'testim-vs-mabl-vs-functionize-comparison', ...testimVsMablVsFunctionizeComparison },
+  { slug: 'testsigma-codeless-automation-guide', ...testsigmaCodelessAutomationGuide },
+  { slug: 'tricentis-tosca-codeless-testing-guide', ...tricentisToscaCodelessTestingGuide },
+  { slug: 'trulens-llm-evaluation-framework-guide', ...trulensLlmEvaluationFrameworkGuide },
+  { slug: 'webdriverio-to-playwright-migration-guide', ...webdriverioToPlaywrightMigrationGuide },
+  { slug: 'weights-biases-llm-evals-guide', ...weightsBiasesLlmEvalsGuide },
+  { slug: 'windsurf-qa-engineers-complete-guide', ...windsurfQaEngineersCompleteGuide },
+  { slug: 'wiremock-api-mocking-complete-guide', ...wiremockApiMockingCompleteGuide },
+  { slug: 'wrk-wrk2-http-benchmarking-guide', ...wrkWrk2HttpBenchmarkingGuide },
+  { slug: 'zed-ai-qa-engineers-guide', ...zedAiQaEngineersGuide },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
