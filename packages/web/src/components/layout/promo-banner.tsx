@@ -4,15 +4,15 @@ import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
 const DISMISS_KEY = 'promo-banner-dismissed';
-const CAMPAIGN_ID = 'dual-may-2026-v1';
+const CAMPAIGN_ID = 'dual-jun-2026-v1';
 
 const VARIANTS = [
   {
     emoji: '🚀',
     title: 'AI Tester Blueprint',
     titleShort: 'AI Tester',
-    badge: 'New Batch',
-    date: '17 May 2026',
+    badge: 'Starts 17 Jun',
+    date: '17 Jun 2026',
     schedule: '',
     priceOld: '35,000',
     priceNew: '9,999',
@@ -25,8 +25,8 @@ const VARIANTS = [
     emoji: '🎭',
     title: 'Playwright Automation Mastery',
     titleShort: 'Playwright',
-    badge: 'Starts 4 May',
-    date: '4 May 2026',
+    badge: 'Starts 30 Jun',
+    date: '30 Jun 2026',
     schedule: 'Mon/Wed/Fri 7:00–8:15 AM IST',
     priceOld: '',
     priceNew: '',
