@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { db } from '@/db';
 import { skills, users } from '@/db/schema';
 import { postList } from './blog/posts';
+import { allComparisonSlugs } from '@/lib/compare-data';
 
 const baseUrl = 'https://qaskills.sh';
 const today = '2026-03-26';
@@ -52,6 +53,14 @@ const blogPages: MetadataRoute.Sitemap = postList.map((post) => ({
   priority: 0.8,
 }));
 
+// Auto-generate programmatic comparison pages from compare-data
+const comparePages: MetadataRoute.Sitemap = allComparisonSlugs().map((slug) => ({
+  url: `${baseUrl}/compare/${slug}`,
+  lastModified: today,
+  changeFrequency: 'monthly' as const,
+  priority: 0.7,
+}));
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const allSkills = await db
@@ -72,9 +81,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: user.updatedAt,
     }));
 
-    return [...staticPages, ...skillPages, ...userPages, ...blogPages];
+    return [...staticPages, ...skillPages, ...userPages, ...blogPages, ...comparePages];
   } catch {
     // Fallback to static pages only when DB is not available
-    return [...staticPages, ...blogPages];
+    return [...staticPages, ...blogPages, ...comparePages];
   }
 }
