@@ -3,6 +3,7 @@ import { db } from '@/db';
 import { skills, users } from '@/db/schema';
 import { postList } from './blog/posts';
 import { allComparisonSlugs } from '@/lib/compare-data';
+import { allHubSlugs } from '@/lib/skills-for-hubs';
 
 const baseUrl = 'https://qaskills.sh';
 const today = '2026-03-26';
@@ -41,8 +42,8 @@ const staticPages: MetadataRoute.Sitemap = [
   // Comparison pages
   { url: `${baseUrl}/compare/qaskills-vs-skillsmp`, lastModified: today, changeFrequency: 'monthly', priority: 0.7 },
   { url: `${baseUrl}/compare/playwright-vs-cypress-skills`, lastModified: today, changeFrequency: 'monthly', priority: 0.7 },
-  // Skills-For hub pages (keyword-targeted landings)
-  { url: `${baseUrl}/skills-for/claude-code-testing`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
+  // Skills-For hub index
+  { url: `${baseUrl}/skills-for`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
 ];
 
 // Auto-generate blog pages from the posts index (no more manual sync needed)
@@ -59,6 +60,14 @@ const comparePages: MetadataRoute.Sitemap = allComparisonSlugs().map((slug) => (
   lastModified: today,
   changeFrequency: 'monthly' as const,
   priority: 0.7,
+}));
+
+// Auto-generate /skills-for/<topic> hub pages from skills-for-hubs
+const hubPages: MetadataRoute.Sitemap = allHubSlugs().map((slug) => ({
+  url: `${baseUrl}/skills-for/${slug}`,
+  lastModified: today,
+  changeFrequency: 'weekly' as const,
+  priority: 0.8,
 }));
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -81,9 +90,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: user.updatedAt,
     }));
 
-    return [...staticPages, ...skillPages, ...userPages, ...blogPages, ...comparePages];
+    return [...staticPages, ...skillPages, ...userPages, ...blogPages, ...comparePages, ...hubPages];
   } catch {
     // Fallback to static pages only when DB is not available
-    return [...staticPages, ...blogPages, ...comparePages];
+    return [...staticPages, ...blogPages, ...comparePages, ...hubPages];
   }
 }
