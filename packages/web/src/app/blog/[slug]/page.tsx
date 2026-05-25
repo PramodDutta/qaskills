@@ -4,7 +4,12 @@ import Image from 'next/image';
 import { ArrowLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import type { Metadata } from 'next';
-import { generateBlogPostJsonLd, generateBreadcrumbJsonLd } from '@/lib/json-ld';
+import {
+  generateBlogPostJsonLd,
+  generateBreadcrumbJsonLd,
+  generateFAQJsonLd,
+} from '@/lib/json-ld';
+import { extractFAQs } from '@/lib/extract-faqs';
 import { posts } from '../posts';
 import { BlogContent } from '@/components/blog/blog-content';
 
@@ -48,6 +53,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   if (!post) notFound();
 
+  // Extract FAQ Q&A pairs from markdown body for FAQPage JSON-LD
+  // (AI Overviews + ChatGPT/Claude/Perplexity citation). Empty array if no FAQ section.
+  const faqs = extractFAQs(post.content, 10);
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
       <script
@@ -78,6 +87,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           ),
         }}
       />
+      {faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateFAQJsonLd(faqs)),
+          }}
+        />
+      )}
 
       <Link href="/blog" className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-8">
         <ArrowLeft className="h-4 w-4" /> Back to Blog
