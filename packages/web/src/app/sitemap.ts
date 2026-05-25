@@ -40,6 +40,8 @@ const staticPages: MetadataRoute.Sitemap = [
   // Comparison pages
   { url: `${baseUrl}/compare/qaskills-vs-skillsmp`, lastModified: today, changeFrequency: 'monthly', priority: 0.7 },
   { url: `${baseUrl}/compare/playwright-vs-cypress-skills`, lastModified: today, changeFrequency: 'monthly', priority: 0.7 },
+  // Skills-For hub pages (keyword-targeted landings)
+  { url: `${baseUrl}/skills-for/claude-code-testing`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
 ];
 
 // Auto-generate blog pages from the posts index (no more manual sync needed)
