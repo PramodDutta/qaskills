@@ -236,6 +236,180 @@ npx @qaskills/cli add ragas-rag-evals`,
     ctaSkillLabel: 'Start with Promptfoo LLM Evals',
   },
   {
+    slug: 'playwright-typescript',
+    title: 'Best Playwright TypeScript Skills 2026',
+    description:
+      'Curated Playwright + TypeScript skills: POM, fixtures, traces, parallel, multi-tab, network mocking. Install via npx qaskills add.',
+    h1: 'Best Playwright TypeScript Skills 2026',
+    intro:
+      'Playwright with TypeScript is the dominant E2E stack in 2026 — auto-waiting locators, fixtures, BrowserContext isolation, native parallel execution. These skills teach AI agents the canonical patterns: getByRole, getByTestId, Page Object Model, APIRequestContext, multi-tab + multi-origin flows.',
+    installCmd: `# Install Playwright TypeScript skills
+npx @qaskills/cli add playwright-e2e
+npx @qaskills/cli add playwright-api
+
+# Or grab the full Playwright pack
+npx @qaskills/cli add-pack playwright-pro`,
+    filter: { type: 'framework', value: 'playwright' },
+    valueProps: [
+      { icon: 'zap', title: 'Auto-waiting', body: 'Skills teach native auto-wait — no manual page.waitForSelector clutter.' },
+      { icon: 'check', title: 'POM + fixtures', body: 'Production-grade Page Object Model + Playwright fixtures patterns.' },
+      { icon: 'terminal', title: 'CI ready', body: 'GitHub Actions, parallel sharding, retries, trace.zip artifacts included.' },
+    ],
+    relatedArticles: [
+      { slug: 'playwright-e2e-complete-guide', title: 'Playwright E2E Complete Guide' },
+      { slug: 'playwright-tutorial-beginners-2026', title: 'Playwright Tutorial for Beginners 2026' },
+      { slug: 'playwright-best-practices-locators-2026', title: 'Playwright Best Practices: Locators 2026' },
+      { slug: 'playwright-fixtures-complete-reference-2026', title: 'Playwright Fixtures Complete Reference' },
+      { slug: 'playwright-trace-viewer-complete-guide-2026', title: 'Playwright Trace Viewer Complete Guide' },
+      { slug: 'playwright-ui-mode-complete-2026-guide', title: 'Playwright UI Mode Complete 2026 Guide' },
+      { slug: 'playwright-network-mocking-route-handler-guide', title: 'Playwright Network Mocking + route() Guide' },
+      { slug: 'playwright-storagestate-authentication-reference', title: 'Playwright storageState Authentication Reference' },
+      { slug: 'playwright-ci-github-actions-complete-guide-2026', title: 'Playwright CI + GitHub Actions Guide' },
+      { slug: 'playwright-parallel-sharding-execution-guide', title: 'Playwright Parallel Sharding Execution Guide' },
+      { slug: 'playwright-retries-flaky-test-handling-guide', title: 'Playwright Retries + Flaky Test Handling' },
+      { slug: 'playwright-test-agents-planner-generator-healer-guide', title: 'Playwright Test Agents (Planner/Generator/Healer)' },
+    ],
+    faqs: [
+      { q: 'What makes Playwright + TypeScript a top choice in 2026?', a: 'TypeScript-first API, auto-waiting locators, BrowserContext isolation for parallel, built-in trace viewer + UI mode, and free parallel execution without paid cloud.' },
+      { q: 'Do I need separate skills for component vs E2E?', a: 'No — playwright-e2e covers both browser E2E and component testing patterns. Both use @playwright/test and @playwright/experimental-ct-react / -vue / -svelte.' },
+      { q: 'How do skills handle authentication?', a: 'Skills teach the storageState pattern — log in once, save cookies + localStorage, reuse across tests for sub-second per-test setup.' },
+      { q: 'Parallel execution patterns?', a: 'Skills configure workers + projects + sharding. Default 1 worker per test, parallel across files. Sharding splits files across CI machines.' },
+      { q: 'What about multi-tab + multi-origin flows?', a: 'Native — Playwright supports both. Skills teach context.newPage() + page.context() for tab management and direct multi-origin navigation.' },
+      { q: 'Skills compatible with which agents?', a: 'Claude Code, Cursor, Copilot, Windsurf, Cline, Codex CLI, Aider, Continue, Zed, Bolt, Lovable, v0, Gemini CLI, Amp.' },
+    ],
+    ctaSkillSlug: 'thetestingacademy/playwright-e2e',
+    ctaSkillLabel: 'Start with Playwright E2E',
+  },
+  {
+    slug: 'selenium-java',
+    title: 'Best Selenium Java Skills 2026',
+    description:
+      'Curated Selenium WebDriver Java skills: Advanced POM, TestNG, JUnit 5, Page Factory, parallel Grid, Allure reporting. Install via npx qaskills add.',
+    h1: 'Best Selenium Java Skills 2026',
+    intro:
+      'Selenium WebDriver with Java remains the de facto enterprise E2E stack — W3C standard, polyglot, mature Grid 4 distributed execution. These skills teach AI agents Advanced Page Object Model, Page Factory, fluent waits, TestNG parallel groups, JUnit 5 extensions, Allure reporting, and Jenkins + GitHub Actions CI integration.',
+    installCmd: `# Install Selenium Java skills
+npx @qaskills/cli add selenium-advance-pom
+npx @qaskills/cli add selenium-allure-reporting
+npx @qaskills/cli add selenium-testng-patterns`,
+    filter: { type: 'framework', value: 'selenium' },
+    valueProps: [
+      { icon: 'zap', title: 'POM + Page Factory', body: 'Advanced Page Object Model with @FindBy + LoadableComponent patterns.' },
+      { icon: 'check', title: 'Grid 4 ready', body: 'Distributed parallel execution with Docker + Kubernetes deploy patterns.' },
+      { icon: 'terminal', title: 'CI matured', body: 'Maven + Gradle build, TestNG XML, Jenkins pipeline, Allure history.' },
+    ],
+    relatedArticles: [
+      { slug: 'selenium-vs-playwright-2026', title: 'Selenium vs Playwright 2026' },
+      { slug: 'selenium-tutorial-complete-beginners-2026', title: 'Selenium Tutorial for Beginners 2026' },
+      { slug: 'selenium-java-testng-page-object-guide', title: 'Selenium + Java + TestNG Page Object Guide' },
+      { slug: 'selenium-grid-docker-parallel-testing', title: 'Selenium Grid 4 + Docker Parallel Testing' },
+      { slug: 'selenium-grid-4-docker-kubernetes-guide', title: 'Selenium Grid 4 + Docker + Kubernetes Guide' },
+      { slug: 'selenium-manager-browser-driver-2026', title: 'Selenium Manager Browser Driver 2026' },
+      { slug: 'selenium-bidirectional-bidi-protocol-guide', title: 'Selenium BiDi Protocol Guide' },
+      { slug: 'selenium-allure-reporting-java-complete-guide', title: 'Selenium + Allure Reporting Java Guide' },
+      { slug: 'selenium-jenkins-pipeline-complete-guide', title: 'Selenium + Jenkins Pipeline Complete Guide' },
+      { slug: 'selenium-cucumber-java-bdd-complete-guide', title: 'Selenium + Cucumber Java BDD Guide' },
+      { slug: 'selenium-to-playwright-migration-guide-2026', title: 'Selenium to Playwright Migration Guide' },
+      { slug: 'selenide-vs-selenium-webdriver-2026', title: 'Selenide vs Selenium WebDriver 2026' },
+    ],
+    faqs: [
+      { q: 'Selenium 4 or Selenium 3?', a: 'Selenium 4 only — W3C WebDriver native, Selenium Manager auto-downloads drivers, BiDi protocol, Grid 4 with Docker + K8s. Selenium 3 is EOL.' },
+      { q: 'TestNG or JUnit 5 with Selenium?', a: 'Both excellent. TestNG dominates Selenium tutorials (DataProvider patterns). JUnit 5 catching up — Selenium\'s own examples now use JUnit 5.' },
+      { q: 'Should I migrate to Playwright?', a: 'For new projects — Playwright. For existing Selenium suites — stay, but plan a 18-24 month migration for new test development.' },
+      { q: 'Allure or Extent Reports?', a: 'Allure for polyglot teams + AllureSelenide convenience. Extent Reports for Java/.NET only with polished UI out of the box.' },
+      { q: 'Mobile testing in Selenium?', a: 'Use Appium — shares WebDriver protocol. Selenium WebDriver and Appium in the same Java suite is a common pattern.' },
+      { q: 'Selenium Manager replace WebDriverManager?', a: 'Yes — built into Selenium 4.6+. No more third-party WebDriverManager dependency for most cases.' },
+    ],
+    ctaSkillSlug: 'thetestingacademy/selenium-advance-pom',
+    ctaSkillLabel: 'Start with Selenium Advanced POM',
+  },
+  {
+    slug: 'api-contract-testing',
+    title: 'Best API & Contract Testing Skills 2026',
+    description:
+      'Curated API + contract testing skills: REST Assured, Karate, Pact, WireMock, Supertest, Postman, Bruno. Install via npx qaskills add.',
+    h1: 'Best API & Contract Testing Skills 2026',
+    intro:
+      'API and contract testing skills covering REST/GraphQL/gRPC across REST Assured, Karate, Supertest, Apickli, Pact, Spring Cloud Contract, WireMock, Mockoon, Bruno, Hoppscotch. Catch breaking changes before they ship. Validate OpenAPI specs. Run in CI.',
+    installCmd: `# Install API testing skills
+npx @qaskills/cli add api-testing-rest
+npx @qaskills/cli add pact-contract-testing
+npx @qaskills/cli add karate-bdd-api`,
+    filter: { type: 'testingType', value: 'api' },
+    valueProps: [
+      { icon: 'zap', title: 'Contract-first', body: 'Pact + Spring Cloud Contract patterns prevent breaking changes.' },
+      { icon: 'check', title: 'Multi-tool', body: 'REST Assured, Karate, Supertest, Bruno — pick the right tool per stack.' },
+      { icon: 'terminal', title: 'CI gates', body: 'JUnit XML output + Pact broker can-i-deploy for safe deploys.' },
+    ],
+    relatedArticles: [
+      { slug: 'api-testing-complete-guide', title: 'API Testing Complete Guide' },
+      { slug: 'api-testing-best-practices-guide', title: 'API Testing Best Practices' },
+      { slug: 'rest-assured-java-api-testing', title: 'REST Assured Java API Testing' },
+      { slug: 'karate-dsl-bdd-api-testing-complete-guide', title: 'Karate DSL BDD API Testing Guide' },
+      { slug: 'rest-assured-vs-karate-detailed-comparison-2026', title: 'REST Assured vs Karate 2026' },
+      { slug: 'supertest-node-api-testing-complete-guide', title: 'SuperTest Node API Testing Guide' },
+      { slug: 'pact-contract-testing-complete-guide-2026', title: 'Pact Contract Testing Complete Guide' },
+      { slug: 'pactflow-contract-testing-broker-guide', title: 'Pactflow Contract Testing Broker Guide' },
+      { slug: 'spring-cloud-contract-testing-guide', title: 'Spring Cloud Contract Testing Guide' },
+      { slug: 'wiremock-api-mocking-complete-guide', title: 'WireMock API Mocking Complete Guide' },
+      { slug: 'mockoon-api-mocking-tool-guide', title: 'Mockoon API Mocking Tool Guide' },
+      { slug: 'bruno-api-testing-complete-guide', title: 'Bruno API Testing Complete Guide' },
+      { slug: 'postman-api-testing-guide', title: 'Postman API Testing Guide' },
+      { slug: 'hoppscotch-api-testing-complete-guide', title: 'Hoppscotch API Testing Complete Guide' },
+      { slug: 'api-contract-testing-microservices', title: 'API Contract Testing for Microservices' },
+      { slug: 'openapi-contract-testing-guide', title: 'OpenAPI Contract Testing Guide' },
+    ],
+    faqs: [
+      { q: 'REST Assured vs Karate?', a: 'REST Assured for pure Java code-first teams. Karate for Gherkin-readable scenarios + integrated mocking + perf in one tool.' },
+      { q: 'Pact vs Spring Cloud Contract?', a: 'Pact for polyglot microservices (consumer-driven). Spring Cloud Contract for pure Spring Boot stacks (producer-driven).' },
+      { q: 'WireMock vs Mockoon?', a: 'WireMock for JVM-embedded service virtualization + advanced fault injection. Mockoon for quick local mocking + frontend dev environments.' },
+      { q: 'Postman vs Bruno vs Insomnia?', a: 'Postman for cloud-first collaboration. Bruno for git-first OSS. Insomnia between the two — feature-rich + local-first.' },
+      { q: 'OpenAPI validation in CI?', a: 'Use Dredd, Spectral, or Pact Provider verification against the OpenAPI spec. Block PRs that break the contract.' },
+      { q: 'gRPC testing?', a: 'WireMock + grpc-mock or Karate (with grpc extension). REST Assured does not support gRPC directly.' },
+    ],
+    ctaSkillSlug: 'thetestingacademy/api-testing-rest',
+    ctaSkillLabel: 'Start with API Testing REST',
+  },
+  {
+    slug: 'visual-regression',
+    title: 'Best Visual Regression Testing Skills 2026',
+    description:
+      'Curated visual regression skills: Playwright Visual, Percy, Applitools, Chromatic, BackstopJS, cypress-image-snapshot. Install via npx qaskills add.',
+    h1: 'Best Visual Regression Testing Skills 2026',
+    intro:
+      'Visual regression skills covering Playwright\'s native toHaveScreenshot, Percy + Cypress/Playwright integrations, Applitools Eyes AI, Chromatic for Storybook component review, BackstopJS for hand-crafted CSS-baked diffs, and cypress-image-snapshot. Detect UI regressions before they ship.',
+    installCmd: `# Install visual regression skills
+npx @qaskills/cli add playwright-visual-regression
+npx @qaskills/cli add applitools-eyes
+npx @qaskills/cli add chromatic-storybook`,
+    filter: { type: 'testingType', value: 'visual' },
+    valueProps: [
+      { icon: 'zap', title: 'Pixel + AI diffs', body: 'Skills cover both pixel comparison (Percy) and AI-powered (Applitools).' },
+      { icon: 'check', title: 'CI-ready', body: 'PR checks + approval workflows + baselines stored in git or cloud.' },
+      { icon: 'star', title: 'Storybook-first', body: 'Chromatic skill ships component-level review tied to Storybook stories.' },
+    ],
+    relatedArticles: [
+      { slug: 'visual-regression-testing-guide', title: 'Visual Regression Testing Guide' },
+      { slug: 'applitools-visual-ai-testing-complete-guide', title: 'Applitools Visual AI Testing Guide' },
+      { slug: 'percy-visual-testing-complete-guide', title: 'Percy Visual Testing Guide' },
+      { slug: 'chromatic-storybook-visual-testing-guide', title: 'Chromatic + Storybook Visual Testing Guide' },
+      { slug: 'playwright-visual-comparison-snapshots-guide', title: 'Playwright Visual Comparison Snapshots Guide' },
+      { slug: 'cypress-percy-visual-testing-guide', title: 'Cypress + Percy Visual Testing Guide' },
+      { slug: 'cypress-applitools-visual-testing-guide', title: 'Cypress + Applitools Visual Testing Guide' },
+      { slug: 'cypress-image-snapshot-visual-guide', title: 'cypress-image-snapshot Visual Guide' },
+    ],
+    faqs: [
+      { q: 'Playwright native visual or Percy/Applitools?', a: 'Native (toHaveScreenshot) for in-house simple baselines. Percy/Applitools for cross-browser cloud + approval workflows + AI diff.' },
+      { q: 'Applitools vs Percy?', a: 'Applitools for lowest false positives via AI diff + Ultrafast Grid multi-browser. Percy for BrowserStack-integrated stacks + predictable pricing.' },
+      { q: 'Chromatic vs Percy?', a: 'Chromatic is Storybook-first (component review). Percy is page-level E2E visual diffs.' },
+      { q: 'BackstopJS?', a: 'OSS pixel comparison tool. Strong for hand-crafted CSS pixel-baked tests. Slower than commercial tools at scale.' },
+      { q: 'Where do baselines live?', a: 'Native Playwright + cypress-image-snapshot: in git. Percy/Applitools/Chromatic: in cloud dashboards with approval workflow.' },
+      { q: 'How to handle dynamic content?', a: 'Use ignore regions (Percy, Applitools), masking (Playwright), or stubs (Cypress intercept). Skills include patterns for common dynamic UI.' },
+    ],
+    ctaSkillSlug: 'thetestingacademy/playwright-visual-regression',
+    ctaSkillLabel: 'Start with Playwright Visual',
+  },
+  {
     slug: 'mcp-testing',
     title: 'Best MCP Skills for Testing & QA 2026',
     description:
