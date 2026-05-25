@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { PromoBanner } from '@/components/layout/promo-banner';
 import { ClerkWrapper } from '@/components/clerk-wrapper';
+import { generateWebsiteJsonLd, generateOrganizationJsonLd } from '@/lib/json-ld';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
@@ -89,6 +90,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <ClerkWrapper>
       <html lang="en" suppressHydrationWarning>
         <head>
+          {/* Sitewide WebSite + Organization JSON-LD for AI Overviews + Google sitelinks */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(generateWebsiteJsonLd()),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(generateOrganizationJsonLd()),
+            }}
+          />
           {/* Google Tag Manager (gtag.js) */}
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-DBRNT5VNQ3" />
           <script

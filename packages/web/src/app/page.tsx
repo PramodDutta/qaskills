@@ -6,7 +6,6 @@ import { QualityBadge } from '@/components/skills/quality-badge';
 import { HeroTerminal } from '@/components/home/hero-terminal';
 import { AgentMarquee } from '@/components/home/agent-marquee';
 import { StatsCounter } from '@/components/home/stats-counter';
-import { generateWebsiteJsonLd, generateOrganizationJsonLd } from '@/lib/json-ld';
 
 const typeColors: Record<string, { accent: string; badge: string }> = {
   'E2E': { accent: 'bg-blue-500', badge: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20' },
@@ -57,12 +56,7 @@ const categories = [
 export default function HomePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify([generateWebsiteJsonLd(), generateOrganizationJsonLd()]),
-        }}
-      />
+      {/* WebSite + Organization JSON-LD lives in root layout.tsx (sitewide). */}
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border">

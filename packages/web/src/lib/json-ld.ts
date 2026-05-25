@@ -181,3 +181,39 @@ export function generateArticleJsonLd(article: {
     mainEntityOfPage: article.url,
   };
 }
+
+export function generateFAQJsonLd(faqs: Array<{ q: string; a: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+}
+
+export function generateHowToJsonLd(howTo: {
+  name: string;
+  description: string;
+  totalTime?: string;
+  tool?: string[];
+  steps: Array<{ name: string; text: string; url?: string }>;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: howTo.name,
+    description: howTo.description,
+    ...(howTo.totalTime && { totalTime: howTo.totalTime }),
+    ...(howTo.tool && { tool: howTo.tool }),
+    step: howTo.steps.map((s, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+      ...(s.url && { url: s.url }),
+    })),
+  };
+}

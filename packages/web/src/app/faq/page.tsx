@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { generateBreadcrumbJsonLd } from '@/lib/json-ld';
+import { generateBreadcrumbJsonLd, generateFAQJsonLd } from '@/lib/json-ld';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -116,7 +116,16 @@ export default function FAQPage() {
           ),
         }}
       />
-      {/* Note: FAQPage schema removed. Google restricted FAQPage rich results to gov/healthcare sites (Aug 2023). */}
+      {/* FAQPage schema — Google restricted rich-result stars to gov/healthcare (Aug 2023),
+          but AI Overviews, ChatGPT, Perplexity, Claude still parse FAQPage for citations. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateFAQJsonLd(faqs.flatMap((section) => section.questions))
+          ),
+        }}
+      />
       {/* Header */}
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
