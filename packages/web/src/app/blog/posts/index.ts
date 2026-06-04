@@ -402,6 +402,32 @@ import { post as windsurfQaEngineersCompleteGuide } from './windsurf-qa-engineer
 import { post as wiremockApiMockingCompleteGuide } from './wiremock-api-mocking-complete-guide';
 import { post as wrkWrk2HttpBenchmarkingGuide } from './wrk-wrk2-http-benchmarking-guide';
 import { post as zedAiQaEngineersGuide } from './zed-ai-qa-engineers-guide';
+import { post as whatIsPytestPythonExplained } from './what-is-pytest-python-explained';
+import { post as pytestBestPractices2026 } from './pytest-best-practices-2026';
+import { post as jestMockVsMockImplementationGuide } from './jest-mock-vs-mockimplementation-guide';
+import { post as vitest4MigrationGuideBreakingChanges } from './vitest-4-migration-guide-breaking-changes';
+import { post as testcontainersReuseWithReuseNodeGuide } from './testcontainers-reuse-withreuse-node-guide';
+import { post as ragEvaluationMetricsComplete2026 } from './rag-evaluation-metrics-complete-2026';
+import { post as ragRegressionTestingGuide } from './rag-regression-testing-guide';
+import { post as openaiEvalsTraceGradingCompleteGuide } from './openai-evals-trace-grading-complete-guide';
+import { post as agentBrowserCompleteGuide2026 } from './agent-browser-complete-guide-2026';
+import { post as cursorSkillMdFrontmatterSchemaGuide } from './cursor-skill-md-frontmatter-schema-guide';
+
+import { post as testrailVsZephyrScale2026 } from './testrail-vs-zephyr-scale-2026';
+import { post as xrayTestManagementPricing2026 } from './xray-test-management-pricing-2026';
+import { post as bestTestManagementToolsBeyondTestrail2026 } from './best-test-management-tools-beyond-testrail-2026';
+import { post as playwrightVsCypressNextjsE2e2026 } from './playwright-vs-cypress-nextjs-e2e-2026';
+import { post as playwrightVsRestAssuredApiTesting } from './playwright-vs-rest-assured-api-testing';
+import { post as playwrightMultipleTabsWindowsGuide } from './playwright-multiple-tabs-windows-guide';
+import { post as playwrightPageEvaluateCompleteGuide } from './playwright-page-evaluate-complete-guide';
+import { post as playwrightTestStepAnnotationsGuide } from './playwright-test-step-annotations-guide';
+import { post as playwrightLocatorFilterVisibleReference } from './playwright-locator-filter-visible-reference';
+import { post as playwrightVsPuppeteerBundleSize2026 } from './playwright-vs-puppeteer-bundle-size-2026';
+import { post as aiAccessibilityTestingTools2026 } from './ai-accessibility-testing-tools-2026';
+import { post as aiMobileTestAutomation2026 } from './ai-mobile-test-automation-2026';
+import { post as bestCheapAiE2eTestingTools2026 } from './best-cheap-ai-e2e-testing-tools-2026';
+import { post as howToDetectAiGeneratedCode2026 } from './how-to-detect-ai-generated-code-2026';
+import { post as migrateSeleniumToPlaywrightChecklist2026 } from './migrate-selenium-to-playwright-checklist-2026';
 
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
@@ -944,6 +970,31 @@ export const posts: Record<string, BlogPost> = {
   'wiremock-api-mocking-complete-guide': wiremockApiMockingCompleteGuide,
   'wrk-wrk2-http-benchmarking-guide': wrkWrk2HttpBenchmarkingGuide,
   'zed-ai-qa-engineers-guide': zedAiQaEngineersGuide,
+  'what-is-pytest-python-explained': whatIsPytestPythonExplained,
+  'pytest-best-practices-2026': pytestBestPractices2026,
+  'jest-mock-vs-mockimplementation-guide': jestMockVsMockImplementationGuide,
+  'vitest-4-migration-guide-breaking-changes': vitest4MigrationGuideBreakingChanges,
+  'testcontainers-reuse-withreuse-node-guide': testcontainersReuseWithReuseNodeGuide,
+  'rag-evaluation-metrics-complete-2026': ragEvaluationMetricsComplete2026,
+  'rag-regression-testing-guide': ragRegressionTestingGuide,
+  'openai-evals-trace-grading-complete-guide': openaiEvalsTraceGradingCompleteGuide,
+  'agent-browser-complete-guide-2026': agentBrowserCompleteGuide2026,
+  'cursor-skill-md-frontmatter-schema-guide': cursorSkillMdFrontmatterSchemaGuide,
+  'testrail-vs-zephyr-scale-2026': testrailVsZephyrScale2026,
+  'xray-test-management-pricing-2026': xrayTestManagementPricing2026,
+  'best-test-management-tools-beyond-testrail-2026': bestTestManagementToolsBeyondTestrail2026,
+  'playwright-vs-cypress-nextjs-e2e-2026': playwrightVsCypressNextjsE2e2026,
+  'playwright-vs-rest-assured-api-testing': playwrightVsRestAssuredApiTesting,
+  'playwright-multiple-tabs-windows-guide': playwrightMultipleTabsWindowsGuide,
+  'playwright-page-evaluate-complete-guide': playwrightPageEvaluateCompleteGuide,
+  'playwright-test-step-annotations-guide': playwrightTestStepAnnotationsGuide,
+  'playwright-locator-filter-visible-reference': playwrightLocatorFilterVisibleReference,
+  'playwright-vs-puppeteer-bundle-size-2026': playwrightVsPuppeteerBundleSize2026,
+  'ai-accessibility-testing-tools-2026': aiAccessibilityTestingTools2026,
+  'ai-mobile-test-automation-2026': aiMobileTestAutomation2026,
+  'best-cheap-ai-e2e-testing-tools-2026': bestCheapAiE2eTestingTools2026,
+  'how-to-detect-ai-generated-code-2026': howToDetectAiGeneratedCode2026,
+  'migrate-selenium-to-playwright-checklist-2026': migrateSeleniumToPlaywrightChecklist2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -1834,6 +1885,31 @@ export const postList = [
   { slug: 'wiremock-api-mocking-complete-guide', ...wiremockApiMockingCompleteGuide },
   { slug: 'wrk-wrk2-http-benchmarking-guide', ...wrkWrk2HttpBenchmarkingGuide },
   { slug: 'zed-ai-qa-engineers-guide', ...zedAiQaEngineersGuide },
+  { slug: 'what-is-pytest-python-explained', ...whatIsPytestPythonExplained },
+  { slug: 'pytest-best-practices-2026', ...pytestBestPractices2026 },
+  { slug: 'jest-mock-vs-mockimplementation-guide', ...jestMockVsMockImplementationGuide },
+  { slug: 'vitest-4-migration-guide-breaking-changes', ...vitest4MigrationGuideBreakingChanges },
+  { slug: 'testcontainers-reuse-withreuse-node-guide', ...testcontainersReuseWithReuseNodeGuide },
+  { slug: 'rag-evaluation-metrics-complete-2026', ...ragEvaluationMetricsComplete2026 },
+  { slug: 'rag-regression-testing-guide', ...ragRegressionTestingGuide },
+  { slug: 'openai-evals-trace-grading-complete-guide', ...openaiEvalsTraceGradingCompleteGuide },
+  { slug: 'agent-browser-complete-guide-2026', ...agentBrowserCompleteGuide2026 },
+  { slug: 'cursor-skill-md-frontmatter-schema-guide', ...cursorSkillMdFrontmatterSchemaGuide },
+  { slug: 'testrail-vs-zephyr-scale-2026', ...testrailVsZephyrScale2026 },
+  { slug: 'xray-test-management-pricing-2026', ...xrayTestManagementPricing2026 },
+  { slug: 'best-test-management-tools-beyond-testrail-2026', ...bestTestManagementToolsBeyondTestrail2026 },
+  { slug: 'playwright-vs-cypress-nextjs-e2e-2026', ...playwrightVsCypressNextjsE2e2026 },
+  { slug: 'playwright-vs-rest-assured-api-testing', ...playwrightVsRestAssuredApiTesting },
+  { slug: 'playwright-multiple-tabs-windows-guide', ...playwrightMultipleTabsWindowsGuide },
+  { slug: 'playwright-page-evaluate-complete-guide', ...playwrightPageEvaluateCompleteGuide },
+  { slug: 'playwright-test-step-annotations-guide', ...playwrightTestStepAnnotationsGuide },
+  { slug: 'playwright-locator-filter-visible-reference', ...playwrightLocatorFilterVisibleReference },
+  { slug: 'playwright-vs-puppeteer-bundle-size-2026', ...playwrightVsPuppeteerBundleSize2026 },
+  { slug: 'ai-accessibility-testing-tools-2026', ...aiAccessibilityTestingTools2026 },
+  { slug: 'ai-mobile-test-automation-2026', ...aiMobileTestAutomation2026 },
+  { slug: 'best-cheap-ai-e2e-testing-tools-2026', ...bestCheapAiE2eTestingTools2026 },
+  { slug: 'how-to-detect-ai-generated-code-2026', ...howToDetectAiGeneratedCode2026 },
+  { slug: 'migrate-selenium-to-playwright-checklist-2026', ...migrateSeleniumToPlaywrightChecklist2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
