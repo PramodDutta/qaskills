@@ -429,6 +429,38 @@ import { post as bestCheapAiE2eTestingTools2026 } from './best-cheap-ai-e2e-test
 import { post as howToDetectAiGeneratedCode2026 } from './how-to-detect-ai-generated-code-2026';
 import { post as migrateSeleniumToPlaywrightChecklist2026 } from './migrate-selenium-to-playwright-checklist-2026';
 
+import { post as bddTestManagementTools2026 } from './bdd-test-management-tools-2026';
+import { post as chromaticTurbosnapStorybookGuide } from './chromatic-turbosnap-storybook-guide';
+import { post as cypressAliasesBeforeEachGuide } from './cypress-aliases-before-each-guide';
+import { post as cypressComponentTestingReactRouterGuide } from './cypress-component-testing-react-router-guide';
+import { post as insomniaTutorialCompleteEngineersGuide } from './insomnia-tutorial-complete-engineers-guide';
+import { post as jmeterResponseAssertionJmxGuide } from './jmeter-response-assertion-jmx-guide';
+import { post as keywordDrivenTestingPythonGuide } from './keyword-driven-testing-python-guide';
+import { post as localstackBedrockMockTestingGuide } from './localstack-bedrock-mock-testing-guide';
+import { post as mablVsPlaywrightComparison2026 } from './mabl-vs-playwright-comparison-2026';
+import { post as pactConsumerDrivenContractReference2026 } from './pact-consumer-driven-contract-reference-2026';
+import { post as percyPlaywrightVisualTestingGuide } from './percy-playwright-visual-testing-guide';
+import { post as playwrightAllureAttachmentTraceGuide } from './playwright-allure-attachment-trace-guide';
+import { post as playwrightApirequestcontextStoragestateGuide } from './playwright-apirequestcontext-storagestate-guide';
+import { post as playwrightBlobReporterGuide } from './playwright-blob-reporter-guide';
+import { post as playwrightBrowsersPathEnvGuide } from './playwright-browsers-path-env-guide';
+import { post as playwrightCodegenCliFlagsReference } from './playwright-codegen-cli-flags-reference';
+import { post as playwrightInstallProxyMirrorGuide } from './playwright-install-proxy-mirror-guide';
+import { post as playwrightMcpCursorTroubleshootingGuide } from './playwright-mcp-cursor-troubleshooting-guide';
+import { post as playwrightMcpJsonConfigurationReference } from './playwright-mcp-json-configuration-reference';
+import { post as playwrightPythonAuthenticationStorageStateGuide } from './playwright-python-authentication-storage-state-guide';
+import { post as playwrightPythonCodegenGuide } from './playwright-python-codegen-guide';
+import { post as playwrightPythonFileUploadGuide } from './playwright-python-file-upload-guide';
+import { post as playwrightTestingBestPractices2026 } from './playwright-testing-best-practices-2026';
+import { post as robotFrameworkBuiltinKeywordsReference } from './robot-framework-builtin-keywords-reference';
+import { post as robotFrameworkSeleniumlibraryLocatorsGuide } from './robot-framework-seleniumlibrary-locators-guide';
+import { post as selenideConfigurationBaseurlGuide } from './selenide-configuration-baseurl-guide';
+import { post as selenideCssclassConditionReference } from './selenide-cssclass-condition-reference';
+import { post as seleniumCdpAddScriptEvaluateGuide } from './selenium-cdp-add-script-evaluate-guide';
+import { post as seleniumWebdriverBidi2026Reference } from './selenium-webdriver-bidi-2026-reference';
+import { post as testAutomationRoiBusinessValueGuide } from './test-automation-roi-business-value-guide';
+import { post as twilioSmsOtpTestingPythonGuide } from './twilio-sms-otp-testing-python-guide';
+import { post as webdriverioVisualServiceBlockoutGuide } from './webdriverio-visual-service-blockout-guide';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -995,6 +1027,38 @@ export const posts: Record<string, BlogPost> = {
   'best-cheap-ai-e2e-testing-tools-2026': bestCheapAiE2eTestingTools2026,
   'how-to-detect-ai-generated-code-2026': howToDetectAiGeneratedCode2026,
   'migrate-selenium-to-playwright-checklist-2026': migrateSeleniumToPlaywrightChecklist2026,
+  'bdd-test-management-tools-2026': bddTestManagementTools2026,
+  'chromatic-turbosnap-storybook-guide': chromaticTurbosnapStorybookGuide,
+  'cypress-aliases-before-each-guide': cypressAliasesBeforeEachGuide,
+  'cypress-component-testing-react-router-guide': cypressComponentTestingReactRouterGuide,
+  'insomnia-tutorial-complete-engineers-guide': insomniaTutorialCompleteEngineersGuide,
+  'jmeter-response-assertion-jmx-guide': jmeterResponseAssertionJmxGuide,
+  'keyword-driven-testing-python-guide': keywordDrivenTestingPythonGuide,
+  'localstack-bedrock-mock-testing-guide': localstackBedrockMockTestingGuide,
+  'mabl-vs-playwright-comparison-2026': mablVsPlaywrightComparison2026,
+  'pact-consumer-driven-contract-reference-2026': pactConsumerDrivenContractReference2026,
+  'percy-playwright-visual-testing-guide': percyPlaywrightVisualTestingGuide,
+  'playwright-allure-attachment-trace-guide': playwrightAllureAttachmentTraceGuide,
+  'playwright-apirequestcontext-storagestate-guide': playwrightApirequestcontextStoragestateGuide,
+  'playwright-blob-reporter-guide': playwrightBlobReporterGuide,
+  'playwright-browsers-path-env-guide': playwrightBrowsersPathEnvGuide,
+  'playwright-codegen-cli-flags-reference': playwrightCodegenCliFlagsReference,
+  'playwright-install-proxy-mirror-guide': playwrightInstallProxyMirrorGuide,
+  'playwright-mcp-cursor-troubleshooting-guide': playwrightMcpCursorTroubleshootingGuide,
+  'playwright-mcp-json-configuration-reference': playwrightMcpJsonConfigurationReference,
+  'playwright-python-authentication-storage-state-guide': playwrightPythonAuthenticationStorageStateGuide,
+  'playwright-python-codegen-guide': playwrightPythonCodegenGuide,
+  'playwright-python-file-upload-guide': playwrightPythonFileUploadGuide,
+  'playwright-testing-best-practices-2026': playwrightTestingBestPractices2026,
+  'robot-framework-builtin-keywords-reference': robotFrameworkBuiltinKeywordsReference,
+  'robot-framework-seleniumlibrary-locators-guide': robotFrameworkSeleniumlibraryLocatorsGuide,
+  'selenide-configuration-baseurl-guide': selenideConfigurationBaseurlGuide,
+  'selenide-cssclass-condition-reference': selenideCssclassConditionReference,
+  'selenium-cdp-add-script-evaluate-guide': seleniumCdpAddScriptEvaluateGuide,
+  'selenium-webdriver-bidi-2026-reference': seleniumWebdriverBidi2026Reference,
+  'test-automation-roi-business-value-guide': testAutomationRoiBusinessValueGuide,
+  'twilio-sms-otp-testing-python-guide': twilioSmsOtpTestingPythonGuide,
+  'webdriverio-visual-service-blockout-guide': webdriverioVisualServiceBlockoutGuide,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -1910,6 +1974,38 @@ export const postList = [
   { slug: 'best-cheap-ai-e2e-testing-tools-2026', ...bestCheapAiE2eTestingTools2026 },
   { slug: 'how-to-detect-ai-generated-code-2026', ...howToDetectAiGeneratedCode2026 },
   { slug: 'migrate-selenium-to-playwright-checklist-2026', ...migrateSeleniumToPlaywrightChecklist2026 },
+  { slug: 'bdd-test-management-tools-2026', ...bddTestManagementTools2026 },
+  { slug: 'chromatic-turbosnap-storybook-guide', ...chromaticTurbosnapStorybookGuide },
+  { slug: 'cypress-aliases-before-each-guide', ...cypressAliasesBeforeEachGuide },
+  { slug: 'cypress-component-testing-react-router-guide', ...cypressComponentTestingReactRouterGuide },
+  { slug: 'insomnia-tutorial-complete-engineers-guide', ...insomniaTutorialCompleteEngineersGuide },
+  { slug: 'jmeter-response-assertion-jmx-guide', ...jmeterResponseAssertionJmxGuide },
+  { slug: 'keyword-driven-testing-python-guide', ...keywordDrivenTestingPythonGuide },
+  { slug: 'localstack-bedrock-mock-testing-guide', ...localstackBedrockMockTestingGuide },
+  { slug: 'mabl-vs-playwright-comparison-2026', ...mablVsPlaywrightComparison2026 },
+  { slug: 'pact-consumer-driven-contract-reference-2026', ...pactConsumerDrivenContractReference2026 },
+  { slug: 'percy-playwright-visual-testing-guide', ...percyPlaywrightVisualTestingGuide },
+  { slug: 'playwright-allure-attachment-trace-guide', ...playwrightAllureAttachmentTraceGuide },
+  { slug: 'playwright-apirequestcontext-storagestate-guide', ...playwrightApirequestcontextStoragestateGuide },
+  { slug: 'playwright-blob-reporter-guide', ...playwrightBlobReporterGuide },
+  { slug: 'playwright-browsers-path-env-guide', ...playwrightBrowsersPathEnvGuide },
+  { slug: 'playwright-codegen-cli-flags-reference', ...playwrightCodegenCliFlagsReference },
+  { slug: 'playwright-install-proxy-mirror-guide', ...playwrightInstallProxyMirrorGuide },
+  { slug: 'playwright-mcp-cursor-troubleshooting-guide', ...playwrightMcpCursorTroubleshootingGuide },
+  { slug: 'playwright-mcp-json-configuration-reference', ...playwrightMcpJsonConfigurationReference },
+  { slug: 'playwright-python-authentication-storage-state-guide', ...playwrightPythonAuthenticationStorageStateGuide },
+  { slug: 'playwright-python-codegen-guide', ...playwrightPythonCodegenGuide },
+  { slug: 'playwright-python-file-upload-guide', ...playwrightPythonFileUploadGuide },
+  { slug: 'playwright-testing-best-practices-2026', ...playwrightTestingBestPractices2026 },
+  { slug: 'robot-framework-builtin-keywords-reference', ...robotFrameworkBuiltinKeywordsReference },
+  { slug: 'robot-framework-seleniumlibrary-locators-guide', ...robotFrameworkSeleniumlibraryLocatorsGuide },
+  { slug: 'selenide-configuration-baseurl-guide', ...selenideConfigurationBaseurlGuide },
+  { slug: 'selenide-cssclass-condition-reference', ...selenideCssclassConditionReference },
+  { slug: 'selenium-cdp-add-script-evaluate-guide', ...seleniumCdpAddScriptEvaluateGuide },
+  { slug: 'selenium-webdriver-bidi-2026-reference', ...seleniumWebdriverBidi2026Reference },
+  { slug: 'test-automation-roi-business-value-guide', ...testAutomationRoiBusinessValueGuide },
+  { slug: 'twilio-sms-otp-testing-python-guide', ...twilioSmsOtpTestingPythonGuide },
+  { slug: 'webdriverio-visual-service-blockout-guide', ...webdriverioVisualServiceBlockoutGuide },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
