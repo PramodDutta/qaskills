@@ -461,6 +461,12 @@ import { post as seleniumWebdriverBidi2026Reference } from './selenium-webdriver
 import { post as testAutomationRoiBusinessValueGuide } from './test-automation-roi-business-value-guide';
 import { post as twilioSmsOtpTestingPythonGuide } from './twilio-sms-otp-testing-python-guide';
 import { post as webdriverioVisualServiceBlockoutGuide } from './webdriverio-visual-service-blockout-guide';
+import { post as appium2MobileAutomationReference2026 } from './appium-2-mobile-automation-reference-2026';
+import { post as cypressVsPlaywrightComponentTesting2026 } from './cypress-vs-playwright-component-testing-2026';
+import { post as githubActionsE2eDeployedUrlTestingGuide } from './github-actions-e2e-deployed-url-testing-guide';
+import { post as openaiMcpSupportGuide2026 } from './openai-mcp-support-guide-2026';
+import { post as pytestOfficialReferenceCheatsheet2026 } from './pytest-official-reference-cheatsheet-2026';
+import { post as testingOtpSmsPhoneFlowsCompleteGuide } from './testing-otp-sms-phone-flows-complete-guide';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1059,6 +1065,12 @@ export const posts: Record<string, BlogPost> = {
   'test-automation-roi-business-value-guide': testAutomationRoiBusinessValueGuide,
   'twilio-sms-otp-testing-python-guide': twilioSmsOtpTestingPythonGuide,
   'webdriverio-visual-service-blockout-guide': webdriverioVisualServiceBlockoutGuide,
+  'appium-2-mobile-automation-reference-2026': appium2MobileAutomationReference2026,
+  'cypress-vs-playwright-component-testing-2026': cypressVsPlaywrightComponentTesting2026,
+  'github-actions-e2e-deployed-url-testing-guide': githubActionsE2eDeployedUrlTestingGuide,
+  'openai-mcp-support-guide-2026': openaiMcpSupportGuide2026,
+  'pytest-official-reference-cheatsheet-2026': pytestOfficialReferenceCheatsheet2026,
+  'testing-otp-sms-phone-flows-complete-guide': testingOtpSmsPhoneFlowsCompleteGuide,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2006,6 +2018,12 @@ export const postList = [
   { slug: 'test-automation-roi-business-value-guide', ...testAutomationRoiBusinessValueGuide },
   { slug: 'twilio-sms-otp-testing-python-guide', ...twilioSmsOtpTestingPythonGuide },
   { slug: 'webdriverio-visual-service-blockout-guide', ...webdriverioVisualServiceBlockoutGuide },
+  { slug: 'appium-2-mobile-automation-reference-2026', ...appium2MobileAutomationReference2026 },
+  { slug: 'cypress-vs-playwright-component-testing-2026', ...cypressVsPlaywrightComponentTesting2026 },
+  { slug: 'github-actions-e2e-deployed-url-testing-guide', ...githubActionsE2eDeployedUrlTestingGuide },
+  { slug: 'openai-mcp-support-guide-2026', ...openaiMcpSupportGuide2026 },
+  { slug: 'pytest-official-reference-cheatsheet-2026', ...pytestOfficialReferenceCheatsheet2026 },
+  { slug: 'testing-otp-sms-phone-flows-complete-guide', ...testingOtpSmsPhoneFlowsCompleteGuide },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
