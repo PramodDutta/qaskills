@@ -11,7 +11,9 @@ export const addCommand = new Command('add')
   .argument('<skill>', 'Skill name, GitHub shorthand (user/repo), or local path')
   .description('Install a QA skill to your AI coding agents')
   .option('-a, --agent <agent>', 'Target specific agent')
-  .action(async (skillName: string, options: { agent?: string }) => {
+  .option('-d, --dir <path>', 'Override install directory (skips agent skillsDir; useful for CI/testing)')
+  .option('-y, --yes', 'Non-interactive: install to all detected agents without prompting')
+  .action(async (skillName: string, options: { agent?: string; dir?: string; yes?: boolean }) => {
     p.intro(pc.bgCyan(pc.black(' qaskills add ')));
 
     const spinner = p.spinner();
@@ -58,7 +60,7 @@ export const addCommand = new Command('add')
           return;
         }
       }
-    } else if (detected.length > 1) {
+    } else if (detected.length > 1 && !options.yes) {
       const selected = await p.multiselect({
         message: 'Which agents should receive this skill?',
         options: detected.map((a) => ({
@@ -71,6 +73,7 @@ export const addCommand = new Command('add')
       if (p.isCancel(selected)) { p.cancel('Cancelled.'); process.exit(0); }
       selectedAgents = selected as typeof detected;
     }
+    // With --yes and multiple detected agents, selectedAgents stays = all detected.
 
     // 3. Resolve & download skill
     spinner.start(`Resolving skill "${skillName}"...`);
@@ -84,7 +87,7 @@ export const addCommand = new Command('add')
     // 4. Install to each agent
     for (const agent of selectedAgents) {
       spinner.start(`Installing to ${agent.definition.name}...`);
-      const installedPath = await installToAgent(skillDir, skill.name, agent.definition);
+      const installedPath = await installToAgent(skillDir, skill.name, agent.definition, options.dir);
       spinner.stop(`${pc.green('✓')} Installed to ${agent.definition.name}: ${pc.dim(installedPath)}`);
     }
 

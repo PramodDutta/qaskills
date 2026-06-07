@@ -93,8 +93,11 @@ export async function installToAgent(
   skillDir: string,
   skillName: string,
   agent: AgentDefinition,
+  overrideDir?: string,
 ): Promise<string> {
-  const targetBase = agent.skillsDir.replace('~', os.homedir());
+  const targetBase = overrideDir
+    ? path.resolve(overrideDir)
+    : agent.skillsDir.replace('~', os.homedir());
   const targetDir = path.join(targetBase, skillName);
 
   await fs.mkdir(targetDir, { recursive: true });
