@@ -10,6 +10,7 @@ import {
   generateFAQJsonLd,
 } from '@/lib/json-ld';
 import { extractFAQs } from '@/lib/extract-faqs';
+import { getRelatedPosts } from '@/lib/related-posts';
 import { posts } from '../posts';
 import { BlogContent } from '@/components/blog/blog-content';
 
@@ -56,6 +57,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   // Extract FAQ Q&A pairs from markdown body for FAQPage JSON-LD
   // (AI Overviews + ChatGPT/Claude/Perplexity citation). Empty array if no FAQ section.
   const faqs = extractFAQs(post.content, 10);
+
+  // Internal linking: related posts by category + token overlap (SEO — passes
+  // authority + keeps crawlers traversing the corpus). Server-computed, links only.
+  const related = getRelatedPosts(slug, posts, 6);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
@@ -125,6 +130,46 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         <BlogContent content={post.content} />
       </article>
+
+      {related.length > 0 && (
+        <aside className="mt-16 border-t border-border pt-10" aria-label="Related articles">
+          <h2 className="mb-6 text-2xl font-bold">Related Articles</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {related.map((r) => (
+              <Link
+                key={r.slug}
+                href={`/blog/${r.slug}`}
+                className="group block rounded-lg border border-border bg-card p-5 transition-colors hover:border-primary"
+              >
+                <div className="mb-2">
+                  <Badge variant="secondary" className="text-xs">
+                    {r.category}
+                  </Badge>
+                </div>
+                <h3 className="font-semibold leading-snug group-hover:text-primary">
+                  {r.title}
+                </h3>
+                <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">
+                  {r.description}
+                </p>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3 text-sm">
+            <Link href="/blog" className="text-primary hover:underline">
+              Browse all articles
+            </Link>
+            <span className="text-muted-foreground">·</span>
+            <Link href="/skills" className="text-primary hover:underline">
+              Install QA skills
+            </Link>
+            <span className="text-muted-foreground">·</span>
+            <Link href="/compare" className="text-primary hover:underline">
+              Compare tools
+            </Link>
+          </div>
+        </aside>
+      )}
     </div>
   );
 }
