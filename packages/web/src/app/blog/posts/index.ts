@@ -467,6 +467,17 @@ import { post as githubActionsE2eDeployedUrlTestingGuide } from './github-action
 import { post as openaiMcpSupportGuide2026 } from './openai-mcp-support-guide-2026';
 import { post as pytestOfficialReferenceCheatsheet2026 } from './pytest-official-reference-cheatsheet-2026';
 import { post as testingOtpSmsPhoneFlowsCompleteGuide } from './testing-otp-sms-phone-flows-complete-guide';
+import { post as playwrightNetworkInterceptionMockingGuide } from './playwright-network-interception-mocking-guide';
+import { post as playwrightGlobalSetupTeardownGuide } from './playwright-global-setup-teardown-guide';
+import { post as syntheticMonitoringPlaywrightGuide } from './synthetic-monitoring-playwright-guide';
+import { post as pytestXdistParallelTestingGuide } from './pytest-xdist-parallel-testing-guide';
+import { post as pytestAsyncioTestingGuide } from './pytest-asyncio-testing-guide';
+import { post as promptfooVsDeepeval2026Comparison } from './promptfoo-vs-deepeval-2026-comparison';
+import { post as langfuseVsLangsmith2026Comparison } from './langfuse-vs-langsmith-2026-comparison';
+import { post as deepevalVsRagasRagEvaluation2026 } from './deepeval-vs-ragas-rag-evaluation-2026';
+import { post as k6ThresholdsChecksCompleteGuide } from './k6-thresholds-checks-complete-guide';
+import { post as cursorVsClaudeCodeTesting2026 } from './cursor-vs-claude-code-testing-2026';
+
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1071,6 +1082,16 @@ export const posts: Record<string, BlogPost> = {
   'openai-mcp-support-guide-2026': openaiMcpSupportGuide2026,
   'pytest-official-reference-cheatsheet-2026': pytestOfficialReferenceCheatsheet2026,
   'testing-otp-sms-phone-flows-complete-guide': testingOtpSmsPhoneFlowsCompleteGuide,
+  'playwright-network-interception-mocking-guide': playwrightNetworkInterceptionMockingGuide,
+  'playwright-global-setup-teardown-guide': playwrightGlobalSetupTeardownGuide,
+  'synthetic-monitoring-playwright-guide': syntheticMonitoringPlaywrightGuide,
+  'pytest-xdist-parallel-testing-guide': pytestXdistParallelTestingGuide,
+  'pytest-asyncio-testing-guide': pytestAsyncioTestingGuide,
+  'promptfoo-vs-deepeval-2026-comparison': promptfooVsDeepeval2026Comparison,
+  'langfuse-vs-langsmith-2026-comparison': langfuseVsLangsmith2026Comparison,
+  'deepeval-vs-ragas-rag-evaluation-2026': deepevalVsRagasRagEvaluation2026,
+  'k6-thresholds-checks-complete-guide': k6ThresholdsChecksCompleteGuide,
+  'cursor-vs-claude-code-testing-2026': cursorVsClaudeCodeTesting2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2024,6 +2045,16 @@ export const postList = [
   { slug: 'openai-mcp-support-guide-2026', ...openaiMcpSupportGuide2026 },
   { slug: 'pytest-official-reference-cheatsheet-2026', ...pytestOfficialReferenceCheatsheet2026 },
   { slug: 'testing-otp-sms-phone-flows-complete-guide', ...testingOtpSmsPhoneFlowsCompleteGuide },
+  { slug: 'playwright-network-interception-mocking-guide', ...playwrightNetworkInterceptionMockingGuide },
+  { slug: 'playwright-global-setup-teardown-guide', ...playwrightGlobalSetupTeardownGuide },
+  { slug: 'synthetic-monitoring-playwright-guide', ...syntheticMonitoringPlaywrightGuide },
+  { slug: 'pytest-xdist-parallel-testing-guide', ...pytestXdistParallelTestingGuide },
+  { slug: 'pytest-asyncio-testing-guide', ...pytestAsyncioTestingGuide },
+  { slug: 'promptfoo-vs-deepeval-2026-comparison', ...promptfooVsDeepeval2026Comparison },
+  { slug: 'langfuse-vs-langsmith-2026-comparison', ...langfuseVsLangsmith2026Comparison },
+  { slug: 'deepeval-vs-ragas-rag-evaluation-2026', ...deepevalVsRagasRagEvaluation2026 },
+  { slug: 'k6-thresholds-checks-complete-guide', ...k6ThresholdsChecksCompleteGuide },
+  { slug: 'cursor-vs-claude-code-testing-2026', ...cursorVsClaudeCodeTesting2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
