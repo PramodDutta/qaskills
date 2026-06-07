@@ -2,13 +2,30 @@ import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { generateBreadcrumbJsonLd } from '@/lib/json-ld';
-import { postList } from './posts';
+import { postList, posts } from './posts';
 
 export const metadata = {
   title: 'QA Testing Blog: Tutorials, Guides & AI Agent Tips',
   description:
     'Expert QA testing tutorials, framework comparisons, and AI agent guides. Playwright, Cypress, Selenium, Jest, pytest, and 100+ testing topics. By The Testing Academy.',
 };
+
+// Curated high-demand guides — surfaced first to concentrate internal-link
+// equity onto our highest-impression pages (GSC) and lift them out of page 2.
+const FEATURED_SLUGS = [
+  'comparing-popular-bdd-frameworks-2026-complete-guide',
+  'playwright-storagestate-authentication-reference',
+  'python-vs-pytest-explained',
+  'openai-evals-complete-guide-2026',
+  'unittest-vs-pytest-2026',
+  'playwright-accessibility-testing-axe-complete-guide',
+  'k6-vs-jmeter-2026-which-better',
+  'testcontainers-kafka-node-complete-guide',
+  'promptfoo-complete-guide-2026',
+  'ragas-rag-evaluation-metrics-complete-guide',
+  'playwright-trace-viewer-complete-guide-2026',
+  'selenide-allure-integration-complete-reference',
+];
 
 export default function BlogPage() {
   return (
@@ -52,6 +69,33 @@ export default function BlogPage() {
         <p className="mt-2 text-muted-foreground">QA testing insights, AI agent tips, and skill development guides</p>
       </div>
 
+      {/* Most In-Demand Guides — curated internal links to highest-traffic articles */}
+      <section className="mb-14" aria-label="Most in-demand guides">
+        <h2 className="mb-4 text-2xl font-bold">Most In-Demand Guides</h2>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {FEATURED_SLUGS.filter((s) => posts[s]).map((slug) => {
+            const p = posts[slug];
+            return (
+              <Link
+                key={slug}
+                href={`/blog/${slug}`}
+                className="group block rounded-lg border border-primary/30 bg-primary/5 p-4 transition-colors hover:border-primary"
+              >
+                <div className="mb-1.5">
+                  <Badge variant="secondary" className="text-xs">
+                    {p.category}
+                  </Badge>
+                </div>
+                <h3 className="font-semibold leading-snug group-hover:text-primary">
+                  {p.title}
+                </h3>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      <h2 className="mb-6 text-2xl font-bold">All Articles</h2>
       <div className="space-y-6">
         {postList.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}`}>
