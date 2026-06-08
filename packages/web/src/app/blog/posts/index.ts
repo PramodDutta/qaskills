@@ -478,6 +478,17 @@ import { post as deepevalVsRagasRagEvaluation2026 } from './deepeval-vs-ragas-ra
 import { post as k6ThresholdsChecksCompleteGuide } from './k6-thresholds-checks-complete-guide';
 import { post as cursorVsClaudeCodeTesting2026 } from './cursor-vs-claude-code-testing-2026';
 
+import { post as playwrightAriaSnapshotTestingGuide } from './playwright-aria-snapshot-testing-guide';
+import { post as playwrightLocatorDescribeTracingGroupGuide } from './playwright-locator-describe-tracing-group-guide';
+import { post as playwrightClockApiTimeTestingGuide } from './playwright-clock-api-time-testing-guide';
+import { post as pytestBenchmarkPerformanceTestingGuide } from './pytest-benchmark-performance-testing-guide';
+import { post as pytestBddGherkinTutorial2026 } from './pytest-bdd-gherkin-tutorial-2026';
+import { post as k6BrowserModuleTestingGuide } from './k6-browser-module-testing-guide';
+import { post as claudeCodeSubagentsTestingWorkflow2026 } from './claude-code-subagents-testing-workflow-2026';
+import { post as promptfooRedTeamingGuide2026 } from './promptfoo-red-teaming-guide-2026';
+import { post as deepevalMetricsCompleteGuide2026 } from './deepeval-metrics-complete-guide-2026';
+import { post as llmGuardrailsTestingGuide2026 } from './llm-guardrails-testing-guide-2026';
+
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1092,6 +1103,16 @@ export const posts: Record<string, BlogPost> = {
   'deepeval-vs-ragas-rag-evaluation-2026': deepevalVsRagasRagEvaluation2026,
   'k6-thresholds-checks-complete-guide': k6ThresholdsChecksCompleteGuide,
   'cursor-vs-claude-code-testing-2026': cursorVsClaudeCodeTesting2026,
+  'playwright-aria-snapshot-testing-guide': playwrightAriaSnapshotTestingGuide,
+  'playwright-locator-describe-tracing-group-guide': playwrightLocatorDescribeTracingGroupGuide,
+  'playwright-clock-api-time-testing-guide': playwrightClockApiTimeTestingGuide,
+  'pytest-benchmark-performance-testing-guide': pytestBenchmarkPerformanceTestingGuide,
+  'pytest-bdd-gherkin-tutorial-2026': pytestBddGherkinTutorial2026,
+  'k6-browser-module-testing-guide': k6BrowserModuleTestingGuide,
+  'claude-code-subagents-testing-workflow-2026': claudeCodeSubagentsTestingWorkflow2026,
+  'promptfoo-red-teaming-guide-2026': promptfooRedTeamingGuide2026,
+  'deepeval-metrics-complete-guide-2026': deepevalMetricsCompleteGuide2026,
+  'llm-guardrails-testing-guide-2026': llmGuardrailsTestingGuide2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2055,6 +2076,16 @@ export const postList = [
   { slug: 'deepeval-vs-ragas-rag-evaluation-2026', ...deepevalVsRagasRagEvaluation2026 },
   { slug: 'k6-thresholds-checks-complete-guide', ...k6ThresholdsChecksCompleteGuide },
   { slug: 'cursor-vs-claude-code-testing-2026', ...cursorVsClaudeCodeTesting2026 },
+  { slug: 'playwright-aria-snapshot-testing-guide', ...playwrightAriaSnapshotTestingGuide },
+  { slug: 'playwright-locator-describe-tracing-group-guide', ...playwrightLocatorDescribeTracingGroupGuide },
+  { slug: 'playwright-clock-api-time-testing-guide', ...playwrightClockApiTimeTestingGuide },
+  { slug: 'pytest-benchmark-performance-testing-guide', ...pytestBenchmarkPerformanceTestingGuide },
+  { slug: 'pytest-bdd-gherkin-tutorial-2026', ...pytestBddGherkinTutorial2026 },
+  { slug: 'k6-browser-module-testing-guide', ...k6BrowserModuleTestingGuide },
+  { slug: 'claude-code-subagents-testing-workflow-2026', ...claudeCodeSubagentsTestingWorkflow2026 },
+  { slug: 'promptfoo-red-teaming-guide-2026', ...promptfooRedTeamingGuide2026 },
+  { slug: 'deepeval-metrics-complete-guide-2026', ...deepevalMetricsCompleteGuide2026 },
+  { slug: 'llm-guardrails-testing-guide-2026', ...llmGuardrailsTestingGuide2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
