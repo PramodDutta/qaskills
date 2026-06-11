@@ -45,6 +45,10 @@ export async function downloadSkill(skill: ResolvedSkill): Promise<string> {
   if (skill.source === 'github' && skill.url) {
     // Shallow clone — use execFileSync to avoid shell injection
     execFileSync('git', ['clone', '--depth', '1', skill.url, tmpDir], { stdio: 'pipe' });
+    // If the repo carries a SKILL.md anywhere, keep just that (agents need the
+    // instruction file, not the whole repo). No SKILL.md -> keep repo as-is,
+    // since a direct user/repo install may intentionally be a code template.
+    await extractSkillMdOnly(tmpDir);
     return tmpDir;
   }
 
@@ -58,7 +62,15 @@ export async function downloadSkill(skill: ResolvedSkill): Promise<string> {
     if (data.githubUrl) {
       try {
         execFileSync('git', ['clone', '--depth', '1', data.githubUrl, tmpDir], { stdio: 'pipe' });
-        cloned = true;
+        // Registry skills must deliver a SKILL.md. If the linked repo has one,
+        // keep only that; if it has none (repo is just a code framework), treat
+        // the clone as a miss and fall back to the /content endpoint, which
+        // reconstructs the curated SKILL.md from the registry.
+        cloned = await extractSkillMdOnly(tmpDir);
+        if (!cloned) {
+          await fs.rm(tmpDir, { recursive: true, force: true }).catch(() => {});
+          await fs.mkdir(tmpDir, { recursive: true });
+        }
       } catch {
         // Git clone failed — fall through to content endpoint / reconstruction
       }
@@ -87,6 +99,44 @@ export async function downloadSkill(skill: ResolvedSkill): Promise<string> {
   }
 
   return tmpDir;
+}
+
+/**
+ * If the directory tree contains a SKILL.md, replace the directory contents
+ * with just that file (shallowest match wins). Returns true when a SKILL.md
+ * was found and extracted, false when the tree has none (dir left untouched).
+ */
+async function extractSkillMdOnly(dir: string): Promise<boolean> {
+  const found: string[] = [];
+  async function walk(d: string, depth: number): Promise<void> {
+    if (depth > 4) return;
+    let entries;
+    try {
+      entries = await fs.readdir(d, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const e of entries) {
+      if (e.name === '.git' || e.name === 'node_modules') continue;
+      const p = path.join(d, e.name);
+      if (e.isDirectory()) await walk(p, depth + 1);
+      else if (e.name === 'SKILL.md') found.push(p);
+    }
+  }
+  await walk(dir, 0);
+  if (found.length === 0) return false;
+
+  // Shallowest path = the canonical skill file
+  found.sort((a, b) => a.split(path.sep).length - b.split(path.sep).length);
+  const content = await fs.readFile(found[0], 'utf-8');
+
+  // Wipe the clone, keep only SKILL.md
+  const entries = await fs.readdir(dir);
+  for (const e of entries) {
+    await fs.rm(path.join(dir, e), { recursive: true, force: true }).catch(() => {});
+  }
+  await fs.writeFile(path.join(dir, 'SKILL.md'), content, 'utf-8');
+  return true;
 }
 
 export async function installToAgent(

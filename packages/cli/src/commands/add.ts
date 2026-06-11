@@ -18,6 +18,8 @@ export const addCommand = new Command('add')
 
     const spinner = p.spinner();
 
+    try {
+
     // 1. Detect agents
     spinner.start('Detecting AI coding agents...');
     const detected = detectAgents();
@@ -99,4 +101,10 @@ export const addCommand = new Command('add')
     });
 
     p.outro(`${pc.green('✓')} Skill "${skill.name}" installed to ${selectedAgents.length} agent(s)`);
+    } catch (err) {
+      spinner.stop(pc.red('Failed'));
+      p.log.error(err instanceof Error ? err.message : String(err));
+      p.outro(pc.red(`✗ Could not install "${skillName}"`));
+      process.exitCode = 1;
+    }
   });

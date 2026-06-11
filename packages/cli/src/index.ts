@@ -1,5 +1,6 @@
 import { Command } from 'commander';
 import pc from 'picocolors';
+import { version } from '../package.json';
 import {
   addCommand,
   searchCommand,
@@ -23,7 +24,7 @@ ${pc.bold(pc.cyan('  ╚══════════════════�
 program
   .name('qaskills')
   .description('QA Skills Directory for AI Coding Agents')
-  .version('0.1.0')
+  .version(version)
   .addHelpText('before', banner)
   .addCommand(addCommand)
   .addCommand(searchCommand)
