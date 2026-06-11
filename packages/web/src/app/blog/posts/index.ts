@@ -489,6 +489,17 @@ import { post as promptfooRedTeamingGuide2026 } from './promptfoo-red-teaming-gu
 import { post as deepevalMetricsCompleteGuide2026 } from './deepeval-metrics-complete-guide-2026';
 import { post as llmGuardrailsTestingGuide2026 } from './llm-guardrails-testing-guide-2026';
 
+import { post as playwrightTestAgentsPlannerGeneratorHealer2026 } from './playwright-test-agents-planner-generator-healer-official-2026';
+import { post as openaiEvalsGradersReference2026 } from './openai-evals-graders-complete-reference-2026';
+import { post as openaiAgentEvalsDatasetsWorkflow2026 } from './openai-agent-evals-datasets-workflow-guide-2026';
+import { post as ragasFaithfulnessContextPrecisionRecall2026 } from './ragas-faithfulness-answer-relevancy-context-precision-recall-reference-2026';
+import { post as trulensRagTriad2026 } from './trulens-rag-triad-groundedness-context-relevance-2026';
+import { post as deepevalRagEvaluationMetrics2026 } from './deepeval-rag-evaluation-metrics-reference-2026';
+import { post as arizePhoenixLlmObservability2026 } from './arize-phoenix-llm-observability-tracing-evaluations-2026';
+import { post as axeCorePlaywrightAccessibility2026 } from './axe-core-playwright-accessibility-testing-2026';
+import { post as seleniumWebdriverBidi2026OfficialReference } from './selenium-webdriver-bidi-2026-official-reference';
+import { post as seleniumManager46DriverManagement2026 } from './selenium-manager-4-6-driver-management-2026-guide';
+
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1113,6 +1124,16 @@ export const posts: Record<string, BlogPost> = {
   'promptfoo-red-teaming-guide-2026': promptfooRedTeamingGuide2026,
   'deepeval-metrics-complete-guide-2026': deepevalMetricsCompleteGuide2026,
   'llm-guardrails-testing-guide-2026': llmGuardrailsTestingGuide2026,
+  'playwright-test-agents-planner-generator-healer-official-2026': playwrightTestAgentsPlannerGeneratorHealer2026,
+  'openai-evals-graders-complete-reference-2026': openaiEvalsGradersReference2026,
+  'openai-agent-evals-datasets-workflow-guide-2026': openaiAgentEvalsDatasetsWorkflow2026,
+  'ragas-faithfulness-answer-relevancy-context-precision-recall-reference-2026': ragasFaithfulnessContextPrecisionRecall2026,
+  'trulens-rag-triad-groundedness-context-relevance-2026': trulensRagTriad2026,
+  'deepeval-rag-evaluation-metrics-reference-2026': deepevalRagEvaluationMetrics2026,
+  'arize-phoenix-llm-observability-tracing-evaluations-2026': arizePhoenixLlmObservability2026,
+  'axe-core-playwright-accessibility-testing-2026': axeCorePlaywrightAccessibility2026,
+  'selenium-webdriver-bidi-2026-official-reference': seleniumWebdriverBidi2026OfficialReference,
+  'selenium-manager-4-6-driver-management-2026-guide': seleniumManager46DriverManagement2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2086,6 +2107,16 @@ export const postList = [
   { slug: 'promptfoo-red-teaming-guide-2026', ...promptfooRedTeamingGuide2026 },
   { slug: 'deepeval-metrics-complete-guide-2026', ...deepevalMetricsCompleteGuide2026 },
   { slug: 'llm-guardrails-testing-guide-2026', ...llmGuardrailsTestingGuide2026 },
+  { slug: 'playwright-test-agents-planner-generator-healer-official-2026', ...playwrightTestAgentsPlannerGeneratorHealer2026 },
+  { slug: 'openai-evals-graders-complete-reference-2026', ...openaiEvalsGradersReference2026 },
+  { slug: 'openai-agent-evals-datasets-workflow-guide-2026', ...openaiAgentEvalsDatasetsWorkflow2026 },
+  { slug: 'ragas-faithfulness-answer-relevancy-context-precision-recall-reference-2026', ...ragasFaithfulnessContextPrecisionRecall2026 },
+  { slug: 'trulens-rag-triad-groundedness-context-relevance-2026', ...trulensRagTriad2026 },
+  { slug: 'deepeval-rag-evaluation-metrics-reference-2026', ...deepevalRagEvaluationMetrics2026 },
+  { slug: 'arize-phoenix-llm-observability-tracing-evaluations-2026', ...arizePhoenixLlmObservability2026 },
+  { slug: 'axe-core-playwright-accessibility-testing-2026', ...axeCorePlaywrightAccessibility2026 },
+  { slug: 'selenium-webdriver-bidi-2026-official-reference', ...seleniumWebdriverBidi2026OfficialReference },
+  { slug: 'selenium-manager-4-6-driver-management-2026-guide', ...seleniumManager46DriverManagement2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
