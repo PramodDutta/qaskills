@@ -301,7 +301,11 @@ export async function GET(request: NextRequest) {
 
     const whereClause = conditions.length > 0 ? and(...conditions) : undefined;
 
-    // Sort order
+    // Sort order. The primary sort columns are non-unique (many skills share
+    // the same installCount/qualityScore), so paginating on them alone is
+    // unstable: rows shift between pages, producing duplicates on one page
+    // and silently dropping others. The unique `id` tiebreaker makes
+    // pagination deterministic.
     let orderBy;
     switch (sort) {
       case 'newest':
@@ -326,7 +330,7 @@ export async function GET(request: NextRequest) {
         .select()
         .from(skills)
         .where(whereClause)
-        .orderBy(orderBy)
+        .orderBy(orderBy, desc(skills.id))
         .limit(limit)
         .offset(offset),
       db
