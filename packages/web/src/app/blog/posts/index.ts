@@ -500,6 +500,16 @@ import { post as axeCorePlaywrightAccessibility2026 } from './axe-core-playwrigh
 import { post as seleniumWebdriverBidi2026OfficialReference } from './selenium-webdriver-bidi-2026-official-reference';
 import { post as seleniumManager46DriverManagement2026 } from './selenium-manager-4-6-driver-management-2026-guide';
 
+import { post as pytestFixturesConftestCompleteGuide2026 } from './pytest-fixtures-conftest-complete-guide-2026';
+import { post as pytestParametrizeCompleteGuide2026 } from './pytest-parametrize-complete-guide-2026';
+import { post as pytestCoveragePytestCovGuide2026 } from './pytest-coverage-pytest-cov-guide-2026';
+import { post as vitestMockingViMockCompleteGuide } from './vitest-mocking-vi-mock-complete-guide';
+import { post as selenium4RelativeLocatorsGuide2026 } from './selenium-4-relative-locators-guide-2026';
+import { post as playwrightSoftAssertionsExpectGuide } from './playwright-soft-assertions-expect-guide';
+import { post as githubActionsPlaywrightMatrixGuide2026 } from './github-actions-playwright-matrix-guide-2026';
+import { post as apiContractTestingSchemathesisGuide } from './api-contract-testing-schemathesis-guide';
+import { post as llmAsJudgeEvaluationGuide2026 } from './llm-as-judge-evaluation-guide-2026';
+import { post as promptInjectionTestingGuide2026 } from './prompt-injection-testing-guide-2026';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1134,6 +1144,16 @@ export const posts: Record<string, BlogPost> = {
   'axe-core-playwright-accessibility-testing-2026': axeCorePlaywrightAccessibility2026,
   'selenium-webdriver-bidi-2026-official-reference': seleniumWebdriverBidi2026OfficialReference,
   'selenium-manager-4-6-driver-management-2026-guide': seleniumManager46DriverManagement2026,
+  'pytest-fixtures-conftest-complete-guide-2026': pytestFixturesConftestCompleteGuide2026,
+  'pytest-parametrize-complete-guide-2026': pytestParametrizeCompleteGuide2026,
+  'pytest-coverage-pytest-cov-guide-2026': pytestCoveragePytestCovGuide2026,
+  'vitest-mocking-vi-mock-complete-guide': vitestMockingViMockCompleteGuide,
+  'selenium-4-relative-locators-guide-2026': selenium4RelativeLocatorsGuide2026,
+  'playwright-soft-assertions-expect-guide': playwrightSoftAssertionsExpectGuide,
+  'github-actions-playwright-matrix-guide-2026': githubActionsPlaywrightMatrixGuide2026,
+  'api-contract-testing-schemathesis-guide': apiContractTestingSchemathesisGuide,
+  'llm-as-judge-evaluation-guide-2026': llmAsJudgeEvaluationGuide2026,
+  'prompt-injection-testing-guide-2026': promptInjectionTestingGuide2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2117,6 +2137,16 @@ export const postList = [
   { slug: 'axe-core-playwright-accessibility-testing-2026', ...axeCorePlaywrightAccessibility2026 },
   { slug: 'selenium-webdriver-bidi-2026-official-reference', ...seleniumWebdriverBidi2026OfficialReference },
   { slug: 'selenium-manager-4-6-driver-management-2026-guide', ...seleniumManager46DriverManagement2026 },
+  { slug: 'pytest-fixtures-conftest-complete-guide-2026', ...pytestFixturesConftestCompleteGuide2026 },
+  { slug: 'pytest-parametrize-complete-guide-2026', ...pytestParametrizeCompleteGuide2026 },
+  { slug: 'pytest-coverage-pytest-cov-guide-2026', ...pytestCoveragePytestCovGuide2026 },
+  { slug: 'vitest-mocking-vi-mock-complete-guide', ...vitestMockingViMockCompleteGuide },
+  { slug: 'selenium-4-relative-locators-guide-2026', ...selenium4RelativeLocatorsGuide2026 },
+  { slug: 'playwright-soft-assertions-expect-guide', ...playwrightSoftAssertionsExpectGuide },
+  { slug: 'github-actions-playwright-matrix-guide-2026', ...githubActionsPlaywrightMatrixGuide2026 },
+  { slug: 'api-contract-testing-schemathesis-guide', ...apiContractTestingSchemathesisGuide },
+  { slug: 'llm-as-judge-evaluation-guide-2026', ...llmAsJudgeEvaluationGuide2026 },
+  { slug: 'prompt-injection-testing-guide-2026', ...promptInjectionTestingGuide2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
