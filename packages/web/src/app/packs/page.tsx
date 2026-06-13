@@ -3,6 +3,11 @@ import { skills } from '@/db/schema';
 import { sql } from 'drizzle-orm';
 import { PacksGrid } from '@/components/packs/packs-grid';
 
+// DB-driven page: render per-request (Vercel has DATABASE_URL at runtime;
+// CI build has none, so avoid build-time prerender against the DB).
+export const dynamic = 'force-dynamic';
+
+
 export const metadata = {
   title: 'Skill Packs',
   description:

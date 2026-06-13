@@ -9,9 +9,14 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
+
   generateBreadcrumbJsonLd,
   generateFAQJsonLd,
 } from '@/lib/json-ld';
+
+// DB-driven page: render per-request (Vercel has DATABASE_URL at runtime;
+// CI build has none, so avoid build-time prerender against the DB).
+export const dynamic = 'force-dynamic';
 
 const CANONICAL = 'https://qaskills.sh/skills-for/claude-code-testing';
 

@@ -11,11 +11,16 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { generateBreadcrumbJsonLd, generateFAQJsonLd } from '@/lib/json-ld';
 import {
+
   findHub,
   allHubSlugs,
   buildHubFilter,
   type HubEntry,
 } from '@/lib/skills-for-hubs';
+
+// DB-driven page: render per-request (Vercel has DATABASE_URL at runtime;
+// CI build has none, so avoid build-time prerender against the DB).
+export const dynamic = 'force-dynamic';
 
 const ICONS = { zap: Zap, check: CheckCircle2, terminal: Terminal, star: Star } as const;
 

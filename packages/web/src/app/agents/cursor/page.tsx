@@ -6,6 +6,11 @@ import { sql, desc } from 'drizzle-orm';
 import { SkillCard } from '@/components/skills/skill-card';
 import { generateBreadcrumbJsonLd } from '@/lib/json-ld';
 
+// DB-driven page: render per-request (Vercel has DATABASE_URL at runtime;
+// CI build has none, so avoid build-time prerender against the DB).
+export const dynamic = 'force-dynamic';
+
+
 export const metadata: Metadata = {
   title: 'QA Skills for Cursor',
   description:

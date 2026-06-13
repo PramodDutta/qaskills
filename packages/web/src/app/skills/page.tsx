@@ -12,6 +12,11 @@ import { desc, ilike, sql, and, or, type SQL } from 'drizzle-orm';
 import { FALLBACK_SKILLS, sortFallbackSkills } from '@/lib/fallback-skills';
 import { generateBreadcrumbJsonLd } from '@/lib/json-ld';
 
+// DB-driven page: render per-request (Vercel has DATABASE_URL at runtime;
+// CI build has none, so avoid build-time prerender against the DB).
+export const dynamic = 'force-dynamic';
+
+
 export const metadata = {
   title: 'Browse QA Skills',
   description:

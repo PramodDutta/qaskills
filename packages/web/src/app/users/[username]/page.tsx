@@ -9,6 +9,11 @@ import { users, skills } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import type { Metadata } from 'next';
 
+// DB-driven page: render per-request (Vercel has DATABASE_URL at runtime;
+// CI build has none, so avoid build-time prerender against the DB).
+export const dynamic = 'force-dynamic';
+
+
 interface UserPageProps {
   params: Promise<{ username: string }>;
 }

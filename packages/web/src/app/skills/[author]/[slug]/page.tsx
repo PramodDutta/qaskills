@@ -18,6 +18,11 @@ import { SkillDescription } from '@/components/skills/skill-description';
 import { SkillDownloadButtons } from '@/components/skills/skill-download-buttons';
 import { CloneButton } from '@/components/skills/clone-button';
 
+// DB-driven page: render per-request (Vercel has DATABASE_URL at runtime;
+// CI build has none, so avoid build-time prerender against the DB).
+export const dynamic = 'force-dynamic';
+
+
 interface SkillPageProps {
   params: Promise<{ author: string; slug: string }>;
 }
