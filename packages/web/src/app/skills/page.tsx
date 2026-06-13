@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import Link from 'next/link';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { SkillCard } from '@/components/skills/skill-card';
@@ -328,12 +329,12 @@ export default async function SkillsPage({ searchParams }: SkillsPageProps) {
               <p className="mt-2 text-sm text-muted-foreground max-w-sm mx-auto">
                 Try a different search query or remove some filters to see more results.
               </p>
-              <a
+              <Link
                 href="/skills"
                 className="mt-6 inline-flex items-center rounded-md border border-border bg-card px-4 py-2 text-sm font-medium transition-colors hover:bg-accent"
               >
                 Clear all filters
-              </a>
+              </Link>
             </div>
           )}
 
