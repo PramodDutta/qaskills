@@ -5,9 +5,17 @@ import { generateBreadcrumbJsonLd, generateFAQJsonLd } from '@/lib/json-ld';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'FAQ',
+  title: 'QASkills.sh FAQ: Installing & Publishing QA Skills',
   description:
-    'Frequently asked questions about QASkills.sh — how it works, supported agents, publishing skills, and more.',
+    'Frequently asked questions about QASkills.sh — how it works, supported AI agents, installing and publishing QA testing skills, and the CLI.',
+  alternates: { canonical: 'https://qaskills.sh/faq' },
+  openGraph: {
+    title: 'QASkills.sh FAQ: Installing & Publishing QA Skills',
+    description:
+      'How QASkills.sh works, supported AI agents, installing and publishing QA testing skills.',
+    url: 'https://qaskills.sh/faq',
+    type: 'website',
+  },
 };
 
 const faqs = [

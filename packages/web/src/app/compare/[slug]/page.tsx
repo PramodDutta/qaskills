@@ -84,7 +84,7 @@ function CompareSchema({ entry, url }: { entry: CompareEntry; url: string }) {
               url: 'https://qaskills.sh',
               logo: {
                 '@type': 'ImageObject',
-                url: 'https://qaskills.sh/logo.png',
+                url: 'https://qaskills.sh/logo.svg',
                 width: 512,
                 height: 512,
               },

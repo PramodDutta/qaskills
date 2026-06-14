@@ -43,7 +43,7 @@ export default function QASkillsVsSkillsMP() {
               url: 'https://qaskills.sh',
               logo: {
                 '@type': 'ImageObject',
-                url: 'https://qaskills.sh/logo.png',
+                url: 'https://qaskills.sh/logo.svg',
                 width: 512,
                 height: 512,
               },

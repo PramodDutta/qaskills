@@ -7,7 +7,15 @@ import { postList, posts } from './posts';
 export const metadata = {
   title: 'QA Testing Blog: Tutorials, Guides & AI Agent Tips',
   description:
-    'Expert QA testing tutorials, framework comparisons, and AI agent guides. Playwright, Cypress, Selenium, Jest, pytest, and 100+ testing topics. By The Testing Academy.',
+    'Expert QA testing tutorials, framework comparisons, and AI agent guides — Playwright, Cypress, Selenium, Jest, pytest, and 500+ testing topics.',
+  alternates: { canonical: 'https://qaskills.sh/blog' },
+  openGraph: {
+    title: 'QA Testing Blog — QASkills.sh',
+    description:
+      'Expert QA testing tutorials, framework comparisons, and AI agent guides. 500+ topics.',
+    url: 'https://qaskills.sh/blog',
+    type: 'website',
+  },
 };
 
 // Curated high-demand guides — surfaced first to concentrate internal-link

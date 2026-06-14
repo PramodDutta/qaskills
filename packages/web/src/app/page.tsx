@@ -6,6 +6,13 @@ import { QualityBadge } from '@/components/skills/quality-badge';
 import { HeroTerminal } from '@/components/home/hero-terminal';
 import { AgentMarquee } from '@/components/home/agent-marquee';
 import { StatsCounter } from '@/components/home/stats-counter';
+import type { Metadata } from 'next';
+
+// Self-referential canonical for the homepage (layout sets metadataBase + the
+// default OG; this pins the canonical URL so / does not get folded with params).
+export const metadata: Metadata = {
+  alternates: { canonical: 'https://qaskills.sh' },
+};
 
 const typeColors: Record<string, { accent: string; badge: string }> = {
   'E2E': { accent: 'bg-blue-500', badge: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20' },

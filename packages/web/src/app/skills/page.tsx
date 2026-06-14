@@ -18,9 +18,17 @@ export const dynamic = 'force-dynamic';
 
 
 export const metadata = {
-  title: 'Browse QA Skills',
+  title: 'Browse 500+ QA Skills for AI Agents',
   description:
-    'Search and filter 450+ curated QA testing skills by framework, testing type, and language. Install into Claude Code, Cursor, Copilot, and 30+ AI agents.',
+    'Search and filter 500+ curated QA testing skills by framework, testing type, and language. Install into Claude Code, Cursor, Copilot, and 30+ AI agents.',
+  alternates: { canonical: 'https://qaskills.sh/skills' },
+  openGraph: {
+    title: 'Browse 500+ QA Skills for AI Agents',
+    description:
+      'Search and filter curated QA testing skills. Install into Claude Code, Cursor, Copilot, and 30+ AI agents.',
+    url: 'https://qaskills.sh/skills',
+    type: 'website',
+  },
 };
 
 interface SkillsPageProps {

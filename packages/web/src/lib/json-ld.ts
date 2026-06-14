@@ -21,7 +21,7 @@ export function generateOrganizationJsonLd() {
     url: 'https://qaskills.sh',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://qaskills.sh/logo.png',
+      url: 'https://qaskills.sh/logo.svg',
       width: 512,
       height: 512,
     },
@@ -98,7 +98,7 @@ export function generateBlogPostJsonLd(post: {
       '@type': 'Organization',
       name: 'QASkills.sh',
       url: 'https://qaskills.sh',
-      logo: { '@type': 'ImageObject', url: 'https://qaskills.sh/logo.png', width: 512, height: 512 },
+      logo: { '@type': 'ImageObject', url: 'https://qaskills.sh/logo.svg', width: 512, height: 512 },
     },
     url: `https://qaskills.sh/blog/${post.slug}`,
     mainEntityOfPage: `https://qaskills.sh/blog/${post.slug}`,
@@ -173,7 +173,7 @@ export function generateArticleJsonLd(article: {
       url: 'https://qaskills.sh',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://qaskills.sh/logo.png',
+        url: 'https://qaskills.sh/logo.svg',
         width: 512,
         height: 512,
       },
