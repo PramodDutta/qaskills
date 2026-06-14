@@ -510,6 +510,16 @@ import { post as githubActionsPlaywrightMatrixGuide2026 } from './github-actions
 import { post as apiContractTestingSchemathesisGuide } from './api-contract-testing-schemathesis-guide';
 import { post as llmAsJudgeEvaluationGuide2026 } from './llm-as-judge-evaluation-guide-2026';
 import { post as promptInjectionTestingGuide2026 } from './prompt-injection-testing-guide-2026';
+import { post as pwComponentTestingReact } from './playwright-component-testing-react-guide';
+import { post as pwNetworkInterceptionRoute } from './playwright-network-interception-route-guide';
+import { post as pytestFixturesScope } from './pytest-fixtures-scope-complete-guide';
+import { post as vitestBrowserMode } from './vitest-browser-mode-complete-guide';
+import { post as mswApiMocking } from './msw-api-mocking-complete-guide';
+import { post as contractTestingPact } from './contract-testing-pact-complete-guide';
+import { post as deepevalVsRagasVsPromptfoo } from './deepeval-vs-ragas-vs-promptfoo-2026';
+import { post as selfHealingTestAutomation } from './self-healing-test-automation-2026';
+import { post as mcpServerTesting } from './mcp-server-testing-guide-2026';
+import { post as maestroMobileTesting } from './maestro-mobile-testing-guide-2026';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1154,6 +1164,16 @@ export const posts: Record<string, BlogPost> = {
   'api-contract-testing-schemathesis-guide': apiContractTestingSchemathesisGuide,
   'llm-as-judge-evaluation-guide-2026': llmAsJudgeEvaluationGuide2026,
   'prompt-injection-testing-guide-2026': promptInjectionTestingGuide2026,
+  'playwright-component-testing-react-guide': pwComponentTestingReact,
+  'playwright-network-interception-route-guide': pwNetworkInterceptionRoute,
+  'pytest-fixtures-scope-complete-guide': pytestFixturesScope,
+  'vitest-browser-mode-complete-guide': vitestBrowserMode,
+  'msw-api-mocking-complete-guide': mswApiMocking,
+  'contract-testing-pact-complete-guide': contractTestingPact,
+  'deepeval-vs-ragas-vs-promptfoo-2026': deepevalVsRagasVsPromptfoo,
+  'self-healing-test-automation-2026': selfHealingTestAutomation,
+  'mcp-server-testing-guide-2026': mcpServerTesting,
+  'maestro-mobile-testing-guide-2026': maestroMobileTesting,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2147,6 +2167,16 @@ export const postList = [
   { slug: 'api-contract-testing-schemathesis-guide', ...apiContractTestingSchemathesisGuide },
   { slug: 'llm-as-judge-evaluation-guide-2026', ...llmAsJudgeEvaluationGuide2026 },
   { slug: 'prompt-injection-testing-guide-2026', ...promptInjectionTestingGuide2026 },
+  { slug: 'playwright-component-testing-react-guide', ...pwComponentTestingReact },
+  { slug: 'playwright-network-interception-route-guide', ...pwNetworkInterceptionRoute },
+  { slug: 'pytest-fixtures-scope-complete-guide', ...pytestFixturesScope },
+  { slug: 'vitest-browser-mode-complete-guide', ...vitestBrowserMode },
+  { slug: 'msw-api-mocking-complete-guide', ...mswApiMocking },
+  { slug: 'contract-testing-pact-complete-guide', ...contractTestingPact },
+  { slug: 'deepeval-vs-ragas-vs-promptfoo-2026', ...deepevalVsRagasVsPromptfoo },
+  { slug: 'self-healing-test-automation-2026', ...selfHealingTestAutomation },
+  { slug: 'mcp-server-testing-guide-2026', ...mcpServerTesting },
+  { slug: 'maestro-mobile-testing-guide-2026', ...maestroMobileTesting },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
