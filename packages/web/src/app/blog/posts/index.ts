@@ -668,6 +668,8 @@ Browse all 450+ skills at [qaskills.sh/skills](/skills).
 `,
 };
 
+import { keywordGapBatch20260615Posts } from './_keyword-gap-batch';
+
 export const posts: Record<string, BlogPost> = {
   'introducing-qaskills': introducingQaskills,
   'playwright-e2e-best-practices': playwrightBestPractices,
@@ -1177,6 +1179,7 @@ export const posts: Record<string, BlogPost> = {
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
+  ...Object.fromEntries(keywordGapBatch20260615Posts.map(({ slug, post }) => [slug, post])),
 };
 
 // Ordered list for the blog listing page (newest first)
@@ -2178,6 +2181,10 @@ export const postList = [
   { slug: 'mcp-server-testing-guide-2026', ...mcpServerTesting },
   { slug: 'maestro-mobile-testing-guide-2026', ...maestroMobileTesting },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
+    slug,
+    ...post,
+  })),
+  ...keywordGapBatch20260615Posts.map(({ slug, post }) => ({
     slug,
     ...post,
   })),

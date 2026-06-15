@@ -33,6 +33,12 @@ const FEATURED_SLUGS = [
   'ragas-rag-evaluation-metrics-complete-guide',
   'playwright-trace-viewer-complete-guide-2026',
   'selenide-allure-integration-complete-reference',
+  // Keyword-gap batch (2026-06-15) — fresh pages targeting real GSC demand; featured to
+  // concentrate internal-link equity and accelerate indexing/ranking.
+  'postman-vs-playwright-2026',
+  'playwright-setinputfiles-file-upload-reference',
+  'whats-new-playwright-2026',
+  'pyunit-vs-pytest-2026',
 ];
 
 export default function BlogPage() {
