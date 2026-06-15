@@ -59,7 +59,29 @@ This is where the impressions actually are.
 | **pytest / unittest** (best practices, python vs pytest, unittest vs pytest, python unittest vs pytest) | ~3,000 real | ~5 | 5.5–10.6 | `python-vs-pytest-explained`, `unittest-vs-pytest-2026`, etc. | Featured-snippet formatting (definition + table up top) |
 | **OpenAI Evals** ("official docs 2026", "documentation 2026") | **2,186** | 1 | 4.9–8.3 | `openai-evals-complete-guide-2026` + 2 more | Title/intent mismatch — searcher wants "docs"; add a docs-style reference section |
 
-**Common rank-lift playbook for all of the above:**
+### ⚠️ Rank-lift reality check (live SERPs, 2026-06-15)
+
+Before investing in rank-lift, I verified 3 representative head-term SERPs. The quick
+on-page levers turned out to be **already pulled** (titles exact-match queries, related-post
+cross-linking is automatic via `getRelatedPosts`, FAQ/Breadcrumb/BlogPosting schema present):
+
+| Query | Impr | Live SERP reality | Quick-edit headroom |
+|---|---|---|---|
+| comparing popular bdd frameworks | 4,710 | Zero-click **AI Overview that cites QASkills.sh**; we're #3 organic | None — we already own the citation |
+| playwright mcp server install cursor | 5,785 | **AI Overview (cites TestDino, not us)** + playwright.dev + microsoft/playwright-mcp GitHub + a dozen authority competitors | Very low — official sources + AIO + DA dominate "install" intent |
+| pytest best practices | 654 | pytest.org official docs + Real Python + Reddit; we sit ~p5.5 (page 1) | Low — top-3 needs domain authority we don't have yet |
+
+**Takeaway:** the head terms are gated by **domain authority, AI Overviews, and official
+sources** — not by anything a title rewrite or freshness-date bump fixes. The right rank-lift
+strategy is exactly what this batch did: **target winnable long-tail** (setInputFiles
+reference, postman-vs-playwright, mobile-emulation) where official-source dominance is weaker.
+The remaining real levers are slower/strategic, NOT quick edits:
+- **GEO-citability** — restructure specific pages as clean direct-answer + exact-config-block
+  + numbered steps so AI Overviews cite *us* (TestDino wins MCP citations this way). Per-page
+  content work, uncertain ROI; don't touch the BDD page (already cited — don't break it).
+- **Domain authority / backlinks** — off-page; outside code scope.
+
+**Common rank-lift playbook (use only when a SERP shows real headroom — verify first):**
 1. Title/snippet rewrite to exact-match the query phrasing (esp. add "Reference" / "2026" / "official").
 2. Direct-answer block in the first 100 words (wins featured snippet + AI Overview citation).
 3. Internal links from high-authority pages (`/blog` featured grid, `/skills`, related hubs).
