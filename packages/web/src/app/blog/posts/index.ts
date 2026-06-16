@@ -520,6 +520,16 @@ import { post as deepevalVsRagasVsPromptfoo } from './deepeval-vs-ragas-vs-promp
 import { post as selfHealingTestAutomation } from './self-healing-test-automation-2026';
 import { post as mcpServerTesting } from './mcp-server-testing-guide-2026';
 import { post as maestroMobileTesting } from './maestro-mobile-testing-guide-2026';
+import { post as vitestVsJest2026 } from './vitest-vs-jest-2026';
+import { post as playwrightVsSeleniumPython2026 } from './playwright-vs-selenium-python-2026';
+import { post as appiumVsPlaywright2026 } from './appium-vs-playwright-2026';
+import { post as webdriverioVsPlaywright2026 } from './webdriverio-vs-playwright-2026';
+import { post as cucumberVsPlaywright2026 } from './cucumber-vs-playwright-2026';
+import { post as robotFrameworkVsPlaywright2026 } from './robot-framework-vs-playwright-2026';
+import { post as detoxVsAppium2026 } from './detox-vs-appium-2026';
+import { post as playwrightVisualRegressionTesting } from './playwright-visual-regression-testing-guide';
+import { post as stagehandAiBrowserAutomation2026 } from './stagehand-ai-browser-automation-guide-2026';
+import { post as midsceneAiVisualTesting2026 } from './midscene-ai-visual-testing-guide-2026';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1176,6 +1186,16 @@ export const posts: Record<string, BlogPost> = {
   'self-healing-test-automation-2026': selfHealingTestAutomation,
   'mcp-server-testing-guide-2026': mcpServerTesting,
   'maestro-mobile-testing-guide-2026': maestroMobileTesting,
+  'vitest-vs-jest-2026': vitestVsJest2026,
+  'playwright-vs-selenium-python-2026': playwrightVsSeleniumPython2026,
+  'appium-vs-playwright-2026': appiumVsPlaywright2026,
+  'webdriverio-vs-playwright-2026': webdriverioVsPlaywright2026,
+  'cucumber-vs-playwright-2026': cucumberVsPlaywright2026,
+  'robot-framework-vs-playwright-2026': robotFrameworkVsPlaywright2026,
+  'detox-vs-appium-2026': detoxVsAppium2026,
+  'playwright-visual-regression-testing-guide': playwrightVisualRegressionTesting,
+  'stagehand-ai-browser-automation-guide-2026': stagehandAiBrowserAutomation2026,
+  'midscene-ai-visual-testing-guide-2026': midsceneAiVisualTesting2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2180,6 +2200,16 @@ export const postList = [
   { slug: 'self-healing-test-automation-2026', ...selfHealingTestAutomation },
   { slug: 'mcp-server-testing-guide-2026', ...mcpServerTesting },
   { slug: 'maestro-mobile-testing-guide-2026', ...maestroMobileTesting },
+  { slug: 'vitest-vs-jest-2026', ...vitestVsJest2026 },
+  { slug: 'playwright-vs-selenium-python-2026', ...playwrightVsSeleniumPython2026 },
+  { slug: 'appium-vs-playwright-2026', ...appiumVsPlaywright2026 },
+  { slug: 'webdriverio-vs-playwright-2026', ...webdriverioVsPlaywright2026 },
+  { slug: 'cucumber-vs-playwright-2026', ...cucumberVsPlaywright2026 },
+  { slug: 'robot-framework-vs-playwright-2026', ...robotFrameworkVsPlaywright2026 },
+  { slug: 'detox-vs-appium-2026', ...detoxVsAppium2026 },
+  { slug: 'playwright-visual-regression-testing-guide', ...playwrightVisualRegressionTesting },
+  { slug: 'stagehand-ai-browser-automation-guide-2026', ...stagehandAiBrowserAutomation2026 },
+  { slug: 'midscene-ai-visual-testing-guide-2026', ...midsceneAiVisualTesting2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
