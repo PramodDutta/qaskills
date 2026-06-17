@@ -530,6 +530,17 @@ import { post as detoxVsAppium2026 } from './detox-vs-appium-2026';
 import { post as playwrightVisualRegressionTesting } from './playwright-visual-regression-testing-guide';
 import { post as stagehandAiBrowserAutomation2026 } from './stagehand-ai-browser-automation-guide-2026';
 import { post as midsceneAiVisualTesting2026 } from './midscene-ai-visual-testing-guide-2026';
+import { post as playwrightBrowsersPathRef } from './playwright-browsers-path-environment-variable-reference';
+import { post as postmanVsPlaywright } from './postman-vs-playwright';
+import { post as playwrightFileUploadSetInputFiles } from './playwright-file-upload-setinputfiles';
+import { post as whatsNewPlaywright2026 } from './whats-new-in-playwright-2026';
+import { post as playwrightMobileEmulation } from './playwright-mobile-emulation';
+import { post as pyunitVsPytest } from './pyunit-vs-pytest';
+import { post as testrigorVsPlaywright } from './testrigor-vs-playwright';
+import { post as vitest3To4Migration } from './vitest-3-to-4-migration';
+import { post as k6VsJmeter2026 } from './k6-vs-jmeter-2026';
+import { post as unittestMockVsPytestMock } from './unittest-mock-vs-pytest-mock-guide';
+
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1196,6 +1207,16 @@ export const posts: Record<string, BlogPost> = {
   'playwright-visual-regression-testing-guide': playwrightVisualRegressionTesting,
   'stagehand-ai-browser-automation-guide-2026': stagehandAiBrowserAutomation2026,
   'midscene-ai-visual-testing-guide-2026': midsceneAiVisualTesting2026,
+  'playwright-browsers-path-environment-variable-reference': playwrightBrowsersPathRef,
+  'postman-vs-playwright': postmanVsPlaywright,
+  'playwright-file-upload-setinputfiles': playwrightFileUploadSetInputFiles,
+  'whats-new-in-playwright-2026': whatsNewPlaywright2026,
+  'playwright-mobile-emulation': playwrightMobileEmulation,
+  'pyunit-vs-pytest': pyunitVsPytest,
+  'testrigor-vs-playwright': testrigorVsPlaywright,
+  'vitest-3-to-4-migration': vitest3To4Migration,
+  'k6-vs-jmeter-2026': k6VsJmeter2026,
+  'unittest-mock-vs-pytest-mock-guide': unittestMockVsPytestMock,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2210,6 +2231,16 @@ export const postList = [
   { slug: 'playwright-visual-regression-testing-guide', ...playwrightVisualRegressionTesting },
   { slug: 'stagehand-ai-browser-automation-guide-2026', ...stagehandAiBrowserAutomation2026 },
   { slug: 'midscene-ai-visual-testing-guide-2026', ...midsceneAiVisualTesting2026 },
+  { slug: 'playwright-browsers-path-environment-variable-reference', ...playwrightBrowsersPathRef },
+  { slug: 'postman-vs-playwright', ...postmanVsPlaywright },
+  { slug: 'playwright-file-upload-setinputfiles', ...playwrightFileUploadSetInputFiles },
+  { slug: 'whats-new-in-playwright-2026', ...whatsNewPlaywright2026 },
+  { slug: 'playwright-mobile-emulation', ...playwrightMobileEmulation },
+  { slug: 'pyunit-vs-pytest', ...pyunitVsPytest },
+  { slug: 'testrigor-vs-playwright', ...testrigorVsPlaywright },
+  { slug: 'vitest-3-to-4-migration', ...vitest3To4Migration },
+  { slug: 'k6-vs-jmeter-2026', ...k6VsJmeter2026 },
+  { slug: 'unittest-mock-vs-pytest-mock-guide', ...unittestMockVsPytestMock },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
