@@ -119,6 +119,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               `,
             }}
           />
+          {/* Aleeup chatbot embed — sitewide on every page */}
+          <script
+            src="https://aleeup.com/embed.js"
+            data-bot="WzqgzLoAjpWwYqoFqIfNs"
+            data-color="#e11d2a"
+            defer
+          />
         </head>
         <body className={`${inter.variable} font-sans antialiased`}>
           <a
