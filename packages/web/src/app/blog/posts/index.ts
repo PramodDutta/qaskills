@@ -541,6 +541,16 @@ import { post as vitest3To4Migration } from './vitest-3-to-4-migration';
 import { post as k6VsJmeter2026 } from './k6-vs-jmeter-2026';
 import { post as unittestMockVsPytestMock } from './unittest-mock-vs-pytest-mock-guide';
 
+import { post as playwrightBrowsersPathGuide } from './playwright-browsers-path-environment-variable-guide';
+import { post as playwrightSetInputFilesGuide } from './playwright-file-upload-setinputfiles-guide';
+import { post as playwright159AgenticRelease } from './playwright-1-59-agentic-release-features-guide';
+import { post as playwrightAwaitUsingCleanup } from './playwright-await-using-automatic-cleanup-guide';
+import { post as playwrightScreencastApiGuide } from './playwright-screencast-api-video-recording-guide';
+import { post as chromeForTestingVsChromium } from './chrome-for-testing-vs-chromium-playwright';
+import { post as selfHealingTestAutomation2026 } from './self-healing-test-automation-2026-guide';
+import { post as aiAugmentedSoftwareTesting2026 } from './ai-augmented-software-testing-2026-guide';
+import { post as k6GrafanaCloudLoadTesting2026 } from './k6-grafana-cloud-load-testing-tutorial-2026';
+import { post as bidirectionalContractTestingPact2026 } from './bidirectional-contract-testing-pact-2026';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1217,6 +1227,16 @@ export const posts: Record<string, BlogPost> = {
   'vitest-3-to-4-migration': vitest3To4Migration,
   'k6-vs-jmeter-2026': k6VsJmeter2026,
   'unittest-mock-vs-pytest-mock-guide': unittestMockVsPytestMock,
+  'playwright-browsers-path-environment-variable-guide': playwrightBrowsersPathGuide,
+  'playwright-file-upload-setinputfiles-guide': playwrightSetInputFilesGuide,
+  'playwright-1-59-agentic-release-features-guide': playwright159AgenticRelease,
+  'playwright-await-using-automatic-cleanup-guide': playwrightAwaitUsingCleanup,
+  'playwright-screencast-api-video-recording-guide': playwrightScreencastApiGuide,
+  'chrome-for-testing-vs-chromium-playwright': chromeForTestingVsChromium,
+  'self-healing-test-automation-2026-guide': selfHealingTestAutomation2026,
+  'ai-augmented-software-testing-2026-guide': aiAugmentedSoftwareTesting2026,
+  'k6-grafana-cloud-load-testing-tutorial-2026': k6GrafanaCloudLoadTesting2026,
+  'bidirectional-contract-testing-pact-2026': bidirectionalContractTestingPact2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2241,6 +2261,16 @@ export const postList = [
   { slug: 'vitest-3-to-4-migration', ...vitest3To4Migration },
   { slug: 'k6-vs-jmeter-2026', ...k6VsJmeter2026 },
   { slug: 'unittest-mock-vs-pytest-mock-guide', ...unittestMockVsPytestMock },
+  { slug: 'playwright-browsers-path-environment-variable-guide', ...playwrightBrowsersPathGuide },
+  { slug: 'playwright-file-upload-setinputfiles-guide', ...playwrightSetInputFilesGuide },
+  { slug: 'playwright-1-59-agentic-release-features-guide', ...playwright159AgenticRelease },
+  { slug: 'playwright-await-using-automatic-cleanup-guide', ...playwrightAwaitUsingCleanup },
+  { slug: 'playwright-screencast-api-video-recording-guide', ...playwrightScreencastApiGuide },
+  { slug: 'chrome-for-testing-vs-chromium-playwright', ...chromeForTestingVsChromium },
+  { slug: 'self-healing-test-automation-2026-guide', ...selfHealingTestAutomation2026 },
+  { slug: 'ai-augmented-software-testing-2026-guide', ...aiAugmentedSoftwareTesting2026 },
+  { slug: 'k6-grafana-cloud-load-testing-tutorial-2026', ...k6GrafanaCloudLoadTesting2026 },
+  { slug: 'bidirectional-contract-testing-pact-2026', ...bidirectionalContractTestingPact2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
