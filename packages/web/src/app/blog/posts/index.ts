@@ -700,6 +700,7 @@ Browse all 450+ skills at [qaskills.sh/skills](/skills).
 };
 
 import { keywordGapBatch20260615Posts } from './_keyword-gap-batch';
+import { gapfillBatch20260619Posts } from './_gapfill-batch';
 
 export const posts: Record<string, BlogPost> = {
   'introducing-qaskills': introducingQaskills,
@@ -1241,6 +1242,7 @@ export const posts: Record<string, BlogPost> = {
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(keywordGapBatch20260615Posts.map(({ slug, post }) => [slug, post])),
+  ...Object.fromEntries(gapfillBatch20260619Posts.map(({ slug, post }) => [slug, post])),
 };
 
 // Ordered list for the blog listing page (newest first)
@@ -2276,6 +2278,10 @@ export const postList = [
     ...post,
   })),
   ...keywordGapBatch20260615Posts.map(({ slug, post }) => ({
+    slug,
+    ...post,
+  })),
+  ...gapfillBatch20260619Posts.map(({ slug, post }) => ({
     slug,
     ...post,
   })),
