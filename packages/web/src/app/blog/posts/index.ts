@@ -551,6 +551,16 @@ import { post as selfHealingTestAutomation2026 } from './self-healing-test-autom
 import { post as aiAugmentedSoftwareTesting2026 } from './ai-augmented-software-testing-2026-guide';
 import { post as k6GrafanaCloudLoadTesting2026 } from './k6-grafana-cloud-load-testing-tutorial-2026';
 import { post as bidirectionalContractTestingPact2026 } from './bidirectional-contract-testing-pact-2026';
+import { post as deepevalVsPromptfoo2026 } from './deepeval-vs-promptfoo-2026';
+import { post as giskardLlmTesting2026 } from './giskard-llm-testing-guide-2026';
+import { post as deepchecksLlmTesting2026 } from './deepchecks-llm-testing-guide-2026';
+import { post as openaiEvalsApiReference2026 } from './openai-evals-api-reference-2026';
+import { post as locustLoadTestingPython2026 } from './locust-load-testing-python-guide-2026';
+import { post as stateOfJs2025TestingResults } from './state-of-js-2025-testing-frameworks-results';
+import { post as pactBrokerSetup2026 } from './pact-broker-setup-guide-2026';
+import { post as springCloudContract2026 } from './contract-testing-spring-cloud-contract-2026';
+import { post as playwrightAiTestGenCopilot2026 } from './playwright-ai-test-generation-copilot-guide-2026';
+import { post as traceBasedTestingOtel2026 } from './trace-based-testing-opentelemetry-2026';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1238,6 +1248,16 @@ export const posts: Record<string, BlogPost> = {
   'ai-augmented-software-testing-2026-guide': aiAugmentedSoftwareTesting2026,
   'k6-grafana-cloud-load-testing-tutorial-2026': k6GrafanaCloudLoadTesting2026,
   'bidirectional-contract-testing-pact-2026': bidirectionalContractTestingPact2026,
+  'deepeval-vs-promptfoo-2026': deepevalVsPromptfoo2026,
+  'giskard-llm-testing-guide-2026': giskardLlmTesting2026,
+  'deepchecks-llm-testing-guide-2026': deepchecksLlmTesting2026,
+  'openai-evals-api-reference-2026': openaiEvalsApiReference2026,
+  'locust-load-testing-python-guide-2026': locustLoadTestingPython2026,
+  'state-of-js-2025-testing-frameworks-results': stateOfJs2025TestingResults,
+  'pact-broker-setup-guide-2026': pactBrokerSetup2026,
+  'contract-testing-spring-cloud-contract-2026': springCloudContract2026,
+  'playwright-ai-test-generation-copilot-guide-2026': playwrightAiTestGenCopilot2026,
+  'trace-based-testing-opentelemetry-2026': traceBasedTestingOtel2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2273,6 +2293,16 @@ export const postList = [
   { slug: 'ai-augmented-software-testing-2026-guide', ...aiAugmentedSoftwareTesting2026 },
   { slug: 'k6-grafana-cloud-load-testing-tutorial-2026', ...k6GrafanaCloudLoadTesting2026 },
   { slug: 'bidirectional-contract-testing-pact-2026', ...bidirectionalContractTestingPact2026 },
+  { slug: 'deepeval-vs-promptfoo-2026', ...deepevalVsPromptfoo2026 },
+  { slug: 'giskard-llm-testing-guide-2026', ...giskardLlmTesting2026 },
+  { slug: 'deepchecks-llm-testing-guide-2026', ...deepchecksLlmTesting2026 },
+  { slug: 'openai-evals-api-reference-2026', ...openaiEvalsApiReference2026 },
+  { slug: 'locust-load-testing-python-guide-2026', ...locustLoadTestingPython2026 },
+  { slug: 'state-of-js-2025-testing-frameworks-results', ...stateOfJs2025TestingResults },
+  { slug: 'pact-broker-setup-guide-2026', ...pactBrokerSetup2026 },
+  { slug: 'contract-testing-spring-cloud-contract-2026', ...springCloudContract2026 },
+  { slug: 'playwright-ai-test-generation-copilot-guide-2026', ...playwrightAiTestGenCopilot2026 },
+  { slug: 'trace-based-testing-opentelemetry-2026', ...traceBasedTestingOtel2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
