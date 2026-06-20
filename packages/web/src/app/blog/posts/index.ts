@@ -561,6 +561,16 @@ import { post as pactBrokerSetup2026 } from './pact-broker-setup-guide-2026';
 import { post as springCloudContract2026 } from './contract-testing-spring-cloud-contract-2026';
 import { post as playwrightAiTestGenCopilot2026 } from './playwright-ai-test-generation-copilot-guide-2026';
 import { post as traceBasedTestingOtel2026 } from './trace-based-testing-opentelemetry-2026';
+import { post as pytest9NewFeaturesMigrationGuide2026 } from './pytest-9-new-features-migration-guide-2026';
+import { post as mlflowLlmEvaluationGuide2026 } from './mlflow-llm-evaluation-guide-2026';
+import { post as cometOpikLlmEvaluationGuide2026 } from './comet-opik-llm-evaluation-guide-2026';
+import { post as weaveLlmEvaluationTracingGuide2026 } from './weave-llm-evaluation-tracing-guide-2026';
+import { post as galileoAiLlmEvaluationGuide2026 } from './galileo-ai-llm-evaluation-guide-2026';
+import { post as playwrightBrowserBindSharedSessionsGuide2026 } from './playwright-browser-bind-shared-sessions-guide-2026';
+import { post as playwrightTraceCliAnalysisGuide2026 } from './playwright-trace-cli-analysis-guide-2026';
+import { post as qaseTestManagementGuide2026 } from './qase-test-management-guide-2026';
+import { post as playwright158SpeedboardTimelineReportGuide } from './playwright-1-58-speedboard-timeline-report-guide';
+import { post as playwrightChromeExtensionTestingManifestV32026 } from './playwright-chrome-extension-testing-manifest-v3-2026';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1258,6 +1268,16 @@ export const posts: Record<string, BlogPost> = {
   'contract-testing-spring-cloud-contract-2026': springCloudContract2026,
   'playwright-ai-test-generation-copilot-guide-2026': playwrightAiTestGenCopilot2026,
   'trace-based-testing-opentelemetry-2026': traceBasedTestingOtel2026,
+  'pytest-9-new-features-migration-guide-2026': pytest9NewFeaturesMigrationGuide2026,
+  'mlflow-llm-evaluation-guide-2026': mlflowLlmEvaluationGuide2026,
+  'comet-opik-llm-evaluation-guide-2026': cometOpikLlmEvaluationGuide2026,
+  'weave-llm-evaluation-tracing-guide-2026': weaveLlmEvaluationTracingGuide2026,
+  'galileo-ai-llm-evaluation-guide-2026': galileoAiLlmEvaluationGuide2026,
+  'playwright-browser-bind-shared-sessions-guide-2026': playwrightBrowserBindSharedSessionsGuide2026,
+  'playwright-trace-cli-analysis-guide-2026': playwrightTraceCliAnalysisGuide2026,
+  'qase-test-management-guide-2026': qaseTestManagementGuide2026,
+  'playwright-1-58-speedboard-timeline-report-guide': playwright158SpeedboardTimelineReportGuide,
+  'playwright-chrome-extension-testing-manifest-v3-2026': playwrightChromeExtensionTestingManifestV32026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2303,6 +2323,16 @@ export const postList = [
   { slug: 'contract-testing-spring-cloud-contract-2026', ...springCloudContract2026 },
   { slug: 'playwright-ai-test-generation-copilot-guide-2026', ...playwrightAiTestGenCopilot2026 },
   { slug: 'trace-based-testing-opentelemetry-2026', ...traceBasedTestingOtel2026 },
+  { slug: 'pytest-9-new-features-migration-guide-2026', ...pytest9NewFeaturesMigrationGuide2026 },
+  { slug: 'mlflow-llm-evaluation-guide-2026', ...mlflowLlmEvaluationGuide2026 },
+  { slug: 'comet-opik-llm-evaluation-guide-2026', ...cometOpikLlmEvaluationGuide2026 },
+  { slug: 'weave-llm-evaluation-tracing-guide-2026', ...weaveLlmEvaluationTracingGuide2026 },
+  { slug: 'galileo-ai-llm-evaluation-guide-2026', ...galileoAiLlmEvaluationGuide2026 },
+  { slug: 'playwright-browser-bind-shared-sessions-guide-2026', ...playwrightBrowserBindSharedSessionsGuide2026 },
+  { slug: 'playwright-trace-cli-analysis-guide-2026', ...playwrightTraceCliAnalysisGuide2026 },
+  { slug: 'qase-test-management-guide-2026', ...qaseTestManagementGuide2026 },
+  { slug: 'playwright-1-58-speedboard-timeline-report-guide', ...playwright158SpeedboardTimelineReportGuide },
+  { slug: 'playwright-chrome-extension-testing-manifest-v3-2026', ...playwrightChromeExtensionTestingManifestV32026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
