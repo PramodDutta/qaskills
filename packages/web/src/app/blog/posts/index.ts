@@ -571,6 +571,16 @@ import { post as playwrightTraceCliAnalysisGuide2026 } from './playwright-trace-
 import { post as qaseTestManagementGuide2026 } from './qase-test-management-guide-2026';
 import { post as playwright158SpeedboardTimelineReportGuide } from './playwright-1-58-speedboard-timeline-report-guide';
 import { post as playwrightChromeExtensionTestingManifestV32026 } from './playwright-chrome-extension-testing-manifest-v3-2026';
+import { post as playwrightClockApiMockTimeGuide } from './playwright-clock-api-mock-time-guide';
+import { post as playwrightRouteFulfillMockApiGuide } from './playwright-route-fulfill-mock-api-guide';
+import { post as playwrightTestShardingParallelCiGuide } from './playwright-test-sharding-parallel-ci-guide';
+import { post as testcontainersPostgresNodeGuide } from './testcontainers-postgres-node-guide';
+import { post as brunoVsPostmanApiTesting2026 } from './bruno-vs-postman-api-testing-2026';
+import { post as pytestAsyncioAsyncTestingGuide } from './pytest-asyncio-async-testing-guide';
+import { post as promptfooVsDeepeval2026 } from './promptfoo-vs-deepeval-2026';
+import { post as deepevalLlmTestingGuide2026 } from './deepeval-llm-testing-guide-2026';
+import { post as llmAsAJudgeEvaluationGuide2026 } from './llm-as-a-judge-evaluation-guide-2026';
+import { post as hypothesisPropertyBasedTestingPythonGuide } from './hypothesis-property-based-testing-python-guide';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1278,6 +1288,16 @@ export const posts: Record<string, BlogPost> = {
   'qase-test-management-guide-2026': qaseTestManagementGuide2026,
   'playwright-1-58-speedboard-timeline-report-guide': playwright158SpeedboardTimelineReportGuide,
   'playwright-chrome-extension-testing-manifest-v3-2026': playwrightChromeExtensionTestingManifestV32026,
+  'playwright-clock-api-mock-time-guide': playwrightClockApiMockTimeGuide,
+  'playwright-route-fulfill-mock-api-guide': playwrightRouteFulfillMockApiGuide,
+  'playwright-test-sharding-parallel-ci-guide': playwrightTestShardingParallelCiGuide,
+  'testcontainers-postgres-node-guide': testcontainersPostgresNodeGuide,
+  'bruno-vs-postman-api-testing-2026': brunoVsPostmanApiTesting2026,
+  'pytest-asyncio-async-testing-guide': pytestAsyncioAsyncTestingGuide,
+  'promptfoo-vs-deepeval-2026': promptfooVsDeepeval2026,
+  'deepeval-llm-testing-guide-2026': deepevalLlmTestingGuide2026,
+  'llm-as-a-judge-evaluation-guide-2026': llmAsAJudgeEvaluationGuide2026,
+  'hypothesis-property-based-testing-python-guide': hypothesisPropertyBasedTestingPythonGuide,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2333,6 +2353,16 @@ export const postList = [
   { slug: 'qase-test-management-guide-2026', ...qaseTestManagementGuide2026 },
   { slug: 'playwright-1-58-speedboard-timeline-report-guide', ...playwright158SpeedboardTimelineReportGuide },
   { slug: 'playwright-chrome-extension-testing-manifest-v3-2026', ...playwrightChromeExtensionTestingManifestV32026 },
+  { slug: 'playwright-clock-api-mock-time-guide', ...playwrightClockApiMockTimeGuide },
+  { slug: 'playwright-route-fulfill-mock-api-guide', ...playwrightRouteFulfillMockApiGuide },
+  { slug: 'playwright-test-sharding-parallel-ci-guide', ...playwrightTestShardingParallelCiGuide },
+  { slug: 'testcontainers-postgres-node-guide', ...testcontainersPostgresNodeGuide },
+  { slug: 'bruno-vs-postman-api-testing-2026', ...brunoVsPostmanApiTesting2026 },
+  { slug: 'pytest-asyncio-async-testing-guide', ...pytestAsyncioAsyncTestingGuide },
+  { slug: 'promptfoo-vs-deepeval-2026', ...promptfooVsDeepeval2026 },
+  { slug: 'deepeval-llm-testing-guide-2026', ...deepevalLlmTestingGuide2026 },
+  { slug: 'llm-as-a-judge-evaluation-guide-2026', ...llmAsAJudgeEvaluationGuide2026 },
+  { slug: 'hypothesis-property-based-testing-python-guide', ...hypothesisPropertyBasedTestingPythonGuide },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
