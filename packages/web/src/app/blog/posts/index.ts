@@ -581,6 +581,16 @@ import { post as promptfooVsDeepeval2026 } from './promptfoo-vs-deepeval-2026';
 import { post as deepevalLlmTestingGuide2026 } from './deepeval-llm-testing-guide-2026';
 import { post as llmAsAJudgeEvaluationGuide2026 } from './llm-as-a-judge-evaluation-guide-2026';
 import { post as hypothesisPropertyBasedTestingPythonGuide } from './hypothesis-property-based-testing-python-guide';
+import { post as playwrightHealerAgent2026 } from './playwright-healer-agent-self-healing-2026';
+import { post as playwrightAiAgentsPlannerGeneratorHealer } from './playwright-ai-agents-planner-generator-healer';
+import { post as mablActiveCoverage2026 } from './mabl-active-coverage-agentic-testing-2026';
+import { post as katalonTruePlatform2026 } from './katalon-true-platform-ai-agents-2026';
+import { post as autifyAximo2026 } from './autify-aximo-autonomous-testing-2026';
+import { post as octomindAiTesting2026 } from './octomind-ai-testing-guide-2026';
+import { post as playwrightAgentsVsAiNative2026 } from './playwright-ai-agents-vs-ai-native-platforms-2026';
+import { post as accelqCodeless2026 } from './accelq-codeless-test-automation-guide-2026';
+import { post as testcollabMcp2026 } from './testcollab-mcp-test-management-claude-2026';
+import { post as aiTestFailureTriageAutoTfa2026 } from './ai-test-failure-triage-auto-tfa-2026';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1298,6 +1308,16 @@ export const posts: Record<string, BlogPost> = {
   'deepeval-llm-testing-guide-2026': deepevalLlmTestingGuide2026,
   'llm-as-a-judge-evaluation-guide-2026': llmAsAJudgeEvaluationGuide2026,
   'hypothesis-property-based-testing-python-guide': hypothesisPropertyBasedTestingPythonGuide,
+  'playwright-healer-agent-self-healing-2026': playwrightHealerAgent2026,
+  'playwright-ai-agents-planner-generator-healer': playwrightAiAgentsPlannerGeneratorHealer,
+  'mabl-active-coverage-agentic-testing-2026': mablActiveCoverage2026,
+  'katalon-true-platform-ai-agents-2026': katalonTruePlatform2026,
+  'autify-aximo-autonomous-testing-2026': autifyAximo2026,
+  'octomind-ai-testing-guide-2026': octomindAiTesting2026,
+  'playwright-ai-agents-vs-ai-native-platforms-2026': playwrightAgentsVsAiNative2026,
+  'accelq-codeless-test-automation-guide-2026': accelqCodeless2026,
+  'testcollab-mcp-test-management-claude-2026': testcollabMcp2026,
+  'ai-test-failure-triage-auto-tfa-2026': aiTestFailureTriageAutoTfa2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2363,6 +2383,16 @@ export const postList = [
   { slug: 'deepeval-llm-testing-guide-2026', ...deepevalLlmTestingGuide2026 },
   { slug: 'llm-as-a-judge-evaluation-guide-2026', ...llmAsAJudgeEvaluationGuide2026 },
   { slug: 'hypothesis-property-based-testing-python-guide', ...hypothesisPropertyBasedTestingPythonGuide },
+  { slug: 'playwright-healer-agent-self-healing-2026', ...playwrightHealerAgent2026 },
+  { slug: 'playwright-ai-agents-planner-generator-healer', ...playwrightAiAgentsPlannerGeneratorHealer },
+  { slug: 'mabl-active-coverage-agentic-testing-2026', ...mablActiveCoverage2026 },
+  { slug: 'katalon-true-platform-ai-agents-2026', ...katalonTruePlatform2026 },
+  { slug: 'autify-aximo-autonomous-testing-2026', ...autifyAximo2026 },
+  { slug: 'octomind-ai-testing-guide-2026', ...octomindAiTesting2026 },
+  { slug: 'playwright-ai-agents-vs-ai-native-platforms-2026', ...playwrightAgentsVsAiNative2026 },
+  { slug: 'accelq-codeless-test-automation-guide-2026', ...accelqCodeless2026 },
+  { slug: 'testcollab-mcp-test-management-claude-2026', ...testcollabMcp2026 },
+  { slug: 'ai-test-failure-triage-auto-tfa-2026', ...aiTestFailureTriageAutoTfa2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
