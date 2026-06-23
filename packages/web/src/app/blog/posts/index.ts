@@ -591,6 +591,16 @@ import { post as playwrightAgentsVsAiNative2026 } from './playwright-ai-agents-v
 import { post as accelqCodeless2026 } from './accelq-codeless-test-automation-guide-2026';
 import { post as testcollabMcp2026 } from './testcollab-mcp-test-management-claude-2026';
 import { post as aiTestFailureTriageAutoTfa2026 } from './ai-test-failure-triage-auto-tfa-2026';
+import { post as postmanVsPlaywright2026 } from './postman-vs-playwright-api-testing-2026';
+import { post as playwrightMobileEmulationDeviceGuide } from './playwright-mobile-emulation-device-guide';
+import { post as deepevalLlmTesting } from './deepeval-llm-testing-framework-guide';
+import { post as langfuseObservability2026 } from './langfuse-llm-observability-guide-2026';
+import { post as gatlingVsK62026 } from './gatling-vs-k6-performance-testing-2026';
+import { post as locustLoadTesting } from './locust-load-testing-python-guide';
+import { post as playwrightTraceViewerDebugging } from './playwright-trace-viewer-debugging-guide';
+import { post as wiremockApiMocking } from './wiremock-api-mocking-guide';
+import { post as pactContractTesting2026 } from './pact-contract-testing-guide-2026';
+import { post as schemathesisApiFuzzing } from './schemathesis-api-fuzzing-guide';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1318,6 +1328,16 @@ export const posts: Record<string, BlogPost> = {
   'accelq-codeless-test-automation-guide-2026': accelqCodeless2026,
   'testcollab-mcp-test-management-claude-2026': testcollabMcp2026,
   'ai-test-failure-triage-auto-tfa-2026': aiTestFailureTriageAutoTfa2026,
+  'postman-vs-playwright-api-testing-2026': postmanVsPlaywright2026,
+  'playwright-mobile-emulation-device-guide': playwrightMobileEmulationDeviceGuide,
+  'deepeval-llm-testing-framework-guide': deepevalLlmTesting,
+  'langfuse-llm-observability-guide-2026': langfuseObservability2026,
+  'gatling-vs-k6-performance-testing-2026': gatlingVsK62026,
+  'locust-load-testing-python-guide': locustLoadTesting,
+  'playwright-trace-viewer-debugging-guide': playwrightTraceViewerDebugging,
+  'wiremock-api-mocking-guide': wiremockApiMocking,
+  'pact-contract-testing-guide-2026': pactContractTesting2026,
+  'schemathesis-api-fuzzing-guide': schemathesisApiFuzzing,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2393,6 +2413,16 @@ export const postList = [
   { slug: 'accelq-codeless-test-automation-guide-2026', ...accelqCodeless2026 },
   { slug: 'testcollab-mcp-test-management-claude-2026', ...testcollabMcp2026 },
   { slug: 'ai-test-failure-triage-auto-tfa-2026', ...aiTestFailureTriageAutoTfa2026 },
+  { slug: 'postman-vs-playwright-api-testing-2026', ...postmanVsPlaywright2026 },
+  { slug: 'playwright-mobile-emulation-device-guide', ...playwrightMobileEmulationDeviceGuide },
+  { slug: 'deepeval-llm-testing-framework-guide', ...deepevalLlmTesting },
+  { slug: 'langfuse-llm-observability-guide-2026', ...langfuseObservability2026 },
+  { slug: 'gatling-vs-k6-performance-testing-2026', ...gatlingVsK62026 },
+  { slug: 'locust-load-testing-python-guide', ...locustLoadTesting },
+  { slug: 'playwright-trace-viewer-debugging-guide', ...playwrightTraceViewerDebugging },
+  { slug: 'wiremock-api-mocking-guide', ...wiremockApiMocking },
+  { slug: 'pact-contract-testing-guide-2026', ...pactContractTesting2026 },
+  { slug: 'schemathesis-api-fuzzing-guide', ...schemathesisApiFuzzing },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
