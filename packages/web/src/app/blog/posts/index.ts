@@ -601,6 +601,17 @@ import { post as playwrightTraceViewerDebugging } from './playwright-trace-viewe
 import { post as wiremockApiMocking } from './wiremock-api-mocking-guide';
 import { post as pactContractTesting2026 } from './pact-contract-testing-guide-2026';
 import { post as schemathesisApiFuzzing } from './schemathesis-api-fuzzing-guide';
+import { post as playwrightComponentTestingReact2026 } from './playwright-component-testing-react-2026';
+import { post as vitestBrowserModeGuide2026 } from './vitest-browser-mode-guide-2026';
+import { post as testcontainersGoGuide } from './testcontainers-go-guide';
+import { post as mswMockServiceWorkerGuide } from './msw-mock-service-worker-guide';
+import { post as karateApiTestingFrameworkGuide } from './karate-api-testing-framework-guide';
+import { post as supertestNodeApiTestingGuide } from './supertest-node-api-testing-guide';
+import { post as maestroMobileUiTestingGuide } from './maestro-mobile-ui-testing-guide';
+import { post as playwrightVsWebdriverio2026 } from './playwright-vs-webdriverio-2026';
+import { post as ragasVsDeepeval2026 } from './ragas-vs-deepeval-2026';
+import { post as selenideVsSelenium2026 } from './selenide-vs-selenium-2026';
+
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1338,6 +1349,16 @@ export const posts: Record<string, BlogPost> = {
   'wiremock-api-mocking-guide': wiremockApiMocking,
   'pact-contract-testing-guide-2026': pactContractTesting2026,
   'schemathesis-api-fuzzing-guide': schemathesisApiFuzzing,
+  'playwright-component-testing-react-2026': playwrightComponentTestingReact2026,
+  'vitest-browser-mode-guide-2026': vitestBrowserModeGuide2026,
+  'testcontainers-go-guide': testcontainersGoGuide,
+  'msw-mock-service-worker-guide': mswMockServiceWorkerGuide,
+  'karate-api-testing-framework-guide': karateApiTestingFrameworkGuide,
+  'supertest-node-api-testing-guide': supertestNodeApiTestingGuide,
+  'maestro-mobile-ui-testing-guide': maestroMobileUiTestingGuide,
+  'playwright-vs-webdriverio-2026': playwrightVsWebdriverio2026,
+  'ragas-vs-deepeval-2026': ragasVsDeepeval2026,
+  'selenide-vs-selenium-2026': selenideVsSelenium2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2423,6 +2444,16 @@ export const postList = [
   { slug: 'wiremock-api-mocking-guide', ...wiremockApiMocking },
   { slug: 'pact-contract-testing-guide-2026', ...pactContractTesting2026 },
   { slug: 'schemathesis-api-fuzzing-guide', ...schemathesisApiFuzzing },
+  { slug: 'playwright-component-testing-react-2026', ...playwrightComponentTestingReact2026 },
+  { slug: 'vitest-browser-mode-guide-2026', ...vitestBrowserModeGuide2026 },
+  { slug: 'testcontainers-go-guide', ...testcontainersGoGuide },
+  { slug: 'msw-mock-service-worker-guide', ...mswMockServiceWorkerGuide },
+  { slug: 'karate-api-testing-framework-guide', ...karateApiTestingFrameworkGuide },
+  { slug: 'supertest-node-api-testing-guide', ...supertestNodeApiTestingGuide },
+  { slug: 'maestro-mobile-ui-testing-guide', ...maestroMobileUiTestingGuide },
+  { slug: 'playwright-vs-webdriverio-2026', ...playwrightVsWebdriverio2026 },
+  { slug: 'ragas-vs-deepeval-2026', ...ragasVsDeepeval2026 },
+  { slug: 'selenide-vs-selenium-2026', ...selenideVsSelenium2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
