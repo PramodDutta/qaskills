@@ -612,6 +612,17 @@ import { post as playwrightVsWebdriverio2026 } from './playwright-vs-webdriverio
 import { post as ragasVsDeepeval2026 } from './ragas-vs-deepeval-2026';
 import { post as selenideVsSelenium2026 } from './selenide-vs-selenium-2026';
 
+import { post as playwrightMcpLlmArchitecture2026 } from './playwright-mcp-llm-test-automation-architecture-2026';
+import { post as deepevalVsRagasLlm2026 } from './deepeval-vs-ragas-llm-evaluation-2026';
+import { post as playwrightAriaSnapshots2026 } from './playwright-aria-snapshots-tomatcharia-guide-2026';
+import { post as playwrightUiModeDebugging2026 } from './playwright-ui-mode-debugging-guide-2026';
+import { post as vitestVsJest2026Comparison } from './vitest-vs-jest-2026-comparison';
+import { post as jmeterVsK6VsGatling2026 } from './jmeter-vs-k6-vs-gatling-2026';
+import { post as claudeCodeTestAutomation2026 } from './claude-code-test-automation-guide-2026';
+import { post as mutationTestingStryker2026 } from './mutation-testing-stryker-guide-2026';
+import { post as pactVsSpringCloudContract2026 } from './contract-testing-pact-vs-spring-cloud-contract-2026';
+import { post as playwrightNetworkInterception2026 } from './playwright-network-interception-mocking-guide-2026';
+
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1359,6 +1370,16 @@ export const posts: Record<string, BlogPost> = {
   'playwright-vs-webdriverio-2026': playwrightVsWebdriverio2026,
   'ragas-vs-deepeval-2026': ragasVsDeepeval2026,
   'selenide-vs-selenium-2026': selenideVsSelenium2026,
+  'playwright-mcp-llm-test-automation-architecture-2026': playwrightMcpLlmArchitecture2026,
+  'deepeval-vs-ragas-llm-evaluation-2026': deepevalVsRagasLlm2026,
+  'playwright-aria-snapshots-tomatcharia-guide-2026': playwrightAriaSnapshots2026,
+  'playwright-ui-mode-debugging-guide-2026': playwrightUiModeDebugging2026,
+  'vitest-vs-jest-2026-comparison': vitestVsJest2026Comparison,
+  'jmeter-vs-k6-vs-gatling-2026': jmeterVsK6VsGatling2026,
+  'claude-code-test-automation-guide-2026': claudeCodeTestAutomation2026,
+  'mutation-testing-stryker-guide-2026': mutationTestingStryker2026,
+  'contract-testing-pact-vs-spring-cloud-contract-2026': pactVsSpringCloudContract2026,
+  'playwright-network-interception-mocking-guide-2026': playwrightNetworkInterception2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2454,6 +2475,16 @@ export const postList = [
   { slug: 'playwright-vs-webdriverio-2026', ...playwrightVsWebdriverio2026 },
   { slug: 'ragas-vs-deepeval-2026', ...ragasVsDeepeval2026 },
   { slug: 'selenide-vs-selenium-2026', ...selenideVsSelenium2026 },
+  { slug: 'playwright-mcp-llm-test-automation-architecture-2026', ...playwrightMcpLlmArchitecture2026 },
+  { slug: 'deepeval-vs-ragas-llm-evaluation-2026', ...deepevalVsRagasLlm2026 },
+  { slug: 'playwright-aria-snapshots-tomatcharia-guide-2026', ...playwrightAriaSnapshots2026 },
+  { slug: 'playwright-ui-mode-debugging-guide-2026', ...playwrightUiModeDebugging2026 },
+  { slug: 'vitest-vs-jest-2026-comparison', ...vitestVsJest2026Comparison },
+  { slug: 'jmeter-vs-k6-vs-gatling-2026', ...jmeterVsK6VsGatling2026 },
+  { slug: 'claude-code-test-automation-guide-2026', ...claudeCodeTestAutomation2026 },
+  { slug: 'mutation-testing-stryker-guide-2026', ...mutationTestingStryker2026 },
+  { slug: 'contract-testing-pact-vs-spring-cloud-contract-2026', ...pactVsSpringCloudContract2026 },
+  { slug: 'playwright-network-interception-mocking-guide-2026', ...playwrightNetworkInterception2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
