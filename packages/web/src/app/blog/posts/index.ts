@@ -623,6 +623,17 @@ import { post as mutationTestingStryker2026 } from './mutation-testing-stryker-g
 import { post as pactVsSpringCloudContract2026 } from './contract-testing-pact-vs-spring-cloud-contract-2026';
 import { post as playwrightNetworkInterception2026 } from './playwright-network-interception-mocking-guide-2026';
 
+import { post as playwrightBrowsersPathReference } from './playwright-browsers-path-reference';
+import { post as playwrightAriaSnapshotsGuide } from './playwright-aria-snapshots-tomatchariasnapshot-guide';
+import { post as seleniumMcpServerGuide2026 } from './selenium-mcp-server-guide-2026';
+import { post as mcpServersForTestAutomation2026 } from './mcp-servers-for-test-automation-2026';
+import { post as playwrightSelfHealingLocators2026 } from './playwright-self-healing-locators-2026';
+import { post as pytestPlaywrightPluginGuide } from './pytest-playwright-plugin-complete-guide';
+import { post as llmObservabilityVsEvaluation2026 } from './llm-observability-vs-evaluation-2026';
+import { post as ragasFaithfulnessAnswerRelevancy } from './ragas-faithfulness-answer-relevancy-guide';
+import { post as promptfooRedTeamingLlmGuide } from './promptfoo-red-teaming-llm-guide';
+import { post as cypressVsPlaywrightCiCost2026 } from './cypress-vs-playwright-ci-cost-2026';
+
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1380,6 +1391,16 @@ export const posts: Record<string, BlogPost> = {
   'mutation-testing-stryker-guide-2026': mutationTestingStryker2026,
   'contract-testing-pact-vs-spring-cloud-contract-2026': pactVsSpringCloudContract2026,
   'playwright-network-interception-mocking-guide-2026': playwrightNetworkInterception2026,
+  'playwright-browsers-path-reference': playwrightBrowsersPathReference,
+  'playwright-aria-snapshots-tomatchariasnapshot-guide': playwrightAriaSnapshotsGuide,
+  'selenium-mcp-server-guide-2026': seleniumMcpServerGuide2026,
+  'mcp-servers-for-test-automation-2026': mcpServersForTestAutomation2026,
+  'playwright-self-healing-locators-2026': playwrightSelfHealingLocators2026,
+  'pytest-playwright-plugin-complete-guide': pytestPlaywrightPluginGuide,
+  'llm-observability-vs-evaluation-2026': llmObservabilityVsEvaluation2026,
+  'ragas-faithfulness-answer-relevancy-guide': ragasFaithfulnessAnswerRelevancy,
+  'promptfoo-red-teaming-llm-guide': promptfooRedTeamingLlmGuide,
+  'cypress-vs-playwright-ci-cost-2026': cypressVsPlaywrightCiCost2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2485,6 +2506,16 @@ export const postList = [
   { slug: 'mutation-testing-stryker-guide-2026', ...mutationTestingStryker2026 },
   { slug: 'contract-testing-pact-vs-spring-cloud-contract-2026', ...pactVsSpringCloudContract2026 },
   { slug: 'playwright-network-interception-mocking-guide-2026', ...playwrightNetworkInterception2026 },
+  { slug: 'playwright-browsers-path-reference', ...playwrightBrowsersPathReference },
+  { slug: 'playwright-aria-snapshots-tomatchariasnapshot-guide', ...playwrightAriaSnapshotsGuide },
+  { slug: 'selenium-mcp-server-guide-2026', ...seleniumMcpServerGuide2026 },
+  { slug: 'mcp-servers-for-test-automation-2026', ...mcpServersForTestAutomation2026 },
+  { slug: 'playwright-self-healing-locators-2026', ...playwrightSelfHealingLocators2026 },
+  { slug: 'pytest-playwright-plugin-complete-guide', ...pytestPlaywrightPluginGuide },
+  { slug: 'llm-observability-vs-evaluation-2026', ...llmObservabilityVsEvaluation2026 },
+  { slug: 'ragas-faithfulness-answer-relevancy-guide', ...ragasFaithfulnessAnswerRelevancy },
+  { slug: 'promptfoo-red-teaming-llm-guide', ...promptfooRedTeamingLlmGuide },
+  { slug: 'cypress-vs-playwright-ci-cost-2026', ...cypressVsPlaywrightCiCost2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
