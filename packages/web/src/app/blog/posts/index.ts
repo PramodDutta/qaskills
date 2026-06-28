@@ -634,6 +634,18 @@ import { post as ragasFaithfulnessAnswerRelevancy } from './ragas-faithfulness-a
 import { post as promptfooRedTeamingLlmGuide } from './promptfoo-red-teaming-llm-guide';
 import { post as cypressVsPlaywrightCiCost2026 } from './cypress-vs-playwright-ci-cost-2026';
 
+import { post as postmanVsPlaywrightApi } from './postman-vs-playwright-api-testing';
+import { post as playwrightMobileEmulationGuide } from './playwright-mobile-emulation-guide';
+import { post as playwrightTestAgentsPgh } from './playwright-test-agents-planner-generator-healer-2026';
+import { post as playwrightAriaSnapshots } from './playwright-aria-snapshots-guide-2026';
+import { post as playwrightClockApi } from './playwright-clock-api-testing-guide-2026';
+import { post as playwrightComponentTestingReact } from './playwright-component-testing-react-guide-2026';
+import { post as playwrightNetworkMockingRoute } from './playwright-network-mocking-route-guide-2026';
+import { post as claudeCodeSubagentsTesting } from './claude-code-subagents-testing-guide-2026';
+import { post as selfHealingTestAutomationAi2026 } from './self-healing-test-automation-ai-2026';
+import { post as deepevalLlmTestingFramework } from './deepeval-llm-testing-framework-guide-2026';
+import { post as playwrightScreencastApi } from './playwright-1-59-screencast-api-guide-2026';
+
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1402,6 +1414,17 @@ export const posts: Record<string, BlogPost> = {
   'ragas-faithfulness-answer-relevancy-guide': ragasFaithfulnessAnswerRelevancy,
   'promptfoo-red-teaming-llm-guide': promptfooRedTeamingLlmGuide,
   'cypress-vs-playwright-ci-cost-2026': cypressVsPlaywrightCiCost2026,
+  'postman-vs-playwright-api-testing': postmanVsPlaywrightApi,
+  'playwright-mobile-emulation-guide': playwrightMobileEmulationGuide,
+  'playwright-test-agents-planner-generator-healer-2026': playwrightTestAgentsPgh,
+  'playwright-aria-snapshots-guide-2026': playwrightAriaSnapshots,
+  'playwright-clock-api-testing-guide-2026': playwrightClockApi,
+  'playwright-component-testing-react-guide-2026': playwrightComponentTestingReact,
+  'playwright-network-mocking-route-guide-2026': playwrightNetworkMockingRoute,
+  'claude-code-subagents-testing-guide-2026': claudeCodeSubagentsTesting,
+  'self-healing-test-automation-ai-2026': selfHealingTestAutomationAi2026,
+  'deepeval-llm-testing-framework-guide-2026': deepevalLlmTestingFramework,
+  'playwright-1-59-screencast-api-guide-2026': playwrightScreencastApi,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2518,6 +2541,17 @@ export const postList = [
   { slug: 'ragas-faithfulness-answer-relevancy-guide', ...ragasFaithfulnessAnswerRelevancy },
   { slug: 'promptfoo-red-teaming-llm-guide', ...promptfooRedTeamingLlmGuide },
   { slug: 'cypress-vs-playwright-ci-cost-2026', ...cypressVsPlaywrightCiCost2026 },
+  { slug: 'postman-vs-playwright-api-testing', ...postmanVsPlaywrightApi },
+  { slug: 'playwright-mobile-emulation-guide', ...playwrightMobileEmulationGuide },
+  { slug: 'playwright-test-agents-planner-generator-healer-2026', ...playwrightTestAgentsPgh },
+  { slug: 'playwright-aria-snapshots-guide-2026', ...playwrightAriaSnapshots },
+  { slug: 'playwright-clock-api-testing-guide-2026', ...playwrightClockApi },
+  { slug: 'playwright-component-testing-react-guide-2026', ...playwrightComponentTestingReact },
+  { slug: 'playwright-network-mocking-route-guide-2026', ...playwrightNetworkMockingRoute },
+  { slug: 'claude-code-subagents-testing-guide-2026', ...claudeCodeSubagentsTesting },
+  { slug: 'self-healing-test-automation-ai-2026', ...selfHealingTestAutomationAi2026 },
+  { slug: 'deepeval-llm-testing-framework-guide-2026', ...deepevalLlmTestingFramework },
+  { slug: 'playwright-1-59-screencast-api-guide-2026', ...playwrightScreencastApi },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
