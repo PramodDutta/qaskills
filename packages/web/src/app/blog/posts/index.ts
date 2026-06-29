@@ -646,6 +646,17 @@ import { post as selfHealingTestAutomationAi2026 } from './self-healing-test-aut
 import { post as deepevalLlmTestingFramework } from './deepeval-llm-testing-framework-guide-2026';
 import { post as playwrightScreencastApi } from './playwright-1-59-screencast-api-guide-2026';
 
+import { post as playwrightThreeAgentSystemPlannerGeneratorHealer } from './playwright-three-agent-system-planner-generator-healer';
+import { post as playwrightMcpServerClaudeCodeSetup } from './playwright-mcp-server-claude-code-setup';
+import { post as promptfooVsDeepevalVsRagas2026 } from './promptfoo-vs-deepeval-vs-ragas-2026';
+import { post as testcontainersIntegrationTestingGuide } from './testcontainers-integration-testing-guide';
+import { post as gatlingVsK6LoadTesting2026 } from './gatling-vs-k6-load-testing-2026';
+import { post as contractTestingPactPythonGuide } from './contract-testing-pact-python-guide';
+import { post as cypressCyPromptAiTestingGuide } from './cypress-cy-prompt-ai-testing-guide';
+import { post as playwrightSelfHealingTests2026 } from './playwright-self-healing-tests-2026';
+import { post as seleniumToPlaywrightMigration2026 } from './selenium-to-playwright-migration-2026';
+import { post as pytestPlaywrightPythonE2eTutorial } from './pytest-playwright-python-e2e-tutorial';
+
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1425,6 +1436,16 @@ export const posts: Record<string, BlogPost> = {
   'self-healing-test-automation-ai-2026': selfHealingTestAutomationAi2026,
   'deepeval-llm-testing-framework-guide-2026': deepevalLlmTestingFramework,
   'playwright-1-59-screencast-api-guide-2026': playwrightScreencastApi,
+  'playwright-three-agent-system-planner-generator-healer': playwrightThreeAgentSystemPlannerGeneratorHealer,
+  'playwright-mcp-server-claude-code-setup': playwrightMcpServerClaudeCodeSetup,
+  'promptfoo-vs-deepeval-vs-ragas-2026': promptfooVsDeepevalVsRagas2026,
+  'testcontainers-integration-testing-guide': testcontainersIntegrationTestingGuide,
+  'gatling-vs-k6-load-testing-2026': gatlingVsK6LoadTesting2026,
+  'contract-testing-pact-python-guide': contractTestingPactPythonGuide,
+  'cypress-cy-prompt-ai-testing-guide': cypressCyPromptAiTestingGuide,
+  'playwright-self-healing-tests-2026': playwrightSelfHealingTests2026,
+  'selenium-to-playwright-migration-2026': seleniumToPlaywrightMigration2026,
+  'pytest-playwright-python-e2e-tutorial': pytestPlaywrightPythonE2eTutorial,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2552,6 +2573,16 @@ export const postList = [
   { slug: 'self-healing-test-automation-ai-2026', ...selfHealingTestAutomationAi2026 },
   { slug: 'deepeval-llm-testing-framework-guide-2026', ...deepevalLlmTestingFramework },
   { slug: 'playwright-1-59-screencast-api-guide-2026', ...playwrightScreencastApi },
+  { slug: 'playwright-three-agent-system-planner-generator-healer', ...playwrightThreeAgentSystemPlannerGeneratorHealer },
+  { slug: 'playwright-mcp-server-claude-code-setup', ...playwrightMcpServerClaudeCodeSetup },
+  { slug: 'promptfoo-vs-deepeval-vs-ragas-2026', ...promptfooVsDeepevalVsRagas2026 },
+  { slug: 'testcontainers-integration-testing-guide', ...testcontainersIntegrationTestingGuide },
+  { slug: 'gatling-vs-k6-load-testing-2026', ...gatlingVsK6LoadTesting2026 },
+  { slug: 'contract-testing-pact-python-guide', ...contractTestingPactPythonGuide },
+  { slug: 'cypress-cy-prompt-ai-testing-guide', ...cypressCyPromptAiTestingGuide },
+  { slug: 'playwright-self-healing-tests-2026', ...playwrightSelfHealingTests2026 },
+  { slug: 'selenium-to-playwright-migration-2026', ...seleniumToPlaywrightMigration2026 },
+  { slug: 'pytest-playwright-python-e2e-tutorial', ...pytestPlaywrightPythonE2eTutorial },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
