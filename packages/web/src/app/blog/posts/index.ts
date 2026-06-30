@@ -657,6 +657,16 @@ import { post as playwrightSelfHealingTests2026 } from './playwright-self-healin
 import { post as seleniumToPlaywrightMigration2026 } from './selenium-to-playwright-migration-2026';
 import { post as pytestPlaywrightPythonE2eTutorial } from './pytest-playwright-python-e2e-tutorial';
 
+import { post as schemathesisPropertyBasedApi2026 } from './schemathesis-property-based-api-testing-guide-2026';
+import { post as brunoApiTestingGit2026 } from './bruno-api-testing-git-guide-2026';
+import { post as hurlHttpTestingCli2026 } from './hurl-http-testing-cli-guide-2026';
+import { post as mswMockServiceWorker2026 } from './msw-mock-service-worker-testing-guide-2026';
+import { post as karateDslApiTesting2026 } from './karate-dsl-api-testing-guide-2026';
+import { post as openapi31ContractTesting2026 } from './openapi-3-1-contract-testing-guide-2026';
+import { post as langfuseSelfHostingTracing2026 } from './langfuse-self-hosting-tracing-guide-2026';
+import { post as arizePhoenixLlmEvaluation2026 } from './arize-phoenix-llm-evaluation-guide-2026';
+import { post as hoppscotchVsPostman2026 } from './hoppscotch-vs-postman-2026';
+import { post as playwright160ReleaseGuide2026 } from './playwright-1-60-release-guide-2026';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1446,6 +1456,16 @@ export const posts: Record<string, BlogPost> = {
   'playwright-self-healing-tests-2026': playwrightSelfHealingTests2026,
   'selenium-to-playwright-migration-2026': seleniumToPlaywrightMigration2026,
   'pytest-playwright-python-e2e-tutorial': pytestPlaywrightPythonE2eTutorial,
+  'schemathesis-property-based-api-testing-guide-2026': schemathesisPropertyBasedApi2026,
+  'bruno-api-testing-git-guide-2026': brunoApiTestingGit2026,
+  'hurl-http-testing-cli-guide-2026': hurlHttpTestingCli2026,
+  'msw-mock-service-worker-testing-guide-2026': mswMockServiceWorker2026,
+  'karate-dsl-api-testing-guide-2026': karateDslApiTesting2026,
+  'openapi-3-1-contract-testing-guide-2026': openapi31ContractTesting2026,
+  'langfuse-self-hosting-tracing-guide-2026': langfuseSelfHostingTracing2026,
+  'arize-phoenix-llm-evaluation-guide-2026': arizePhoenixLlmEvaluation2026,
+  'hoppscotch-vs-postman-2026': hoppscotchVsPostman2026,
+  'playwright-1-60-release-guide-2026': playwright160ReleaseGuide2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2583,6 +2603,16 @@ export const postList = [
   { slug: 'playwright-self-healing-tests-2026', ...playwrightSelfHealingTests2026 },
   { slug: 'selenium-to-playwright-migration-2026', ...seleniumToPlaywrightMigration2026 },
   { slug: 'pytest-playwright-python-e2e-tutorial', ...pytestPlaywrightPythonE2eTutorial },
+  { slug: 'schemathesis-property-based-api-testing-guide-2026', ...schemathesisPropertyBasedApi2026 },
+  { slug: 'bruno-api-testing-git-guide-2026', ...brunoApiTestingGit2026 },
+  { slug: 'hurl-http-testing-cli-guide-2026', ...hurlHttpTestingCli2026 },
+  { slug: 'msw-mock-service-worker-testing-guide-2026', ...mswMockServiceWorker2026 },
+  { slug: 'karate-dsl-api-testing-guide-2026', ...karateDslApiTesting2026 },
+  { slug: 'openapi-3-1-contract-testing-guide-2026', ...openapi31ContractTesting2026 },
+  { slug: 'langfuse-self-hosting-tracing-guide-2026', ...langfuseSelfHostingTracing2026 },
+  { slug: 'arize-phoenix-llm-evaluation-guide-2026', ...arizePhoenixLlmEvaluation2026 },
+  { slug: 'hoppscotch-vs-postman-2026', ...hoppscotchVsPostman2026 },
+  { slug: 'playwright-1-60-release-guide-2026', ...playwright160ReleaseGuide2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
