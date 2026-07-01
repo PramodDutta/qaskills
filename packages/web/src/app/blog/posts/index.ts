@@ -667,6 +667,17 @@ import { post as langfuseSelfHostingTracing2026 } from './langfuse-self-hosting-
 import { post as arizePhoenixLlmEvaluation2026 } from './arize-phoenix-llm-evaluation-guide-2026';
 import { post as hoppscotchVsPostman2026 } from './hoppscotch-vs-postman-2026';
 import { post as playwright160ReleaseGuide2026 } from './playwright-1-60-release-guide-2026';
+import { post as playwrightAutoHealingLocators } from './playwright-auto-healing-locators';
+import { post as aiTestGenerationPlaywright2026 } from './ai-test-generation-playwright-2026';
+import { post as ragasLlmEvaluationGuide } from './ragas-llm-evaluation-guide';
+import { post as promptfooLlmTestingGuide } from './promptfoo-llm-testing-guide';
+import { post as testcontainersJunit5IntegrationGuide } from './testcontainers-junit5-integration-guide';
+import { post as gatlingLoadTestingGuide } from './gatling-load-testing-guide';
+import { post as deepevalPythonLlmEvaluationGuide } from './deepeval-python-llm-evaluation-guide';
+import { post as mswApiMockingGuide } from './msw-api-mocking-guide';
+import { post as playwrightFixturesAdvancedGuide } from './playwright-fixtures-advanced-guide';
+import { post as espressoAndroidTestingGuide } from './espresso-android-testing-guide';
+
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1466,6 +1477,16 @@ export const posts: Record<string, BlogPost> = {
   'arize-phoenix-llm-evaluation-guide-2026': arizePhoenixLlmEvaluation2026,
   'hoppscotch-vs-postman-2026': hoppscotchVsPostman2026,
   'playwright-1-60-release-guide-2026': playwright160ReleaseGuide2026,
+  'playwright-auto-healing-locators': playwrightAutoHealingLocators,
+  'ai-test-generation-playwright-2026': aiTestGenerationPlaywright2026,
+  'ragas-llm-evaluation-guide': ragasLlmEvaluationGuide,
+  'promptfoo-llm-testing-guide': promptfooLlmTestingGuide,
+  'testcontainers-junit5-integration-guide': testcontainersJunit5IntegrationGuide,
+  'gatling-load-testing-guide': gatlingLoadTestingGuide,
+  'deepeval-python-llm-evaluation-guide': deepevalPythonLlmEvaluationGuide,
+  'msw-api-mocking-guide': mswApiMockingGuide,
+  'playwright-fixtures-advanced-guide': playwrightFixturesAdvancedGuide,
+  'espresso-android-testing-guide': espressoAndroidTestingGuide,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2613,6 +2634,16 @@ export const postList = [
   { slug: 'arize-phoenix-llm-evaluation-guide-2026', ...arizePhoenixLlmEvaluation2026 },
   { slug: 'hoppscotch-vs-postman-2026', ...hoppscotchVsPostman2026 },
   { slug: 'playwright-1-60-release-guide-2026', ...playwright160ReleaseGuide2026 },
+  { slug: 'playwright-auto-healing-locators', ...playwrightAutoHealingLocators },
+  { slug: 'ai-test-generation-playwright-2026', ...aiTestGenerationPlaywright2026 },
+  { slug: 'ragas-llm-evaluation-guide', ...ragasLlmEvaluationGuide },
+  { slug: 'promptfoo-llm-testing-guide', ...promptfooLlmTestingGuide },
+  { slug: 'testcontainers-junit5-integration-guide', ...testcontainersJunit5IntegrationGuide },
+  { slug: 'gatling-load-testing-guide', ...gatlingLoadTestingGuide },
+  { slug: 'deepeval-python-llm-evaluation-guide', ...deepevalPythonLlmEvaluationGuide },
+  { slug: 'msw-api-mocking-guide', ...mswApiMockingGuide },
+  { slug: 'playwright-fixtures-advanced-guide', ...playwrightFixturesAdvancedGuide },
+  { slug: 'espresso-android-testing-guide', ...espressoAndroidTestingGuide },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
