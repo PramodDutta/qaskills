@@ -678,6 +678,16 @@ import { post as mswApiMockingGuide } from './msw-api-mocking-guide';
 import { post as playwrightFixturesAdvancedGuide } from './playwright-fixtures-advanced-guide';
 import { post as espressoAndroidTestingGuide } from './espresso-android-testing-guide';
 
+import { post as agenticAiTestingGuide2026 } from './agentic-ai-testing-guide-2026';
+import { post as selfHealingTestAutomationGuide } from './self-healing-test-automation-guide';
+import { post as testrigorAiTestingGuide } from './testrigor-ai-testing-guide';
+import { post as mablAiTestAutomationGuide } from './mabl-ai-test-automation-guide';
+import { post as applitoolsVisualAiTestingGuide } from './applitools-visual-ai-testing-guide';
+import { post as meticulousAiVisualTestingGuide } from './meticulous-ai-visual-testing-guide';
+import { post as playwrightCypressSeleniumComparison2026 } from './playwright-cypress-selenium-comparison-2026';
+import { post as katalonAiTestingGuide } from './katalon-ai-testing-guide';
+import { post as aiFlakyTestDetectionGuide } from './ai-flaky-test-detection-guide';
+import { post as llmBrowserAgentTestingGuide } from './llm-browser-agent-testing-guide';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1487,6 +1497,16 @@ export const posts: Record<string, BlogPost> = {
   'msw-api-mocking-guide': mswApiMockingGuide,
   'playwright-fixtures-advanced-guide': playwrightFixturesAdvancedGuide,
   'espresso-android-testing-guide': espressoAndroidTestingGuide,
+  'agentic-ai-testing-guide-2026': agenticAiTestingGuide2026,
+  'self-healing-test-automation-guide': selfHealingTestAutomationGuide,
+  'testrigor-ai-testing-guide': testrigorAiTestingGuide,
+  'mabl-ai-test-automation-guide': mablAiTestAutomationGuide,
+  'applitools-visual-ai-testing-guide': applitoolsVisualAiTestingGuide,
+  'meticulous-ai-visual-testing-guide': meticulousAiVisualTestingGuide,
+  'playwright-cypress-selenium-comparison-2026': playwrightCypressSeleniumComparison2026,
+  'katalon-ai-testing-guide': katalonAiTestingGuide,
+  'ai-flaky-test-detection-guide': aiFlakyTestDetectionGuide,
+  'llm-browser-agent-testing-guide': llmBrowserAgentTestingGuide,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2644,6 +2664,16 @@ export const postList = [
   { slug: 'msw-api-mocking-guide', ...mswApiMockingGuide },
   { slug: 'playwright-fixtures-advanced-guide', ...playwrightFixturesAdvancedGuide },
   { slug: 'espresso-android-testing-guide', ...espressoAndroidTestingGuide },
+  { slug: 'agentic-ai-testing-guide-2026', ...agenticAiTestingGuide2026 },
+  { slug: 'self-healing-test-automation-guide', ...selfHealingTestAutomationGuide },
+  { slug: 'testrigor-ai-testing-guide', ...testrigorAiTestingGuide },
+  { slug: 'mabl-ai-test-automation-guide', ...mablAiTestAutomationGuide },
+  { slug: 'applitools-visual-ai-testing-guide', ...applitoolsVisualAiTestingGuide },
+  { slug: 'meticulous-ai-visual-testing-guide', ...meticulousAiVisualTestingGuide },
+  { slug: 'playwright-cypress-selenium-comparison-2026', ...playwrightCypressSeleniumComparison2026 },
+  { slug: 'katalon-ai-testing-guide', ...katalonAiTestingGuide },
+  { slug: 'ai-flaky-test-detection-guide', ...aiFlakyTestDetectionGuide },
+  { slug: 'llm-browser-agent-testing-guide', ...llmBrowserAgentTestingGuide },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
