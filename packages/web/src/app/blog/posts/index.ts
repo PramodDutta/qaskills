@@ -688,6 +688,16 @@ import { post as playwrightCypressSeleniumComparison2026 } from './playwright-cy
 import { post as katalonAiTestingGuide } from './katalon-ai-testing-guide';
 import { post as aiFlakyTestDetectionGuide } from './ai-flaky-test-detection-guide';
 import { post as llmBrowserAgentTestingGuide } from './llm-browser-agent-testing-guide';
+import { post as selfHealingTestAutomationTools2026 } from './self-healing-test-automation-tools-2026';
+import { post as playwrightComponentTestingReactVueSvelte } from './playwright-component-testing-react-vue-svelte';
+import { post as playwrightAriaSnapshotsAccessibilityTree } from './playwright-aria-snapshots-accessibility-tree-guide';
+import { post as pytest9NewFeaturesGuide } from './pytest-9-new-features-guide';
+import { post as playwrightTestAgentsPlannerGeneratorHealer } from './playwright-test-agents-planner-generator-healer';
+import { post as testsigmaVsMabl2026 } from './testsigma-vs-mabl-2026';
+import { post as applitoolsVisualAiTestingGuide2026 } from './applitools-visual-ai-testing-guide-2026';
+import { post as testcaseGenerationWithClaudeCodeMcp } from './testcase-generation-with-claude-code-mcp';
+import { post as playwrightUiModeWatchGuide } from './playwright-ui-mode-watch-guide';
+import { post as naturalLanguageTestAutomation2026 } from './natural-language-test-automation-2026';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1507,6 +1517,16 @@ export const posts: Record<string, BlogPost> = {
   'katalon-ai-testing-guide': katalonAiTestingGuide,
   'ai-flaky-test-detection-guide': aiFlakyTestDetectionGuide,
   'llm-browser-agent-testing-guide': llmBrowserAgentTestingGuide,
+  'self-healing-test-automation-tools-2026': selfHealingTestAutomationTools2026,
+  'playwright-component-testing-react-vue-svelte': playwrightComponentTestingReactVueSvelte,
+  'playwright-aria-snapshots-accessibility-tree-guide': playwrightAriaSnapshotsAccessibilityTree,
+  'pytest-9-new-features-guide': pytest9NewFeaturesGuide,
+  'playwright-test-agents-planner-generator-healer': playwrightTestAgentsPlannerGeneratorHealer,
+  'testsigma-vs-mabl-2026': testsigmaVsMabl2026,
+  'applitools-visual-ai-testing-guide-2026': applitoolsVisualAiTestingGuide2026,
+  'testcase-generation-with-claude-code-mcp': testcaseGenerationWithClaudeCodeMcp,
+  'playwright-ui-mode-watch-guide': playwrightUiModeWatchGuide,
+  'natural-language-test-automation-2026': naturalLanguageTestAutomation2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2674,6 +2694,16 @@ export const postList = [
   { slug: 'katalon-ai-testing-guide', ...katalonAiTestingGuide },
   { slug: 'ai-flaky-test-detection-guide', ...aiFlakyTestDetectionGuide },
   { slug: 'llm-browser-agent-testing-guide', ...llmBrowserAgentTestingGuide },
+  { slug: 'self-healing-test-automation-tools-2026', ...selfHealingTestAutomationTools2026 },
+  { slug: 'playwright-component-testing-react-vue-svelte', ...playwrightComponentTestingReactVueSvelte },
+  { slug: 'playwright-aria-snapshots-accessibility-tree-guide', ...playwrightAriaSnapshotsAccessibilityTree },
+  { slug: 'pytest-9-new-features-guide', ...pytest9NewFeaturesGuide },
+  { slug: 'playwright-test-agents-planner-generator-healer', ...playwrightTestAgentsPlannerGeneratorHealer },
+  { slug: 'testsigma-vs-mabl-2026', ...testsigmaVsMabl2026 },
+  { slug: 'applitools-visual-ai-testing-guide-2026', ...applitoolsVisualAiTestingGuide2026 },
+  { slug: 'testcase-generation-with-claude-code-mcp', ...testcaseGenerationWithClaudeCodeMcp },
+  { slug: 'playwright-ui-mode-watch-guide', ...playwrightUiModeWatchGuide },
+  { slug: 'natural-language-test-automation-2026', ...naturalLanguageTestAutomation2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
