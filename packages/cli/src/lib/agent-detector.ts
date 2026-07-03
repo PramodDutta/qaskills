@@ -2,7 +2,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as os from 'node:os';
 import type { AgentDefinition } from '@qaskills/shared';
-import { AGENTS } from '@qaskills/shared';
+import { AGENTS, UNIVERSAL_AGENT } from '@qaskills/shared';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -85,6 +85,17 @@ export function detectAgents(projectDir?: string): DetectedAgent[] {
       });
     }
   }
+
+  // Always offer the universal cross-vendor skills dir (Agent Skills open
+  // standard): Codex CLI, Gemini CLI & other spec-compliant agents scan
+  // ~/.agents/skills even when no agent-specific config dir exists yet.
+  const universalSkillsDir = expandHome(UNIVERSAL_AGENT.skillsDir);
+  detected.push({
+    definition: UNIVERSAL_AGENT,
+    skillsDir: universalSkillsDir,
+    exists: probeExists(universalSkillsDir),
+    scope: 'global',
+  });
 
   return detected;
 }

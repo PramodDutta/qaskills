@@ -324,3 +324,22 @@ export const AGENTS: AgentDefinition[] = [
 
 export const AGENT_IDS = AGENTS.map((a) => a.id);
 export type AgentId = (typeof AGENTS)[number]['id'];
+
+/**
+ * Universal cross-vendor skills directory from the Agent Skills open standard
+ * (agentskills.io). Codex CLI, Gemini CLI, and other spec-compliant agents scan
+ * `~/.agents/skills` (and project `.agents/skills`) for skills. Kept separate
+ * from AGENTS so it does not appear in web compatibility filters — the CLI
+ * always offers it as an install target regardless of which agents are detected.
+ */
+export const UNIVERSAL_AGENT: AgentDefinition = {
+  id: 'universal',
+  name: 'Universal (.agents/skills)',
+  slug: 'universal',
+  description: 'Cross-vendor skills directory (Agent Skills open standard) — Codex, Gemini CLI & other spec-compliant agents',
+  configDir: '~/.agents',
+  skillsDir: '~/.agents/skills',
+  configFile: '',
+  installMethod: 'copy',
+  website: 'https://agentskills.io',
+};

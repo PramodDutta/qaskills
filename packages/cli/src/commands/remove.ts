@@ -11,7 +11,8 @@ export const removeCommand = new Command('remove')
   .argument('<skill>', 'Skill name to remove')
   .description('Remove an installed QA skill')
   .option('-a, --agent <agent>', 'Remove from specific agent only')
-  .action(async (skillName: string, options: { agent?: string }) => {
+  .option('-y, --yes', 'Non-interactive: remove from all detected agents without prompting')
+  .action(async (skillName: string, options: { agent?: string; yes?: boolean }) => {
     p.intro(pc.bgCyan(pc.black(' qaskills remove ')));
 
     const detected = detectAgents();
@@ -48,10 +49,12 @@ export const removeCommand = new Command('remove')
       }
     }
 
-    const confirm = await p.confirm({
-      message: `Remove skill "${skillName}" from ${targetAgents.length} agent(s)?`,
-    });
-    if (p.isCancel(confirm) || !confirm) { p.cancel('Cancelled.'); process.exit(0); }
+    if (!options.yes) {
+      const confirm = await p.confirm({
+        message: `Remove skill "${skillName}" from ${targetAgents.length} agent(s)?`,
+      });
+      if (p.isCancel(confirm) || !confirm) { p.cancel('Cancelled.'); process.exit(0); }
+    }
 
     const spinner = p.spinner();
     for (const agent of targetAgents) {
