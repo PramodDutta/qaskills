@@ -698,6 +698,16 @@ import { post as applitoolsVisualAiTestingGuide2026 } from './applitools-visual-
 import { post as testcaseGenerationWithClaudeCodeMcp } from './testcase-generation-with-claude-code-mcp';
 import { post as playwrightUiModeWatchGuide } from './playwright-ui-mode-watch-guide';
 import { post as naturalLanguageTestAutomation2026 } from './natural-language-test-automation-2026';
+import { post as promptfooLlmRedTeamingGuide } from './promptfoo-llm-red-teaming-guide';
+import { post as ragasRagEvaluationGuide } from './ragas-rag-evaluation-guide';
+import { post as deepevalLlmTestingGuide } from './deepeval-llm-testing-guide';
+import { post as llmAsAJudgeEvaluationGuide } from './llm-as-a-judge-evaluation-guide';
+import { post as mcpServersTestAutomation2026 } from './mcp-servers-test-automation-2026';
+import { post as playwrightMcpServerGuide } from './playwright-mcp-server-guide';
+import { post as testcontainersPythonIntegrationTesting } from './testcontainers-python-integration-testing';
+import { post as pactContractTestingMicroservices } from './pact-contract-testing-microservices';
+import { post as xk6ExtensionsLoadTesting } from './xk6-extensions-load-testing';
+import { post as claudeCodeTestAutomationGuide } from './claude-code-test-automation-guide';
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1527,6 +1537,16 @@ export const posts: Record<string, BlogPost> = {
   'testcase-generation-with-claude-code-mcp': testcaseGenerationWithClaudeCodeMcp,
   'playwright-ui-mode-watch-guide': playwrightUiModeWatchGuide,
   'natural-language-test-automation-2026': naturalLanguageTestAutomation2026,
+  'promptfoo-llm-red-teaming-guide': promptfooLlmRedTeamingGuide,
+  'ragas-rag-evaluation-guide': ragasRagEvaluationGuide,
+  'deepeval-llm-testing-guide': deepevalLlmTestingGuide,
+  'llm-as-a-judge-evaluation-guide': llmAsAJudgeEvaluationGuide,
+  'mcp-servers-test-automation-2026': mcpServersTestAutomation2026,
+  'playwright-mcp-server-guide': playwrightMcpServerGuide,
+  'testcontainers-python-integration-testing': testcontainersPythonIntegrationTesting,
+  'pact-contract-testing-microservices': pactContractTestingMicroservices,
+  'xk6-extensions-load-testing': xk6ExtensionsLoadTesting,
+  'claude-code-test-automation-guide': claudeCodeTestAutomationGuide,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2704,6 +2724,16 @@ export const postList = [
   { slug: 'testcase-generation-with-claude-code-mcp', ...testcaseGenerationWithClaudeCodeMcp },
   { slug: 'playwright-ui-mode-watch-guide', ...playwrightUiModeWatchGuide },
   { slug: 'natural-language-test-automation-2026', ...naturalLanguageTestAutomation2026 },
+  { slug: 'promptfoo-llm-red-teaming-guide', ...promptfooLlmRedTeamingGuide },
+  { slug: 'ragas-rag-evaluation-guide', ...ragasRagEvaluationGuide },
+  { slug: 'deepeval-llm-testing-guide', ...deepevalLlmTestingGuide },
+  { slug: 'llm-as-a-judge-evaluation-guide', ...llmAsAJudgeEvaluationGuide },
+  { slug: 'mcp-servers-test-automation-2026', ...mcpServersTestAutomation2026 },
+  { slug: 'playwright-mcp-server-guide', ...playwrightMcpServerGuide },
+  { slug: 'testcontainers-python-integration-testing', ...testcontainersPythonIntegrationTesting },
+  { slug: 'pact-contract-testing-microservices', ...pactContractTestingMicroservices },
+  { slug: 'xk6-extensions-load-testing', ...xk6ExtensionsLoadTesting },
+  { slug: 'claude-code-test-automation-guide', ...claudeCodeTestAutomationGuide },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
