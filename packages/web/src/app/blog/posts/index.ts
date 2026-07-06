@@ -708,6 +708,17 @@ import { post as testcontainersPythonIntegrationTesting } from './testcontainers
 import { post as pactContractTestingMicroservices } from './pact-contract-testing-microservices';
 import { post as xk6ExtensionsLoadTesting } from './xk6-extensions-load-testing';
 import { post as claudeCodeTestAutomationGuide } from './claude-code-test-automation-guide';
+import { post as playwrightVsPytestApiTesting } from './playwright-vs-pytest-api-testing';
+import { post as octomindPlaywrightAiTesting } from './octomind-playwright-ai-testing';
+import { post as zerostepPlaywrightNaturalLanguage } from './zerostep-playwright-natural-language';
+import { post as playwrightInitAgentsGuide } from './playwright-init-agents-guide';
+import { post as worldQualityReport2026Qa } from './world-quality-report-2026-qa';
+import { post as pactContractTestingPython } from './pact-contract-testing-python';
+import { post as aiTestGenerationPlaywrightCopilot } from './ai-test-generation-playwright-copilot';
+import { post as selfHealingTestsPlaywright } from './self-healing-tests-playwright';
+import { post as currentsPlaywrightObservability } from './currents-playwright-observability';
+import { post as k6LoadTestingGuide2026 } from './k6-load-testing-guide-2026';
+
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1547,6 +1558,16 @@ export const posts: Record<string, BlogPost> = {
   'pact-contract-testing-microservices': pactContractTestingMicroservices,
   'xk6-extensions-load-testing': xk6ExtensionsLoadTesting,
   'claude-code-test-automation-guide': claudeCodeTestAutomationGuide,
+  'playwright-vs-pytest-api-testing': playwrightVsPytestApiTesting,
+  'octomind-playwright-ai-testing': octomindPlaywrightAiTesting,
+  'zerostep-playwright-natural-language': zerostepPlaywrightNaturalLanguage,
+  'playwright-init-agents-guide': playwrightInitAgentsGuide,
+  'world-quality-report-2026-qa': worldQualityReport2026Qa,
+  'pact-contract-testing-python': pactContractTestingPython,
+  'ai-test-generation-playwright-copilot': aiTestGenerationPlaywrightCopilot,
+  'self-healing-tests-playwright': selfHealingTestsPlaywright,
+  'currents-playwright-observability': currentsPlaywrightObservability,
+  'k6-load-testing-guide-2026': k6LoadTestingGuide2026,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2734,6 +2755,16 @@ export const postList = [
   { slug: 'pact-contract-testing-microservices', ...pactContractTestingMicroservices },
   { slug: 'xk6-extensions-load-testing', ...xk6ExtensionsLoadTesting },
   { slug: 'claude-code-test-automation-guide', ...claudeCodeTestAutomationGuide },
+  { slug: 'playwright-vs-pytest-api-testing', ...playwrightVsPytestApiTesting },
+  { slug: 'octomind-playwright-ai-testing', ...octomindPlaywrightAiTesting },
+  { slug: 'zerostep-playwright-natural-language', ...zerostepPlaywrightNaturalLanguage },
+  { slug: 'playwright-init-agents-guide', ...playwrightInitAgentsGuide },
+  { slug: 'world-quality-report-2026-qa', ...worldQualityReport2026Qa },
+  { slug: 'pact-contract-testing-python', ...pactContractTestingPython },
+  { slug: 'ai-test-generation-playwright-copilot', ...aiTestGenerationPlaywrightCopilot },
+  { slug: 'self-healing-tests-playwright', ...selfHealingTestsPlaywright },
+  { slug: 'currents-playwright-observability', ...currentsPlaywrightObservability },
+  { slug: 'k6-load-testing-guide-2026', ...k6LoadTestingGuide2026 },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
