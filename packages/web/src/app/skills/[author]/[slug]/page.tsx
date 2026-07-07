@@ -17,6 +17,7 @@ import { ReviewSection } from '@/components/skills/review-section';
 import { SkillDescription } from '@/components/skills/skill-description';
 import { SkillDownloadButtons } from '@/components/skills/skill-download-buttons';
 import { CloneButton } from '@/components/skills/clone-button';
+import { CourseAd } from '@/components/course-ad';
 
 // DB-driven page: render per-request (Vercel has DATABASE_URL at runtime;
 // CI build has none, so avoid build-time prerender against the DB).
@@ -284,6 +285,14 @@ export default async function SkillDetailPage({ params }: SkillPageProps) {
 
           {/* Compatibility */}
           <CompatibilityMatrix supportedAgents={agents} />
+
+          {/* Course promo (contextual: Playwright skills -> Playwright course) */}
+          <CourseAd
+            course="auto"
+            variant="sidebar"
+            slot="skill-sidebar"
+            ctx={{ frameworks, testingTypes, title: skill.name }}
+          />
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Terminal } from 'lucide-react';
+import { COURSES, courseUrl } from '@/lib/courses';
 
 const footerLinks = {
   Product: [
@@ -34,7 +35,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-muted/30">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 font-bold text-lg">
@@ -83,6 +84,25 @@ export function Footer() {
               </ul>
             </div>
           ))}
+
+          {/* Courses (paid promos: sponsored nofollow, UTM-tagged) */}
+          <div>
+            <h3 className="text-sm font-semibold">Courses</h3>
+            <ul className="mt-3 space-y-2">
+              {Object.values(COURSES).map((c) => (
+                <li key={c.id}>
+                  <a
+                    href={courseUrl(c.id, 'footer')}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    target="_blank"
+                    rel="sponsored nofollow noopener noreferrer"
+                  >
+                    {c.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground">

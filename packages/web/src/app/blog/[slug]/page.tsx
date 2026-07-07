@@ -13,6 +13,8 @@ import { extractFAQs } from '@/lib/extract-faqs';
 import { getRelatedPosts } from '@/lib/related-posts';
 import { posts } from '../posts';
 import { BlogContent } from '@/components/blog/blog-content';
+import { CourseAd } from '@/components/course-ad';
+import { splitAtMidHeading } from '@/lib/split-content';
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -61,6 +63,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   // Internal linking: related posts by category + token overlap (SEO — passes
   // authority + keeps crawlers traversing the corpus). Server-computed, links only.
   const related = getRelatedPosts(slug, posts, 6);
+
+  // Split long posts at a mid heading so a contextual course ad renders inline
+  // without breaking the markdown. Short posts get only the end-of-article ad.
+  const [firstHalf, secondHalf] = splitAtMidHeading(post.content);
+  const adCtx = { category: post.category, title: post.title };
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
@@ -128,7 +135,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         ) : null}
 
-        <BlogContent content={post.content} />
+        {secondHalf ? (
+          <>
+            <BlogContent content={firstHalf} />
+            <CourseAd course="auto" variant="inline" slot="blog-mid" ctx={adCtx} />
+            <BlogContent content={secondHalf} />
+          </>
+        ) : (
+          <BlogContent content={post.content} />
+        )}
+
+        <CourseAd course="auto" variant="inline" slot="blog-end" ctx={adCtx} />
       </article>
 
       {related.length > 0 && (
