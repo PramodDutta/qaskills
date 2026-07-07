@@ -1,163 +1,220 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Operating manual for AI agents working in this repository. It is written so a model with less judgment than the one that wrote it can still ship at the same level: where a rule exists, follow the rule, do not improvise. Every named mistake below is one that actually happened or nearly happened here.
 
-## Project Overview
+## What this is
 
-QASkills.sh is a QA skills directory for AI coding agents. It's a pnpm monorepo (pnpm 9.15.0, Node >= 20) using Turborepo for orchestration.
+QASkills.sh is a QA-skills directory for AI coding agents ("npm for QA skills"). pnpm monorepo (pnpm 9.15.0, Node >= 20, Turborepo). Solo-founder operation: work lands directly on `main`, ships to production the same day, and growth is SEO-driven. The three recurring jobs, by frequency:
 
-## Common Commands
+1. **Publish SEO articles** (near-daily batches of 10) -> use project skill `publish-seo-batch`
+2. **Add seed skills** to the catalog -> use project skill `add-seed-skills`
+3. **Deploy to production** on Vercel -> use project skill `ship-prod`
+
+Project skills live in `.claude/skills/`. If a task matches one, follow the skill, not memory.
+
+## Conventions (non-negotiable)
+
+**Writing (everything: chat, commits, docs, article content, code comments):**
+- Never use em dashes. Use a comma, period, colon, parentheses, or "->". En dashes for ranges (Jul 14-19) are fine. Before finishing any writing deliverable, run a literal grep for the em dash character and fix hits.
+
+**Git:**
+- Conventional commits, imperative mood: `feat:`, `fix:`, `docs(scope):`, `chore:`. Match the style in `git log`.
+- No `Co-Authored-By:` trailers. No "Generated with Claude Code" footers. Commits must look like normal human commits.
+- Commit directly to `main` (repo norm, no PR ceremony). One concern per commit.
+- Never `git add -A`, `git add .`, or `git commit -a` from the repo root. The root is littered with unrelated artifacts (screenshots, `evaldog-app/`, `qabuddy/`, one-off strategy docs). Stage explicit paths only, and review `git diff --cached --stat` before committing.
+- Pre-existing working-tree changes and untracked files are someone's WIP. Never stash, clean, revert, or absorb them into your commit.
+
+**Code:**
+- Prettier: single quotes, semicolons, 2-space indent, 100 char width, trailing commas, LF endings. TypeScript strict mode in all packages.
+- Server components fetch data; client components (`'use client'`) own all interactivity. Details under Architecture.
+- Match the surrounding file's idiom, comment density, and naming.
+
+**Secrets:**
+- Never print, log, or commit env var values. `.env.local` and `.env.production.local` exist at the root; treat their contents as radioactive and as possibly stale (see mistake 4).
+- Values copied out of `.env.local` are wrapped in double quotes; strip the quotes before exporting or setting via any API.
+
+## Commands
 
 ```bash
-pnpm install                  # Install all dependencies
-pnpm build                    # Build all packages (Turbo, respects dependency graph)
-pnpm dev                      # Dev servers for all packages
-pnpm test                     # Run tests across all packages (vitest)
-pnpm lint                     # Lint all packages
-pnpm format                   # Format with Prettier
-pnpm format:check             # Check formatting
+pnpm install                          # install all dependencies
+pnpm build                            # build all packages (Turbo, dependency order)
+pnpm dev                              # dev servers for all packages
+pnpm test                             # vitest across packages
+pnpm lint                             # lint all packages
+pnpm format / pnpm format:check       # Prettier write / check
 
-# Run a single package
-pnpm --filter @qaskills/cli test
-pnpm --filter @qaskills/web dev
+# Single package
 pnpm --filter @qaskills/shared build
+pnpm --filter @qaskills/web dev
+pnpm --filter @qaskills/cli test
 
-# Run tests in watch mode
-pnpm --filter @qaskills/cli test:watch
+# Web quality gates
+pnpm --filter @qaskills/web lint
+pnpm --filter @qaskills/web exec tsc --noEmit
+pnpm --filter @qaskills/web build
+pnpm test:post-flow                   # web build + unit + Playwright e2e gate
 
 # Database (proxied to @qaskills/web)
-pnpm db:push                  # Push schema to Neon Postgres (dev)
-pnpm db:migrate               # Run Drizzle migrations (prod)
-pnpm db:seed                  # Seed 20 initial skills (tsx src/db/seed.ts)
-pnpm db:studio                # Open Drizzle Studio
+pnpm db:push                          # push schema (DEV ONLY, ask before prod)
+pnpm db:migrate                       # Drizzle migrations (prod, ask first)
+pnpm db:seed                          # upsert seed-skills/ into the DB the exported DATABASE_URL points at
+pnpm db:studio
 
-# CLI testing after build
-node packages/cli/dist/index.js <command>
+# Seed-skill validation (build first)
+pnpm --filter @qaskills/skill-validator build
+node packages/skill-validator/dist/cli.js seed-skills/<slug>/SKILL.md
+
+# CLI smoke test after build
+node packages/cli/dist/index.js --help
 ```
 
-**Build order matters:** `@qaskills/shared` must build before packages that depend on it (cli, sdk, web, skill-validator). Turbo handles this via `"dependsOn": ["^build"]`. After changing shared, rebuild it before restarting dependent dev servers.
+**Build order matters:** `@qaskills/shared` must build before cli, sdk, web, skill-validator. Turbo handles it in `pnpm build`; when running package commands directly, build shared first after touching it.
 
-## Monorepo Layout
+## Monorepo map
 
-| Package | Path | Purpose |
+| What | Path | Notes |
 |---|---|---|
-| `@qaskills/shared` | `packages/shared` | Types, constants, Zod schemas, SKILL.md parser (private, dependency of all others) |
-| `@qaskills/cli` | `packages/cli` | CLI tool — `qaskills add/search/init/list/remove/publish` (Commander.js + @clack/prompts) |
-| `@qaskills/sdk` | `packages/sdk` | Programmatic TypeScript SDK |
-| `@qaskills/skill-validator` | `packages/skill-validator` | Validates SKILL.md files against schema |
-| `@qaskills/web` | `packages/web` | Next.js 15 App Router dashboard + API |
-| (standalone) | `landingpage/` | Separate Next.js 16 marketing site (**not** in pnpm workspace) |
-| (data) | `seed-skills/` | 20 seed QA skill definitions as SKILL.md files |
+| `@qaskills/shared` | `packages/shared` | Types, constants (30+ agent definitions, testing types, frameworks, languages, domains), Zod schemas, SKILL.md parser. Dependency of everything. |
+| `@qaskills/cli` | `packages/cli` | `qaskills add/search/init/list/remove/publish` (Commander.js + @clack/prompts). Ships to npm via `cli-v*` tags only. |
+| `@qaskills/sdk` | `packages/sdk` | Programmatic TypeScript SDK. |
+| `@qaskills/skill-validator` | `packages/skill-validator` | Validates seed SKILL.md files. Bin: `qaskills-validate`. |
+| `@qaskills/web` | `packages/web` | Next.js 15 App Router site + API + 800+ blog posts. This is the product. |
+| Seed catalog | `seed-skills/` | ~384 directories, one product-schema SKILL.md each. Source of truth for the live catalog. |
+| SEO working docs | `docs/seo/` | GSC keyword reports (`KEYWORD-OPPORTUNITIES-YYYY-MM.md`), analytics notes. |
+| Product docs | `docs/product/` | Roadmap, launch plans. |
+| Not the product | `evaldog-app/`, `qabuddy/`, `landingpage/`, root *.png / *.md strategy files | Separate experiments and artifacts. Do not build, fix, or stage them unless explicitly asked. |
 
-## Architecture
+`landingpage/` is NOT in the pnpm workspace; `pnpm --filter` cannot see it.
 
-### Shared Package (`packages/shared`)
-The single source of truth for the type system. All other packages depend on it.
-- **Types:** `src/types/` — Skill, SkillSummary, SkillFrontmatter, Agent, User, Review, Category, SkillPack
-- **Constants:** `src/constants/` — 30+ AgentDefinition objects (each with `configDir`, `skillsDir`, `configFile`, `installMethod`), testing frameworks, languages, domains, testing types
-- **Schemas:** `src/schemas/` — Zod validation for skill frontmatter, skill creation, search params
-- **Parsers:** `src/parsers/skill-parser.ts` — `parseSkillMd()` / `serializeSkillMd()` using gray-matter for YAML frontmatter + markdown body
-- **Utils:** `src/utils/` — Slug generation, quality score calculation
+## Architecture (load-bearing facts)
 
-### Web App (`packages/web`)
-Next.js 15 with App Router, React 19, TailwindCSS v4, shadcn/ui (Radix primitives).
+### Blog engine (`packages/web/src/app/blog/`)
+The SEO machine. One TypeScript module per post at `posts/<slug>.ts` exporting `post: BlogPost`:
 
-**Stack:** Neon Postgres (Drizzle ORM) / Typesense (search) / Upstash Redis (cache) / Clerk (auth) / PostHog (analytics) / Resend (email)
+```ts
+export interface BlogPost {
+  title: string;        // keyword-bearing
+  description: string;  // meta description
+  date: string;         // 'YYYY-MM-DD'
+  category: string;     // Guide | Reference | Tutorial | Comparison | AI Testing | API Testing | Migration | BDD | Performance
+  content: string;      // full markdown in a template literal (escape backticks)
+  image?: string;
+  imageAlt?: string;
+}
+```
 
-#### Lazy Initialization Pattern
-Both the database and Resend email client use lazy singletons to avoid build-time errors on Vercel:
-- **Database** (`src/db/index.ts`): `db` is a Proxy that calls `getDb()` on first property access — connection created at runtime, not import time
-- **Resend** (`src/lib/email/client.ts`): `getResendClient()` lazy singleton, exported via property getters for backward compat
+`posts/index.ts` (~2800 lines) holds TWO registries and a post must be in BOTH:
+- `posts: Record<string, BlogPost>` -> powers `[slug]/page.tsx` detail pages (miss it = 404)
+- `postList` array -> powers the /blog listing and the sitemap (miss it = invisible)
 
-#### Auth Pattern
-- **Middleware** (`src/middleware.ts`): Clerk middleware protects routes via `createRouteMatcher`
-- **Protected routes:** `/dashboard(.*)`, `/api/skills/create(.*)`, `/api/reviews(.*)`
-- **Public webhooks:** `/api/webhooks(.*)` bypasses auth entirely
-- **API auth helper** (`src/lib/api-auth.ts`): `getAuthUser()` fetches the authenticated Clerk user, then looks up/auto-creates the DB row if missing (handles missed webhooks via `onConflictDoNothing`)
+Batch files (`generated-seo-batch-2026.ts`, `playwright-long-tail-batch-2026.ts`, `_keyword-gap-batch.ts`, `_gapfill-batch.ts`, `_gapfill-batch2.ts`) export arrays that are spread into both registries AT THE END. A duplicate slug therefore resolves silently in favor of whichever entry lands last. `seoPriorityOverrides2026` is the only intentional override mechanism. `sitemap.ts` derives blog URLs from `postList`; never hand-add blog entries to the sitemap.
 
-#### Server/Client Component Split (Key Pattern)
-This is a critical pattern used throughout the app to avoid RSC errors:
-- **Server components** fetch data and pass serializable props to client components
-- **Client components** (`'use client'`) handle interactivity, `useAuth()`, `onClick`, PostHog tracking
-- **Icons as string keys**: When server components render lists that need client interactivity, icon names are passed as strings and mapped to Lucide components in the client component (e.g., `FilterTabs`, `PacksGrid`)
-- **SignupGate** (`src/components/auth/signup-gate.tsx`): Client component wrapping content behind Clerk login — used for packs gating, install buttons
+### Web app (`packages/web`)
+Next.js 15 App Router, React 19, TailwindCSS v4, shadcn/ui. Stack: Neon Postgres (Drizzle) / Typesense / Upstash Redis / Clerk / PostHog / Resend.
 
-**DO NOT add `onClick` or other event handlers in server components — this causes 500 errors in production.**
+- **Lazy init:** `db` (`src/db/index.ts`) is a Proxy creating the connection on first access; Resend client (`src/lib/email/client.ts`) is a lazy singleton with a placeholder key at build time. This is why the build needs no real secrets. Preserve the pattern for any new external client.
+- **Auth:** Clerk middleware (`src/middleware.ts`) protects `/dashboard(.*)`, `/api/skills/create(.*)`, `/api/reviews(.*)`; `/api/webhooks(.*)` is public. `getAuthUser()` (`src/lib/api-auth.ts`) looks up AND auto-creates the DB user row (missed-webhook safety). App degrades gracefully when Clerk keys are absent.
+- **Server/client split:** server components fetch and pass serializable props. Client components own `onClick`, hooks, PostHog. Icons cross the boundary as string names mapped to Lucide components client-side (see `FilterTabs`, `PacksGrid`). `SignupGate` wraps login-gated content.
+- **Markdown rendering:** skill pages render `fullDescription` via `SkillDescription` (react-markdown + remark-gfm + rehype-sanitize), falling back to `description`.
+- **Email:** `src/lib/email/send.ts` (welcome, new-skill alert, weekly digest). Unsubscribe tokens are HMAC-SHA256 signed, 30-day expiry (`UNSUBSCRIBE_SECRET`, falls back to `CRON_SECRET`). Templates in `src/components/emails/`.
+- **API routes:** `GET /api/skills` (pagination, JSONB `@>` filters, sorting; response has top-level `total`), `GET /api/skills/[id]`, `GET /api/skills/[id]/content` (reconstructs full SKILL.md as text/markdown for the CLI), `POST /api/skills`, `/api/categories`, `/api/reviews`, `/api/leaderboard`, `/api/telemetry/install`, `POST /api/unsubscribe`, `POST /api/webhooks/clerk`, `POST /api/cron/weekly-digest` (Vercel Cron, Mondays 9 AM UTC, `CRON_SECRET` header).
+- **Schema (`src/db/schema/`):** `users`, `userPreferences`, `skills`, `categories` + junctions (`skillCategories`, `agentCompatibility`, `installs`, `reviews`, `skillPacks`, `skillPackItems`). JSONB arrays on skills (`tags`, `testingTypes`, `frameworks`, `languages`, `domains`, `agents`) filtered with `@>`. `fullDescription` holds the SKILL.md markdown body.
 
-#### Markdown Rendering
-Skill detail pages render `fullDescription` (raw markdown) using `SkillDescription` client component (`src/components/skills/skill-description.tsx`): `react-markdown` + `remark-gfm` (GitHub-flavored markdown) + `rehype-sanitize` (XSS protection). Falls back to short `description` when `fullDescription` is empty.
-
-#### Email System (`src/lib/email/`)
-- `client.ts` — Lazy Resend singleton, `FROM_EMAIL` constant
-- `send.ts` — `sendWelcomeEmail()`, `sendNewSkillAlert()`, `sendWeeklyDigest()`, `buildUnsubscribeUrl()`
-- `unsubscribe-token.ts` — HMAC-SHA256 signed tokens (`base64url(userId:timestamp).base64url(signature)`), 30-day expiry, timing-safe comparison. Uses `UNSUBSCRIBE_SECRET` or falls back to `CRON_SECRET`
-- Email templates in `src/components/emails/` (React Email): `welcome.tsx`, `new-skill-alert.tsx`, `weekly-digest.tsx` — all include signed unsubscribe URLs
-
-#### API Routes (`src/app/api/`)
-- `GET /api/skills` — List/search with pagination, JSONB array filtering (`@>` operator), sorting (trending/newest/quality/popular)
-- `POST /api/skills` — Publish skill (auth required), sends non-blocking new-skill-alert emails in batches
-- `GET/PATCH /api/user/preferences` — Email notification preferences
-- `POST /api/unsubscribe` — Token-based unsubscribe (no auth required, CAN-SPAM compliance)
-- `POST /api/webhooks/clerk` — User created/updated events → DB insert + welcome email
-- `POST /api/cron/weekly-digest` — Vercel Cron (Mondays 9 AM UTC, configured in `vercel.json`), requires `CRON_SECRET` header
-- `GET /api/skills/[id]/content` — Returns complete SKILL.md as `text/markdown` (reconstructed from DB: YAML frontmatter + `fullDescription` body). Used by CLI for full skill download
-- Also: `GET /api/skills/[id]`, `/api/categories`, `/api/reviews`, `/api/leaderboard`, `/api/telemetry/install`
-
-#### Database Schema (`src/db/schema/`)
-- **Core tables:** `users`, `userPreferences`, `skills`, `categories`
-- **Junction tables:** `skillCategories`, `agentCompatibility`, `installs`, `reviews`, `skillPacks`, `skillPackItems`
-- **JSONB arrays on skills:** `tags`, `testingTypes`, `frameworks`, `languages`, `domains`, `agents` — filtered with PostgreSQL `@>` contains operator
-- **`fullDescription`:** `text` column storing the markdown body of the SKILL.md (everything after YAML frontmatter). Populated by `seed.ts` which reads `seed-skills/<slug>/SKILL.md` files. Used by the `/content` API endpoint and rendered on skill detail pages
-- **Drizzle config:** `drizzle.config.ts` at package root, migrations in `src/db/migrations/`
+### Seed pipeline
+`seed.ts` auto-discovers every `seed-skills/*/SKILL.md`, parses frontmatter with REGEX (not a YAML library), and upserts (`onConflictDoUpdate` on skills, `onConflictDoNothing` on categories). Regex consequences: values must be single-line, arrays must be inline `[a, b, c]` form. The markdown body after frontmatter becomes `fullDescription`.
 
 ### CLI (`packages/cli`)
-- `src/commands/` — One file per command (add, search, init, list, remove, update, info, publish)
-- `src/lib/agent-detector.ts` — Probes 30+ AI agent config paths, returns `DetectedAgent[]` with global vs project scope
-- `src/lib/installer.ts` — `resolveSkill()` determines source (registry/github/local), `downloadSkill()` uses 3-tier fallback: git clone `githubUrl` → `GET /api/skills/{slug}/content` → reconstruct SKILL.md from metadata JSON. Validates non-empty output
-- `src/lib/api-client.ts` — HTTP client with 10s timeout, base URL `QASKILLS_API_URL || 'https://qaskills.sh'`
-- `src/lib/telemetry.ts` — Non-blocking install event tracking
-- Built with tsup: CJS output, `noExternal: ['@qaskills/shared']` bundles shared into CLI dist, shebang banner for direct execution
+One file per command in `src/commands/`. `agent-detector.ts` probes 30+ agent config paths. `installer.ts` downloads with a 3-tier fallback: git clone `githubUrl` -> `GET /api/skills/{slug}/content` -> reconstruct from metadata. `api-client.ts`: 10s timeout, base URL `QASKILLS_API_URL || 'https://qaskills.sh'`. Built with tsup, CJS, shared bundled in via `noExternal`.
 
-### Skill Type Flow
-```
-SKILL.md YAML frontmatter → SkillFrontmatter (parsed) → SkillCreate (Zod-validated) → DB row → Skill/SkillSummary (API response)
-```
+### Type flow
+SKILL.md frontmatter -> `SkillFrontmatter` -> `SkillCreate` (Zod) -> DB row -> `Skill`/`SkillSummary` API response.
 
-## SKILL.md Format
-Each skill is a markdown file with YAML frontmatter. See `seed-skills/*/SKILL.md` for examples. Validated by `@qaskills/shared` Zod schemas — fields include: name (1-100 chars), description (10-500 chars), version (semver), author, tags, testingTypes (required, >= 1), frameworks, languages (required, >= 1), domains, agents.
+## Named mistakes and the rule that prevents each
 
-## Code Style
-- Prettier: single quotes, semicolons, 2-space indent, 100 char width, trailing commas, LF endings
-- TypeScript strict mode across all packages
-- Web app uses `next dev --turbopack` for development
+1. **The server-component onClick.** Event handler or hook added to a server component; builds locally, 500s in production. Rule: any interactivity means the file starts with `'use client'`. Server components pass only serializable props; functions never cross the boundary; icons cross as string names.
+2. **The single-registry blog post.** Post file created but registered in only one of `posts` / `postList`; page 404s or never appears in listing and sitemap. Rule: every new post needs three edits in `posts/index.ts` (import, `posts` map entry, `postList` entry). Verify: `grep -c "'<slug>'" packages/web/src/app/blog/posts/index.ts` must print exactly 2.
+3. **The silent slug collision.** A new post reuses a slug that already exists inside a batch array; one silently replaces the other (this shipped a stub over a real article once). Rule: before creating any post file, run `grep -rn "<slug>" packages/web/src/app/blog/posts/` and pick a new slug on any hit.
+4. **The stale .env.local seed.** Seeding "production" using `.env.local`'s `DATABASE_URL`, which points at an old non-prod database; the live site never changes and new skills 404. Rule: `.env.local` is NOT production. The prod `DATABASE_URL` comes only from `vercel env pull --environment=production`, which the USER must run (agent access to prod secrets is blocked). Prove the target before and after: `curl -s 'https://qaskills.sh/api/skills?limit=1'` and compare `total`.
+5. **The wrong Vercel project.** Two projects exist: `qaskills.sh` (prj_rDKli4AyhHoXZXV8NHrs92Ncbf4f, org team_DGM6VSs6vhASlhktmHkSqPwn, account luckydutta96) owns the domain; `qaskills` (prj_KnB3Qp...) is a decoy without it. Rule: deploy only to `qaskills.sh`; in any fresh directory or worktree, pass `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` explicitly and never accept interactive link defaults.
+6. **The working-tree deploy.** `vercel --prod` uploads the WORKING TREE, not HEAD; uncommitted WIP ships to production. Rule: if `git status --short` is non-empty, deploy from a throwaway `git worktree add <tmp> HEAD` instead (see `ship-prod` skill).
+7. **The push-and-pray deploy.** `git push` to main does not reliably trigger Vercel. Rule: a change is "shipped" only after `npx vercel ls` shows the new deployment Ready AND the changed page was fetched live and shows the change.
+8. **The git add -A.** Sweeps screenshots, side-project apps, and stray docs into a product commit. Rule: stage explicit paths, always.
+9. **The stale shared build.** Editing `packages/shared`, then building or testing cli/web against the OLD dist. Rule: rebuild shared first, every time it changes.
+10. **The two SKILL.md formats.** `seed-skills/*/SKILL.md` is the PRODUCT catalog schema (name, description, version, testingTypes, languages, Zod-validated). `.claude/skills/*/SKILL.md` are Claude Code workflow skills (name + description frontmatter). Rule: never validate one against the other's schema or copy fields across.
+11. **The multi-line frontmatter.** YAML block lists (`- item`) or wrapped descriptions in a seed SKILL.md parse as EMPTY via seed.ts regex; the skill seeds with no tags/types. Rule: single-line values, inline arrays `[a, b, c]` only.
+12. **The missing skill body.** Seed skill directory added with frontmatter-only SKILL.md; `fullDescription` is empty, the site page is bare, the CLI downloads a husk. Rule: every seed skill gets a real markdown body; it IS the product.
+13. **The webhook assumption.** Code assumes every Clerk user has a DB row. Rule: go through `getAuthUser()`; it auto-creates missing rows.
+14. **The Node 24 upgrade.** Neon driver breaks on Node 24. Rule: Node 20.x locally and in Vercel project settings; do not bump.
+15. **The manual npm publish.** Rule: the CLI ships only via CI on `cli-v*` tags: bump `packages/cli/package.json`, commit, `git tag cli-v<version>`, `git push origin main --tags`. Never `npm publish` by hand, and tag pushes need explicit user approval.
+16. **The quoted env value.** Exporting `DATABASE_URL` straight from `.env.local` keeps its double quotes and breaks connections (or worse, gets stored quoted via API). Rule: strip quotes when exporting; never wrap values in quotes when setting via the Vercel API.
 
-## Environment Variables
+## Quality bar per deliverable
 
-**Web app required:**
-- `DATABASE_URL` — Neon Postgres connection string
-- `CLERK_SECRET_KEY` + `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` — Auth (app gracefully degrades when missing)
-- `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` — Cache
-- `TYPESENSE_API_KEY` + `TYPESENSE_HOST` + `TYPESENSE_PORT` + `TYPESENSE_PROTOCOL` — Search
+Report each bar as checked or failed; never claim "done" with an unchecked bar.
 
-**Email & cron (production):**
-- `RESEND_API_KEY` — Email sending
-- `CRON_SECRET` — Vercel Cron auth header
-- `UNSUBSCRIBE_SECRET` — HMAC signing for unsubscribe tokens (falls back to `CRON_SECRET`)
-- `NEXT_PUBLIC_POSTHOG_KEY` — PostHog analytics
+**SEO article (each one):**
+- [ ] Slug is kebab-case and `grep -rn "<slug>" packages/web/src/app/blog/posts/` returned nothing before creation
+- [ ] `title` contains the target keyword; `description` 140-170 chars; `date` = today (YYYY-MM-DD); `category` is one of the nine listed above
+- [ ] Content >= 1200 words; H1 equals title; >= 1 markdown table; code blocks (escaped backticks) for technical topics
+- [ ] >= 2 internal links to existing `/blog/<slug>` posts, each target verified registered
+- [ ] Zero em dashes (grep the file)
+- [ ] Registered in both registries (`grep -c "'<slug>'" .../index.ts` == 2) and `pnpm --filter @qaskills/web build` passes
+- [ ] After deploy: `curl -sI https://qaskills.sh/blog/<slug>` is 200 and the slug appears in `curl -s https://qaskills.sh/sitemap.xml`
 
-**CLI:**
-- `QASKILLS_API_URL` — Override API base URL (defaults to `https://qaskills.sh`)
+**Seed skill (each one):**
+- [ ] Validator passes: `node packages/skill-validator/dist/cli.js seed-skills/<slug>/SKILL.md`
+- [ ] Frontmatter: single-line values, inline arrays, description 10-500 chars, version semver, testingTypes >= 1, languages >= 1, values drawn from `packages/shared/src/constants`
+- [ ] Body is real instruction (roughly 100+ lines with code samples), modeled on `seed-skills/playwright-e2e/SKILL.md`
+- [ ] Slug absent from `seed-skills/` and from live `/api/skills/<slug>` before creation
+- [ ] Seeded against the VERIFIED prod DB; live `total` grew by exactly N; `/api/skills/<slug>/content` returns frontmatter + body
+
+**Web code change:**
+- [ ] `pnpm --filter @qaskills/shared build`, then web `lint`, `exec tsc --noEmit`, `build` all green
+- [ ] No handlers/hooks in server components (inspect every changed component without `'use client'`)
+- [ ] Any new env var is optional at build time (lazy init pattern), and the build passes with it unset
+- [ ] User-visible changes verified rendered (dev server or live) and the summary says where
+
+**CLI change:**
+- [ ] `pnpm --filter @qaskills/cli test` green; `pnpm --filter @qaskills/cli build` then `node packages/cli/dist/index.js --help` runs
+- [ ] Installer/detector changes exercised against a temp directory, never your real agent configs
+- [ ] Release = version bump + tag flow only (mistake 15)
+
+**Production deploy:** see `ship-prod` skill; its verification checklist is the bar.
+
+**Commit:**
+- [ ] Conventional prefix, imperative, subject <= 72 chars, no trailers/footers, no em dash
+- [ ] `git diff --cached --stat` reviewed; every staged file belongs to the stated concern
+
+## When uncertain: escalation rules
+
+Resolution order:
+1. **Repo first.** This file, `docs/`, `git log`, the code. Most questions are already answered here.
+2. **Verify read-only against reality.** `curl` the live site/API, `npx vercel ls`, `git log`. Reads of production are always allowed and preferred over assumptions.
+3. **Conflicting environment signals = hard stop.** If two sources disagree about a target (two DATABASE_URLs, two Vercel projects, two accounts), do not act on either. Report both values, your recommendation, and wait.
+4. **Blocked twice on the same step = stop retrying.** Report the exact blocker and the exact command the user must run (e.g. `vercel env pull .env.vercel-prod --environment=production`, `vercel login`).
+
+**Proceed without asking** (established patterns): writing articles, seed skills, and code; running builds/tests; committing those to `main`; deploying committed work via `ship-prod`; read-only curls of prod; re-running the upsert seeder against a verified prod URL.
+
+**Ask first, always, even mid-flow:**
+- Schema changes against prod (`db:push`, `db:migrate`, any DDL)
+- Any prod SQL beyond the seed.ts upsert (UPDATE/DELETE/TRUNCATE, backfills)
+- `npm publish` or pushing `cli-v*` tags
+- Sending email, posting to any external platform (Product Hunt, social, GitHub issues/PRs on other repos), or anything visible outside qaskills.sh itself
+- Changing Vercel project settings, env vars, or domains
+- Deleting files you did not create this session; `rm -rf` anywhere in the repo; force push; history rewrites
+- Anything that spends money
+
+**Reporting:** lead with what happened; include the verification evidence (URL, command output); state failures as failures and skipped steps as skipped. Never bury a red check.
+
+## Environment variables
+
+**Web (required in prod):** `DATABASE_URL` (Neon), `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN`, `TYPESENSE_API_KEY/HOST/PORT/PROTOCOL`. Clerk keys optional (graceful degrade; currently NOT set in prod, so do not set only the publishable key). Email/cron: `RESEND_API_KEY`, `CRON_SECRET`, `UNSUBSCRIBE_SECRET` (falls back to `CRON_SECRET`), `NEXT_PUBLIC_POSTHOG_KEY`.
+**CLI:** `QASKILLS_API_URL` overrides the API base (default `https://qaskills.sh`).
+**Prod values** live in Vercel, pulled only by the user via `vercel env pull --environment=production`.
 
 ## CI/CD
-- **cli-ci.yml:** Builds shared → lints → builds → tests CLI (triggers on `packages/cli/**` or `packages/shared/**`)
-- **web-ci.yml:** Builds shared → lints → type-checks → builds web (triggers on `packages/web/**` or `packages/shared/**`)
-- **cli-publish.yml:** Publishes CLI to npm on `cli-v*` tags
-- Web deploys to Vercel (project: qaskills.sh). Vercel Cron configured in `packages/web/vercel.json`
 
-## Known Gotchas
-- `git push` to main sometimes doesn't trigger Vercel auto-deploy — use `vercel --prod` as fallback
-- Adding `onClick` or event handlers in server components causes 500 errors in production (Next.js RSC constraint)
-- The `getAuthUser()` helper auto-creates DB rows for Clerk users not yet in the database — don't assume all users come through the webhook
-- Resend client uses a placeholder API key during build to avoid errors — real key is only needed at runtime
-- `seed.ts` reads markdown body from `seed-skills/<slug>/SKILL.md` — if you add a new seed skill, create the SKILL.md file or `fullDescription` will be empty
-- CLI npm publish is triggered by `cli-v*` git tags — bump version in `packages/cli/package.json`, commit, `git tag cli-v<version>`, push with `--tags`
+- `cli-ci.yml`: shared build -> lint -> build -> test CLI (on `packages/cli/**` or `packages/shared/**`)
+- `web-ci.yml`: shared build -> lint -> type-check -> build web (on `packages/web/**` or `packages/shared/**`)
+- `cli-publish.yml`: npm publish on `cli-v*` tags
+- Web deploys to Vercel project `qaskills.sh`; root `vercel.json` holds the build command; cron in `packages/web/vercel.json`. Auto-deploy on push is unreliable: `ship-prod` is the deploy path.
