@@ -66,6 +66,7 @@ Per-article bar (all required):
 - At least 2 internal links to existing posts (`/blog/<existing-slug>`); verify each target exists in `posts/index.ts` before linking
 - No em dashes anywhere; no invented statistics (attribute figures or mark them approximate)
 - No `${` in prose unless intentionally interpolating; escape as \\${ if literal
+- End with a `## Frequently Asked Questions` section (3-4 `### Question?` H3s with short answers) as the LAST H2. It counts toward the word bar and `src/lib/extract-faqs.ts` turns it into FAQPage JSON-LD for AI-search citation. Without it, articles tend to land short of 1200 words.
 
 ## Step 4: Register in BOTH registries
 
