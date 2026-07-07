@@ -89,6 +89,30 @@ export default async function ClaudeCodeAgentPage() {
         </div>
       </div>
 
+      {/* AI Tester Blueprint Batch Announcement */}
+      <div className="mb-8 rounded-lg border-2 border-blue-500/30 bg-gradient-to-r from-blue-50 to-blue-50/50 dark:from-blue-950/20 dark:to-blue-950/10 p-6">
+        <div className="flex items-start gap-4">
+          <div className="flex-shrink-0">
+            <span className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-blue-500/20">
+              <svg className="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </span>
+          </div>
+          <div className="flex-1">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">AI Tester Blueprint Batch</h3>
+            <p className="mt-1 text-sm text-gray-700 dark:text-gray-300">
+              Fresh QA testing skills for Claude Code agents. Instant Playwright, pytest, API testing, and more. Install and test smarter.
+            </p>
+            <div className="mt-4">
+              <Link href="/blog" className="inline-flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
+                Explore the new batch →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Skills count */}
       <p className="text-sm text-muted-foreground mb-6">
         {agentSkills.length} skills compatible with Claude Code
