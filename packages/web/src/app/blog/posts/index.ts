@@ -718,6 +718,16 @@ import { post as aiTestGenerationPlaywrightCopilot } from './ai-test-generation-
 import { post as selfHealingTestsPlaywright } from './self-healing-tests-playwright';
 import { post as currentsPlaywrightObservability } from './currents-playwright-observability';
 import { post as k6LoadTestingGuide2026 } from './k6-load-testing-guide-2026';
+import { post as playwrightCliCodingAgentsGuide } from './playwright-cli-coding-agents-guide';
+import { post as qaWolfAiTestingGuide2026 } from './qa-wolf-ai-testing-guide-2026';
+import { post as browserUseAiAgentTestingGuide } from './browser-use-ai-agent-testing-guide';
+import { post as healeniumSeleniumSelfHealingGuide } from './healenium-selenium-self-healing-guide';
+import { post as webhookTestingCompleteGuide2026 } from './webhook-testing-complete-guide-2026';
+import { post as europeanAccessibilityActTestingGuide } from './european-accessibility-act-testing-guide';
+import { post as checklyPlaywrightSyntheticMonitoringGuide } from './checkly-playwright-synthetic-monitoring-guide';
+import { post as chromeDevtoolsMcpPerformanceTestingGuide } from './chrome-devtools-mcp-performance-testing-guide';
+import { post as finalrunAiMobileTestingGuide } from './finalrun-ai-mobile-testing-guide';
+import { post as momenticAiTestingGuide2026 } from './momentic-ai-testing-guide-2026';
 
 import { post as playwrightHealerAgentSelfHealingTests } from './playwright-healer-agent-self-healing-tests';
 import { post as playwrightPlannerGeneratorAgentsGuide } from './playwright-planner-generator-agents-guide';
@@ -1579,6 +1589,16 @@ export const posts: Record<string, BlogPost> = {
   'self-healing-tests-playwright': selfHealingTestsPlaywright,
   'currents-playwright-observability': currentsPlaywrightObservability,
   'k6-load-testing-guide-2026': k6LoadTestingGuide2026,
+  'playwright-cli-coding-agents-guide': playwrightCliCodingAgentsGuide,
+  'qa-wolf-ai-testing-guide-2026': qaWolfAiTestingGuide2026,
+  'browser-use-ai-agent-testing-guide': browserUseAiAgentTestingGuide,
+  'healenium-selenium-self-healing-guide': healeniumSeleniumSelfHealingGuide,
+  'webhook-testing-complete-guide-2026': webhookTestingCompleteGuide2026,
+  'european-accessibility-act-testing-guide': europeanAccessibilityActTestingGuide,
+  'checkly-playwright-synthetic-monitoring-guide': checklyPlaywrightSyntheticMonitoringGuide,
+  'chrome-devtools-mcp-performance-testing-guide': chromeDevtoolsMcpPerformanceTestingGuide,
+  'finalrun-ai-mobile-testing-guide': finalrunAiMobileTestingGuide,
+  'momentic-ai-testing-guide-2026': momenticAiTestingGuide2026,
   'playwright-healer-agent-self-healing-tests': playwrightHealerAgentSelfHealingTests,
   'playwright-planner-generator-agents-guide': playwrightPlannerGeneratorAgentsGuide,
   'ai-agent-testing-non-deterministic-guide': aiAgentTestingNonDeterministicGuide,
@@ -2786,6 +2806,16 @@ export const postList = [
   { slug: 'self-healing-tests-playwright', ...selfHealingTestsPlaywright },
   { slug: 'currents-playwright-observability', ...currentsPlaywrightObservability },
   { slug: 'k6-load-testing-guide-2026', ...k6LoadTestingGuide2026 },
+  { slug: 'playwright-cli-coding-agents-guide', ...playwrightCliCodingAgentsGuide },
+  { slug: 'qa-wolf-ai-testing-guide-2026', ...qaWolfAiTestingGuide2026 },
+  { slug: 'browser-use-ai-agent-testing-guide', ...browserUseAiAgentTestingGuide },
+  { slug: 'healenium-selenium-self-healing-guide', ...healeniumSeleniumSelfHealingGuide },
+  { slug: 'webhook-testing-complete-guide-2026', ...webhookTestingCompleteGuide2026 },
+  { slug: 'european-accessibility-act-testing-guide', ...europeanAccessibilityActTestingGuide },
+  { slug: 'checkly-playwright-synthetic-monitoring-guide', ...checklyPlaywrightSyntheticMonitoringGuide },
+  { slug: 'chrome-devtools-mcp-performance-testing-guide', ...chromeDevtoolsMcpPerformanceTestingGuide },
+  { slug: 'finalrun-ai-mobile-testing-guide', ...finalrunAiMobileTestingGuide },
+  { slug: 'momentic-ai-testing-guide-2026', ...momenticAiTestingGuide2026 },
   { slug: 'playwright-healer-agent-self-healing-tests', ...playwrightHealerAgentSelfHealingTests },
   { slug: 'playwright-planner-generator-agents-guide', ...playwrightPlannerGeneratorAgentsGuide },
   { slug: 'ai-agent-testing-non-deterministic-guide', ...aiAgentTestingNonDeterministicGuide },
