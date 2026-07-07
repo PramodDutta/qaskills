@@ -719,6 +719,17 @@ import { post as selfHealingTestsPlaywright } from './self-healing-tests-playwri
 import { post as currentsPlaywrightObservability } from './currents-playwright-observability';
 import { post as k6LoadTestingGuide2026 } from './k6-load-testing-guide-2026';
 
+import { post as playwrightHealerAgentSelfHealingTests } from './playwright-healer-agent-self-healing-tests';
+import { post as playwrightPlannerGeneratorAgentsGuide } from './playwright-planner-generator-agents-guide';
+import { post as aiAgentTestingNonDeterministicGuide } from './ai-agent-testing-non-deterministic-guide';
+import { post as deepevalVsLangfuseLlmEvaluation } from './deepeval-vs-langfuse-llm-evaluation';
+import { post as goldenDatasetLlmEvaluationGuide } from './golden-dataset-llm-evaluation-guide';
+import { post as llmEvaluationCiCdQualityGates } from './llm-evaluation-ci-cd-quality-gates';
+import { post as schemathesisOpenapiPropertyTesting } from './schemathesis-openapi-property-testing';
+import { post as k6LoadTestingP95P99Guide } from './k6-load-testing-p95-p99-guide';
+import { post as keployApiTestGenerationGuide } from './keploy-api-test-generation-guide';
+import { post as grpcContractTestingPactGuide } from './grpc-contract-testing-pact-guide';
+
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -1568,6 +1579,16 @@ export const posts: Record<string, BlogPost> = {
   'self-healing-tests-playwright': selfHealingTestsPlaywright,
   'currents-playwright-observability': currentsPlaywrightObservability,
   'k6-load-testing-guide-2026': k6LoadTestingGuide2026,
+  'playwright-healer-agent-self-healing-tests': playwrightHealerAgentSelfHealingTests,
+  'playwright-planner-generator-agents-guide': playwrightPlannerGeneratorAgentsGuide,
+  'ai-agent-testing-non-deterministic-guide': aiAgentTestingNonDeterministicGuide,
+  'deepeval-vs-langfuse-llm-evaluation': deepevalVsLangfuseLlmEvaluation,
+  'golden-dataset-llm-evaluation-guide': goldenDatasetLlmEvaluationGuide,
+  'llm-evaluation-ci-cd-quality-gates': llmEvaluationCiCdQualityGates,
+  'schemathesis-openapi-property-testing': schemathesisOpenapiPropertyTesting,
+  'k6-load-testing-p95-p99-guide': k6LoadTestingP95P99Guide,
+  'keploy-api-test-generation-guide': keployApiTestGenerationGuide,
+  'grpc-contract-testing-pact-guide': grpcContractTestingPactGuide,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -2765,6 +2786,16 @@ export const postList = [
   { slug: 'self-healing-tests-playwright', ...selfHealingTestsPlaywright },
   { slug: 'currents-playwright-observability', ...currentsPlaywrightObservability },
   { slug: 'k6-load-testing-guide-2026', ...k6LoadTestingGuide2026 },
+  { slug: 'playwright-healer-agent-self-healing-tests', ...playwrightHealerAgentSelfHealingTests },
+  { slug: 'playwright-planner-generator-agents-guide', ...playwrightPlannerGeneratorAgentsGuide },
+  { slug: 'ai-agent-testing-non-deterministic-guide', ...aiAgentTestingNonDeterministicGuide },
+  { slug: 'deepeval-vs-langfuse-llm-evaluation', ...deepevalVsLangfuseLlmEvaluation },
+  { slug: 'golden-dataset-llm-evaluation-guide', ...goldenDatasetLlmEvaluationGuide },
+  { slug: 'llm-evaluation-ci-cd-quality-gates', ...llmEvaluationCiCdQualityGates },
+  { slug: 'schemathesis-openapi-property-testing', ...schemathesisOpenapiPropertyTesting },
+  { slug: 'k6-load-testing-p95-p99-guide', ...k6LoadTestingP95P99Guide },
+  { slug: 'keploy-api-test-generation-guide', ...keployApiTestGenerationGuide },
+  { slug: 'grpc-contract-testing-pact-guide', ...grpcContractTestingPactGuide },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
