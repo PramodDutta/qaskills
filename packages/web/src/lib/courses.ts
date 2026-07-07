@@ -1,7 +1,8 @@
 // Single source of truth for The Testing Academy course promos rendered across
-// the site (skill sidebars, blog inline slots, footer). Update price/date/coupon
-// HERE and every placement updates. The top PromoBanner still holds its own copy
-// for now; fold it into this file in a later pass to fully dedupe.
+// the site: top PromoBanner, skill sidebars, blog inline slots, footer.
+// Update price/date/coupon HERE and every placement updates.
+// The banner derives its badge ("Starts 26 Jul") and date from `cohort`,
+// so cohort must stay in the exact form "Starts <D> <Mon> <YYYY>".
 
 export type CourseId = 'ai-tester' | 'playwright';
 
@@ -10,15 +11,18 @@ export interface Course {
   emoji: string;
   label: string; // small eyebrow label above the card
   title: string;
+  titleShort: string; // banner title on narrow screens
   tagline: string;
   bullets: string[];
   priceOld?: string; // INR, no symbol
   priceNew?: string; // INR, no symbol
   discount: string;
   code: string;
-  cohort: string;
+  cohort: string; // "Starts <D> <Mon> <YYYY>"
+  schedule?: string; // banner-only session times
   baseUrl: string;
   accent: 'blue' | 'emerald';
+  bannerBg: string; // banner gradient classes
 }
 
 export const COURSES: Record<CourseId, Course> = {
@@ -27,6 +31,7 @@ export const COURSES: Record<CourseId, Course> = {
     emoji: '🚀',
     label: 'AI testing course',
     title: 'AI Tester Blueprint',
+    titleShort: 'AI Tester',
     tagline: 'Build AI agents that write, run, and fix tests. Playwright, LLM evals, and CI in one live cohort.',
     bullets: [
       'AI-driven test generation and self-healing',
@@ -40,12 +45,14 @@ export const COURSES: Record<CourseId, Course> = {
     cohort: 'Starts 26 Jul 2026',
     baseUrl: 'https://class.thetestingacademy.com/ai-powered-testing-mastery',
     accent: 'blue',
+    bannerBg: 'from-blue-900 via-indigo-900 to-slate-900',
   },
   playwright: {
     id: 'playwright',
     emoji: '🎭',
     label: 'Playwright course',
     title: 'Playwright Automation Mastery',
+    titleShort: 'Playwright',
     tagline: 'Go from zero to Playwright pro: Page Object Model, fixtures, and CI/CD on real projects.',
     bullets: [
       'Stable locators, POM, and fixtures',
@@ -55,8 +62,10 @@ export const COURSES: Record<CourseId, Course> = {
     discount: 'Up to 10% OFF',
     code: 'PROMODE',
     cohort: 'Starts 11 Jul 2026',
+    schedule: 'Tue/Thu/Sat 7:00–8:15 AM IST',
     baseUrl: 'https://class.thetestingacademy.com/playwright-automation-mastery-course',
     accent: 'emerald',
+    bannerBg: 'from-emerald-900 via-teal-900 to-slate-900',
   },
 };
 

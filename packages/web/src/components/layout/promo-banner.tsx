@@ -2,40 +2,26 @@
 
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
+import { COURSES } from '@/lib/courses';
 
 const DISMISS_KEY = 'promo-banner-dismissed';
-const CAMPAIGN_ID = 'dual-jul-2026-v1';
+const CAMPAIGN_ID = 'dual-jul-2026-v2';
 
-const VARIANTS = [
-  {
-    emoji: '🚀',
-    title: 'AI Tester Blueprint',
-    titleShort: 'AI Tester',
-    badge: 'Starts 26 Jul',
-    date: '26 Jul 2026',
-    schedule: '',
-    priceOld: '35,000',
-    priceNew: '9,999',
-    discount: '33% OFF',
-    code: 'AITESTER',
-    url: 'https://class.thetestingacademy.com/ai-powered-testing-mastery',
-    bg: 'from-blue-900 via-indigo-900 to-slate-900',
-  },
-  {
-    emoji: '🎭',
-    title: 'Playwright Automation Mastery',
-    titleShort: 'Playwright',
-    badge: 'Starts 11 Jul',
-    date: '11 Jul 2026',
-    schedule: 'Tue/Thu/Sat 7:00–8:15 AM IST',
-    priceOld: '',
-    priceNew: '',
-    discount: 'Up to 10% OFF',
-    code: 'PROMODE',
-    url: 'https://class.thetestingacademy.com/playwright-automation-mastery-course',
-    bg: 'from-emerald-900 via-teal-900 to-slate-900',
-  },
-] as const;
+// Derived from the single source of truth in lib/courses.ts; edit dates there.
+const VARIANTS = [COURSES['ai-tester'], COURSES['playwright']].map((c) => ({
+  emoji: c.emoji,
+  title: c.title,
+  titleShort: c.titleShort,
+  badge: c.cohort.replace(/ \d{4}$/, ''), // "Starts 26 Jul"
+  date: c.cohort.replace(/^Starts /, ''), // "26 Jul 2026"
+  schedule: c.schedule ?? '',
+  priceOld: c.priceOld ?? '',
+  priceNew: c.priceNew ?? '',
+  discount: c.discount,
+  code: c.code,
+  url: c.baseUrl,
+  bg: c.bannerBg,
+}));
 
 export function PromoBanner() {
   const [visible, setVisible] = useState(false);
