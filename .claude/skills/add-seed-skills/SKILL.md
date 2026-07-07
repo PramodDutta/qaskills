@@ -70,7 +70,7 @@ Also eyeball that arrays are inline and the description is one line (the validat
 **Never use the `DATABASE_URL` from `.env.local`.** It points at a stale non-prod database; seeding it changes nothing on the live site. This mistake has burned a full session before.
 
 1. Baseline: `curl -s 'https://qaskills.sh/api/skills?limit=1'` and record the top-level `total`.
-2. Get the prod URL: the user must run `vercel env pull .env.vercel-prod --environment=production` (agent pulls of prod secrets are blocked). Ask once, precisely, and wait.
+2. Get the prod URL: run `vercel env pull .env.vercel-prod --environment=production` yourself (worked from the agent as of 2026-07-07; the file is gitignored). If the pull is blocked, ask the user to run that exact command and wait.
 3. Seed with the explicit URL (strip any surrounding quotes from the value):
 
 ```bash
