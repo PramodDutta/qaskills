@@ -1,4 +1,4 @@
-# QASkills.sh — Last 30 Days of Work (handoff)
+# QASkills.sh: Last 30 Days of Work (handoff)
 
 > Purpose: a durable handoff so any agent/model/session, regardless of context, knows what was done recently, what is in flight, and where things live. Rebuild this from `git log --since='30 days ago'` when it goes stale.
 > Written: 2026-07-08. Covers roughly 2026-06-08 to 2026-07-08 (59 commits). Owner: Pramod (solo founder).
