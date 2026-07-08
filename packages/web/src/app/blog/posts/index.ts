@@ -728,6 +728,20 @@ import { post as checklyPlaywrightSyntheticMonitoringGuide } from './checkly-pla
 import { post as chromeDevtoolsMcpPerformanceTestingGuide } from './chrome-devtools-mcp-performance-testing-guide';
 import { post as finalrunAiMobileTestingGuide } from './finalrun-ai-mobile-testing-guide';
 import { post as momenticAiTestingGuide2026 } from './momentic-ai-testing-guide-2026';
+import { post as tuskDriftTrafficReplayTesting } from './tusk-drift-traffic-replay-testing';
+import { post as blinqioAiTestAutomationGuide } from './blinqio-ai-test-automation-guide';
+import { post as perfectoSelfHealingTesting } from './perfecto-self-healing-testing';
+import { post as googleAdkAgentTestingGuide } from './google-adk-agent-testing-guide';
+import { post as openapiSpecToTestSuiteGeneration } from './openapi-spec-to-test-suite-generation';
+import { post as katalonStudio2026Review } from './katalon-studio-2026-review';
+import { post as katalonStateOfQualityReport2026 } from './katalon-state-of-quality-report-2026';
+import { post as playwrightCodegenSmartDetection2026 } from './playwright-codegen-smart-detection-2026';
+import { post as postmanVsBruno2026 } from './postman-vs-bruno-2026';
+import { post as schemaRegistryTestingGuide } from './schema-registry-testing-guide';
+import { post as syntheticTestDataGenerationGuide } from './synthetic-test-data-generation-guide';
+import { post as testDataPrivacyMaskingGuide } from './test-data-privacy-masking-guide';
+import { post as loadTestingCiCdIntegrationGuide } from './load-testing-ci-cd-integration-guide';
+import { post as testObservabilityGuide2026 } from './test-observability-guide-2026';
 
 import { post as playwrightHealerAgentSelfHealingTests } from './playwright-healer-agent-self-healing-tests';
 import { post as playwrightPlannerGeneratorAgentsGuide } from './playwright-planner-generator-agents-guide';
@@ -1589,6 +1603,20 @@ export const posts: Record<string, BlogPost> = {
   'self-healing-tests-playwright': selfHealingTestsPlaywright,
   'currents-playwright-observability': currentsPlaywrightObservability,
   'k6-load-testing-guide-2026': k6LoadTestingGuide2026,
+  'tusk-drift-traffic-replay-testing': tuskDriftTrafficReplayTesting,
+  'blinqio-ai-test-automation-guide': blinqioAiTestAutomationGuide,
+  'perfecto-self-healing-testing': perfectoSelfHealingTesting,
+  'google-adk-agent-testing-guide': googleAdkAgentTestingGuide,
+  'openapi-spec-to-test-suite-generation': openapiSpecToTestSuiteGeneration,
+  'katalon-studio-2026-review': katalonStudio2026Review,
+  'katalon-state-of-quality-report-2026': katalonStateOfQualityReport2026,
+  'playwright-codegen-smart-detection-2026': playwrightCodegenSmartDetection2026,
+  'postman-vs-bruno-2026': postmanVsBruno2026,
+  'schema-registry-testing-guide': schemaRegistryTestingGuide,
+  'synthetic-test-data-generation-guide': syntheticTestDataGenerationGuide,
+  'test-data-privacy-masking-guide': testDataPrivacyMaskingGuide,
+  'load-testing-ci-cd-integration-guide': loadTestingCiCdIntegrationGuide,
+  'test-observability-guide-2026': testObservabilityGuide2026,
   'playwright-cli-coding-agents-guide': playwrightCliCodingAgentsGuide,
   'qa-wolf-ai-testing-guide-2026': qaWolfAiTestingGuide2026,
   'browser-use-ai-agent-testing-guide': browserUseAiAgentTestingGuide,
@@ -2806,6 +2834,20 @@ export const postList = [
   { slug: 'self-healing-tests-playwright', ...selfHealingTestsPlaywright },
   { slug: 'currents-playwright-observability', ...currentsPlaywrightObservability },
   { slug: 'k6-load-testing-guide-2026', ...k6LoadTestingGuide2026 },
+  { slug: 'tusk-drift-traffic-replay-testing', ...tuskDriftTrafficReplayTesting },
+  { slug: 'blinqio-ai-test-automation-guide', ...blinqioAiTestAutomationGuide },
+  { slug: 'perfecto-self-healing-testing', ...perfectoSelfHealingTesting },
+  { slug: 'google-adk-agent-testing-guide', ...googleAdkAgentTestingGuide },
+  { slug: 'openapi-spec-to-test-suite-generation', ...openapiSpecToTestSuiteGeneration },
+  { slug: 'katalon-studio-2026-review', ...katalonStudio2026Review },
+  { slug: 'katalon-state-of-quality-report-2026', ...katalonStateOfQualityReport2026 },
+  { slug: 'playwright-codegen-smart-detection-2026', ...playwrightCodegenSmartDetection2026 },
+  { slug: 'postman-vs-bruno-2026', ...postmanVsBruno2026 },
+  { slug: 'schema-registry-testing-guide', ...schemaRegistryTestingGuide },
+  { slug: 'synthetic-test-data-generation-guide', ...syntheticTestDataGenerationGuide },
+  { slug: 'test-data-privacy-masking-guide', ...testDataPrivacyMaskingGuide },
+  { slug: 'load-testing-ci-cd-integration-guide', ...loadTestingCiCdIntegrationGuide },
+  { slug: 'test-observability-guide-2026', ...testObservabilityGuide2026 },
   { slug: 'playwright-cli-coding-agents-guide', ...playwrightCliCodingAgentsGuide },
   { slug: 'qa-wolf-ai-testing-guide-2026', ...qaWolfAiTestingGuide2026 },
   { slug: 'browser-use-ai-agent-testing-guide', ...browserUseAiAgentTestingGuide },
