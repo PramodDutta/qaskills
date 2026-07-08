@@ -70,15 +70,31 @@ Dropped during research (404/archived/off-topic): e2b-dev/awesome-ai-agents (sta
 - **Wave 3 (conditional):** #10 after a "how we test" post; #11 after an MCP server ships; #12 as a quarter-long project.
 - After each merge: add to the reciprocal blog post + tracking table.
 
-## Tracking
+## Tracking (updated 2026-07-08)
 
-| Repo | PR/Issue URL | Opened | State | Backlink live |
-|---|---|---|---|---|
-| atinfo/awesome-test-automation | | | | |
-| malomarrec/awesome-qa | | | | |
-| TheJambo/awesome-testing | | | | |
-| mxschmitt/awesome-playwright | | | | |
-| mfaisalkhatri/awesome-learning | | | | |
-| hesreallyhim/awesome-claude-code | | | | |
-| travisvn/awesome-claude-skills | | | | |
-| ComposioHQ/awesome-claude-skills | | | | |
+| Repo | PR/Issue | State | Notes |
+|---|---|---|---|
+| malomarrec/awesome-qa | [#15](https://github.com/malomarrec/awesome-qa/pull/15) | OPEN (new) | AI-based Testing section |
+| TheJambo/awesome-testing | [#170](https://github.com/TheJambo/awesome-testing/pull/170) | OPEN (new) | AI & LLM Testing section |
+| mfaisalkhatri/awesome-learning | [#427](https://github.com/mfaisalkhatri/awesome-learning/pull/427) | OPEN (new) | QA Assistance tools |
+| travisvn/awesome-claude-skills | [#957](https://github.com/travisvn/awesome-claude-skills/pull/957) | OPEN (new) | Collections & Libraries; repo has 0/15 recent merges, low odds |
+| atinfo/awesome-test-automation | [#505](https://github.com/atinfo/awesome-test-automation/pull/505) | OPEN (pre-existing) | qaskills PR from Feb 2026 still pending; did NOT duplicate |
+| hesreallyhim/awesome-claude-code | NEEDS USER | blocked | CONTRIBUTING forbids PRs + gh CLI; must submit via web issue form (human-only). See below. |
+| ComposioHQ/awesome-claude-skills | skipped | - | Requires contributing a full skill FOLDER, not a link; 0/15 merges. Revisit only to donate an actual skill. |
+| mxschmitt/awesome-playwright | skipped | - | Prior qaskills PR CLOSED/rejected Feb 2026; do not nag |
+| PatrickJS/awesome-cursorrules | skipped | - | Prior qaskills PR CLOSED/rejected Feb 2026; weak fit |
+| abhivaikar/howtheytest | deferred | - | Needs a "how we test qaskills.sh" post first |
+| punkpeye/awesome-mcp-servers | deferred | - | Needs an actual MCP server shipped |
+| sindresorhus/awesome | deferred | - | Needs our own mature awesome-qa-skills list repo |
+
+### Manual action for you (awesome-claude-code, 49k stars, highest-value link)
+
+Their CONTRIBUTING bans PRs and the gh CLI; submissions must go through the web issue form and be created by a human. Open this link and submit:
+
+https://github.com/hesreallyhim/awesome-claude-code/issues/new?template=recommend-resource.yml
+
+Paste this one-line description (their style: descriptive, not a pitch, no emoji):
+
+`An open, MIT-licensed registry of 400+ QA and testing skills (Playwright, API testing, LLM evaluation, accessibility, performance) that install into Claude Code via a CLI.`
+
+Resource URL: https://github.com/PramodDutta/qaskills  (LICENSE present so their bot detects MIT)
