@@ -79,7 +79,7 @@ Dropped during research (404/archived/off-topic): e2b-dev/awesome-ai-agents (sta
 | mfaisalkhatri/awesome-learning | [#427](https://github.com/mfaisalkhatri/awesome-learning/pull/427) | OPEN (new) | QA Assistance tools |
 | travisvn/awesome-claude-skills | [#957](https://github.com/travisvn/awesome-claude-skills/pull/957) | OPEN (new) | Collections & Libraries; repo has 0/15 recent merges, low odds |
 | atinfo/awesome-test-automation | [#505](https://github.com/atinfo/awesome-test-automation/pull/505) | OPEN (pre-existing) | qaskills PR from Feb 2026 still pending; did NOT duplicate |
-| hesreallyhim/awesome-claude-code | NEEDS USER | blocked | CONTRIBUTING forbids PRs + gh CLI; must submit via web issue form (human-only). See below. |
+| hesreallyhim/awesome-claude-code | CLOSED to submissions | blocked | Confirmed 2026-07-08: issue creation limited to collaborators; CONTRIBUTING says recommendations paused during redesign. No PR, no CLI, no issue form works. REVISIT when they re-open (watch the repo / re-check the issue form). |
 | ComposioHQ/awesome-claude-skills | skipped | - | Requires contributing a full skill FOLDER, not a link; 0/15 merges. Revisit only to donate an actual skill. |
 | mxschmitt/awesome-playwright | skipped | - | Prior qaskills PR CLOSED/rejected Feb 2026; do not nag |
 | PatrickJS/awesome-cursorrules | skipped | - | Prior qaskills PR CLOSED/rejected Feb 2026; weak fit |
@@ -87,14 +87,13 @@ Dropped during research (404/archived/off-topic): e2b-dev/awesome-ai-agents (sta
 | punkpeye/awesome-mcp-servers | deferred | - | Needs an actual MCP server shipped |
 | sindresorhus/awesome | deferred | - | Needs our own mature awesome-qa-skills list repo |
 
-### Manual action for you (awesome-claude-code, 49k stars, highest-value link)
+### awesome-claude-code (49k stars): submissions currently CLOSED
 
-Their CONTRIBUTING bans PRs and the gh CLI; submissions must go through the web issue form and be created by a human. Open this link and submit:
+Confirmed 2026-07-08: the issue form returns "An owner of this repository has limited the ability to create an issue to users that are collaborators." Submissions are paused during their redesign (per CONTRIBUTING). No path is open right now (PR, gh CLI, and issue form all blocked).
 
-https://github.com/hesreallyhim/awesome-claude-code/issues/new?template=recommend-resource.yml
-
-Paste this one-line description (their style: descriptive, not a pitch, no emoji):
+Revisit later: periodically re-check the submit link; when it stops erroring, submit this one-liner (their style: descriptive, no emoji):
 
 `An open, MIT-licensed registry of 400+ QA and testing skills (Playwright, API testing, LLM evaluation, accessibility, performance) that install into Claude Code via a CLI.`
 
-Resource URL: https://github.com/PramodDutta/qaskills  (LICENSE present so their bot detects MIT)
+Submit link (currently gated): https://github.com/hesreallyhim/awesome-claude-code/issues/new?template=recommend-resource.yml
+Resource URL: https://github.com/PramodDutta/qaskills
