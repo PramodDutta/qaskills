@@ -17,7 +17,7 @@
 
 Merge-friendliness = share of last 15 closed PRs that merged. qaskills mentions = 0 in all (clean slate).
 
-### Tier 1 — strong fit + PR-friendly (do these first)
+### Tier 1: strong fit + PR-friendly (do these first)
 
 | # | Repo | Stars | Merge signal | Fit |
 |---|---|---|---|---|
@@ -27,7 +27,7 @@ Merge-friendliness = share of last 15 closed PRs that merged. qaskills mentions 
 | 4 | [mxschmitt/awesome-playwright](https://github.com/mxschmitt/awesome-playwright) | 1.5k | 3/15 | Playwright is our biggest cluster (15 skills). PRIOR PR EXISTS (see scripts/awesome-playwright-pr-body.md); check if merged/open before re-submitting. |
 | 5 | [mfaisalkhatri/awesome-learning](https://github.com/mfaisalkhatri/awesome-learning) | 1.2k | active (pushed 2026-07-07) | Test-automation learning resources. Our 800+ article blog + skills = a legit learning resource entry. |
 
-### Tier 2 — AI/Claude ecosystem (strong strategic fit, varied gatekeeping)
+### Tier 2: AI/Claude ecosystem (strong strategic fit, varied gatekeeping)
 
 | # | Repo | Stars | Merge signal | Fit / caveat |
 |---|---|---|---|---|
@@ -36,7 +36,7 @@ Merge-friendliness = share of last 15 closed PRs that merged. qaskills mentions 
 | 8 | [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) | 67k | 0/15 merged | Same as above: huge, but 0 recent merges suggests auto-generated/gated. Low effort-to-try via issue; do not expect a merge. |
 | 9 | [PatrickJS/awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) | 40k | active | Indirect fit (our skills target Cursor too). PRIOR ATTEMPT EXISTS (scripts/PR_CONTENT_awesome-cursorrules.md). Only re-try if we ship an actual .cursorrules artifact; otherwise skip, weak fit. |
 
-### Tier 3 — stretch / conditional
+### Tier 3: stretch / conditional
 
 | # | Repo | Stars | Note |
 |---|---|---|---|
