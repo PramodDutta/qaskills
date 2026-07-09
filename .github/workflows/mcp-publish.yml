@@ -1,0 +1,45 @@
+name: MCP Publish
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'mcp-v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: pnpm install --no-frozen-lockfile
+
+      - name: Build MCP server
+        run: pnpm --filter @qaskills/mcp build
+
+      - name: Publish to npm
+        run: pnpm --filter @qaskills/mcp publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Install mcp-publisher
+        run: |
+          curl -L "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_linux_amd64.tar.gz" | tar xz mcp-publisher
+          sudo mv mcp-publisher /usr/local/bin/
+
+      - name: Publish to MCP Registry
+        working-directory: packages/mcp
+        run: |
+          mcp-publisher login github-oidc
+          mcp-publisher publish
