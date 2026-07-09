@@ -84,7 +84,7 @@ Dropped during research (404/archived/off-topic): e2b-dev/awesome-ai-agents (sta
 | mxschmitt/awesome-playwright | skipped | - | Prior qaskills PR CLOSED/rejected Feb 2026; do not nag |
 | PatrickJS/awesome-cursorrules | skipped | - | Prior qaskills PR CLOSED/rejected Feb 2026; weak fit |
 | abhivaikar/howtheytest | deferred | - | Needs a "how we test qaskills.sh" post first |
-| punkpeye/awesome-mcp-servers | deferred | - | Needs an actual MCP server shipped |
+| punkpeye/awesome-mcp-servers | UNBLOCKED 2026-07-09 | ready | @qaskills/mcp shipped to npm + official MCP registry (io.github.PramodDutta/qaskills). PR can now be opened. |
 | sindresorhus/awesome | deferred | - | Needs our own mature awesome-qa-skills list repo |
 
 ### awesome-claude-code (49k stars): submissions currently CLOSED
