@@ -29,7 +29,13 @@ jobs:
         run: pnpm --filter @qaskills/mcp build
 
       - name: Publish to npm
-        run: pnpm --filter @qaskills/mcp publish --access public --no-git-checks
+        run: |
+          V=$(node -p "require('./packages/mcp/package.json').version")
+          if npm view "@qaskills/mcp@$V" version >/dev/null 2>&1; then
+            echo "@qaskills/mcp@$V already on npm, skipping publish"
+          else
+            pnpm --filter @qaskills/mcp publish --access public --no-git-checks
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
