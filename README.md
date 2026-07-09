@@ -74,6 +74,26 @@ npx @qaskills/cli list
 npx @qaskills/cli remove playwright-e2e
 ```
 
+### 6. Or use the MCP server (search and install from inside your agent)
+
+Listed in the [official MCP registry](https://registry.modelcontextprotocol.io) as `io.github.PramodDutta/qaskills`.
+
+```bash
+# Claude Code
+claude mcp add qaskills -- npx -y @qaskills/mcp
+```
+
+```json
+// Any MCP client (Cursor, Windsurf, etc.)
+{
+  "mcpServers": {
+    "qaskills": { "command": "npx", "args": ["-y", "@qaskills/mcp"] }
+  }
+}
+```
+
+Your agent gets six tools: `search_skills`, `get_skill`, `get_skill_content`, `install_skill`, `list_categories`, `get_leaderboard`. See [packages/mcp](packages/mcp/README.md).
+
 ---
 
 ## Feature Highlights
