@@ -5,6 +5,9 @@
 
 ## DONE (shipped this session, live)
 
+- /mcp landing page + "QA MCP server" blog post (live, in sitemap)
+- P1 seed skills batch: 13 skills seeded to prod (catalog 414 -> 427)
+
 - Rewrote CLAUDE.md into an operating manual + 3 project skills (publish-seo-batch, add-seed-skills, ship-prod)
 - SEO content: 89 articles total (10 + 10 + 14 + 55), all live and in sitemap
 - Full SEO audit (docs/seo/SEO-AUDIT-2026-07.md): tech SEO strong, found 10 cannibalization groups
@@ -24,9 +27,7 @@
 
 1. **Cannibalization consolidation pass (highest SEO ROI).** The audit found 10 groups of near-duplicate slugs splitting ranking signal (6x playwright-agents, 6x deepeval variants, etc.). Pick one canonical per group, redirect/merge the rest. This lifts existing rankings, cheaper than new content.
 2. **awesome-mcp-servers PR (90k stars, now unblocked).** The MCP server made this legitimate. One PR = a high-authority backlink.
-3. **/mcp landing page + "QA MCP server" blog post** on qaskills.sh. Captures "qa mcp server" search intent and documents the install.
-4. **P1 seed skills batch (13 skills).** Queued behind the P0 batch; list in SKILLS-GAP-RESEARCH-2026-07.md.
-5. **Monetization Wk1** (from the earlier plan): GA4 lead_capture event on the popup, course-funnel click instrumentation, affiliate program signups.
+3. **Monetization Wk1** (from the earlier plan): GA4 lead_capture event on the popup, course-funnel click instrumentation, affiliate program signups.
 6. **Reciprocal "featured in" blog post** once 3+ awesome-list PRs merge.
 7. **Regression gaps backlog** (docs/product/REGRESSION-GAPS-2026-07.md): 8 untested surfaces (auth, webhooks, cron, email, CLI beyond add). Real test suites, not urgent.
 8. **Repo has zero unit tests outside the web package** (cli/sdk/shared/skill-validator). Worth a test-writing pass.
