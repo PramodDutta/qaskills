@@ -5,7 +5,9 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
 
-const VERSION = '0.1.0';
+// Single source of truth: package.json (always present at the npm package root).
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const VERSION: string = require('../package.json').version;
 const BASE = (process.env.QASKILLS_API_URL || 'https://qaskills.sh').replace(/\/$/, '');
 const DEFAULT_TIMEOUT_MS = 10_000;
 
