@@ -742,6 +742,7 @@ import { post as syntheticTestDataGenerationGuide } from './synthetic-test-data-
 import { post as testDataPrivacyMaskingGuide } from './test-data-privacy-masking-guide';
 import { post as loadTestingCiCdIntegrationGuide } from './load-testing-ci-cd-integration-guide';
 import { post as testObservabilityGuide2026 } from './test-observability-guide-2026';
+import { post as qaskillsMcpServerGuide } from './qaskills-mcp-server-guide';
 import { post as b55_zephyrScaleTestManagementGuide2026 } from './zephyr-scale-test-management-guide-2026';
 import { post as b55_zephyrSquadVsXrayTestManagement2026 } from './zephyr-squad-vs-xray-test-management-2026';
 import { post as b55_xrayJiraTestManagementGuide2026 } from './xray-jira-test-management-guide-2026';
@@ -1672,6 +1673,7 @@ export const posts: Record<string, BlogPost> = {
   'test-data-privacy-masking-guide': testDataPrivacyMaskingGuide,
   'load-testing-ci-cd-integration-guide': loadTestingCiCdIntegrationGuide,
   'test-observability-guide-2026': testObservabilityGuide2026,
+  'qaskills-mcp-server-guide': qaskillsMcpServerGuide,
   'zephyr-scale-test-management-guide-2026': b55_zephyrScaleTestManagementGuide2026,
   'zephyr-squad-vs-xray-test-management-2026': b55_zephyrSquadVsXrayTestManagement2026,
   'xray-jira-test-management-guide-2026': b55_xrayJiraTestManagementGuide2026,
@@ -2958,6 +2960,7 @@ export const postList = [
   { slug: 'test-data-privacy-masking-guide', ...testDataPrivacyMaskingGuide },
   { slug: 'load-testing-ci-cd-integration-guide', ...loadTestingCiCdIntegrationGuide },
   { slug: 'test-observability-guide-2026', ...testObservabilityGuide2026 },
+  { slug: 'qaskills-mcp-server-guide', ...qaskillsMcpServerGuide },
   { slug: 'zephyr-scale-test-management-guide-2026', ...b55_zephyrScaleTestManagementGuide2026 },
   { slug: 'zephyr-squad-vs-xray-test-management-2026', ...b55_zephyrSquadVsXrayTestManagement2026 },
   { slug: 'xray-jira-test-management-guide-2026', ...b55_xrayJiraTestManagementGuide2026 },

@@ -17,6 +17,7 @@ const staticPages: MetadataRoute.Sitemap = [
   { url: `${baseUrl}/packs`, lastModified: today, changeFrequency: 'weekly', priority: 0.7 },
   { url: `${baseUrl}/pricing`, lastModified: today, changeFrequency: 'monthly', priority: 0.6 },
   { url: `${baseUrl}/how-to-publish`, lastModified: today, changeFrequency: 'weekly', priority: 0.7 },
+  { url: `${baseUrl}/mcp`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
   { url: `${baseUrl}/faq`, lastModified: today, changeFrequency: 'weekly', priority: 0.6 },
   { url: `${baseUrl}/about`, lastModified: today, changeFrequency: 'monthly', priority: 0.5 },
   { url: `${baseUrl}/contact`, lastModified: today, changeFrequency: 'monthly', priority: 0.4 },
