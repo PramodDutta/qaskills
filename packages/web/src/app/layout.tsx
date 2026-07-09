@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { PromoBanner } from '@/components/layout/promo-banner';
 import { ClerkWrapper } from '@/components/clerk-wrapper';
+import { LeadMagnetPopup } from '@/components/lead-magnet-popup';
 import { generateWebsiteJsonLd, generateOrganizationJsonLd } from '@/lib/json-ld';
 import './globals.css';
 
@@ -141,6 +142,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <main id="main-content" className="flex-1">{children}</main>
               <Footer />
             </div>
+            <LeadMagnetPopup />
           </ThemeProvider>
         </body>
       </html>
