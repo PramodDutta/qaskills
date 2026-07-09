@@ -742,6 +742,61 @@ import { post as syntheticTestDataGenerationGuide } from './synthetic-test-data-
 import { post as testDataPrivacyMaskingGuide } from './test-data-privacy-masking-guide';
 import { post as loadTestingCiCdIntegrationGuide } from './load-testing-ci-cd-integration-guide';
 import { post as testObservabilityGuide2026 } from './test-observability-guide-2026';
+import { post as b55_zephyrScaleTestManagementGuide2026 } from './zephyr-scale-test-management-guide-2026';
+import { post as b55_zephyrSquadVsXrayTestManagement2026 } from './zephyr-squad-vs-xray-test-management-2026';
+import { post as b55_xrayJiraTestManagementGuide2026 } from './xray-jira-test-management-guide-2026';
+import { post as b55_testrailTestManagementGuide2026 } from './testrail-test-management-guide-2026';
+import { post as b55_practitestTestManagementGuide2026 } from './practitest-test-management-guide-2026';
+import { post as b55_testmoTestManagementGuide2026 } from './testmo-test-management-guide-2026';
+import { post as b55_qaseTestReportingIntegrationsGuide2026 } from './qase-test-reporting-integrations-guide-2026';
+import { post as b55_testManagementMigrationPlanGuide2026 } from './test-management-migration-plan-guide-2026';
+import { post as b55_appium3MigrationGuide2026 } from './appium-3-migration-guide-2026';
+import { post as b55_kifIosTestingGuide2026 } from './kif-ios-testing-guide-2026';
+import { post as b55_earlgreyIosUiTestingGuide2026 } from './earlgrey-ios-ui-testing-guide-2026';
+import { post as b55_mobileDeviceFarmTestingStrategy2026 } from './mobile-device-farm-testing-strategy-2026';
+import { post as b55_reactNativeTestingLibraryMobileGuide2026 } from './react-native-testing-library-mobile-guide-2026';
+import { post as b55_pa11yAccessibilityTestingGuide2026 } from './pa11y-accessibility-testing-guide-2026';
+import { post as b55_lighthouseCiAccessibilityTestingGuide2026 } from './lighthouse-ci-accessibility-testing-guide-2026';
+import { post as b55_waveAccessibilityTestingGuide2026 } from './wave-accessibility-testing-guide-2026';
+import { post as b55_axeDevtoolsAccessibilityTestingGuide2026 } from './axe-devtools-accessibility-testing-guide-2026';
+import { post as b55_wcag22TestingChecklistQaEngineers } from './wcag-2-2-testing-checklist-qa-engineers';
+import { post as b55_owaspZapDastTestingGuide2026 } from './owasp-zap-dast-testing-guide-2026';
+import { post as b55_burpSuiteForQaEngineersGuide2026 } from './burp-suite-for-qa-engineers-guide-2026';
+import { post as b55_nucleiSecurityTestingCiGuide2026 } from './nuclei-security-testing-ci-guide-2026';
+import { post as b55_semgrepForQaEngineersGuide2026 } from './semgrep-for-qa-engineers-guide-2026';
+import { post as b55_apiSecurityTestingChecklist2026 } from './api-security-testing-checklist-2026';
+import { post as b55_taurusPerformanceTestingGuide2026 } from './taurus-performance-testing-guide-2026';
+import { post as b55_sitespeedIoPerformanceTestingGuide2026 } from './sitespeed-io-performance-testing-guide-2026';
+import { post as b55_lighthouseCiPerformanceBudgetGatesGuide2026 } from './lighthouse-ci-performance-budget-gates-guide-2026';
+import { post as b55_speedcurveSyntheticMonitoringGuide2026 } from './speedcurve-synthetic-monitoring-guide-2026';
+import { post as b55_stepCiApiTestingGuide2026 } from './step-ci-api-testing-guide-2026';
+import { post as b55_opticApiContractDiffTestingGuide2026 } from './optic-api-contract-diff-testing-guide-2026';
+import { post as b55_stoplightPrismApiMockingGuide2026 } from './stoplight-prism-api-mocking-guide-2026';
+import { post as b55_scalarOpenapiTestingWorkflowGuide2026 } from './scalar-openapi-testing-workflow-guide-2026';
+import { post as b55_grpcurlApiTestingGuide2026 } from './grpcurl-api-testing-guide-2026';
+import { post as b55_asyncapiEventDrivenTestingGuide2026 } from './asyncapi-event-driven-testing-guide-2026';
+import { post as b55_greatExpectationsDataQualityTestingGuide } from './great-expectations-data-quality-testing-guide';
+import { post as b55_sodaDataQualityTestingGuide2026 } from './soda-data-quality-testing-guide-2026';
+import { post as b55_dbtTestsDataQualityGuide2026 } from './dbt-tests-data-quality-guide-2026';
+import { post as b55_fakerTestDataStrategiesGuide2026 } from './faker-test-data-strategies-guide-2026';
+import { post as b55_factoryBoyTestDataGuide2026 } from './factory-boy-test-data-guide-2026';
+import { post as b55_dataContractTestingGuide2026 } from './data-contract-testing-guide-2026';
+import { post as b55_gitlabCiQualityGatesGuide2026 } from './gitlab-ci-quality-gates-guide-2026';
+import { post as b55_circleciTestAutomationGuide2026 } from './circleci-test-automation-guide-2026';
+import { post as b55_buildkiteTestPipelineGuide2026 } from './buildkite-test-pipeline-guide-2026';
+import { post as b55_testImpactAnalysisCiGuide2026 } from './test-impact-analysis-ci-guide-2026';
+import { post as b55_lostPixelVisualRegressionTestingGuide2026 } from './lost-pixel-visual-regression-testing-guide-2026';
+import { post as b55_argosVisualTestingGuide2026 } from './argos-visual-testing-guide-2026';
+import { post as b55_visualBaselineGovernanceGuide2026 } from './visual-baseline-governance-guide-2026';
+import { post as b55_ragRegressionTestingGuide2026 } from './rag-regression-testing-guide-2026';
+import { post as b55_promptRegressionTestingGuide2026 } from './prompt-regression-testing-guide-2026';
+import { post as b55_evalDatasetVersioningGuide2026 } from './eval-dataset-versioning-guide-2026';
+import { post as b55_agentToolUseRegressionTestingGuide2026 } from './agent-tool-use-regression-testing-guide-2026';
+import { post as b55_llmJudgeCalibrationGuide2026 } from './llm-judge-calibration-guide-2026';
+import { post as b55_riskBasedTestingStrategyGuide2026 } from './risk-based-testing-strategy-guide-2026';
+import { post as b55_testStrategyDocumentTemplateGuide2026 } from './test-strategy-document-template-guide-2026';
+import { post as b55_qualityEngineeringOperatingModelGuide2026 } from './quality-engineering-operating-model-guide-2026';
+import { post as b55_linearForQaEngineersGuide2026 } from './linear-for-qa-engineers-guide-2026';
 
 import { post as playwrightHealerAgentSelfHealingTests } from './playwright-healer-agent-self-healing-tests';
 import { post as playwrightPlannerGeneratorAgentsGuide } from './playwright-planner-generator-agents-guide';
@@ -1617,6 +1672,61 @@ export const posts: Record<string, BlogPost> = {
   'test-data-privacy-masking-guide': testDataPrivacyMaskingGuide,
   'load-testing-ci-cd-integration-guide': loadTestingCiCdIntegrationGuide,
   'test-observability-guide-2026': testObservabilityGuide2026,
+  'zephyr-scale-test-management-guide-2026': b55_zephyrScaleTestManagementGuide2026,
+  'zephyr-squad-vs-xray-test-management-2026': b55_zephyrSquadVsXrayTestManagement2026,
+  'xray-jira-test-management-guide-2026': b55_xrayJiraTestManagementGuide2026,
+  'testrail-test-management-guide-2026': b55_testrailTestManagementGuide2026,
+  'practitest-test-management-guide-2026': b55_practitestTestManagementGuide2026,
+  'testmo-test-management-guide-2026': b55_testmoTestManagementGuide2026,
+  'qase-test-reporting-integrations-guide-2026': b55_qaseTestReportingIntegrationsGuide2026,
+  'test-management-migration-plan-guide-2026': b55_testManagementMigrationPlanGuide2026,
+  'appium-3-migration-guide-2026': b55_appium3MigrationGuide2026,
+  'kif-ios-testing-guide-2026': b55_kifIosTestingGuide2026,
+  'earlgrey-ios-ui-testing-guide-2026': b55_earlgreyIosUiTestingGuide2026,
+  'mobile-device-farm-testing-strategy-2026': b55_mobileDeviceFarmTestingStrategy2026,
+  'react-native-testing-library-mobile-guide-2026': b55_reactNativeTestingLibraryMobileGuide2026,
+  'pa11y-accessibility-testing-guide-2026': b55_pa11yAccessibilityTestingGuide2026,
+  'lighthouse-ci-accessibility-testing-guide-2026': b55_lighthouseCiAccessibilityTestingGuide2026,
+  'wave-accessibility-testing-guide-2026': b55_waveAccessibilityTestingGuide2026,
+  'axe-devtools-accessibility-testing-guide-2026': b55_axeDevtoolsAccessibilityTestingGuide2026,
+  'wcag-2-2-testing-checklist-qa-engineers': b55_wcag22TestingChecklistQaEngineers,
+  'owasp-zap-dast-testing-guide-2026': b55_owaspZapDastTestingGuide2026,
+  'burp-suite-for-qa-engineers-guide-2026': b55_burpSuiteForQaEngineersGuide2026,
+  'nuclei-security-testing-ci-guide-2026': b55_nucleiSecurityTestingCiGuide2026,
+  'semgrep-for-qa-engineers-guide-2026': b55_semgrepForQaEngineersGuide2026,
+  'api-security-testing-checklist-2026': b55_apiSecurityTestingChecklist2026,
+  'taurus-performance-testing-guide-2026': b55_taurusPerformanceTestingGuide2026,
+  'sitespeed-io-performance-testing-guide-2026': b55_sitespeedIoPerformanceTestingGuide2026,
+  'lighthouse-ci-performance-budget-gates-guide-2026': b55_lighthouseCiPerformanceBudgetGatesGuide2026,
+  'speedcurve-synthetic-monitoring-guide-2026': b55_speedcurveSyntheticMonitoringGuide2026,
+  'step-ci-api-testing-guide-2026': b55_stepCiApiTestingGuide2026,
+  'optic-api-contract-diff-testing-guide-2026': b55_opticApiContractDiffTestingGuide2026,
+  'stoplight-prism-api-mocking-guide-2026': b55_stoplightPrismApiMockingGuide2026,
+  'scalar-openapi-testing-workflow-guide-2026': b55_scalarOpenapiTestingWorkflowGuide2026,
+  'grpcurl-api-testing-guide-2026': b55_grpcurlApiTestingGuide2026,
+  'asyncapi-event-driven-testing-guide-2026': b55_asyncapiEventDrivenTestingGuide2026,
+  'great-expectations-data-quality-testing-guide': b55_greatExpectationsDataQualityTestingGuide,
+  'soda-data-quality-testing-guide-2026': b55_sodaDataQualityTestingGuide2026,
+  'dbt-tests-data-quality-guide-2026': b55_dbtTestsDataQualityGuide2026,
+  'faker-test-data-strategies-guide-2026': b55_fakerTestDataStrategiesGuide2026,
+  'factory-boy-test-data-guide-2026': b55_factoryBoyTestDataGuide2026,
+  'data-contract-testing-guide-2026': b55_dataContractTestingGuide2026,
+  'gitlab-ci-quality-gates-guide-2026': b55_gitlabCiQualityGatesGuide2026,
+  'circleci-test-automation-guide-2026': b55_circleciTestAutomationGuide2026,
+  'buildkite-test-pipeline-guide-2026': b55_buildkiteTestPipelineGuide2026,
+  'test-impact-analysis-ci-guide-2026': b55_testImpactAnalysisCiGuide2026,
+  'lost-pixel-visual-regression-testing-guide-2026': b55_lostPixelVisualRegressionTestingGuide2026,
+  'argos-visual-testing-guide-2026': b55_argosVisualTestingGuide2026,
+  'visual-baseline-governance-guide-2026': b55_visualBaselineGovernanceGuide2026,
+  'rag-regression-testing-guide-2026': b55_ragRegressionTestingGuide2026,
+  'prompt-regression-testing-guide-2026': b55_promptRegressionTestingGuide2026,
+  'eval-dataset-versioning-guide-2026': b55_evalDatasetVersioningGuide2026,
+  'agent-tool-use-regression-testing-guide-2026': b55_agentToolUseRegressionTestingGuide2026,
+  'llm-judge-calibration-guide-2026': b55_llmJudgeCalibrationGuide2026,
+  'risk-based-testing-strategy-guide-2026': b55_riskBasedTestingStrategyGuide2026,
+  'test-strategy-document-template-guide-2026': b55_testStrategyDocumentTemplateGuide2026,
+  'quality-engineering-operating-model-guide-2026': b55_qualityEngineeringOperatingModelGuide2026,
+  'linear-for-qa-engineers-guide-2026': b55_linearForQaEngineersGuide2026,
   'playwright-cli-coding-agents-guide': playwrightCliCodingAgentsGuide,
   'qa-wolf-ai-testing-guide-2026': qaWolfAiTestingGuide2026,
   'browser-use-ai-agent-testing-guide': browserUseAiAgentTestingGuide,
@@ -2848,6 +2958,61 @@ export const postList = [
   { slug: 'test-data-privacy-masking-guide', ...testDataPrivacyMaskingGuide },
   { slug: 'load-testing-ci-cd-integration-guide', ...loadTestingCiCdIntegrationGuide },
   { slug: 'test-observability-guide-2026', ...testObservabilityGuide2026 },
+  { slug: 'zephyr-scale-test-management-guide-2026', ...b55_zephyrScaleTestManagementGuide2026 },
+  { slug: 'zephyr-squad-vs-xray-test-management-2026', ...b55_zephyrSquadVsXrayTestManagement2026 },
+  { slug: 'xray-jira-test-management-guide-2026', ...b55_xrayJiraTestManagementGuide2026 },
+  { slug: 'testrail-test-management-guide-2026', ...b55_testrailTestManagementGuide2026 },
+  { slug: 'practitest-test-management-guide-2026', ...b55_practitestTestManagementGuide2026 },
+  { slug: 'testmo-test-management-guide-2026', ...b55_testmoTestManagementGuide2026 },
+  { slug: 'qase-test-reporting-integrations-guide-2026', ...b55_qaseTestReportingIntegrationsGuide2026 },
+  { slug: 'test-management-migration-plan-guide-2026', ...b55_testManagementMigrationPlanGuide2026 },
+  { slug: 'appium-3-migration-guide-2026', ...b55_appium3MigrationGuide2026 },
+  { slug: 'kif-ios-testing-guide-2026', ...b55_kifIosTestingGuide2026 },
+  { slug: 'earlgrey-ios-ui-testing-guide-2026', ...b55_earlgreyIosUiTestingGuide2026 },
+  { slug: 'mobile-device-farm-testing-strategy-2026', ...b55_mobileDeviceFarmTestingStrategy2026 },
+  { slug: 'react-native-testing-library-mobile-guide-2026', ...b55_reactNativeTestingLibraryMobileGuide2026 },
+  { slug: 'pa11y-accessibility-testing-guide-2026', ...b55_pa11yAccessibilityTestingGuide2026 },
+  { slug: 'lighthouse-ci-accessibility-testing-guide-2026', ...b55_lighthouseCiAccessibilityTestingGuide2026 },
+  { slug: 'wave-accessibility-testing-guide-2026', ...b55_waveAccessibilityTestingGuide2026 },
+  { slug: 'axe-devtools-accessibility-testing-guide-2026', ...b55_axeDevtoolsAccessibilityTestingGuide2026 },
+  { slug: 'wcag-2-2-testing-checklist-qa-engineers', ...b55_wcag22TestingChecklistQaEngineers },
+  { slug: 'owasp-zap-dast-testing-guide-2026', ...b55_owaspZapDastTestingGuide2026 },
+  { slug: 'burp-suite-for-qa-engineers-guide-2026', ...b55_burpSuiteForQaEngineersGuide2026 },
+  { slug: 'nuclei-security-testing-ci-guide-2026', ...b55_nucleiSecurityTestingCiGuide2026 },
+  { slug: 'semgrep-for-qa-engineers-guide-2026', ...b55_semgrepForQaEngineersGuide2026 },
+  { slug: 'api-security-testing-checklist-2026', ...b55_apiSecurityTestingChecklist2026 },
+  { slug: 'taurus-performance-testing-guide-2026', ...b55_taurusPerformanceTestingGuide2026 },
+  { slug: 'sitespeed-io-performance-testing-guide-2026', ...b55_sitespeedIoPerformanceTestingGuide2026 },
+  { slug: 'lighthouse-ci-performance-budget-gates-guide-2026', ...b55_lighthouseCiPerformanceBudgetGatesGuide2026 },
+  { slug: 'speedcurve-synthetic-monitoring-guide-2026', ...b55_speedcurveSyntheticMonitoringGuide2026 },
+  { slug: 'step-ci-api-testing-guide-2026', ...b55_stepCiApiTestingGuide2026 },
+  { slug: 'optic-api-contract-diff-testing-guide-2026', ...b55_opticApiContractDiffTestingGuide2026 },
+  { slug: 'stoplight-prism-api-mocking-guide-2026', ...b55_stoplightPrismApiMockingGuide2026 },
+  { slug: 'scalar-openapi-testing-workflow-guide-2026', ...b55_scalarOpenapiTestingWorkflowGuide2026 },
+  { slug: 'grpcurl-api-testing-guide-2026', ...b55_grpcurlApiTestingGuide2026 },
+  { slug: 'asyncapi-event-driven-testing-guide-2026', ...b55_asyncapiEventDrivenTestingGuide2026 },
+  { slug: 'great-expectations-data-quality-testing-guide', ...b55_greatExpectationsDataQualityTestingGuide },
+  { slug: 'soda-data-quality-testing-guide-2026', ...b55_sodaDataQualityTestingGuide2026 },
+  { slug: 'dbt-tests-data-quality-guide-2026', ...b55_dbtTestsDataQualityGuide2026 },
+  { slug: 'faker-test-data-strategies-guide-2026', ...b55_fakerTestDataStrategiesGuide2026 },
+  { slug: 'factory-boy-test-data-guide-2026', ...b55_factoryBoyTestDataGuide2026 },
+  { slug: 'data-contract-testing-guide-2026', ...b55_dataContractTestingGuide2026 },
+  { slug: 'gitlab-ci-quality-gates-guide-2026', ...b55_gitlabCiQualityGatesGuide2026 },
+  { slug: 'circleci-test-automation-guide-2026', ...b55_circleciTestAutomationGuide2026 },
+  { slug: 'buildkite-test-pipeline-guide-2026', ...b55_buildkiteTestPipelineGuide2026 },
+  { slug: 'test-impact-analysis-ci-guide-2026', ...b55_testImpactAnalysisCiGuide2026 },
+  { slug: 'lost-pixel-visual-regression-testing-guide-2026', ...b55_lostPixelVisualRegressionTestingGuide2026 },
+  { slug: 'argos-visual-testing-guide-2026', ...b55_argosVisualTestingGuide2026 },
+  { slug: 'visual-baseline-governance-guide-2026', ...b55_visualBaselineGovernanceGuide2026 },
+  { slug: 'rag-regression-testing-guide-2026', ...b55_ragRegressionTestingGuide2026 },
+  { slug: 'prompt-regression-testing-guide-2026', ...b55_promptRegressionTestingGuide2026 },
+  { slug: 'eval-dataset-versioning-guide-2026', ...b55_evalDatasetVersioningGuide2026 },
+  { slug: 'agent-tool-use-regression-testing-guide-2026', ...b55_agentToolUseRegressionTestingGuide2026 },
+  { slug: 'llm-judge-calibration-guide-2026', ...b55_llmJudgeCalibrationGuide2026 },
+  { slug: 'risk-based-testing-strategy-guide-2026', ...b55_riskBasedTestingStrategyGuide2026 },
+  { slug: 'test-strategy-document-template-guide-2026', ...b55_testStrategyDocumentTemplateGuide2026 },
+  { slug: 'quality-engineering-operating-model-guide-2026', ...b55_qualityEngineeringOperatingModelGuide2026 },
+  { slug: 'linear-for-qa-engineers-guide-2026', ...b55_linearForQaEngineersGuide2026 },
   { slug: 'playwright-cli-coding-agents-guide', ...playwrightCliCodingAgentsGuide },
   { slug: 'qa-wolf-ai-testing-guide-2026', ...qaWolfAiTestingGuide2026 },
   { slug: 'browser-use-ai-agent-testing-guide', ...browserUseAiAgentTestingGuide },
