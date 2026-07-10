@@ -742,6 +742,106 @@ import { post as syntheticTestDataGenerationGuide } from './synthetic-test-data-
 import { post as testDataPrivacyMaskingGuide } from './test-data-privacy-masking-guide';
 import { post as loadTestingCiCdIntegrationGuide } from './load-testing-ci-cd-integration-guide';
 import { post as testObservabilityGuide2026 } from './test-observability-guide-2026';
+import { post as b100_webdriverioServiceTestingAdvancedGuide } from './webdriverio-service-testing-advanced-guide';
+import { post as b100_webdriverioPageObjectsTypescriptGuide } from './webdriverio-page-objects-typescript-guide';
+import { post as b100_webdriverioParallelCrossBrowserGridGuide } from './webdriverio-parallel-cross-browser-grid-guide';
+import { post as b100_testcafeSmartAssertionsWaitsGuide } from './testcafe-smart-assertions-waits-guide';
+import { post as b100_testcafeRoleBasedAuthenticationGuide } from './testcafe-role-based-authentication-guide';
+import { post as b100_nightwatchPageObjectsCustomCommandsGuide } from './nightwatch-page-objects-custom-commands-guide';
+import { post as b100_nightwatchCiParallelBrowserstackGuide } from './nightwatch-ci-parallel-browserstack-guide';
+import { post as b100_puppeteerRequestInterceptionTestingGuide } from './puppeteer-request-interception-testing-guide';
+import { post as b100_puppeteerPerformanceTracingGuide } from './puppeteer-performance-tracing-guide';
+import { post as b100_puppeteerPdfRegressionTestingGuide } from './puppeteer-pdf-regression-testing-guide';
+import { post as b100_vitestWorkspaceMonorepoTestingGuide } from './vitest-workspace-monorepo-testing-guide';
+import { post as b100_vitestFakeTimersDateTestingGuide } from './vitest-fake-timers-date-testing-guide';
+import { post as b100_vitestMswComponentApiMockingGuide } from './vitest-msw-component-api-mocking-guide';
+import { post as b100_jestCustomMatchersGuide } from './jest-custom-matchers-guide';
+import { post as b100_jestModuleIsolationResetmodulesGuide } from './jest-module-isolation-resetmodules-guide';
+import { post as b100_jestOpenHandlesFlakyTestsGuide } from './jest-open-handles-flaky-tests-guide';
+import { post as b100_rspecSystemTestsCapybaraGuide } from './rspec-system-tests-capybara-guide';
+import { post as b100_capybaraWaitingSynchronizationGuide } from './capybara-waiting-synchronization-guide';
+import { post as b100_robotFrameworkRequestsLibraryContractTestingGuide } from './robot-framework-requests-library-contract-testing-guide';
+import { post as b100_robotFrameworkLibrariesComparison2026 } from './robot-framework-libraries-comparison-2026';
+import { post as b100_gaugeSpecDesignRefactoringGuide } from './gauge-spec-design-refactoring-guide';
+import { post as b100_serenityScreenplayPatternGuide } from './serenity-screenplay-pattern-guide';
+import { post as b100_karateSchemaMatchingAdvancedGuide } from './karate-schema-matching-advanced-guide';
+import { post as b100_restAssuredJsonSchemaValidationGuide } from './rest-assured-json-schema-validation-guide';
+import { post as b100_pactflowCanIDeployCiGuide } from './pactflow-can-i-deploy-ci-guide';
+import { post as b100_graphqlContractTestingGuide } from './graphql-contract-testing-guide';
+import { post as b100_graphqlFederationContractTestingGuide } from './graphql-federation-contract-testing-guide';
+import { post as b100_kafkaContractTestingSchemaRegistryGuide } from './kafka-contract-testing-schema-registry-guide';
+import { post as b100_asyncapiContractTestingKafkaGuide } from './asyncapi-contract-testing-kafka-guide';
+import { post as b100_grpcProtobufBreakingChangeTestingGuide } from './grpc-protobuf-breaking-change-testing-guide';
+import { post as b100_grpcStreamingContractTestingGuide } from './grpc-streaming-contract-testing-guide';
+import { post as b100_pitJavaMutationTestingGuide } from './pit-java-mutation-testing-guide';
+import { post as b100_mutmutPythonMutationTestingGuide } from './mutmut-python-mutation-testing-guide';
+import { post as b100_cosmicRayPythonMutationTestingGuide } from './cosmic-ray-python-mutation-testing-guide';
+import { post as b100_fastCheckPropertyBasedTestingTypescriptGuide } from './fast-check-property-based-testing-typescript-guide';
+import { post as b100_jqwikPropertyBasedTestingJavaGuide } from './jqwik-property-based-testing-java-guide';
+import { post as b100_atherisPythonFuzzingGuide } from './atheris-python-fuzzing-guide';
+import { post as b100_jazzerJavaFuzzingGuide } from './jazzer-java-fuzzing-guide';
+import { post as b100_libfuzzerCCppTestingGuide } from './libfuzzer-c-cpp-testing-guide';
+import { post as b100_approvalTestingGoldenMasterGuide } from './approval-testing-golden-master-guide';
+import { post as b100_snapshotTestingGovernanceGuide } from './snapshot-testing-governance-guide';
+import { post as b100_metamorphicTestingDataPipelinesGuide } from './metamorphic-testing-data-pipelines-guide';
+import { post as b100_toxiproxyNetworkFailureTestingGuide } from './toxiproxy-network-failure-testing-guide';
+import { post as b100_chaosMeshKubernetesTestingGuide } from './chaos-mesh-kubernetes-testing-guide';
+import { post as b100_mobileAccessibilityTestingGuide } from './mobile-accessibility-testing-guide';
+import { post as b100_localizationTestingChecklistGuide } from './localization-testing-checklist-guide';
+import { post as b100_mailpitEmailTestingGuide } from './mailpit-email-testing-guide';
+import { post as b100_pdfRegressionTestingGuide } from './pdf-regression-testing-guide';
+import { post as b100_sseTestingGuide } from './sse-testing-guide';
+import { post as b100_graphqlSubscriptionsTestingGuide } from './graphql-subscriptions-testing-guide';
+import { post as b100_launchdarklyFeatureFlagTestingGuide } from './launchdarkly-feature-flag-testing-guide';
+import { post as b100_stripeTestModeAutomationGuide } from './stripe-test-mode-automation-guide';
+import { post as b100_oauth2PkceFlowTestingGuide } from './oauth2-pkce-flow-testing-guide';
+import { post as b100_multiTenantSaasTestingGuide } from './multi-tenant-saas-testing-guide';
+import { post as b100_timezoneDstTestingGuide } from './timezone-dst-testing-guide';
+import { post as b100_mcpServerContractTestingGuide } from './mcp-server-contract-testing-guide';
+import { post as b100_ragChunkSizeRegressionTestingGuide } from './rag-chunk-size-regression-testing-guide';
+import { post as b100_embeddingDriftMonitoringTestsGuide } from './embedding-drift-monitoring-tests-guide';
+import { post as b100_vectorDatabaseRecallTestingGuide } from './vector-database-recall-testing-guide';
+import { post as b100_longTermAgentMemoryEvaluationGuide } from './long-term-agent-memory-evaluation-guide';
+import { post as b100_multiAgentHandoffTestingGuide } from './multi-agent-handoff-testing-guide';
+import { post as b100_toolSchemaContractTestingGuide } from './tool-schema-contract-testing-guide';
+import { post as b100_structuredOutputJsonSchemaTestingGuide } from './structured-output-json-schema-testing-guide';
+import { post as b100_functionCallingRegressionSuiteGuide } from './function-calling-regression-suite-guide';
+import { post as b100_llmCostBudgetCiGuide } from './llm-cost-budget-ci-guide';
+import { post as b100_hallucinationDetectionPipelineGuide } from './hallucination-detection-pipeline-guide';
+import { post as b100_guardrailsAiRegressionTestingGuide } from './guardrails-ai-regression-testing-guide';
+import { post as b100_rebuffPromptInjectionTestingGuide } from './rebuff-prompt-injection-testing-guide';
+import { post as b100_syntheticEvalDataGenerationGuide } from './synthetic-eval-data-generation-guide';
+import { post as b100_humanInTheLoopLlmEvaluationWorkflowGuide } from './human-in-the-loop-llm-evaluation-workflow-guide';
+import { post as b100_abTestingLlmPromptsGuide } from './ab-testing-llm-prompts-guide';
+import { post as b100_langfuseTraceQualityTestingGuide } from './langfuse-trace-quality-testing-guide';
+import { post as b100_phoenixRagTracingEvaluationGuide } from './phoenix-rag-tracing-evaluation-guide';
+import { post as b100_heliconeCostRegressionTestingGuide } from './helicone-cost-regression-testing-guide';
+import { post as b100_domainSpecificAiRedTeamPlaybookGuide } from './domain-specific-ai-red-team-playbook-guide';
+import { post as b100_lambdaApiTestingGuide } from './lambda-api-testing-guide';
+import { post as b100_cloudflareWorkersTestingGuide } from './cloudflare-workers-testing-guide';
+import { post as b100_vercelFunctionsTestingGuide } from './vercel-functions-testing-guide';
+import { post as b100_terraformModuleTestingGuide } from './terraform-module-testing-guide';
+import { post as b100_postgresMigrationTestingGuide } from './postgres-migration-testing-guide';
+import { post as b100_mongodbIntegrationTestingGuide } from './mongodb-integration-testing-guide';
+import { post as b100_redisCacheTestingGuide } from './redis-cache-testing-guide';
+import { post as b100_rabbitmqContractTestingGuide } from './rabbitmq-contract-testing-guide';
+import { post as b100_sqsMessageProcessingTestingGuide } from './sqs-message-processing-testing-guide';
+import { post as b100_natsEventStreamTestingGuide } from './nats-event-stream-testing-guide';
+import { post as b100_eventSourcingCqrsTestingGuide } from './event-sourcing-cqrs-testing-guide';
+import { post as b100_microfrontendIntegrationTestingGuide } from './microfrontend-integration-testing-guide';
+import { post as b100_turborepoTestStrategyGuide } from './turborepo-test-strategy-guide';
+import { post as b100_browserExtensionTestingGuide } from './browser-extension-testing-guide';
+import { post as b100_electronAppTestingGuide } from './electron-app-testing-guide';
+import { post as b100_qaOkrExamplesGuide } from './qa-okr-examples-guide';
+import { post as b100_testCaseAutomationRoiCalculatorGuide } from './test-case-automation-roi-calculator-guide';
+import { post as b100_qaGuildOperatingModelGuide } from './qa-guild-operating-model-guide';
+import { post as b100_testingInProductionShiftRightGuide } from './testing-in-production-shift-right-guide';
+import { post as b100_canaryReleaseValidationTestingGuide } from './canary-release-validation-testing-guide';
+import { post as b100_incidentDrivenTestCreationGuide } from './incident-driven-test-creation-guide';
+import { post as b100_bugBashFacilitationGuide } from './bug-bash-facilitation-guide';
+import { post as b100_fintechQaComplianceTestingGuide } from './fintech-qa-compliance-testing-guide';
+import { post as b100_healthcareQaComplianceTestingGuide } from './healthcare-qa-compliance-testing-guide';
+import { post as b100_ecommerceCheckoutTestingStrategyGuide } from './ecommerce-checkout-testing-strategy-guide';
 import { post as qaskillsMcpServerGuide } from './qaskills-mcp-server-guide';
 import { post as b55_zephyrScaleTestManagementGuide2026 } from './zephyr-scale-test-management-guide-2026';
 import { post as b55_zephyrSquadVsXrayTestManagement2026 } from './zephyr-squad-vs-xray-test-management-2026';
@@ -1673,6 +1773,106 @@ export const posts: Record<string, BlogPost> = {
   'test-data-privacy-masking-guide': testDataPrivacyMaskingGuide,
   'load-testing-ci-cd-integration-guide': loadTestingCiCdIntegrationGuide,
   'test-observability-guide-2026': testObservabilityGuide2026,
+  'webdriverio-service-testing-advanced-guide': b100_webdriverioServiceTestingAdvancedGuide,
+  'webdriverio-page-objects-typescript-guide': b100_webdriverioPageObjectsTypescriptGuide,
+  'webdriverio-parallel-cross-browser-grid-guide': b100_webdriverioParallelCrossBrowserGridGuide,
+  'testcafe-smart-assertions-waits-guide': b100_testcafeSmartAssertionsWaitsGuide,
+  'testcafe-role-based-authentication-guide': b100_testcafeRoleBasedAuthenticationGuide,
+  'nightwatch-page-objects-custom-commands-guide': b100_nightwatchPageObjectsCustomCommandsGuide,
+  'nightwatch-ci-parallel-browserstack-guide': b100_nightwatchCiParallelBrowserstackGuide,
+  'puppeteer-request-interception-testing-guide': b100_puppeteerRequestInterceptionTestingGuide,
+  'puppeteer-performance-tracing-guide': b100_puppeteerPerformanceTracingGuide,
+  'puppeteer-pdf-regression-testing-guide': b100_puppeteerPdfRegressionTestingGuide,
+  'vitest-workspace-monorepo-testing-guide': b100_vitestWorkspaceMonorepoTestingGuide,
+  'vitest-fake-timers-date-testing-guide': b100_vitestFakeTimersDateTestingGuide,
+  'vitest-msw-component-api-mocking-guide': b100_vitestMswComponentApiMockingGuide,
+  'jest-custom-matchers-guide': b100_jestCustomMatchersGuide,
+  'jest-module-isolation-resetmodules-guide': b100_jestModuleIsolationResetmodulesGuide,
+  'jest-open-handles-flaky-tests-guide': b100_jestOpenHandlesFlakyTestsGuide,
+  'rspec-system-tests-capybara-guide': b100_rspecSystemTestsCapybaraGuide,
+  'capybara-waiting-synchronization-guide': b100_capybaraWaitingSynchronizationGuide,
+  'robot-framework-requests-library-contract-testing-guide': b100_robotFrameworkRequestsLibraryContractTestingGuide,
+  'robot-framework-libraries-comparison-2026': b100_robotFrameworkLibrariesComparison2026,
+  'gauge-spec-design-refactoring-guide': b100_gaugeSpecDesignRefactoringGuide,
+  'serenity-screenplay-pattern-guide': b100_serenityScreenplayPatternGuide,
+  'karate-schema-matching-advanced-guide': b100_karateSchemaMatchingAdvancedGuide,
+  'rest-assured-json-schema-validation-guide': b100_restAssuredJsonSchemaValidationGuide,
+  'pactflow-can-i-deploy-ci-guide': b100_pactflowCanIDeployCiGuide,
+  'graphql-contract-testing-guide': b100_graphqlContractTestingGuide,
+  'graphql-federation-contract-testing-guide': b100_graphqlFederationContractTestingGuide,
+  'kafka-contract-testing-schema-registry-guide': b100_kafkaContractTestingSchemaRegistryGuide,
+  'asyncapi-contract-testing-kafka-guide': b100_asyncapiContractTestingKafkaGuide,
+  'grpc-protobuf-breaking-change-testing-guide': b100_grpcProtobufBreakingChangeTestingGuide,
+  'grpc-streaming-contract-testing-guide': b100_grpcStreamingContractTestingGuide,
+  'pit-java-mutation-testing-guide': b100_pitJavaMutationTestingGuide,
+  'mutmut-python-mutation-testing-guide': b100_mutmutPythonMutationTestingGuide,
+  'cosmic-ray-python-mutation-testing-guide': b100_cosmicRayPythonMutationTestingGuide,
+  'fast-check-property-based-testing-typescript-guide': b100_fastCheckPropertyBasedTestingTypescriptGuide,
+  'jqwik-property-based-testing-java-guide': b100_jqwikPropertyBasedTestingJavaGuide,
+  'atheris-python-fuzzing-guide': b100_atherisPythonFuzzingGuide,
+  'jazzer-java-fuzzing-guide': b100_jazzerJavaFuzzingGuide,
+  'libfuzzer-c-cpp-testing-guide': b100_libfuzzerCCppTestingGuide,
+  'approval-testing-golden-master-guide': b100_approvalTestingGoldenMasterGuide,
+  'snapshot-testing-governance-guide': b100_snapshotTestingGovernanceGuide,
+  'metamorphic-testing-data-pipelines-guide': b100_metamorphicTestingDataPipelinesGuide,
+  'toxiproxy-network-failure-testing-guide': b100_toxiproxyNetworkFailureTestingGuide,
+  'chaos-mesh-kubernetes-testing-guide': b100_chaosMeshKubernetesTestingGuide,
+  'mobile-accessibility-testing-guide': b100_mobileAccessibilityTestingGuide,
+  'localization-testing-checklist-guide': b100_localizationTestingChecklistGuide,
+  'mailpit-email-testing-guide': b100_mailpitEmailTestingGuide,
+  'pdf-regression-testing-guide': b100_pdfRegressionTestingGuide,
+  'sse-testing-guide': b100_sseTestingGuide,
+  'graphql-subscriptions-testing-guide': b100_graphqlSubscriptionsTestingGuide,
+  'launchdarkly-feature-flag-testing-guide': b100_launchdarklyFeatureFlagTestingGuide,
+  'stripe-test-mode-automation-guide': b100_stripeTestModeAutomationGuide,
+  'oauth2-pkce-flow-testing-guide': b100_oauth2PkceFlowTestingGuide,
+  'multi-tenant-saas-testing-guide': b100_multiTenantSaasTestingGuide,
+  'timezone-dst-testing-guide': b100_timezoneDstTestingGuide,
+  'mcp-server-contract-testing-guide': b100_mcpServerContractTestingGuide,
+  'rag-chunk-size-regression-testing-guide': b100_ragChunkSizeRegressionTestingGuide,
+  'embedding-drift-monitoring-tests-guide': b100_embeddingDriftMonitoringTestsGuide,
+  'vector-database-recall-testing-guide': b100_vectorDatabaseRecallTestingGuide,
+  'long-term-agent-memory-evaluation-guide': b100_longTermAgentMemoryEvaluationGuide,
+  'multi-agent-handoff-testing-guide': b100_multiAgentHandoffTestingGuide,
+  'tool-schema-contract-testing-guide': b100_toolSchemaContractTestingGuide,
+  'structured-output-json-schema-testing-guide': b100_structuredOutputJsonSchemaTestingGuide,
+  'function-calling-regression-suite-guide': b100_functionCallingRegressionSuiteGuide,
+  'llm-cost-budget-ci-guide': b100_llmCostBudgetCiGuide,
+  'hallucination-detection-pipeline-guide': b100_hallucinationDetectionPipelineGuide,
+  'guardrails-ai-regression-testing-guide': b100_guardrailsAiRegressionTestingGuide,
+  'rebuff-prompt-injection-testing-guide': b100_rebuffPromptInjectionTestingGuide,
+  'synthetic-eval-data-generation-guide': b100_syntheticEvalDataGenerationGuide,
+  'human-in-the-loop-llm-evaluation-workflow-guide': b100_humanInTheLoopLlmEvaluationWorkflowGuide,
+  'ab-testing-llm-prompts-guide': b100_abTestingLlmPromptsGuide,
+  'langfuse-trace-quality-testing-guide': b100_langfuseTraceQualityTestingGuide,
+  'phoenix-rag-tracing-evaluation-guide': b100_phoenixRagTracingEvaluationGuide,
+  'helicone-cost-regression-testing-guide': b100_heliconeCostRegressionTestingGuide,
+  'domain-specific-ai-red-team-playbook-guide': b100_domainSpecificAiRedTeamPlaybookGuide,
+  'lambda-api-testing-guide': b100_lambdaApiTestingGuide,
+  'cloudflare-workers-testing-guide': b100_cloudflareWorkersTestingGuide,
+  'vercel-functions-testing-guide': b100_vercelFunctionsTestingGuide,
+  'terraform-module-testing-guide': b100_terraformModuleTestingGuide,
+  'postgres-migration-testing-guide': b100_postgresMigrationTestingGuide,
+  'mongodb-integration-testing-guide': b100_mongodbIntegrationTestingGuide,
+  'redis-cache-testing-guide': b100_redisCacheTestingGuide,
+  'rabbitmq-contract-testing-guide': b100_rabbitmqContractTestingGuide,
+  'sqs-message-processing-testing-guide': b100_sqsMessageProcessingTestingGuide,
+  'nats-event-stream-testing-guide': b100_natsEventStreamTestingGuide,
+  'event-sourcing-cqrs-testing-guide': b100_eventSourcingCqrsTestingGuide,
+  'microfrontend-integration-testing-guide': b100_microfrontendIntegrationTestingGuide,
+  'turborepo-test-strategy-guide': b100_turborepoTestStrategyGuide,
+  'browser-extension-testing-guide': b100_browserExtensionTestingGuide,
+  'electron-app-testing-guide': b100_electronAppTestingGuide,
+  'qa-okr-examples-guide': b100_qaOkrExamplesGuide,
+  'test-case-automation-roi-calculator-guide': b100_testCaseAutomationRoiCalculatorGuide,
+  'qa-guild-operating-model-guide': b100_qaGuildOperatingModelGuide,
+  'testing-in-production-shift-right-guide': b100_testingInProductionShiftRightGuide,
+  'canary-release-validation-testing-guide': b100_canaryReleaseValidationTestingGuide,
+  'incident-driven-test-creation-guide': b100_incidentDrivenTestCreationGuide,
+  'bug-bash-facilitation-guide': b100_bugBashFacilitationGuide,
+  'fintech-qa-compliance-testing-guide': b100_fintechQaComplianceTestingGuide,
+  'healthcare-qa-compliance-testing-guide': b100_healthcareQaComplianceTestingGuide,
+  'ecommerce-checkout-testing-strategy-guide': b100_ecommerceCheckoutTestingStrategyGuide,
   'qaskills-mcp-server-guide': qaskillsMcpServerGuide,
   'zephyr-scale-test-management-guide-2026': b55_zephyrScaleTestManagementGuide2026,
   'zephyr-squad-vs-xray-test-management-2026': b55_zephyrSquadVsXrayTestManagement2026,
@@ -2960,6 +3160,106 @@ export const postList = [
   { slug: 'test-data-privacy-masking-guide', ...testDataPrivacyMaskingGuide },
   { slug: 'load-testing-ci-cd-integration-guide', ...loadTestingCiCdIntegrationGuide },
   { slug: 'test-observability-guide-2026', ...testObservabilityGuide2026 },
+  { slug: 'webdriverio-service-testing-advanced-guide', ...b100_webdriverioServiceTestingAdvancedGuide },
+  { slug: 'webdriverio-page-objects-typescript-guide', ...b100_webdriverioPageObjectsTypescriptGuide },
+  { slug: 'webdriverio-parallel-cross-browser-grid-guide', ...b100_webdriverioParallelCrossBrowserGridGuide },
+  { slug: 'testcafe-smart-assertions-waits-guide', ...b100_testcafeSmartAssertionsWaitsGuide },
+  { slug: 'testcafe-role-based-authentication-guide', ...b100_testcafeRoleBasedAuthenticationGuide },
+  { slug: 'nightwatch-page-objects-custom-commands-guide', ...b100_nightwatchPageObjectsCustomCommandsGuide },
+  { slug: 'nightwatch-ci-parallel-browserstack-guide', ...b100_nightwatchCiParallelBrowserstackGuide },
+  { slug: 'puppeteer-request-interception-testing-guide', ...b100_puppeteerRequestInterceptionTestingGuide },
+  { slug: 'puppeteer-performance-tracing-guide', ...b100_puppeteerPerformanceTracingGuide },
+  { slug: 'puppeteer-pdf-regression-testing-guide', ...b100_puppeteerPdfRegressionTestingGuide },
+  { slug: 'vitest-workspace-monorepo-testing-guide', ...b100_vitestWorkspaceMonorepoTestingGuide },
+  { slug: 'vitest-fake-timers-date-testing-guide', ...b100_vitestFakeTimersDateTestingGuide },
+  { slug: 'vitest-msw-component-api-mocking-guide', ...b100_vitestMswComponentApiMockingGuide },
+  { slug: 'jest-custom-matchers-guide', ...b100_jestCustomMatchersGuide },
+  { slug: 'jest-module-isolation-resetmodules-guide', ...b100_jestModuleIsolationResetmodulesGuide },
+  { slug: 'jest-open-handles-flaky-tests-guide', ...b100_jestOpenHandlesFlakyTestsGuide },
+  { slug: 'rspec-system-tests-capybara-guide', ...b100_rspecSystemTestsCapybaraGuide },
+  { slug: 'capybara-waiting-synchronization-guide', ...b100_capybaraWaitingSynchronizationGuide },
+  { slug: 'robot-framework-requests-library-contract-testing-guide', ...b100_robotFrameworkRequestsLibraryContractTestingGuide },
+  { slug: 'robot-framework-libraries-comparison-2026', ...b100_robotFrameworkLibrariesComparison2026 },
+  { slug: 'gauge-spec-design-refactoring-guide', ...b100_gaugeSpecDesignRefactoringGuide },
+  { slug: 'serenity-screenplay-pattern-guide', ...b100_serenityScreenplayPatternGuide },
+  { slug: 'karate-schema-matching-advanced-guide', ...b100_karateSchemaMatchingAdvancedGuide },
+  { slug: 'rest-assured-json-schema-validation-guide', ...b100_restAssuredJsonSchemaValidationGuide },
+  { slug: 'pactflow-can-i-deploy-ci-guide', ...b100_pactflowCanIDeployCiGuide },
+  { slug: 'graphql-contract-testing-guide', ...b100_graphqlContractTestingGuide },
+  { slug: 'graphql-federation-contract-testing-guide', ...b100_graphqlFederationContractTestingGuide },
+  { slug: 'kafka-contract-testing-schema-registry-guide', ...b100_kafkaContractTestingSchemaRegistryGuide },
+  { slug: 'asyncapi-contract-testing-kafka-guide', ...b100_asyncapiContractTestingKafkaGuide },
+  { slug: 'grpc-protobuf-breaking-change-testing-guide', ...b100_grpcProtobufBreakingChangeTestingGuide },
+  { slug: 'grpc-streaming-contract-testing-guide', ...b100_grpcStreamingContractTestingGuide },
+  { slug: 'pit-java-mutation-testing-guide', ...b100_pitJavaMutationTestingGuide },
+  { slug: 'mutmut-python-mutation-testing-guide', ...b100_mutmutPythonMutationTestingGuide },
+  { slug: 'cosmic-ray-python-mutation-testing-guide', ...b100_cosmicRayPythonMutationTestingGuide },
+  { slug: 'fast-check-property-based-testing-typescript-guide', ...b100_fastCheckPropertyBasedTestingTypescriptGuide },
+  { slug: 'jqwik-property-based-testing-java-guide', ...b100_jqwikPropertyBasedTestingJavaGuide },
+  { slug: 'atheris-python-fuzzing-guide', ...b100_atherisPythonFuzzingGuide },
+  { slug: 'jazzer-java-fuzzing-guide', ...b100_jazzerJavaFuzzingGuide },
+  { slug: 'libfuzzer-c-cpp-testing-guide', ...b100_libfuzzerCCppTestingGuide },
+  { slug: 'approval-testing-golden-master-guide', ...b100_approvalTestingGoldenMasterGuide },
+  { slug: 'snapshot-testing-governance-guide', ...b100_snapshotTestingGovernanceGuide },
+  { slug: 'metamorphic-testing-data-pipelines-guide', ...b100_metamorphicTestingDataPipelinesGuide },
+  { slug: 'toxiproxy-network-failure-testing-guide', ...b100_toxiproxyNetworkFailureTestingGuide },
+  { slug: 'chaos-mesh-kubernetes-testing-guide', ...b100_chaosMeshKubernetesTestingGuide },
+  { slug: 'mobile-accessibility-testing-guide', ...b100_mobileAccessibilityTestingGuide },
+  { slug: 'localization-testing-checklist-guide', ...b100_localizationTestingChecklistGuide },
+  { slug: 'mailpit-email-testing-guide', ...b100_mailpitEmailTestingGuide },
+  { slug: 'pdf-regression-testing-guide', ...b100_pdfRegressionTestingGuide },
+  { slug: 'sse-testing-guide', ...b100_sseTestingGuide },
+  { slug: 'graphql-subscriptions-testing-guide', ...b100_graphqlSubscriptionsTestingGuide },
+  { slug: 'launchdarkly-feature-flag-testing-guide', ...b100_launchdarklyFeatureFlagTestingGuide },
+  { slug: 'stripe-test-mode-automation-guide', ...b100_stripeTestModeAutomationGuide },
+  { slug: 'oauth2-pkce-flow-testing-guide', ...b100_oauth2PkceFlowTestingGuide },
+  { slug: 'multi-tenant-saas-testing-guide', ...b100_multiTenantSaasTestingGuide },
+  { slug: 'timezone-dst-testing-guide', ...b100_timezoneDstTestingGuide },
+  { slug: 'mcp-server-contract-testing-guide', ...b100_mcpServerContractTestingGuide },
+  { slug: 'rag-chunk-size-regression-testing-guide', ...b100_ragChunkSizeRegressionTestingGuide },
+  { slug: 'embedding-drift-monitoring-tests-guide', ...b100_embeddingDriftMonitoringTestsGuide },
+  { slug: 'vector-database-recall-testing-guide', ...b100_vectorDatabaseRecallTestingGuide },
+  { slug: 'long-term-agent-memory-evaluation-guide', ...b100_longTermAgentMemoryEvaluationGuide },
+  { slug: 'multi-agent-handoff-testing-guide', ...b100_multiAgentHandoffTestingGuide },
+  { slug: 'tool-schema-contract-testing-guide', ...b100_toolSchemaContractTestingGuide },
+  { slug: 'structured-output-json-schema-testing-guide', ...b100_structuredOutputJsonSchemaTestingGuide },
+  { slug: 'function-calling-regression-suite-guide', ...b100_functionCallingRegressionSuiteGuide },
+  { slug: 'llm-cost-budget-ci-guide', ...b100_llmCostBudgetCiGuide },
+  { slug: 'hallucination-detection-pipeline-guide', ...b100_hallucinationDetectionPipelineGuide },
+  { slug: 'guardrails-ai-regression-testing-guide', ...b100_guardrailsAiRegressionTestingGuide },
+  { slug: 'rebuff-prompt-injection-testing-guide', ...b100_rebuffPromptInjectionTestingGuide },
+  { slug: 'synthetic-eval-data-generation-guide', ...b100_syntheticEvalDataGenerationGuide },
+  { slug: 'human-in-the-loop-llm-evaluation-workflow-guide', ...b100_humanInTheLoopLlmEvaluationWorkflowGuide },
+  { slug: 'ab-testing-llm-prompts-guide', ...b100_abTestingLlmPromptsGuide },
+  { slug: 'langfuse-trace-quality-testing-guide', ...b100_langfuseTraceQualityTestingGuide },
+  { slug: 'phoenix-rag-tracing-evaluation-guide', ...b100_phoenixRagTracingEvaluationGuide },
+  { slug: 'helicone-cost-regression-testing-guide', ...b100_heliconeCostRegressionTestingGuide },
+  { slug: 'domain-specific-ai-red-team-playbook-guide', ...b100_domainSpecificAiRedTeamPlaybookGuide },
+  { slug: 'lambda-api-testing-guide', ...b100_lambdaApiTestingGuide },
+  { slug: 'cloudflare-workers-testing-guide', ...b100_cloudflareWorkersTestingGuide },
+  { slug: 'vercel-functions-testing-guide', ...b100_vercelFunctionsTestingGuide },
+  { slug: 'terraform-module-testing-guide', ...b100_terraformModuleTestingGuide },
+  { slug: 'postgres-migration-testing-guide', ...b100_postgresMigrationTestingGuide },
+  { slug: 'mongodb-integration-testing-guide', ...b100_mongodbIntegrationTestingGuide },
+  { slug: 'redis-cache-testing-guide', ...b100_redisCacheTestingGuide },
+  { slug: 'rabbitmq-contract-testing-guide', ...b100_rabbitmqContractTestingGuide },
+  { slug: 'sqs-message-processing-testing-guide', ...b100_sqsMessageProcessingTestingGuide },
+  { slug: 'nats-event-stream-testing-guide', ...b100_natsEventStreamTestingGuide },
+  { slug: 'event-sourcing-cqrs-testing-guide', ...b100_eventSourcingCqrsTestingGuide },
+  { slug: 'microfrontend-integration-testing-guide', ...b100_microfrontendIntegrationTestingGuide },
+  { slug: 'turborepo-test-strategy-guide', ...b100_turborepoTestStrategyGuide },
+  { slug: 'browser-extension-testing-guide', ...b100_browserExtensionTestingGuide },
+  { slug: 'electron-app-testing-guide', ...b100_electronAppTestingGuide },
+  { slug: 'qa-okr-examples-guide', ...b100_qaOkrExamplesGuide },
+  { slug: 'test-case-automation-roi-calculator-guide', ...b100_testCaseAutomationRoiCalculatorGuide },
+  { slug: 'qa-guild-operating-model-guide', ...b100_qaGuildOperatingModelGuide },
+  { slug: 'testing-in-production-shift-right-guide', ...b100_testingInProductionShiftRightGuide },
+  { slug: 'canary-release-validation-testing-guide', ...b100_canaryReleaseValidationTestingGuide },
+  { slug: 'incident-driven-test-creation-guide', ...b100_incidentDrivenTestCreationGuide },
+  { slug: 'bug-bash-facilitation-guide', ...b100_bugBashFacilitationGuide },
+  { slug: 'fintech-qa-compliance-testing-guide', ...b100_fintechQaComplianceTestingGuide },
+  { slug: 'healthcare-qa-compliance-testing-guide', ...b100_healthcareQaComplianceTestingGuide },
+  { slug: 'ecommerce-checkout-testing-strategy-guide', ...b100_ecommerceCheckoutTestingStrategyGuide },
   { slug: 'qaskills-mcp-server-guide', ...qaskillsMcpServerGuide },
   { slug: 'zephyr-scale-test-management-guide-2026', ...b55_zephyrScaleTestManagementGuide2026 },
   { slug: 'zephyr-squad-vs-xray-test-management-2026', ...b55_zephyrSquadVsXrayTestManagement2026 },
