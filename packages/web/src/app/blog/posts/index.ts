@@ -1160,6 +1160,17 @@ import { post as k6LoadTestingP95P99Guide } from './k6-load-testing-p95-p99-guid
 import { post as keployApiTestGenerationGuide } from './keploy-api-test-generation-guide';
 import { post as grpcContractTestingPactGuide } from './grpc-contract-testing-pact-guide';
 
+import { post as braintrustVsLangfuse } from './braintrust-vs-langfuse';
+import { post as langfuseVsArizePhoenix } from './langfuse-vs-arize-phoenix';
+import { post as patronusAiLlmEvaluationGuide } from './patronus-ai-llm-evaluation-guide';
+import { post as rhesisAiLlmTestingGuide } from './rhesis-ai-llm-testing-guide';
+import { post as playwright160ReleaseFeatures } from './playwright-1-60-release-features';
+import { post as playwrightScreencastVideoRecording } from './playwright-screencast-video-recording';
+import { post as playwrightDropApiDragAndDrop } from './playwright-drop-api-drag-and-drop';
+import { post as playwrightStartharTracingGuide } from './playwright-starthar-tracing-guide';
+import { post as artilleryLoadTestingNodejsGuide } from './artillery-load-testing-nodejs-guide';
+import { post as playwrightTraceCliNpxGuide } from './playwright-trace-cli-npx-guide';
+
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
   ({ slug }) => !seoPriorityOverrideSlugs.has(slug)
@@ -2449,6 +2460,16 @@ export const posts: Record<string, BlogPost> = {
   'k6-load-testing-p95-p99-guide': k6LoadTestingP95P99Guide,
   'keploy-api-test-generation-guide': keployApiTestGenerationGuide,
   'grpc-contract-testing-pact-guide': grpcContractTestingPactGuide,
+  'braintrust-vs-langfuse': braintrustVsLangfuse,
+  'langfuse-vs-arize-phoenix': langfuseVsArizePhoenix,
+  'patronus-ai-llm-evaluation-guide': patronusAiLlmEvaluationGuide,
+  'rhesis-ai-llm-testing-guide': rhesisAiLlmTestingGuide,
+  'playwright-1-60-release-features': playwright160ReleaseFeatures,
+  'playwright-screencast-video-recording': playwrightScreencastVideoRecording,
+  'playwright-drop-api-drag-and-drop': playwrightDropApiDragAndDrop,
+  'playwright-starthar-tracing-guide': playwrightStartharTracingGuide,
+  'artillery-load-testing-nodejs-guide': artilleryLoadTestingNodejsGuide,
+  'playwright-trace-cli-npx-guide': playwrightTraceCliNpxGuide,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -4086,6 +4107,16 @@ export const postList = [
   { slug: 'k6-load-testing-p95-p99-guide', ...k6LoadTestingP95P99Guide },
   { slug: 'keploy-api-test-generation-guide', ...keployApiTestGenerationGuide },
   { slug: 'grpc-contract-testing-pact-guide', ...grpcContractTestingPactGuide },
+  { slug: 'braintrust-vs-langfuse', ...braintrustVsLangfuse },
+  { slug: 'langfuse-vs-arize-phoenix', ...langfuseVsArizePhoenix },
+  { slug: 'patronus-ai-llm-evaluation-guide', ...patronusAiLlmEvaluationGuide },
+  { slug: 'rhesis-ai-llm-testing-guide', ...rhesisAiLlmTestingGuide },
+  { slug: 'playwright-1-60-release-features', ...playwright160ReleaseFeatures },
+  { slug: 'playwright-screencast-video-recording', ...playwrightScreencastVideoRecording },
+  { slug: 'playwright-drop-api-drag-and-drop', ...playwrightDropApiDragAndDrop },
+  { slug: 'playwright-starthar-tracing-guide', ...playwrightStartharTracingGuide },
+  { slug: 'artillery-load-testing-nodejs-guide', ...artilleryLoadTestingNodejsGuide },
+  { slug: 'playwright-trace-cli-npx-guide', ...playwrightTraceCliNpxGuide },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
