@@ -938,6 +938,60 @@ import { post as t250b_vitestBrowserModeMockServiceWorker } from './vitest-brows
 import { post as t250b_vitestFailedToLoadUrlAliasFix } from './vitest-failed-to-load-url-alias-fix';
 import { post as t250b_vitestNoTestSuiteFoundFix } from './vitest-no-test-suite-found-fix';
 import { post as t250b_vitestUnhandledErrorsDetectedFix } from './vitest-unhandled-errors-detected-fix';
+import { post as t250c_aiTestingEngineerSalarySkills2026 } from './ai-testing-engineer-salary-skills-2026';
+import { post as t250c_ciDetectTestsAffectedByChangedFiles } from './ci-detect-tests-affected-by-changed-files';
+import { post as t250c_ciEphemeralPreviewEnvironmentE2eTests } from './ci-ephemeral-preview-environment-e2e-tests';
+import { post as t250c_ciFailBuildOnNewCoverageRegression } from './ci-fail-build-on-new-coverage-regression';
+import { post as t250c_ciRunContractTestsBeforeDeployment } from './ci-run-contract-tests-before-deployment';
+import { post as t250c_ciTestRetriesVsJobRetries } from './ci-test-retries-vs-job-retries';
+import { post as t250c_ciUploadArtifactsOnlyOnTestFailure } from './ci-upload-artifacts-only-on-test-failure';
+import { post as t250c_circleciStorePlaywrightTraceArtifacts } from './circleci-store-playwright-trace-artifacts';
+import { post as t250c_cypressDragDropHtml5DataTransfer } from './cypress-drag-drop-html5-data-transfer';
+import { post as t250c_cypressInterceptGraphqlOperationName } from './cypress-intercept-graphql-operation-name';
+import { post as t250c_cypressInterceptStreamingResponseLimitations } from './cypress-intercept-streaming-response-limitations';
+import { post as t250c_cypressOriginCrossDomainAuthentication } from './cypress-origin-cross-domain-authentication';
+import { post as t250c_cypressSessionCacheAcrossSpecs } from './cypress-session-cache-across-specs';
+import { post as t250c_cypressShadowDomIncludeShadowDom } from './cypress-shadow-dom-include-shadow-dom';
+import { post as t250c_cypressTestWebsocketMessages } from './cypress-test-websocket-messages';
+import { post as t250c_databaseSeedingPerTestVsPerSuite } from './database-seeding-per-test-vs-per-suite';
+import { post as t250c_jestMockEsmDefaultExportFix } from './jest-mock-esm-default-export-fix';
+import { post as t250c_jestMockFetchAbortController } from './jest-mock-fetch-abort-controller';
+import { post as t250c_jestTestRejectedPromiseErrorCode } from './jest-test-rejected-promise-error-code';
+import { post as t250c_playwrightCanvasPixelAssertionTesting } from './playwright-canvas-pixel-assertion-testing';
+import { post as t250c_playwrightClosedShadowRootTestingWorkarounds } from './playwright-closed-shadow-root-testing-workarounds';
+import { post as t250c_playwrightDatePickerTestingWithFixedTime } from './playwright-date-picker-testing-with-fixed-time';
+import { post as t250c_playwrightHtml5DragAndDropDataTransfer } from './playwright-html5-drag-and-drop-data-transfer';
+import { post as t250c_playwrightLearningPathForApiTesters } from './playwright-learning-path-for-api-testers';
+import { post as t250c_playwrightOpenNewTabWithSameAuthContext } from './playwright-open-new-tab-with-same-auth-context';
+import { post as t250c_playwrightScreenshotAnimationCaretDisable } from './playwright-screenshot-animation-caret-disable';
+import { post as t250c_playwrightVisualCompareSingleElementMask } from './playwright-visual-compare-single-element-mask';
+import { post as t250c_promptRegressionGoldenSetDiffThreshold } from './prompt-regression-golden-set-diff-threshold';
+import { post as t250c_pytestAsyncioEventLoopIsClosedFix } from './pytest-asyncio-event-loop-is-closed-fix';
+import { post as t250c_pytestCapsysVsCapfdSubprocessOutput } from './pytest-capsys-vs-capfd-subprocess-output';
+import { post as t250c_pytestFixtureNotFoundConftestFix } from './pytest-fixture-not-found-conftest-fix';
+import { post as t250c_pytestImportFileMismatchErrorFix } from './pytest-import-file-mismatch-error-fix';
+import { post as t250c_pythonSkillsForSdetAutomationRoles } from './python-skills-for-sdet-automation-roles';
+import { post as t250c_qaEngineerToAiTestingEngineerRoadmap } from './qa-engineer-to-ai-testing-engineer-roadmap';
+import { post as t250c_ragEvaluationInterviewQuestions } from './rag-evaluation-interview-questions';
+import { post as t250c_testcontainersMongodbReplicaSetTransactions } from './testcontainers-mongodb-replica-set-transactions';
+import { post as t250c_testcontainersRabbitmqDeadLetterQueueTesting } from './testcontainers-rabbitmq-dead-letter-queue-testing';
+import { post as t250c_testingAgentInfiniteLoopDetection } from './testing-agent-infinite-loop-detection';
+import { post as t250c_testingApiEventualConsistencyPolling } from './testing-api-eventual-consistency-polling';
+import { post as t250c_testingApiRetryAfterHeaderBackoff } from './testing-api-retry-after-header-backoff';
+import { post as t250c_testingEtagIfMatchConcurrencyControl } from './testing-etag-if-match-concurrency-control';
+import { post as t250c_testingGuardrailFalseNegativeJailbreaks } from './testing-guardrail-false-negative-jailbreaks';
+import { post as t250c_testingGuardrailFalsePositiveRate } from './testing-guardrail-false-positive-rate';
+import { post as t250c_testingHttpRangeRequestsFileDownload } from './testing-http-range-requests-file-download';
+import { post as t250c_testingPiiRedactionInStreamingLlmOutput } from './testing-pii-redaction-in-streaming-llm-output';
+import { post as t250c_testingPromptVersionRollbackSafety } from './testing-prompt-version-rollback-safety';
+import { post as t250c_testingRagAnswerRelevanceThresholds } from './testing-rag-answer-relevance-thresholds';
+import { post as t250c_testingRagCitationSourceAlignment } from './testing-rag-citation-source-alignment';
+import { post as t250c_testingRagContextPrecisionTopK } from './testing-rag-context-precision-top-k';
+import { post as t250c_testingRagFaithfulnessWithRagas } from './testing-rag-faithfulness-with-ragas';
+import { post as t250c_testingRagNoAnswerAbstention } from './testing-rag-no-answer-abstention';
+import { post as t250c_testingToxicOutputMultilingualPrompts } from './testing-toxic-output-multilingual-prompts';
+import { post as t250c_testingWebhookOutOfOrderDelivery } from './testing-webhook-out-of-order-delivery';
+import { post as t250c_testingWebhookReplayAttackProtection } from './testing-webhook-replay-attack-protection';
 import { post as b100_webdriverioServiceTestingAdvancedGuide } from './webdriverio-service-testing-advanced-guide';
 import { post as b100_webdriverioPageObjectsTypescriptGuide } from './webdriverio-page-objects-typescript-guide';
 import { post as b100_webdriverioParallelCrossBrowserGridGuide } from './webdriverio-parallel-cross-browser-grid-guide';
@@ -2165,6 +2219,60 @@ export const posts: Record<string, BlogPost> = {
   'vitest-failed-to-load-url-alias-fix': t250b_vitestFailedToLoadUrlAliasFix,
   'vitest-no-test-suite-found-fix': t250b_vitestNoTestSuiteFoundFix,
   'vitest-unhandled-errors-detected-fix': t250b_vitestUnhandledErrorsDetectedFix,
+  'ai-testing-engineer-salary-skills-2026': t250c_aiTestingEngineerSalarySkills2026,
+  'ci-detect-tests-affected-by-changed-files': t250c_ciDetectTestsAffectedByChangedFiles,
+  'ci-ephemeral-preview-environment-e2e-tests': t250c_ciEphemeralPreviewEnvironmentE2eTests,
+  'ci-fail-build-on-new-coverage-regression': t250c_ciFailBuildOnNewCoverageRegression,
+  'ci-run-contract-tests-before-deployment': t250c_ciRunContractTestsBeforeDeployment,
+  'ci-test-retries-vs-job-retries': t250c_ciTestRetriesVsJobRetries,
+  'ci-upload-artifacts-only-on-test-failure': t250c_ciUploadArtifactsOnlyOnTestFailure,
+  'circleci-store-playwright-trace-artifacts': t250c_circleciStorePlaywrightTraceArtifacts,
+  'cypress-drag-drop-html5-data-transfer': t250c_cypressDragDropHtml5DataTransfer,
+  'cypress-intercept-graphql-operation-name': t250c_cypressInterceptGraphqlOperationName,
+  'cypress-intercept-streaming-response-limitations': t250c_cypressInterceptStreamingResponseLimitations,
+  'cypress-origin-cross-domain-authentication': t250c_cypressOriginCrossDomainAuthentication,
+  'cypress-session-cache-across-specs': t250c_cypressSessionCacheAcrossSpecs,
+  'cypress-shadow-dom-include-shadow-dom': t250c_cypressShadowDomIncludeShadowDom,
+  'cypress-test-websocket-messages': t250c_cypressTestWebsocketMessages,
+  'database-seeding-per-test-vs-per-suite': t250c_databaseSeedingPerTestVsPerSuite,
+  'jest-mock-esm-default-export-fix': t250c_jestMockEsmDefaultExportFix,
+  'jest-mock-fetch-abort-controller': t250c_jestMockFetchAbortController,
+  'jest-test-rejected-promise-error-code': t250c_jestTestRejectedPromiseErrorCode,
+  'playwright-canvas-pixel-assertion-testing': t250c_playwrightCanvasPixelAssertionTesting,
+  'playwright-closed-shadow-root-testing-workarounds': t250c_playwrightClosedShadowRootTestingWorkarounds,
+  'playwright-date-picker-testing-with-fixed-time': t250c_playwrightDatePickerTestingWithFixedTime,
+  'playwright-html5-drag-and-drop-data-transfer': t250c_playwrightHtml5DragAndDropDataTransfer,
+  'playwright-learning-path-for-api-testers': t250c_playwrightLearningPathForApiTesters,
+  'playwright-open-new-tab-with-same-auth-context': t250c_playwrightOpenNewTabWithSameAuthContext,
+  'playwright-screenshot-animation-caret-disable': t250c_playwrightScreenshotAnimationCaretDisable,
+  'playwright-visual-compare-single-element-mask': t250c_playwrightVisualCompareSingleElementMask,
+  'prompt-regression-golden-set-diff-threshold': t250c_promptRegressionGoldenSetDiffThreshold,
+  'pytest-asyncio-event-loop-is-closed-fix': t250c_pytestAsyncioEventLoopIsClosedFix,
+  'pytest-capsys-vs-capfd-subprocess-output': t250c_pytestCapsysVsCapfdSubprocessOutput,
+  'pytest-fixture-not-found-conftest-fix': t250c_pytestFixtureNotFoundConftestFix,
+  'pytest-import-file-mismatch-error-fix': t250c_pytestImportFileMismatchErrorFix,
+  'python-skills-for-sdet-automation-roles': t250c_pythonSkillsForSdetAutomationRoles,
+  'qa-engineer-to-ai-testing-engineer-roadmap': t250c_qaEngineerToAiTestingEngineerRoadmap,
+  'rag-evaluation-interview-questions': t250c_ragEvaluationInterviewQuestions,
+  'testcontainers-mongodb-replica-set-transactions': t250c_testcontainersMongodbReplicaSetTransactions,
+  'testcontainers-rabbitmq-dead-letter-queue-testing': t250c_testcontainersRabbitmqDeadLetterQueueTesting,
+  'testing-agent-infinite-loop-detection': t250c_testingAgentInfiniteLoopDetection,
+  'testing-api-eventual-consistency-polling': t250c_testingApiEventualConsistencyPolling,
+  'testing-api-retry-after-header-backoff': t250c_testingApiRetryAfterHeaderBackoff,
+  'testing-etag-if-match-concurrency-control': t250c_testingEtagIfMatchConcurrencyControl,
+  'testing-guardrail-false-negative-jailbreaks': t250c_testingGuardrailFalseNegativeJailbreaks,
+  'testing-guardrail-false-positive-rate': t250c_testingGuardrailFalsePositiveRate,
+  'testing-http-range-requests-file-download': t250c_testingHttpRangeRequestsFileDownload,
+  'testing-pii-redaction-in-streaming-llm-output': t250c_testingPiiRedactionInStreamingLlmOutput,
+  'testing-prompt-version-rollback-safety': t250c_testingPromptVersionRollbackSafety,
+  'testing-rag-answer-relevance-thresholds': t250c_testingRagAnswerRelevanceThresholds,
+  'testing-rag-citation-source-alignment': t250c_testingRagCitationSourceAlignment,
+  'testing-rag-context-precision-top-k': t250c_testingRagContextPrecisionTopK,
+  'testing-rag-faithfulness-with-ragas': t250c_testingRagFaithfulnessWithRagas,
+  'testing-rag-no-answer-abstention': t250c_testingRagNoAnswerAbstention,
+  'testing-toxic-output-multilingual-prompts': t250c_testingToxicOutputMultilingualPrompts,
+  'testing-webhook-out-of-order-delivery': t250c_testingWebhookOutOfOrderDelivery,
+  'testing-webhook-replay-attack-protection': t250c_testingWebhookReplayAttackProtection,
   'webdriverio-service-testing-advanced-guide': b100_webdriverioServiceTestingAdvancedGuide,
   'webdriverio-page-objects-typescript-guide': b100_webdriverioPageObjectsTypescriptGuide,
   'webdriverio-parallel-cross-browser-grid-guide': b100_webdriverioParallelCrossBrowserGridGuide,
@@ -3748,6 +3856,60 @@ export const postList = [
   { slug: 'vitest-failed-to-load-url-alias-fix', ...t250b_vitestFailedToLoadUrlAliasFix },
   { slug: 'vitest-no-test-suite-found-fix', ...t250b_vitestNoTestSuiteFoundFix },
   { slug: 'vitest-unhandled-errors-detected-fix', ...t250b_vitestUnhandledErrorsDetectedFix },
+  { slug: 'ai-testing-engineer-salary-skills-2026', ...t250c_aiTestingEngineerSalarySkills2026 },
+  { slug: 'ci-detect-tests-affected-by-changed-files', ...t250c_ciDetectTestsAffectedByChangedFiles },
+  { slug: 'ci-ephemeral-preview-environment-e2e-tests', ...t250c_ciEphemeralPreviewEnvironmentE2eTests },
+  { slug: 'ci-fail-build-on-new-coverage-regression', ...t250c_ciFailBuildOnNewCoverageRegression },
+  { slug: 'ci-run-contract-tests-before-deployment', ...t250c_ciRunContractTestsBeforeDeployment },
+  { slug: 'ci-test-retries-vs-job-retries', ...t250c_ciTestRetriesVsJobRetries },
+  { slug: 'ci-upload-artifacts-only-on-test-failure', ...t250c_ciUploadArtifactsOnlyOnTestFailure },
+  { slug: 'circleci-store-playwright-trace-artifacts', ...t250c_circleciStorePlaywrightTraceArtifacts },
+  { slug: 'cypress-drag-drop-html5-data-transfer', ...t250c_cypressDragDropHtml5DataTransfer },
+  { slug: 'cypress-intercept-graphql-operation-name', ...t250c_cypressInterceptGraphqlOperationName },
+  { slug: 'cypress-intercept-streaming-response-limitations', ...t250c_cypressInterceptStreamingResponseLimitations },
+  { slug: 'cypress-origin-cross-domain-authentication', ...t250c_cypressOriginCrossDomainAuthentication },
+  { slug: 'cypress-session-cache-across-specs', ...t250c_cypressSessionCacheAcrossSpecs },
+  { slug: 'cypress-shadow-dom-include-shadow-dom', ...t250c_cypressShadowDomIncludeShadowDom },
+  { slug: 'cypress-test-websocket-messages', ...t250c_cypressTestWebsocketMessages },
+  { slug: 'database-seeding-per-test-vs-per-suite', ...t250c_databaseSeedingPerTestVsPerSuite },
+  { slug: 'jest-mock-esm-default-export-fix', ...t250c_jestMockEsmDefaultExportFix },
+  { slug: 'jest-mock-fetch-abort-controller', ...t250c_jestMockFetchAbortController },
+  { slug: 'jest-test-rejected-promise-error-code', ...t250c_jestTestRejectedPromiseErrorCode },
+  { slug: 'playwright-canvas-pixel-assertion-testing', ...t250c_playwrightCanvasPixelAssertionTesting },
+  { slug: 'playwright-closed-shadow-root-testing-workarounds', ...t250c_playwrightClosedShadowRootTestingWorkarounds },
+  { slug: 'playwright-date-picker-testing-with-fixed-time', ...t250c_playwrightDatePickerTestingWithFixedTime },
+  { slug: 'playwright-html5-drag-and-drop-data-transfer', ...t250c_playwrightHtml5DragAndDropDataTransfer },
+  { slug: 'playwright-learning-path-for-api-testers', ...t250c_playwrightLearningPathForApiTesters },
+  { slug: 'playwright-open-new-tab-with-same-auth-context', ...t250c_playwrightOpenNewTabWithSameAuthContext },
+  { slug: 'playwright-screenshot-animation-caret-disable', ...t250c_playwrightScreenshotAnimationCaretDisable },
+  { slug: 'playwright-visual-compare-single-element-mask', ...t250c_playwrightVisualCompareSingleElementMask },
+  { slug: 'prompt-regression-golden-set-diff-threshold', ...t250c_promptRegressionGoldenSetDiffThreshold },
+  { slug: 'pytest-asyncio-event-loop-is-closed-fix', ...t250c_pytestAsyncioEventLoopIsClosedFix },
+  { slug: 'pytest-capsys-vs-capfd-subprocess-output', ...t250c_pytestCapsysVsCapfdSubprocessOutput },
+  { slug: 'pytest-fixture-not-found-conftest-fix', ...t250c_pytestFixtureNotFoundConftestFix },
+  { slug: 'pytest-import-file-mismatch-error-fix', ...t250c_pytestImportFileMismatchErrorFix },
+  { slug: 'python-skills-for-sdet-automation-roles', ...t250c_pythonSkillsForSdetAutomationRoles },
+  { slug: 'qa-engineer-to-ai-testing-engineer-roadmap', ...t250c_qaEngineerToAiTestingEngineerRoadmap },
+  { slug: 'rag-evaluation-interview-questions', ...t250c_ragEvaluationInterviewQuestions },
+  { slug: 'testcontainers-mongodb-replica-set-transactions', ...t250c_testcontainersMongodbReplicaSetTransactions },
+  { slug: 'testcontainers-rabbitmq-dead-letter-queue-testing', ...t250c_testcontainersRabbitmqDeadLetterQueueTesting },
+  { slug: 'testing-agent-infinite-loop-detection', ...t250c_testingAgentInfiniteLoopDetection },
+  { slug: 'testing-api-eventual-consistency-polling', ...t250c_testingApiEventualConsistencyPolling },
+  { slug: 'testing-api-retry-after-header-backoff', ...t250c_testingApiRetryAfterHeaderBackoff },
+  { slug: 'testing-etag-if-match-concurrency-control', ...t250c_testingEtagIfMatchConcurrencyControl },
+  { slug: 'testing-guardrail-false-negative-jailbreaks', ...t250c_testingGuardrailFalseNegativeJailbreaks },
+  { slug: 'testing-guardrail-false-positive-rate', ...t250c_testingGuardrailFalsePositiveRate },
+  { slug: 'testing-http-range-requests-file-download', ...t250c_testingHttpRangeRequestsFileDownload },
+  { slug: 'testing-pii-redaction-in-streaming-llm-output', ...t250c_testingPiiRedactionInStreamingLlmOutput },
+  { slug: 'testing-prompt-version-rollback-safety', ...t250c_testingPromptVersionRollbackSafety },
+  { slug: 'testing-rag-answer-relevance-thresholds', ...t250c_testingRagAnswerRelevanceThresholds },
+  { slug: 'testing-rag-citation-source-alignment', ...t250c_testingRagCitationSourceAlignment },
+  { slug: 'testing-rag-context-precision-top-k', ...t250c_testingRagContextPrecisionTopK },
+  { slug: 'testing-rag-faithfulness-with-ragas', ...t250c_testingRagFaithfulnessWithRagas },
+  { slug: 'testing-rag-no-answer-abstention', ...t250c_testingRagNoAnswerAbstention },
+  { slug: 'testing-toxic-output-multilingual-prompts', ...t250c_testingToxicOutputMultilingualPrompts },
+  { slug: 'testing-webhook-out-of-order-delivery', ...t250c_testingWebhookOutOfOrderDelivery },
+  { slug: 'testing-webhook-replay-attack-protection', ...t250c_testingWebhookReplayAttackProtection },
   { slug: 'webdriverio-service-testing-advanced-guide', ...b100_webdriverioServiceTestingAdvancedGuide },
   { slug: 'webdriverio-page-objects-typescript-guide', ...b100_webdriverioPageObjectsTypescriptGuide },
   { slug: 'webdriverio-parallel-cross-browser-grid-guide', ...b100_webdriverioParallelCrossBrowserGridGuide },
