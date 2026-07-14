@@ -77,6 +77,11 @@ const nextConfig = {
       permanent: true,
     }));
   },
+  async rewrites() {
+    // Serve the static reel-pack page at a clean /reels URL (asset lives at
+    // public/reels.html). Rewrite keeps the address bar on /reels.
+    return [{ source: '/reels', destination: '/reels.html' }];
+  },
 };
 
 module.exports = nextConfig;

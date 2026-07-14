@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="25 ready-to-shoot reel scripts to promote QASkills, each with a hook, three talking points, an outro, and a direct CTA link.">
+<meta property="og:title" content="QASkills · 25 Reel Scripts">
+<meta property="og:description" content="25 ready-to-shoot short-form reel scripts to promote QASkills.">
+<meta name="robots" content="noindex">
+<title>QASkills · 25 Reel Scripts</title>
+<style>
+  :root {
+    --bg: #F6F4EF;
+    --surface: #FFFFFF;
+    --surface-2: #FBFAF7;
+    --ink: #191723;
+    --ink-soft: #4A4658;
+    --ink-faint: #7C7890;
+    --line: #E4E0D6;
+    --line-strong: #D3CEC1;
+    --accent: #EE4B2B;      /* signal coral */
+    --accent-ink: #C0361B;
+    --action: #0E8C7F;      /* cyan-teal action */
+    --action-ink: #0B6E64;
+    --shadow: 0 1px 2px rgba(25,23,35,.05), 0 8px 24px rgba(25,23,35,.06);
+    --radius: 14px;
+    --mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* pillar hues (categorical) */
+    --p-ai: #7A5CFF;
+    --p-flaky: #EE4B2B;
+    --p-frame: #0E8C7F;
+    --p-perf: #C77A0A;
+    --p-skills: #2563C9;
+    --p-career: #B0338C;
+    --p-meta: #5A6270;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0F0E17;
+      --surface: #171622;
+      --surface-2: #1D1B2A;
+      --ink: #F3F1FB;
+      --ink-soft: #B7B3CC;
+      --ink-faint: #837E9C;
+      --line: #2A2839;
+      --line-strong: #3A3750;
+      --accent: #FF6A4D;
+      --accent-ink: #FF8A73;
+      --action: #2DD4BF;
+      --action-ink: #5BE7D6;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.45);
+      --p-ai: #9C86FF;
+      --p-flaky: #FF6A4D;
+      --p-frame: #2DD4BF;
+      --p-perf: #E0A143;
+      --p-skills: #5B94F5;
+      --p-career: #E06BC0;
+      --p-meta: #8A91A4;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0F0E17; --surface: #171622; --surface-2: #1D1B2A;
+    --ink: #F3F1FB; --ink-soft: #B7B3CC; --ink-faint: #837E9C;
+    --line: #2A2839; --line-strong: #3A3750;
+    --accent: #FF6A4D; --accent-ink: #FF8A73; --action: #2DD4BF; --action-ink: #5BE7D6;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.45);
+    --p-ai: #9C86FF; --p-flaky: #FF6A4D; --p-frame: #2DD4BF; --p-perf: #E0A143;
+    --p-skills: #5B94F5; --p-career: #E06BC0; --p-meta: #8A91A4;
+  }
+  :root[data-theme="light"] {
+    --bg: #F6F4EF; --surface: #FFFFFF; --surface-2: #FBFAF7;
+    --ink: #191723; --ink-soft: #4A4658; --ink-faint: #7C7890;
+    --line: #E4E0D6; --line-strong: #D3CEC1;
+    --accent: #EE4B2B; --accent-ink: #C0361B; --action: #0E8C7F; --action-ink: #0B6E64;
+    --shadow: 0 1px 2px rgba(25,23,35,.05), 0 8px 24px rgba(25,23,35,.06);
+    --p-ai: #7A5CFF; --p-flaky: #EE4B2B; --p-frame: #0E8C7F; --p-perf: #C77A0A;
+    --p-skills: #2563C9; --p-career: #B0338C; --p-meta: #5A6270;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---- header ---- */
+  header {
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, var(--surface-2), var(--bg));
+  }
+  .head-inner { padding: 40px 20px 30px; max-width: 1180px; margin: 0 auto; }
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--accent); font-weight: 600;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .eyebrow::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+  h1 {
+    font-size: clamp(30px, 5vw, 46px); line-height: 1.04; margin: 14px 0 10px;
+    letter-spacing: -.02em; text-wrap: balance; font-weight: 800;
+  }
+  h1 .mark { color: var(--accent); }
+  .sub { color: var(--ink-soft); max-width: 62ch; font-size: 16px; margin: 0 0 22px; }
+  .head-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn {
+    font-family: var(--mono); font-size: 14px; font-weight: 600;
+    text-decoration: none; border-radius: 10px; padding: 11px 16px;
+    display: inline-flex; align-items: center; gap: 8px; border: 1px solid transparent;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .btn-primary { background: var(--action); color: #fff; box-shadow: var(--shadow); }
+  :root[data-theme="dark"] .btn-primary, :root:not([data-theme="light"]) .btn-primary { color: #06201C; }
+  @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .btn-primary { color: #fff; } }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-ghost { border-color: var(--line-strong); color: var(--ink); background: var(--surface); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .metrics { display: flex; gap: 26px; flex-wrap: wrap; margin-top: 26px; }
+  .metric { display: flex; flex-direction: column; }
+  .metric b { font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+  .metric span { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); }
+
+  /* ---- filter bar ---- */
+  .toolbar {
+    position: sticky; top: 0; z-index: 5;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    padding: 12px 0;
+  }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .chip {
+    font-family: var(--mono); font-size: 12.5px; font-weight: 600;
+    padding: 7px 13px; border-radius: 999px; border: 1px solid var(--line-strong);
+    background: var(--surface); color: var(--ink-soft); cursor: pointer;
+    display: inline-flex; align-items: center; gap: 7px; transition: all .12s ease;
+  }
+  .chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--ink-faint)); }
+  .chip:hover { border-color: var(--ink-faint); color: var(--ink); }
+  .chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .chip[aria-pressed="true"] .dot { background: var(--bg); }
+
+  /* ---- grid ---- */
+  main { padding: 28px 0 10px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 18px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 20px 20px 18px; display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: var(--c, var(--accent));
+  }
+  .card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+  .num { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); font-weight: 600; letter-spacing: .05em; }
+  .pill {
+    font-family: var(--mono); font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .07em; padding: 4px 9px; border-radius: 999px;
+    color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent);
+  }
+  .shot { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); margin-bottom: 6px; letter-spacing: .02em; }
+  .hook { font-size: 19px; font-weight: 750; line-height: 1.22; letter-spacing: -.01em; margin: 0 0 14px; text-wrap: balance; }
+  .lbl { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 7px; }
+  ul.points { list-style: none; margin: 0 0 14px; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+  ul.points li { position: relative; padding-left: 22px; font-size: 14.5px; color: var(--ink-soft); }
+  ul.points li::before {
+    content: counter(pt); counter-increment: pt;
+    position: absolute; left: 0; top: 1px;
+    font-family: var(--mono); font-size: 10px; font-weight: 700; color: var(--c, var(--accent));
+    width: 15px; height: 15px; border-radius: 4px; display: grid; place-items: center;
+    background: color-mix(in srgb, var(--c) 14%, transparent);
+  }
+  ul.points { counter-reset: pt; }
+  .outro {
+    font-size: 14.5px; font-weight: 650; color: var(--ink);
+    padding: 10px 12px; border-radius: 9px; background: var(--surface-2);
+    border: 1px dashed var(--line-strong); margin-bottom: 15px;
+  }
+  .outro span { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); display: block; margin-bottom: 2px; }
+  .card-foot { margin-top: auto; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .cta {
+    flex: 1 1 auto; min-width: 150px;
+    font-family: var(--mono); font-size: 12.5px; font-weight: 600; text-decoration: none;
+    padding: 9px 12px; border-radius: 9px; background: var(--action); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    transition: transform .12s ease, filter .12s ease;
+  }
+  :root[data-theme="dark"] .cta, :root:not([data-theme="light"]) .cta { color: #06201C; }
+  @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .cta { color: #fff; } }
+  .cta:hover { transform: translateY(-1px); filter: brightness(1.05); }
+  .cta small { opacity: .8; font-weight: 500; }
+  .copy {
+    font-family: var(--mono); font-size: 12px; font-weight: 600; cursor: pointer;
+    padding: 9px 11px; border-radius: 9px; border: 1px solid var(--line-strong);
+    background: var(--surface); color: var(--ink-soft); transition: all .12s ease;
+  }
+  .copy:hover { border-color: var(--action); color: var(--action); }
+  .copy.done { color: var(--action); border-color: var(--action); }
+  .skilltag {
+    font-family: var(--mono); font-size: 11px; color: var(--ink-faint);
+    margin-bottom: 13px; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .skilltag b { color: var(--ink-soft); font-weight: 600; }
+
+  footer { border-top: 1px solid var(--line); margin-top: 30px; padding: 34px 0 60px; }
+  .foot-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; align-items: start; }
+  .foot-grid h3 { margin: 0 0 6px; font-size: 20px; letter-spacing: -.01em; }
+  .foot-grid p { color: var(--ink-soft); margin: 0 0 16px; max-width: 46ch; font-size: 15px; }
+  .anchors { display: flex; flex-direction: column; gap: 8px; }
+  .anchor {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    text-decoration: none; color: var(--ink); padding: 11px 14px; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--surface); transition: all .12s ease;
+  }
+  .anchor:hover { border-color: var(--action); transform: translateX(2px); }
+  .anchor .a-name { font-family: var(--mono); font-size: 13px; font-weight: 600; }
+  .anchor .a-inst { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .legal { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); margin-top: 26px; letter-spacing: .03em; }
+
+  .themebtn {
+    position: fixed; right: 16px; bottom: 16px; z-index: 20;
+    font-family: var(--mono); font-size: 12px; font-weight: 600; cursor: pointer;
+    border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-soft);
+    padding: 9px 12px; border-radius: 999px; box-shadow: var(--shadow);
+  }
+  .empty { text-align: center; color: var(--ink-faint); font-family: var(--mono); padding: 50px 0; display: none; }
+
+  @media (max-width: 720px) {
+    .foot-grid { grid-template-columns: 1fr; }
+    .grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+</head>
+<body>
+<header>
+  <div class="head-inner">
+    <div class="eyebrow">QASkills.sh · Creator Reel Pack</div>
+    <h1>25 <span class="mark">reel scripts</span> to promote QASkills</h1>
+    <p class="sub">Ready-to-shoot short-form scripts. Each one: a scroll-stopping hook, three talking points, an outro line, and a direct CTA link to the exact skill or page to put on screen and in your bio.</p>
+    <div class="head-cta">
+      <a class="btn btn-primary" href="https://qaskills.sh" target="_blank" rel="noopener">Open qaskills.sh →</a>
+      <a class="btn btn-ghost" href="https://qaskills.sh/leaderboard" target="_blank" rel="noopener">See the leaderboard</a>
+    </div>
+    <div class="metrics">
+      <div class="metric"><b>25</b><span>Reel scripts</span></div>
+      <div class="metric"><b>431</b><span>Skills live</span></div>
+      <div class="metric"><b>7</b><span>Content pillars</span></div>
+      <div class="metric"><b>1</b><span>Command to install</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap">
+    <div class="filters" id="filters"></div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty">No reels in this pillar.</div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>Hammer these three in every batch</h3>
+        <p>They carry both install proof and the AI-agent story that sets QASkills apart from a tutorial channel. Lead with the agent angle, feature one of these, link it in the bio.</p>
+        <a class="btn btn-primary" href="https://qaskills.sh/skills" target="_blank" rel="noopener">Browse all 431 skills →</a>
+      </div>
+      <div class="anchors" id="anchors"></div>
+    </div>
+    <div class="legal">All CTA links verified live · qaskills.sh · build your own with <span style="color:var(--action)">qaskills publish</span></div>
+  </div>
+</footer>
+
+<button class="themebtn" id="themebtn">◐ Theme</button>
+
+<script>
+  const P = {
+    ai:     { label: "AI-Agent Testing", v: "--p-ai" },
+    flaky:  { label: "Flaky Fixes",      v: "--p-flaky" },
+    frame:  { label: "Framework",        v: "--p-frame" },
+    perf:   { label: "Performance",      v: "--p-perf" },
+    skills: { label: "Skills 101",       v: "--p-skills" },
+    career: { label: "Career",           v: "--p-career" },
+    meta:   { label: "Meta / Community", v: "--p-meta" },
+  };
+  const HOME = "https://qaskills.sh";
+  const S = (a,s) => `${HOME}/skills/${a}/${s}`;
+
+  const REELS = [
+    { p:"skills", shot:"Talking head + terminal screen-record", hook:"Your AI writes tests like a nervous intern. One command fixes that.",
+      points:["Agents guess your stack and hallucinate selectors and APIs.","QASkills is a directory of drop-in QA skills for Cursor, Claude, and Copilot.","Run qaskills add playwright-e2e and it writes tests your way."],
+      outro:"431 skills, free. Link in bio.", skill:"playwright-e2e", cta:S("thetestingacademy","playwright-e2e"), ctaLabel:"playwright-e2e" },
+
+    { p:"ai", shot:"Split screen, left vs right", hook:"Same prompt, two agents. Only one had a skill installed.",
+      points:["Left agent: flaky waitForTimeout garbage.","Right agent: web-first assertions, fixtures, page objects.","The whole gap was one installed skill."],
+      outro:"Stop babysitting your agent.", skill:"playwright-e2e", cta:S("thetestingacademy","playwright-e2e"), ctaLabel:"playwright-e2e" },
+
+    { p:"ai", shot:"Screen-record of an agent driving a browser", hook:"Everyone is building AI agents. Almost nobody tests them.",
+      points:["Agents click, type, and navigate. That is a test surface.","agent-browser drives and verifies a real browser.","Catch the agent doing the wrong thing before prod does."],
+      outro:"AI testing is the new QA. Start here.", skill:"agent-browser", cta:S("vercel-labs","agent-browser"), ctaLabel:"agent-browser" },
+
+    { p:"flaky", shot:"Code zoom on one red line", hook:"This one line is why your whole suite is flaky.",
+      points:["Show sleep(3000) sitting in a test.","The race: element is not ready, you guessed the timing.","Web-first assertions retry automatically until the state is true."],
+      outro:"Install the skill, never write a sleep again.", skill:"playwright-e2e", cta:S("thetestingacademy","playwright-e2e"), ctaLabel:"playwright-e2e" },
+
+    { p:"skills", shot:"Three quick cuts, one per skill", hook:"Use Cursor or Claude for tests? Install these three today.",
+      points:["playwright-e2e for real end-to-end flows.","msw-mocking so tests stop hitting live APIs.","k6-performance for load in the same repo."],
+      outro:"Free. One command each.", skill:"skills index", cta:`${HOME}/skills`, ctaLabel:"browse skills" },
+
+    { p:"meta", shot:"Talking head, fast pace", hook:"AI wrote 400 lines. Do you actually trust it?",
+      points:["vibe-check is a fast sanity pass on AI output.","It flags missing tests, weak assertions, silent failures.","Thirty seconds before you commit."],
+      outro:"75 devs already installed it. Your turn.", skill:"vibe-check", cta:S("vibiumdev","vibe-check"), ctaLabel:"vibe-check" },
+
+    { p:"frame", shot:"Editor screen-record", hook:"Your pytest fixtures are doing too much. Here is the clean way.",
+      points:["Fixture scope: function vs session, and when each fits.","Parametrize instead of copy-pasting near-identical tests.","The skill ships these patterns straight to your agent."],
+      outro:"qaskills add pytest-patterns. Done.", skill:"pytest-patterns", cta:S("thetestingacademy","pytest-patterns"), ctaLabel:"pytest-patterns" },
+
+    { p:"frame", shot:"Talking head + 2am clock overlay", hook:"Your tests fail at 2am because a third-party API went down.",
+      points:["Real APIs in tests are flaky, slow, and rate-limited.","msw-mocking intercepts at the network layer, same for browser and node.","Deterministic tests, every single run."],
+      outro:"Mock it right. The skill is free.", skill:"msw-mocking", cta:S("thetestingacademy","msw-mocking"), ctaLabel:"msw-mocking" },
+
+    { p:"meta", shot:"Screen-record of the publish flow", hook:"You can publish your own QA skill and other devs install it.",
+      points:["Write a SKILL.md with your own testing patterns.","Run qaskills publish to push it to the directory.","Now every agent using it tests the way you do."],
+      outro:"Build once, everyone benefits.", skill:"skills index", cta:`${HOME}/skills`, ctaLabel:"browse skills" },
+
+    { p:"career", shot:"Talking head, direct to camera", hook:"Manual QA is not dying. It is leveling up. Here is the path.",
+      points:["Learn to direct AI agents, not compete with them.","QASkills gives those agents your testing standards.","You become the person who makes AI ship quality."],
+      outro:"The AI testing engineer role is here.", skill:"agent-browser", cta:S("vercel-labs","agent-browser"), ctaLabel:"agent-browser" },
+
+    { p:"frame", shot:"Editor + Postman comparison", hook:"You do not need a new tool for API tests. You already have Playwright.",
+      points:["The request fixture hits APIs with no browser.","Share auth state between UI and API tests.","One runner, one report, one config."],
+      outro:"The skill has the patterns.", skill:"playwright-api", cta:S("thetestingacademy","playwright-api"), ctaLabel:"playwright-api" },
+
+    { p:"frame", shot:"Before/after code diff", hook:"Cypress devs: your agent keeps writing Cypress 9 syntax. Fix it.",
+      points:["cy.session, cy.intercept, cy.origin done the current way.","No more deprecated commands your agent memorized.","The skill teaches your agent modern Cypress."],
+      outro:"Update your agent's brain.", skill:"cypress-e2e", cta:S("thetestingacademy","cypress-e2e"), ctaLabel:"cypress-e2e" },
+
+    { p:"flaky", shot:"Screen-record of a strict-mode error", hook:"Your locator matches three elements and you have no idea.",
+      points:["Brittle CSS and XPath break on every redesign.","Role plus accessible-name locators survive UI churn.","The skill enforces resilient locators by default."],
+      outro:"Locators that do not rot.", skill:"playwright-e2e", cta:S("thetestingacademy","playwright-e2e"), ctaLabel:"playwright-e2e" },
+
+    { p:"perf", shot:"Talking head + rising load graph", hook:"You ship features. Do you ship them under load?",
+      points:["k6 scripts live in the same repo as your tests.","Thresholds fail the build like any assertion.","Catch the p95 latency cliff before users do."],
+      outro:"Load testing your agent can write.", skill:"k6-performance", cta:S("thetestingacademy","k6-performance"), ctaLabel:"k6-performance" },
+
+    { p:"perf", shot:"Lighthouse report screen-record", hook:"Your Core Web Vitals tank and Google tells you, not your CI.",
+      points:["Lighthouse in CI with a budget as a hard gate.","LCP, CLS, and INP tracked on every pull request.","Regressions blocked before they merge."],
+      outro:"Performance as a pass/fail check.", skill:"lighthouse-performance", cta:S("thetestingacademy","lighthouse-performance"), ctaLabel:"lighthouse-performance" },
+
+    { p:"frame", shot:"Editor screen-record", hook:"Stop testing React by clicking around. Test what the user sees.",
+      points:["Query by role and text, not test-ids everywhere.","user-event over fireEvent for real interactions.","The skill ships these patterns to your agent."],
+      outro:"Tests that survive a refactor.", skill:"react-testing-library", cta:S("thetestingacademy","react-testing-library"), ctaLabel:"react-testing-library" },
+
+    { p:"skills", shot:"Single unbroken screen-record, timer on screen", hook:"Zero to a real Playwright suite in 60 seconds. Watch.",
+      points:["Run qaskills add playwright-e2e.","The agent reads the skill and scaffolds POM plus fixtures.","First test goes green on camera."],
+      outro:"Sixty seconds. Try it live.", skill:"playwright-e2e", cta:S("thetestingacademy","playwright-e2e"), ctaLabel:"playwright-e2e" },
+
+    { p:"ai", shot:"Talking head + red squiggly zoom", hook:"Your agent invented a method that does not exist. Again.",
+      points:["LLMs guess API shapes from vibes.","A skill pins the real, current API for the agent.","Fewer hallucinations, fewer retries, faster ships."],
+      outro:"Ground your agent in reality.", skill:"skills index", cta:`${HOME}/skills`, ctaLabel:"browse skills" },
+
+    { p:"career", shot:"Talking head, list on screen", hook:"Every SDET resume looks the same. Here is how to stand out in 2026.",
+      points:["Show that you direct AI agents to test.","Publish a skill other engineers actually use.","Make it measurable: installs and quality score."],
+      outro:"Proof beats buzzwords.", skill:"leaderboard", cta:`${HOME}/leaderboard`, ctaLabel:"leaderboard" },
+
+    { p:"meta", shot:"Leaderboard screen-record", hook:"Which QA skills do engineers actually install? The board does not lie.",
+      points:["playwright-e2e leads, then vibe-check and agent-browser.","Real install counts, not opinions.","Find your next tool by proof, not hype."],
+      outro:"Check the leaderboard.", skill:"leaderboard", cta:`${HOME}/leaderboard`, ctaLabel:"leaderboard" },
+
+    { p:"frame", shot:"Before/after Selenium code", hook:"Selenium is not dead. Bad Selenium is.",
+      points:["Advanced POM: no brittle waits, no god-objects.","Explicit waits and typed page objects.","The skill fixes the Selenium your agent writes."],
+      outro:"Legacy suite, modern patterns.", skill:"selenium-advance-pom", cta:S("thetestingacademy","selenium-advance-pom"), ctaLabel:"selenium-advance-pom" },
+
+    { p:"frame", shot:"Editor screen-record", hook:"Your unit tests mock everything and prove nothing.",
+      points:["Test behavior, not implementation details.","One clear assertion per case.","The skill ships the right test shape to your agent."],
+      outro:"Unit tests that catch real bugs.", skill:"jest-unit", cta:S("thetestingacademy","jest-unit"), ctaLabel:"jest-unit" },
+
+    { p:"ai", shot:"Screen-record, MCP + browser", hook:"I let an AI drive a real browser and verify the result. Here is how.",
+      points:["agent-browser: snapshot, act, then assert.","Works with Claude, Cursor, and MCP.","Repeatable runs, not vibes."],
+      outro:"Give your agent hands and eyes.", skill:"agent-browser", cta:S("vercel-labs","agent-browser"), ctaLabel:"agent-browser" },
+
+    { p:"skills", shot:"Talking head, multi-repo b-roll", hook:"Stop pasting the same test setup into every repo.",
+      points:["One source of truth for your QA patterns.","Version and share across projects and agents.","Update once, everywhere follows."],
+      outro:"npm for QA skills. Literally.", skill:"home", cta:HOME, ctaLabel:"qaskills.sh" },
+
+    { p:"meta", shot:"Punchy talking head + fast cuts", hook:"431 QA skills, one command, works with every AI coding agent. What are you waiting for?",
+      points:["Pick a skill, run qaskills add <name>.","Your agent starts testing like a senior.","Free, open, and growing daily."],
+      outro:"Start at qaskills.sh.", skill:"home", cta:HOME, ctaLabel:"qaskills.sh" },
+  ];
+
+  const ANCHORS = [
+    { name:"playwright-e2e", inst:"86 installs", url:S("thetestingacademy","playwright-e2e") },
+    { name:"vibe-check",     inst:"75 installs", url:S("vibiumdev","vibe-check") },
+    { name:"agent-browser",  inst:"47 installs", url:S("vercel-labs","agent-browser") },
+  ];
+
+  // render filters
+  const filtersEl = document.getElementById("filters");
+  const counts = REELS.reduce((m,r)=>(m[r.p]=(m[r.p]||0)+1,m),{});
+  let active = "all";
+  function mkChip(key, label, count, cvar) {
+    const b = document.createElement("button");
+    b.className = "chip"; b.setAttribute("aria-pressed", key===active);
+    b.dataset.key = key;
+    b.innerHTML = (cvar?`<span class="dot" style="background:var(${cvar})"></span>`:"") +
+      `${label} <span style="opacity:.6">${count}</span>`;
+    b.onclick = () => { active = key; render(); [...filtersEl.children].forEach(c=>c.setAttribute("aria-pressed", c.dataset.key===key)); };
+    return b;
+  }
+  filtersEl.appendChild(mkChip("all","All", REELS.length, null));
+  Object.entries(P).forEach(([k,v]) => filtersEl.appendChild(mkChip(k, v.label, counts[k]||0, v.v)));
+
+  const grid = document.getElementById("grid");
+  const emptyEl = document.getElementById("empty");
+  function esc(s){ return s.replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+  function scriptText(r, n) {
+    return `REEL ${String(n).padStart(2,"0")} - ${P[r.p].label}\n`+
+      `Shot: ${r.shot}\n\n`+
+      `HOOK: ${r.hook}\n\n`+
+      r.points.map((p,i)=>`${i+1}. ${p}`).join("\n")+`\n\n`+
+      `OUTRO: ${r.outro}\n`+
+      `CTA: ${r.cta}`;
+  }
+
+  function render() {
+    grid.innerHTML = "";
+    let shown = 0;
+    REELS.forEach((r, idx) => {
+      if (active !== "all" && r.p !== active) return;
+      shown++;
+      const n = idx + 1;
+      const cvar = P[r.p].v;
+      const card = document.createElement("article");
+      card.className = "card";
+      card.style.setProperty("--c", `var(${cvar})`);
+      card.innerHTML =
+        `<div class="card-top">
+           <span class="num">REEL ${String(n).padStart(2,"0")}</span>
+           <span class="pill">${P[r.p].label}</span>
+         </div>
+         <div class="shot">🎬 ${esc(r.shot)}</div>
+         <p class="hook">${esc(r.hook)}</p>
+         <div class="skilltag">▸ feature: <b>${esc(r.skill)}</b></div>
+         <p class="lbl">Talking points</p>
+         <ul class="points">${r.points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>
+         <div class="outro"><span>Outro</span>${esc(r.outro)}</div>
+         <div class="card-foot">
+           <a class="cta" href="${r.cta}" target="_blank" rel="noopener">Open CTA <small>${esc(r.ctaLabel)}</small></a>
+           <button class="copy" type="button">Copy</button>
+         </div>`;
+      const btn = card.querySelector(".copy");
+      btn.onclick = async () => {
+        try { await navigator.clipboard.writeText(scriptText(r, n)); }
+        catch(e){ const ta=document.createElement("textarea"); ta.value=scriptText(r,n); document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
+        btn.textContent = "Copied ✓"; btn.classList.add("done");
+        setTimeout(()=>{ btn.textContent="Copy"; btn.classList.remove("done"); }, 1400);
+      };
+      grid.appendChild(card);
+    });
+    emptyEl.style.display = shown ? "none" : "block";
+  }
+  render();
+
+  // anchors
+  const anchorsEl = document.getElementById("anchors");
+  ANCHORS.forEach(a => {
+    const el = document.createElement("a");
+    el.className = "anchor"; el.href = a.url; el.target = "_blank"; el.rel = "noopener";
+    el.innerHTML = `<span class="a-name">${a.name}</span><span class="a-inst">${a.inst}</span>`;
+    anchorsEl.appendChild(el);
+  });
+
+  // theme toggle
+  const tb = document.getElementById("themebtn");
+  tb.onclick = () => {
+    const cur = document.documentElement.getAttribute("data-theme");
+    const next = cur === "dark" ? "light" : cur === "light" ? "dark"
+      : (matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "dark");
+    document.documentElement.setAttribute("data-theme", next);
+  };
+</script>
+
+</body>
+</html>
