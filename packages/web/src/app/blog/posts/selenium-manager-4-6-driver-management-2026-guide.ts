@@ -268,7 +268,7 @@ jobs:
       - run: mvn test
 \`\`\`
 
-With the cache restored, Selenium Manager finds the driver already present and skips the network entirely, shaving real time off every build. For complementary CI testing patterns, see our [Locust vs JMeter load-testing guide](/blog/locust-vs-jmeter-2026-which-load-testing) and the [Playwright test agents reference](/blog/playwright-test-agents-planner-generator-healer-official-2026).
+With the cache restored, Selenium Manager finds the driver already present and skips the network entirely, shaving real time off every build. For complementary CI testing patterns, see our [Locust vs JMeter load-testing guide](/blog/jmeter-vs-locust-vs-gatling-comparison) and the [Playwright test agents reference](/blog/playwright-test-agents-planner-generator-healer).
 
 ## Managing Firefox and Edge Drivers
 
@@ -355,6 +355,6 @@ Selenium Manager respects the standard \`HTTPS_PROXY\` and \`HTTP_PROXY\` enviro
 
 Selenium Manager ended the era of manual driver downloads and PATH juggling. From Selenium 4.6 onward, the default experience is: write a test, run it, and the correct driver appears automatically. Understanding the pieces — version resolution, the \`~/.cache/selenium\` cache, offline mode, proxy support, version pinning, the \`selenium-manager\` CLI, and the \`SE_\` environment variables — lets you make that automation deterministic and fast in CI, and debug it instantly when something goes wrong.
 
-Ready to modernize your Selenium stack? Explore runnable, agent-ready Selenium and Playwright skills in the [skills directory](/skills), and pair this guide with our [WebDriver BiDi reference](/blog/selenium-webdriver-bidi-2026-official-reference) and [Playwright locator best practices guide](/blog/playwright-locator-best-practices-web-first-assertions-2026) to build a low-maintenance, future-proof browser automation suite.
+Ready to modernize your Selenium stack? Explore runnable, agent-ready Selenium and Playwright skills in the [skills directory](/skills), and pair this guide with our [WebDriver BiDi reference](/blog/selenium-webdriver-bidi-2026-official-reference) and [Playwright locator best practices guide](/blog/playwright-locators-best-practices-2026) to build a low-maintenance, future-proof browser automation suite.
 `,
 };

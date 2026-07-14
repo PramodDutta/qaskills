@@ -1,10 +1,11 @@
 import type { BlogPost } from './index';
 
 export const post: BlogPost = {
-  title: "Core Web Vitals Testing: LCP, INP & CLS Automation (2026)",
-  description: "Core Web Vitals testing guide for 2026 — automate LCP, INP and CLS measurement with the web-vitals library, Lighthouse CI, Playwright and the CrUX API.",
-  date: "2026-06-26",
-  category: "Performance",
+  title: 'Core Web Vitals Testing: LCP, INP & CLS Automation (2026)',
+  description:
+    'Core Web Vitals testing guide for 2026 — automate LCP, INP and CLS measurement with the web-vitals library, Lighthouse CI, Playwright and the CrUX API.',
+  date: '2026-06-26',
+  category: 'Performance',
   content: `# Core Web Vitals Testing: LCP, INP & CLS Automation (2026)
 
 Core Web Vitals testing means measuring three field-anchored metrics — **Largest Contentful Paint (LCP)**, **Interaction to Next Paint (INP)**, and **Cumulative Layout Shift (CLS)** — and failing your pipeline when a release regresses them. You collect them two ways: **lab** (synthetic, reproducible runs via Lighthouse or Playwright) and **field** (real-user data from the \`web-vitals\` JavaScript library and the Chrome UX Report). This guide shows the exact APIs, flags, and CI wiring to automate all three, plus the "good / needs improvement / poor" thresholds Google publishes, so you can gate pull requests on performance instead of discovering regressions after they ship.
@@ -79,7 +80,7 @@ onLCP((metric) => {
 });
 \`\`\`
 
-INP attribution splits the total into **input delay**, **processing duration**, and **presentation delay** — that breakdown tells you whether the fix is reducing main-thread contention, trimming an event handler, or cutting rendering work. This is the single most useful upgrade you can make to a RUM setup, and it ships in the same package. If you are wiring vitals into an end-to-end suite, the [Playwright locator best practices guide](/blog/playwright-locator-best-practices-web-first-assertions-2026) pairs well with the synthetic approach below.
+INP attribution splits the total into **input delay**, **processing duration**, and **presentation delay** — that breakdown tells you whether the fix is reducing main-thread contention, trimming an event handler, or cutting rendering work. This is the single most useful upgrade you can make to a RUM setup, and it ships in the same package. If you are wiring vitals into an end-to-end suite, the [Playwright locator best practices guide](/blog/playwright-locators-best-practices-2026) pairs well with the synthetic approach below.
 
 ## Lab Measurement with Lighthouse
 

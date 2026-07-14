@@ -2,7 +2,8 @@ import type { BlogPost } from './index';
 
 export const post: BlogPost = {
   title: 'Playwright Geolocation and Permissions Emulation: Complete Guide',
-  description: 'Emulate geolocation, permissions, locale, timezone, and color scheme in Playwright. Production patterns for camera, microphone, notifications, and clipboard.',
+  description:
+    'Emulate geolocation, permissions, locale, timezone, and color scheme in Playwright. Production patterns for camera, microphone, notifications, and clipboard.',
   date: '2026-05-06',
   category: 'Guide',
   content: `
@@ -10,7 +11,7 @@ export const post: BlogPost = {
 
 Real users grant location access, allow notifications, switch between dark and light mode, travel across time zones, and expect localized currency. Your tests should exercise every one of those code paths without you launching a real device in Mumbai. Playwright's emulation primitives, scoped at the browser context level, give you control over geolocation, permissions, locale, timezone, color scheme, reduced motion, and contrast. This guide covers every primitive with TypeScript examples that you can lift into your suite.
 
-For other parts of mobile and device emulation, see the [Playwright Mobile Emulation Devices Reference](/blog/playwright-mobile-emulation-devices-reference). The [playwright-e2e skill](/skills/playwright-e2e) bakes these patterns into AI-generated tests.
+For other parts of mobile and device emulation, see the [Playwright Mobile Emulation Devices Reference](/blog/playwright-mobile-emulation-guide). The [playwright-e2e skill](/skills/playwright-e2e) bakes these patterns into AI-generated tests.
 
 ## Setting geolocation
 
@@ -333,6 +334,6 @@ test.describe('@i18n India profile', () => {
 
 Emulation is the unloved hero of Playwright reliability. Set locale, timezone, permissions, and color scheme deliberately, and your tests cover real user diversity without leaving CI.
 
-Install the [playwright-e2e skill](/skills/playwright-e2e) so AI assistants set these options when generating tests. Pair with the [Playwright Mobile Emulation Devices Reference](/blog/playwright-mobile-emulation-devices-reference) and the [Playwright Clock Time Control Testing Guide](/blog/playwright-clock-time-control-testing-guide) for full environment control.
+Install the [playwright-e2e skill](/skills/playwright-e2e) so AI assistants set these options when generating tests. Pair with the [Playwright Mobile Emulation Devices Reference](/blog/playwright-mobile-emulation-guide) and the [Playwright Clock Time Control Testing Guide](/blog/playwright-clock-time-control-testing-guide) for full environment control.
 `,
 };

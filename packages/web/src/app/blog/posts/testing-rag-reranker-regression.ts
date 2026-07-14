@@ -213,7 +213,7 @@ Cross-encoders score query-document pairs and can add material latency as candid
 
 Keep performance and ranking gates connected but distinct. A cached offline replay can compare quality deterministically; a service-level load test covers batching, queueing, accelerators, and serialization. Confirm fallback behavior when the reranker times out: does the system use retriever order, return fewer passages, or fail the request?
 
-The broader [RAG regression testing guide](/blog/rag-regression-testing-guide-2026) explains how reranker evidence joins retrieval and answer-generation checks.
+The broader [RAG regression testing guide](/blog/rag-regression-testing-guide) explains how reranker evidence joins retrieval and answer-generation checks.
 
 ## Roll out with disagreement logging
 

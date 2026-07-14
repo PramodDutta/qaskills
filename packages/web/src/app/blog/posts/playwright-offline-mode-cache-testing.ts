@@ -126,7 +126,7 @@ Playwright's \`page.route()\` and \`browserContext.route()\` are excellent for A
 
 Use offline emulation for cache acceptance. Use route failure in separate tests for a single dependency, such as an avatar CDN failing while the main API remains reachable. If you need to observe service-worker-owned traffic, listen for request events on the browser context and consult Playwright's service-worker support limitations for the browser engine in use.
 
-For broader request mocking patterns, see the [Playwright network interception guide](/blog/playwright-network-interception-mocking-guide). Do not combine every network technique into one test, because it becomes unclear which layer caused the outcome.
+For broader request mocking patterns, see the [Playwright network interception guide](/blog/playwright-network-mocking-route-handler-guide). Do not combine every network technique into one test, because it becomes unclear which layer caused the outcome.
 
 ## Verify a cold offline visit separately
 

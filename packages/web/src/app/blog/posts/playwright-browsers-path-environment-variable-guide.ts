@@ -183,7 +183,7 @@ CMD ["npx", "playwright", "test"]
 
 Because \`ENV\` makes the variable part of the image, both the build-time \`playwright install\` and the runtime \`playwright test\` see the same value — no mismatch. The \`--with-deps\` flag installs the Linux shared libraries the browsers need (fonts, audio, graphics), which is the second most common source of failures in containers.
 
-If you are debugging mobile rendering in containers, the same headless setup powers device emulation; see our guide to [Playwright mobile emulation](/blog/playwright-mobile-emulation) for the viewport and user-agent details.
+If you are debugging mobile rendering in containers, the same headless setup powers device emulation; see our guide to [Playwright mobile emulation](/blog/playwright-mobile-emulation-guide) for the viewport and user-agent details.
 
 ## Caching Browsers in CI
 

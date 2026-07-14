@@ -1,10 +1,11 @@
 import type { BlogPost } from './index';
 
 export const post: BlogPost = {
-  title: "Needle in a Haystack: Testing Long-Context LLM Recall (2026)",
-  description: "A needle in a haystack guide for 2026: how the long-context LLM recall test works, why position matters, and how to run NIAH and RULER on your own model.",
-  date: "2026-06-26",
-  category: "AI Evals",
+  title: 'Needle in a Haystack: Testing Long-Context LLM Recall (2026)',
+  description:
+    'A needle in a haystack guide for 2026: how the long-context LLM recall test works, why position matters, and how to run NIAH and RULER on your own model.',
+  date: '2026-06-26',
+  category: 'AI Evals',
   content: `# Needle in a Haystack: Testing Long-Context LLM Recall (2026)
 
 **Needle in a Haystack (NIAH) is a long-context evaluation that hides one fact — the "needle" — inside a large block of filler text — the "haystack" — then asks the model to retrieve it.** Popularized by Greg Kamradt in late 2023, you run it across a grid of context lengths and needle depths to map where a model's recall holds and where it fails. The output is a heatmap: green where the fact was recovered, red where it was lost. It is the standard first probe for any model advertising a long context window.
@@ -93,7 +94,7 @@ for depth in (0, 25, 50, 75, 100):
     print(depth, "->", run_case(haystack, depth))
 \`\`\`
 
-Two details make or break the result. First, **\`temperature=0\`** so a red cell means a real miss, not sampling noise. Second, the **grader**: a naive substring match is brittle, so production NIAH uses an LLM-as-judge to score whether the needle's *meaning* was recovered — see the [LLM-as-a-judge guide](/blog/llm-as-a-judge-evaluation-guide-2026).
+Two details make or break the result. First, **\`temperature=0\`** so a red cell means a real miss, not sampling noise. Second, the **grader**: a naive substring match is brittle, so production NIAH uses an LLM-as-judge to score whether the needle's *meaning* was recovered — see the [LLM-as-a-judge guide](/blog/llm-as-a-judge-evaluation-guide).
 
 ## The Grader Problem
 

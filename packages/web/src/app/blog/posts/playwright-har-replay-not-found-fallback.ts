@@ -76,7 +76,7 @@ Route registration order deserves attention. When multiple handlers match, Playw
 
 This is different from \`route.continue()\`. Continue sends the request to the network immediately and does not offer it to another matching handler. For layered network policy, fallback is the compositional operation.
 
-The [Playwright network interception guide](/blog/playwright-network-interception-mocking-guide) explains route precedence in more depth. HAR replay is one routing handler in that larger stack.
+The [Playwright network interception guide](/blog/playwright-network-mocking-route-handler-guide) explains route precedence in more depth. HAR replay is one routing handler in that larger stack.
 
 ## Make escaped requests visible
 

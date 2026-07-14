@@ -9,13 +9,13 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: process.env.CI ? 'dot' : 'list',
   use: {
-    baseURL: 'http://localhost:3100',
+    baseURL: 'http://127.0.0.1:3100',
     trace: 'retain-on-failure',
   },
   webServer: {
-    command: 'pnpm start:test',
-    url: 'http://localhost:3100',
-    reuseExistingServer: !process.env.CI,
+    command: 'corepack pnpm start:test',
+    url: 'http://127.0.0.1:3100',
+    reuseExistingServer: false,
     stdout: 'pipe',
     stderr: 'pipe',
     timeout: 120 * 1000,

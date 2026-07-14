@@ -286,7 +286,7 @@ All three are mature load testing tools; the right pick depends on your team's l
 | Resource use per node | Low | Very low | Higher (threads + JVM) |
 | Best for | Python teams, custom logic | JS/TS teams, CI gates, max load | Enterprise GUI workflows, protocol breadth |
 
-Choose Locust when your team writes Python and your scenarios need real programmability — calling internal libraries, generating complex payloads, branching logic. Choose k6 when you want the highest single-node throughput and built-in CI thresholds and your team is comfortable in JavaScript. Choose JMeter when you need its enormous protocol/plugin ecosystem or your organization is standardized on its GUI. For a deeper head-to-head, see our [k6 vs Locust 2026 comparison](/blog/k6-vs-locust-2026) and [k6 vs JMeter performance testing guide](/blog/k6-vs-jmeter-performance-testing).
+Choose Locust when your team writes Python and your scenarios need real programmability — calling internal libraries, generating complex payloads, branching logic. Choose k6 when you want the highest single-node throughput and built-in CI thresholds and your team is comfortable in JavaScript. Choose JMeter when you need its enormous protocol/plugin ecosystem or your organization is standardized on its GUI. For a deeper head-to-head, see our [k6 vs Locust 2026 comparison](/blog/k6-vs-locust-2026) and [k6 vs JMeter performance testing guide](/blog/k6-vs-jmeter-2026).
 
 ## Best practices
 

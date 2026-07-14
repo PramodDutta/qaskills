@@ -2,7 +2,8 @@ import type { BlogPost } from './index';
 
 export const post: BlogPost = {
   title: 'LLM-as-Judge Calibration: Agreement, Bias, and Rubric Testing',
-  description: 'Calibrate LLM-as-judge evaluations with agreement checks, bias probes, rubric tests, human review loops, and defensible QA release gates well.',
+  description:
+    'Calibrate LLM-as-judge evaluations with agreement checks, bias probes, rubric tests, human review loops, and defensible QA release gates well.',
   date: '2026-07-09',
   category: 'AI Testing',
   content: `
@@ -12,7 +13,7 @@ LLM-as-judge calibration is no longer a niche QA topic. In 2026, teams ship thro
 
 This guide treats LLM-as-judge calibration as an engineering system. It covers why it matters, how to set it up, which concepts matter, how to run a realistic worked example, how to connect it to CI, what to measure, and where teams usually get hurt. The examples assume an LLM evaluation pipeline that scores answers for correctness, citation support, safety, and format. Adjust the names to your stack, but keep the same operating discipline: every check should have an owner, every exception should be visible, and every pass should mean something.
 
-A useful starting point is to place LLM-as-judge calibration inside a larger delivery pipeline instead of treating it as a side script. If your team is still shaping that pipeline, read the related guidance on [LLM-as-a-judge evaluation](/blog/llm-as-a-judge-evaluation-guide-2026) and keep the same release language in both places. The second dependency is architecture and ownership. LLM-as-judge calibration becomes fragile when the test suite has no layers, no ownership, and no stable naming, so compare your plan with [OpenAI Evals graders](/blog/openai-evals-graders-complete-reference) before making it a required gate.
+A useful starting point is to place LLM-as-judge calibration inside a larger delivery pipeline instead of treating it as a side script. If your team is still shaping that pipeline, read the related guidance on [LLM-as-a-judge evaluation](/blog/llm-as-a-judge-evaluation-guide) and keep the same release language in both places. The second dependency is architecture and ownership. LLM-as-judge calibration becomes fragile when the test suite has no layers, no ownership, and no stable naming, so compare your plan with [OpenAI Evals graders](/blog/openai-evals-graders-complete-reference) before making it a required gate.
 
 ## Why This Matters in 2026
 

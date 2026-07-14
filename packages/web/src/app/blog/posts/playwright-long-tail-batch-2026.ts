@@ -40,7 +40,7 @@ function buildArticle(config: PlaywrightLongTailConfig): string {
 
 ${step.body}
 ${step.code ? `\n\`\`\`ts\n${step.code}\n\`\`\`\n` : ''}
-`
+`,
     )
     .join('\n');
   const renderedMistakes = config.mistakes.map((item) => `- ${item}`).join('\n');
@@ -113,24 +113,21 @@ export const playwrightLongTail2026Posts: PlaywrightLongTailBatchPost[] = [
         workflowSteps: [
           {
             title: 'Start with the user-facing element contract',
-            body:
-              'Model the locator around role, label, placeholder, or visible text first. This keeps the test aligned with what the UI promises to a real user.',
+            body: 'Model the locator around role, label, placeholder, or visible text first. This keeps the test aligned with what the UI promises to a real user.',
             code: `await page.getByRole('button', { name: 'Add to cart' }).click();
 await page.getByRole('dialog', { name: 'Cart' }).getByLabel('Quantity').fill('2');
 await expect(page.getByRole('status')).toContainText('2 items');`,
           },
           {
             title: 'Scope inside stable parents instead of grabbing global text',
-            body:
-              'When the same text appears more than once, narrow the search to a card, dialog, table row, or region. This avoids brittle global matching and makes failures easier to debug.',
+            body: 'When the same text appears more than once, narrow the search to a card, dialog, table row, or region. This avoids brittle global matching and makes failures easier to debug.',
             code: `const pricingCard = page.getByRole('region', { name: 'Pro plan' });
 await pricingCard.getByRole('button', { name: 'Choose plan' }).click();
 await expect(pricingCard.getByText('$49')).toBeVisible();`,
           },
           {
             title: 'Use the Playwright CLI to inspect and confirm locator candidates',
-            body:
-              'Before hard-coding a selector, open the page, take a snapshot, and inspect the accessibility tree that the CLI surfaces. This is often the fastest route to a better locator.',
+            body: 'Before hard-coding a selector, open the page, take a snapshot, and inspect the accessibility tree that the CLI surfaces. This is often the fastest route to a better locator.',
             code: `playwright-cli open https://example.com/pricing
 playwright-cli snapshot
 playwright-cli click e12`,
@@ -184,8 +181,7 @@ playwright-cli click e12`,
         workflowSteps: [
           {
             title: 'Create isolated sessions for each role',
-            body:
-              'For flows like admin approvals or chat moderation, create separate contexts instead of fighting cookies inside one page.',
+            body: 'For flows like admin approvals or chat moderation, create separate contexts instead of fighting cookies inside one page.',
             code: `const adminContext = await browser.newContext({ storageState: 'admin-auth.json' });
 const userContext = await browser.newContext({ storageState: 'user-auth.json' });
 const adminPage = await adminContext.newPage();
@@ -193,8 +189,7 @@ const userPage = await userContext.newPage();`,
           },
           {
             title: 'Push configuration down to the context boundary',
-            body:
-              'Timezone, locale, permissions, and geolocation belong at the context level. This keeps each scenario deterministic and easier to reproduce.',
+            body: 'Timezone, locale, permissions, and geolocation belong at the context level. This keeps each scenario deterministic and easier to reproduce.',
             code: `const euContext = await browser.newContext({
   locale: 'en-GB',
   timezoneId: 'Europe/London',
@@ -204,8 +199,7 @@ const userPage = await userContext.newPage();`,
           },
           {
             title: 'Mirror the same idea in Playwright CLI sessions',
-            body:
-              'The CLI skill helps here because named sessions behave like isolated context flows. You can keep one session authenticated while another stays anonymous.',
+            body: 'The CLI skill helps here because named sessions behave like isolated context flows. You can keep one session authenticated while another stays anonymous.',
             code: `playwright-cli -s=admin open https://app.example.com
 playwright-cli -s=customer open https://app.example.com
 playwright-cli -s=admin snapshot
@@ -260,8 +254,7 @@ playwright-cli -s=customer snapshot`,
         workflowSteps: [
           {
             title: 'Capture the popup event before the click',
-            body:
-              'If you wait for the page after the click, you can miss the event in fast environments. Always start waiting first.',
+            body: 'If you wait for the page after the click, you can miss the event in fast environments. Always start waiting first.',
             code: `const popupPromise = page.waitForEvent('popup');
 await page.getByRole('link', { name: 'Open invoice preview' }).click();
 const popup = await popupPromise;
@@ -269,8 +262,7 @@ await popup.waitForLoadState('domcontentloaded');`,
           },
           {
             title: 'Differentiate new tabs from context-level new pages',
-            body:
-              'Popups spawned from the current page can be captured from the page. Brand-new tabs created elsewhere in the context are easier to observe at the context level.',
+            body: 'Popups spawned from the current page can be captured from the page. Brand-new tabs created elsewhere in the context are easier to observe at the context level.',
             code: `const pagePromise = context.waitForEvent('page');
 await page.getByRole('button', { name: 'Open support center' }).click();
 const supportPage = await pagePromise;
@@ -278,8 +270,7 @@ await expect(supportPage).toHaveURL(/support/);`,
           },
           {
             title: 'Mirror the same debugging flow in the CLI',
-            body:
-              'When the test fails only in a real environment, reproduce it quickly with tabs and snapshots before you change test code.',
+            body: 'When the test fails only in a real environment, reproduce it quickly with tabs and snapshots before you change test code.',
             code: `playwright-cli open https://example.com
 playwright-cli tab-new https://example.com/invoice
 playwright-cli tab-list
@@ -335,15 +326,13 @@ playwright-cli snapshot`,
         workflowSteps: [
           {
             title: 'Upload directly to the input when possible',
-            body:
-              'If the input exists in the DOM, this is usually the cleanest and most stable option.',
+            body: 'If the input exists in the DOM, this is usually the cleanest and most stable option.',
             code: `await page.getByLabel('Upload resume').setInputFiles('tests/fixtures/resume.pdf');
 await expect(page.getByText('resume.pdf')).toBeVisible();`,
           },
           {
             title: 'Handle a native chooser when the UI hides the input',
-            body:
-              'Wait for the file chooser before clicking the upload button, then provide the file path programmatically.',
+            body: 'Wait for the file chooser before clicking the upload button, then provide the file path programmatically.',
             code: `const chooserPromise = page.waitForEvent('filechooser');
 await page.getByRole('button', { name: 'Select file' }).click();
 const chooser = await chooserPromise;
@@ -351,8 +340,7 @@ await chooser.setFiles(['tests/fixtures/invoice.pdf']);`,
           },
           {
             title: 'Use the CLI to verify the upload control and the resulting page state',
-            body:
-              'This is a fast way to inspect whether the page uses a hidden input, a custom dialog, or a post-upload status component.',
+            body: 'This is a fast way to inspect whether the page uses a hidden input, a custom dialog, or a post-upload status component.',
             code: `playwright-cli open https://example.com/upload
 playwright-cli snapshot
 playwright-cli upload ./tests/fixtures/invoice.pdf
@@ -407,23 +395,20 @@ playwright-cli snapshot`,
         workflowSteps: [
           {
             title: 'Wait for the download event first',
-            body:
-              'The event ordering rule is the same as popups and choosers: start listening before the action that triggers the file.',
+            body: 'The event ordering rule is the same as popups and choosers: start listening before the action that triggers the file.',
             code: `const downloadPromise = page.waitForEvent('download');
 await page.getByRole('button', { name: 'Export CSV' }).click();
 const download = await downloadPromise;`,
           },
           {
             title: 'Persist the artifact when the file matters to the test',
-            body:
-              'If the business logic depends on what was exported, save it and assert on the file path or contents.',
+            body: 'If the business logic depends on what was exported, save it and assert on the file path or contents.',
             code: `await download.saveAs('test-results/reports/export.csv');
 expect(await download.suggestedFilename()).toContain('export');`,
           },
           {
             title: 'Use CLI-driven reproduction for flaky export buttons',
-            body:
-              'This is helpful when you need to prove whether the problem is the browser trigger, the export route, or the generated file itself.',
+            body: 'This is helpful when you need to prove whether the problem is the browser trigger, the export route, or the generated file itself.',
             code: `playwright-cli open https://example.com/reports
 playwright-cli snapshot
 playwright-cli click e9
@@ -478,8 +463,7 @@ playwright-cli network`,
         workflowSteps: [
           {
             title: 'Use evaluate for browser-only information',
-            body:
-              'Things like local storage, computed DOM counts, and runtime globals often fit here better than locator chains.',
+            body: 'Things like local storage, computed DOM counts, and runtime globals often fit here better than locator chains.',
             code: `const pageStats = await page.evaluate(() => ({
   title: document.title,
   productCards: document.querySelectorAll('[data-product-card]').length,
@@ -488,8 +472,7 @@ playwright-cli network`,
           },
           {
             title: 'Pass arguments instead of concatenating them',
-            body:
-              'Explicit arguments are safer and easier to reason about than string-building browser code.',
+            body: 'Explicit arguments are safer and easier to reason about than string-building browser code.',
             code: `const minPrice = 49;
 const premiumCount = await page.evaluate((threshold) => {
   return [...document.querySelectorAll('[data-price]')].filter((el) => {
@@ -499,8 +482,7 @@ const premiumCount = await page.evaluate((threshold) => {
           },
           {
             title: 'Use the CLI for quick DOM inspection before formalizing the test',
-            body:
-              'The CLI keeps this lightweight when you just need one answer from a live page.',
+            body: 'The CLI keeps this lightweight when you just need one answer from a live page.',
             code: `playwright-cli open https://example.com/catalog
 playwright-cli eval "document.title"
 playwright-cli eval "Array.from(document.querySelectorAll('[data-price]')).length"`,
@@ -554,8 +536,7 @@ playwright-cli eval "Array.from(document.querySelectorAll('[data-price]')).lengt
         workflowSteps: [
           {
             title: 'Choose a retention policy that matches debugging value',
-            body:
-              'For most teams, `retain-on-failure` or `on-first-retry` is the right balance. Full-session video on every test is usually unnecessary.',
+            body: 'For most teams, `retain-on-failure` or `on-first-retry` is the right balance. Full-session video on every test is usually unnecessary.',
             code: `import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
@@ -567,16 +548,14 @@ export default defineConfig({
           },
           {
             title: 'Name and archive video artifacts consistently',
-            body:
-              'Debugging gets faster when the artifact naming tells you the suite, browser, and scenario immediately.',
-            code: `playwright-cli video-start
+            body: 'Debugging gets faster when the artifact naming tells you the suite, browser, and scenario immediately.',
+            code: `playwright-cli video-start recordings/checkout-failure.webm
 playwright-cli open https://example.com/checkout
-playwright-cli video-stop recordings/checkout-failure.webm`,
+playwright-cli video-stop`,
           },
           {
             title: 'Know when to switch from video to trace',
-            body:
-              'Use video when you want to see visual behavior. Switch to trace when you need DOM state, network timing, console output, or action-by-action replay.',
+            body: 'Use video when you want to see visual behavior. Switch to trace when you need DOM state, network timing, console output, or action-by-action replay.',
           },
         ],
         mistakes: [
@@ -627,8 +606,7 @@ playwright-cli video-stop recordings/checkout-failure.webm`,
         workflowSteps: [
           {
             title: 'Handle destructive confirms explicitly',
-            body:
-              'This keeps the test clear and prevents the page from stalling while the dialog waits for input.',
+            body: 'This keeps the test clear and prevents the page from stalling while the dialog waits for input.',
             code: `page.once('dialog', async (dialog) => {
   expect(dialog.type()).toBe('confirm');
   expect(dialog.message()).toContain('Delete project');
@@ -639,8 +617,7 @@ await page.getByRole('button', { name: 'Delete project' }).click();`,
           },
           {
             title: 'Use prompt values intentionally',
-            body:
-              'If a prompt asks for a reason, ticket number, or confirmation text, send the value that matches the real user flow.',
+            body: 'If a prompt asks for a reason, ticket number, or confirmation text, send the value that matches the real user flow.',
             code: `page.once('dialog', async (dialog) => {
   expect(dialog.type()).toBe('prompt');
   await dialog.accept('QA automation cleanup');
@@ -648,8 +625,7 @@ await page.getByRole('button', { name: 'Delete project' }).click();`,
           },
           {
             title: 'Reproduce dialog behavior quickly in the CLI',
-            body:
-              'This is useful when you want to see whether the issue is the native dialog, the follow-up action, or the surrounding page state.',
+            body: 'This is useful when you want to see whether the issue is the native dialog, the follow-up action, or the surrounding page state.',
             code: `playwright-cli open https://example.com/settings
 playwright-cli click e7
 playwright-cli dialog-accept
@@ -704,16 +680,14 @@ playwright-cli snapshot`,
         workflowSteps: [
           {
             title: 'Install browsers intentionally, not implicitly',
-            body:
-              'Make browser installation part of setup scripts or CI steps instead of assuming it happened somewhere else.',
+            body: 'Make browser installation part of setup scripts or CI steps instead of assuming it happened somewhere else.',
             code: `npx playwright install
 npx playwright install chromium
 npx playwright install --with-deps`,
           },
           {
             title: 'Treat CI as a separate install environment',
-            body:
-              'CI runners usually need browser caching and a repeatable dependency step. The best local setup is not automatically the best CI setup.',
+            body: 'CI runners usually need browser caching and a repeatable dependency step. The best local setup is not automatically the best CI setup.',
             code: `- name: Install browsers
   run: npx playwright install --with-deps
 
@@ -721,9 +695,9 @@ npx playwright install --with-deps`,
   run: npx playwright test`,
           },
           {
-            title: 'Use the CLI skill when you need quick browser validation outside the full suite',
-            body:
-              'If a new machine or container is misconfigured, a quick `playwright-cli open` session is often enough to prove whether the browser layer is healthy.',
+            title:
+              'Use the CLI skill when you need quick browser validation outside the full suite',
+            body: 'If a new machine or container is misconfigured, a quick `playwright-cli open` session is often enough to prove whether the browser layer is healthy.',
             code: `playwright-cli open https://playwright.dev
 playwright-cli snapshot
 playwright-cli close`,
@@ -777,8 +751,7 @@ playwright-cli close`,
         workflowSteps: [
           {
             title: 'Choose the right screenshot scope',
-            body:
-              'A full-page screenshot is great for audits, but element screenshots are often better when you are validating a widget, invoice panel, or visual regression target.',
+            body: 'A full-page screenshot is great for audits, but element screenshots are often better when you are validating a widget, invoice panel, or visual regression target.',
             code: `await page.screenshot({ path: 'test-results/homepage.png', fullPage: true });
 await page.getByTestId('invoice-summary').screenshot({
   path: 'test-results/invoice-summary.png',
@@ -786,15 +759,13 @@ await page.getByTestId('invoice-summary').screenshot({
           },
           {
             title: 'Generate PDFs only on supported flows',
-            body:
-              'PDF export is useful for evidence and print-ready output, but keep the test tied to a real user need rather than adding PDFs everywhere.',
+            body: 'PDF export is useful for evidence and print-ready output, but keep the test tied to a real user need rather than adding PDFs everywhere.',
             code: `await page.emulateMedia({ media: 'print' });
 await page.pdf({ path: 'test-results/invoice.pdf', format: 'A4' });`,
           },
           {
             title: 'Use CLI capture for audits and quick evidence',
-            body:
-              'This is one of the strongest practical uses of the imported skill because it turns browser evidence collection into a fast repeatable workflow.',
+            body: 'This is one of the strongest practical uses of the imported skill because it turns browser evidence collection into a fast repeatable workflow.',
             code: `playwright-cli open https://example.com/dashboard
 playwright-cli screenshot --filename=dashboard.png
 playwright-cli pdf --filename=dashboard.pdf`,

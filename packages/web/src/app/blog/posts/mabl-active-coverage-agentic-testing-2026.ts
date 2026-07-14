@@ -13,7 +13,7 @@ In April 2026, Mabl launched Active Coverage, a repositioning of its low-code cl
 
 This guide is an honest, practitioner-focused walk through what Mabl Active Coverage actually is, what the agentic shift means in practice, and where it fits relative to code-first frameworks like Playwright. Mabl is a commercial, AI-native cloud SaaS platform. That has real advantages — managed execution, built-in cross-browser, accessibility, performance, and API testing — and real trade-offs — recurring cost, vendor lock-in, and less direct control than owning your own test code. We will cover both sides plainly so you can decide whether Active Coverage belongs in your stack, alongside it, or not at all.
 
-If you are weighing the broader question of building your own agents versus buying a platform, our companion piece on [autonomous testing build vs buy](/blog/autonomous-testing-agents-build-vs-buy) pairs well with this one. And if you want the wider market context, see our roundup of the [best AI test automation tools](/blog/best-ai-test-automation-tools-detailed-2026).
+If you are weighing the broader question of building your own agents versus buying a platform, our companion piece on [autonomous testing build vs buy](/blog/autonomous-testing-agents-build-vs-buy) pairs well with this one. And if you want the wider market context, see our roundup of the [best AI test automation tools](/blog/ai-test-automation-tools-2026).
 
 ## What Mabl Active Coverage Is
 
@@ -55,7 +55,7 @@ Runtime Recovery is Mabl's self-healing layer, and it is the most directly compa
 
 Runtime Recovery handles these in two ways. First, locator-level healing: when an element's selector no longer matches, the engine uses alternate signals (visible text, position, accessibility attributes, surrounding context) to find the intended element and continue, then flags the change for review. Second, run-level resilience: retrying transient steps, waiting intelligently for slow conditions, and isolating environmental failures so one flaky dependency does not fail the whole run.
 
-If you want a deeper, vendor-neutral treatment of how this class of feature works and where it breaks down, our [self-healing test automation](/blog/self-healing-test-automation-2026-guide) guide goes into the mechanics. The key discipline with any self-healing system is to treat heals as events to review, not silently accept — a heal can mask a real bug if the "wrong" element it found happens to also work.
+If you want a deeper, vendor-neutral treatment of how this class of feature works and where it breaks down, our [self-healing test automation](/blog/self-healing-test-automation-guide) guide goes into the mechanics. The key discipline with any self-healing system is to treat heals as events to review, not silently accept — a heal can mask a real bug if the "wrong" element it found happens to also work.
 
 ## Low-Code Authoring and a Sample Configuration
 

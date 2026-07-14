@@ -13,7 +13,7 @@ Performance problems rarely show up on a developer's laptop with one user. They 
 
 This is a practical, code-first **Gatling tutorial for 2026**. We will install Gatling, write your first simulation in the Scala DSL, model realistic user journeys with feeders and checks, control load with injection profiles (ramps, constant rate, spikes), assert on response-time and error thresholds so builds fail on regressions, run everything from the command line, and read the HTML report. We will also cover the question everyone asks: **Gatling vs JMeter** (and k6), with a clear comparison table to help you choose.
 
-Every simulation here is real, runnable code that works with Gatling 3.11+. Whether you are new to performance testing or migrating from a GUI tool, by the end you will be able to write, run, and gate a load test in CI. If you are still deciding on a tool, our [k6 vs JMeter](/blog/k6-vs-jmeter-performance-testing) comparison and the broader [load testing guide](/blog/load-testing-beginners-guide) are worth a read alongside this one, and the [QA skills](/skills) directory has ready-made performance-testing skills for AI coding agents.
+Every simulation here is real, runnable code that works with Gatling 3.11+. Whether you are new to performance testing or migrating from a GUI tool, by the end you will be able to write, run, and gate a load test in CI. If you are still deciding on a tool, our [k6 vs JMeter](/blog/k6-vs-jmeter-2026) comparison and the broader [load testing guide](/blog/load-testing-beginners-guide) are worth a read alongside this one, and the [QA skills](/skills) directory has ready-made performance-testing skills for AI coding agents.
 
 ## What Makes Gatling Different
 
@@ -268,7 +268,7 @@ The tool choice comes down to how your team prefers to author tests, how much lo
 | Version control friendliness | Excellent (plain code) | Poor (large XML diffs) | Excellent (plain code) |
 | Best fit | Engineering teams wanting maintainable, high-load tests in git | Teams needing many protocols or a GUI | JS-first teams wanting simple scripting |
 
-Choose Gatling when you want maintainable, code-based tests, high load per machine, and first-class reporting. Choose JMeter when you need broad protocol coverage or a GUI for less technical users. Choose k6 when your team lives in JavaScript and wants the gentlest scripting curve. For deeper head-to-heads, see our [k6 vs JMeter](/blog/k6-vs-jmeter-performance-testing) comparison and the [load testing guide](/blog/load-testing-beginners-guide).
+Choose Gatling when you want maintainable, code-based tests, high load per machine, and first-class reporting. Choose JMeter when you need broad protocol coverage or a GUI for less technical users. Choose k6 when your team lives in JavaScript and wants the gentlest scripting curve. For deeper head-to-heads, see our [k6 vs JMeter](/blog/k6-vs-jmeter-2026) comparison and the [load testing guide](/blog/load-testing-beginners-guide).
 
 ## Open vs Closed Workload Models
 

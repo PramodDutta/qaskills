@@ -104,7 +104,7 @@ For an application, target its HTTP API or a custom provider rather than the bas
 
 Pin Promptfoo and the attack-provider model in CI after the initial setup. \`@latest\` is convenient interactively, but a silently changing generator, grader, or strategy library makes regression results difficult to interpret. Record target model, prompt, guardrail, plugin, strategy, and evaluator versions with each run.
 
-For a deeper tool workflow, use the [Promptfoo red-teaming guide](/blog/promptfoo-red-teaming-guide-2026).
+For a deeper tool workflow, use the [Promptfoo red-teaming guide](/blog/promptfoo-red-teaming-llm-applications).
 
 ## Measure from exported case-level results
 

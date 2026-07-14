@@ -30,10 +30,7 @@ export function generateOrganizationJsonLd() {
       name: 'Pramod Dutta',
       url: 'https://youtube.com/@TheTestingAcademy',
     },
-    sameAs: [
-      'https://youtube.com/@TheTestingAcademy',
-      'https://github.com/PramodDutta/qaskills',
-    ],
+    sameAs: ['https://youtube.com/@TheTestingAcademy', 'https://github.com/PramodDutta/qaskills'],
   };
 }
 
@@ -57,7 +54,12 @@ export function generateSkillJsonLd(skill: {
     author: { '@type': 'Organization', name: skill.author },
     applicationCategory: 'DeveloperApplication',
     operatingSystem: 'Any',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+    },
     ...(skill.reviewCount && skill.reviewCount > 0 && skill.averageRating
       ? {
           aggregateRating: {
@@ -80,6 +82,9 @@ export function generateBlogPostJsonLd(post: {
   slug: string;
   dateModified?: string;
   image?: string;
+  keywords?: string[];
+  articleSection?: string;
+  wordCount?: number;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -89,6 +94,9 @@ export function generateBlogPostJsonLd(post: {
     datePublished: post.date,
     dateModified: post.dateModified || post.date,
     ...(post.image && { image: post.image }),
+    ...(post.keywords && post.keywords.length > 0 && { keywords: post.keywords }),
+    ...(post.articleSection && { articleSection: post.articleSection }),
+    ...(post.wordCount && { wordCount: post.wordCount }),
     author: {
       '@type': 'Person',
       name: 'Pramod Dutta',
@@ -98,16 +106,19 @@ export function generateBlogPostJsonLd(post: {
       '@type': 'Organization',
       name: 'QASkills.sh',
       url: 'https://qaskills.sh',
-      logo: { '@type': 'ImageObject', url: 'https://qaskills.sh/logo.svg', width: 512, height: 512 },
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://qaskills.sh/logo.svg',
+        width: 512,
+        height: 512,
+      },
     },
     url: `https://qaskills.sh/blog/${post.slug}`,
     mainEntityOfPage: `https://qaskills.sh/blog/${post.slug}`,
   };
 }
 
-export function generateBreadcrumbJsonLd(
-  items: Array<{ name: string; url: string }>
-) {
+export function generateBreadcrumbJsonLd(items: Array<{ name: string; url: string }>) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -132,18 +143,19 @@ export function generateCollectionPageJsonLd(page: {
     name: page.name,
     description: page.description,
     url: page.url,
-    ...(page.items && page.items.length > 0 && {
-      mainEntity: {
-        '@type': 'ItemList',
-        numberOfItems: page.items.length,
-        itemListElement: page.items.map((item, index) => ({
-          '@type': 'ListItem',
-          position: index + 1,
-          name: item.name,
-          url: item.url,
-        })),
-      },
-    }),
+    ...(page.items &&
+      page.items.length > 0 && {
+        mainEntity: {
+          '@type': 'ItemList',
+          numberOfItems: page.items.length,
+          itemListElement: page.items.map((item, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: item.name,
+            url: item.url,
+          })),
+        },
+      }),
   };
 }
 

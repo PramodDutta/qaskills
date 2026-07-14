@@ -193,6 +193,6 @@ Two weeks before interviews:
 
 Behavioral interviews are won through preparation. Build your story bank, practice STAR delivery, and rehearse out loud until each answer flows naturally. The technical interview tests if you can do the work; the behavioral interview tests if you will succeed at the work.
 
-For broader career prep see [SDET 90-day plan](/blog/sdet-roadmap-day-by-day-90-day-plan), [SDET mock interview questions](/blog/sdet-mock-interview-questions-with-answers), [test automation resume template](/blog/test-automation-engineer-resume-template), and [system design interview](/blog/system-design-interview-test-frameworks). Browse the [skills directory](/skills) for AI agent skills.
+For broader career prep see [SDET 90-day plan](/blog/sdet-roadmap-day-by-day-90-day-plan), [SDET mock interview questions](/blog/sdet-mock-interview-questions-with-answers), [test automation resume template](/blog/test-automation-engineer-resume-template), and the [test framework architecture guide](/blog/test-automation-framework-architecture). Browse the [skills directory](/skills) for AI agent skills.
 `,
 };

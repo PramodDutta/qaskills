@@ -2,7 +2,8 @@ import type { BlogPost } from './index';
 
 export const post: BlogPost = {
   title: 'Playwright Accessibility Testing with Axe: Complete 2026 Guide',
-  description: 'Automate accessibility testing in Playwright with @axe-core/playwright. WCAG 2.2 audits, custom rules, snapshot diffs, and CI gating with TypeScript examples.',
+  description:
+    'Automate accessibility testing in Playwright with @axe-core/playwright. WCAG 2.2 audits, custom rules, snapshot diffs, and CI gating with TypeScript examples.',
   date: '2026-05-03',
   category: 'Guide',
   content: `
@@ -324,7 +325,7 @@ for (const locale of locales) {
 }
 \`\`\`
 
-Pair with the [Playwright Mobile Emulation Devices Reference](/blog/playwright-mobile-emulation-devices-reference) so each locale is audited at mobile and desktop viewports.
+Pair with the [Playwright Mobile Emulation Devices Reference](/blog/playwright-mobile-emulation-guide) so each locale is audited at mobile and desktop viewports.
 
 ## Conclusion and next steps
 

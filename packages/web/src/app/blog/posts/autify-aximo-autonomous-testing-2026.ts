@@ -64,7 +64,7 @@ The agent executes the chosen action -- click, type, scroll, navigate -- through
 
 ### 4. Verification and Self-Healing
 
-After acting, the agent re-perceives the page to confirm the action had the intended effect. If a button moved, was renamed, or its underlying selector changed, the agent does not fail outright. Instead it re-evaluates the current state against the goal and finds an alternative path. This is the **self-healing** behavior that makes autonomous agents attractive for fast-moving UIs. If you want a deeper treatment of how this works across tools, see our guide to [self-healing test automation](/blog/self-healing-test-automation-2026-guide).
+After acting, the agent re-perceives the page to confirm the action had the intended effect. If a button moved, was renamed, or its underlying selector changed, the agent does not fail outright. Instead it re-evaluates the current state against the goal and finds an alternative path. This is the **self-healing** behavior that makes autonomous agents attractive for fast-moving UIs. If you want a deeper treatment of how this works across tools, see our guide to [self-healing test automation](/blog/self-healing-test-automation-guide).
 
 ## An Example Natural-Language Test Scenario
 
@@ -178,7 +178,7 @@ There is no universal answer; the right tool depends on the surface under test a
 | Tests that gate every PR merge | Scripted | Stable pass/fail signal required |
 | Long-lived, high-value regression suite | Scripted (own the code) | Avoids vendor lock-in over years |
 
-The pattern that emerges: autonomous for breadth and change-tolerance, scripted for depth and certainty. Mature teams do both. To compare the broader landscape of agentic and AI-native options, see our roundup of the [best AI test automation tools](/blog/best-ai-test-automation-tools-detailed-2026).
+The pattern that emerges: autonomous for breadth and change-tolerance, scripted for depth and certainty. Mature teams do both. To compare the broader landscape of agentic and AI-native options, see our roundup of the [best AI test automation tools](/blog/ai-test-automation-tools-2026).
 
 ## Getting the Most Out of Autonomous Agents
 

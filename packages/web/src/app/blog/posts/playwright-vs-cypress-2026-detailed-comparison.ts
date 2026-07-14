@@ -224,14 +224,14 @@ Cypress relies on \`cy.viewport()\`, which changes the viewport but not the user
 
 ## Migration Notes
 
-If you decide to migrate, see [Migrate Cypress to Playwright step-by-step](/blog/migrate-cypress-to-playwright-step-by-step) for the full conversion playbook including codemods, fixture migration, and CI pipeline updates.
+If you decide to migrate, see [Migrate Cypress to Playwright step-by-step](/blog/cypress-to-playwright-migration-complete-guide) for the full conversion playbook including codemods, fixture migration, and CI pipeline updates.
 
 ## Recommended Reading
 
 - [Playwright best practices 2026](/blog/playwright-best-practices-2026)
-- [Playwright vs Selenium reliability showdown](/blog/playwright-vs-selenium-reliability-2026)
-- [Playwright vs Cypress for Next.js E2E](/blog/playwright-vs-cypress-for-nextjs-e2e)
-- [Playwright current version features 2026](/blog/playwright-current-version-features-2026)
+- [Playwright vs Selenium reliability showdown](/blog/playwright-vs-selenium-complete-2026)
+- [Playwright vs Cypress for Next.js E2E](/blog/playwright-vs-cypress-nextjs-e2e-2026)
+- [Playwright current version features 2026](/blog/whats-new-in-playwright-2026)
 
 ## Final Recommendation
 

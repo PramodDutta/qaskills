@@ -49,7 +49,7 @@ This matrix prevents a weak assertion such as “connected badge is green” fro
 
 Do not send close code \`1006\` from a mock. It is a reserved value used by clients to report abnormal closure and cannot be transmitted in a close frame. For a planned server restart, \`1012\` is a meaningful choice. For a deployment-specific policy, use the code your service contract defines. If the requirement is an abnormal transport loss, prefer offline emulation, server termination, or a proxy rather than inventing an illegal close frame.
 
-If the application already has HTTP stubbing, keep the WebSocket route separate. Ordinary \`page.route()\` handlers deal with HTTP requests and do not control established WebSocket messages. The concepts in this [Playwright network interception guide](/blog/playwright-network-interception-mocking-guide) remain useful for bootstrapping API state, but WebSocket frames require the dedicated routing or observation API.
+If the application already has HTTP stubbing, keep the WebSocket route separate. Ordinary \`page.route()\` handlers deal with HTTP requests and do not control established WebSocket messages. The concepts in this [Playwright network interception guide](/blog/playwright-network-mocking-route-handler-guide) remain useful for bootstrapping API state, but WebSocket frames require the dedicated routing or observation API.
 
 ## Force the first socket closed with a routed peer
 

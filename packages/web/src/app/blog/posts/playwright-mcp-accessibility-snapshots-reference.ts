@@ -2,7 +2,8 @@ import type { BlogPost } from './index';
 
 export const post: BlogPost = {
   title: 'Playwright MCP Accessibility Snapshots: Complete Reference 2026',
-  description: 'Reference for Playwright MCP accessibility snapshots: structure, ref attributes, AI-friendly tree, tool integration patterns, and how Claude Code and Cursor use them.',
+  description:
+    'Reference for Playwright MCP accessibility snapshots: structure, ref attributes, AI-friendly tree, tool integration patterns, and how Claude Code and Cursor use them.',
   date: '2026-05-03',
   category: 'Reference',
   content: `
@@ -12,7 +13,7 @@ The Model Context Protocol (MCP) gave AI assistants a standard way to talk to to
 
 This reference documents the structure of an accessibility snapshot, the \`ref\` attribute that uniquely identifies every element, how snapshots compose with MCP tool calls, and the patterns that make them work well for AI-driven testing. We will look at the full grammar, the way Playwright produces snapshots, and how to debug when snapshots diverge from your expectations. Examples are TypeScript with the Playwright MCP server (npm package \`@playwright/mcp\`).
 
-For an introduction to the wider MCP ecosystem, read [MCP for QA Engineers](/blog/mcp-for-qa-engineers-guide). For server configuration, see the [Playwright MCP Server Configuration 2026](/blog/playwright-mcp-server-configuration-2026) reference.
+For an introduction to the wider MCP ecosystem, read [MCP for QA Engineers](/blog/mcp-for-qa-engineers-guide). For server configuration, see the [Playwright MCP Server Configuration 2026](/blog/playwright-mcp-json-configuration-reference) reference.
 
 ## What a snapshot looks like
 
@@ -237,6 +238,6 @@ In MCP-driven tests, the diff is what the model uses to decide whether an action
 
 The accessibility snapshot is the canonical interface between AI agents and the browser. Master its grammar and your agent-driven tests become deterministic, debuggable, and resilient to UI churn that breaks CSS selectors.
 
-Install the [playwright-e2e skill](/skills/playwright-e2e) so Claude Code and Cursor know how to read and act on snapshots. Configure your MCP server with [Playwright MCP Server Configuration 2026](/blog/playwright-mcp-server-configuration-2026). For end-to-end agent workflows, read [Playwright Test Agents Planner Generator Healer Guide](/blog/playwright-test-agents-planner-generator-healer-guide).
+Install the [playwright-e2e skill](/skills/playwright-e2e) so Claude Code and Cursor know how to read and act on snapshots. Configure your MCP server with [Playwright MCP Server Configuration 2026](/blog/playwright-mcp-json-configuration-reference). For end-to-end agent workflows, read [Playwright Test Agents Planner Generator Healer Guide](/blog/playwright-test-agents-planner-generator-healer).
 `,
 };

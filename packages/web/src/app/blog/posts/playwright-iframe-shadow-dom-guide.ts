@@ -2,7 +2,8 @@ import type { BlogPost } from './index';
 
 export const post: BlogPost = {
   title: 'Playwright iframe & Shadow DOM: Complete 2026 Handling Guide',
-  description: 'Test iframes and Shadow DOM with Playwright in 2026. frameLocator, cross-origin frames, open and closed shadow roots, and accessibility tree traversal.',
+  description:
+    'Test iframes and Shadow DOM with Playwright in 2026. frameLocator, cross-origin frames, open and closed shadow roots, and accessibility tree traversal.',
   date: '2026-05-13',
   category: 'Guide',
   content: `
@@ -287,6 +288,6 @@ test('payment form inside iframe with shadow widget', async ({ page }) => {
 
 Playwright's locator model erases the iframe-and-shadow-DOM friction that historically plagued browser tests. \`frameLocator\` for explicit iframe scoping, plus role-based locators that pierce shadow roots automatically, are all you need to interact with embed-heavy apps.
 
-Install the [playwright-e2e skill](/skills/playwright-e2e) so AI assistants generate tests that handle these boundaries naturally. For broader locator patterns, see [Playwright Best Practices for Locators](/blog/playwright-best-practices-locators-2026). For component-level testing, [Playwright Component Testing for React](/blog/playwright-component-testing-react-complete-guide).
+Install the [playwright-e2e skill](/skills/playwright-e2e) so AI assistants generate tests that handle these boundaries naturally. For broader locator patterns, see [Playwright Best Practices for Locators](/blog/playwright-best-practices-locators-2026). For component-level testing, [Playwright Component Testing for React](/blog/playwright-component-testing-react-guide-2026).
 `,
 };

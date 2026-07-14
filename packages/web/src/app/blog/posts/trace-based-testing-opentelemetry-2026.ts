@@ -226,7 +226,7 @@ jobs:
         run: tracetest run test --file ./tests/checkout-flow.yaml --output pretty
 \`\`\`
 
-The key design choice: your Compose file wires every service's \`OTEL_EXPORTER_OTLP_ENDPOINT\` to a Collector, and Tracetest reads traces from that same Collector. When an assertion fails, the CI log shows exactly which span and attribute broke — and because the trace is stored, an engineer can open it in Grafana Tempo to see the full picture. This makes failures self-explaining in a way response-diff failures rarely are. Combining trace assertions with resilient automation practices, like those in our [self-healing test automation 2026 guide](/blog/self-healing-test-automation-2026-guide), keeps the whole suite low-maintenance.
+The key design choice: your Compose file wires every service's \`OTEL_EXPORTER_OTLP_ENDPOINT\` to a Collector, and Tracetest reads traces from that same Collector. When an assertion fails, the CI log shows exactly which span and attribute broke — and because the trace is stored, an engineer can open it in Grafana Tempo to see the full picture. This makes failures self-explaining in a way response-diff failures rarely are. Combining trace assertions with resilient automation practices, like those in our [self-healing test automation 2026 guide](/blog/self-healing-test-automation-guide), keeps the whole suite low-maintenance.
 
 ## When to Reach for Trace-Based Testing
 

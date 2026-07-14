@@ -178,7 +178,7 @@ def test_tone():
     assert_test(case, [professionalism])
 \`\`\`
 
-DeepEval is where most teams write their day-to-day LLM assertions. For a deeper, focused walkthrough see our [DeepEval LLM testing framework guide](/blog/deepeval-llm-testing-framework-guide).
+DeepEval is where most teams write their day-to-day LLM assertions. For a deeper, focused walkthrough see our [DeepEval LLM testing framework guide](/blog/deepeval-llm-testing-guide).
 
 ## What RAGAS Is For
 

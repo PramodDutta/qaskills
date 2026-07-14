@@ -13,7 +13,7 @@ Load testing has firmly moved into the developer's lap. The old model of recordi
 
 But they are built on radically different foundations. Gatling runs on the **JVM** and asks you to write scenarios in a Scala, Java, or Kotlin DSL. k6 runs on a custom **Go** runtime and asks you to write scripts in JavaScript or TypeScript. That single architectural fork ripples through everything: how many virtual users a single machine can sustain, how you integrate with your existing test suite, how protocol support is extended, and which engineers on your team will actually enjoy maintaining the scripts.
 
-This guide is a practical, side-by-side comparison aimed at engineers who have to choose. We will look at real runnable scripts for both tools, the threshold and SLO models, CI/CD wiring, observability with Prometheus and Grafana, reporting, the pricing of the cloud editions, and a clear decision framework for when each tool wins. If you are coming from an older tool, our [k6 vs JMeter performance testing guide](/blog/k6-vs-jmeter-performance-testing) and the [load testing for beginners guide](/blog/load-testing-beginners-guide) provide useful background before you dive in here.
+This guide is a practical, side-by-side comparison aimed at engineers who have to choose. We will look at real runnable scripts for both tools, the threshold and SLO models, CI/CD wiring, observability with Prometheus and Grafana, reporting, the pricing of the cloud editions, and a clear decision framework for when each tool wins. If you are coming from an older tool, our [k6 vs JMeter performance testing guide](/blog/k6-vs-jmeter-2026) and the [load testing for beginners guide](/blog/load-testing-beginners-guide) provide useful background before you dive in here.
 
 ## At a Glance: Gatling vs k6
 
@@ -356,7 +356,7 @@ Here is a blunt decision framework.
 - You want the open workload model to be the idiomatic, default path.
 - You operate in an enterprise that already standardizes on JVM tooling.
 
-For a wider comparison that brings JMeter into the picture as the legacy baseline, our [k6 vs JMeter guide](/blog/k6-vs-jmeter-performance-testing) is the companion piece to this article. And if you are still deciding whether performance testing belongs in your pipeline at all, the [load testing for beginners guide](/blog/load-testing-beginners-guide) makes the case from first principles.
+For a wider comparison that brings JMeter into the picture as the legacy baseline, our [k6 vs JMeter guide](/blog/k6-vs-jmeter-2026) is the companion piece to this article. And if you are still deciding whether performance testing belongs in your pipeline at all, the [load testing for beginners guide](/blog/load-testing-beginners-guide) makes the case from first principles.
 
 ## Frequently Asked Questions
 

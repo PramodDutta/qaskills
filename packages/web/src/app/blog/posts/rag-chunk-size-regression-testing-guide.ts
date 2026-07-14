@@ -13,7 +13,7 @@ A chunk-size change looks harmless in a pull request. One constant moves from 50
 
 This guide shows how to regression test chunk size changes before they reach production. It assumes your RAG system already has a retriever, an embedding model, a vector store, and an answer generator. The focus is the QA discipline around changing chunk size, overlap, separators, and indexing policy. You need enough evidence to decide whether a new chunking configuration improves retrieval, damages citations, or only moves cost around.
 
-For chunking design choices, read the companion [RAG chunking QA guide](/blog/rag-chunking-qa-guide-2026). For broader release gates on retrieval and answer behavior, connect this with [RAG regression testing](/blog/rag-regression-testing-guide-2026).
+For chunking design choices, read the companion [RAG chunking QA guide](/blog/rag-chunking-qa-guide-2026). For broader release gates on retrieval and answer behavior, connect this with [RAG regression testing](/blog/rag-regression-testing-guide).
 
 ## What Actually Changes When Chunk Size Changes
 

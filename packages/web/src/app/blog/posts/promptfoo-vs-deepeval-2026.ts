@@ -165,7 +165,7 @@ Run it:
 deepeval test run test_support.py
 \`\`\`
 
-Notice the difference in feel. In DeepEval you call your real \`summarize()\` function, parametrize over inputs the pytest way, and compose metrics as objects. The judge model is set per metric, and every metric exposes a \`.reason\` you can log. For a deeper, dedicated walkthrough of DeepEval, see our [DeepEval tutorial](/blog/deepeval-llm-testing-guide-2026).
+Notice the difference in feel. In DeepEval you call your real \`summarize()\` function, parametrize over inputs the pytest way, and compose metrics as objects. The judge model is set per metric, and every metric exposes a \`.reason\` you can log. For a deeper, dedicated walkthrough of DeepEval, see our [DeepEval tutorial](/blog/deepeval-llm-testing-guide).
 
 ## Metric Coverage Compared
 

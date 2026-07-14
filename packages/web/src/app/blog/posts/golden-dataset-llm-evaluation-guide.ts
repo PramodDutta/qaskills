@@ -13,7 +13,7 @@ Most teams evaluating LLM applications hit the same wall. They write a few cleve
 
 A golden dataset (sometimes called an evaluation set, eval set, or reference set) is the curated collection of inputs and expected behaviors you evaluate your system against. It is the single most important asset in an LLM testing practice, more important than the choice of framework, more important than the specific metrics. A mediocre metric on a great dataset beats a great metric on a garbage dataset every time.
 
-This guide is a practical, end-to-end walkthrough: what a golden dataset actually is, how to source examples from real failures, how many you need, how to label them, how to cover edge cases, how to version the set, how to avoid the data leakage that quietly inflates your scores, and how to wire the whole thing up as a regression gate in CI. If you want the surrounding context on evaluation tooling, pair this with the [testing LLM applications guide](/blog/testing-llm-applications-guide) and the [DeepEval pytest guide](/blog/deepeval-pytest-llm-testing-guide).
+This guide is a practical, end-to-end walkthrough: what a golden dataset actually is, how to source examples from real failures, how many you need, how to label them, how to cover edge cases, how to version the set, how to avoid the data leakage that quietly inflates your scores, and how to wire the whole thing up as a regression gate in CI. If you want the surrounding context on evaluation tooling, pair this with the [testing LLM applications guide](/blog/testing-llm-applications-guide) and the [DeepEval pytest guide](/blog/deepeval-llm-testing-guide).
 
 ## What a golden dataset actually is
 

@@ -51,7 +51,7 @@ print(result.score)      # numeric or binary faithfulness score
 print(result.explanation)  # which claim was unsupported
 \`\`\`
 
-Here the answer claims 30 days, but the retrieved policy says 14 days. Lynx flags the mismatch. This is the same conceptual test that Ragas frames as faithfulness and that DeepEval covers with its hallucination and faithfulness metrics, so if you have read the [DeepEval LLM testing guide](/blog/deepeval-llm-testing-guide-2026) or the [Ragas RAG evaluation guide](/blog/ragas-rag-evaluation-guide), the mental model transfers directly.
+Here the answer claims 30 days, but the retrieved policy says 14 days. Lynx flags the mismatch. This is the same conceptual test that Ragas frames as faithfulness and that DeepEval covers with its hallucination and faithfulness metrics, so if you have read the [DeepEval LLM testing guide](/blog/deepeval-llm-testing-guide) or the [Ragas RAG evaluation guide](/blog/ragas-rag-evaluation-guide), the mental model transfers directly.
 
 ## The Evaluator Catalog
 

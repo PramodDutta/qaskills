@@ -162,7 +162,7 @@ label_model_grader = {
 }
 \\\`\\\`\\\`
 
-Behind the scenes, a passing label maps to a score of 1.0 and any other label maps to 0.0, so it slots into the same threshold machinery as every other grader. Keep your label set small and mutually exclusive; if the judge frequently picks PARTIAL, that is a signal your criteria are ambiguous and you should split the test case or sharpen the instructions. Label graders pair beautifully with red-teaming workflows, which we cover in the [promptfoo red teaming guide](/blog/promptfoo-red-teaming-guide-2026).
+Behind the scenes, a passing label maps to a score of 1.0 and any other label maps to 0.0, so it slots into the same threshold machinery as every other grader. Keep your label set small and mutually exclusive; if the judge frequently picks PARTIAL, that is a signal your criteria are ambiguous and you should split the test case or sharpen the instructions. Label graders pair beautifully with red-teaming workflows, which we cover in the [promptfoo red teaming guide](/blog/promptfoo-red-teaming-llm-applications).
 
 ## Python Graders: Custom Code Logic
 

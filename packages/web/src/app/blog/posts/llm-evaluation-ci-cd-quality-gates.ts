@@ -13,7 +13,7 @@ You can write the best eval metrics in the world and build a pristine golden dat
 
 This is harder than it sounds, for one reason: LLMs are non-deterministic. A traditional unit test either passes or fails, deterministically, every run. An LLM eval can score 0.84 on one run and 0.79 on the next with no code change at all. If you naively fail the build below 0.80, you will get random red builds that erode trust until the team disables the gate entirely. A working LLM quality gate has to handle that noise gracefully.
 
-This guide covers exactly how: how to wire eval scores into CI, how to set thresholds that pass and fail meaningfully, how to average across multiple runs to tame non-determinism, a complete GitHub Actions example, how to block deploys only on real regressions, and how to keep the whole thing from bankrupting you on judge-model tokens. It builds on two companions worth reading first: the [golden dataset guide](/blog/golden-dataset-llm-evaluation-guide) for the data you evaluate against, and the [DeepEval pytest guide](/blog/deepeval-pytest-llm-testing-guide) for the framework used in the examples.
+This guide covers exactly how: how to wire eval scores into CI, how to set thresholds that pass and fail meaningfully, how to average across multiple runs to tame non-determinism, a complete GitHub Actions example, how to block deploys only on real regressions, and how to keep the whole thing from bankrupting you on judge-model tokens. It builds on two companions worth reading first: the [golden dataset guide](/blog/golden-dataset-llm-evaluation-guide) for the data you evaluate against, and the [DeepEval pytest guide](/blog/deepeval-llm-testing-guide) for the framework used in the examples.
 
 ## Why LLM quality gates are different
 

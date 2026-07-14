@@ -135,7 +135,7 @@ Route registration order matters: matching handlers are considered in reverse re
 
 HAR routing adds another layer. \`page.routeFromHAR()\` and \`browserContext.routeFromHAR()\` replay network requests, but a response fulfilled by a service worker cache never becomes a matching network request. Blocking service workers is often necessary when a HAR represents the intended boundary.
 
-The [Playwright network interception guide](/blog/playwright-network-interception-mocking-guide) covers route ordering and fulfillment mechanics in depth. The [browser context guide](/blog/playwright-browser-context-guide-2026) is the companion reference for isolating registrations, cookies, permissions, and storage.
+The [Playwright network interception guide](/blog/playwright-network-mocking-route-handler-guide) covers route ordering and fulfillment mechanics in depth. The [browser context guide](/blog/playwright-browser-context-guide-2026) is the companion reference for isolating registrations, cookies, permissions, and storage.
 
 ## Why unregistering after page load is unreliable
 

@@ -31,7 +31,7 @@ The quality of any LLM evaluation is capped by the quality of its inputs. If you
 
 Rhesis addresses this by generating test cases that span behaviors and categories you specify. Instead of writing 200 support questions by hand, you describe the application and the properties you care about, and the framework produces a structured, diverse set you can review, edit, and version. The human stays in the loop as a curator rather than an author, which is a far more scalable division of labor.
 
-This is the same insight that drives golden-dataset practice in [DeepEval](/blog/deepeval-llm-testing-guide-2026) and RAG evaluation in [Ragas](/blog/ragas-rag-evaluation-guide): the dataset is the product. Rhesis simply makes building that dataset a first-class, automatable step rather than an afterthought.
+This is the same insight that drives golden-dataset practice in [DeepEval](/blog/deepeval-llm-testing-guide) and RAG evaluation in [Ragas](/blog/ragas-rag-evaluation-guide): the dataset is the product. Rhesis simply makes building that dataset a first-class, automatable step rather than an afterthought.
 
 ## Installing and Getting Started
 

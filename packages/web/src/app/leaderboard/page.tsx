@@ -9,6 +9,7 @@ import { getSkillPromotionLabel, isHighlightedSkill } from '@/lib/skills-promoti
 import { db } from '@/db';
 import { skills } from '@/db/schema';
 import { desc, sql, ilike } from 'drizzle-orm';
+import { FALLBACK_SKILLS } from '@/lib/fallback-skills';
 
 export const metadata = {
   title: 'Top QA Skills Leaderboard: Most Installed Testing Skills for AI Agents',
@@ -138,7 +139,41 @@ async function getLeaderboardData(filter: string = 'all', search: string = '') {
           .limit(limit);
     }
   } catch {
-    return [];
+    const normalizedSearch = search.trim().toLowerCase();
+    const fallback = FALLBACK_SKILLS.filter(
+      (skill) => !normalizedSearch || skill.name.toLowerCase().includes(normalizedSearch),
+    ).map((skill) => ({
+      ...skill,
+      authorName: skill.author,
+      weeklyInstalls: skill.installCount,
+    }));
+
+    switch (filter) {
+      case 'trending':
+        fallback.sort(
+          (a, b) =>
+            b.weeklyInstalls - a.weeklyInstalls ||
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+        );
+        break;
+      case 'hot':
+        fallback.sort(
+          (a, b) =>
+            b.installCount * 0.7 +
+            b.qualityScore * 0.3 -
+            (a.installCount * 0.7 + a.qualityScore * 0.3),
+        );
+        break;
+      case 'new':
+        fallback.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        break;
+      case 'all':
+      default:
+        fallback.sort((a, b) => b.installCount - a.installCount);
+        break;
+    }
+
+    return fallback.slice(0, search ? 50 : 20);
   }
 }
 
@@ -171,7 +206,6 @@ export default async function LeaderboardPage({
       <div className="flex flex-col gap-2.5">
         {leaderboardData.map((skill, idx) => {
           const rank = idx + 1;
-          const isHighlighted = isHighlightedSkill(skill.slug);
           const promotionLabel = getSkillPromotionLabel(skill.slug, skill.createdAt);
           const isNew = promotionLabel === 'NEW';
           const testingTypes = skill.testingTypes as string[];
@@ -222,9 +256,7 @@ export default async function LeaderboardPage({
                   <span className="font-semibold truncate group-hover:text-primary transition-colors">
                     {skill.name}
                   </span>
-                  {skill.verified && (
-                    <CheckCircle className="h-3.5 w-3.5 text-primary shrink-0" />
-                  )}
+                  {skill.verified && <CheckCircle className="h-3.5 w-3.5 text-primary shrink-0" />}
                   {promotionLabel && (isNew || rank > 3) && (
                     <span
                       className={`shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
@@ -275,8 +307,7 @@ export default async function LeaderboardPage({
               {/* Trend */}
               {skill.weeklyInstalls > 0 && (
                 <div className="hidden sm:flex items-center gap-1 shrink-0 text-xs font-medium text-green-600 dark:text-green-400">
-                  <TrendingUp className="h-3 w-3" />
-                  +{formatNumber(skill.weeklyInstalls)}
+                  <TrendingUp className="h-3 w-3" />+{formatNumber(skill.weeklyInstalls)}
                 </div>
               )}
 

@@ -312,8 +312,8 @@ A few patterns that consistently pay off:
 With Claude Code and Playwright MCP working, here are the natural next steps:
 
 1. Configure other clients on your team using the [Playwright MCP Cursor IDE setup guide](/blog/playwright-mcp-cursor-ide-setup-2026).
-2. Wire the same MCP server into your CI pipeline -- see [Playwright Agents CI/CD Integration](/blog/playwright-agents-ci-integration-2026).
-3. Learn about the underlying protocol in our [MCP Testing Complete Guide](/blog/mcp-model-context-protocol-testing-2026).
+2. Wire the same MCP server into your CI pipeline -- see [Playwright Agents CI/CD Integration](/blog/playwright-ci-github-actions-complete-guide-2026).
+3. Learn about the underlying protocol in our [MCP Testing Complete Guide](/blog/mcp-testing-automation-guide).
 
 Browse the full catalog of QA skills at [QASkills.sh/skills](/skills).
 

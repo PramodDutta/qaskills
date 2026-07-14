@@ -293,7 +293,7 @@ def test_injection_guardrail(text, should_block):
     assert detect_injection(text) == should_block
 \`\`\`
 
-Notice the benign cases. A guardrail that blocks every prompt containing the words "ignore" or "previous instructions" will pass the attack cases and fail your users — those negative test cases are what keep the guardrail usable. This is exactly the kind of behavioral assertion that promptfoo and DeepEval automate at scale; see our [promptfoo vs DeepEval comparison](/blog/promptfoo-vs-deepeval-2026-comparison) for running these as a graded suite rather than hand-rolled asserts.
+Notice the benign cases. A guardrail that blocks every prompt containing the words "ignore" or "previous instructions" will pass the attack cases and fail your users — those negative test cases are what keep the guardrail usable. This is exactly the kind of behavioral assertion that promptfoo and DeepEval automate at scale; see our [promptfoo vs DeepEval comparison](/blog/promptfoo-vs-deepeval-2026) for running these as a graded suite rather than hand-rolled asserts.
 
 ## Red-Team Test Suites
 
@@ -468,6 +468,6 @@ Trigger a test job on pull requests that touch guardrail code, prompts, or model
 
 Guardrails are the runtime layer of LLM reliability — the only thing inspecting individual requests and responses as they flow through your application. But an untested guardrail is a false sense of security: it looks like protection right up until it fails open during the incident you built it for. The discipline that separates safe systems from risky ones is testing the guardrails themselves with adversarial unit tests, red-team suites, versioned regression corpora, explicit false-positive and false-negative measurement, and CI gates that fail the build on drift. Combine that with evals before deployment and observability after, and every production miss becomes a permanent new test case that hardens the system over time.
 
-Ready to put this into practice? Explore the [QASkills directory](/skills) for ready-to-install testing skills covering guardrails, evals, and LLM observability, and dive deeper with our guides on [DeepEval vs RAGAS](/blog/deepeval-vs-ragas-rag-evaluation-2026), [promptfoo vs DeepEval](/blog/promptfoo-vs-deepeval-2026-comparison), and [Langfuse vs LangSmith](/blog/langfuse-vs-langsmith-2026-comparison) to build the full three-layer reliability stack.
+Ready to put this into practice? Explore the [QASkills directory](/skills) for ready-to-install testing skills covering guardrails, evals, and LLM observability, and dive deeper with our guides on [DeepEval vs RAGAS](/blog/deepeval-vs-ragas-rag-evaluation-2026), [promptfoo vs DeepEval](/blog/promptfoo-vs-deepeval-2026), and [Langfuse vs LangSmith](/blog/langfuse-vs-langsmith-2026-comparison) to build the full three-layer reliability stack.
 `,
 };

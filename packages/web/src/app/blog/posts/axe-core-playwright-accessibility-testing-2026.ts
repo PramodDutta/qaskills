@@ -13,7 +13,7 @@ export const post: BlogPost = {
 
 The value of automated accessibility testing is realistic, not magical. Axe-core reliably catches roughly the subset of WCAG issues that are machine-detectable: missing form labels, insufficient color contrast, images without alternative text, invalid ARIA usage, missing document language, and broken heading or landmark structure. It cannot judge whether your alt text is *meaningful* or whether a keyboard flow is *sensible* — those need human review. But the machine-detectable slice is large, regression-prone, and tedious to check by hand, which makes it the perfect thing to automate and gate on every pull request.
 
-This reference is a practical, runnable map of \`@axe-core/playwright\` in 2026. We cover installation, the \`AxeBuilder\` API and its \`analyze()\` method, scoping a scan with \`include\` and \`exclude\`, selecting rule sets with \`withTags\` (wcag2a, wcag2aa, wcag21aa, best-practice), turning specific rules off, the canonical \`expect(violations).toEqual([])\` assertion, attaching violation reports to Playwright's HTML reporter, per-component scans, gating CI, and a reusable fixture pattern so every test gets an axe scanner for free. Every code block is real TypeScript you can paste into a Playwright project. If you searched for "axe-core playwright accessibility testing," this page is built to be the answer. For the locator and assertion fundamentals these tests build on, keep the [Playwright locators and web-first assertions guide](/blog/playwright-locator-best-practices-web-first-assertions-2026) handy.
+This reference is a practical, runnable map of \`@axe-core/playwright\` in 2026. We cover installation, the \`AxeBuilder\` API and its \`analyze()\` method, scoping a scan with \`include\` and \`exclude\`, selecting rule sets with \`withTags\` (wcag2a, wcag2aa, wcag21aa, best-practice), turning specific rules off, the canonical \`expect(violations).toEqual([])\` assertion, attaching violation reports to Playwright's HTML reporter, per-component scans, gating CI, and a reusable fixture pattern so every test gets an axe scanner for free. Every code block is real TypeScript you can paste into a Playwright project. If you searched for "axe-core playwright accessibility testing," this page is built to be the answer. For the locator and assertion fundamentals these tests build on, keep the [Playwright locators and web-first assertions guide](/blog/playwright-locators-best-practices-2026) handy.
 
 ## Installing @axe-core/playwright
 
@@ -186,7 +186,7 @@ test('pricing page a11y with attached report', async ({ page }, testInfo) => {
 });
 \`\`\`
 
-The attachment rides along in the HTML report (\`npx playwright show-report\`) and in CI artifacts, so accessibility findings become a durable, browsable record rather than a transient log line. This pairs naturally with visual review workflows like [Percy with Playwright](/blog/percy-visual-testing-playwright-official-2026), giving you both pixel and a11y evidence on every run.
+The attachment rides along in the HTML report (\`npx playwright show-report\`) and in CI artifacts, so accessibility findings become a durable, browsable record rather than a transient log line. This pairs naturally with visual review workflows like [Percy with Playwright](/blog/percy-playwright-visual-testing-guide), giving you both pixel and a11y evidence on every run.
 
 ## Per-Component Accessibility Scans
 
@@ -210,7 +210,7 @@ test('opened date-picker dialog is accessible', async ({ page }) => {
 });
 \`\`\`
 
-Scanning the dialog only after it is visible matters: axe checks the live DOM, so the component must be in its real, interactive state. If you run Storybook, point Playwright at each story URL and scan \`#storybook-root\` for a complete component-level a11y matrix that complements your [Chromatic visual testing setup](/blog/chromatic-visual-testing-storybook-turbosnap-2026).
+Scanning the dialog only after it is visible matters: axe checks the live DOM, so the component must be in its real, interactive state. If you run Storybook, point Playwright at each story URL and scan \`#storybook-root\` for a complete component-level a11y matrix that complements your [Chromatic visual testing setup](/blog/chromatic-turbosnap-storybook-guide).
 
 ## A Reusable Axe Fixture
 
@@ -323,6 +323,6 @@ No. Axe-core reliably catches the machine-detectable subset of WCAG, which is la
 
 ## Conclusion
 
-\`@axe-core/playwright\` makes accessibility a first-class, automated part of your test suite. With \`AxeBuilder\` and \`analyze()\` you run real WCAG checks against the live DOM, scope them with \`include\` and \`exclude\`, choose strictness with \`withTags\`, silence genuine noise with \`disableRules\`, and assert \`violations\` equal to an empty array so failures are actionable. Centralize the configuration in a fixture, attach raw results to the HTML reporter for an audit trail, and gate CI so regressions never reach production. Remember its honest limits and pair it with manual review for the things only a human can judge. Start by adding the package, writing one full-page scan, and turning it into a fixture, then explore the [QA skills directory](/skills) for installable accessibility and Playwright skills, and pair these checks with [strong locator habits](/blog/playwright-locator-best-practices-web-first-assertions-2026) for a suite that is both reliable and inclusive.
+\`@axe-core/playwright\` makes accessibility a first-class, automated part of your test suite. With \`AxeBuilder\` and \`analyze()\` you run real WCAG checks against the live DOM, scope them with \`include\` and \`exclude\`, choose strictness with \`withTags\`, silence genuine noise with \`disableRules\`, and assert \`violations\` equal to an empty array so failures are actionable. Centralize the configuration in a fixture, attach raw results to the HTML reporter for an audit trail, and gate CI so regressions never reach production. Remember its honest limits and pair it with manual review for the things only a human can judge. Start by adding the package, writing one full-page scan, and turning it into a fixture, then explore the [QA skills directory](/skills) for installable accessibility and Playwright skills, and pair these checks with [strong locator habits](/blog/playwright-locators-best-practices-2026) for a suite that is both reliable and inclusive.
 `,
 };

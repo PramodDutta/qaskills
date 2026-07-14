@@ -313,7 +313,7 @@ test('dashboard polls status every 10 seconds', async ({ page }) => {
 });
 \`\`\`
 
-This verifies both the cadence (how often the interval fires) and that the UI reflects the latest poll. To learn more about controlling the network responses themselves, see our [network interception and mocking guide](/blog/playwright-network-interception-mocking-guide), which pairs perfectly with the Clock API for fully deterministic data-plus-time tests.
+This verifies both the cadence (how often the interval fires) and that the UI reflects the latest poll. To learn more about controlling the network responses themselves, see our [network interception and mocking guide](/blog/playwright-network-mocking-route-handler-guide), which pairs perfectly with the Clock API for fully deterministic data-plus-time tests.
 
 ## Controlling Date.now() and new Date() in the Page
 
@@ -469,6 +469,6 @@ Absolutely, and you should. Use \`page.route\` to mock the server data (includin
 
 The Playwright Clock API turns the hardest category of flaky tests, anything that depends on wall-clock time, into fast, deterministic, millisecond-precise checks. By installing a fake clock with \`page.clock.install()\` and reaching for the right tool (\`setFixedTime\` to freeze a date, \`setSystemTime\` plus \`fastForward\` or \`runFor\` to drive timers, \`pauseAt\` for exact scheduled moments), you can test countdowns, relative timestamps, auto-logout, polling, and scheduled banners without ever sleeping or padding assertions. Pin \`timezoneId\`, combine with network mocking, and always install before navigation, and your time-based suite will be both faster and more reliable than it has ever been.
 
-Ready to go further? Explore the full [QA skills directory](/skills) for ready-to-install Playwright skills your AI coding agent can use today, then deepen your foundations with the [complete Playwright E2E guide](/blog/playwright-e2e-complete-guide), the [network interception and mocking guide](/blog/playwright-network-interception-mocking-guide), and our [Playwright testing best practices for 2026](/blog/playwright-testing-best-practices-2026). Stop fighting the clock, control it.
+Ready to go further? Explore the full [QA skills directory](/skills) for ready-to-install Playwright skills your AI coding agent can use today, then deepen your foundations with the [complete Playwright E2E guide](/blog/playwright-e2e-complete-guide), the [network interception and mocking guide](/blog/playwright-network-mocking-route-handler-guide), and our [Playwright testing best practices for 2026](/blog/playwright-testing-best-practices-2026). Stop fighting the clock, control it.
 `,
 };

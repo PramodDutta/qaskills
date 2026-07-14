@@ -86,7 +86,7 @@ Natural language varies along more than locale. Combine only dimensions that pro
 
 Avoid mechanically inserting a slur into hundreds of carrier sentences. That creates an easily memorized benchmark and underrepresents discourse-level harm such as exclusion, stereotyping, or escalating intimidation.
 
-For broader safety behavior and bypass testing, align this suite with the [LLM guardrails testing guide](/blog/llm-guardrails-testing-guide-2026). To operationalize adversarial generation and provider comparisons, see the [Promptfoo red-teaming guide](/blog/promptfoo-red-teaming-guide-2026).
+For broader safety behavior and bypass testing, align this suite with the [LLM guardrails testing guide](/blog/llm-guardrails-testing-guide-2026). To operationalize adversarial generation and provider comparisons, see the [Promptfoo red-teaming guide](/blog/promptfoo-red-teaming-llm-applications).
 
 ## Represent expected behavior as assertions, not one golden answer
 

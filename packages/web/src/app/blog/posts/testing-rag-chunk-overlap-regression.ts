@@ -156,7 +156,7 @@ Generation evaluation should verify citation alignment, unsupported claims, answ
 
 An answer can improve even when recall at k is unchanged because the preserved boundary gives the model more coherent context. Conversely, recall can improve while answer quality falls because duplicate chunks displace complementary evidence. Both layers are necessary, and their metrics should not be blended into one opaque judge score.
 
-For a wider retrieval methodology, see the [RAG regression testing guide](/blog/rag-regression-testing-guide-2026). If chunk size is changing alongside overlap, the [chunk-size regression guide](/blog/rag-chunk-size-regression-testing-guide) helps design that separate experiment.
+For a wider retrieval methodology, see the [RAG regression testing guide](/blog/rag-regression-testing-guide). If chunk size is changing alongside overlap, the [chunk-size regression guide](/blog/rag-chunk-size-regression-testing-guide) helps design that separate experiment.
 
 ## Account for ingestion and serving cost
 

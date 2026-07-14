@@ -13,7 +13,7 @@ Performance testing in 2026 looks very different from the JMeter-only era. Engin
 
 Apache JMeter, first released in 1998, remains the most widely deployed open-source load testing tool on the planet. It supports an enormous range of protocols, ships with a mature plugin ecosystem, and has decades of institutional knowledge behind it. Grafana k6 (formerly just "k6"), by contrast, is the modern challenger: a Go-powered engine with a JavaScript scripting layer, built from day one for developer workflows, version control, and continuous integration.
 
-This guide is a fresh 2026 take. If you want the deeper architectural walkthrough we published earlier, see our original [k6 vs JMeter performance testing](/blog/k6-vs-jmeter-performance-testing) comparison -- this article focuses on what has changed: the current tool versions, JavaScript-versus-XML scripting ergonomics, CI/CD and cloud execution, resource efficiency, and total cost of ownership. By the end you will know which tool fits your stack, your team's skill set, and your testing budget. Let's break down every dimension that matters.
+This guide is a fresh 2026 take. For a broader architectural walkthrough, see our [performance testing complete guide](/blog/performance-testing-complete-guide) -- this article focuses on what has changed: the current tool versions, JavaScript-versus-XML scripting ergonomics, CI/CD and cloud execution, resource efficiency, and total cost of ownership. By the end you will know which tool fits your stack, your team's skill set, and your testing budget. Let's break down every dimension that matters.
 
 ## Key Takeaways
 
@@ -360,6 +360,6 @@ AI coding agents write k6 scripts much more reliably because they are plain Java
 
 The k6 vs JMeter decision in 2026 comes down to how your team works. If you value Git-native, code-reviewable tests that run as a quality gate in CI/CD, test modern web protocols, and want maximum load per machine, k6 is the modern winner. If you need the widest protocol coverage, prefer GUI-based authoring, or already have deep JMeter investment, JMeter remains a rock-solid choice -- and the two coexist happily in many performance practices.
 
-Whichever you pick, the highest leverage move is making performance testing automatic and continuous rather than a one-off event. Explore performance and load testing skills built for AI coding agents in the [QASkills directory](/skills), and revisit our original [k6 vs JMeter performance testing](/blog/k6-vs-jmeter-performance-testing) deep dive to round out your understanding.
+Whichever you pick, the highest leverage move is making performance testing automatic and continuous rather than a one-off event. Explore performance and load testing skills built for AI coding agents in the [QASkills directory](/skills), and use our [performance testing complete guide](/blog/performance-testing-complete-guide) to round out your understanding.
 `,
 };

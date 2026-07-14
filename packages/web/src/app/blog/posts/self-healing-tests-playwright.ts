@@ -74,7 +74,7 @@ With this foundation, a CSS refactor no longer breaks tests, because no test dep
 
 ## The Playwright Healer Agent
 
-Playwright ships with a healer agent as part of its test agents suite. When a test fails on a locator, the healer inspects the trace and the current DOM snapshot, reasons about what the test intended to interact with, and proposes a repaired locator. It works alongside the planner and generator agents; our [Playwright test agents guide](/blog/playwright-test-agents-planner-generator-healer-2026) explains the full trio.
+Playwright ships with a healer agent as part of its test agents suite. When a test fails on a locator, the healer inspects the trace and the current DOM snapshot, reasons about what the test intended to interact with, and proposes a repaired locator. It works alongside the planner and generator agents; our [Playwright test agents guide](/blog/playwright-test-agents-planner-generator-healer) explains the full trio.
 
 The healer's strength is that it operates on real evidence: the recorded trace tells it what the element looked like when the test last passed, and the live snapshot shows what changed. Rather than blindly guessing, it correlates the two. To run the healer in a Claude Code workflow, connect the Playwright MCP server described in our [Playwright MCP automation guide](/blog/playwright-mcp-browser-automation-guide), then invoke the healer on a failing spec. It returns a suggested patch you review before committing, which keeps a human in control of what actually lands in the test file.
 

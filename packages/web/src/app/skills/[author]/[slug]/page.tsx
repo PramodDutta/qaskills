@@ -18,11 +18,11 @@ import { SkillDescription } from '@/components/skills/skill-description';
 import { SkillDownloadButtons } from '@/components/skills/skill-download-buttons';
 import { CloneButton } from '@/components/skills/clone-button';
 import { CourseAd } from '@/components/course-ad';
+import { getFallbackSkillDetail } from '@/lib/fallback-skill-detail';
 
 // DB-driven page: render per-request (Vercel has DATABASE_URL at runtime;
 // CI build has none, so avoid build-time prerender against the DB).
 export const dynamic = 'force-dynamic';
-
 
 interface SkillPageProps {
   params: Promise<{ author: string; slug: string }>;
@@ -35,9 +35,9 @@ async function getSkill(author: string, slug: string) {
       .from(skills)
       .where(and(eq(skills.authorName, author), eq(skills.slug, slug)))
       .limit(1);
-    return rows[0] || null;
+    return rows[0] || getFallbackSkillDetail(author, slug);
   } catch {
-    return null;
+    return getFallbackSkillDetail(author, slug);
   }
 }
 
@@ -118,14 +118,20 @@ export default async function SkillDetailPage({ params }: SkillPageProps) {
             generateBreadcrumbJsonLd([
               { name: 'Home', url: 'https://qaskills.sh' },
               { name: 'Skills', url: 'https://qaskills.sh/skills' },
-              { name: skill.name, url: `https://qaskills.sh/skills/${skill.authorName}/${skill.slug}` },
-            ])
+              {
+                name: skill.name,
+                url: `https://qaskills.sh/skills/${skill.authorName}/${skill.slug}`,
+              },
+            ]),
           ),
         }}
       />
       {/* Breadcrumb */}
       <div className="mb-6">
-        <Link href="/skills" className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
+        <Link
+          href="/skills"
+          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+        >
           <ArrowLeft className="h-4 w-4" />
           Back to Skills
         </Link>
@@ -153,16 +159,24 @@ export default async function SkillDetailPage({ params }: SkillPageProps) {
             {/* Tags */}
             <div className="mt-4 flex flex-wrap gap-2">
               {testingTypes.map((t) => (
-                <Badge key={t} variant="default">{t}</Badge>
+                <Badge key={t} variant="default">
+                  {t}
+                </Badge>
               ))}
               {frameworks.map((f) => (
-                <Badge key={f} variant="secondary">{f}</Badge>
+                <Badge key={f} variant="secondary">
+                  {f}
+                </Badge>
               ))}
               {languages.map((l) => (
-                <Badge key={l} variant="outline">{l}</Badge>
+                <Badge key={l} variant="outline">
+                  {l}
+                </Badge>
               ))}
               {domains.map((d) => (
-                <Badge key={d} variant="outline">{d}</Badge>
+                <Badge key={d} variant="outline">
+                  {d}
+                </Badge>
               ))}
             </div>
           </div>
@@ -175,7 +189,8 @@ export default async function SkillDetailPage({ params }: SkillPageProps) {
             <CardContent>
               <InstallButton skillSlug={slug} />
               <p className="mt-3 text-sm text-muted-foreground">
-                Auto-detects your AI agent and installs the skill. Works with Claude Code, Cursor, Copilot, and more.
+                Auto-detects your AI agent and installs the skill. Works with Claude Code, Cursor,
+                Copilot, and more.
               </p>
               <SkillDownloadButtons
                 slug={slug}
@@ -266,11 +281,7 @@ export default async function SkillDetailPage({ params }: SkillPageProps) {
               {skill.githubUrl && (
                 <div className="mt-4 pt-4 border-t border-border">
                   <Button variant="outline" className="w-full" asChild>
-                    <a
-                      href={skill.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <a href={skill.githubUrl} target="_blank" rel="noopener noreferrer">
                       View on GitHub
                     </a>
                   </Button>

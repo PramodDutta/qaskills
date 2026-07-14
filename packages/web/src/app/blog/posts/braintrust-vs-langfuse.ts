@@ -191,7 +191,7 @@ if (avg < 0.8) {
 }
 \`\`\`
 
-Langfuse experiment runs work similarly: loop the dataset in a test, compute aggregate scores, and assert. Because Langfuse is SDK-driven, you often wrap the run inside pytest and assert on the returned metrics, which suits teams that already gate on pytest. Either way the pattern is the same: a curated dataset, a task, scorers, and a numeric gate. Our [DeepEval LLM testing guide](/blog/deepeval-llm-testing-guide-2026) shows a pytest-native take on the same idea if you prefer assertions living entirely in your test suite.
+Langfuse experiment runs work similarly: loop the dataset in a test, compute aggregate scores, and assert. Because Langfuse is SDK-driven, you often wrap the run inside pytest and assert on the returned metrics, which suits teams that already gate on pytest. Either way the pattern is the same: a curated dataset, a task, scorers, and a numeric gate. Our [DeepEval LLM testing guide](/blog/deepeval-llm-testing-guide) shows a pytest-native take on the same idea if you prefer assertions living entirely in your test suite.
 
 ## Self-hosting, SaaS, and pricing
 

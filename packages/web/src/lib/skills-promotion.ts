@@ -1,4 +1,5 @@
 import { isRecentlyAdded } from './skill-recency';
+import { getSkillLaunchDate } from './skill-launch-dates';
 
 export const HIGHLIGHTED_SKILL_SLUGS = new Set([
   'playwright-e2e',
@@ -18,5 +19,8 @@ export function getSkillPromotionLabel(
   createdAt: string | Date | null | undefined,
 ): 'NEW' | 'HOT' | null {
   if (!isHighlightedSkill(slug)) return null;
-  return isRecentlyAdded(createdAt) ? 'NEW' : 'HOT';
+
+  // Curated launches can predate their database import, so their announced date is authoritative.
+  const effectiveCreatedAt = getSkillLaunchDate(slug) ?? createdAt;
+  return isRecentlyAdded(effectiveCreatedAt) ? 'NEW' : 'HOT';
 }

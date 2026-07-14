@@ -229,7 +229,7 @@ You do not have to rewrite anything to adopt 1.59. The new APIs are additive. A 
 3. **Add screencast to flaky flows.** For the handful of tests that fail intermittently, switch on \`page.screencast\` with annotations so you (or an agent) can see exactly what happened.
 4. **Introduce \`bind()\` only where you have multi-agent handoff.** Most suites do not need shared sessions; reach for \`bind()\` when one agent must continue another's authenticated state.
 
-If your team also runs API-level checks alongside browser tests, our comparison of [Postman versus Playwright for API testing](/blog/postman-vs-playwright) covers where each tool fits in an agent-driven pipeline. And if you test mobile viewports, the agentic primitives compose cleanly with the techniques in our [Playwright mobile emulation guide](/blog/playwright-mobile-emulation).
+If your team also runs API-level checks alongside browser tests, our comparison of [Postman versus Playwright for API testing](/blog/postman-vs-playwright) covers where each tool fits in an agent-driven pipeline. And if you test mobile viewports, the agentic primitives compose cleanly with the techniques in our [Playwright mobile emulation guide](/blog/playwright-mobile-emulation-guide).
 
 ## Orchestrating Multiple Agents With Bound Sessions
 

@@ -299,7 +299,7 @@ A short checklist for when browsers are not found:
 4. Confirm the Playwright package version matches the browser builds present (a version bump needs a fresh \`install\`).
 5. In Python, confirm the variable is set *before* \`import playwright\`.
 
-For broader Playwright environment topics such as device descriptors and viewport control, the [mobile emulation reference](/blog/playwright-mobile-emulation-reference) and the [what's new in Playwright 2026](/blog/whats-new-playwright-2026) roundup are good companions to this page.
+For broader Playwright environment topics such as device descriptors and viewport control, the [mobile emulation reference](/blog/playwright-mobile-emulation-guide) and the [what's new in Playwright 2026](/blog/whats-new-playwright-2026) roundup are good companions to this page.
 
 ## Frequently Asked Questions
 

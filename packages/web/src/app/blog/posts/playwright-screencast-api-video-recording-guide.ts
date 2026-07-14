@@ -327,7 +327,7 @@ jobs:
           retention-days: 7
 \`\`\`
 
-The \`if: \${{ failure() }}\` guard keeps your artifact storage lean — green runs upload nothing. Pairing this with \`video: 'retain-on-failure'\` means the only \`.webm\` files in \`test-results\` are the ones you actually want. Reviewers download the artifact, open \`playwright-report/index.html\`, and watch the failure inline. This CI shape works the same whether you test desktop or mobile viewports; if you emulate devices, see [Playwright mobile emulation](/blog/playwright-mobile-emulation) for how the recorded frame matches the emulated screen.
+The \`if: \${{ failure() }}\` guard keeps your artifact storage lean — green runs upload nothing. Pairing this with \`video: 'retain-on-failure'\` means the only \`.webm\` files in \`test-results\` are the ones you actually want. Reviewers download the artifact, open \`playwright-report/index.html\`, and watch the failure inline. This CI shape works the same whether you test desktop or mobile viewports; if you emulate devices, see [Playwright mobile emulation](/blog/playwright-mobile-emulation-guide) for how the recorded frame matches the emulated screen.
 
 ## Combining Video With the Trace Viewer
 

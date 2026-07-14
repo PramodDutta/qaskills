@@ -2,7 +2,8 @@ import type { BlogPost } from './index';
 
 export const post: BlogPost = {
   title: 'Playwright Keyboard & Mouse Interactions: Complete 2026 Reference',
-  description: 'Complete reference for Playwright keyboard and mouse APIs: key presses, modifiers, drag-and-drop, mouse wheel, hover, touchscreen, and pointer events.',
+  description:
+    'Complete reference for Playwright keyboard and mouse APIs: key presses, modifiers, drag-and-drop, mouse wheel, hover, touchscreen, and pointer events.',
   date: '2026-05-15',
   category: 'Reference',
   content: `
@@ -306,6 +307,6 @@ Wrap in a helper to keep tests readable.
 
 Mastering the input layers in Playwright means knowing when to reach for the high-level locator helpers and when to drop to \`page.keyboard\`, \`page.mouse\`, or \`page.touchscreen\`. The high level handles ninety percent; the lower levels exist for the precision cases.
 
-Install the [playwright-e2e skill](/skills/playwright-e2e) so AI assistants pick the right level by default. For broader locator patterns, see [Playwright Best Practices for Locators](/blog/playwright-best-practices-locators-2026). For mobile-specific gestures, [Playwright Mobile Emulation Devices Reference](/blog/playwright-mobile-emulation-devices-reference).
+Install the [playwright-e2e skill](/skills/playwright-e2e) so AI assistants pick the right level by default. For broader locator patterns, see [Playwright Best Practices for Locators](/blog/playwright-best-practices-locators-2026). For mobile-specific gestures, [Playwright Mobile Emulation Devices Reference](/blog/playwright-mobile-emulation-guide).
 `,
 };

@@ -277,8 +277,8 @@ A few hard-earned lessons from teams running Playwright MCP in real workflows:
 
 You now have a working Playwright MCP setup in Cursor. From here, three natural next steps:
 
-1. **Add a CI workflow** that runs the tests the agent generated -- see our [Playwright Agents CI/CD Integration Guide](/blog/playwright-agents-ci-integration-2026).
-2. **Compare alternatives.** Read [Chrome DevTools MCP vs Playwright MCP](/blog/chrome-devtools-mcp-vs-playwright-mcp) before locking in a stack.
+1. **Add a CI workflow** that runs the tests the agent generated -- see our [Playwright Agents CI/CD Integration Guide](/blog/playwright-ci-github-actions-complete-guide-2026).
+2. **Compare alternatives.** Read the [Chrome DevTools MCP performance testing guide](/blog/chrome-devtools-mcp-performance-testing-guide) before locking in a stack.
 3. **Set up other AI clients.** If your team uses Claude Code, our [Playwright MCP with Claude Code](/blog/playwright-mcp-claude-code-setup-2026) guide walks through the equivalent config.
 
 Browse the full catalog of QA skills at [QASkills.sh/skills](/skills).

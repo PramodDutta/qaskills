@@ -461,6 +461,6 @@ Use Cypress environment variables or \`cypress.config.ts\` overrides. Pass envir
 
 ### What about component testing in Cypress?
 
-Cypress Component Testing supports React, Vue, Angular, and Svelte. It uses the same Cypress runner with a different mount harness. See our [Cypress component testing with Vue guide](/blog/cypress-component-testing-vue-guide) and [Cypress component testing with Angular guide](/blog/cypress-component-testing-angular-guide).
+Cypress Component Testing supports React, Vue, Angular, and Svelte. It uses the same Cypress runner with a different mount harness. See our [Cypress component testing with Vue guide](/blog/cypress-component-testing-vue-complete-guide) and [Cypress component testing with Angular guide](/blog/cypress-component-testing-angular-guide).
 `,
 };

@@ -11,7 +11,7 @@ export const post: BlogPost = {
 
 A load test that prints latency numbers but never fails a build is just an expensive screensaver. The whole point of performance testing in CI is a clear, automated pass/fail verdict: if p95 latency crosses your budget or the error rate spikes, the pipeline goes red and the bad change does not ship. In [k6](https://k6.io/), the current Grafana load-testing tool, that verdict comes from two features people constantly confuse: **checks** and **thresholds**. They look similar, they are written near each other, and only one of them actually fails your build.
 
-This guide untangles checks versus thresholds once and for all, on the current k6 line in 2026. We will cover check syntax, threshold expressions on built-in metrics like \`http_req_duration\` and \`http_req_failed\`, \`abortOnFail\` for early exit, per-scenario and tagged thresholds, the four custom metric types (Trend, Counter, Rate, Gauge), how thresholds make CI fail with the right exit code, and grouping. If you are weighing tools, our [k6 vs JMeter comparison](/blog/k6-vs-jmeter-performance-testing) covers the broader trade-offs; here we go deep on getting a reliable gate.
+This guide untangles checks versus thresholds once and for all, on the current k6 line in 2026. We will cover check syntax, threshold expressions on built-in metrics like \`http_req_duration\` and \`http_req_failed\`, \`abortOnFail\` for early exit, per-scenario and tagged thresholds, the four custom metric types (Trend, Counter, Rate, Gauge), how thresholds make CI fail with the right exit code, and grouping. If you are weighing tools, our [k6 vs JMeter comparison](/blog/k6-vs-jmeter-2026) covers the broader trade-offs; here we go deep on getting a reliable gate.
 
 If you would rather have an AI coding agent write your k6 scripts, define sensible thresholds, and wire the exit code into CI, install a [k6 performance testing skill](/skills) into Claude Code, Cursor, or Copilot.
 
@@ -391,7 +391,7 @@ export default function () {
 }
 \`\`\`
 
-That script fails CI on any of: a too-high error rate (aborting early after a grace period), a blown overall or per-group latency budget, a failed business success rate, or too many failing checks. That is exactly the reliable, automated pass/fail gate performance testing in CI is supposed to give you. For tool selection context, revisit [k6 vs JMeter](/blog/k6-vs-jmeter-performance-testing), and browse [QA skills](/skills) to drop these patterns into your AI coding agent.
+That script fails CI on any of: a too-high error rate (aborting early after a grace period), a blown overall or per-group latency budget, a failed business success rate, or too many failing checks. That is exactly the reliable, automated pass/fail gate performance testing in CI is supposed to give you. For tool selection context, revisit [k6 vs JMeter](/blog/k6-vs-jmeter-2026), and browse [QA skills](/skills) to drop these patterns into your AI coding agent.
 
 ## Frequently Asked Questions
 

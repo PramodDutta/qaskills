@@ -185,7 +185,7 @@ Playwright's first-class \`getByRole\`, \`getByLabel\`, \`getByText\`, and \`get
 | \`page.cookies()\` | \`page.context().cookies()\` |
 | \`Browser.createIncognitoBrowserContext\` | \`browser.newContext()\` |
 
-For a full migration playbook see [Migrate Puppeteer to Playwright complete guide](/blog/migrate-puppeteer-to-playwright-guide).
+For a full migration playbook see [Migrate Puppeteer to Playwright complete guide](/blog/puppeteer-to-playwright-migration-guide).
 
 ## Hybrid Strategy
 
@@ -204,7 +204,7 @@ If you maintain a Puppeteer test suite older than a year, consider migrating to 
 ## Further Reading
 
 - [Playwright vs Cypress detailed comparison 2026](/blog/playwright-vs-cypress-2026-detailed-comparison)
-- [Migrate Puppeteer to Playwright complete guide](/blog/migrate-puppeteer-to-playwright-guide)
+- [Migrate Puppeteer to Playwright complete guide](/blog/puppeteer-to-playwright-migration-guide)
 - [Playwright MCP for browser automation](/blog/playwright-mcp-browser-automation-guide)
 - [Puppeteer vs Playwright testing](/blog/puppeteer-vs-playwright-testing)
 `,

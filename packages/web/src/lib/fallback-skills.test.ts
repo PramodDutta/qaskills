@@ -20,7 +20,7 @@ describe('fallback skills dataset', () => {
       .slice(0, 3)
       .map(({ slug }) => slug);
 
-    expect(topThree).toEqual(['playwright-e2e', 'playwright-cli', 'jest-unit']);
+    expect(topThree).toEqual(['playwright-e2e', 'vibe-check', 'playwright-cli']);
   });
 
   it('puts playwright-cli first in newest sorting', () => {

@@ -103,7 +103,7 @@ await page.act({
 await page.act('click the sign in button');
 \`\`\`
 
-Because \`act\` resolves intent at runtime, it tolerates A/B tests, copy changes, and DOM restructuring that would break a hard-coded selector. That resilience is the same principle behind [self-healing test automation](/blog/self-healing-test-automation-2026): describe what the user wants, not where the pixels are.
+Because \`act\` resolves intent at runtime, it tolerates A/B tests, copy changes, and DOM restructuring that would break a hard-coded selector. That resilience is the same principle behind [self-healing test automation](/blog/self-healing-test-automation-guide): describe what the user wants, not where the pixels are.
 
 ## The extract() Method: Typed Structured Data
 
@@ -297,7 +297,7 @@ A practical CI policy: pin a specific model version so behavior does not drift b
 
 Stagehand shines wherever the DOM is hostile to selectors. Onboarding and checkout flows that marketing constantly re-skins are a perfect fit, because the visible labels stay stable while the markup churns. Data extraction from third-party dashboards, where you have no control over the HTML, becomes a one-line typed \`extract\` instead of a brittle scraper. Cross-browser smoke tests benefit from intent-based actions that do not depend on per-browser quirks.
 
-It is also a strong tool for test generation. Run an agent loop once to discover a flow, capture the \`observe\` actions, and you have a deterministic test scaffold you can harden by hand. Combined with the resilience philosophy from our [self-healing test automation guide](/blog/self-healing-test-automation-2026), Stagehand becomes part of a suite that maintains itself far better than a pure selector-based one. Browse the [QA skills directory](/skills) for installable patterns that pair with this workflow in Claude Code and Cursor.
+It is also a strong tool for test generation. Run an agent loop once to discover a flow, capture the \`observe\` actions, and you have a deterministic test scaffold you can harden by hand. Combined with the resilience philosophy from our [self-healing test automation guide](/blog/self-healing-test-automation-guide), Stagehand becomes part of a suite that maintains itself far better than a pure selector-based one. Browse the [QA skills directory](/skills) for installable patterns that pair with this workflow in Claude Code and Cursor.
 
 ## Frequently Asked Questions
 

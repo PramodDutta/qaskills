@@ -13,7 +13,7 @@ Load testing has a reputation for being painful: heavyweight GUIs, XML config, a
 
 This tutorial walks you through k6 from a cold install to running a distributed test on Grafana Cloud k6 at up to 1 million virtual users. You will learn the test lifecycle, the \`options\` block, thresholds as service-level objectives (SLOs), scenarios and executors, multi-protocol testing (HTTP, WebSocket, gRPC, and the browser module), and how to wire it all into a GitHub Actions pipeline. Every code sample here is runnable.
 
-If you are evaluating load tools more broadly, our [k6 vs JMeter comparison](/blog/k6-vs-jmeter-performance-testing) and the broader [QA skills directory](/skills) are good companions to this piece.
+If you are evaluating load tools more broadly, our [k6 vs JMeter comparison](/blog/k6-vs-jmeter-2026) and the broader [QA skills directory](/skills) are good companions to this piece.
 
 ## What Is k6 and Why It Wins in 2026
 

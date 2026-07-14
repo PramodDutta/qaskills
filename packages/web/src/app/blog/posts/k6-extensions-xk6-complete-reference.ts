@@ -11,7 +11,7 @@ export const post: BlogPost = {
 
 k6 ships with first-class support for HTTP, WebSocket, gRPC, and browser tests, but real production load testing often needs more. You want to consume from Kafka. You want to push metrics to Datadog and Honeycomb in the same run. You want to encrypt payloads with libsodium. You want to read AWS Cognito tokens. None of those ship in the k6 binary by default and none ever will because the maintainers keep the core small. The answer is xk6, k6's official extension framework. With xk6 you compile a custom k6 binary that bundles whatever Go-native extensions your team needs.
 
-This reference covers xk6 end-to-end in 2026. We explain the architecture, walk through the build command, catalogue the most useful extensions for SDETs and SREs, and finish with a complete tutorial for writing your own extension. We also cover packaging custom binaries for CI, what works in Grafana Cloud k6 versus self-hosted, and how to test extensions before shipping them. If you are still picking between performance tools, read [k6 vs JMeter](/blog/k6-vs-jmeter-performance-testing) and browse the [skills directory](/skills).
+This reference covers xk6 end-to-end in 2026. We explain the architecture, walk through the build command, catalogue the most useful extensions for SDETs and SREs, and finish with a complete tutorial for writing your own extension. We also cover packaging custom binaries for CI, what works in Grafana Cloud k6 versus self-hosted, and how to test extensions before shipping them. If you are still picking between performance tools, read [k6 vs JMeter](/blog/k6-vs-jmeter-2026) and browse the [skills directory](/skills).
 
 ## What xk6 Actually Is
 

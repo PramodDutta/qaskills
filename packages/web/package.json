@@ -9,12 +9,13 @@
     "lint": "next lint",
     "test": "vitest run",
     "test:unit": "vitest run",
-    "start:test": "QASKILLS_DISABLE_AUTH=1 CLERK_SECRET_KEY=sk_test_post_flow NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_post_flow next start --hostname localhost --port 3100",
+    "start:test": "QASKILLS_DISABLE_AUTH=1 next start --hostname 127.0.0.1 --port 3100",
     "test:e2e": "node $(node -p \"require.resolve('@playwright/test/cli')\") test",
-    "test:post-flow": "pnpm build && pnpm test:unit && pnpm test:e2e",
+    "test:post-flow": "QASKILLS_DISABLE_AUTH=1 corepack pnpm --workspace-root build && corepack pnpm test:unit && corepack pnpm test:e2e",
     "db:push": "drizzle-kit push",
     "db:migrate": "drizzle-kit migrate",
     "db:seed": "tsx src/db/seed.ts",
+    "db:seed:playwright-cli": "tsx src/db/seed-playwright-cli.ts",
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
@@ -55,6 +56,7 @@
     "zod": "^3.23.0"
   },
   "devDependencies": {
+    "@playwright/test": "1.61.0",
     "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^22.10.0",
     "@types/react": "^19.0.0",

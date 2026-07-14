@@ -13,7 +13,7 @@ In April 2026, Katalon launched True Platform, a reframing of its long-standing 
 
 For teams who have used Katalon Studio for years, this is a meaningful evolution. Katalon has always been a low-code, codeless-friendly automation platform spanning web, API, mobile, and desktop testing — accessible to testers who are not full-time engineers. True Platform keeps that accessibility but layers an agentic orchestration model on top, so the repetitive work that used to fall on humans (writing boilerplate steps, re-recording broken flows, sifting through failure logs) is increasingly handled by specialized agents.
 
-This guide explains what True Platform is, walks through the six-agent model stage by stage, contrasts it with classic Katalon Studio and code-first frameworks, and shows where it fits in a delivery pipeline. Katalon is a commercial product, so we describe pricing generally and stay at the workflow-stage level where exact internal details are not public. If you are evaluating the broader market first, our roundup of the [best AI test automation tools](/blog/best-ai-test-automation-tools-detailed-2026) gives useful context.
+This guide explains what True Platform is, walks through the six-agent model stage by stage, contrasts it with classic Katalon Studio and code-first frameworks, and shows where it fits in a delivery pipeline. Katalon is a commercial product, so we describe pricing generally and stay at the workflow-stage level where exact internal details are not public. If you are evaluating the broader market first, our roundup of the [best AI test automation tools](/blog/ai-test-automation-tools-2026) gives useful context.
 
 ## What Katalon True Platform Is
 
@@ -77,7 +77,7 @@ The fourth agent owns maintenance, which in practice means self-healing. UI chur
 
 Because Katalon stores test objects as managed entities, a single repair propagates to every test that references that object — fixing it once instead of in dozens of scripts. The maintenance agent flags each heal for human review so a person can confirm the repair targeted the right element and did not paper over a genuine UI regression.
 
-Self-healing is one of the most marketed capabilities across the AI testing market, and it has real failure modes worth understanding. Our [self-healing test automation](/blog/self-healing-test-automation-2026-guide) guide explains the mechanics and the discipline of reviewing heals rather than trusting them blindly — essential reading before you let any agent silently repair your suite.
+Self-healing is one of the most marketed capabilities across the AI testing market, and it has real failure modes worth understanding. Our [self-healing test automation](/blog/self-healing-test-automation-guide) guide explains the mechanics and the discipline of reviewing heals rather than trusting them blindly — essential reading before you let any agent silently repair your suite.
 
 ## Agent Five: Failure Analysis
 

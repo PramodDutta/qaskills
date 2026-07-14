@@ -226,7 +226,7 @@ Run your situation through these four questions in order.
 3. **What is your cost shape preference?** Predictable subscription that bundles everything, AI-native. Lowest absolute cost with variable token spend, Playwright agents.
 4. **How much human review do you want over AI changes?** Want every healing decision in a pull request, Playwright agents. Want silent zero-touch maintenance, AI-native.
 
-Many mature 2026 teams choose **both**: Playwright agents for the critical, owned, long-lived suite, and an AI-native platform for breadth and for empowering non-technical testers. The models are complementary more often than competitive. To go deeper on the broader landscape, see our roundup of the [best AI test automation tools](/blog/best-ai-test-automation-tools-detailed-2026) and our guide to running [Playwright test agents with Claude Code](/blog/playwright-test-agents-claude-code).
+Many mature 2026 teams choose **both**: Playwright agents for the critical, owned, long-lived suite, and an AI-native platform for breadth and for empowering non-technical testers. The models are complementary more often than competitive. To go deeper on the broader landscape, see our roundup of the [best AI test automation tools](/blog/ai-test-automation-tools-2026) and our guide to running [Playwright test agents with Claude Code](/blog/playwright-test-agents-claude-code).
 
 ## Frequently Asked Questions
 

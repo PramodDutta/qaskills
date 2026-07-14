@@ -13,7 +13,7 @@ The dangerous prompt is rarely a cartoon villain string in a text box. It is a c
 
 Rebuff deserves a careful testing posture. Its public repository is archived and the README describes it as a prototype that cannot provide complete protection. That does not make it useless, but it does mean QA should treat it as one defensive signal, not as a security boundary. A test suite should measure what Rebuff catches, what it misses, how the application responds, and whether canary leakage handling works under realistic prompts.
 
-Use this guide with the wider [prompt injection testing guide](/blog/prompt-injection-testing-guide-2026). If you need broader red-team orchestration across models and attack classes, compare the approach with [promptfoo red teaming](/blog/promptfoo-red-teaming-guide-2026).
+Use this guide with the wider [prompt injection testing guide](/blog/prompt-injection-testing-guide-2026). If you need broader red-team orchestration across models and attack classes, compare the approach with [promptfoo red teaming](/blog/promptfoo-red-teaming-llm-applications).
 
 ## What Rebuff Can and Cannot Prove
 

@@ -98,7 +98,7 @@ await aiScroll({ direction: 'down', scrollType: 'once' }, 'the footer area');
 await aiKeyboardPress('Enter');
 \`\`\`
 
-A good rule of thumb: reach for atomic methods (\`aiTap\`, \`aiInput\`) for known, single interactions where you want speed and predictability, and reach for \`aiAction\` only when a step genuinely requires the model to plan across several screens. Mixing them keeps tests both fast and readable, the same hybrid discipline we recommend in our [self-healing test automation guide](/blog/self-healing-test-automation-2026).
+A good rule of thumb: reach for atomic methods (\`aiTap\`, \`aiInput\`) for known, single interactions where you want speed and predictability, and reach for \`aiAction\` only when a step genuinely requires the model to plan across several screens. Mixing them keeps tests both fast and readable, the same hybrid discipline we recommend in our [self-healing test automation guide](/blog/self-healing-test-automation-guide).
 
 ## Extracting Data With aiQuery
 

@@ -13,7 +13,7 @@ k6 is one of the most popular open-source load testing tools in the QA and SRE w
 
 The catch is that the core k6 binary only speaks a handful of protocols out of the box: HTTP/1.1, HTTP/2, WebSocket, gRPC, and a few utility modules. The moment your system under test involves a message queue, a relational database, a cache, or a custom binary protocol, core k6 has no idea how to talk to it. That is exactly the gap that xk6 fills. xk6 is a command-line builder that compiles a bespoke k6 binary with additional Go modules baked in, exposing new JavaScript APIs to your test scripts.
 
-This guide walks through everything you need to run protocol-rich load tests with xk6: what the tool is, how to install it, how to build a custom binary, which extensions matter, how to write tests that use them, how to package the result for CI, and how to author your own extension when nothing off-the-shelf fits. If you are new to load testing in general, start with our [load testing beginners guide](/blog/load-testing-beginners-guide) and the [k6 vs JMeter comparison](/blog/k6-vs-jmeter-performance-testing) before diving into extensions.
+This guide walks through everything you need to run protocol-rich load tests with xk6: what the tool is, how to install it, how to build a custom binary, which extensions matter, how to write tests that use them, how to package the result for CI, and how to author your own extension when nothing off-the-shelf fits. If you are new to load testing in general, start with our [load testing beginners guide](/blog/load-testing-beginners-guide) and the [k6 vs JMeter comparison](/blog/k6-vs-jmeter-2026) before diving into extensions.
 
 ## What k6 Is and Where It Stops
 

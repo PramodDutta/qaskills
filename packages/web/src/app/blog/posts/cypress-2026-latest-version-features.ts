@@ -450,7 +450,7 @@ The first \`cypress open\` runs the launchpad which scaffolds your config.
 
 ### Does Cypress 14 support Safari?
 
-Yes -- WebKit (Safari's engine) is fully supported in Cypress 14. Run with \`--browser webkit\`. See our [Cypress browser support guide](/blog/cypress-browser-support-chrome-firefox-webkit) for details.
+Yes -- WebKit (Safari's engine) is fully supported in Cypress 14. Run with \`--browser webkit\`. See our [cross-browser testing guide](/blog/cross-browser-testing-guide) for details.
 
 ### How do I migrate from Selenium to Cypress?
 

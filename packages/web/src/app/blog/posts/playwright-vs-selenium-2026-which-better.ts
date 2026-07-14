@@ -169,7 +169,7 @@ cost = engineer_weeks_to_migrate * fully_loaded_cost
 
 If \`benefit > cost\`, migrate. For most 500-test Selenium suites the breakeven is around 8-12 engineer-weeks, which is achievable for teams that schedule a focused migration sprint.
 
-See [Migrate Selenium to Playwright complete guide](/blog/migrate-selenium-to-playwright-complete-guide) for the migration playbook.
+See [Migrate Selenium to Playwright complete guide](/blog/selenium-to-playwright-migration-guide-2026) for the migration playbook.
 
 ## Selenium's Modern Strengths
 
@@ -195,8 +195,8 @@ Both tools will be alive a decade from now. Neither is going away. Make the choi
 
 ## Read Next
 
-- [Playwright vs Selenium reliability showdown 2026](/blog/playwright-vs-selenium-reliability-2026)
-- [Migrate Selenium to Playwright complete guide](/blog/migrate-selenium-to-playwright-complete-guide)
+- [Playwright vs Selenium reliability showdown 2026](/blog/playwright-vs-selenium-complete-2026)
+- [Migrate Selenium to Playwright complete guide](/blog/selenium-to-playwright-migration-guide-2026)
 - [Playwright best practices 2026](/blog/playwright-best-practices-2026)
 - [Selenium vs Playwright 2026](/blog/selenium-vs-playwright-2026)
 `,

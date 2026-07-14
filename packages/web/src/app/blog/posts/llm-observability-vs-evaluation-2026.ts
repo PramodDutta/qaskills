@@ -82,7 +82,7 @@ def test_answer_quality(question):
     assert_test(test_case, [relevancy, faithfulness])
 \`\`\`
 
-The key line is \`assert_test\`. When relevancy or faithfulness dips under the threshold, pytest fails, the CI job goes red, and the pull request cannot merge. The same shape works with Ragas (\`evaluate()\` plus a threshold check) or Promptfoo (assertions in a YAML config). For a head-to-head on these three frameworks see [DeepEval vs Ragas vs Promptfoo](/blog/deepeval-vs-ragas-vs-promptfoo-2026), and the [DeepEval testing framework guide](/blog/deepeval-llm-testing-framework-guide) for the full metric catalog.
+The key line is \`assert_test\`. When relevancy or faithfulness dips under the threshold, pytest fails, the CI job goes red, and the pull request cannot merge. The same shape works with Ragas (\`evaluate()\` plus a threshold check) or Promptfoo (assertions in a YAML config). For a head-to-head on these three frameworks see [DeepEval vs Ragas vs Promptfoo](/blog/promptfoo-vs-deepeval-vs-ragas-2026), and the [DeepEval testing framework guide](/blog/deepeval-llm-testing-guide) for the full metric catalog.
 
 ## Wiring the Eval into a GitHub Actions Gate
 
@@ -217,7 +217,7 @@ The vendor landscape blurs the line because several platforms now do both. Here 
 | **Arize Phoenix** | Observability | Tracing + drift detection + embedding analysis |
 | **Datadog LLM Observability** | Observability | APM-native traces, cost, latency, integrated with infra monitoring |
 
-The pattern experienced teams converge on is **two tools, one from each column**: a lightweight eval framework for CI gating (DeepEval, Ragas, or Promptfoo) plus a platform for tracing, human annotation, regression tracking, and dashboards (Braintrust, LangSmith, or Arize). The eval framework lives in your repo; the platform lives in production and in your review workflow. For the framework decision specifically, the [DeepEval vs Ragas vs Promptfoo](/blog/deepeval-vs-ragas-vs-promptfoo-2026) and [OpenAI Evals guide](/blog/openai-evals-complete-guide-2026) go deeper.
+The pattern experienced teams converge on is **two tools, one from each column**: a lightweight eval framework for CI gating (DeepEval, Ragas, or Promptfoo) plus a platform for tracing, human annotation, regression tracking, and dashboards (Braintrust, LangSmith, or Arize). The eval framework lives in your repo; the platform lives in production and in your review workflow. For the framework decision specifically, the [DeepEval vs Ragas vs Promptfoo](/blog/promptfoo-vs-deepeval-vs-ragas-2026) and [OpenAI Evals guide](/blog/openai-evals-complete-guide-2026) go deeper.
 
 ## When You Need One, the Other, or Both
 

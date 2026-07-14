@@ -19,7 +19,7 @@ The two halves of Phoenix are tracing and evaluation, and they reinforce each ot
 
 Phoenix sits in the same category as Langfuse and LangSmith but leans harder into the evaluation and experimentation workflow rather than long-term production monitoring. It is built around three primitives: **traces** (what your application did), **datasets** (curated examples to test against), and **experiments** (running a task over a dataset and scoring the results). The whole thing is open source under an Apache-style license and runs entirely on your machine, which makes it a natural fit for teams that cannot send data to a SaaS.
 
-A useful way to frame Phoenix against neighbours: it is observability-first like the tools in our [LLM observability vs evaluation](/blog/llm-observability-vs-evaluation-2026) guide, but its evals library and experiment runner make it equally a testing tool, closer in spirit to the frameworks in our [DeepEval testing guide](/blog/deepeval-llm-testing-framework-guide-2026). You will likely use it alongside, not instead of, those tools.
+A useful way to frame Phoenix against neighbours: it is observability-first like the tools in our [LLM observability vs evaluation](/blog/llm-observability-vs-evaluation-2026) guide, but its evals library and experiment runner make it equally a testing tool, closer in spirit to the frameworks in our [DeepEval testing guide](/blog/deepeval-llm-testing-guide). You will likely use it alongside, not instead of, those tools.
 
 ## Step 1: Install and Launch the App
 
@@ -253,7 +253,7 @@ Phoenix supports several modes; match the mode to where you are in the lifecycle
 | Container | \`docker run arizephoenix/phoenix\` | Shared team instance, CI gates |
 | Experiments | \`run_experiment()\` over datasets | Regression testing, model comparison |
 
-The natural progression is to start in a notebook, move to a container as the team grows, and wire experiments into CI so a pull request that regresses your QA correctness score fails the build. That CI gate is the same eval-driven philosophy described in our [DeepEval testing framework guide](/blog/deepeval-llm-testing-framework-guide-2026), applied through Phoenix's experiment runner.
+The natural progression is to start in a notebook, move to a container as the team grows, and wire experiments into CI so a pull request that regresses your QA correctness score fails the build. That CI gate is the same eval-driven philosophy described in our [DeepEval testing framework guide](/blog/deepeval-llm-testing-guide), applied through Phoenix's experiment runner.
 
 ## Frequently Asked Questions
 
@@ -283,7 +283,7 @@ Use \`llm_classify\` with your own prompt template and a \`rails\` argument list
 
 ### Does Phoenix run in CI?
 
-Yes. Run Phoenix as a container with \`docker run -p 6006:6006 arizephoenix/phoenix\`, then use \`run_experiment\` over a regression dataset in your test job and assert on the aggregate score. If a pull request drops your QA correctness below a threshold, fail the build. This turns Phoenix into an eval-driven quality gate, the same pattern covered in our [DeepEval guide](/blog/deepeval-llm-testing-framework-guide-2026).
+Yes. Run Phoenix as a container with \`docker run -p 6006:6006 arizephoenix/phoenix\`, then use \`run_experiment\` over a regression dataset in your test job and assert on the aggregate score. If a pull request drops your QA correctness below a threshold, fail the build. This turns Phoenix into an eval-driven quality gate, the same pattern covered in our [DeepEval guide](/blog/deepeval-llm-testing-guide).
 
 ### How does Phoenix compare to Langfuse and LangSmith?
 

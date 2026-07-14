@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Menu, X, Search, Terminal } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
@@ -8,12 +9,14 @@ import { ThemeToggle } from '@/components/theme-toggle';
 const navLinks = [
   { href: '/leaderboard', label: 'Leaderboard' },
   { href: '/skills', label: 'Skills' },
+  { href: '/roadmaps', label: 'Roadmaps' },
   { href: '/blog', label: 'Blog' },
   { href: '/agents', label: 'Agents' },
   { href: '/packs', label: 'Packs' },
 ];
 
 export function Header() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [clerkLoaded, setClerkLoaded] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -22,17 +25,19 @@ export function Header() {
   useEffect(() => {
     // Only load Clerk components on the client after mount
     if (process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) {
-      import('@clerk/nextjs').then((clerk) => {
-        setClerkUI({
-          SignInButton: clerk.SignInButton,
-          SignedIn: clerk.SignedIn,
-          SignedOut: clerk.SignedOut,
-          UserButton: clerk.UserButton,
+      import('@clerk/nextjs')
+        .then((clerk) => {
+          setClerkUI({
+            SignInButton: clerk.SignInButton,
+            SignedIn: clerk.SignedIn,
+            SignedOut: clerk.SignedOut,
+            UserButton: clerk.UserButton,
+          });
+          setClerkLoaded(true);
+        })
+        .catch(() => {
+          // Clerk not available
         });
-        setClerkLoaded(true);
-      }).catch(() => {
-        // Clerk not available
-      });
     }
   }, []);
 
@@ -49,23 +54,29 @@ export function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-6" aria-label="Primary navigation">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive ? 'page' : undefined}
+                className={`text-sm font-medium transition-colors hover:text-foreground ${
+                  isActive ? 'text-foreground' : 'text-muted-foreground'
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Right side */}
         <div className="flex items-center gap-3">
           <Link
             href="/skills"
-            className="hidden sm:flex items-center gap-2 rounded-md border border-border bg-muted px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="hidden items-center gap-2 rounded-md border border-border bg-muted px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground xl:flex"
           >
             <Search className="h-4 w-4" />
             <span>Search skills...</span>
@@ -106,7 +117,7 @@ export function Header() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden p-2"
+            className="p-2 lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -117,17 +128,26 @@ export function Header() {
 
       {/* Mobile Nav */}
       {mobileOpen && (
-        <nav className="md:hidden border-t border-border bg-background p-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav
+          className="border-t border-border bg-background p-4 lg:hidden"
+          aria-label="Mobile navigation"
+        >
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive ? 'page' : undefined}
+                className={`block py-2 text-sm font-medium hover:text-foreground ${
+                  isActive ? 'text-foreground' : 'text-muted-foreground'
+                }`}
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <div className="pt-3 mt-3 border-t border-border">
             <ThemeToggle />
           </div>

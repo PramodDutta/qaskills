@@ -2,63 +2,122 @@ import type { MetadataRoute } from 'next';
 import { db } from '@/db';
 import { skills, users } from '@/db/schema';
 import { postList } from './blog/posts';
+import { isCanonicalBlogSlug } from '@/lib/blog-canonical';
 import { allComparisonSlugs } from '@/lib/compare-data';
 import { allHubSlugs } from '@/lib/skills-for-hubs';
+import { roadmaps } from './roadmaps/roadmap-data';
 
 const baseUrl = 'https://qaskills.sh';
-const today = '2026-03-26';
 
 const staticPages: MetadataRoute.Sitemap = [
-  { url: baseUrl, lastModified: today, changeFrequency: 'daily', priority: 1.0 },
-  { url: `${baseUrl}/skills`, lastModified: today, changeFrequency: 'daily', priority: 0.9 },
-  { url: `${baseUrl}/blog`, lastModified: today, changeFrequency: 'daily', priority: 0.9 },
-  { url: `${baseUrl}/getting-started`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
-  { url: `${baseUrl}/leaderboard`, lastModified: today, changeFrequency: 'daily', priority: 0.7 },
-  { url: `${baseUrl}/packs`, lastModified: today, changeFrequency: 'weekly', priority: 0.7 },
-  { url: `${baseUrl}/pricing`, lastModified: today, changeFrequency: 'monthly', priority: 0.6 },
-  { url: `${baseUrl}/how-to-publish`, lastModified: today, changeFrequency: 'weekly', priority: 0.7 },
-  { url: `${baseUrl}/mcp`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
-  { url: `${baseUrl}/faq`, lastModified: today, changeFrequency: 'weekly', priority: 0.6 },
-  { url: `${baseUrl}/about`, lastModified: today, changeFrequency: 'monthly', priority: 0.5 },
-  { url: `${baseUrl}/contact`, lastModified: today, changeFrequency: 'monthly', priority: 0.4 },
-  { url: `${baseUrl}/terms`, lastModified: today, changeFrequency: 'yearly', priority: 0.3 },
-  { url: `${baseUrl}/privacy`, lastModified: today, changeFrequency: 'yearly', priority: 0.3 },
-  { url: `${baseUrl}/refund-policy`, lastModified: today, changeFrequency: 'yearly', priority: 0.3 },
+  { url: baseUrl, changeFrequency: 'daily', priority: 1.0 },
+  { url: `${baseUrl}/skills`, changeFrequency: 'daily', priority: 0.9 },
+  { url: `${baseUrl}/blog`, changeFrequency: 'daily', priority: 0.9 },
+  { url: `${baseUrl}/roadmaps`, changeFrequency: 'weekly', priority: 0.8 },
+  {
+    url: `${baseUrl}/getting-started`,
+    changeFrequency: 'weekly',
+    priority: 0.8,
+  },
+  { url: `${baseUrl}/leaderboard`, changeFrequency: 'daily', priority: 0.7 },
+  { url: `${baseUrl}/packs`, changeFrequency: 'weekly', priority: 0.7 },
+  { url: `${baseUrl}/pricing`, changeFrequency: 'monthly', priority: 0.6 },
+  {
+    url: `${baseUrl}/how-to-publish`,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  },
+  { url: `${baseUrl}/mcp`, changeFrequency: 'weekly', priority: 0.8 },
+  { url: `${baseUrl}/faq`, changeFrequency: 'weekly', priority: 0.6 },
+  { url: `${baseUrl}/about`, changeFrequency: 'monthly', priority: 0.5 },
+  { url: `${baseUrl}/contact`, changeFrequency: 'monthly', priority: 0.4 },
+  { url: `${baseUrl}/terms`, changeFrequency: 'yearly', priority: 0.3 },
+  { url: `${baseUrl}/privacy`, changeFrequency: 'yearly', priority: 0.3 },
+  {
+    url: `${baseUrl}/refund-policy`,
+    changeFrequency: 'yearly',
+    priority: 0.3,
+  },
   // Index pages
-  { url: `${baseUrl}/agents`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
-  { url: `${baseUrl}/categories`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
-  { url: `${baseUrl}/compare`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
+  { url: `${baseUrl}/agents`, changeFrequency: 'weekly', priority: 0.8 },
+  { url: `${baseUrl}/categories`, changeFrequency: 'weekly', priority: 0.8 },
+  { url: `${baseUrl}/compare`, changeFrequency: 'weekly', priority: 0.8 },
   // Agent pages
-  { url: `${baseUrl}/agents/claude-code`, lastModified: today, changeFrequency: 'weekly', priority: 0.7 },
-  { url: `${baseUrl}/agents/cursor`, lastModified: today, changeFrequency: 'weekly', priority: 0.7 },
-  { url: `${baseUrl}/agents/copilot`, lastModified: today, changeFrequency: 'weekly', priority: 0.7 },
-  { url: `${baseUrl}/agents/windsurf`, lastModified: today, changeFrequency: 'weekly', priority: 0.7 },
-  { url: `${baseUrl}/agents/cline`, lastModified: today, changeFrequency: 'weekly', priority: 0.7 },
+  {
+    url: `${baseUrl}/agents/claude-code`,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/agents/cursor`,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/agents/copilot`,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/agents/windsurf`,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  },
+  { url: `${baseUrl}/agents/cline`, changeFrequency: 'weekly', priority: 0.7 },
   // Category pages
-  { url: `${baseUrl}/categories/e2e-testing`, lastModified: today, changeFrequency: 'weekly', priority: 0.7 },
-  { url: `${baseUrl}/categories/unit-testing`, lastModified: today, changeFrequency: 'weekly', priority: 0.7 },
-  { url: `${baseUrl}/categories/api-testing`, lastModified: today, changeFrequency: 'weekly', priority: 0.7 },
-  { url: `${baseUrl}/categories/performance-testing`, lastModified: today, changeFrequency: 'weekly', priority: 0.7 },
-  { url: `${baseUrl}/categories/accessibility-testing`, lastModified: today, changeFrequency: 'weekly', priority: 0.7 },
+  {
+    url: `${baseUrl}/categories/e2e-testing`,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/categories/unit-testing`,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/categories/api-testing`,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/categories/performance-testing`,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/categories/accessibility-testing`,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  },
   // Comparison pages
-  { url: `${baseUrl}/compare/qaskills-vs-skillsmp`, lastModified: today, changeFrequency: 'monthly', priority: 0.7 },
-  { url: `${baseUrl}/compare/playwright-vs-cypress-skills`, lastModified: today, changeFrequency: 'monthly', priority: 0.7 },
+  {
+    url: `${baseUrl}/compare/qaskills-vs-skillsmp`,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/compare/playwright-vs-cypress-skills`,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  },
   // Skills-For hub index
-  { url: `${baseUrl}/skills-for`, lastModified: today, changeFrequency: 'weekly', priority: 0.8 },
+  { url: `${baseUrl}/skills-for`, changeFrequency: 'weekly', priority: 0.8 },
 ];
 
 // Auto-generate blog pages from the posts index (no more manual sync needed)
-const blogPages: MetadataRoute.Sitemap = postList.map((post) => ({
-  url: `${baseUrl}/blog/${post.slug}`,
-  lastModified: new Date(post.date),
-  changeFrequency: 'monthly' as const,
-  priority: 0.8,
-}));
+const blogPages: MetadataRoute.Sitemap = postList
+  .filter((post) => isCanonicalBlogSlug(post.slug))
+  .map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.updated || post.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
 
 // Auto-generate programmatic comparison pages from compare-data
 const comparePages: MetadataRoute.Sitemap = allComparisonSlugs().map((slug) => ({
   url: `${baseUrl}/compare/${slug}`,
-  lastModified: today,
   changeFrequency: 'monthly' as const,
   priority: 0.7,
 }));
@@ -66,8 +125,13 @@ const comparePages: MetadataRoute.Sitemap = allComparisonSlugs().map((slug) => (
 // Auto-generate /skills-for/<topic> hub pages from skills-for-hubs
 const hubPages: MetadataRoute.Sitemap = allHubSlugs().map((slug) => ({
   url: `${baseUrl}/skills-for/${slug}`,
-  lastModified: today,
   changeFrequency: 'weekly' as const,
+  priority: 0.8,
+}));
+
+const roadmapPages: MetadataRoute.Sitemap = roadmaps.map((roadmap) => ({
+  url: `${baseUrl}/roadmaps/${roadmap.slug}`,
+  changeFrequency: 'monthly' as const,
   priority: 0.8,
 }));
 
@@ -91,9 +155,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: user.updatedAt,
     }));
 
-    return [...staticPages, ...skillPages, ...userPages, ...blogPages, ...comparePages, ...hubPages];
+    return [
+      ...staticPages,
+      ...skillPages,
+      ...userPages,
+      ...blogPages,
+      ...comparePages,
+      ...hubPages,
+      ...roadmapPages,
+    ];
   } catch {
     // Fallback to static pages only when DB is not available
-    return [...staticPages, ...blogPages, ...comparePages, ...hubPages];
+    return [...staticPages, ...blogPages, ...comparePages, ...hubPages, ...roadmapPages];
   }
 }

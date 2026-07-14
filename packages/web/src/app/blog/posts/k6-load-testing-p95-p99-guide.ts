@@ -11,7 +11,7 @@ export const post: BlogPost = {
 
 If your load test report says "average response time: 180ms" and everyone nods, you are measuring the wrong thing. The average hides the customers who waited two seconds. Percentiles do not. p95 and p99 latency tell you what your slowest users actually experienced, and those slow users are the ones who churn, retry, and file support tickets. This guide shows how to run k6 load tests that measure and enforce percentile latency, how to set thresholds on \`http_req_duration\` at p(95) and p(99), the difference between load, spike, and soak tests, and how to read the results without fooling yourself.
 
-k6 is an open-source load testing tool where you write your scenarios in JavaScript and the engine runs them in a high-performance Go runtime. That combination, familiar scripting language plus a fast executor, is why it has become a default choice for developer-owned performance testing. If you are choosing a tool, our [k6 vs JMeter comparison](/blog/k6-vs-jmeter-2026-which-better) walks through the trade-offs.
+k6 is an open-source load testing tool where you write your scenarios in JavaScript and the engine runs them in a high-performance Go runtime. That combination, familiar scripting language plus a fast executor, is why it has become a default choice for developer-owned performance testing. If you are choosing a tool, our [k6 vs JMeter comparison](/blog/k6-vs-jmeter-2026) walks through the trade-offs.
 
 ## Why Percentiles Beat Averages
 

@@ -2,7 +2,8 @@ import type { BlogPost } from './index';
 
 export const post: BlogPost = {
   title: 'Playwright Component Testing for Svelte: Complete 2026 Guide',
-  description: 'Test Svelte and SvelteKit components with Playwright Component Testing in real browsers. Mount, props, stores, fixtures, and visual snapshots in TypeScript.',
+  description:
+    'Test Svelte and SvelteKit components with Playwright Component Testing in real browsers. Mount, props, stores, fixtures, and visual snapshots in TypeScript.',
   date: '2026-05-09',
   category: 'Guide',
   content: `
@@ -12,7 +13,7 @@ Svelte's compiler produces tight, fast components that often need lightweight te
 
 This guide covers Svelte 4 and Svelte 5 (with runes). Examples use TypeScript and Playwright 1.49+.
 
-For React patterns, see [Playwright Component Testing for React](/blog/playwright-component-testing-react-complete-guide). For Vue, [Playwright Component Testing Vue Complete Guide](/blog/playwright-component-testing-vue-complete-guide). The [playwright-e2e skill](/skills/playwright-e2e) automates these patterns in AI-generated tests.
+For React patterns, see [Playwright Component Testing for React](/blog/playwright-component-testing-react-guide-2026). For Vue, [Playwright Component Testing Vue Complete Guide](/blog/playwright-component-testing-vue-complete-guide). The [playwright-e2e skill](/skills/playwright-e2e) automates these patterns in AI-generated tests.
 
 ## Installation
 
@@ -356,6 +357,6 @@ For full CI scaffolding, see [Playwright CI GitHub Actions Complete Guide](/blog
 
 Playwright Component Testing for Svelte brings real browsers to your component layer with minimal setup. Use it for design system components, complex widgets, and visual regression. Pair with end-to-end tests for full-page flows.
 
-Install the [playwright-e2e skill](/skills/playwright-e2e) so AI assistants generate Svelte CT tests that follow these patterns. For React, see [Playwright Component Testing for React](/blog/playwright-component-testing-react-complete-guide); for Vue, [Playwright Component Testing Vue Complete Guide](/blog/playwright-component-testing-vue-complete-guide).
+Install the [playwright-e2e skill](/skills/playwright-e2e) so AI assistants generate Svelte CT tests that follow these patterns. For React, see [Playwright Component Testing for React](/blog/playwright-component-testing-react-guide-2026); for Vue, [Playwright Component Testing Vue Complete Guide](/blog/playwright-component-testing-vue-complete-guide).
 `,
 };

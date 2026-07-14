@@ -177,7 +177,7 @@ The **load testing tools** landscape has evolved significantly. Modern tools emp
 
 **Artillery** is the quickest to start with. YAML-based configuration requires almost no programming knowledge, with JavaScript available for complex scenarios and strong Socket.IO support for real-time applications.
 
-For a deep dive into the two most popular tools, see our guide on [k6 vs JMeter](/blog/k6-vs-jmeter-performance-testing).
+For a deep dive into the two most popular tools, see our guide on [k6 vs JMeter](/blog/k6-vs-jmeter-2026).
 
 ---
 
@@ -443,7 +443,7 @@ export const options = {
 };
 \`\`\`
 
-This ensures no deployment proceeds unless it meets the minimum performance bar. For more on building robust testing pipelines, see our guide on [CI/CD testing pipelines with GitHub Actions](/blog/cicd-testing-pipeline-github-actions). And for a detailed comparison of the most popular performance testing tools in a pipeline context, check out [k6 vs JMeter](/blog/k6-vs-jmeter-performance-testing).
+This ensures no deployment proceeds unless it meets the minimum performance bar. For more on building robust testing pipelines, see our guide on [CI/CD testing pipelines with GitHub Actions](/blog/cicd-testing-pipeline-github-actions). And for a detailed comparison of the most popular performance testing tools in a pipeline context, check out [k6 vs JMeter](/blog/k6-vs-jmeter-2026).
 
 ---
 

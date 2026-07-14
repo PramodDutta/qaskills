@@ -13,7 +13,7 @@ Shipping a Retrieval-Augmented Generation (RAG) system without an evaluation har
 
 Ragas began life as a research-driven library laser-focused on the RAG triad -- faithfulness, answer relevancy, and context precision/recall -- with reference-free metrics designed to need minimal ground-truth data. DeepEval positions itself as the "Pytest for LLMs": a testing framework first, with assertions, test cases, a rich metric catalog (including the flexible G-Eval and DAG metrics), red-teaming, and a hosted platform for tracking results over time. Choosing between them is not about which is "better" in the abstract -- it is about whether you want a focused RAG metrics engine or a full LLM testing framework with a developer-experience built around the testing loop you already know.
 
-This guide compares Ragas and DeepEval across architecture, metric coverage, code ergonomics, dataset handling, CI integration, cost, and the practical experience of debugging a failing eval. Every code sample is real, runnable Python you can adapt today. If you are also wiring up traditional QA around your AI features, our broader [QA skills directory](/skills) and the [LLM-as-a-judge evaluation guide](/blog/llm-as-a-judge-evaluation-guide-2026) pair naturally with everything below.
+This guide compares Ragas and DeepEval across architecture, metric coverage, code ergonomics, dataset handling, CI integration, cost, and the practical experience of debugging a failing eval. Every code sample is real, runnable Python you can adapt today. If you are also wiring up traditional QA around your AI features, our broader [QA skills directory](/skills) and the [LLM-as-a-judge evaluation guide](/blog/llm-as-a-judge-evaluation-guide) pair naturally with everything below.
 
 ## Key Takeaways
 
@@ -30,7 +30,7 @@ A RAG pipeline has three moving parts that can each fail independently. The **re
 
 Traditional metrics like BLEU and ROUGE measure token overlap against a reference answer. They are nearly useless for RAG because two correct answers can share almost no surface tokens, and a fluent hallucination can score highly. What you actually want to know is: did the answer stay *faithful* to the retrieved context (no hallucination), was it *relevant* to the question, and did the retriever surface the *right* context in the first place?
 
-Both Ragas and DeepEval answer these questions with **LLM-as-a-judge** scoring: a strong evaluator model reads the question, context, and answer, then produces a numeric score with reasoning. This is the same paradigm covered in depth in our [LLM-as-a-judge evaluation guide](/blog/llm-as-a-judge-evaluation-guide-2026). The difference between the two frameworks is everything around that core idea -- the API, the metric design, the dataset model, and the integration story.
+Both Ragas and DeepEval answer these questions with **LLM-as-a-judge** scoring: a strong evaluator model reads the question, context, and answer, then produces a numeric score with reasoning. This is the same paradigm covered in depth in our [LLM-as-a-judge evaluation guide](/blog/llm-as-a-judge-evaluation-guide). The difference between the two frameworks is everything around that core idea -- the API, the metric design, the dataset model, and the integration story.
 
 ## The RAG Triad, Defined
 
@@ -182,7 +182,7 @@ professionalism.measure(case)
 print(professionalism.score, professionalism.reason)
 \`\`\`
 
-For even tighter control, DeepEval offers the **DAG (Deep Acyclic Graph)** metric, where you encode a decision tree of yes/no checks, giving you deterministic, auditable scoring instead of a single opaque LLM number. That level of customization is the main reason teams adopting structured LLM testing reach for DeepEval; see our deeper walkthrough in the [DeepEval LLM testing guide](/blog/deepeval-llm-testing-guide-2026).
+For even tighter control, DeepEval offers the **DAG (Deep Acyclic Graph)** metric, where you encode a decision tree of yes/no checks, giving you deterministic, auditable scoring instead of a single opaque LLM number. That level of customization is the main reason teams adopting structured LLM testing reach for DeepEval; see our deeper walkthrough in the [DeepEval LLM testing guide](/blog/deepeval-llm-testing-guide).
 
 ### DeepEval Strengths and Tradeoffs
 

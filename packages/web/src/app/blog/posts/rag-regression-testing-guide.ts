@@ -197,7 +197,7 @@ if __name__ == "__main__":
     sys.exit(main(sys.argv[-1]))
 \`\`\`
 
-A nonzero exit blocks the merge. Now a prompt edit that quietly drops faithfulness cannot reach main; the author sees the failing gate, the per-case reasons, and fixes it before review even starts. This is the same shift-left discipline covered in our [DeepEval pytest LLM testing guide](/blog/deepeval-pytest-llm-testing-guide), applied to retrieval pipelines.
+A nonzero exit blocks the merge. Now a prompt edit that quietly drops faithfulness cannot reach main; the author sees the failing gate, the per-case reasons, and fixes it before review even starts. This is the same shift-left discipline covered in our [DeepEval pytest LLM testing guide](/blog/deepeval-llm-testing-guide), applied to retrieval pipelines.
 
 ## Threshold Alerts for Production Drift
 

@@ -1,0 +1,38 @@
+import { PLAYWRIGHT_CLI_LAUNCH_DATE } from './skill-launch-dates';
+
+export const PLAYWRIGHT_CLI_SKILL = {
+  name: 'Playwright CLI Browser Automation',
+  slug: 'playwright-cli',
+  description:
+    'Command-line browser automation with Playwright CLI for navigation, snapshots, uploads, downloads, tracing, and QA workflows.',
+  version: '1.0.0',
+  license: 'ISC',
+  githubUrl: 'https://github.com/PramodDutta/LearningPlaywrightBatch',
+  authorName: 'Pramod',
+  tags: ['playwright', 'playwright-cli', 'browser-automation', 'tracing', 'snapshots'],
+  testingTypes: ['e2e', 'visual', 'accessibility'],
+  frameworks: ['playwright'],
+  languages: ['javascript', 'typescript'],
+  domains: ['web'],
+  agents: [
+    'claude-code',
+    'cursor',
+    'github-copilot',
+    'windsurf',
+    'codex',
+    'aider',
+    'continue',
+    'cline',
+    'zed',
+    'bolt',
+    'opencode',
+    'gemini-cli',
+    'amp',
+  ],
+  qualityScore: 93,
+  installCount: 66,
+  weeklyInstalls: 66,
+  featured: true,
+  verified: true,
+  createdAt: new Date(PLAYWRIGHT_CLI_LAUNCH_DATE),
+} as const;

@@ -168,7 +168,7 @@ There is no universally correct default. Encode the choice in helper names such 
 
 Playwright resolves multiple matching handlers in reverse registration order. A later route can call \`route.fallback()\` to let an earlier matching handler process the request, whereas \`route.continue()\` sends it to the network immediately. This matters when a suite has a general GraphQL observer plus a test-specific mock. Prefer one dispatcher per endpoint when possible because registration order is hard to see across fixtures.
 
-The broader [Playwright network interception guide](/blog/playwright-network-interception-mocking-guide) covers routing scope, HAR replay, response modification, and service workers. For operation-name mocks, a single endpoint dispatcher remains easier to reason about than layers of wildcard routes.
+The broader [Playwright network interception guide](/blog/playwright-network-mocking-route-handler-guide) covers routing scope, HAR replay, response modification, and service workers. For operation-name mocks, a single endpoint dispatcher remains easier to reason about than layers of wildcard routes.
 
 ## Handle aliases, batches, and persisted queries
 

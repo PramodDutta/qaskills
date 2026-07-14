@@ -49,7 +49,7 @@ The discovery and generation steps get you to a working suite quickly. Self-heal
 
 When your application changes -- a button is renamed, a form field moves, a modal is restructured -- a conventional Playwright test that targeted the old structure fails. OctoMind detects that the underlying element the test depended on has shifted, re-identifies the correct element using its semantic understanding of the page, and updates the test so it continues to verify the same behavior. Instead of a red CI run and a manual fix, the test heals.
 
-This matters because, in most teams, maintenance -- not authoring -- is where E2E suites die. A suite that costs a developer-day per week to keep green eventually gets disabled. Auto-maintenance changes that economics. For a broader look at how self-healing works across the industry and where its limits lie, see our dedicated [self-healing test automation](/blog/self-healing-test-automation-2026-guide) guide.
+This matters because, in most teams, maintenance -- not authoring -- is where E2E suites die. A suite that costs a developer-day per week to keep green eventually gets disabled. Auto-maintenance changes that economics. For a broader look at how self-healing works across the industry and where its limits lie, see our dedicated [self-healing test automation](/blog/self-healing-test-automation-guide) guide.
 
 A practical note: self-healing is powerful but should not be a black box. Review healed changes the way you would review any code change. A heal that "fixes" a test by quietly weakening an assertion is worse than a failure, because it hides a real regression behind a green check.
 
@@ -155,7 +155,7 @@ OctoMind sits between two poles: fully manual Playwright on one side and pure au
 | Setup speed | Fast (auto-discovery) | Slow (write everything) | Fast |
 | Cost model | Free tier + paid plans | Open source + infra | SaaS subscription |
 
-The headline takeaway: OctoMind gives you most of the authoring and maintenance savings of AI-native tools while preserving the determinism, debuggability, and ownership of code-first Playwright -- because the artifact *is* Playwright. For a wider survey of the category, including autonomous agents that take a more aggressive no-code stance, see our roundup of the [best AI test automation tools](/blog/best-ai-test-automation-tools-detailed-2026) and our analysis of [autonomous testing build vs buy](/blog/autonomous-testing-agents-build-vs-buy).
+The headline takeaway: OctoMind gives you most of the authoring and maintenance savings of AI-native tools while preserving the determinism, debuggability, and ownership of code-first Playwright -- because the artifact *is* Playwright. For a wider survey of the category, including autonomous agents that take a more aggressive no-code stance, see our roundup of the [best AI test automation tools](/blog/ai-test-automation-tools-2026) and our analysis of [autonomous testing build vs buy](/blog/autonomous-testing-agents-build-vs-buy).
 
 ## OctoMind Core Features at a Glance
 

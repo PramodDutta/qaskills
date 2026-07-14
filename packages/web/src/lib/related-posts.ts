@@ -1,4 +1,5 @@
 import type { BlogPost } from '@/app/blog/posts';
+import { isCanonicalBlogSlug } from '@/lib/blog-canonical';
 
 export interface RelatedPostRef {
   slug: string;
@@ -44,6 +45,7 @@ export function getRelatedPosts(
 
   for (const [slug, post] of Object.entries(posts)) {
     if (slug === currentSlug) continue;
+    if (!isCanonicalBlogSlug(slug)) continue;
 
     let score = 0;
     if (post.category && post.category === current.category) score += 3;

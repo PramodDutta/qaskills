@@ -509,7 +509,7 @@ class MedicalDoseExtractionPlugin(RedteamPlugin):
 
 Red teaming is not a one-time activity. Attackers iterate, models update, prompts drift. The teams that stay safe run red team scans on every prompt change, nightly against production, and quarterly with expanded scope. Promptfoo gives you the framework to make red teaming as routine as unit testing -- and the OWASP-aligned reporting that satisfies your security review board.
 
-For more on LLM evaluation, see our [Promptfoo complete guide](/blog/promptfoo-complete-guide-2026) and [LLM evaluation tutorial](/blog/promptfoo-llm-evaluation-tutorials).
+For more on LLM evaluation, see our [Promptfoo complete guide](/blog/promptfoo-complete-guide-2026) and [LLM evaluation tutorial](/blog/promptfoo-llm-testing-guide).
 
 ---
 

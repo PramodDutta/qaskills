@@ -165,7 +165,7 @@ export default defineConfig({
 });
 \`\`\`
 
-The practical upshot: behaviors that historically diverged between headed and headless — certain rendering paths, some media handling, extension support — now line up. If you previously kept a "headed in CI" workaround for a flaky test, the new headless mode plus CfT's proprietary codecs may let you drop it. Note that running fully headless still differs from a real device in viewport and input nuances; if you test mobile, pair this with [Playwright mobile emulation](/blog/playwright-mobile-emulation).
+The practical upshot: behaviors that historically diverged between headed and headless — certain rendering paths, some media handling, extension support — now line up. If you previously kept a "headed in CI" workaround for a flaky test, the new headless mode plus CfT's proprietary codecs may let you drop it. Note that running fully headless still differs from a real device in viewport and input nuances; if you test mobile, pair this with [Playwright mobile emulation](/blog/playwright-mobile-emulation-guide).
 
 ## What Changes for CI and Docker
 

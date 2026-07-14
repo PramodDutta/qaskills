@@ -13,7 +13,7 @@ Two prompt variants can look identical in a review and behave differently under 
 
 A/B testing LLM prompts is experimentation under uncertainty. The output is probabilistic, the user population is uneven, and the cost of a bad variant may be hidden in support tickets, manual edits, hallucinated links, or slower response times. Treat prompts like product changes, not copy tweaks.
 
-This guide covers prompt experiments for chatbots, agentic workflows, support assistants, test generation, summarization, and internal tools. If cost and latency are part of your decision, use the [LLM eval cost latency testing guide](/blog/llm-eval-cost-latency-testing-guide-2026). If variants may change safety posture, pair the rollout with the [promptfoo LLM red teaming guide](/blog/promptfoo-llm-red-teaming-guide).
+This guide covers prompt experiments for chatbots, agentic workflows, support assistants, test generation, summarization, and internal tools. If cost and latency are part of your decision, use the [LLM eval cost latency testing guide](/blog/llm-eval-cost-latency-testing-guide-2026). If variants may change safety posture, pair the rollout with the [promptfoo LLM red teaming guide](/blog/promptfoo-red-teaming-llm-applications).
 
 ## Start With a Prompt Change Hypothesis
 

@@ -763,7 +763,7 @@ it('resolves users with posts without N+1 queries', async () => {
 
 ### Load Testing with k6
 
-k6 is well-suited for GraphQL load testing because you write JavaScript scripts that can construct dynamic queries. For a thorough comparison of k6 with other load testing tools, see our [k6 vs JMeter](/blog/k6-vs-jmeter-performance-testing) deep dive.
+k6 is well-suited for GraphQL load testing because you write JavaScript scripts that can construct dynamic queries. For a thorough comparison of k6 with other load testing tools, see our [k6 vs JMeter](/blog/k6-vs-jmeter-2026) deep dive.
 
 \`\`\`javascript
 import http from 'k6/http';

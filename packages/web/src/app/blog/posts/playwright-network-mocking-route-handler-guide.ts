@@ -2,7 +2,8 @@ import type { BlogPost } from './index';
 
 export const post: BlogPost = {
   title: 'Playwright Network Mocking with route() Handlers: Complete Guide',
-  description: 'Mock network requests in Playwright with page.route, fulfill, abort, and modify. Patterns for stub data, slow networks, GraphQL, and conditional matching.',
+  description:
+    'Mock network requests in Playwright with page.route, fulfill, abort, and modify. Patterns for stub data, slow networks, GraphQL, and conditional matching.',
   date: '2026-05-06',
   category: 'Guide',
   content: `
@@ -188,7 +189,7 @@ await expect(page.getByRole('status', { name: 'Loading' })).toBeVisible();
 await expect(page.getByText('eventually')).toBeVisible();
 \`\`\`
 
-For very slow networks, use the Chromium CDP throttling we cover in the [Playwright Mobile Emulation Devices Reference](/blog/playwright-mobile-emulation-devices-reference).
+For very slow networks, use the Chromium CDP throttling we cover in the [Playwright Mobile Emulation Devices Reference](/blog/playwright-mobile-emulation-guide).
 
 ## Pre-recorded HAR files
 

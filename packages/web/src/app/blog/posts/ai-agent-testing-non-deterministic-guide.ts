@@ -124,7 +124,7 @@ def code_grader(output: str, case: dict) -> float:
     return max(score, 0.0)
 \`\`\`
 
-Code graders are ideal for: valid JSON or schema conformance, presence of required disclaimers, absence of PII or banned phrases, numeric ranges, and exact tool-name usage where the tool genuinely matters. Reserve the more expensive LLM-as-judge grader for genuinely subjective properties like helpfulness, tone, or factual groundedness that code cannot assess. Tools like the ones covered in the [DeepEval pytest LLM testing guide](/blog/deepeval-pytest-llm-testing-guide) and the [Promptfoo complete guide for 2026](/blog/promptfoo-complete-guide-2026) give you both grader types in one harness.
+Code graders are ideal for: valid JSON or schema conformance, presence of required disclaimers, absence of PII or banned phrases, numeric ranges, and exact tool-name usage where the tool genuinely matters. Reserve the more expensive LLM-as-judge grader for genuinely subjective properties like helpfulness, tone, or factual groundedness that code cannot assess. Tools like the ones covered in the [DeepEval pytest LLM testing guide](/blog/deepeval-llm-testing-guide) and the [Promptfoo complete guide for 2026](/blog/promptfoo-complete-guide-2026) give you both grader types in one harness.
 
 ## LLM-as-Judge Graders: For the Subjective Properties
 

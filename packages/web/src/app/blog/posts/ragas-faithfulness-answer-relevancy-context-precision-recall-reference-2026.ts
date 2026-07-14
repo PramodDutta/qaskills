@@ -215,7 +215,7 @@ The reason to run several metrics together is that each one isolates a different
 | Context entity recall | Key named entities are not retrieved | Entity-aware chunking; hybrid (keyword + vector) search |
 | High noise sensitivity | Distractor chunks corrupt the answer | Stronger reranking; instruct model to ignore irrelevant context |
 
-The diagnostic logic is simple: if your retriever metrics (precision, recall, entity recall) are healthy but faithfulness is low, fix the generator. If faithfulness is fine but recall is low, fix the retriever. This separation is what makes Ragas actionable rather than just a vanity score. For a complementary toolkit that wraps these ideas into a triad dashboard, compare with [Arize Phoenix LLM observability and evaluations](/blog/arize-phoenix-llm-observability-tracing-evaluations-2026), and to add adversarial pressure to your pipeline see our [Promptfoo red-teaming guide](/blog/promptfoo-red-teaming-guide-2026).
+The diagnostic logic is simple: if your retriever metrics (precision, recall, entity recall) are healthy but faithfulness is low, fix the generator. If faithfulness is fine but recall is low, fix the retriever. This separation is what makes Ragas actionable rather than just a vanity score. For a complementary toolkit that wraps these ideas into a triad dashboard, compare with [Arize Phoenix LLM observability and evaluations](/blog/arize-phoenix-llm-observability-tracing-evaluations-2026), and to add adversarial pressure to your pipeline see our [Promptfoo red-teaming guide](/blog/promptfoo-red-teaming-llm-applications).
 
 ## Choosing Your Judge LLM and Embedding Model
 

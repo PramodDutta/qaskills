@@ -190,7 +190,7 @@ This is the section that keeps you out of trouble. Self-healing earns its keep o
 - **It cannot fix genuine bugs.** If the test fails because the *feature* is broken (the order really does not confirm), the Healer should not "fix" the test -- and a good review process must distinguish a stale-selector failure from a real regression. Auto-healing a test that exposes a real bug hides the bug.
 - **It depends on good accessibility semantics.** Pages with poor a11y (icon-only buttons with no labels, divs acting as buttons) give the Healer little to anchor on. Improving accessibility improves healability -- a happy side effect.
 
-For teams comparing this native approach against the broader category, our [self-healing test automation](/blog/self-healing-test-automation-2026-guide) overview puts the Healer in context with other strategies.
+For teams comparing this native approach against the broader category, our [self-healing test automation](/blog/self-healing-test-automation-guide) overview puts the Healer in context with other strategies.
 
 ## Healer vs Manual Fixing vs Vendor Self-Healing
 

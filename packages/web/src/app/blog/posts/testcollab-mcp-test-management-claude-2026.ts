@@ -171,7 +171,7 @@ MCP shines in interactive sessions, but the same TestCollab account and API also
 
 In CI you typically push automated test outcomes to TestCollab after a run completes. The MCP server then becomes the interface a QA lead uses to interrogate those results conversationally: "What failed in last night's nightly run and which of those are new failures?" The agent reads the records CI wrote and answers in plain language. You get machine-precise reporting from the pipeline and human-friendly analysis from the agent, both pointed at the same source of truth.
 
-For teams pushing further into autonomy, the agent can also bridge the gap: spot a cluster of failures, draft new regression cases to cover the regression, and file them into the right suite — all in one session. That combination of automated execution plus AI-assisted maintenance is where modern QA is heading, and it pairs naturally with the patterns in [self-healing test automation](/blog/self-healing-test-automation-2026-guide).
+For teams pushing further into autonomy, the agent can also bridge the gap: spot a cluster of failures, draft new regression cases to cover the regression, and file them into the right suite — all in one session. That combination of automated execution plus AI-assisted maintenance is where modern QA is heading, and it pairs naturally with the patterns in [self-healing test automation](/blog/self-healing-test-automation-guide).
 
 ## MCP-Driven Test Management vs Manual TMS vs API Scripting
 

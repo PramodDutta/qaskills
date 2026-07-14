@@ -1,10 +1,11 @@
 import type { BlogPost } from './index';
 
 export const post: BlogPost = {
-  title: "Go httptest Tutorial: Testing HTTP Handlers & Servers (2026)",
-  description: "Learn Go httptest in 2026 to test HTTP handlers and servers: use ResponseRecorder, NewRequest, httptest.Server, table-driven tests, and mock upstreams.",
-  date: "2026-06-26",
-  category: "Go",
+  title: 'Go httptest Tutorial: Testing HTTP Handlers & Servers (2026)',
+  description:
+    'Learn Go httptest in 2026 to test HTTP handlers and servers: use ResponseRecorder, NewRequest, httptest.Server, table-driven tests, and mock upstreams.',
+  date: '2026-06-26',
+  category: 'Go',
   content: `Go's \`net/http/httptest\` package tests HTTP handlers and clients without binding a real network port. To test a handler, build a request with \`httptest.NewRequest\`, capture the response in a \`httptest.ResponseRecorder\`, call the handler directly, then assert on \`rec.Code\`, \`rec.Body\`, and \`rec.Header()\`. To test code that *calls* an HTTP service, spin up a real loopback server with \`httptest.NewServer\`, point your client at \`server.URL\`, and close it with \`defer server.Close()\`. Both paths run in-process, need no mocking framework, and ship in the standard library.
 
 ## Why httptest instead of a real server
@@ -107,7 +108,7 @@ One gotcha: \`rec.Result().StatusCode\` reflects the explicit \`WriteHeader\` va
 
 ## Table-driven handler tests
 
-Table tests are the idiomatic Go way to cover many cases without duplication. Each row is a request plus its expected outcome, and a single loop drives them all. The pattern mirrors what we describe in the [Go testing with table-driven tests guide](/blog/go-table-driven-tests-guide).
+Table tests are the idiomatic Go way to cover many cases without duplication. Each row is a request plus its expected outcome, and a single loop drives them all. The pattern mirrors what we describe in the [Go testing with table-driven tests guide](/blog/go-testing-tutorial-table-driven-tests-2026).
 
 \`\`\`go
 func TestUserHandler(t *testing.T) {

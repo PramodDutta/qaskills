@@ -28,7 +28,7 @@ You can fulfill an SSE-shaped string and test parsing of several records, but th
 | Check \`Last-Event-ID\` on reconnect | Not representative | Directly observable on the second request |
 | Hold the connection open during an assertion | No writable response remains | Natural behavior |
 
-Network interception remains valuable around SSE. Use it to observe requests, block unrelated traffic, or mock the REST call that starts a job. For a broader map of routing, HAR replay, and service-worker caveats, read the [Playwright network interception and mocking guide](/blog/playwright-network-interception-mocking-guide). The stream itself deserves a transport that can actually stream.
+Network interception remains valuable around SSE. Use it to observe requests, block unrelated traffic, or mock the REST call that starts a job. For a broader map of routing, HAR replay, and service-worker caveats, read the [Playwright network interception and mocking guide](/blog/playwright-network-mocking-route-handler-guide). The stream itself deserves a transport that can actually stream.
 
 ## Encode SSE records correctly
 

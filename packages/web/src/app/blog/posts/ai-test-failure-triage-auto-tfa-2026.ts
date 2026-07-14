@@ -32,7 +32,7 @@ Auto TFA is the application of AI to the triage decision. For each failure (and 
 
 The promise is not "AI fixes your tests." The promise is "AI does the sorting so humans spend their time on the failures that actually deserve human attention." A team that previously triaged 140 raw failures now reviews 6 clustered, classified, evidence-backed findings. That is the difference between a morning lost and a morning's worth of work done before standup.
 
-Closely related is runtime recovery, sometimes called self-healing or Runtime Recovery, which keeps a suite running through transient noise so fewer spurious failures even reach triage in the first place. The two are complementary: self-healing reduces the inbound noise, and Auto TFA classifies whatever still fails. We cover the recovery side in depth in our guide to [self-healing test automation](/blog/self-healing-test-automation-2026-guide).
+Closely related is runtime recovery, sometimes called self-healing or Runtime Recovery, which keeps a suite running through transient noise so fewer spurious failures even reach triage in the first place. The two are complementary: self-healing reduces the inbound noise, and Auto TFA classifies whatever still fails. We cover the recovery side in depth in our guide to [self-healing test automation](/blog/self-healing-test-automation-guide).
 
 ## How AI Triage Works Under the Hood
 
@@ -226,7 +226,7 @@ Build the cheap, high-value pieces yourself — historical flakiness tracking an
 
 ### How does Auto TFA relate to self-healing test automation?
 
-They are complementary. Self-healing (Runtime Recovery) keeps a suite running through transient noise and auto-repairs drifting locators, reducing how many spurious failures reach triage. Auto TFA classifies whatever still fails. Together they shrink the inbound noise and then sort the remainder. Our [self-healing test automation](/blog/self-healing-test-automation-2026-guide) guide covers the recovery half in detail.
+They are complementary. Self-healing (Runtime Recovery) keeps a suite running through transient noise and auto-repairs drifting locators, reducing how many spurious failures reach triage. Auto TFA classifies whatever still fails. Together they shrink the inbound noise and then sort the remainder. Our [self-healing test automation](/blog/self-healing-test-automation-guide) guide covers the recovery half in detail.
 
 ### How do I measure whether AI triage is actually helping?
 

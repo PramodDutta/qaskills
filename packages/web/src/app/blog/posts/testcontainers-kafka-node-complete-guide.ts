@@ -195,7 +195,7 @@ const container = await new KafkaContainer('confluentinc/cp-kafka:7.6.0')
   .start();
 \`\`\`
 
-We cover every wait strategy in detail in our [Testcontainers Wait Strategies reference](/blog/testcontainers-wait-strategies-reference).
+Our [Testcontainers best practices guide](/blog/testcontainers-best-practices-2026) covers wait strategy selection and lifecycle design.
 
 ---
 
@@ -328,7 +328,7 @@ const schemaRegistry = await new GenericContainer('confluentinc/cp-schema-regist
 const schemaRegistryUrl = \`http://\${schemaRegistry.getHost()}:\${schemaRegistry.getMappedPort(8081)}\`;
 \`\`\`
 
-The shared network is critical: containers communicate over their network aliases (\`kafka:9092\`) while your test code on the host uses the mapped ports. See our [Testcontainers shared network guide](/blog/testcontainers-network-shared-guide) for deeper detail.
+The shared network is critical: containers communicate over their network aliases (\`kafka:9092\`) while your test code on the host uses the mapped ports. See our [Testcontainers best practices guide](/blog/testcontainers-best-practices-2026) for networking and lifecycle patterns.
 
 ---
 
@@ -356,7 +356,7 @@ await admin.deleteTopics({ topics: topics.filter((t) => !t.startsWith('_')) });
 await admin.disconnect();
 \`\`\`
 
-See our [withReuse() pattern guide](/blog/testcontainers-with-reuse-pattern-guide) for the full pattern.
+See our [withReuse() pattern guide](/blog/testcontainers-reuse-withreuse-node-guide) for the full pattern.
 
 ---
 
@@ -398,7 +398,7 @@ class OrderPublisherIT {
 }
 \`\`\`
 
-The Spring Boot \`@DynamicPropertySource\` hook is the cleanest way to inject the broker URL into your application context. See [Testcontainers Spring Boot guide](/blog/testcontainers-java-spring-boot-guide) for more.
+The Spring Boot \`@DynamicPropertySource\` hook is the cleanest way to inject the broker URL into your application context. See [Testcontainers Spring Boot guide](/blog/testcontainers-kafka-java-spring-boot-guide) for more.
 
 ---
 
@@ -443,7 +443,7 @@ def test_round_trip(kafka):
     assert messages == [{"id": 1, "total": 42}]
 \`\`\`
 
-See [Testcontainers pytest guide](/blog/testcontainers-python-pytest-guide) for fixtures and parallel execution patterns.
+See [Testcontainers pytest guide](/blog/testcontainers-python-pytest-integration-guide) for fixtures and parallel execution patterns.
 
 ---
 
@@ -479,7 +479,7 @@ A few production tips for CI:
 - **Set \`TESTCONTAINERS_RYUK_DISABLED=true\`** only in ephemeral runners; never disable Ryuk on long-lived hosts or you will leak containers.
 - **Pin Kafka image versions** rather than using \`:latest\` — a Confluent release can change broker behavior.
 
-See [Testcontainers GitHub Actions setup](/blog/testcontainers-ci-github-actions-guide) for the complete CI configuration.
+See the [GitHub Actions testing guide](/blog/github-actions-testing-ci-cd-guide) for the complete CI configuration.
 
 ---
 
@@ -510,7 +510,7 @@ A common question is whether to keep using Docker Compose for local Kafka and Te
 | CI integration | Custom scripts | One line |
 | Developer ergonomics | Separate \`docker compose up\` | Implicit in tests |
 
-We compare both in depth in [Testcontainers vs Docker Compose for tests](/blog/testcontainers-vs-docker-compose-tests). The short answer: Testcontainers wins for tests, Compose wins for long-running dev environments.
+For a broader guide to containerized test setup, see [Testcontainers Docker integration testing](/blog/testcontainers-docker-integration-testing). The short answer: Testcontainers wins for tests, Compose wins for long-running dev environments.
 
 ---
 
@@ -611,17 +611,17 @@ Install the skill so your AI agent can build this scaffolding for new services a
 npx @qaskills/cli add testcontainers-kafka-node
 \`\`\`
 
-Combined with the [withReuse() pattern](/blog/testcontainers-with-reuse-pattern-guide) and the [wait strategies reference](/blog/testcontainers-wait-strategies-reference), you have everything you need to make Kafka integration tests a default in your pipeline.
+Combined with the [withReuse() pattern](/blog/testcontainers-reuse-withreuse-node-guide) and the [Testcontainers best practices guide](/blog/testcontainers-best-practices-2026), you have everything you need to make Kafka integration tests a default in your pipeline.
 
 ---
 
 ## Further Reading
 
-- [Testcontainers PostgreSQL guide](/blog/testcontainers-postgresql-node-guide)
-- [Testcontainers Redis guide](/blog/testcontainers-redis-node-guide)
-- [Testcontainers RabbitMQ guide](/blog/testcontainers-rabbitmq-node-guide)
-- [Docker microservices integration testing](/blog/docker-microservices-integration-testing-2026)
-- [Benefits of running tests in Docker](/blog/benefits-running-tests-in-docker-ci)
+- [Testcontainers PostgreSQL guide](/blog/testcontainers-postgresql-node-complete-guide)
+- [Testcontainers Redis guide](/blog/testcontainers-redis-node-complete-guide)
+- [Testcontainers RabbitMQ guide](/blog/testcontainers-rabbitmq-node-integration-testing)
+- [Docker testing strategies](/blog/docker-testing-strategies-guide)
+- [Testcontainers Docker integration guide](/blog/testcontainers-docker-integration-testing)
 
 Browse all Testcontainers skills at [qaskills.sh/skills](/skills).
 `,

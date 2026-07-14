@@ -77,7 +77,7 @@ Requirements:
 
 Notice the explicit locator hierarchy and the ban on \`waitForTimeout\`. Encoding these rules in the prompt is far more reliable than fixing them in review every time. You can save this prompt as a reusable template or a Copilot custom instruction file so every generated test starts from the same baseline.
 
-A second useful pattern is the "plan then generate" split. First ask the agent to produce a Markdown test plan listing scenarios and assertions. Review that plan, edit it, then ask the agent to generate code from the approved plan. This mirrors the planner and generator agents described in our [Playwright test agents guide](/blog/playwright-test-agents-planner-generator-healer-2026) and keeps a human in the loop at the cheapest possible point.
+A second useful pattern is the "plan then generate" split. First ask the agent to produce a Markdown test plan listing scenarios and assertions. Review that plan, edit it, then ask the agent to generate code from the approved plan. This mirrors the planner and generator agents described in our [Playwright test agents guide](/blog/playwright-test-agents-planner-generator-healer) and keeps a human in the loop at the cheapest possible point.
 
 ## Generating Your First Test with an AI Agent
 

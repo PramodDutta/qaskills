@@ -255,7 +255,7 @@ Which technique to reach for depends on how the page is built. This table maps p
 | Folder picker (\`webkitdirectory\`) | \`setInputFiles\` with a dir path | Playwright walks the directory |
 | Pure drop zone, no input | \`dispatchEvent('drop')\` + DataTransfer | No input element exists to set |
 
-For end-to-end flows that include uploads on mobile viewports, our [Playwright mobile emulation](/blog/playwright-mobile-emulation) guide covers the device and touch settings to pair with these patterns.
+For end-to-end flows that include uploads on mobile viewports, our [Playwright mobile emulation](/blog/playwright-mobile-emulation-guide) guide covers the device and touch settings to pair with these patterns.
 
 ## Waiting for the Upload to Complete
 

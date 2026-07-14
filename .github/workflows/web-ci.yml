@@ -36,6 +36,16 @@ jobs:
       - name: Build
         run: pnpm --filter @qaskills/web build
         env:
+          QASKILLS_DISABLE_AUTH: '1'
           NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
           CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: Unit tests
+        run: pnpm --filter @qaskills/web test:unit
+
+      - name: Install Playwright Chromium
+        run: pnpm --filter @qaskills/web exec playwright install --with-deps chromium
+
+      - name: Post-flow browser tests
+        run: pnpm --filter @qaskills/web test:e2e

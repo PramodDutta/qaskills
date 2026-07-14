@@ -13,7 +13,7 @@ Teams shipping LLM features almost always reach a point where "it looks good in 
 
 DeepEval is a pytest-style evaluation framework. You write eval "tests" the same way you write unit tests, assert on metric scores, and fail the build when quality drops. Langfuse is an LLM observability and tracing platform. It captures every production call, records latency and cost, and lets you replay and score real traces after the fact. The most mature teams do not pick one. They run Langfuse in production to capture traces, then feed sampled traces into DeepEval (or RAGAS) to score them offline and in CI.
 
-This guide walks through what each tool actually does, how their metrics differ, what they cost, how they wire into continuous integration, and the exact pattern for combining them. If you want the deeper single-tool tutorials, see the [DeepEval pytest testing guide](/blog/deepeval-pytest-llm-testing-guide) and the broader [testing LLM applications guide](/blog/testing-llm-applications-guide).
+This guide walks through what each tool actually does, how their metrics differ, what they cost, how they wire into continuous integration, and the exact pattern for combining them. If you want the deeper single-tool tutorials, see the [DeepEval pytest testing guide](/blog/deepeval-llm-testing-guide) and the broader [testing LLM applications guide](/blog/testing-llm-applications-guide).
 
 ## The core distinction: evaluation vs observability
 
@@ -107,7 +107,7 @@ Because everything is a pytest test, you run it with the DeepEval runner and get
 deepeval test run test_support_answer_quality.py
 \`\`\`
 
-That pytest-native design is the reason DeepEval slots so cleanly into CI. If your team already trusts a green test suite, a failing eval reads exactly like a failing unit test. For the deeper walkthrough, see the [DeepEval pytest guide](/blog/deepeval-pytest-llm-testing-guide), and for how it compares to RAGAS specifically, the [RAGAS metrics guide](/blog/ragas-rag-evaluation-metrics-complete-guide).
+That pytest-native design is the reason DeepEval slots so cleanly into CI. If your team already trusts a green test suite, a failing eval reads exactly like a failing unit test. For the deeper walkthrough, see the [DeepEval pytest guide](/blog/deepeval-llm-testing-guide), and for how it compares to RAGAS specifically, the [RAGAS metrics guide](/blog/ragas-rag-evaluation-metrics-complete-guide).
 
 ## What Langfuse brings: tracing production reality
 
@@ -303,6 +303,6 @@ DeepEval can, directly, because its tests are pytest tests that fail the CI job 
 
 DeepEval and Langfuse are not really competitors, they are two halves of a healthy LLM quality practice. DeepEval gives you pytest-style evaluation with a rich metric library and a natural home in CI, where it fails the build when quality regresses. Langfuse gives you full production observability, capturing every trace with cost and latency, and lets you attach scores to real user sessions. The mature pattern uses both: Langfuse captures, you sample, DeepEval scores, and the scores flow back while a DeepEval gate guards your pipeline.
 
-Start with whichever pain is louder. If you are shipping blind, add Langfuse first. If you keep breaking quality on merges, add DeepEval first. Then close the loop. Explore the full catalog of QA and evaluation skills at [/skills](/skills) to wire these tools into your workflow, and read the [DeepEval pytest guide](/blog/deepeval-pytest-llm-testing-guide) next to build your first eval suite today.
+Start with whichever pain is louder. If you are shipping blind, add Langfuse first. If you keep breaking quality on merges, add DeepEval first. Then close the loop. Explore the full catalog of QA and evaluation skills at [/skills](/skills) to wire these tools into your workflow, and read the [DeepEval pytest guide](/blog/deepeval-llm-testing-guide) next to build your first eval suite today.
 `,
 };

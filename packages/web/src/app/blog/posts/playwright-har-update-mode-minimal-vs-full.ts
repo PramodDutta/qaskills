@@ -1,11 +1,11 @@
-import type { BlogPost } from "./index";
+import type { BlogPost } from './index';
 
 export const post: BlogPost = {
-  title: "Playwright HAR Update Mode: Minimal vs Full",
+  title: 'Playwright HAR Update Mode: Minimal vs Full',
   description:
-    "Compare Playwright HAR update mode minimal vs full, understand exactly what each records, and choose stable, reviewable network fixtures for reliable tests.",
-  date: "2026-07-13",
-  category: "Comparison",
+    'Compare Playwright HAR update mode minimal vs full, understand exactly what each records, and choose stable, reviewable network fixtures for reliable tests.',
+  date: '2026-07-13',
+  category: 'Comparison',
   content: `
 # Playwright HAR Update Mode: Minimal vs Full
 
@@ -163,7 +163,7 @@ HAR is one option among several network-control techniques. Pick it for realisti
 | Real sandbox service | Highest provider realism | Slower, mutable, rate-limited, and network-dependent |
 | API contract fixture | Focused schema-level validation | Does not reproduce browser request sequencing |
 
-The [Playwright network interception guide](/blog/playwright-network-interception-mocking-guide) covers programmable routing decisions. Project-wide controls such as service-worker policy, base URL, and timeouts belong in the [Playwright configuration reference](/blog/playwright-test-config-options-complete-reference).
+The [Playwright network interception guide](/blog/playwright-network-mocking-route-handler-guide) covers programmable routing decisions. Project-wide controls such as service-worker policy, base URL, and timeouts belong in the [Playwright configuration reference](/blog/playwright-test-config-options-complete-reference).
 
 ## Operational rules for a HAR library
 

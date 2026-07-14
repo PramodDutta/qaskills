@@ -9,11 +9,7 @@ const isProtectedRoute = createRouteMatcher([
   '/api/reviews(.*)',
 ]);
 
-export default clerkMiddleware(async (auth, request) => {
-  if (process.env.QASKILLS_DISABLE_AUTH === '1') {
-    return NextResponse.next();
-  }
-
+const authenticatedMiddleware = clerkMiddleware(async (auth, request) => {
   const path = request.nextUrl.pathname;
   if (path.startsWith('/api/')) {
     console.log(`🛡️ [v7-hotfix] Middleware running for: ${path} | method: ${request.method}`);
@@ -25,6 +21,10 @@ export default clerkMiddleware(async (auth, request) => {
     await auth.protect();
   }
 });
+
+const testMiddleware = () => NextResponse.next();
+
+export default process.env.QASKILLS_DISABLE_AUTH === '1' ? testMiddleware : authenticatedMiddleware;
 
 export const config = {
   matcher: [

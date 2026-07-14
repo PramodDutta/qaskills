@@ -12,6 +12,7 @@ const footerLinks = {
     { href: '/leaderboard', label: 'Leaderboard' },
   ],
   Resources: [
+    { href: '/roadmaps', label: 'Roadmaps' },
     { href: '/blog', label: 'Blog' },
     { href: '/getting-started', label: 'Getting Started' },
     { href: '/how-to-publish', label: 'Publish a Skill' },

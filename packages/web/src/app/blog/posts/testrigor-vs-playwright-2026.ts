@@ -1,10 +1,11 @@
 import type { BlogPost } from './index';
 
 export const post: BlogPost = {
-  title: "testRigor vs Playwright 2026: Codeless AI vs Code-Based OSS",
-  description: "testRigor vs Playwright in 2026 — testRigor is codeless, AI, plain-English SaaS; Playwright is free, code-based OSS. See which fits your team, with examples.",
-  date: "2026-06-15",
-  category: "Comparison",
+  title: 'testRigor vs Playwright 2026: Codeless AI vs Code-Based OSS',
+  description:
+    'testRigor vs Playwright in 2026 — testRigor is codeless, AI, plain-English SaaS; Playwright is free, code-based OSS. See which fits your team, with examples.',
+  date: '2026-06-15',
+  category: 'Comparison',
   content: `# testRigor vs Playwright 2026: Codeless AI vs Code-Based OSS
 
 testRigor and Playwright sit at opposite ends of the test-automation spectrum. **testRigor** is a commercial, codeless platform where you write tests as plain-English statements, run them in the cloud, and lean on AI-driven self-healing to cut maintenance — built for manual QA and non-developers. **Playwright** is a free, open-source browser framework from Microsoft where you write tests in TypeScript, JavaScript, Python, Java, or .NET with full programmatic control and run them anywhere — built for SDETs and developers. The trade-off is simple: codeless + paid + low-maintenance versus code + free + full-control. Non-technical teams that will pay to avoid scripting lean testRigor; engineering teams that want control and zero license cost lean Playwright.
@@ -106,7 +107,7 @@ Maintenance is where testRigor makes its strongest claim. Because tests referenc
 
 Playwright takes a different route to resilience. It has no AI healing, but it does have **auto-waiting** (actions wait for elements to be actionable) and strongly encourages **role- and text-based locators** (\`getByRole\`, \`getByText\`, \`getByLabel\`) that are far more durable than raw CSS. With disciplined Page Object Models, Playwright suites can be very stable — but the discipline (and the fixing, when something does break) is on your engineers, not on a vendor's AI.
 
-If you want a broader look at how AI-assisted healing fits into modern suites, see our guide to [self-healing test automation](/blog/self-healing-test-automation-2026). For the wider landscape of AI-driven tools in this space, the [AI test automation tools guide](/blog/ai-test-automation-tools-2026) puts testRigor's category in context.
+If you want a broader look at how AI-assisted healing fits into modern suites, see our guide to [self-healing test automation](/blog/self-healing-test-automation-guide). For the wider landscape of AI-driven tools in this space, the [AI test automation tools guide](/blog/ai-test-automation-tools-2026) puts testRigor's category in context.
 
 ## When testRigor Wins
 

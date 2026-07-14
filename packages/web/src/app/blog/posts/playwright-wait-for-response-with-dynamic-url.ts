@@ -1,11 +1,11 @@
-import type { BlogPost } from "./index";
+import type { BlogPost } from './index';
 
 export const post: BlogPost = {
-  title: "How to Wait for a Dynamic URL Response in Playwright",
+  title: 'How to Wait for a Dynamic URL Response in Playwright',
   description:
-    "Learn how to wait for a dynamic URL response in Playwright by matching paths, query parameters, methods, status codes, and concurrent requests safely.",
-  date: "2026-07-13",
-  category: "Tutorial",
+    'Learn how to wait for a dynamic URL response in Playwright by matching paths, query parameters, methods, status codes, and concurrent requests safely.',
+  date: '2026-07-13',
+  category: 'Tutorial',
   content: `
 # How to Wait for a Dynamic URL Response in Playwright
 
@@ -190,7 +190,7 @@ Predicates are functions, so the default timeout cannot print a human descriptio
 
 Capture nearby network facts only when a wait fails. Logging every response makes CI output unusable. One practical approach is a ring buffer of the last twenty same-origin responses containing method, pathname, and status. Attach it in a fixture, and include it in a test annotation or error attachment on failure. Never log authorization query parameters or sensitive bodies.
 
-Playwright tracing is also valuable. A trace correlates the click, network activity, DOM snapshots, and timing. For deeper interception and mocking strategy, see the [Playwright network interception guide](/blog/playwright-network-interception-mocking-guide). When the request is being tested without a browser, the [APIRequestContext guide](/blog/playwright-api-testing-context-request-guide) gives a simpler boundary.
+Playwright tracing is also valuable. A trace correlates the click, network activity, DOM snapshots, and timing. For deeper interception and mocking strategy, see the [Playwright network interception guide](/blog/playwright-network-mocking-route-handler-guide). When the request is being tested without a browser, the [APIRequestContext guide](/blog/playwright-api-testing-context-request-guide) gives a simpler boundary.
 
 ## A review checklist for response predicates
 

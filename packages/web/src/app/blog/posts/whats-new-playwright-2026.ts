@@ -2,9 +2,10 @@ import type { BlogPost } from './index';
 
 export const post: BlogPost = {
   title: "What's New in Playwright 2026: AI Agents, MCP, and Accessibility-First Testing",
-  description: "A practical overview of what's new in Playwright 2026 — test agents, the MCP server, ARIA snapshots, Trace Viewer, component testing, the Clock API, and more.",
-  date: "2026-06-15",
-  category: "Playwright",
+  description:
+    "A practical overview of what's new in Playwright 2026 — test agents, the MCP server, ARIA snapshots, Trace Viewer, component testing, the Clock API, and more.",
+  date: '2026-06-15',
+  category: 'Playwright',
   content: `# What's New in Playwright 2026: AI Agents, MCP, and Accessibility-First Testing
 
 The biggest themes in Playwright 2026 are AI and developer experience. Playwright now ships **test agents** (a planner / generator / healer workflow), an official **MCP server** that lets AI coding agents drive a real browser, and **ARIA snapshots** that assert against the accessibility tree instead of brittle CSS. Add a sharper Trace Viewer, interactive UI mode, mature component testing, and a \`Clock\` API for controlling time, and 2026 is the most automation- and accessibility-friendly Playwright yet. This page is a hub overview — each section links to a deeper guide.
@@ -38,7 +39,7 @@ test('user can sign in', async ({ page }) => {
 });
 \`\`\`
 
-For the full setup — how the three agents hand off to each other and how to review their changes — see the deep dive: [Playwright Test Agents: Planner, Generator, and Healer](/blog/playwright-test-agents-planner-generator-healer-official-2026).
+For the full setup — how the three agents hand off to each other and how to review their changes — see the deep dive: [Playwright Test Agents: Planner, Generator, and Healer](/blog/playwright-test-agents-planner-generator-healer).
 
 ### The Playwright MCP server
 
@@ -131,7 +132,7 @@ test('increments on click', async ({ mount }) => {
 });
 \`\`\`
 
-You get the same locators, assertions, tracing, and UI mode you already use for end-to-end tests, which keeps the mental model consistent across your whole suite. For a framework-specific walkthrough, see the [Playwright component testing for React guide](/blog/playwright-component-testing-react-guide).
+You get the same locators, assertions, tracing, and UI mode you already use for end-to-end tests, which keeps the mental model consistent across your whole suite. For a framework-specific walkthrough, see the [Playwright component testing for React guide](/blog/playwright-component-testing-react-guide-2026).
 
 ## Controlling time with the Clock API
 
@@ -200,12 +201,12 @@ Together these turn a slow, monolithic CI run into a fast, parallel one with a s
 
 | Feature | Why it matters | Learn more |
 |---|---|---|
-| Test agents (planner/generator/healer) | AI authors and repairs tests against a live browser | [Test agents guide](/blog/playwright-test-agents-planner-generator-healer-official-2026) |
+| Test agents (planner/generator/healer) | AI authors and repairs tests against a live browser | [Test agents guide](/blog/playwright-test-agents-planner-generator-healer) |
 | MCP server | Gives AI agents deterministic, accessibility-tree browser control | [MCP complete guide](/blog/playwright-mcp-complete-guide-2026) |
 | \`toMatchAriaSnapshot\` | Resilient structural + accessibility assertions | [axe-core + Playwright](/blog/axe-core-playwright-accessibility-testing-2026) |
 | Trace Viewer | Post-mortem debugging of CI failures | [Trace Viewer guide](/blog/playwright-trace-viewer-complete-guide-2026) |
 | UI mode | Interactive, watch-style local debugging | [Trace Viewer guide](/blog/playwright-trace-viewer-complete-guide-2026) |
-| Component testing | Test React/Vue/Svelte components in a real browser | [Component testing (React)](/blog/playwright-component-testing-react-guide) |
+| Component testing | Test React/Vue/Svelte components in a real browser | [Component testing (React)](/blog/playwright-component-testing-react-guide-2026) |
 | Clock API | Control time for timers, polling, and expiry flows | This page |
 | HAR + route fulfillment | Mock, modify, and replay network traffic | This page |
 | Sharding + merge-reports | Fast parallel CI with one unified report | This page |
@@ -234,13 +235,13 @@ The standout additions are AI-native tooling — **test agents** (a planner/gene
 It exposes browser automation as **Model Context Protocol** tools so AI coding agents can navigate, click, type, and read pages through a controlled Playwright browser. It relies on the accessibility tree rather than screenshots, which makes agent actions far more deterministic and reproducible. See the [MCP complete guide](/blog/playwright-mcp-complete-guide-2026).
 
 ### How do Playwright test agents work?
-They split the testing loop into three roles: a **planner** explores the app and drafts a test plan, a **generator** turns that plan into runnable code against a live browser, and a **healer** repairs tests when they later break. Because they operate on a running page, the locators they produce are role- and text-based and resilient. Details are in the [test agents guide](/blog/playwright-test-agents-planner-generator-healer-official-2026).
+They split the testing loop into three roles: a **planner** explores the app and drafts a test plan, a **generator** turns that plan into runnable code against a live browser, and a **healer** repairs tests when they later break. Because they operate on a running page, the locators they produce are role- and text-based and resilient. Details are in the [test agents guide](/blog/playwright-test-agents-planner-generator-healer).
 
 ### What is \`toMatchAriaSnapshot\` and how is it different from a visual snapshot?
 \`toMatchAriaSnapshot()\` captures the page's **accessibility tree** as YAML and asserts against it, rather than comparing pixels like a visual snapshot. It's resilient to styling and markup changes and doubles as a lightweight accessibility check. For full WCAG coverage, pair it with [axe-core and Playwright](/blog/axe-core-playwright-accessibility-testing-2026).
 
 ### Can I test React, Vue, and Svelte components with Playwright?
-Yes. Playwright's component testing mounts individual components in a **real browser engine** (not jsdom) with first-class support for React, Vue, and Svelte, reusing the same locators, assertions, and tracing as your end-to-end tests. The [component testing for React guide](/blog/playwright-component-testing-react-guide) walks through setup.
+Yes. Playwright's component testing mounts individual components in a **real browser engine** (not jsdom) with first-class support for React, Vue, and Svelte, reusing the same locators, assertions, and tracing as your end-to-end tests. The [component testing for React guide](/blog/playwright-component-testing-react-guide-2026) walks through setup.
 
 ### Does Playwright support languages other than JavaScript?
 Yes. Playwright ships official libraries for **TypeScript/JavaScript, Python, Java, and .NET**, and the core concepts — auto-waiting, role-based locators, tracing, network control, and the Clock API — are shared across them. The most feature-rich runner tooling (UI mode, sharding, merge-reports) centers on the JS/TS test runner.

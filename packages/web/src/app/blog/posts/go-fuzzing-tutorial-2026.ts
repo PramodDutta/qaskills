@@ -1,10 +1,11 @@
 import type { BlogPost } from './index';
 
 export const post: BlogPost = {
-  title: "Go Fuzzing Tutorial 2026: Native Fuzz Tests with go test -fuzz",
-  description: "Go fuzzing tutorial for 2026: write native fuzz tests with testing.F, run go test -fuzz, seed a corpus, triage crashing inputs, and wire fuzzing into CI.",
-  date: "2026-06-26",
-  category: "Go",
+  title: 'Go Fuzzing Tutorial 2026: Native Fuzz Tests with go test -fuzz',
+  description:
+    'Go fuzzing tutorial for 2026: write native fuzz tests with testing.F, run go test -fuzz, seed a corpus, triage crashing inputs, and wire fuzzing into CI.',
+  date: '2026-06-26',
+  category: 'Go',
   content: `Go fuzzing is built into the standard \`testing\` package, so you write a fuzz test as \`func FuzzXxx(f *testing.F)\`, seed it with \`f.Add(...)\`, and define the property inside \`f.Fuzz(func(t *testing.T, ...) { ... })\`. Run it with \`go test -fuzz=FuzzXxx\`, which mutates the seed inputs to hunt for panics, data races, and assertion failures. Any crashing input is saved under \`testdata/fuzz/\` and replays automatically on the next plain \`go test\`. Native fuzzing has shipped since Go 1.18, needs no external tool, and works with the same \`-race\`, \`-run\`, and \`-cover\` flags you already use.
 
 ## What native fuzzing actually does
@@ -142,7 +143,7 @@ func FuzzParseMarshalRoundTrip(f *testing.F) {
 }
 \`\`\`
 
-This catches inputs that parse but crash the marshaler, output the parser then rejects, and silent data loss. \`t.Skip()\` handles inputs the parser legitimately rejects, so you assert the property only for valid ones. The same boundary-injection discipline from our [Go httptest handler testing guide](/blog/go-httptest-handler-testing-guide) applies — keep the unit under test pure.
+This catches inputs that parse but crash the marshaler, output the parser then rejects, and silent data loss. \`t.Skip()\` handles inputs the parser legitimately rejects, so you assert the property only for valid ones. The same boundary-injection discipline from our [Go httptest handler testing guide](/blog/go-httptest-handler-testing-guide-2026) applies — keep the unit under test pure.
 
 ## How the corpus works
 

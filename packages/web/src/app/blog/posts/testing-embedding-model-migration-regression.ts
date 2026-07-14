@@ -223,7 +223,7 @@ An operational sequence can be:
 
 Shadow requests should not double bill users, emit duplicate analytics, or trigger downstream actions. Retrieval should be read-only. Sample and redact queries according to data policy.
 
-The [RAG regression testing guide](/blog/rag-regression-testing-guide-2026) covers maintaining fixed and rotating evaluation sets as the corpus, prompts, retriever, reranker, and generator continue changing after migration.
+The [RAG regression testing guide](/blog/rag-regression-testing-guide) covers maintaining fixed and rotating evaluation sets as the corpus, prompts, retriever, reranker, and generator continue changing after migration.
 
 ## Inspect production disagreement without treating clicks as truth
 

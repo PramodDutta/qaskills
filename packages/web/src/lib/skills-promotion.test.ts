@@ -4,6 +4,7 @@ import {
   HIGHLIGHTED_SKILL_SLUGS,
   isHighlightedSkill,
 } from './skills-promotion';
+import { getSkillLaunchDate, PLAYWRIGHT_CLI_LAUNCH_DATE } from './skill-launch-dates';
 
 describe('skills promotion helpers', () => {
   afterEach(() => {
@@ -17,9 +18,16 @@ describe('skills promotion helpers', () => {
 
   it('marks recent highlighted skills as NEW', () => {
     vi.useFakeTimers();
-    vi.setSystemTime(new Date('2026-04-15T00:00:00.000Z'));
+    vi.setSystemTime(new Date(PLAYWRIGHT_CLI_LAUNCH_DATE));
 
-    expect(getSkillPromotionLabel('playwright-cli', '2026-04-01T00:00:00.000Z')).toBe('NEW');
+    expect(getSkillPromotionLabel('playwright-cli', PLAYWRIGHT_CLI_LAUNCH_DATE)).toBe('NEW');
+  });
+
+  it('uses the curated launch date when an existing database row is older', () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(PLAYWRIGHT_CLI_LAUNCH_DATE));
+
+    expect(getSkillPromotionLabel('playwright-cli', '2025-01-01T00:00:00.000Z')).toBe('NEW');
   });
 
   it('marks older highlighted skills as HOT', () => {
@@ -31,5 +39,10 @@ describe('skills promotion helpers', () => {
 
   it('does not promote non-highlighted skills', () => {
     expect(getSkillPromotionLabel('jest-unit', '2026-04-01T00:00:00.000Z')).toBeNull();
+  });
+
+  it('assigns the fixed launch date only to playwright-cli seed updates', () => {
+    expect(getSkillLaunchDate('playwright-cli')?.toISOString()).toBe(PLAYWRIGHT_CLI_LAUNCH_DATE);
+    expect(getSkillLaunchDate('playwright-e2e')).toBeUndefined();
   });
 });

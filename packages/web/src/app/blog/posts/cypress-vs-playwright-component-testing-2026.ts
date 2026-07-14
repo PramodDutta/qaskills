@@ -13,7 +13,7 @@ Component testing occupies the sweet spot between unit tests and full end-to-end
 
 This guide is a practical head-to-head. We compare how each tool mounts React and Vue components, how their dev servers and bundling work, how they isolate and mock dependencies, their execution speed, the day-to-day developer experience, and how each behaves in CI. Every example is runnable TypeScript for both tools so you can see the real ergonomics rather than read adjectives. By the end you will know which fits your stack, and crucially, when one is clearly the better call. If you searched for "cypress component testing," "playwright component testing," or "cypress vs playwright component," this is the comparison to read.
 
-Both tools earn their place, and the right answer depends on your existing toolchain and priorities. For installable QA skills and deeper material, see the [skills directory](/skills) and the [blog](/blog), including [Cypress component testing for React](/blog/cypress-component-testing-react-complete-guide) and [Playwright component testing for React](/blog/playwright-component-testing-react-complete-guide). Let's start with the headline trade-off.
+Both tools earn their place, and the right answer depends on your existing toolchain and priorities. For installable QA skills and deeper material, see the [skills directory](/skills) and the [blog](/blog), including [Cypress component testing for React](/blog/cypress-component-testing-react-complete-guide) and [Playwright component testing for React](/blog/playwright-component-testing-react-guide-2026). Let's start with the headline trade-off.
 
 ## The Core Difference at a Glance
 
@@ -322,6 +322,6 @@ Cypress Component Testing supports React, Vue, Angular, and Svelte, with Angular
 
 Cypress and Playwright both mount real components in real browsers, and both are strong choices in 2026 — the decision is about priorities, not capability. Cypress Component Testing is the mature, polished option with unmatched interactive time-travel debugging and direct reuse of your existing bundler config, ideal when stability and visual debugging lead and you already use Cypress. Playwright Component Testing is the faster, leaner, parallel-by-default option with a modern \`async/await\` API and an excellent trace viewer, ideal when throughput and a clean Vite setup lead and you can accept experimental status.
 
-Match the tool to your existing E2E choice where you can, weigh speed against maturity, and try both on a handful of your real components before committing. For installable, agent-ready QA skills, see the [skills directory](/skills), and continue with [Cypress component testing for React](/blog/cypress-component-testing-react-complete-guide) and [Playwright component testing for React](/blog/playwright-component-testing-react-complete-guide) on the [blog](/blog).
+Match the tool to your existing E2E choice where you can, weigh speed against maturity, and try both on a handful of your real components before committing. For installable, agent-ready QA skills, see the [skills directory](/skills), and continue with [Cypress component testing for React](/blog/cypress-component-testing-react-complete-guide) and [Playwright component testing for React](/blog/playwright-component-testing-react-guide-2026) on the [blog](/blog).
 `,
 };

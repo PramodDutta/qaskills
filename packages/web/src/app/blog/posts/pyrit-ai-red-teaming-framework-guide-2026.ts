@@ -2,9 +2,10 @@ import type { BlogPost } from './index';
 
 export const post: BlogPost = {
   title: "PyRIT Tutorial: Microsoft's AI Red-Teaming Framework (2026)",
-  description: "A hands-on PyRIT tutorial for 2026: install Microsoft's AI red-teaming framework, run single- and multi-turn attacks, score results, and wire it into CI.",
-  date: "2026-06-26",
-  category: "AI Evals",
+  description:
+    "A hands-on PyRIT tutorial for 2026: install Microsoft's AI red-teaming framework, run single- and multi-turn attacks, score results, and wire it into CI.",
+  date: '2026-06-26',
+  category: 'AI Evals',
   content: `# PyRIT Tutorial: Microsoft's AI Red-Teaming Framework (2026)
 
 **PyRIT (Python Risk Identification Toolkit) is Microsoft's open-source framework for red-teaming generative AI systems.** You point an *attack* (single-turn injection, a multi-turn Crescendo escalation, or a tree-of-attacks loop) at an *objective target* — an OpenAI deployment, an Azure ML endpoint, a local Hugging Face model, or your own HTTP API — and a *scorer* decides whether the model misbehaved. The core loop is three lines: \`await initialize_pyrit_async(memory_db_type=IN_MEMORY)\`, build a \`PromptSendingAttack\`, then \`await attack.execute_async(objective="...")\`.
@@ -344,7 +345,7 @@ PyRIT, promptfoo, and garak overlap but solve different jobs. Choosing well mean
 
 **When to pick PyRIT:** you need fine-grained control — custom adversarial loops, bespoke scorers, multi-turn strategies like Crescendo or TAP, and Python-native integration into an existing security pipeline. PyRIT is a *library*, so it composes into whatever you are already building.
 
-**When to pick promptfoo:** you want a declarative config that runs red-team *and* quality evals side by side and prefer YAML over code. Start with the [promptfoo red-teaming guide](/blog/promptfoo-red-teaming-guide-2026), and the [promptfoo vs OpenAI evals comparison](/compare/promptfoo-vs-openai-evals) for how its eval side stacks up.
+**When to pick promptfoo:** you want a declarative config that runs red-team *and* quality evals side by side and prefer YAML over code. Start with the [promptfoo red-teaming guide](/blog/promptfoo-red-teaming-llm-applications), and the [promptfoo vs OpenAI evals comparison](/compare/promptfoo-vs-openai-evals) for how its eval side stacks up.
 
 **When to pick garak:** you want a one-command scan of a model against a curated probe set with zero code.
 

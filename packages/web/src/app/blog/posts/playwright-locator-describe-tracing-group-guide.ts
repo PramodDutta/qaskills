@@ -238,7 +238,7 @@ export class CheckoutPage {
 }
 \`\`\`
 
-The \`try/finally\` guarantees \`groupEnd()\` runs even if an action throws, keeping the trace tree balanced on failures, which is exactly when you need it most. Locator descriptions are set once in the constructor and reused by every method, so the labels stay consistent across the whole suite. A test using this object produces a tidy trace with a "CheckoutPage.pay" group containing four clearly named field interactions, no matter how gnarly the underlying selectors are. This composes naturally with mocking approaches from the [Playwright network interception and mocking guide](/blog/playwright-network-interception-mocking-guide) when you want to stub the payment API.
+The \`try/finally\` guarantees \`groupEnd()\` runs even if an action throws, keeping the trace tree balanced on failures, which is exactly when you need it most. Locator descriptions are set once in the constructor and reused by every method, so the labels stay consistent across the whole suite. A test using this object produces a tidy trace with a "CheckoutPage.pay" group containing four clearly named field interactions, no matter how gnarly the underlying selectors are. This composes naturally with mocking approaches from the [Playwright network interception and mocking guide](/blog/playwright-network-mocking-route-handler-guide) when you want to stub the payment API.
 
 ## test.step() vs tracing.group(): When to Use Which
 

@@ -13,7 +13,7 @@ For years, the most powerful Selenium features — network interception, console
 
 WebDriver BiDi (bidirectional) fills the gap between classic WebDriver (request/response, one direction at a time) and CDP (rich events, Chromium-only). It is a real W3C standard with cross-browser buy-in, and Selenium 4.x exposes it through first-class APIs in Java, Python, JavaScript, .NET, and Ruby. With BiDi you can subscribe to live browser events — network requests, console messages, log entries, new browsing contexts — and react to them as they happen, the same way you would with CDP, but with code that runs unchanged across browsers. This is the strategic direction: Selenium is steadily moving its "DevTools" capabilities from CDP onto BiDi, and CDP is being treated as legacy.
 
-This reference is a practical, runnable map of WebDriver BiDi in Selenium 4.x for 2026. We cover how to enable BiDi, how it differs from CDP, network interception and request mocking, console and JavaScript error capture, listening for new browser contexts, handling basic authentication, and a clear migration path off CDP. Every example is given in both Java and Python with the official Selenium bindings. If you searched for "selenium webdriver bidi official documentation," this page is built to be your answer. For more automation depth, browse the [skills directory](/skills) and our [Playwright locator best practices guide](/blog/playwright-locator-best-practices-web-first-assertions-2026).
+This reference is a practical, runnable map of WebDriver BiDi in Selenium 4.x for 2026. We cover how to enable BiDi, how it differs from CDP, network interception and request mocking, console and JavaScript error capture, listening for new browser contexts, handling basic authentication, and a clear migration path off CDP. Every example is given in both Java and Python with the official Selenium bindings. If you searched for "selenium webdriver bidi official documentation," this page is built to be your answer. For more automation depth, browse the [skills directory](/skills) and our [Playwright locator best practices guide](/blog/playwright-locators-best-practices-2026).
 
 ## What Is WebDriver BiDi and Why It Replaces CDP
 
@@ -393,7 +393,7 @@ If you have existing CDP code (\`devTools.send(...)\`, \`Network.enable\`, \`Log
 | \`Network.authChallengeRequired\` | \`Network.onAuthRequired\` |
 | \`Target.targetCreated\` | \`BrowsingContextInspector.onBrowsingContextCreated\` |
 
-Migrate incrementally: pick one CDP-dependent test, swap it to BiDi, confirm it passes on both Chrome and Firefox, then roll the pattern out. The payoff is code that survives Chrome upgrades and runs cross-browser. For broader test design ideas, compare load-testing approaches in our [Locust vs JMeter guide](/blog/locust-vs-jmeter-2026-which-load-testing) and accessibility automation in the [axe-core with Playwright guide](/blog/axe-core-playwright-accessibility-testing-2026).
+Migrate incrementally: pick one CDP-dependent test, swap it to BiDi, confirm it passes on both Chrome and Firefox, then roll the pattern out. The payoff is code that survives Chrome upgrades and runs cross-browser. For broader test design ideas, compare load-testing approaches in our [Locust vs JMeter guide](/blog/jmeter-vs-locust-vs-gatling-comparison) and accessibility automation in the [axe-core with Playwright guide](/blog/axe-core-playwright-accessibility-testing-2026).
 
 ## Combining BiDi With Classic WebDriver
 
@@ -468,6 +468,6 @@ Register a JavaScript exception handler through the log module: \`logInspector.o
 
 WebDriver BiDi is the future of advanced Selenium automation. It delivers everything teams used CDP for — network interception, request mocking, console capture, JavaScript error listening, basic-auth handling, and new-context events — but as a standardized, cross-browser protocol that survives browser upgrades. If you are still leaning on CDP, start migrating one test at a time using the mapping table above, and verify each on both Chrome and Firefox.
 
-Ready to put this into practice? Browse runnable, agent-ready Selenium and Playwright skills in the [skills directory](/skills), and pair this reference with our [Playwright locator best practices guide](/blog/playwright-locator-best-practices-web-first-assertions-2026) and the [Selenium Manager driver management guide](/blog/selenium-manager-4-6-driver-management-2026-guide) to build a modern, low-maintenance browser automation stack.
+Ready to put this into practice? Browse runnable, agent-ready Selenium and Playwright skills in the [skills directory](/skills), and pair this reference with our [Playwright locator best practices guide](/blog/playwright-locators-best-practices-2026) and the [Selenium Manager driver management guide](/blog/selenium-manager-4-6-driver-management-2026-guide) to build a modern, low-maintenance browser automation stack.
 `,
 };

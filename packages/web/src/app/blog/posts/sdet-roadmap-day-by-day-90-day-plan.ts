@@ -292,7 +292,7 @@ export default function () {
 | 84 | Mock interview: coding | LeetCode easy/medium |
 | 85 | Mock interview: SDET-specific | See [mock interview](/blog/sdet-mock-interview-questions-with-answers) |
 | 86 | Behavioral prep | See [behavioral interview](/blog/behavioral-interview-questions-qa-engineers) |
-| 87 | System design prep | See [system design interview](/blog/system-design-interview-test-frameworks) |
+| 87 | System design prep | See [test framework architecture guide](/blog/test-automation-framework-architecture) |
 | 88-89 | Apply to 20 positions | Networking + applications |
 | 90 | Reflect and continue | Plan next 90 days |
 

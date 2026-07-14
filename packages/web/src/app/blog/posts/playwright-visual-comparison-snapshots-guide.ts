@@ -2,7 +2,8 @@ import type { BlogPost } from './index';
 
 export const post: BlogPost = {
   title: 'Playwright Visual Comparison & Screenshot Testing Guide (2026)',
-  description: 'Master visual regression with Playwright in 2026: toHaveScreenshot, diff thresholds, masks, animations, font loading, and cross-platform baselines.',
+  description:
+    'Master visual regression with Playwright in 2026: toHaveScreenshot, diff thresholds, masks, animations, font loading, and cross-platform baselines.',
   date: '2026-05-07',
   category: 'Guide',
   content: `
@@ -224,7 +225,7 @@ To make step 3 easier, upload the report:
 
 ## Visual snapshots in component tests
 
-Pair with [Playwright Component Testing](/blog/playwright-component-testing-react-complete-guide) for granular visual regression on individual components.
+Pair with [Playwright Component Testing](/blog/playwright-component-testing-react-guide-2026) for granular visual regression on individual components.
 
 \`\`\`typescript
 import { test, expect } from '@playwright/experimental-ct-react';

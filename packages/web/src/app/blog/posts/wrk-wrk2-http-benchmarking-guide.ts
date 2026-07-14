@@ -11,7 +11,7 @@ export const post: BlogPost = {
 
 wrk is a C-based HTTP benchmarking tool that focuses on one thing: maximum throughput against a single endpoint. It is not a load testing tool in the user-journey sense. It does not parameterize from CSVs, it does not chain requests, it does not produce HTML reports. What it does do is generate hundreds of thousands of requests per second from a single laptop, with tighter timing accuracy than almost any other tool. For engineers working on hot paths, microservice performance, or proving that the load balancer can sustain a given RPS, wrk is the right tool.
 
-wrk2, a fork by Gil Tene of Azul Systems, adds two essential features for production use: a steady arrival rate (open model) and HDR histogram output. Together wrk and wrk2 are the standard benchmarking pair for SREs and performance engineers who care about tail latencies and coordinated omission. This guide covers both in 2026. We walk through installation, command flags, Lua scripts, the coordinated omission problem and why wrk2 solves it, HDR histograms, and how to integrate wrk results into larger performance reports. For broader tooling see [k6 vs JMeter](/blog/k6-vs-jmeter-performance-testing) and the [skills directory](/skills).
+wrk2, a fork by Gil Tene of Azul Systems, adds two essential features for production use: a steady arrival rate (open model) and HDR histogram output. Together wrk and wrk2 are the standard benchmarking pair for SREs and performance engineers who care about tail latencies and coordinated omission. This guide covers both in 2026. We walk through installation, command flags, Lua scripts, the coordinated omission problem and why wrk2 solves it, HDR histograms, and how to integrate wrk results into larger performance reports. For broader tooling see [k6 vs JMeter](/blog/k6-vs-jmeter-2026) and the [skills directory](/skills).
 
 ## Why wrk and wrk2
 
@@ -297,6 +297,6 @@ Five mistakes we see repeatedly:
 
 wrk and wrk2 are the right tools for single-endpoint throughput benchmarks and tail latency analysis. They are not a replacement for k6 or Locust for user-journey load testing, but they complement those tools by answering the "how fast can it go" and "what does the tail look like" questions with exceptional precision.
 
-If you are doing performance work in 2026, install both and reach for them whenever a question is single-endpoint focused. Read [k6 vs JMeter](/blog/k6-vs-jmeter-performance-testing) for tool comparisons and browse the [skills directory](/skills) for load testing AI agent skills.
+If you are doing performance work in 2026, install both and reach for them whenever a question is single-endpoint focused. Read [k6 vs JMeter](/blog/k6-vs-jmeter-2026) for tool comparisons and browse the [skills directory](/skills) for load testing AI agent skills.
 `,
 };

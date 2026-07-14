@@ -1,32 +1,35 @@
 import type { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
+  const allow = ['/', '/api/og'];
+  const disallow = ['/dashboard/', '/api/', '/unsubscribe'];
+
   return {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
-        disallow: ['/dashboard/', '/api/', '/sign-in/', '/sign-up/', '/unsubscribe'],
+        allow,
+        disallow,
       },
       {
         userAgent: 'GPTBot',
-        allow: '/',
-        disallow: ['/dashboard/', '/api/', '/sign-in/', '/sign-up/', '/unsubscribe'],
+        allow,
+        disallow,
       },
       {
         userAgent: 'ClaudeBot',
-        allow: '/',
-        disallow: ['/dashboard/', '/api/', '/sign-in/', '/sign-up/', '/unsubscribe'],
+        allow,
+        disallow,
       },
       {
         userAgent: 'PerplexityBot',
-        allow: '/',
-        disallow: ['/dashboard/', '/api/', '/sign-in/', '/sign-up/', '/unsubscribe'],
+        allow,
+        disallow,
       },
       {
         userAgent: 'Amazonbot',
-        allow: '/',
-        disallow: ['/dashboard/', '/api/', '/sign-in/', '/sign-up/', '/unsubscribe'],
+        allow,
+        disallow,
       },
     ],
     sitemap: 'https://qaskills.sh/sitemap.xml',

@@ -137,7 +137,7 @@ Context routes apply to pages in that context, which makes them a good home for 
 
 Routing also disables HTTP cache. A test comparing cached and uncached browser behavior should not use interception without accounting for that side effect. Service workers can intercept traffic before Playwright's routing sees it; when request interception is the subject of the test, blocking service workers in the browser context may be appropriate.
 
-For broader interception patterns, including response modification and event observation, see the [Playwright network interception and mocking guide](/blog/playwright-network-interception-mocking-guide). It helps distinguish route control from passive request events.
+For broader interception patterns, including response modification and event observation, see the [Playwright network interception and mocking guide](/blog/playwright-network-mocking-route-handler-guide). It helps distinguish route control from passive request events.
 
 ## Mock ownership without a routing monolith
 

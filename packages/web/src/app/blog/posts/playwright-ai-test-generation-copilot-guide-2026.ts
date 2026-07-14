@@ -136,7 +136,7 @@ A typical session prompt:
 
 Because Claude Code can run the test and read the error output, it self-corrects. If a locator misses, it re-snapshots, finds the right element, patches the line, and re-runs. The result is a test that is green before you ever look at it. You still review — but you review a passing test, which is a far better starting point than a draft that has never executed.
 
-This loop is also the foundation of self-healing suites. For a deeper treatment of keeping suites green over time, read our [self-healing test automation 2026 guide](/blog/self-healing-test-automation-2026-guide).
+This loop is also the foundation of self-healing suites. For a deeper treatment of keeping suites green over time, read our [self-healing test automation 2026 guide](/blog/self-healing-test-automation-guide).
 
 ## Healing Failing Tests with AI
 

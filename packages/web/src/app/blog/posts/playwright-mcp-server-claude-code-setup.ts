@@ -13,7 +13,7 @@ Connecting the Playwright MCP server to Claude Code turns a chat session into a 
 
 The Model Context Protocol (MCP) is the glue. MCP is an open standard that lets an AI client like Claude Code talk to external tools through a uniform interface. The Playwright MCP server is one such tool provider: it exposes browser actions - navigate, snapshot, click, type, wait - as MCP tools that Claude Code can call. The defining feature is that the server returns the page's **accessibility tree** rather than a screenshot, which is why the agent produces stable, semantic locators instead of fragile coordinate clicks.
 
-This guide covers what MCP is, installing the server, the exact JSON config to register it with Claude Code, every browser tool you get, a complete live workflow (open app, log in, explore, generate a test), why the accessibility-tree approach beats screenshots, and a troubleshooting section for the errors you will actually hit. If you want the bigger picture of how these tools fit into agentic test automation, start with our [Playwright three-agent system guide](/blog/playwright-three-agent-system-planner-generator-healer).
+This guide covers what MCP is, installing the server, the exact JSON config to register it with Claude Code, every browser tool you get, a complete live workflow (open app, log in, explore, generate a test), why the accessibility-tree approach beats screenshots, and a troubleshooting section for the errors you will actually hit. If you want the bigger picture of how these tools fit into agentic test automation, start with our [Playwright three-agent system guide](/blog/playwright-test-agents-planner-generator-healer).
 
 ## What Is MCP and Why It Matters for Testing
 
@@ -149,7 +149,7 @@ The hero tool is \`browser_snapshot\`. It returns something like this rather tha
 - link "Forgot password?" [ref=e9]
 \`\`\`
 
-Each element carries a stable \`ref\` that Claude Code uses to act on it, plus the accessible role and name it will later turn into a \`getByRole\` locator. This is the same semantic model the [Playwright three-agent system](/blog/playwright-three-agent-system-planner-generator-healer) is built on.
+Each element carries a stable \`ref\` that Claude Code uses to act on it, plus the accessible role and name it will later turn into a \`getByRole\` locator. This is the same semantic model the [Playwright three-agent system](/blog/playwright-test-agents-planner-generator-healer) is built on.
 
 ## A Live Workflow: Open, Log In, Explore, Generate
 
@@ -321,6 +321,6 @@ Almost always because several elements share the same accessible name - for exam
 
 Wiring the Playwright MCP server into Claude Code gives you an AI engineer that actually looks at your application before writing a line of test code. Because the server speaks the accessibility tree rather than screenshots, the locators it produces are semantic, stable, and cheap to generate - and the tests pass on the first run because the agent verified them against the live page. Register the server, point Claude Code at your app, describe the flow you want covered, and let it explore, log in, and emit runnable Playwright specs you can commit and run in plain CI.
 
-From here, level up by combining this setup with the full agentic loop in our [Playwright three-agent system guide](/blog/playwright-three-agent-system-planner-generator-healer), and grab production-ready testing skills from the [QA skills directory](/skills) to standardize the workflow across your team.
+From here, level up by combining this setup with the full agentic loop in our [Playwright three-agent system guide](/blog/playwright-test-agents-planner-generator-healer), and grab production-ready testing skills from the [QA skills directory](/skills) to standardize the workflow across your team.
 `,
 };

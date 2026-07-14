@@ -5,6 +5,7 @@ import { readFileSync, readdirSync, existsSync } from 'fs';
 import { resolve, join } from 'path';
 import { skills, categories, skillPacks, skillPackItems } from './schema';
 import { TESTING_TYPES, FRAMEWORKS, LANGUAGES, DOMAINS } from '@qaskills/shared';
+import { getSkillLaunchDate } from '../lib/skill-launch-dates';
 const SEED_SKILLS_DIR = resolve(__dirname, '../../../../seed-skills');
 
 /**
@@ -233,13 +234,16 @@ async function seed() {
 
   for (const skill of seedSkills) {
     const fullDescription = readSkillBody(skill.slug);
-    await db.insert(skills).values({ ...skill, fullDescription }).onConflictDoUpdate({
+    const launchDate = getSkillLaunchDate(skill.slug);
+    const launchFields = launchDate ? { createdAt: launchDate } : {};
+    await db.insert(skills).values({ ...skill, ...launchFields, fullDescription }).onConflictDoUpdate({
       target: skills.slug,
       set: {
         installCount: skill.installCount,
         weeklyInstalls: skill.weeklyInstalls,
         qualityScore: skill.qualityScore,
         fullDescription,
+        ...launchFields,
       },
     });
   }

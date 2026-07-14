@@ -205,7 +205,7 @@ Both tools center on HTTP/1.1 and HTTP/2 and branch out from there.
 
 **Gatling** has a steeper initial curve — you need a JVM build setup and must learn the simulation/scenario/injection DSL — but it rewards teams that invest: strong typing catches errors early, the DSL is expressive for complex correlation and data feeders, and IDE support is first-rate. Scala can intimidate newcomers, but the Java and Kotlin DSLs lower that barrier considerably.
 
-Both have active communities, commercial backing (Gatling Corp and Grafana Labs respectively), and plentiful tutorials. For broader context on how these compare to other tools in the space, see our breakdowns of [k6 vs JMeter](/blog/k6-vs-jmeter-performance-testing) and [k6 vs Locust](/blog/k6-vs-locust-2026).
+Both have active communities, commercial backing (Gatling Corp and Grafana Labs respectively), and plentiful tutorials. For broader context on how these compare to other tools in the space, see our breakdowns of [k6 vs JMeter](/blog/k6-vs-jmeter-2026) and [k6 vs Locust](/blog/k6-vs-locust-2026).
 
 ## Pricing: open source vs enterprise
 
@@ -279,7 +279,7 @@ Both have free, capable open-source cores — Gatling under Apache 2.0 and k6 un
 
 ### Can these tools replace JMeter?
 
-For code-first teams, yes — both Gatling and k6 are common modern alternatives to JMeter, offering version-controllable scripts, better CI integration, and lower resource overhead than JMeter's thread-per-user model. JMeter still has a vast plugin ecosystem and a GUI that some teams prefer. The right move depends on your team's skills and existing tooling; see our [k6 vs JMeter comparison](/blog/k6-vs-jmeter-performance-testing) for a deeper look.
+For code-first teams, yes — both Gatling and k6 are common modern alternatives to JMeter, offering version-controllable scripts, better CI integration, and lower resource overhead than JMeter's thread-per-user model. JMeter still has a vast plugin ecosystem and a GUI that some teams prefer. The right move depends on your team's skills and existing tooling; see our [k6 vs JMeter comparison](/blog/k6-vs-jmeter-2026) for a deeper look.
 
 ### Does k6 support browser-based performance testing?
 

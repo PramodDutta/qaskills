@@ -22,4 +22,16 @@ describe('playwright long-tail batch', () => {
       expect(post.date).toBe('2026-04-01');
     }
   });
+
+  it('uses the current playwright-cli video filename syntax', () => {
+    const videoArticle = playwrightLongTail2026Posts.find(
+      ({ slug }) => slug === 'playwright-video-recording-guide-2026',
+    );
+
+    expect(videoArticle?.post.content).toContain(
+      'playwright-cli video-start recordings/checkout-failure.webm',
+    );
+    expect(videoArticle?.post.content).toContain('playwright-cli video-stop');
+    expect(videoArticle?.post.content).not.toMatch(/playwright-cli video-stop\s+\S+\.webm/);
+  });
 });

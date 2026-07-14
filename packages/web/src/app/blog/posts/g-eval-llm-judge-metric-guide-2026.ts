@@ -1,10 +1,11 @@
 import type { BlogPost } from './index';
 
 export const post: BlogPost = {
-  title: "G-Eval Explained: Chain-of-Thought LLM-as-Judge Scoring (2026)",
-  description: "G-Eval explained for 2026: how this chain-of-thought LLM-as-judge metric scores text, why it beats raw rubric prompts, and how to run G-Eval in DeepEval.",
-  date: "2026-06-26",
-  category: "AI Evals",
+  title: 'G-Eval Explained: Chain-of-Thought LLM-as-Judge Scoring (2026)',
+  description:
+    'G-Eval explained for 2026: how this chain-of-thought LLM-as-judge metric scores text, why it beats raw rubric prompts, and how to run G-Eval in DeepEval.',
+  date: '2026-06-26',
+  category: 'AI Evals',
   content: `# G-Eval Explained: Chain-of-Thought LLM-as-Judge Scoring (2026)
 
 **G-Eval is an LLM-as-a-judge metric that scores text by first asking a strong model to generate chain-of-thought evaluation steps from your criteria, then using those steps to fill in a numeric score.** From the 2023 paper *"G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment"* by Liu et al., it turns a one-line criterion like "is the summary coherent?" into an explicit rubric the judge reasons through, correlating with human ratings far better than a bare "rate this 1-5" prompt. It is DeepEval's default custom metric, defined in a few lines: \`GEval(name="Coherence", criteria="...", evaluation_params=[...])\`.
@@ -132,7 +133,7 @@ Run it with the DeepEval runner so results stream to the dashboard and the gate 
 deepeval test run test_summary.py
 \`\`\`
 
-This is the pattern that makes G-Eval useful for regression testing: every pull request re-scores your generations and the build goes red when quality drops. For the broader family of judge designs G-Eval belongs to, see the [LLM-as-a-judge evaluation guide](/blog/llm-as-a-judge-evaluation-guide-2026).
+This is the pattern that makes G-Eval useful for regression testing: every pull request re-scores your generations and the build goes red when quality drops. For the broader family of judge designs G-Eval belongs to, see the [LLM-as-a-judge evaluation guide](/blog/llm-as-a-judge-evaluation-guide).
 
 ## How G-Eval Compares to Other Judge Approaches
 

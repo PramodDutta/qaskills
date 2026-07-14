@@ -465,7 +465,7 @@ class CustomJudge(DeepEvalBaseLLM):
         return "custom-judge"
 \`\`\`
 
-A practical rule: use a strong frontier model (such as \`gpt-4o\` or an equivalent) for production gates where score reliability matters, and a cheaper or local model for fast iteration. Mixing judges across runs makes scores incomparable, so pick one per benchmark. If you are weighing DeepEval against config-driven tools, our [Promptfoo vs DeepEval comparison](/blog/promptfoo-vs-deepeval-2026-comparison) contrasts how each handles model selection.
+A practical rule: use a strong frontier model (such as \`gpt-4o\` or an equivalent) for production gates where score reliability matters, and a cheaper or local model for fast iteration. Mixing judges across runs makes scores incomparable, so pick one per benchmark. If you are weighing DeepEval against config-driven tools, our [Promptfoo vs DeepEval comparison](/blog/promptfoo-vs-deepeval-2026) contrasts how each handles model selection.
 
 ## CI Integration and the deepeval CLI
 
@@ -565,6 +565,6 @@ Yes. ToolCorrectnessMetric deterministically compares the tools your agent calle
 
 DeepEval gives you a Pytest-native, research-backed way to measure LLM quality across every architecture that matters in 2026: RAG pipelines, autonomous agents, and multi-turn chatbots. The pattern is always the same: build an \`LLMTestCase\`, choose the metrics that catch your specific failure mode, set thresholds with \`include_reason\` turned on, and gate it in CI with \`deepeval test run\`. Start with three to five high-signal metrics, layer in G-Eval for anything custom, and connect Confident AI when you want historical trends for the whole team.
 
-Ready to put these metrics to work? Explore the [QA skills directory](/skills) for ready-to-use evaluation suites, then compare your options with our [DeepEval vs RAGAS guide](/blog/deepeval-vs-ragas-rag-evaluation-2026), [Promptfoo vs DeepEval comparison](/blog/promptfoo-vs-deepeval-2026-comparison), and [OpenAI Evals complete guide](/blog/openai-evals-complete-guide-2026). Pick one metric, write one test, and ship your first quality gate today.
+Ready to put these metrics to work? Explore the [QA skills directory](/skills) for ready-to-use evaluation suites, then compare your options with our [DeepEval vs RAGAS guide](/blog/deepeval-vs-ragas-rag-evaluation-2026), [Promptfoo vs DeepEval comparison](/blog/promptfoo-vs-deepeval-2026), and [OpenAI Evals complete guide](/blog/openai-evals-complete-guide-2026). Pick one metric, write one test, and ship your first quality gate today.
 `,
 };

@@ -429,7 +429,7 @@ Browse more combinations on [QASkills.sh/skills](/skills).
 
 Playwright MCP matters because it gives QA teams a more structured way to bring AI into browser workflows. It is not valuable because it is new. It is valuable because it makes browser-aware agents easier to reason about.
 
-For related reading, continue with the [MCP for QA engineers guide](/blog/mcp-for-qa-engineers-guide), the [AI agent workflow comparison](/blog/ai-agent-testing-workflows-comparison), and the [Playwright AI agents guide](/blog/playwright-ai-agents-guide-2026).
+For related reading, continue with the [MCP for QA engineers guide](/blog/mcp-for-qa-engineers-guide), the [AI agent workflow comparison](/blog/ai-agent-testing-workflows-comparison), and the [Playwright test agents guide](/blog/playwright-test-agents-planner-generator-healer).
 `,
     },
   },

@@ -280,7 +280,7 @@ def test_two(client):
 
 Fixture scopes: \`function\` (default), \`class\`, \`module\`, \`package\`, \`session\`. The \`yield\` pattern handles teardown elegantly. Fixtures auto-resolve dependencies — you do not call them manually.
 
-Deep dive: [pytest fixtures deep dive](/blog/pytest-fixtures-deep-dive).
+Deep dive: [pytest fixtures deep dive](/blog/pytest-fixtures-conftest-complete-guide-2026).
 
 ## Parametrization: subTest vs @parametrize
 
@@ -311,7 +311,7 @@ def test_add(a, b, expected):
 
 Each row is a distinct test in the report. You can run just one (\`pytest -k "test_add[0-0-0]"\`), skip individual cases with \`pytest.param(..., marks=pytest.mark.skip)\`, and stack multiple parametrize decorators for cartesian products.
 
-Full guide: [pytest @parametrize complete guide](/blog/pytest-parametrize-complete-guide).
+Full guide: [pytest @parametrize complete guide](/blog/pytest-parametrize-complete-guide-2026).
 
 ## Mocking
 
@@ -334,7 +334,7 @@ def test_call(mocker):
     ...
 \`\`\`
 
-\`mocker\` automatically resets between tests. See [pytest-mock vs unittest.mock](/blog/pytest-mock-vs-unittest-mock).
+\`mocker\` automatically resets between tests. See [pytest-mock vs unittest.mock](/blog/unittest-mock-vs-pytest-mock-guide).
 
 ## Plugins and Ecosystem
 
@@ -360,7 +360,7 @@ pytest has 1,000+ plugins on PyPI. The most popular in 2026:
 | pytest-sugar | Better progress output |
 | pytest-clarity | Improved diff output |
 
-See [essential pytest plugins for 2026](/blog/pytest-plugins-essential-2026).
+See the [complete pytest guide](/blog/pytest-testing-complete-guide).
 
 ## Performance
 
@@ -400,7 +400,7 @@ async def test_fetch():
     assert result["status"] == "ok"
 \`\`\`
 
-pytest-asyncio supports async fixtures, event loop scopes, and integrates with sync tests in the same file. Full guide: [pytest-asyncio complete guide](/blog/pytest-asyncio-complete-guide).
+pytest-asyncio supports async fixtures, event loop scopes, and integrates with sync tests in the same file. Full guide: [pytest-asyncio complete guide](/blog/pytest-asyncio-testing-guide).
 
 ## Test Discovery
 
@@ -426,7 +426,7 @@ python_classes = "Test*"
 python_functions = "test_*"
 \`\`\`
 
-See [pytest test discovery patterns](/blog/pytest-test-discovery-patterns).
+See the [pytest reference cheatsheet](/blog/pytest-official-reference-cheatsheet-2026).
 
 ## Markers and Selective Runs
 
@@ -456,7 +456,7 @@ pytest -m "slow and unit"  # combined
 
 unittest has \`@unittest.skip\`, \`@unittest.skipIf\`, \`@unittest.expectedFailure\` — but no general marker system. You cannot tag \`integration\` vs \`smoke\` and filter at the runner level.
 
-Full reference: [pytest markers complete guide](/blog/pytest-markers-complete-guide).
+Full reference: [pytest markers complete guide](/blog/pytest-markers-custom-skip-xfail-guide-2026).
 
 ## Reporting
 
@@ -469,7 +469,7 @@ pytest has rich reporting via plugins:
 - \`pytest -v\` — verbose
 - \`pytest --tb=short\` / \`--tb=long\` / \`--tb=line\` — traceback styles
 
-See [pytest HTML reports + Allure integration guide](/blog/pytest-html-report-allure-guide).
+See [pytest HTML reports + Allure integration guide](/blog/test-reporting-allure-dashboards-guide).
 
 ## Configuration
 
@@ -596,11 +596,11 @@ unittest remains used in legacy codebases, CPython, and stdlib-only packages.
 
 ## Next Steps
 
-- Read [pytest fixtures deep dive](/blog/pytest-fixtures-deep-dive)
-- Compare [pytest vs unittest: when to use each in 2026](/blog/pytest-vs-unittest-when-to-use)
-- Set up [pytest coverage reporting](/blog/pytest-coverage-reporting-guide)
+- Read [pytest fixtures deep dive](/blog/pytest-fixtures-conftest-complete-guide-2026)
+- Compare [pytest vs unittest: when to use each in 2026](/blog/python-unittest-vs-pytest)
+- Set up [pytest coverage reporting](/blog/pytest-coverage-pytest-cov-guide-2026)
 - Browse [Python testing skills](/skills?language=python) for AI agents
-- Learn [pytest markers complete guide](/blog/pytest-markers-complete-guide)
+- Learn [pytest markers complete guide](/blog/pytest-markers-custom-skip-xfail-guide-2026)
 
 The choice is mostly settled in 2026: pytest is the default. unittest is the fallback for constrained environments. Now you know exactly why.
 `,

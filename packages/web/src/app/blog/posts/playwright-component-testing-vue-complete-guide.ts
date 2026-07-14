@@ -2,7 +2,8 @@ import type { BlogPost } from './index';
 
 export const post: BlogPost = {
   title: 'Playwright Component Testing for Vue: Complete 2026 Guide',
-  description: 'Test Vue 3 components in real browsers with Playwright Component Testing. Setup, mounting with stores, router, fixtures, and visual snapshots in TypeScript.',
+  description:
+    'Test Vue 3 components in real browsers with Playwright Component Testing. Setup, mounting with stores, router, fixtures, and visual snapshots in TypeScript.',
   date: '2026-05-08',
   category: 'Guide',
   content: `
@@ -12,7 +13,7 @@ Playwright Component Testing brings real browsers to Vue 3 component tests. Wher
 
 This guide is a complete walkthrough for Vue 3 with the Composition API and the \`<script setup>\` syntax. Examples assume TypeScript and Playwright 1.49+. You will learn setup, mounting patterns, stores (Pinia), router integration, network mocking, fixtures, and visual snapshots.
 
-For React patterns, see [Playwright Component Testing for React](/blog/playwright-component-testing-react-complete-guide). For Svelte, [Playwright Component Testing Svelte Guide](/blog/playwright-component-testing-svelte-guide). Install the [playwright-e2e skill](/skills/playwright-e2e) for AI-generated tests that follow these patterns.
+For React patterns, see [Playwright Component Testing for React](/blog/playwright-component-testing-react-guide-2026). For Svelte, [Playwright Component Testing Svelte Guide](/blog/playwright-component-testing-svelte-guide). Install the [playwright-e2e skill](/skills/playwright-e2e) for AI-generated tests that follow these patterns.
 
 ## Installation
 
@@ -365,6 +366,6 @@ For full CI patterns, see [Playwright CI GitHub Actions Complete Guide](/blog/pl
 
 Playwright Component Testing for Vue gives you real browsers, real events, and real traces at the component layer. Use it for design system components and complex widgets; reserve end-to-end tests for whole-page flows.
 
-Install the [playwright-e2e skill](/skills/playwright-e2e) so AI assistants generate Vue CT tests that follow these patterns. For React parity, see the [Playwright Component Testing for React](/blog/playwright-component-testing-react-complete-guide).
+Install the [playwright-e2e skill](/skills/playwright-e2e) so AI assistants generate Vue CT tests that follow these patterns. For React parity, see the [Playwright Component Testing for React](/blog/playwright-component-testing-react-guide-2026).
 `,
 };

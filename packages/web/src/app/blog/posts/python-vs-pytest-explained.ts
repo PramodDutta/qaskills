@@ -182,7 +182,7 @@ def test_user_email(sample_user):
     assert "@" in sample_user["email"]
 \`\`\`
 
-See our [pytest fixtures deep dive](/blog/pytest-fixtures-deep-dive) for scopes, factories, and parametrized fixtures.
+See our [pytest fixtures deep dive](/blog/pytest-fixtures-conftest-complete-guide-2026) for scopes, factories, and parametrized fixtures.
 
 ### 4. Parametrization
 
@@ -199,7 +199,7 @@ def test_length(input, expected):
     assert len(input) == expected
 \`\`\`
 
-Each row becomes a separate test case in the report. Full guide: [pytest parametrize complete guide](/blog/pytest-parametrize-complete-guide).
+Each row becomes a separate test case in the report. Full guide: [pytest parametrize complete guide](/blog/pytest-parametrize-complete-guide-2026).
 
 ### 5. Plugin ecosystem
 
@@ -213,7 +213,7 @@ Pytest has over 1,000 plugins on PyPI. Some essentials:
 - \`pytest-html\` — HTML reports
 - \`pytest-django\` — Django integration
 
-See [essential pytest plugins for 2026](/blog/pytest-plugins-essential-2026).
+See the [complete pytest guide](/blog/pytest-testing-complete-guide).
 
 ### 6. Better output
 
@@ -255,7 +255,7 @@ def test_new_feature():
 # pytest -m slow
 \`\`\`
 
-Full reference: [pytest markers complete guide](/blog/pytest-markers-complete-guide).
+Full reference: [pytest markers complete guide](/blog/pytest-markers-custom-skip-xfail-guide-2026).
 
 ## Side-by-Side: Same Project, Both Tools
 
@@ -364,7 +364,7 @@ There are real cases where you skip pytest:
 4. **Tiny CLI tools** where adding a dev dependency is overkill.
 5. **Legacy codebases** that already standardize on unittest.
 
-For everything else — APIs, web apps, libraries, data pipelines, ML projects — pytest is the modern default. See the full [Python unit testing roadmap for 2026](/blog/python-unit-testing-roadmap-2026).
+For everything else — APIs, web apps, libraries, data pipelines, ML projects — pytest is the modern default. See the full [pytest testing guide](/blog/pytest-testing-complete-guide).
 
 ## Common Misconceptions
 
@@ -415,7 +415,7 @@ Use **Pytest** when:
 - Team is starting fresh or has freedom to choose
 - You need parallel execution, coverage, BDD, async testing
 
-For more on the unittest decision, see [pytest vs unittest: when to use each in 2026](/blog/pytest-vs-unittest-when-to-use).
+For more on the unittest decision, see [pytest vs unittest: when to use each in 2026](/blog/python-unittest-vs-pytest).
 
 ## Mocking: pytest-mock vs unittest.mock
 
@@ -439,7 +439,7 @@ def test_external_call():
         assert result == 1
 \`\`\`
 
-Full comparison: [pytest-mock vs unittest.mock](/blog/pytest-mock-vs-unittest-mock).
+Full comparison: [pytest-mock vs unittest.mock](/blog/unittest-mock-vs-pytest-mock-guide).
 
 ## Setting Up a Real Python + Pytest Project
 
@@ -530,10 +530,10 @@ Then migrate incrementally — convert classes to functions, replace \`self.asse
 ## Next Steps
 
 - Browse [Python testing skills](/skills?language=python) for AI agents
-- Read [pytest fixtures deep dive](/blog/pytest-fixtures-deep-dive)
+- Read [pytest fixtures deep dive](/blog/pytest-fixtures-conftest-complete-guide-2026)
 - Compare [unittest vs pytest in 2026](/blog/unittest-vs-pytest-2026)
-- Set up [pytest coverage reporting](/blog/pytest-coverage-reporting-guide)
-- Explore [essential pytest plugins for 2026](/blog/pytest-plugins-essential-2026)
+- Set up [pytest coverage reporting](/blog/pytest-coverage-pytest-cov-guide-2026)
+- Explore the [complete pytest guide](/blog/pytest-testing-complete-guide)
 
 The bottom line: stop searching "Python vs Pytest." Search "unittest vs pytest" or "pytest features" instead. You will get answers that actually match the question you meant to ask.
 `,
