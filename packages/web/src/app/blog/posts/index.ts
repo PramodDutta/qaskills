@@ -1014,6 +1014,16 @@ import { post as sg_githubCopilotPathSpecificInstructionsApplyto } from './githu
 import { post as sg_windsurfRulesAndMemoriesGuide } from './windsurf-rules-and-memories-guide';
 import { post as sg_geminiCliGeminiMdConfigurationGuide } from './gemini-cli-gemini-md-configuration-guide';
 import { post as sg_agentSkillsOpenStandardPortability } from './agent-skills-open-standard-portability';
+import { post as sg2_claudeSkillNotTriggeringTroubleshooting } from './claude-skill-not-triggering-troubleshooting';
+import { post as sg2_claudeCodePluginSkillsMarketplaceGuide } from './claude-code-plugin-skills-marketplace-guide';
+import { post as sg2_howToTestAndEvolveAgentSkills } from './how-to-test-and-evolve-agent-skills';
+import { post as sg2_skillMdVsMcpServerWhenToUseWhich } from './skill-md-vs-mcp-server-when-to-use-which';
+import { post as sg2_distributeAgentSkillsAcrossTeamMonorepo } from './distribute-agent-skills-across-team-monorepo';
+import { post as sg2_agentSkillSecurityReviewChecklist } from './agent-skill-security-review-checklist';
+import { post as sg2_copilotCodingAgentSetupTestingRepos } from './copilot-coding-agent-setup-testing-repos';
+import { post as sg2_clineRooCodeRulesConfigurationGuide } from './cline-roo-code-rules-configuration-guide';
+import { post as sg2_aiderConventionsFileTestingGuide } from './aider-conventions-file-testing-guide';
+import { post as sg2_validateSkillMdInCiPipeline } from './validate-skill-md-in-ci-pipeline';
 import { post as b100_webdriverioServiceTestingAdvancedGuide } from './webdriverio-service-testing-advanced-guide';
 import { post as b100_webdriverioPageObjectsTypescriptGuide } from './webdriverio-page-objects-typescript-guide';
 import { post as b100_webdriverioParallelCrossBrowserGridGuide } from './webdriverio-parallel-cross-browser-grid-guide';
@@ -2367,6 +2377,16 @@ export const posts: Record<string, BlogPost> = {
   'windsurf-rules-and-memories-guide': sg_windsurfRulesAndMemoriesGuide,
   'gemini-cli-gemini-md-configuration-guide': sg_geminiCliGeminiMdConfigurationGuide,
   'agent-skills-open-standard-portability': sg_agentSkillsOpenStandardPortability,
+  'claude-skill-not-triggering-troubleshooting': sg2_claudeSkillNotTriggeringTroubleshooting,
+  'claude-code-plugin-skills-marketplace-guide': sg2_claudeCodePluginSkillsMarketplaceGuide,
+  'how-to-test-and-evolve-agent-skills': sg2_howToTestAndEvolveAgentSkills,
+  'skill-md-vs-mcp-server-when-to-use-which': sg2_skillMdVsMcpServerWhenToUseWhich,
+  'distribute-agent-skills-across-team-monorepo': sg2_distributeAgentSkillsAcrossTeamMonorepo,
+  'agent-skill-security-review-checklist': sg2_agentSkillSecurityReviewChecklist,
+  'copilot-coding-agent-setup-testing-repos': sg2_copilotCodingAgentSetupTestingRepos,
+  'cline-roo-code-rules-configuration-guide': sg2_clineRooCodeRulesConfigurationGuide,
+  'aider-conventions-file-testing-guide': sg2_aiderConventionsFileTestingGuide,
+  'validate-skill-md-in-ci-pipeline': sg2_validateSkillMdInCiPipeline,
   'webdriverio-service-testing-advanced-guide': b100_webdriverioServiceTestingAdvancedGuide,
   'webdriverio-page-objects-typescript-guide': b100_webdriverioPageObjectsTypescriptGuide,
   'webdriverio-parallel-cross-browser-grid-guide': b100_webdriverioParallelCrossBrowserGridGuide,
@@ -4767,6 +4787,16 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
   { slug: 'windsurf-rules-and-memories-guide', ...sg_windsurfRulesAndMemoriesGuide },
   { slug: 'gemini-cli-gemini-md-configuration-guide', ...sg_geminiCliGeminiMdConfigurationGuide },
   { slug: 'agent-skills-open-standard-portability', ...sg_agentSkillsOpenStandardPortability },
+  { slug: 'claude-skill-not-triggering-troubleshooting', ...sg2_claudeSkillNotTriggeringTroubleshooting },
+  { slug: 'claude-code-plugin-skills-marketplace-guide', ...sg2_claudeCodePluginSkillsMarketplaceGuide },
+  { slug: 'how-to-test-and-evolve-agent-skills', ...sg2_howToTestAndEvolveAgentSkills },
+  { slug: 'skill-md-vs-mcp-server-when-to-use-which', ...sg2_skillMdVsMcpServerWhenToUseWhich },
+  { slug: 'distribute-agent-skills-across-team-monorepo', ...sg2_distributeAgentSkillsAcrossTeamMonorepo },
+  { slug: 'agent-skill-security-review-checklist', ...sg2_agentSkillSecurityReviewChecklist },
+  { slug: 'copilot-coding-agent-setup-testing-repos', ...sg2_copilotCodingAgentSetupTestingRepos },
+  { slug: 'cline-roo-code-rules-configuration-guide', ...sg2_clineRooCodeRulesConfigurationGuide },
+  { slug: 'aider-conventions-file-testing-guide', ...sg2_aiderConventionsFileTestingGuide },
+  { slug: 'validate-skill-md-in-ci-pipeline', ...sg2_validateSkillMdInCiPipeline },
   {
     slug: 'webdriverio-service-testing-advanced-guide',
     ...b100_webdriverioServiceTestingAdvancedGuide,
