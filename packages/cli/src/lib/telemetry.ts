@@ -20,6 +20,8 @@ function isTelemetryEnabled(): boolean {
 
 export function sendTelemetry(event: {
   skillId: string;
+  /** registry slug when known; the server resolves it to the skill row */
+  skillSlug?: string;
   action: 'install' | 'remove' | 'update';
   agents: string[];
 }): void {

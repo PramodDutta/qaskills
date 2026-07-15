@@ -96,6 +96,9 @@ export const addCommand = new Command('add')
     // 5. Telemetry
     sendTelemetry({
       skillId: skill.name,
+      // For registry installs the requested name IS the slug; the server
+      // resolves slug (then display name) to the skill row.
+      skillSlug: skill.source === 'registry' ? skill.name : undefined,
       action: 'install',
       agents: selectedAgents.map((a) => a.definition.id),
     });

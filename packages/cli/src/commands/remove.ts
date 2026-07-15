@@ -65,6 +65,7 @@ export const removeCommand = new Command('remove')
 
     sendTelemetry({
       skillId: skillName,
+      skillSlug: skillName,
       action: 'remove',
       agents: targetAgents.map((a) => a.definition.id),
     });

@@ -108,6 +108,7 @@ export async function getCategories(): Promise<Category[]> {
  */
 export async function trackInstall(data: {
   skillId: string;
+  skillSlug?: string;
   action: 'install' | 'remove' | 'update';
   agents: string[];
   cliVersion: string;
