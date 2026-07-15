@@ -1000,6 +1000,20 @@ import { post as t250c_testingRagNoAnswerAbstention } from './testing-rag-no-ans
 import { post as t250c_testingToxicOutputMultilingualPrompts } from './testing-toxic-output-multilingual-prompts';
 import { post as t250c_testingWebhookOutOfOrderDelivery } from './testing-webhook-out-of-order-delivery';
 import { post as t250c_testingWebhookReplayAttackProtection } from './testing-webhook-replay-attack-protection';
+import { post as sg_howToCreateAClaudeSkillSkillMdCompleteGuide } from './how-to-create-a-claude-skill-skill-md-complete-guide';
+import { post as sg_claudeSkillDescriptionFrontmatterTriggeringGuide } from './claude-skill-description-frontmatter-triggering-guide';
+import { post as sg_githubCopilotInstructionsMdForTestingTeams } from './github-copilot-instructions-md-for-testing-teams';
+import { post as sg_agentsMdCompleteGuideAiCodingAgents } from './agents-md-complete-guide-ai-coding-agents';
+import { post as sg_cursorRulesFileGuideTestAutomation } from './cursor-rules-file-guide-test-automation';
+import { post as sg_howToCreateMcpServerForQaTestingTools } from './how-to-create-mcp-server-for-qa-testing-tools';
+import { post as sg_claudeSkillsVsCursorRulesVsCopilotInstructions } from './claude-skills-vs-cursor-rules-vs-copilot-instructions';
+import { post as sg_howToPublishAiAgentSkillDirectory } from './how-to-publish-ai-agent-skill-directory';
+import { post as sg_progressiveDisclosureAgentSkillDesign } from './progressive-disclosure-agent-skill-design';
+import { post as sg_claudeCodeCustomSlashCommandsGuide } from './claude-code-custom-slash-commands-guide';
+import { post as sg_githubCopilotPathSpecificInstructionsApplyto } from './github-copilot-path-specific-instructions-applyto';
+import { post as sg_windsurfRulesAndMemoriesGuide } from './windsurf-rules-and-memories-guide';
+import { post as sg_geminiCliGeminiMdConfigurationGuide } from './gemini-cli-gemini-md-configuration-guide';
+import { post as sg_agentSkillsOpenStandardPortability } from './agent-skills-open-standard-portability';
 import { post as b100_webdriverioServiceTestingAdvancedGuide } from './webdriverio-service-testing-advanced-guide';
 import { post as b100_webdriverioPageObjectsTypescriptGuide } from './webdriverio-page-objects-typescript-guide';
 import { post as b100_webdriverioParallelCrossBrowserGridGuide } from './webdriverio-parallel-cross-browser-grid-guide';
@@ -2339,6 +2353,20 @@ export const posts: Record<string, BlogPost> = {
   'testing-toxic-output-multilingual-prompts': t250c_testingToxicOutputMultilingualPrompts,
   'testing-webhook-out-of-order-delivery': t250c_testingWebhookOutOfOrderDelivery,
   'testing-webhook-replay-attack-protection': t250c_testingWebhookReplayAttackProtection,
+  'how-to-create-a-claude-skill-skill-md-complete-guide': sg_howToCreateAClaudeSkillSkillMdCompleteGuide,
+  'claude-skill-description-frontmatter-triggering-guide': sg_claudeSkillDescriptionFrontmatterTriggeringGuide,
+  'github-copilot-instructions-md-for-testing-teams': sg_githubCopilotInstructionsMdForTestingTeams,
+  'agents-md-complete-guide-ai-coding-agents': sg_agentsMdCompleteGuideAiCodingAgents,
+  'cursor-rules-file-guide-test-automation': sg_cursorRulesFileGuideTestAutomation,
+  'how-to-create-mcp-server-for-qa-testing-tools': sg_howToCreateMcpServerForQaTestingTools,
+  'claude-skills-vs-cursor-rules-vs-copilot-instructions': sg_claudeSkillsVsCursorRulesVsCopilotInstructions,
+  'how-to-publish-ai-agent-skill-directory': sg_howToPublishAiAgentSkillDirectory,
+  'progressive-disclosure-agent-skill-design': sg_progressiveDisclosureAgentSkillDesign,
+  'claude-code-custom-slash-commands-guide': sg_claudeCodeCustomSlashCommandsGuide,
+  'github-copilot-path-specific-instructions-applyto': sg_githubCopilotPathSpecificInstructionsApplyto,
+  'windsurf-rules-and-memories-guide': sg_windsurfRulesAndMemoriesGuide,
+  'gemini-cli-gemini-md-configuration-guide': sg_geminiCliGeminiMdConfigurationGuide,
+  'agent-skills-open-standard-portability': sg_agentSkillsOpenStandardPortability,
   'webdriverio-service-testing-advanced-guide': b100_webdriverioServiceTestingAdvancedGuide,
   'webdriverio-page-objects-typescript-guide': b100_webdriverioPageObjectsTypescriptGuide,
   'webdriverio-parallel-cross-browser-grid-guide': b100_webdriverioParallelCrossBrowserGridGuide,
@@ -4725,6 +4753,20 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
     slug: 'testing-webhook-replay-attack-protection',
     ...t250c_testingWebhookReplayAttackProtection,
   },
+  { slug: 'how-to-create-a-claude-skill-skill-md-complete-guide', ...sg_howToCreateAClaudeSkillSkillMdCompleteGuide },
+  { slug: 'claude-skill-description-frontmatter-triggering-guide', ...sg_claudeSkillDescriptionFrontmatterTriggeringGuide },
+  { slug: 'github-copilot-instructions-md-for-testing-teams', ...sg_githubCopilotInstructionsMdForTestingTeams },
+  { slug: 'agents-md-complete-guide-ai-coding-agents', ...sg_agentsMdCompleteGuideAiCodingAgents },
+  { slug: 'cursor-rules-file-guide-test-automation', ...sg_cursorRulesFileGuideTestAutomation },
+  { slug: 'how-to-create-mcp-server-for-qa-testing-tools', ...sg_howToCreateMcpServerForQaTestingTools },
+  { slug: 'claude-skills-vs-cursor-rules-vs-copilot-instructions', ...sg_claudeSkillsVsCursorRulesVsCopilotInstructions },
+  { slug: 'how-to-publish-ai-agent-skill-directory', ...sg_howToPublishAiAgentSkillDirectory },
+  { slug: 'progressive-disclosure-agent-skill-design', ...sg_progressiveDisclosureAgentSkillDesign },
+  { slug: 'claude-code-custom-slash-commands-guide', ...sg_claudeCodeCustomSlashCommandsGuide },
+  { slug: 'github-copilot-path-specific-instructions-applyto', ...sg_githubCopilotPathSpecificInstructionsApplyto },
+  { slug: 'windsurf-rules-and-memories-guide', ...sg_windsurfRulesAndMemoriesGuide },
+  { slug: 'gemini-cli-gemini-md-configuration-guide', ...sg_geminiCliGeminiMdConfigurationGuide },
+  { slug: 'agent-skills-open-standard-portability', ...sg_agentSkillsOpenStandardPortability },
   {
     slug: 'webdriverio-service-testing-advanced-guide',
     ...b100_webdriverioServiceTestingAdvancedGuide,
