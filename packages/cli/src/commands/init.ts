@@ -6,55 +6,123 @@ import path from 'path';
 import { TESTING_TYPES, FRAMEWORKS, LANGUAGES } from '@qaskills/shared';
 import { serializeSkillMd } from '@qaskills/shared';
 
+interface InitOptions {
+  yes?: boolean;
+  name?: string;
+  description?: string;
+  author?: string;
+  testingType?: string;
+  framework?: string;
+  language?: string;
+}
+
+const DEFAULT_TESTING_TYPE: Record<string, string> = {
+  playwright: 'e2e',
+  cypress: 'e2e',
+  api: 'api',
+  generic: 'e2e',
+};
+
 export const initCommand = new Command('init')
   .argument('[template]', 'Template name (playwright, cypress, api, generic)')
   .description('Scaffold a new SKILL.md for your QA skill')
-  .action(async (template?: string) => {
-    p.intro(pc.bgCyan(pc.black(' qaskills init ')));
+  .option('-y, --yes', 'Non-interactive: scaffold from flags and defaults without prompting')
+  .option('--name <name>', 'Skill name (non-interactive)')
+  .option('--description <text>', 'Description (non-interactive)')
+  .option('--author <author>', 'Author (non-interactive)')
+  .option('--testing-type <type>', 'Primary testing type id (non-interactive)')
+  .option('--framework <framework>', 'Primary framework id, or "none" (non-interactive)')
+  .option('--language <language>', 'Primary language id (non-interactive)')
+  .action(async (template: string | undefined, options: InitOptions) => {
+    const tmpl = template || 'generic';
+    const interactive = Boolean(process.stdin.isTTY && process.stdout.isTTY);
+    const anyFlags =
+      options.name || options.description || options.author || options.testingType || options.framework || options.language;
+    // Run non-interactively when explicitly asked, when flags were supplied,
+    // or whenever there is no usable terminal (CI, pipes, redirected stdout).
+    const nonInteractive = options.yes || Boolean(anyFlags) || !interactive;
 
-    const name = await p.text({ message: 'Skill name:', placeholder: 'my-playwright-tests' });
-    if (p.isCancel(name)) { p.cancel('Cancelled.'); process.exit(0); }
+    let name: string;
+    let description: string;
+    let author: string;
+    let testingType: string;
+    let framework: string;
+    let language: string;
 
-    const description = await p.text({ message: 'Description:', placeholder: 'Comprehensive Playwright E2E testing patterns' });
-    if (p.isCancel(description)) { p.cancel('Cancelled.'); process.exit(0); }
+    if (nonInteractive) {
+      name = options.name || `my-${tmpl}-skill`;
+      description =
+        options.description || `${tmpl === 'generic' ? 'QA' : tmpl} testing patterns and best practices for AI agents.`;
+      author = options.author || 'your-github-username';
+      testingType = options.testingType || DEFAULT_TESTING_TYPE[tmpl] || 'e2e';
+      framework = options.framework || (tmpl === 'playwright' || tmpl === 'cypress' ? tmpl : 'none');
+      language = options.language || 'typescript';
 
-    const testingType = await p.select({
-      message: 'Primary testing type:',
-      options: TESTING_TYPES.map((t) => ({ value: t.id, label: t.name, hint: t.description })),
-    });
-    if (p.isCancel(testingType)) { p.cancel('Cancelled.'); process.exit(0); }
+      // Validate flag values against the known vocabularies so a typo fails
+      // loudly here rather than at seed/validate time.
+      const badType = !TESTING_TYPES.some((t) => t.id === testingType);
+      const badFramework = framework !== 'none' && !FRAMEWORKS.some((f) => f.id === framework);
+      const badLanguage = !LANGUAGES.some((l) => l.id === language);
+      if (badType || badFramework || badLanguage) {
+        if (badType) console.error(pc.red(`Unknown testing type "${testingType}". Valid: ${TESTING_TYPES.map((t) => t.id).join(', ')}`));
+        if (badFramework) console.error(pc.red(`Unknown framework "${framework}". Valid: none, ${FRAMEWORKS.map((f) => f.id).join(', ')}`));
+        if (badLanguage) console.error(pc.red(`Unknown language "${language}". Valid: ${LANGUAGES.map((l) => l.id).join(', ')}`));
+        process.exit(1);
+      }
+    } else {
+      p.intro(pc.bgCyan(pc.black(' qaskills init ')));
 
-    const framework = await p.select({
-      message: 'Primary framework:',
-      options: [
-        { value: 'none', label: 'None / Generic' },
-        ...FRAMEWORKS.map((f) => ({ value: f.id, label: f.name })),
-      ],
-    });
-    if (p.isCancel(framework)) { p.cancel('Cancelled.'); process.exit(0); }
+      const nameInput = await p.text({ message: 'Skill name:', placeholder: 'my-playwright-tests' });
+      if (p.isCancel(nameInput)) { p.cancel('Cancelled.'); process.exit(0); }
 
-    const language = await p.select({
-      message: 'Primary language:',
-      options: LANGUAGES.map((l) => ({ value: l.id, label: l.name })),
-    });
-    if (p.isCancel(language)) { p.cancel('Cancelled.'); process.exit(0); }
+      const descInput = await p.text({ message: 'Description:', placeholder: 'Comprehensive Playwright E2E testing patterns' });
+      if (p.isCancel(descInput)) { p.cancel('Cancelled.'); process.exit(0); }
 
-    const author = await p.text({ message: 'Author:', placeholder: 'your-github-username' });
-    if (p.isCancel(author)) { p.cancel('Cancelled.'); process.exit(0); }
+      const typeInput = await p.select({
+        message: 'Primary testing type:',
+        options: TESTING_TYPES.map((t) => ({ value: t.id, label: t.name, hint: t.description })),
+      });
+      if (p.isCancel(typeInput)) { p.cancel('Cancelled.'); process.exit(0); }
 
-    const content = getTemplateContent(template || 'generic', name as string);
+      const frameworkInput = await p.select({
+        message: 'Primary framework:',
+        options: [
+          { value: 'none', label: 'None / Generic' },
+          ...FRAMEWORKS.map((f) => ({ value: f.id, label: f.name })),
+        ],
+      });
+      if (p.isCancel(frameworkInput)) { p.cancel('Cancelled.'); process.exit(0); }
+
+      const languageInput = await p.select({
+        message: 'Primary language:',
+        options: LANGUAGES.map((l) => ({ value: l.id, label: l.name })),
+      });
+      if (p.isCancel(languageInput)) { p.cancel('Cancelled.'); process.exit(0); }
+
+      const authorInput = await p.text({ message: 'Author:', placeholder: 'your-github-username' });
+      if (p.isCancel(authorInput)) { p.cancel('Cancelled.'); process.exit(0); }
+
+      name = nameInput as string;
+      description = descInput as string;
+      testingType = typeInput as string;
+      framework = frameworkInput as string;
+      language = languageInput as string;
+      author = authorInput as string;
+    }
+
+    const content = getTemplateContent(tmpl, name);
 
     const skillMd = serializeSkillMd(
       {
-        name: name as string,
-        description: description as string,
+        name,
+        description,
         version: '1.0.0',
-        author: author as string,
+        author,
         license: 'MIT',
-        tags: [testingType as string],
-        testingTypes: [testingType as string],
-        frameworks: framework !== 'none' ? [framework as string] : [],
-        languages: [language as string],
+        tags: [testingType],
+        testingTypes: [testingType],
+        frameworks: framework !== 'none' ? [framework] : [],
+        languages: [language],
         domains: ['web'],
         agents: ['claude-code', 'cursor', 'github-copilot', 'windsurf', 'codex'],
       },
@@ -64,7 +132,11 @@ export const initCommand = new Command('init')
     const outputPath = path.join(process.cwd(), 'SKILL.md');
     await fs.writeFile(outputPath, skillMd, 'utf-8');
 
-    p.outro(`${pc.green('✓')} Created SKILL.md at ${pc.dim(outputPath)}`);
+    if (nonInteractive) {
+      console.log(`${pc.green('✓')} Created SKILL.md at ${outputPath}`);
+    } else {
+      p.outro(`${pc.green('✓')} Created SKILL.md at ${pc.dim(outputPath)}`);
+    }
   });
 
 function getTemplateContent(template: string, name: string): string {

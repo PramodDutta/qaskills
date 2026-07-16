@@ -10,4 +10,4 @@ export const MAX_SKILL_TOKENS = 5000;
 export const QUALITY_SCORE_MAX = 100;
 
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://qaskills.sh';
-export const CLI_VERSION = '0.4.0';
+export const CLI_VERSION = '0.4.1';
