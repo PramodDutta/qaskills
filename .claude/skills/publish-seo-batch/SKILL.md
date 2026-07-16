@@ -5,7 +5,7 @@ description: Use when publishing SEO blog articles to qaskills.sh, e.g. "publish
 
 # Publish SEO Batch
 
-The daily content pipeline: source topics -> dedup slugs -> write posts -> register -> build -> commit -> deploy -> prove live. Default batch size is 10 unless the user says otherwise. Every step has a check; a batch is not "published" until step 8 passes.
+The daily content pipeline: source topics -> dedup slugs -> write posts -> register -> build -> commit -> deploy -> prove live -> ping IndexNow. Default batch size is 10 unless the user says otherwise. Every step has a check; a batch is not "published" until step 8 passes, then step 9 nudges the search engines.
 
 ## Step 0: State check
 
@@ -123,6 +123,32 @@ curl -s https://qaskills.sh/sitemap.xml | grep -c '<one-new-slug>'   # >= 1
 ```
 
 Every slug must return 200 and appear in the sitemap. Report the checked URLs in the final summary.
+
+## Step 9: Ping IndexNow (Bing + Yandex + Naver + Seznam)
+
+After the new slugs are confirmed live (step 8), notify IndexNow so Bing and the other participating engines crawl them fast. Submit only the NEW slugs, not the whole sitemap. The verification key file is already hosted at `https://qaskills.sh/f1e4781767e4472e9061ad0f853449d3.txt` (committed in `packages/web/public/`); do not regenerate it.
+
+```bash
+# Build the payload from just this batch's new slugs
+python3 - "$@" <<'PY'
+import json, sys
+slugs = ["slug-one", "slug-two"]  # replace with this batch's new slugs
+urls = [f"https://qaskills.sh/blog/{s}" for s in slugs]
+json.dump({
+  "host": "qaskills.sh",
+  "key": "f1e4781767e4472e9061ad0f853449d3",
+  "keyLocation": "https://qaskills.sh/f1e4781767e4472e9061ad0f853449d3.txt",
+  "urlList": urls,
+}, open("/tmp/indexnow-batch.json", "w"))
+print("urls:", len(urls))
+PY
+curl -s -o /dev/null -w 'Bing IndexNow: %{http_code}\n' -X POST 'https://www.bing.com/indexnow' \
+  -H 'Content-Type: application/json; charset=utf-8' --data @/tmp/indexnow-batch.json
+curl -s -o /dev/null -w 'IndexNow.org: %{http_code}\n' -X POST 'https://api.indexnow.org/indexnow' \
+  -H 'Content-Type: application/json; charset=utf-8' --data @/tmp/indexnow-batch.json
+```
+
+200 or 202 means accepted. A 403 `SiteVerificationNotCompleted` means the key file was not reachable; confirm the txt URL returns the bare key as `text/plain` and retry. This is a fire-and-forget hint, not a gate: a non-200 here does not un-publish the batch, but report it. Google is not an IndexNow participant; it discovers the posts through the sitemap and `robots.txt` as before.
 
 ## Failure modes
 
