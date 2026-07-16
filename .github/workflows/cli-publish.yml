@@ -31,6 +31,16 @@ jobs:
       - name: Build CLI
         run: pnpm --filter @qaskills/cli build
 
+      - name: Unit tests
+        run: pnpm --filter @qaskills/cli test
+
+      # Hard gate: the built CLI must pass the full end-to-end suite against the
+      # live registry (init regression pack, random 5-10 skill installs, content
+      # and artifact contracts) before anything reaches npm. Telemetry is
+      # disabled inside the suite so gate runs never inflate install counts.
+      - name: E2E publish gate
+        run: pnpm --filter @qaskills/cli e2e
+
       - name: Publish to npm
         run: pnpm --filter @qaskills/cli publish --access public --no-git-checks
         env:

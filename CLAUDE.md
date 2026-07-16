@@ -145,7 +145,7 @@ SKILL.md frontmatter -> `SkillFrontmatter` -> `SkillCreate` (Zod) -> DB row -> `
 12. **The missing skill body.** Seed skill directory added with frontmatter-only SKILL.md; `fullDescription` is empty, the site page is bare, the CLI downloads a husk. Rule: every seed skill gets a real markdown body; it IS the product.
 13. **The webhook assumption.** Code assumes every Clerk user has a DB row. Rule: go through `getAuthUser()`; it auto-creates missing rows.
 14. **The Node 24 upgrade.** Neon driver breaks on Node 24. Rule: Node 20.x locally and in Vercel project settings; do not bump.
-15. **The manual npm publish.** Rule: the CLI ships only via CI on `cli-v*` tags: bump `packages/cli/package.json`, commit, `git tag cli-v<version>`, `git push origin main --tags`. Never `npm publish` by hand, and tag pushes need explicit user approval.
+15. **The manual npm publish.** Rule: the CLI ships only via CI on `cli-v*` tags: bump `packages/cli/package.json` AND `CLI_VERSION` in `packages/shared/src/constants/index.ts`, commit, `git tag cli-v<version>`, `git push origin main --tags`. Never `npm publish` by hand, and tag pushes need explicit user approval. Before pushing any `cli-v*` tag, run the full E2E gate locally and it must print "Gate PASSED": `pnpm --filter @qaskills/cli e2e` (unit tests + init regression pack + 5-10 random registry installs + content/artifact contracts). CI re-runs the same gate between build and publish and blocks the release if it fails; do not bypass it with workflow edits.
 16. **The quoted env value.** Exporting `DATABASE_URL` straight from `.env.local` keeps its double quotes and breaks connections (or worse, gets stored quoted via API). Rule: strip quotes when exporting; never wrap values in quotes when setting via the Vercel API.
 
 ## Quality bar per deliverable
@@ -178,6 +178,7 @@ Report each bar as checked or failed; never claim "done" with an unchecked bar.
 - [ ] `pnpm --filter @qaskills/cli test` green; `pnpm --filter @qaskills/cli build` then `node packages/cli/dist/index.js --help` runs
 - [ ] Installer/detector changes exercised against a temp directory, never your real agent configs
 - [ ] Release = version bump + tag flow only (mistake 15)
+- [ ] Before ANY `cli-v*` tag: `pnpm --filter @qaskills/cli e2e` prints "Gate PASSED" (runs the built CLI end-to-end: init regression pack, 5-10 random registry skill installs into temp dirs, content/artifact contract checks; telemetry disabled inside the suite). New CLI regressions get a case added to `packages/cli/e2e/e2e.mjs` so the gate keeps covering them.
 
 **Production deploy:** see `ship-prod` skill; its verification checklist is the bar.
 
