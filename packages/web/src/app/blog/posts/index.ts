@@ -1024,6 +1024,16 @@ import { post as sg2_copilotCodingAgentSetupTestingRepos } from './copilot-codin
 import { post as sg2_clineRooCodeRulesConfigurationGuide } from './cline-roo-code-rules-configuration-guide';
 import { post as sg2_aiderConventionsFileTestingGuide } from './aider-conventions-file-testing-guide';
 import { post as sg2_validateSkillMdInCiPipeline } from './validate-skill-md-in-ci-pipeline';
+import { post as d716_playwrightTraceMergeShardedReportsGuide } from './playwright-trace-merge-sharded-reports-guide';
+import { post as d716_howToTestLlmToolCallingAccuracy } from './how-to-test-llm-tool-calling-accuracy';
+import { post as d716_ciCachePnpmStoreGithubActions } from './ci-cache-pnpm-store-github-actions';
+import { post as d716_testingLlmStructuredOutputJsonSchemaGuide } from './testing-llm-structured-output-json-schema-guide';
+import { post as d716_testingApiRateLimiting429RetryGuide } from './testing-api-rate-limiting-429-retry-guide';
+import { post as d716_deepevalConversationalMultiturnMetricsGuide } from './deepeval-conversational-multiturn-metrics-guide';
+import { post as d716_ciMatrixStrategyParallelTestJobsGuide } from './ci-matrix-strategy-parallel-test-jobs-guide';
+import { post as d716_ciFailFastVsContinueOnErrorJobs } from './ci-fail-fast-vs-continue-on-error-jobs';
+import { post as d716_testingJwtTokenExpiryValidationGuide } from './testing-jwt-token-expiry-validation-guide';
+import { post as d716_testingDatabaseConnectionPoolExhaustion } from './testing-database-connection-pool-exhaustion';
 import { post as b100_webdriverioServiceTestingAdvancedGuide } from './webdriverio-service-testing-advanced-guide';
 import { post as b100_webdriverioPageObjectsTypescriptGuide } from './webdriverio-page-objects-typescript-guide';
 import { post as b100_webdriverioParallelCrossBrowserGridGuide } from './webdriverio-parallel-cross-browser-grid-guide';
@@ -2387,6 +2397,16 @@ export const posts: Record<string, BlogPost> = {
   'cline-roo-code-rules-configuration-guide': sg2_clineRooCodeRulesConfigurationGuide,
   'aider-conventions-file-testing-guide': sg2_aiderConventionsFileTestingGuide,
   'validate-skill-md-in-ci-pipeline': sg2_validateSkillMdInCiPipeline,
+  'playwright-trace-merge-sharded-reports-guide': d716_playwrightTraceMergeShardedReportsGuide,
+  'how-to-test-llm-tool-calling-accuracy': d716_howToTestLlmToolCallingAccuracy,
+  'ci-cache-pnpm-store-github-actions': d716_ciCachePnpmStoreGithubActions,
+  'testing-llm-structured-output-json-schema-guide': d716_testingLlmStructuredOutputJsonSchemaGuide,
+  'testing-api-rate-limiting-429-retry-guide': d716_testingApiRateLimiting429RetryGuide,
+  'deepeval-conversational-multiturn-metrics-guide': d716_deepevalConversationalMultiturnMetricsGuide,
+  'ci-matrix-strategy-parallel-test-jobs-guide': d716_ciMatrixStrategyParallelTestJobsGuide,
+  'ci-fail-fast-vs-continue-on-error-jobs': d716_ciFailFastVsContinueOnErrorJobs,
+  'testing-jwt-token-expiry-validation-guide': d716_testingJwtTokenExpiryValidationGuide,
+  'testing-database-connection-pool-exhaustion': d716_testingDatabaseConnectionPoolExhaustion,
   'webdriverio-service-testing-advanced-guide': b100_webdriverioServiceTestingAdvancedGuide,
   'webdriverio-page-objects-typescript-guide': b100_webdriverioPageObjectsTypescriptGuide,
   'webdriverio-parallel-cross-browser-grid-guide': b100_webdriverioParallelCrossBrowserGridGuide,
@@ -4797,6 +4817,16 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
   { slug: 'cline-roo-code-rules-configuration-guide', ...sg2_clineRooCodeRulesConfigurationGuide },
   { slug: 'aider-conventions-file-testing-guide', ...sg2_aiderConventionsFileTestingGuide },
   { slug: 'validate-skill-md-in-ci-pipeline', ...sg2_validateSkillMdInCiPipeline },
+  { slug: 'playwright-trace-merge-sharded-reports-guide', ...d716_playwrightTraceMergeShardedReportsGuide },
+  { slug: 'how-to-test-llm-tool-calling-accuracy', ...d716_howToTestLlmToolCallingAccuracy },
+  { slug: 'ci-cache-pnpm-store-github-actions', ...d716_ciCachePnpmStoreGithubActions },
+  { slug: 'testing-llm-structured-output-json-schema-guide', ...d716_testingLlmStructuredOutputJsonSchemaGuide },
+  { slug: 'testing-api-rate-limiting-429-retry-guide', ...d716_testingApiRateLimiting429RetryGuide },
+  { slug: 'deepeval-conversational-multiturn-metrics-guide', ...d716_deepevalConversationalMultiturnMetricsGuide },
+  { slug: 'ci-matrix-strategy-parallel-test-jobs-guide', ...d716_ciMatrixStrategyParallelTestJobsGuide },
+  { slug: 'ci-fail-fast-vs-continue-on-error-jobs', ...d716_ciFailFastVsContinueOnErrorJobs },
+  { slug: 'testing-jwt-token-expiry-validation-guide', ...d716_testingJwtTokenExpiryValidationGuide },
+  { slug: 'testing-database-connection-pool-exhaustion', ...d716_testingDatabaseConnectionPoolExhaustion },
   {
     slug: 'webdriverio-service-testing-advanced-guide',
     ...b100_webdriverioServiceTestingAdvancedGuide,
