@@ -1035,6 +1035,16 @@ import { post as d716_ciFailFastVsContinueOnErrorJobs } from './ci-fail-fast-vs-
 import { post as d716_testingJwtTokenExpiryValidationGuide } from './testing-jwt-token-expiry-validation-guide';
 import { post as d716_testingDatabaseConnectionPoolExhaustion } from './testing-database-connection-pool-exhaustion';
 import { post as pillarJsTesting2026 } from './javascript-testing-frameworks-complete-guide-2026';
+import { post as d718_chaiAssertionsCheatSheetExpectShouldAssert } from './chai-assertions-cheat-sheet-expect-should-assert';
+import { post as d718_mochaHooksBeforeAfterBeforeeachGuide } from './mocha-hooks-before-after-beforeeach-guide';
+import { post as d718_testingAsyncCodeMochaChaiGuide } from './testing-async-code-mocha-chai-guide';
+import { post as d718_chaiAsPromisedTestingPromisesGuide } from './chai-as-promised-testing-promises-guide';
+import { post as d718_mochaTestCoverageC8NycGuide } from './mocha-test-coverage-c8-nyc-guide';
+import { post as d718_playwrightPythonUploadFilesGuide } from './playwright-python-upload-files-guide';
+import { post as d718_playwrightPythonHandleFileDownloads } from './playwright-python-handle-file-downloads';
+import { post as d718_pythonPlaywrightInstallFixBrowserErrors } from './python-playwright-install-fix-browser-errors';
+import { post as d718_vitestViHoistedCompleteGuide } from './vitest-vi-hoisted-complete-guide';
+import { post as d718_vitestMockingViMockViFnViSpyon } from './vitest-mocking-vi-mock-vi-fn-vi-spyon';
 import { post as b100_webdriverioServiceTestingAdvancedGuide } from './webdriverio-service-testing-advanced-guide';
 import { post as b100_webdriverioPageObjectsTypescriptGuide } from './webdriverio-page-objects-typescript-guide';
 import { post as b100_webdriverioParallelCrossBrowserGridGuide } from './webdriverio-parallel-cross-browser-grid-guide';
@@ -2409,6 +2419,16 @@ export const posts: Record<string, BlogPost> = {
   'testing-jwt-token-expiry-validation-guide': d716_testingJwtTokenExpiryValidationGuide,
   'testing-database-connection-pool-exhaustion': d716_testingDatabaseConnectionPoolExhaustion,
   'javascript-testing-frameworks-complete-guide-2026': pillarJsTesting2026,
+  'chai-assertions-cheat-sheet-expect-should-assert': d718_chaiAssertionsCheatSheetExpectShouldAssert,
+  'mocha-hooks-before-after-beforeeach-guide': d718_mochaHooksBeforeAfterBeforeeachGuide,
+  'testing-async-code-mocha-chai-guide': d718_testingAsyncCodeMochaChaiGuide,
+  'chai-as-promised-testing-promises-guide': d718_chaiAsPromisedTestingPromisesGuide,
+  'mocha-test-coverage-c8-nyc-guide': d718_mochaTestCoverageC8NycGuide,
+  'playwright-python-upload-files-guide': d718_playwrightPythonUploadFilesGuide,
+  'playwright-python-handle-file-downloads': d718_playwrightPythonHandleFileDownloads,
+  'python-playwright-install-fix-browser-errors': d718_pythonPlaywrightInstallFixBrowserErrors,
+  'vitest-vi-hoisted-complete-guide': d718_vitestViHoistedCompleteGuide,
+  'vitest-mocking-vi-mock-vi-fn-vi-spyon': d718_vitestMockingViMockViFnViSpyon,
   'webdriverio-service-testing-advanced-guide': b100_webdriverioServiceTestingAdvancedGuide,
   'webdriverio-page-objects-typescript-guide': b100_webdriverioPageObjectsTypescriptGuide,
   'webdriverio-parallel-cross-browser-grid-guide': b100_webdriverioParallelCrossBrowserGridGuide,
@@ -4830,6 +4850,16 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
   { slug: 'testing-jwt-token-expiry-validation-guide', ...d716_testingJwtTokenExpiryValidationGuide },
   { slug: 'testing-database-connection-pool-exhaustion', ...d716_testingDatabaseConnectionPoolExhaustion },
   { slug: 'javascript-testing-frameworks-complete-guide-2026', ...pillarJsTesting2026 },
+  { slug: 'chai-assertions-cheat-sheet-expect-should-assert', ...d718_chaiAssertionsCheatSheetExpectShouldAssert },
+  { slug: 'mocha-hooks-before-after-beforeeach-guide', ...d718_mochaHooksBeforeAfterBeforeeachGuide },
+  { slug: 'testing-async-code-mocha-chai-guide', ...d718_testingAsyncCodeMochaChaiGuide },
+  { slug: 'chai-as-promised-testing-promises-guide', ...d718_chaiAsPromisedTestingPromisesGuide },
+  { slug: 'mocha-test-coverage-c8-nyc-guide', ...d718_mochaTestCoverageC8NycGuide },
+  { slug: 'playwright-python-upload-files-guide', ...d718_playwrightPythonUploadFilesGuide },
+  { slug: 'playwright-python-handle-file-downloads', ...d718_playwrightPythonHandleFileDownloads },
+  { slug: 'python-playwright-install-fix-browser-errors', ...d718_pythonPlaywrightInstallFixBrowserErrors },
+  { slug: 'vitest-vi-hoisted-complete-guide', ...d718_vitestViHoistedCompleteGuide },
+  { slug: 'vitest-mocking-vi-mock-vi-fn-vi-spyon', ...d718_vitestMockingViMockViFnViSpyon },
   {
     slug: 'webdriverio-service-testing-advanced-guide',
     ...b100_webdriverioServiceTestingAdvancedGuide,
