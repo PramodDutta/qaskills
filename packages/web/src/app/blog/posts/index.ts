@@ -1034,6 +1034,7 @@ import { post as d716_ciMatrixStrategyParallelTestJobsGuide } from './ci-matrix-
 import { post as d716_ciFailFastVsContinueOnErrorJobs } from './ci-fail-fast-vs-continue-on-error-jobs';
 import { post as d716_testingJwtTokenExpiryValidationGuide } from './testing-jwt-token-expiry-validation-guide';
 import { post as d716_testingDatabaseConnectionPoolExhaustion } from './testing-database-connection-pool-exhaustion';
+import { post as pillarJsTesting2026 } from './javascript-testing-frameworks-complete-guide-2026';
 import { post as b100_webdriverioServiceTestingAdvancedGuide } from './webdriverio-service-testing-advanced-guide';
 import { post as b100_webdriverioPageObjectsTypescriptGuide } from './webdriverio-page-objects-typescript-guide';
 import { post as b100_webdriverioParallelCrossBrowserGridGuide } from './webdriverio-parallel-cross-browser-grid-guide';
@@ -2407,6 +2408,7 @@ export const posts: Record<string, BlogPost> = {
   'ci-fail-fast-vs-continue-on-error-jobs': d716_ciFailFastVsContinueOnErrorJobs,
   'testing-jwt-token-expiry-validation-guide': d716_testingJwtTokenExpiryValidationGuide,
   'testing-database-connection-pool-exhaustion': d716_testingDatabaseConnectionPoolExhaustion,
+  'javascript-testing-frameworks-complete-guide-2026': pillarJsTesting2026,
   'webdriverio-service-testing-advanced-guide': b100_webdriverioServiceTestingAdvancedGuide,
   'webdriverio-page-objects-typescript-guide': b100_webdriverioPageObjectsTypescriptGuide,
   'webdriverio-parallel-cross-browser-grid-guide': b100_webdriverioParallelCrossBrowserGridGuide,
@@ -4827,6 +4829,7 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
   { slug: 'ci-fail-fast-vs-continue-on-error-jobs', ...d716_ciFailFastVsContinueOnErrorJobs },
   { slug: 'testing-jwt-token-expiry-validation-guide', ...d716_testingJwtTokenExpiryValidationGuide },
   { slug: 'testing-database-connection-pool-exhaustion', ...d716_testingDatabaseConnectionPoolExhaustion },
+  { slug: 'javascript-testing-frameworks-complete-guide-2026', ...pillarJsTesting2026 },
   {
     slug: 'webdriverio-service-testing-advanced-guide',
     ...b100_webdriverioServiceTestingAdvancedGuide,
