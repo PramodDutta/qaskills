@@ -1,7 +1,7 @@
 import type { BlogPost } from './index';
 
 export const post: BlogPost = {
-  title: 'Keep AI Release Guardians Under Human Control',
+  title: 'AI Release Guardian Human Control Guide',
   description:
     'Define AI release guardian human control boundaries for recommendations, waivers, approvals, protected branches, deployment gates, and audit records.',
   date: '2026-07-18',
@@ -31,15 +31,15 @@ export const post: BlogPost = {
     'https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches',
     'https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments',
   ],
-  content: `**AI release guardian human control** means the agent may analyze a diff, run permitted checks, organize evidence, and recommend GO or NO-GO. It may not approve, merge, tag, deploy, accept its own waiver, or weaken policy. A named person remains accountable for interpreting uncertainty and authorizing every irreversible release action.
+  content: `**AI release guardian human control** means an agent may read a diff, run allowed checks, sort proof, and advise GO or NO-GO. It may not approve, merge, tag, deploy, accept its own waiver, or weaken team rules. A named person must judge doubt and approve each release act that cannot be undone.
 
-The [AI Release Guardian skill](/skills/thetestingacademy/ai-release-guardian) states this boundary as its first non-negotiable rule. Use the [release readiness scorecard](/blog/ai-release-readiness-scorecard-2026) for decision inputs, the [risk-based testing strategy](/blog/risk-based-testing-strategy-guide-2026) for proportional analysis, and [QASkills](/skills) for related evidence-producing skills. None of those instructions transfers release authority to an agent.
+The [AI Release Guardian skill](/skills/thetestingacademy/ai-release-guardian) sets this limit as its first firm rule. Use the [release readiness scorecard](/blog/ai-release-readiness-scorecard-2026) for choice inputs, the [risk-based testing strategy](/blog/risk-based-testing-strategy-guide-2026) to match tests with risk, and [QASkills](/skills) for more proof skills. None of those guides gives release rights to an agent.
 
-## Draw the Boundary Around Recommendations
+## What Is a Recommendation-Only Release Gate?
 
-A guardian is an evidence and recommendation system. It maps changed files to user behavior, chooses relevant tests, detects changed-line gaps, evaluates committed gates, and emits a report. Those tasks improve a human decision without becoming the decision itself.
+A guardian is a proof and advice tool. It maps changed files to user behavior, picks useful tests, finds changed-line gaps, checks committed gates, and writes a report. Those tasks help a person make a choice but never become that choice.
 
-The distinction should exist in permissions, interfaces, logs, and language. A button labeled "Apply guardian recommendation" can collapse review into reflex even if a person clicks it. Present evidence first, display unresolved assumptions, and require the authorized release owner to take a separate action.
+This split should exist in access rights, screens, logs, and words. A button named "Apply guardian advice" can turn review into reflex even when a person clicks it. Show proof and open assumptions first, then require a separate act from the allowed release owner.
 
 | Capability | Guardian may perform it? | Human control required |
 | --- | --- | --- |
@@ -48,22 +48,22 @@ The distinction should exist in permissions, interfaces, logs, and language. A b
 | Classify risks and coverage gaps | Yes | Human reviews medium and high surfaces |
 | Recommend GO, GO WITH WAIVERS, or NO-GO | Yes | Recommendation cites every gate |
 | Accept a waiver | No | Named owner records acceptance |
-| Approve or merge a pull request | No | Protected repository workflow decides access |
+| Approve or merge a pull request | No | Branch protection or repository rulesets enforce review and merge permissions |
 | Create a release tag | No | Authorized release process owns tags |
-| Deploy to production | No | Protected deployment job and reviewer own action |
+| Deploy to production | No | Environment protection rules and an authorized reviewer control deployment |
 | Change gate thresholds | Propose only | Policy owner reviews a separate change |
 
-This boundary is stronger than asking the model to behave. The token used by the analysis job should lack write, merge, release, and production deployment permissions. If the tool cannot perform a forbidden action, a prompt failure cannot directly turn into that action.
+This limit is stronger than asking a model to behave. The review job token should lack write, merge, release, and live deploy rights. If the tool cannot take a banned action, a bad prompt cannot turn straight into that action.
 
-**AI release guardian human control** also limits how recommendations are phrased. The report may say every configured gate passed for a named SHA. It should not say a release is guaranteed safe, because tests and analysis cannot prove absence of every defect.
+**AI release guardian human control** also shapes the report wording. It may say each set gate passed for a named SHA. It must not claim the release is safe for sure, since tests and review cannot prove that no bug exists.
 
-The [human release scorecard workflow](/blog/ai-release-readiness-scorecard-2026) remains useful because it makes criteria visible before urgency appears. A recommendation is easier to challenge when each input has an owner, status, and evidence link.
+The [human release scorecard workflow](/blog/ai-release-readiness-scorecard-2026) helps because it shows the rules before urgent work begins. Advice is easier to question when each input has an owner, state, and proof link.
 
-## Separate Evidence Production From Release Authority
+## Why Does CI/CD Separation of Duties Matter?
 
-Separation of duties prevents one compromised or mistaken actor from analyzing, approving, and executing the same release. The guardian should operate as a low-privilege producer. Branch policy, review policy, and deployment protection should be enforced by systems it cannot rewrite during the judged run.
+Separation of duties reduces the risk that one hacked or mistaken actor can review, approve, and run the same release. The guardian should work as a low-rights proof job. Branch rules, review rules, and deploy locks must live in systems it cannot rewrite during the run.
 
-OWASP's [CI/CD Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html) identifies repositories, automation servers, deployment procedures, and pipeline nodes as security-relevant components. Treating the entire path as one trusted agent ignores those distinct attack surfaces. Permission boundaries should follow the actual components.
+OWASP's [CI/CD Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html) treats repos, build servers, deploy steps, and pipeline jobs as parts of security. Trusting one agent across that whole path ignores distinct attack points. Access limits should match the real tools and jobs.
 
 A practical actor model looks like this:
 
@@ -76,15 +76,15 @@ A practical actor model looks like this:
 | Release owner | Complete current report | Release decision | Historical evidence alteration |
 | Deployment job | Approved artifact and environment config | Target environment | Source review outcome |
 
-The guardian may trigger a preapproved test workflow if that is part of its read-and-analyze role. It should not dispatch arbitrary workflows with privileged inputs. Keep workflow selection allowlisted and record every command in the evidence packet.
+The guardian may start a preapproved test run if that fits its read-and-check role. It must not start any workflow with high-risk inputs. Keep an allowlist of workflows and record each command in the proof pack.
 
-GitHub describes [protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) that can require pull request reviews, status checks, conversation resolution, deployments, and restricted pushes. Use those platform rules as enforcement around the report. Do not rely on a comment containing "NO-GO" to block merge.
+GitHub describes [protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) that can require reviews, checks, conversation resolution, successful deployments, and limited pushes. Use those platform rules to enforce the report. Do not rely on a comment that says "NO-GO" to block merge.
 
-For **AI release guardian human control**, the key test is simple: if the agent recommends GO incorrectly, can it cause production change without another authorized actor? The correct answer should be no at every repository and deployment boundary.
+For **AI release guardian human control**, ask one key question: can a false GO change the live system without another allowed person? The answer should be no at each repo and deploy boundary.
 
-## Encode the Boundary in Gate Configuration
+## How Does Gate Policy Preserve Human Release Approval?
 
-The repository skill reads team policy from \`release-gates.yaml\`. That file describes evidence requirements, not permissions for the guardian to perform release actions. Keep policy committed, reviewed, and protected from changes made within the same untrusted decision path.
+The repo skill reads team rules from \`release-gates.yaml\`. That file lists proof needs, not rights for the guardian to take release steps. Keep it committed, reviewed, and safe from edits made inside the same untrusted review path.
 
 
 \`\`\`yaml
@@ -107,23 +107,23 @@ gates:
     max_diff_lines: 2000
 \`\`\`
 
-The \`risk_map_reviewed\` field is deliberately human-facing. A named reviewer must read the affected behaviors and blast radius rather than trusting that the agent generated a table. Record that acknowledgment in the pull request or another access-controlled decision system.
+The \`risk_map_reviewed\` field is for a person on purpose. A named reviewer must read the changed behavior and blast radius instead of trusting a table from the agent. Store that sign-off in the pull request or another system with access checks.
 
-Gate changes need their own review. If a pull request both introduces a migration and changes \`migration_rollback_documented\` to false, evaluate the release under the previously approved policy until the policy change is independently accepted. Otherwise, code can lower the bar it is measured against.
+Gate changes need their own review. If one pull request adds a migration and sets \`migration_rollback_documented\` to false, use the last approved rule until a person accepts the new one on its own. If not, code can lower the bar used to grade itself.
 
-An agent can propose a policy patch with rationale. It should mark that proposal outside the current verdict and avoid rerunning itself under the unapproved rule. This avoids grading its own work against criteria it just relaxed.
+An agent can draft a rule change with reasons. It should keep that draft outside the current verdict and not rerun under an unapproved rule. This stops it from grading its own work with a bar it just lowered.
 
-The sibling [maximum diff size guide](/blog/max-diff-lines-release-analysis-gate) shows this principle for \`max_diff_lines\`. The guardian measures and stops; a policy owner decides whether to split, preserve NO-GO, or accept a named exception.
+The [maximum diff size guide](/blog/max-diff-lines-release-analysis-gate) shows this rule for \`max_diff_lines\`. The guardian counts and stops. A rule owner then chooses a split, keeps NO-GO, or accepts a named exception.
 
-Use repository ownership for sensitive files such as workflow definitions, release gates, deployment configuration, and ownership rules. Ownership does not replace technical permissions, but it gives the review system an explicit human route when those controls change.
+Use repo owners for key files such as workflows, release gates, deploy config, and owner rules. Code ownership does not replace tool rights. It does give the review system a clear human path when those controls change.
 
-## Keep GO, Waiver, and NO-GO Semantics Precise
+## How Should GO, Waiver, and NO-GO Advice Work?
 
-The skill defines three recommendation states. GO means every configured gate passed with cited evidence. GO WITH WAIVERS means only waiverable items remain and each has a named owner who accepted it. NO-GO means a blocker, missing evidence, or required suite failure remains.
+The skill defines three advice states. GO means each set gate passed with cited proof. GO WITH WAIVERS means only items that may be waived remain, and a named owner accepted each one. NO-GO means a blocker, missing proof, or failed required suite remains.
 
-These are report semantics, not executable permissions. A GO does not merge code. A NO-GO does not prevent an authorized human from making an emergency decision outside the guardian, though repository policy may require a separate override record.
+These are report terms, not tool rights. A GO does not merge code. A NO-GO does not stop an allowed person from making an emergency choice outside the guardian, though repo rules may require a separate override record.
 
-The aggregator should derive the recommendation from structured gate results and accepted waivers. This example rejects self-accepted or anonymous waivers before computing a positive recommendation.
+The final gate should derive its advice from named gate rows and accepted waivers. This sample rejects nameless or unaccepted waivers; real code must separately verify that the accepting actor is authorized and is not the guardian.
 
 
 \`\`\`ts
@@ -145,15 +145,15 @@ export function recommendVerdict(gates: GateResult[], waivers: Waiver[]) {
 }
 \`\`\`
 
-A real implementation should distinguish blocker failures from waiverable findings using the committed schema. It should also verify that evidence belongs to the current head and that waiver acceptance came from an authorized identity. The function illustrates derivation, not an authorization system.
+Real code should tell blocker failures from findings that may be waived by using the committed schema. It should also prove that each result belongs to the current head and an allowed person accepted the waiver. The function shows verdict math, not an access system.
 
-Never let free-text urgency alter this calculation. "Customer waiting" and "release train closing" are context for the human owner, not machine evidence that changes a failed test. The report can display urgency beside the technical state without softening either.
+Never let urgent free text change this math. "Customer waiting" and "release train closing" give context to the owner, not proof that changes a failed test. The report can show urgency beside the gate state without softening either one.
 
-**AI release guardian human control** requires visible disagreement. If a person releases despite NO-GO, preserve both the recommendation and the human decision with rationale. Rewriting the report to GO would destroy the audit value and train teams to distrust future output.
+**AI release guardian human control** requires visible disagreement. If a person ships despite NO-GO, keep both the advice and the human choice with its reasons. Rewriting the report to GO would ruin the audit trail and teach teams not to trust later reports.
 
-## Make Waivers Human, Named, and Expiring
+## How Does Release Waiver Governance Work?
 
-A waiver accepts a known, bounded exception. It is not a synonym for missing information. The skill allows only waiverable gaps, such as a named low-risk uncovered line, to support GO WITH WAIVERS. Missing required suites and blocker-class gaps remain NO-GO.
+A waiver accepts a known and limited exception. It does not mean missing facts. The skill allows only gaps that may be waived, such as one named low-risk uncovered line, to support GO WITH WAIVERS. A missing required suite or blocker gap stays NO-GO.
 
 Use this waiver procedure:
 
@@ -163,9 +163,9 @@ Use this waiver procedure:
 4. Record explicit acceptance, compensating controls, expiration, and follow-up location.
 5. Recompute the recommendation without granting the guardian any execution permission.
 
-An expiring waiver prevents a temporary exception from becoming silent policy. Expiration can be a date, release version, issue completion, or next deployment, depending on team rules. The owner should be a person or accountable role that can evaluate the affected behavior.
+A waiver with an end point stops a short-term exception from becoming a silent rule. It can end on a date, release, issue fix, or next deploy based on team rules. The owner should be a person or named role that can judge the affected behavior.
 
-Do not accept a waiver generated from the same service identity that produced the report. A comment body containing a name is not identity proof. Use the review or change-management system's authenticated actor and preserve a link or record identifier.
+Do not accept a waiver from the same service account that made the report. A name typed in a comment does not prove who acted. Use the signed-in actor from the review or change system, then keep its link or record ID.
 
 | Waiver field | Required value | Reject when |
 | --- | --- | --- |
@@ -176,17 +176,17 @@ Do not accept a waiver generated from the same service identity that produced th
 | Compensating control | Specific check or rollout action | It says only "monitor closely" |
 | Expiration | Concrete condition | No end or review point exists |
 
-The [binding evidence to HEAD guide](/blog/bind-release-evidence-to-head-sha) matters here. A waiver accepted for one commit must not follow the branch after another push. New code requires a fresh report and, when still applicable, fresh acceptance under repository policy.
+The [binding evidence to HEAD guide](/blog/bind-release-evidence-to-head-sha) matters here. A waiver for one commit must not follow a branch after a new push. New code needs a fresh report and, when the issue still applies, new approval under repo rules.
 
-## Protect Merge and Deployment as Separate Decisions
+## How Do Protected Branch Reviews and a Deployment Approval Gate Work?
 
-Code review and production deployment are related but different control points. A reviewer may approve a pull request's design, while a release owner considers rollout timing, operational readiness, and incident load. The guardian supplies evidence to both without owning either action.
+Code review and a live deploy are linked but distinct control points. A reviewer may approve a pull request design, while a release owner checks timing, service health, and current incidents. The guardian gives proof to both but owns neither act.
 
-Protected branches can require current checks and review before merge. Protected environments can hold a deployment job for named reviewers. GitHub's [deployment review documentation](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments) describes approving or rejecting jobs awaiting environment review and can prevent self-approval when configured.
+Protected branches can require current checks and review before merge. Protected GitHub environments can hold a job for required reviewers. GitHub's [deployment review documentation](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments) explains how to approve or reject waiting jobs and how config can block self-approval.
 
-A [GitHub Actions testing pipeline](/blog/cicd-testing-pipeline-github-actions) can connect these jobs while keeping analysis and deployment permissions separate. Job dependencies carry status; repository and environment protections carry authority.
+A [GitHub Actions testing pipeline](/blog/cicd-testing-pipeline-github-actions) can link these jobs while keeping review and deploy rights apart. Job links carry status, while repo and deploy locks hold the right to act.
 
-A workflow may reference a protected environment, but the guardian job should not have authority to bypass its protection. Keep production credentials scoped to the deployment job so analysis and test jobs cannot read them.
+A workflow may name a protected GitHub environment, but the guardian must not bypass its protection rules. Scope live credentials to the deploy job so review and test jobs cannot read them.
 
 
 \`\`\`yaml
@@ -212,61 +212,61 @@ jobs:
       - run: ./scripts/deploy-approved-artifact.sh
 \`\`\`
 
-This structure is only safe when the \`production\` environment has the intended protection rules and the deploy script consumes a verified approved artifact. Job dependency alone is not human approval. Configure environment reviewers in repository settings and test the waiting state.
+This shape is safe only when the \`production\` environment has the right protection rules and the deploy script uses an approved, checked file. A job link alone is not human approval. Set required reviewers in repository settings and test that the job waits.
 
-Also separate artifact identity from source identity. A human should approve the exact built digest that passed required checks, not a mutable tag such as \`latest\`. The guardian can report SHA and digest relationships but cannot authorize promotion.
+Keep the built file ID apart from the source SHA as well. A person should approve the exact digest that passed the checks, not a moving tag such as \`latest\`. The guardian can show the SHA-to-digest link but cannot approve its promotion.
 
-## Preserve Evidence When Humans Override Advice
+## How Do You Keep an AI Release Audit Trail?
 
-Human authority is meaningful only when decisions remain inspectable. Store the guardian report, gate artifacts, judged SHA, policy revision, waivers, reviewer identities, final decision, and deployed artifact digest. Retention and access controls should follow organizational requirements.
+Human control works only when choices can be reviewed later. Store the guardian report, gate files, judged SHA, rule commit, waivers, reviewer IDs, final choice, and deployed file digest. Keep and guard those records as team needs require.
 
-An override record should not frame the guardian as wrong merely because a release proceeded. It should state which recommendation was overridden, why, by whom, with what compensating controls, and what follow-up is required. Later review can compare the predicted risk with observed outcomes.
+An override record should not call the guardian wrong just because a release went ahead. It should name the advice, reason, actor, backup checks, and needed follow-up. A later review can compare the stated risk with what happened.
 
-Missing evidence must remain visible. The skill explicitly treats unknown coverage and tests that did not run as NO-GO. A human may accept operational risk, but the record should never transform "not measured" into "passed."
+Missing proof must stay in view. The skill treats unknown coverage and tests that did not run as NO-GO. A person may accept that risk, but the record must never change "not measured" into "passed."
 
-Use audit records to improve gates rather than punish decision-makers. If repeated overrides concern a harmless generated file, improve classification. If urgent releases regularly bypass a slow suite, invest in test design or an explicitly scoped emergency policy instead of teaching the guardian to ignore failures.
+Use audit records to improve gates, not punish people. If many overrides concern one safe built file, improve its path rule. If urgent releases often skip a slow suite, fix the tests or write a narrow emergency rule instead of teaching the guardian to ignore failure.
 
-The [schema authority guide](/blog/schema-authority-ddl-orm-openapi-types-test-data) and [constraint mapping guide](/blog/constraint-field-map-before-test-data-generation) apply the same accountability pattern to test data. An agent can surface conflicts and generate cases, while schema owners decide which declaration should change.
+The [schema authority guide](/blog/schema-authority-ddl-orm-openapi-types-test-data) and [constraint mapping guide](/blog/constraint-field-map-before-test-data-generation) use the same owner rule for test data. An agent can show clashes and build cases, while schema owners choose which rule should change.
 
-The broad [test data management guide](/blog/test-data-management-strategies) is also relevant when release evidence depends on fixtures. A green suite tied to uncontrolled or production-derived data can mislead reviewers even when its commit identity is correct.
+The [test data management guide](/blog/test-data-management-strategies) also helps when release proof depends on fixtures. A green suite tied to loose or copied live data can mislead reviewers even when its commit SHA is right.
 
-## Threat-Model the Guardian as a Pipeline Component
+## How Should You Threat-Model the Guardian?
 
-An **AI release guardian human control** design must assume that inputs can be incomplete, misleading, or hostile. Pull request text, filenames, test output, logs, and generated reports can all contain instructions or data that should never become authority. Treat them as evidence inputs, not commands that can redefine policy.
+An **AI release guardian human control** design must assume that inputs can be incomplete, false, or hostile. Pull request text, file names, test output, logs, and built reports can all hold text that must never grant rights. Treat them as proof inputs, not commands that can rewrite team rules.
 
-The guardian should read gate configuration from a protected, reviewed location. A pull request may propose a new configuration, but the current report should identify which approved revision governed the decision. Otherwise, changed application code can lower its own thresholds or remove required suites.
+The guardian should read gate config from a protected, reviewed place. A pull request may propose new config, but the current report must name the approved commit that set its rules. If not, changed app code can lower its own limits or remove required suites.
 
-Tool output needs schema validation and size limits. A malformed coverage file should create missing evidence, not prompt the model to estimate coverage from nearby logs. A test report naming an unknown suite should remain additional evidence and must not satisfy a required suite with a similar name.
+Tool output needs shape checks and size limits. A bad coverage file should create missing proof, not make the model guess from nearby logs. A report with an unknown suite can add context, but it must not satisfy a required suite with a close name.
 
 | Threat or failure | Potential consequence | Enforced response |
 | --- | --- | --- |
 | Prompt-like text in a changed file | Agent follows repository content as instruction | Keep system policy and tool allowlist authoritative |
 | Forged green report in source tree | Stale or fabricated evidence satisfies gate | Accept only current workflow producers with identity checks |
 | Pull request changes gate config | Release grades itself against weaker policy | Use previously approved policy until separate acceptance |
-| Oversized logs or artifacts | Important evidence truncated or ignored | Apply documented limits and fail missing fields closed |
+| Oversized logs or artifacts | Important evidence truncated or ignored | Apply documented limits and fail closed when required fields are missing |
 | Test command writes repository state | Analysis changes its judged input | Run on clean checkout and verify HEAD and worktree afterward |
 | Guardian token has write access | Recommendation becomes direct action | Remove write, approval, release, and deployment permissions |
 
-Commands also need boundaries. The skill lists known commands for Git diff, Jest, Playwright, and pytest, but repository policy decides which are allowed. Do not let untrusted pull request prose construct shell fragments, environment names, or deployment targets.
+Commands also need limits. The skill lists known Git diff, Jest, Playwright, and pytest commands, but repo rules decide which may run. Never let pull request text build shell parts, target names, or deploy targets.
 
-Run analysis in a disposable workspace whenever possible. Verify the worktree remains clean after tools finish, except for declared evidence directories outside tracked source. If a formatter or test modifies source, report the mutation and rerun only after a human decides how to handle it.
+Run the review in a throwaway worktree when possible. Check that tracked source stays clean after tools finish, aside from declared proof paths outside source. If a formatter or test edits code, report that change and wait for a person before rerunning.
 
-OWASP's CI/CD guidance treats automation systems and build nodes as attack surfaces. Apply least privilege to network access, secrets, caches, and artifact stores, not just repository permissions. A read-only Git token does not protect a production credential accidentally exposed to the same job.
+OWASP's CI/CD guide treats build tools and runner nodes as attack points. Apply least privilege to the network, secrets, caches, and file stores, not only Git rights. A read-only Git token does not protect a live secret that the same job can read.
 
-The **AI release guardian human control** boundary should survive model failure. If the model emits invalid JSON, contradicts gate rows, misses a file, or times out, deterministic aggregation returns NO-GO. A fallback should never reinterpret parser failure as a neutral pass.
+The **AI release guardian human control** limit should survive model failure. If the model writes bad JSON, conflicts with gate rows, misses a file, or times out, fixed gate code returns NO-GO. A fallback must never turn a parse failure into a pass.
 
-Test the threat model with fixtures containing misleading filenames, fake report text, command-like comments, mismatched SHAs, duplicate producers, and changed policy files. The expected results should be deterministic before an agent summarizes them. This keeps critical enforcement in code and permissions rather than persuasive language.
+Test this threat model with false file names, fake report text, command-like comments, wrong SHAs, duplicate jobs, and changed rule files. Fix the expected result before an agent sums it up. This keeps key controls in code and access rights instead of persuasive text.
 
-## Maintain a Manual Fallback Without Silent Bypass
+## How Do You Keep a Manual Fallback Honest?
 
-Automation can be unavailable during a release, but human control does not mean an undocumented bypass. Define a manual evidence procedure that preserves the same gate names, commit identity, owners, and final decision record. The process may be slower, yet it should answer the same questions.
+Tools can go down during a release, but human control does not allow a hidden bypass. Write a manual proof plan that keeps the same gate names, commit SHA, owners, and final choice record. It may take more time, yet it must answer the same questions.
 
-A manual fallback begins with a clean checkout of the exact judged SHA. Reviewers run or locate every required suite, store run identifiers and outputs, inspect changed-line coverage, review the risk map, and evaluate migration and static gates. Missing access or unavailable tools remain missing evidence.
+A manual fallback starts with a clean checkout of the exact judged SHA. Reviewers run each required suite, store run IDs and files, check changed-line coverage, read the risk map, and check migration and lint gates. Missing access or a down tool remains missing proof.
 
 Use this fallback sequence:
 
 1. Declare the guardian outage and freeze the judged head for the review window.
-2. Assign an evidence coordinator who cannot approve their own waiver automatically.
+2. Assign an evidence coordinator who is not authorized to approve their own waivers.
 3. Reproduce each configured gate with commands and artifacts named in repository policy.
 4. Record blockers, waiverable findings, owners, and explicit acceptance in one packet.
 5. Let the authorized release owner decide without rewriting failed technical results.
@@ -280,54 +280,54 @@ Use this fallback sequence:
 | Artifact service unavailable | Access-controlled local evidence with digests | Provenance from filenames alone |
 | Model analysis unavailable | Human file classification and risk mapping | Low risk from small line count alone |
 
-Emergency policy should identify who can invoke this path and when it expires. It should also state which controls can never be waived, such as inability to identify the source revision or absence of required authorization. Broad phrases like "use best judgment" provide no auditable boundary.
+Emergency rules should name who may start this path and when it ends. They should also name controls that no one may waive, such as an unknown source SHA or missing required approval. Broad phrases such as "use best judgment" give no clear audit limit.
 
-Practice the fallback before an incident. A tabletop exercise should reveal missing commands, inaccessible artifacts, unclear ownership, and deployment dependencies. Correct those process defects while normal release pressure is absent.
+Practice the fallback before an incident. A tabletop drill should expose missing commands, blocked files, unclear owners, and deploy needs. Fix those process gaps while normal release pressure is low.
 
-An **AI release guardian human control** program is stronger when people can operate without blindly trusting the agent. The agent accelerates collection and analysis, while committed policy, deterministic checks, and trained owners preserve the decision when automation fails.
+An **AI release guardian human control** plan is stronger when people can work without blind trust in the agent. The agent speeds up proof collection and review. Committed rules, fixed checks, and trained owners keep the choice sound when tools fail.
 
-When service returns, compare automated and manual classifications. Differences can improve prompts, parsers, or policy, but they do not retroactively change the recorded release decision. Preserve both packets and the reasoning used at the time.
+When the service returns, compare the tool and human risk groups. Differences can improve prompts, parsers, or rules, but they do not rewrite the old release choice. Keep both proof packs and the reasons used at that time.
 
-## Roll Out Human Control as an Enforced Contract
+## How Do You Enforce Human Control in Practice?
 
-Begin by listing every credential and action currently available to the guardian job. Remove repository write, review, release, tag, deployment, and production-secret access. Then place required checks, current review, and protected environment controls outside files the job can modify at runtime.
+Start by listing each secret and action that the guardian job can use. Remove repo write, review, release, tag, deploy, and live-secret access. Then place required checks, current review, and deploy locks outside files the job can edit while it runs.
 
-Test the boundary with denied-action scenarios. Confirm the guardian token cannot merge, create a tag, edit branch protection, approve deployment, access production credentials, or mark its own waiver accepted. A written rule without a failed permission test is incomplete enforcement.
+Test the limit with denied-action cases. Prove the guardian token cannot merge, tag, edit branch locks, approve a deploy, read live secrets, or accept its own waiver. A written rule without a failed access test is not fully enforced.
 
-Review report wording and user interface next. Present recommendation, blockers, missing evidence, and waivers before any release control. Require a separate authenticated human action that names the exact head SHA and artifact digest.
+Review the report words and screen next. Show advice, blockers, missing proof, and waivers before any release control. Require a separate signed-in human act that names the exact head SHA and file digest.
 
-Finally, run incident exercises where the guardian is wrong, unavailable, or compromised. The team should still know how to inspect evidence, preserve NO-GO state, invoke an emergency process, and prevent the analysis identity from reaching production.
+Last, run drills where the guardian is wrong, down, or hacked. The team should still know how to read proof, keep NO-GO, use the emergency plan, and stop the review account from reaching the live system.
 
-Make **AI release guardian human control** concrete by installing the [AI Release Guardian skill](/skills/thetestingacademy/ai-release-guardian), restricting its job to read and evidence permissions, and testing one protected merge plus one protected deployment. Keep the final decision with the named release owner.
+Make **AI release guardian human control** real with the [AI Release Guardian skill](/skills/thetestingacademy/ai-release-guardian). Limit its job to read-only access and evidence-collection permissions, then test one protected merge and one protected deploy. Keep the final choice with the named release owner.
 
 ## Frequently Asked Questions
 
 ### Can the guardian automatically merge after every gate passes?
 
-No. The assigned skill explicitly forbids merging, deploying, tagging, or approving. A GO is a cited recommendation for a named commit. Protected branch rules and an authorized person should control merge, while deployment protection and a release owner should control promotion of the verified artifact.
+No. The skill bans merge, deploy, tag, and approval acts by the guardian. A GO is cited advice for one named commit. Protected branch rules and an allowed person should control merge, while deploy locks and a release owner control the checked file.
 
 ### May the agent create tests that close its own coverage gap?
 
-It may propose a test and write it only when a human approves that code change. The guardian must then rerun against the new head and treat the test like any other reviewed evidence. It cannot use unreviewed code it authored to pass the old report retroactively.
+It may draft a test and add it only after a person approves that code change. The guardian must then run again on the new head and treat the test like other reviewed proof. It cannot use unchecked code it wrote to make the old report pass.
 
 ### Who should accept a release waiver?
 
-A named, authenticated human authorized by team policy and accountable for the affected behavior. The acceptance should identify the exact finding, commit, scope, compensating controls, and expiration. The agent may draft the record, but its service identity must not supply the owner or acceptance action.
+A named, signed-in person allowed by team rules and responsible for the affected behavior. The approval should name the exact finding, commit, scope, backup checks, and end point. The agent may draft the record, but its service account cannot act as owner or approver.
 
 ### Does human control mean every test needs manual approval?
 
-No. Test execution, evidence collection, classification, and report generation can remain automated. Human control applies to policy changes, ambiguous risk judgments, waiver acceptance, review approval, merge, tagging, and deployment. Automation should reduce repetitive work while preserving accountable authority at consequential boundaries.
+No. Test runs, proof collection, risk grouping, and report writing can stay automatic. Human control applies to rule changes, unclear risk calls, waiver approval, code review, merge, tag, and deploy. Tools should cut repeat work while a named person keeps control at high-impact points.
 
 ### What if a human releases despite a NO-GO recommendation?
 
-Preserve the original NO-GO and record the human override separately with identity, rationale, scope, and compensating controls. Do not rewrite failed or missing evidence as passed. The record lets later reviewers understand both technical state and accountable business decision without confusing one for the other.
+Keep the first NO-GO and record the human override on its own with actor, reasons, scope, and backup checks. Do not rewrite failed or missing proof as passed. Later reviewers can then see both the gate state and the human choice without mixing them.
 
 ### Are protected branches enough to enforce the boundary?
 
-They cover important repository actions, but not every deployment, credential, waiver, or external release system. Combine current required checks and reviews with least-privilege workflow tokens, protected environments, immutable artifact identity, and authenticated decision records. Test each boundary instead of assuming one platform setting covers the whole path.
+They cover key repo acts, but not each deploy, secret, waiver, or outside release tool. Combine current checks and reviews with low-rights tokens, deploy locks, fixed file digests, and signed-in choice records. Test each limit instead of assuming one setting guards the whole path.
 
 ### Should the guardian ever receive production credentials?
 
-No routine analysis task requires them. Scope production credentials to the protected deployment job and make that job consume an approved, verified artifact. The guardian can inspect non-secret deployment evidence and recommend readiness without reading credentials or gaining a path to production execution.
+No routine review task needs them. Scope live secrets to the protected deploy job and make that job use an approved, checked file. The guardian can read non-secret deploy proof and advise readiness without seeing secrets or gaining a path to the live system.
 `,
 };

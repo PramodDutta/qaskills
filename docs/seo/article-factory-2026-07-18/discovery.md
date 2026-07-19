@@ -20,7 +20,12 @@ Date: 2026-07-18
 
 ## Inventory result
 
-The executable blog registry contained 1,441 unique entries before this batch. The collision audit evaluated slug, title, declared primary keyword, and search intent. The scratch inventory is stored at `/tmp/qaskills-seo-inventory.json` and is intentionally not committed because it duplicates the runtime registry.
+The executable blog registry contained 1,441 unique entries before this batch. The collision
+audit evaluated slug, title, declared primary keyword, and search intent. After all 25 passed,
+the generator appended them and produced 1,466 unique entries. The final scratch inventory is
+stored at `/tmp/qaskills-seo-inventory.json` and is intentionally not committed because it
+duplicates the runtime registry. Its SHA-256 is
+`8924e92ae97f6bd75d404406de7f7624c1bd7ec6a28f4d8092e3a91c18ef7d4e`.
 
 The final queue is based on these repository sources:
 
@@ -28,6 +33,11 @@ The final queue is based on these repository sources:
 - `seed-skills/ai-release-guardian/references/gate-config-and-report-schema.md`
 - `seed-skills/secure-test-data-engineer/SKILL.md`
 - `seed-skills/secure-test-data-engineer/references/schema-to-data-mapping.md`
+
+The scored candidate record is in `docs/seo/article-factory-2026-07-18/candidates.md`.
+It carries 43 codebase-backed long-tail topics into dedup, exceeding the 38-topic minimum.
+The gate approved 25 and rejected 18. The rejected topics and their colliding canonical pages
+are recorded in `docs/seo/article-factory-2026-07-18/rejected.md`.
 
 ## Registration decision
 

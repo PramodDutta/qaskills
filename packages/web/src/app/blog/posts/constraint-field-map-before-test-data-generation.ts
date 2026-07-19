@@ -1,7 +1,7 @@
 import type { BlogPost } from './index';
 
 export const post: BlogPost = {
-  title: 'Map Constraints Before Generating Test Data',
+  title: 'Test Data Constraint Field Map Guide',
   description:
     'Build a test data constraint field map from DDL, OpenAPI, ORM, and TypeScript declarations before generating deterministic boundaries and negative cases.',
   date: '2026-07-18',
@@ -31,15 +31,15 @@ export const post: BlogPost = {
     'https://spec.openapis.org/oas/v3.1.0',
     'https://www.typescriptlang.org/docs/handbook/typescript-from-scratch',
   ],
-  content: `A **test data constraint field map** is a reviewed table that connects each entity field to its type, nullability, bounds, enum, format, uniqueness, default, relation, and cleanup needs. Build it before writing factories. The map turns schema declarations into deterministic valid defaults, exact boundary values, negative cases, and relational setup without guessing.
+  content: `A **test data constraint field map** is a reviewed table that links each field to its type, null rule, bounds, enum, format, unique rule, default, row link, and cleanup needs. Build it before you write builders. The map turns schema rules into fixed valid defaults, exact edge values, bad cases, and linked row setup without guesses.
 
-The [Secure Test Data Engineer skill](/skills/thetestingacademy/secure-test-data-engineer) supplies the mapping rules used here. Place them inside a [test data management strategy](/blog/test-data-management-strategies), use the [synthetic data generation guide](/blog/synthetic-test-data-generation-guide) for factory patterns, and browse [QASkills](/skills) when database, API, or cleanup work needs a focused skill.
+The [Secure Test Data Engineer skill](/skills/thetestingacademy/secure-test-data-engineer) supplies the map rules used here. Place them in a [test data management strategy](/blog/test-data-management-strategies), use the [synthetic data generation guide](/blog/synthetic-test-data-generation-guide) for builder patterns, and browse [QASkills](/skills) when DB, API, or cleanup work needs a focused skill.
 
-## Make the Field Map the Generation Contract
+## Why Does Schema-Driven Test Data Need a Field Map?
 
-A factory should not begin with plausible names and random numbers. It should begin with declared constraints and an explicit authority decision. The map becomes the compact contract shared by schema owners, test authors, generators, reviewers, and cleanup code.
+A builder should not start with nice names and random numbers. It should start with declared constraints and a clear source choice. The map becomes a short contract shared by schema owners, test authors, builder code, reviewers, and cleanup code.
 
-One row per field is usually sufficient. Compound constraints, partial indexes, and cross-field checks need linked rows or entity-level entries. The goal is not to reproduce every schema file; it is to preserve every rule that changes generated data or expected rejection.
+One row per field is often enough. Compound constraints, partial indexes, and cross-field checks need linked rows or table-level entries. The goal is not to copy each schema file, but to keep each rule that changes built data or the expected failure.
 
 | Map column | Question it answers | Generation effect |
 | --- | --- | --- |
@@ -49,18 +49,18 @@ One row per field is usually sufficient. Compound constraints, partial indexes, 
 | Enum or pattern | Which members or text shapes are accepted? | Generate each member and near-miss values |
 | Unique rule | What collision scope is forbidden? | Add worker-sequence defaults and duplicate cases |
 | Relation | Which parent or delete action applies? | Insert top-down and test cascade or restriction |
-| Default or generated value | Who supplies the field? | Omit on insert and assert produced value |
+| Default or generated value | Who supplies the field? | Omit the value at the owning boundary and assert that the database, application, or factory produces it |
 | Provenance | Which declaration supplied the rule? | Recheck when schema revision changes |
 
-The **test data constraint field map** also prevents silent schema drift. If a migration narrows a column but the map still records the old length, its provenance check should fail before generation. That failure is clearer than dozens of factories suddenly receiving database errors.
+The **test data constraint field map** also catches silent schema drift. If a migration narrows a column but the map keeps the old length, its source check should fail before builders run. That one failure is clearer than many builders suddenly getting DB errors.
 
-Keep valid defaults intentionally ordinary. Boundary and negative behavior belongs in named variants, not in random output that occasionally reaches an edge. Tests should reveal why a value exists by reading the case name or override.
+Keep valid defaults plain on purpose. Boundary and invalid values belong in named cases, not random output that may hit an edge by chance. A test name or override should tell the reader why each value exists.
 
-The map is evidence, not a substitute for the original schema. Every row should point to a migration, model field, OpenAPI component and operation, runtime validator, or type declaration. Reviewers can then trace a generated case back to an enforceable rule.
+The map is evidence, not a replacement for the authoritative schema declarations. Each row should point to a migration, model field, OpenAPI part and path, run-time checker, or type rule. Reviewers can then trace a built case back to a rule that acts on the value.
 
-## Collect Every Applicable Schema Source
+## Which Sources Support Database Constraint Mapping?
 
-Start with repository inventory before opening a factory file. Search migrations and DDL, ORM schemas, OpenAPI or JSON Schema documents, runtime validators, TypeScript or Pydantic models, and existing database setup. Locate generated artifacts and their upstream inputs.
+Start with a repository search before you open a builder file. Find migrations and DDL, ORM schemas, OpenAPI or JSON Schema documents, run-time validators, TypeScript or Pydantic models, and the current database setup. Find generated files and the source inputs that produced them.
 
 Use this ordered procedure:
 
@@ -71,32 +71,34 @@ Use this ordered procedure:
 5. Read language types for builder ergonomics and intent, then record every cross-layer conflict.
 6. Publish the first field map for schema-owner review before generating any dataset.
 
-The assigned reference prioritizes SQL DDL or migrations, then ORM, API schema at the request boundary, and language types. The companion [schema authority guide](/blog/schema-authority-ddl-orm-openapi-types-test-data) explains how to apply that order when declarations disagree.
+Authority depends on the operation: use DDL for stored-state constraints, API schemas and runtime validators at request boundaries, ORM rules on persistence paths, and language types for compile-time intent. The [schema authority guide](/blog/schema-authority-ddl-orm-openapi-types-test-data) shows how to record conflicts without hiding either contract.
 
-PostgreSQL's [constraint reference](https://www.postgresql.org/docs/current/ddl-constraints.html) covers check, not-null, unique, primary-key, foreign-key, and exclusion constraints. These declarations can contain behavior absent from an ORM snapshot, including delete actions and compound uniqueness.
+PostgreSQL's [constraint reference](https://www.postgresql.org/docs/current/ddl-constraints.html) covers check, not-null, unique, primary-key, foreign-key, and exclusion rules. DDL can hold behavior missing from an ORM view, such as delete actions and compound unique rules.
 
-The [OpenAPI 3.1 specification](https://spec.openapis.org/oas/v3.1.0) bases Schema Objects on JSON Schema Draft 2020-12 vocabularies. Request schemas can contribute required properties, numeric bounds, lengths, patterns, enums, composition, and formats. Map them to the operation where they apply instead of treating one component as every request shape.
+The [OpenAPI 3.1 specification](https://spec.openapis.org/oas/v3.1.0) bases Schema Objects on JSON Schema Draft 2020-12 terms. Request schemas can add required keys, number bounds, lengths, patterns, enums, composition, and formats. Map each rule to its request path instead of using one part for all request shapes.
 
-TypeScript contributes compile-time structure, but the [official TypeScript introduction](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch) explains that types are erased from emitted JavaScript. A \`string\` type can guide a builder signature, yet the map must find runtime length and format rules elsewhere.
+TypeScript adds build-time shape, but the [official TypeScript introduction](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch) says types are erased from built JavaScript. A \`string\` type can guide a builder signature, yet the map must find run-time length and format rules elsewhere.
 
-## Represent Constraints in a Reviewable Format
+## How Should You Store OpenAPI Schema Test Data Rules?
 
-A Markdown table works for a small entity, while YAML or JSON is easier for generation and validation. Keep one canonical representation rather than editing documentation and machine input independently. Render a table from machine data when reviewers prefer it.
+A Markdown table works for a small record, while YAML or JSON is easier for builders and checks. Keep one main form instead of editing docs and tool input on their own. Render a table from tool data when reviewers prefer that view.
 
-This TypeScript shape preserves field-level provenance and separates valid defaults from generated boundary cases:
+This TypeScript shape records constraints and sources from which builders derive valid defaults and boundary cases. The types also make missing facts clear during review:
 
 
 \`\`\`ts
 type ConstraintSource = {
-  layer: 'ddl' | 'orm' | 'openapi' | 'typescript';
+  layer: 'ddl' | 'orm' | 'openapi' | 'runtime' | 'typescript';
   location: string;
 };
 
 type FieldConstraint = {
   field: string;
   valueType: 'string' | 'integer' | 'decimal' | 'uuid' | 'date-time';
-  required: boolean;
-  nullable: boolean;
+  operations: Record<
+    string,
+    { required: boolean; nullable: boolean; readOnly?: boolean }
+  >;
   min?: number;
   max?: number;
   minLength?: number;
@@ -105,24 +107,28 @@ type FieldConstraint = {
   pattern?: string;
   format?: string;
   unique?: boolean;
-  references?: { entity: string; field: string; onDelete: 'cascade' | 'restrict' };
+  references?: {
+    entity: string;
+    field: string;
+    onDelete: 'cascade' | 'restrict' | 'no-action' | 'set-null' | 'set-default';
+  };
   defaultProvider?: 'database' | 'application' | 'factory';
   sources: ConstraintSource[];
   conflicts: string[];
 };
 \`\`\`
 
-Do not force every database feature into optional scalar fields. Composite keys, partial indexes, cross-field checks, discriminated unions, and triggers belong in entity-level constraints. Link them to involved fields so generation can coordinate cases.
+Do not force each DB feature into an optional field value. Composite keys, partial indexes, cross-field checks, tagged unions, and triggers belong in table-level rules. Link them to the fields they use so builders can coordinate each case.
 
-Represent unknown values explicitly. For example, \`unique: undefined\` means uniqueness has not been established, while \`unique: false\` means reviewed declarations allow duplicates. The generator should stop or ask when an unknown changes correctness.
+Show unknown values in a clear way. For example, \`unique: undefined\` means no one has proved the unique rule. \`unique: false\` means no single-field unique rule was found for that scope; table-level constraints may still limit duplicates. The builder should stop or ask when an unknown fact can change correctness.
 
-Include operation scope. A field can be required in a create request, optional in a patch, not writable in either, and always present in a response. One global \`required\` flag would collapse those distinct contracts.
+Include request scope. A field can be required on create, optional on patch, read-only in both, and always present in a response. One global \`required\` flag would merge those distinct contracts and create false cases.
 
-Store schema revision or source digest with the map. When migrations, OpenAPI, or model files change, a pre-generation check can identify which rows need review. Do not silently update provenance while leaving derived cases unchanged.
+Store the schema commit or source digest with the map. When migrations, OpenAPI, or model files change, a pre-build check can find rows that need review. Do not update source links in silence while leaving old derived cases unchanged.
 
-## Map Each Schema Construct Mechanically
+## How Does Boundary Value Generation Map Each Rule?
 
-Mechanical mapping reduces brainstorming bias. Every constraint yields a predictable valid default, boundary set, negative set, and sometimes a relational scenario. The assigned reference provides mappings for OpenAPI, SQL DDL, and language constructs.
+Rule-based mapping cuts guesswork. Each constraint yields a known valid default, edge set, bad set, and sometimes a linked-row case. The source guide gives mappings for OpenAPI, SQL DDL, and code types.
 
 | Schema construct | Valid default | Boundary cases | Negative or behavior cases |
 | --- | --- | --- | --- |
@@ -136,19 +142,19 @@ Mechanical mapping reduces brainstorming bias. Every constraint yields a predict
 | Database default | Omit field | Explicit legal override when allowed | Assert database fills omitted field |
 | Decimal precision and scale | Fixed exact decimal | Maximum precision and scale edge | Extra scale, overflow, disallowed negative |
 
-Do not copy example values from documentation into every test. Examples illustrate shape but may not cover boundaries, uniqueness, or reserved synthetic namespaces. Derive each case from constraint values stored in the map.
+Do not copy sample values from docs into each test. Samples show shape but may miss edges, unique rules, or reserved test names. Derive each case from the constraint values stored in the map.
 
-Patterns need a matching minimal value and a near miss differing by one meaningful character. Avoid building a generic regex-to-string system unless the repository needs one; reviewed field-specific constructors are often easier to explain. Record any unsupported pattern and stop instead of returning arbitrary text.
+Patterns need one short match and one near miss that changes a useful character. Avoid a broad regex-to-text tool unless the repo needs one, since reviewed field builders are easier to explain. Record any pattern you cannot support and stop instead of returning random text.
 
-Composition needs intent-named variants. For \`oneOf\` or a discriminator, create one valid builder per branch, then mixed-branch and unknown-discriminator negatives where the contract defines rejection. Do not merge all optional properties into one object that accidentally satisfies several branches.
+Composition needs cases named by intent. For \`oneOf\` or a tag field, make one valid builder for each branch. Then add mixed-branch and unknown-tag bad cases where the contract defines rejection, rather than one object that may match several branches.
 
-A **test data constraint field map** should identify expected rejection at the correct boundary. A DDL-only uniqueness failure may surface through an API error adapter, while an OpenAPI type mismatch may never reach SQL. Tests should assert both the external result and absence of partial writes.
+A **test data constraint field map** should name the expected failure at the right edge. A DDL-only unique clash may surface through an API error mapper, while an OpenAPI type error may never reach SQL. Tests should assert both the public result and that no partial write remains.
 
-## Derive Valid Defaults and Intentional Overrides
+## How Do Deterministic Test Factories Use Safe Defaults?
 
-Valid defaults should satisfy every applicable authority for the operation. They should also remain deterministic across runs, workers, time zones, and machines. Seeded generators can provide names or text, but identity and clock behavior need explicit control.
+Valid defaults should meet each active rule for the path. They should also stay fixed across runs, workers, time zones, and machines. Seeded tools can supply names or text, but IDs and clocks need clear control.
 
-The builder below consumes reviewed facts rather than discovering constraints during execution. It uses a fixed timestamp, reserved email domain, worker identifier, and sequence for deterministic uniqueness.
+The builder below hardcodes defaults selected from reviewed facts instead of discovering constraints at runtime. It uses a fixed time, reserved email domain, worker ID, and sequence for repeatable unique values.
 
 
 \`\`\`ts
@@ -176,23 +182,23 @@ export function buildAccount(
 }
 \`\`\`
 
-The map must justify each field. It records email format, maximum length, and uniqueness; display-name bounds; role enum members; and timestamp ownership. If the database should supply \`created_at\`, a direct-insert builder should omit it rather than copying the API factory blindly.
+The map must justify each field. It records email format, max length, and unique scope, plus display-name bounds, role values, and clock owner. If the DB should supply \`created_at\`, a direct-insert builder should omit it instead of copying the API builder.
 
-Overrides express test intent. \`buildAccount({ role: 'admin' })\` is clearer than a random role that sometimes exercises privileged behavior. Keep defaults valid and boring so each test controls the behavior it owns.
+Overrides show test intent. \`buildAccount({ role: 'admin' })\` is clearer than a random role that may test admin behavior by chance. Keep defaults valid and plain so each test controls the behavior it owns.
 
-Reset or namespace sequences according to suite isolation. Reproducibility does not mean every worker inserts the same unique value. The worker identifier and deterministic sequence produce repeatable values without collisions under the declared execution model.
+Reset or prefix sequences based on suite isolation. Repeatable data does not mean each worker inserts the same unique value. A worker ID and fixed sequence make repeatable values without clashes under the stated run model.
 
-Do not use current wall-clock time for routine defaults. A fixed clock makes month-end, daylight-saving, and expiry behavior explicit. Tests for database \`DEFAULT now()\` should omit the field and assert within a controlled time window rather than pretending a factory timestamp proves the default.
+Do not use the wall clock for normal defaults. A fixed clock makes month-end, daylight-saving, and expiry behavior clear. Tests for DB \`DEFAULT now()\` should omit the field and assert within a set time window instead of claiming a builder time proves the default.
 
-## Generate Boundaries, Negatives, and Rejection Oracles
+## How Should Negative Test Data Cases Define Failure?
 
-Every generated invalid value needs an oracle. "Request did not succeed" is too weak because a server error, timeout, or unrelated authorization failure could satisfy it. Record expected status or exception shape, constraint identity when exposed appropriately, and no-partial-write assertion.
+Each built bad value needs an oracle. "Request did not succeed" is too weak because a server error, timeout, or unrelated auth failure could make it true. Record the expected status or error shape, safe constraint name when exposed, and a no-partial-write check.
 
-For a length maximum N, generate N-1, N, and N+1 characters alongside empty and single-character values when minimum behavior matters. For an integer minimum zero, use -1, 0, 1, a fractional input, and relevant maximum. The exact set should come from the map, not a generic list pasted into every field.
+For a max length N, build N-1, N, and N+1 characters, plus empty and one-character values when a min matters. For an integer min of zero, use -1, 0, 1, a fraction, and the set max. The exact set should come from the map, not one list pasted into each field.
 
-Nullability needs three distinct JavaScript or JSON cases: absent key, explicit null, and undefined before serialization. Undefined often disappears from JSON objects, so inspect the serialized payload when that distinction matters. Direct SQL parameters have different behavior and need their own case.
+Null rules need three distinct JavaScript or JSON cases: missing key, explicit null, and undefined before JSON is serialized. Undefined often vanishes from JSON objects, so inspect the sent body when that difference matters. Direct SQL values behave differently and need their own case.
 
-For enum fields, test every member as a valid branch. Add a casing variation and a non-member as negatives when the contract is case-sensitive. Do not invent a fallback enum member unless the schema defines one.
+For enum fields, test each member as a valid branch. Add a case-variant value and a non-member as bad values when the contract cares about case. Do not invent a fallback enum value unless the schema defines one.
 
 Use a structured case generator:
 
@@ -207,27 +213,35 @@ type GeneratedCase = {
 
 export function maxLengthCases(field: string, maximum: number): GeneratedCase[] {
   const text = (length: number) => 'x'.repeat(Math.max(0, length));
-  return [
-    { name: field + '-below-max', value: text(maximum - 1), expected: 'accept', source: 'maxLength' },
+  const cases: GeneratedCase[] = [
     { name: field + '-at-max', value: text(maximum), expected: 'accept', source: 'maxLength' },
     { name: field + '-above-max', value: text(maximum + 1), expected: 'reject', source: 'maxLength' },
   ];
+  if (maximum > 0) {
+    cases.unshift({
+      name: field + '-below-max',
+      value: text(maximum - 1),
+      expected: 'accept',
+      source: 'maxLength',
+    });
+  }
+  return cases;
 }
 \`\`\`
 
-This function does not decide whether empty text is valid because \`maxLength\` alone provides no minimum. Another map entry must add that case. Keeping derivation narrow prevents a helper from claiming constraints that do not exist.
+This function does not decide whether empty text is valid because \`maxLength\` gives no min. Another map row must add that case. Keeping each rule narrow stops a helper from claiming constraints that do not exist.
 
-The [OpenAPI test generation guide](/blog/openapi-spec-to-test-suite-generation) can execute API variants, while the [database automation guide](/blog/database-testing-automation-guide) covers direct persistence assertions. The field map connects their values and preserves boundary-specific oracles.
+The [OpenAPI test generation guide](/blog/openapi-spec-to-test-suite-generation) can run API cases, while the [database automation guide](/blog/database-testing-automation-guide) covers direct DB checks. The field map links their values and keeps an oracle for each edge.
 
-## Model Uniqueness, Relations, and Cleanup Together
+## How Does Relational Fixture Generation Handle Cleanup?
 
-Scalar field maps are insufficient for relational data. Unique indexes, foreign keys, delete actions, composite keys, and run-tag cleanup involve several rows or columns. Add scenario-level constraints that describe creation order and teardown ownership.
+Field rows alone are not enough for linked data. Unique indexes, foreign keys, delete actions, composite keys, and run-tag cleanup use several rows or columns. Add case-level rules that state build order and cleanup ownership.
 
-For a foreign key, generate an existing parent, a missing identifier, a deleted parent where policy allows setup, and an identifier from the wrong entity type. Insert valid scenarios top-down and return created IDs. Never assume sequence numbers or fabricate a parent ID that happens to exist in one environment.
+For a foreign key, build a real parent, a missing ID, a deleted parent when setup rules allow it, and an ID from the wrong table. Insert valid cases from parent to child and return real IDs. Never guess a sequence or make a parent ID that may exist in one test setup.
 
-For \`ON DELETE CASCADE\`, delete the parent and assert children are removed. For \`ON DELETE RESTRICT\`, assert the database rejects deletion while children exist. PostgreSQL's constraint documentation defines foreign keys as referential integrity between related rows; the map should preserve the configured action rather than assuming cleanup behavior.
+For \`ON DELETE CASCADE\`, delete the parent and assert its children are gone. For \`ON DELETE RESTRICT\`, assert the DB blocks deletion while children exist. PostgreSQL defines foreign keys as links between related rows, so the map should keep the configured \`ON DELETE\` action instead of guessing cleanup behavior.
 
-Uniqueness needs at least an in-batch duplicate and a duplicate across requests or transactions. Partial unique indexes also need cases inside and outside the predicate. Composite uniqueness requires varying each column independently to prove which combination collides.
+A unique rule needs at least one duplicate in a batch and one across requests or database transactions. Partial unique indexes also need cases inside and outside their filter. For a compound rule, vary each column on its own to prove which set clashes.
 
 | Relational rule | Setup order | Core assertion | Cleanup concern |
 | --- | --- | --- | --- |
@@ -237,11 +251,11 @@ Uniqueness needs at least an in-batch duplicate and a duplicate across requests 
 | Composite unique | First row, then controlled variants | Only duplicate combination rejected | Delete all rows by run tag |
 | Generated identifier | Insert without ID where supported | Returned ID is present and usable | Track actual ID, never predicted value |
 
-Choose cleanup while designing the dataset. Transaction rollback works only when all operations share the transaction. Shared environments often need a \`test_run_id\` applied at every insert, followed by a residue query that fails when owned rows remain.
+Choose cleanup while you design the data. A transactional rollback can clean up only writes made in the same transaction. Shared test setups often need a \`test_run_id\` on each insert, then a residue query that fails when owned rows remain.
 
-Never delete by broad pattern or shared label. Return identifiers and run tags from scenario builders, then remove only owned rows in dependency order. Cleanup success is part of the test oracle, not best-effort housekeeping.
+Never delete by a broad pattern or shared label. Return IDs and run tags from case builders, then remove only owned rows in link order. Cleanup success is part of the test oracle, not best-effort housekeeping.
 
-## Validate the Map Before Generating Cases
+## How Do You Check the Map Before Building Cases?
 
 A **test data constraint field map** can contain mistakes, so validate its structure and internal consistency before using it. Machine checks should reject impossible combinations, missing provenance, unknown authority for required decisions, and operation scopes that reference no reviewed schema.
 
@@ -266,7 +280,7 @@ Test the validator with fixtures for contradictory bounds, missing source locati
 
 Store validator version and map digest with generated output. When a case fails, reviewers can reconstruct not only its seed but also the exact rules and validation logic that produced it.
 
-## Turn Map Rows Into a Coverage Matrix
+## How Do Map Rows Become a Coverage Matrix?
 
 The **test data constraint field map** becomes useful when every rule links to at least one valid or rejecting case. Build a coverage matrix from map rows, generated case names, execution boundary, and result. Missing coverage then appears as an explicit cell rather than an intuition.
 
@@ -299,13 +313,15 @@ When a case reveals that observed behavior differs from the map, do not update e
 
 Reviewing this matrix closes the loop: declaration produces map row, map row produces case, case produces evidence, and evidence identifies one schema revision. That trace is the practical value of a **test data constraint field map**.
 
-## Keep the Map Safe, Current, and Reviewable
+## How Do You Keep the Map Safe and Current?
 
 The map contains schema shapes, not production records. That is enough to derive constraints, valid examples, and negative cases. Use reserved namespaces such as \`@example.test\` for email and documented test identifiers for external payment systems.
 
 Record seed, schema revision, field-map revision, and generator version with each dataset. A failure report should identify the exact inputs needed to reproduce rows byte-for-byte. Random output without a recorded seed makes diagnosis dependent on luck.
 
 Add a validation job that compares map provenance with changed schema files. If a referenced migration, OpenAPI component, or ORM model changes, require review of affected rows. The job should not regenerate and approve the map invisibly because constraint intent may have changed.
+
+Keep the first check small. Change one field bound, run the map job, and confirm it names the exact row that needs review. Then update that row and its cases in one change so the builder cannot drift from its source.
 
 When a release includes the map and factories, [bind its evidence to the HEAD SHA](/blog/bind-release-evidence-to-head-sha). If synchronized DDL, OpenAPI, ORM, and generated output exceed review capacity, apply the [maximum diff size gate](/blog/max-diff-lines-release-analysis-gate). Keep final policy decisions under the [AI guardian human control boundary](/blog/ai-release-guardian-human-control-boundary).
 

@@ -313,7 +313,10 @@ for (const { slug, post } of articleFactoryBatch20260718Posts) {
     expect(html).toContain(`https://qaskills.sh/blog/${slug}`);
     expect(html).toContain('"@type":"BlogPosting"');
     expect(html).toContain('"@type":"FAQPage"');
+    expect(html).toContain('"@type":"BreadcrumbList"');
     expect(html).toContain('"wordCount":');
+    expect(html).toContain('Pramod Dutta');
+    expect(html.match(/<h1(?:\s|>)/g)).toHaveLength(1);
     expect(html).toContain('Primary sources');
     expect(html).toContain('data-testid="article-sources"');
     expect(html).toMatch(

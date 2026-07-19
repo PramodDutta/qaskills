@@ -1,7 +1,7 @@
 import type { BlogPost } from './index';
 
 export const post: BlogPost = {
-  title: 'Set a Maximum Diff Size for Release Review',
+  title: 'Maximum Diff Size Release Analysis Guide',
   description:
     'Use maximum diff size release analysis gates to stop incomplete reviews, separate generated changes, count source lines, and split risky releases safely.',
   date: '2026-07-18',
@@ -31,17 +31,17 @@ export const post: BlogPost = {
     'https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html',
     'https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks',
   ],
-  content: `A **maximum diff size release analysis** gate stops an automated reviewer when the source change exceeds its declared inspection budget. It does not call a large change defective. It reports that complete risk mapping, test selection, and changed-line coverage analysis cannot be claimed honestly at that size, then recommends splitting or approved manual review.
+  content: `A **maximum diff size release analysis** gate stops automated analysis when a source change exceeds its configured review budget. It does not classify a large change as defective. It says the tool cannot prove complete risk mapping, test selection, or changed-line coverage at that size, then asks for a split or a human review.
 
-The [AI Release Guardian skill](/skills/thetestingacademy/ai-release-guardian) supplies the starting \`max_diff_lines\` field and a recommendation-only boundary. Pair it with the [release readiness scorecard](/blog/ai-release-readiness-scorecard-2026), use the [risk-based testing guide](/blog/risk-based-testing-strategy-guide-2026) for surface classification, and browse [QASkills](/skills) for supporting test-impact and coverage instructions.
+The [AI Release Guardian skill](/skills/thetestingacademy/ai-release-guardian) supplies the initial \`max_diff_lines\` configuration and keeps its result as a recommendation. Pair it with the [release readiness scorecard](/blog/ai-release-readiness-scorecard-2026), use the [risk-based testing guide](/blog/risk-based-testing-strategy-guide-2026) to classify code risk, and browse [QASkills](/skills) for test-impact and coverage guidance.
 
-## Define an Honest Analysis Budget
+## What Is a Release Review Diff Budget?
 
-An analysis budget states how much changed source an automated process can inspect using its promised method. The assigned skill proposes 2,000 source lines as a starter value, not a universal truth. A team should commit its chosen threshold, explain what counts, and change it through normal review.
+A review budget states how much changed source a tool can check with its promised method. The skill uses 2,000 source lines as a starting value, not a rule for all teams. Each team should commit its limit, state what counts, and change that rule through normal review.
 
-The gate protects claim quality. Without it, an agent may summarize the first visible files, overlook a deleted assertion, and still emit a polished GO. Stopping is more accurate than presenting partial inspection as complete release evidence.
+The gate protects claim quality. Without it, an agent may inspect the first files, miss a deleted assertion, and still return a polished GO. A clear stop is more accurate than presenting partial inspection as complete release evidence.
 
-Diff size is not risk by itself. A twelve-line authorization change can be more dangerous than a generated client with several thousand lines. The guardian still classifies money, authentication, data shape, public contracts, business logic, configuration, presentation, tests, and documentation by their actual surfaces.
+Diff size is not risk by itself. A twelve-line auth change can pose more harm than a built client with several thousand lines. The guardian must still rank money, auth, data shape, public contracts, business rules, config, screens, tests, and docs by what changed.
 
 | Decision question | Diff-size gate answers it? | Correct evidence source |
 | --- | --- | --- |
@@ -51,17 +51,17 @@ Diff size is not risk by itself. A twelve-line authorization change can be more 
 | Are generated files harmless? | No | Generator source, regeneration check, and output review |
 | Should a large change be rejected permanently? | No | Split plan or explicit review process |
 
-A useful **maximum diff size release analysis** policy separates capacity from judgment. Crossing the line produces NO-GO because required analysis is missing, not because line count predicts defects. The path back to review is concrete: split the change, narrow the judged unit, or invoke a documented exception owned by a human.
+A useful **maximum diff size release analysis** rule keeps review scope apart from code risk. Crossing the line yields NO-GO because a full review is missing, not because line count predicts bugs. The next step is clear: split the change, narrow the review unit, or use a written exception owned by a person.
 
-The threshold also makes capability testable. Run the guardian against fixtures just below and above the limit, including renames, deleted files, binary changes, and generated outputs. A policy that cannot explain its own count will create disputes at the worst point in a release.
+The limit also makes the gate easy to test. Run it on fixed diffs just below and above the line, with renames, deleted files, binary files, and built output. A rule that cannot explain its count will cause disputes late in a release.
 
-## Count the Diff Reproducibly
+## How Should Git Diff Numstat Count Changes?
 
-Count from immutable base and head commits, never from mutable branch tips at different times. The same endpoints used for risk mapping should drive the budget. Record both full SHAs beside totals so another reviewer can reproduce the calculation.
+Count from fixed base and head commits, never from branch tips read at different times. Use the same endpoints for the risk map and the line budget. Store both full SHAs with the totals so another reviewer can repeat the count.
 
-The official [Git diff documentation](https://git-scm.com/docs/git-diff) explains that \`A...B\` compares B with the merge base of A and B. It also documents \`--numstat\` as a machine-oriented format containing added lines, deleted lines, and path. Choose two-dot or three-dot semantics deliberately and keep that choice consistent with the reviewed pull request.
+The official [Git diff documentation](https://git-scm.com/docs/git-diff) says that \`A...B\` compares B with the merge base of A and B. It defines \`--numstat\` as a tool-friendly list of added lines, deleted lines, and paths. Choose two-dot or three-dot use on purpose, then keep it tied to the pull request under review.
 
-For a normal pull request, the repository skill uses \`origin/main...HEAD\` because it asks what the topic changed since divergence. Release branches or direct commit ranges may need different endpoints. Do not substitute a working-tree diff when the verdict concerns committed code in CI.
+For a normal pull request, the repo skill uses \`origin/main...HEAD\` to show what the branch changed since it split. Release branches or direct commit ranges may need other endpoints. Do not swap in a worktree diff when the CI verdict covers committed code.
 
 Follow this counting procedure:
 
@@ -71,7 +71,7 @@ Follow this counting procedure:
 4. Sum additions and deletions for source paths, while reporting every separate category.
 5. Compare the source total with \`gates.process.max_diff_lines\` and store calculation evidence.
 
-The Node script below uses NUL-separated output and disables rename detection so unusual filenames stay parseable. A rename becomes deletion plus addition for budget purposes, which is conservative and easy to explain.
+The Node script below uses NUL-separated output and turns off rename checks so odd file names stay safe to parse. It counts a rename as deleted plus added lines. That choice is strict, simple, and easy to explain.
 
 
 \`\`\`ts
@@ -93,7 +93,8 @@ let changedLines = 0;
 const binaryPaths: string[] = [];
 
 for (const record of records) {
-  const [added, deleted, path] = record.split('\\t');
+  const [added, deleted, ...pathParts] = record.split('\\t');
+  const path = pathParts.join('\\t');
   if (!path) throw new Error('Unexpected numstat record');
   if (added === '-' || deleted === '-') {
     binaryPaths.push(path);
@@ -105,39 +106,39 @@ for (const record of records) {
 console.log(JSON.stringify({ baseSha, headSha, changedLines, binaryPaths }));
 \`\`\`
 
-This basic script counts every textual path. The next step adds repository-owned classification rules rather than embedding guesses in the command. Keep those rules versioned because changing an exclusion can move the same diff across the limit.
+This basic script counts each text path. The next step adds repo-owned path rules instead of hiding guesses in the command. Keep those rules in source control because one new exclusion can move the same diff across the limit.
 
-Do not use patch byte size as a silent replacement for changed source lines. Binary patches, long generated lines, and formatting can distort bytes differently. If your team chooses another metric, name it precisely and update the configuration field so readers know what was measured.
+Do not use patch byte size as a hidden stand-in for changed source lines. Binary patches, long built lines, and format work can skew bytes in different ways. If your team picks another measure, name it in the config so readers know what was counted.
 
-## Separate Source, Generated, and Vendored Changes
+## When Are Generated File Exclusions Safe?
 
-Generated files, lockfiles, and vendored code can dominate totals without requiring the same line-by-line behavioral reasoning as handwritten source. The assigned skill says to list them separately and explain exclusions. Exclusion from the source budget never means omission from the release report.
+Generated files, lockfiles, and vendored code can dominate the diff without needing the same semantic review as hand-written source. The skill says to list them separately and explain each exclusion. An artifact left out of the source budget must still appear in the release report.
 
-A generated client still carries risk. Review the generator input, generator version, command, and reproducibility check. A lockfile can change resolved packages or integrity metadata. Vendored code may introduce licensing, vulnerability, or build changes even when local engineers did not author each line.
+A built client still brings risk. Review its source input, build tool version, command, and clean rerun check. A lockfile can change packages or hash data. Vendored code may change license, security, or build traits even when local staff did not write each line.
 
 Use repository-specific path rules such as these:
 
 | Category | Example path | Count toward source budget? | Required evidence |
 | --- | --- | --- | --- |
 | Handwritten source | \`src/orders/service.ts\` | Yes | Hunk review, risk map, selected tests |
-| Test code | \`tests/orders/refund.test.ts\` | Yes, unless policy has a separate tested limit | Assertions added, removed, or weakened |
+| Test code | \`tests/orders/refund.test.ts\` | Yes, unless policy has a separate test-code limit | Assertions added, removed, or weakened |
 | Generated output | \`src/api/generated/client.ts\` | Separate | Source schema, generator pin, clean regeneration |
 | Lockfile | \`pnpm-lock.yaml\` | Separate | Manifest delta and dependency review |
 | Vendored code | \`vendor/parser.c\` | Separate | Upstream revision, integrity, applicable scans |
 | Documentation | \`docs/refunds.md\` | Separate | Executable examples and policy effects checked |
 | Binary | \`assets/model.bin\` | Separate | Digest, producer, scan, and intended use |
 
-Classification should be deterministic. Prefer exact directories, generated-file headers, and repository configuration over an agent deciding from filename style. When a file matches multiple categories, use the more demanding treatment or report the conflict.
+Path classification should follow deterministic rules. Prefer exact directories, generated-file headers, and repository configuration over an agent guess based on filename style. When one artifact matches several categories, use the more demanding category or report the conflict.
 
-Never exclude migrations from the source budget. The skill classifies data-shape changes as high risk and requires a rollback question. A short migration can constrain every write path, while an ORM snapshot beside it may be generated; the report must preserve that distinction.
+Never exclude migrations from the source budget. The skill treats data-shape changes as high risk and asks how rollback works. A short migration can affect each write path, while a nearby ORM snapshot may be built output, so keep those two groups clear.
 
-Never exclude deleted tests either. The guardian treats removed or weakened assertions as first-class findings because deletion can remove protection from an unchanged behavior. Count the deleted lines and inspect what contract disappeared.
+Never exclude deleted tests. The guardian treats removed or weak checks as real findings because a deletion can remove coverage for code that did not change. Count those lines and state which contract the old test proved.
 
-The sibling article on [schema authority for test data](/blog/schema-authority-ddl-orm-openapi-types-test-data) helps when a large schema update touches migrations, ORM models, OpenAPI, and TypeScript together. Its [constraint field map procedure](/blog/constraint-field-map-before-test-data-generation) can turn those layers into smaller review units with explicit conflicts.
+The guide on [schema authority for test data](/blog/schema-authority-ddl-orm-openapi-types-test-data) helps when one schema change touches migrations, ORM models, OpenAPI, and TypeScript. Its [constraint field map procedure](/blog/constraint-field-map-before-test-data-generation) can split those layers into smaller review units with clear clashes.
 
-## Configure the Gate and Its Evidence
+## How Does Quality Gate Configuration Store the Limit?
 
-Place the limit in \`release-gates.yaml\` so policy is reviewed beside code. The repository reference defines \`gates.process.max_diff_lines\` and says the gate fails when the source diff exceeds the honest-analysis budget. Store the configuration revision or digest in the final report.
+Place the limit in \`release-gates.yaml\` so the rule gets reviewed with code. The repo guide defines \`gates.process.max_diff_lines\` and fails the gate when source lines exceed the honest review budget. Store the config commit or digest in the final report.
 
 
 \`\`\`yaml
@@ -156,9 +157,9 @@ gates:
     max_diff_lines: 2000
 \`\`\`
 
-Do not let the agent raise this number to pass its own review. A threshold change is a policy change and should receive human approval before the judged release. Otherwise, an oversized change can modify both the application and the rule that should stop it.
+Do not let the agent raise this number to pass its own review. A limit change alters team rules and needs human approval before the release at hand. If not, a large change can edit both the app and the rule meant to stop it.
 
-The gate result should include measured source lines, configured maximum, base SHA, head SHA, category totals, classification rules revision, and excluded path list. A bare message such as "diff too large" is not sufficient evidence for reproduction or exception review.
+The gate result should show measured source lines, the configured maximum, both SHAs, category totals, classification revision, and excluded paths. A bare "diff too large" message gives too little evidence for reproducible counting or exception review.
 
 
 \`\`\`json
@@ -179,17 +180,17 @@ The gate result should include measured source lines, configured maximum, base S
 }
 \`\`\`
 
-The **maximum diff size release analysis** row belongs beside test, coverage, static, data, and review rows. It should not erase those results. Existing failures remain visible because splitting the change does not make an untested authorization branch disappear.
+The **maximum diff size release analysis** row belongs beside test, coverage, lint, data, and review rows. It must not erase those results. A split does not make a failed test or an unchecked auth branch go away.
 
-For workflow mechanics, use the [GitHub Actions testing pipeline guide](/blog/cicd-testing-pipeline-github-actions). Ensure the budget job runs before expensive broad suites when fast feedback matters, but still publish its report with the exact judged SHA as described in [binding release evidence to HEAD](/blog/bind-release-evidence-to-head-sha).
+For workflow steps, use the [GitHub Actions testing pipeline guide](/blog/cicd-testing-pipeline-github-actions). Run the budget job before slow broad suites when quick feedback helps. Still publish its row with the exact judged SHA, as shown in [binding release evidence to HEAD](/blog/bind-release-evidence-to-head-sha).
 
-## Split an Oversized Change Without Hiding Risk
+## How Does a Large Pull Request Review Stay Honest?
 
-Splitting is useful only when each resulting change is independently understandable and testable. Dividing files arbitrarily can create temporary broken states or scatter one behavior across several approvals. Split by dependency direction, contract boundary, feature flag, migration phase, or generated-output lifecycle.
+A split helps only when each new change is clear and testable on its own. Dividing files at random can leave broken states or spread one behavior across many reviews. Split by code flow, contract edge, feature flag, migration phase, or built-file life cycle.
 
-A safe database feature often separates additive migration, compatible application read path, write activation, backfill, and cleanup. Each part should preserve compatibility with adjacent deployed versions. The release report must still explain the whole sequence and rollback assumptions.
+A safe data change often separates an additive migration, a backward-compatible read path, new writes, backfill, and cleanup. Each part should remain compatible with the application versions deployed alongside it. The release report must still explain the full order and rollback needs.
 
-A generated API client update can separate the reviewed OpenAPI change, generator configuration, regenerated output, and consumer adaptation. The generated commit may remain large, but its evidence becomes regeneration equality plus focused consumer tests rather than an unsupported claim that every emitted line received semantic review.
+A built API client update can split the OpenAPI change, tool config, built output, and client use. The output commit may stay large, but its proof becomes a clean rerun match plus focused client tests. That is more honest than claiming a person read the meaning of each built line.
 
 Use this sequence when the gate fails:
 
@@ -199,31 +200,31 @@ Use this sequence when the gate fails:
 4. Preserve tests with the behavior they prove, including negative and rollback cases.
 5. Run a fresh guardian report for each judged head, then review cumulative rollout risk.
 
-Avoid history tricks that make the final pull request appear smaller while deployment still introduces the full unreviewed change. The gate concerns what reaches the release base, not how pleasantly commits are arranged. Compare the actual base and head selected by policy.
+Avoid Git tricks that make the pull request look small while the deploy still brings the full unchecked change. The gate covers what reaches the release base, not how neat the commits look. Compare the real base and head set by team rules.
 
-The [test impact analysis guide](/blog/test-impact-analysis-ci-guide-2026) supports split design because each unit should map to the tests exercising its changed modules. If a proposed split cannot identify any focused evidence, it may not be an independent review unit.
+The [test impact analysis guide](/blog/test-impact-analysis-ci-guide-2026) helps plan splits because each unit should map to tests for its changed code. If a planned split has no focused proof, it may not be a sound review unit on its own.
 
-## Handle Exceptions Without Letting the Agent Waive Itself
+## How Should an AI Release Guardian Handle Exceptions?
 
-Some changes cannot be reduced below the normal budget, such as framework migrations, generated snapshots, or one-time repository reorganizations. That does not justify silently bypassing the gate. It requires a named exception process with a different review plan.
+Some changes cannot fit the normal budget, such as framework moves, built snapshots, or a one-time repo cleanup. That does not permit a quiet gate bypass. It needs a named exception path with a different review plan.
 
-The exception should state scope, owner, reason, alternate evidence, expiration, and affected release. A human accepts it before the verdict can become GO WITH WAIVERS. The repository report contract requires non-null owners and accepted waiver status, which prevents an agent-generated waiver from approving itself.
+The exception should state scope, owner, reason, other proof, end point, and affected release. A person accepts it before the verdict can become GO WITH WAIVERS. The repo report needs a real owner and an accepted waiver, so an agent cannot approve its own draft.
 
-Alternate evidence may include file ownership review, migration rehearsals, independent security review, generator reproducibility, staged rollout, or multiple domain reviewers. These controls depend on the change. Do not claim that more full-suite testing replaces incomplete code and risk inspection; each control answers a different question.
+Other proof may include code-owner review, migration drills, a separate security review, clean build checks, staged rollout, or several domain reviewers. The right checks depend on the change. More full-suite tests do not replace an incomplete code review, since each check answers a different question.
 
-OWASP's [CI/CD Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html) treats pipeline processes, repositories, automation systems, and deployment procedures as security-relevant components. That supports keeping exception authority outside the automated guardian. A tool capable of changing its threshold, accepting its waiver, and deploying the result collapses several controls into one actor.
+OWASP's [CI/CD Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html) treats pipelines, repos, build tools, and deploy steps as parts of security. This supports keeping exception rights outside the guardian. A tool that can raise its limit, accept its waiver, and deploy puts too much control in one actor.
 
-The [human control boundary guide](/blog/ai-release-guardian-human-control-boundary) defines that separation in detail. The guardian may measure, classify, recommend a split, and draft exception evidence. It must never approve the exception, merge the pull request, tag a release, or start production deployment.
+The [human control boundary guide](/blog/ai-release-guardian-human-control-boundary) defines that split in detail. The guardian may count lines, group risk, suggest a split, and draft exception notes. It must never approve the exception, merge the pull request, tag a release, or start a live deploy.
 
-For every exception, retain the failed original gate row. Replacing it with "pass by exception" loses the fact that normal analysis capacity was exceeded. A clearer report shows the failed measurement and an accepted, expiring waiver as separate facts.
+Keep the first failed gate row for each exception. Replacing it with "pass by exception" hides that the normal review limit was crossed. A clear report shows both the failed count and the accepted, time-bound waiver as separate facts.
 
-## Test the Gate Against Failure Modes
+## Which Failure Modes Should the Gate Test?
 
-The budget implementation needs tests because line counting has edge cases. Fixtures should cover spaces and tabs in paths, binary files, complete deletions, files without final newlines, rename handling, submodules, and classification overlap. Pin expected totals for known commit pairs.
+The budget code needs tests because line counts have edge cases. Fixed diffs should cover spaces and tabs in paths, binary files, full deletes, missing final newlines, renames, submodules, and path-rule clashes. Pin the expected totals for known commit pairs.
 
-Test policy behavior separately from parser behavior. A source total equal to the maximum passes if the rule says "exceeds," while one additional line fails. Missing configuration should follow the team's declared default, but the assigned skill recommends proposing a starter rather than inventing an undisclosed limit.
+Test team rules apart from parser code. A source total at the limit passes when the rule says "exceeds," while an additional line fails. Missing config should follow a stated default, though the skill prefers a proposed starting value over a hidden limit.
 
-Required checks add another operational constraint. GitHub states that [required checks must pass against the latest commit SHA](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks). Configure the diff-budget check so a path filter does not leave it pending for exactly the large changes that need it.
+Required checks add another rule. GitHub says [required checks must pass against the latest commit SHA](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks). Set up the diff check so a path filter does not leave it pending on the large changes that need it most.
 
 Test these outcomes in CI:
 
@@ -237,13 +238,13 @@ Test these outcomes in CI:
 | Missing base commit | Error and NO-GO | Fetch or resolution failure |
 | Classification conflict | Error or demanding category | Conflicting rules named |
 
-A test should also prove the report cannot claim GO when this required process gate fails. The schema reference says verdict is derivable from gate results and waivers, so CI should recompute it rather than trust a free-text conclusion.
+A test must also prove that the report cannot claim GO when this required gate fails. The schema says gate rows and waivers drive the verdict, so CI should recompute the verdict from those rows instead of trusting free text.
 
-## Adapt the Budget for Monorepos and Stacked Changes
+## How Does Risk-Based Release Review Treat Large Diffs?
 
-A **maximum diff size release analysis** policy needs one clearly named release unit. In a monorepo, that unit might be the whole pull request because shared packages can affect many applications. Service-level subtotals can aid ownership, but they must not hide a large cross-cutting total.
+A **maximum diff size release analysis** rule needs one clear release unit. In a monorepo, that unit may be the full pull request because shared packages can affect many apps. Per-service totals can help owners, but they must not hide one large cross-cutting diff.
 
-Compute the complete base-to-head diff first, then classify paths by package or deployable service. If one shared library changes, trace dependents before deciding that each directory receives an independent budget. The risk exists in affected behavior, not only the folder containing edited lines.
+Count the full base-to-head diff first, then group paths by package or service. If a shared library changes, trace its users before giving each folder its own budget. The risk lies in runtime behavior affected by the change, not only in the edited folder.
 
 | Monorepo pattern | Useful measurement | Unsafe shortcut |
 | --- | --- | --- |
@@ -253,23 +254,23 @@ Compute the complete base-to-head diff first, then classify paths by package or 
 | Generated clients in many packages | Inputs plus generated totals by consumer | Treating every generated directory as invisible |
 | Database schema shared by services | Migration and all contract adaptations | Counting each adapter without rollout sequence |
 
-Stacked pull requests require stable endpoints as well. A child change may be small relative to its parent but large relative to the release base. Decide whether the guardian judges the child delta for review feedback, the cumulative stack for release, or both, and store separate results.
+Stacked pull requests also need fixed endpoints. A child diff may be small against its parent but large against the release base. Decide whether the guardian checks the child for review, the full stack for release, or both, then store each result.
 
-For final release readiness, compare the actual release base with the head that will merge or deploy. Otherwise, several individually acceptable stacks can combine into an unanalyzed cumulative change. The **maximum diff size release analysis** gate should fail the cumulative unit when its committed threshold is exceeded.
+For final release work, compare the real release base with the head that will merge or deploy. If not, several small stacks can join into one large diff that no gate reviewed. The **maximum diff size release analysis** gate should fail that full unit when it crosses the committed limit.
 
-Ownership boundaries can improve splitting. Move a shared contract change into one reviewed unit, adapt each consumer in ordered units, and keep compatibility tests across the transition. Do not divide a single unsafe migration merely to place every directory below a number.
+Code ownership can guide a sound split. Put a shared contract change in one reviewed unit, update each user in order, and preserve compatibility tests for both old and new contracts. Do not divide one unsafe migration just to place each folder below a number.
 
-When several repositories form one release, each repository can run its own gate, while a release coordinator records cross-repository versions and risks. The local line count cannot prove the combined rollout is understandable. Use an integration report that names every repository SHA and guardian result.
+When several repos form one release, each repo can run its own gate. A release lead should also record all repo versions and shared risks. A local line count cannot prove that the full rollout is clear, so use one report that names each repo SHA and gate result.
 
-## Separate Mechanical Churn From Behavioral Review
+## How Do You Separate Mechanical Churn From Code Risk?
 
-Formatting, file moves, generated snapshots, and dependency metadata can create large patches. A **maximum diff size release analysis** report should identify that churn without assuming it is harmless. The reviewer needs evidence that the mechanical transformation is reproducible and that meaningful edits were not hidden inside it.
+Format work, file moves, built snapshots, and package data can make huge patches. A **maximum diff size release analysis** report should name that churn without calling it safe. The reviewer needs proof that the same command can reproduce it and that code edits are not hidden inside.
 
-For formatting-only changes, pin the formatter version and command, apply it to the base tree in a clean environment, and compare the result with the proposed output. Review any remaining delta as behavioral source. If reproducibility fails, return the paths to ordinary line-by-line review.
+For format-only changes, pin the tool version and command, run it on the base tree in a clean setup, and compare the output. Review any remaining diff for behavioral changes. If a clean rerun does not match, return those paths to normal line review.
 
-File moves need explicit rename policy. Git can detect similarity, but detection depends on options and thresholds. The official Git documentation describes rename and copy detection controls, so record the exact command. A move with edits should expose the edited hunks instead of receiving a blanket mechanical label.
+File moves need a clear rename rule. Git can find similar files, but the result depends on command flags and limits. The official Git docs list rename and copy flags, so record the exact command. A move with edits should show its hunks instead of getting one broad mechanical label.
 
-Generated output needs a similar proof chain:
+Built output needs a similar proof chain. Use these steps so reviewers can repeat the result:
 
 1. Identify the authoritative schema, template, or source file changed by humans.
 2. Record the generator package, version, configuration, and exact command.
@@ -285,52 +286,52 @@ Generated output needs a similar proof chain:
 | Lockfile update | Manifest intent and package-manager resolution | Review dependency and scanner changes |
 | Snapshot update | Test command reproduces snapshot | Review whether new expected behavior is correct |
 
-Snapshot churn deserves particular caution. A passing snapshot update proves the checked-in expectation matches current output, not that the output is correct. Require a human to review behavior represented by changed snapshots, especially for permissions, money, user-visible contracts, and error handling.
+Snapshot churn needs extra care. A passing update proves the checked-in snapshot matches current output, not that the output is right. Ask a person to review changed behavior, above all for access, money, public contracts, and error paths.
 
-Dependency lockfiles also remain release evidence. Separate their line count when policy says so, but inspect added, removed, and changed packages with the repository's existing scanner. The OWASP CI/CD guidance supports treating dependencies and pipeline components as parts of the delivery risk, not inert text.
+Package lockfiles also stay in the release proof. Count them on their own when team rules say so, but review each added, removed, or changed dependency, and scan the resulting installed dependency set with the repository's normal tool. OWASP's CI/CD guide treats packages and pipeline parts as delivery risk, not inert text.
 
-The **maximum diff size release analysis** gate should publish both the raw textual total and policy-classified total. Raw size reveals overall change volume, while classification explains the claimed review method. Keeping both prevents exclusions from becoming invisible over time.
+The **maximum diff size release analysis** gate should show both the raw text total and the rule-based source total. Raw size shows all churn, while the grouped total explains the review method. Keeping both stops exclusions from fading out of view over time.
 
-Review classification rules periodically using real failed and waived reports. If one category repeatedly requires exceptions, improve its evidence contract rather than raising the global threshold without analysis. Any rule change remains a human-reviewed policy change and should not affect the release that proposes it.
+Review path rules from time to time with real failed and waived reports. If one group often needs exceptions, improve its proof rules instead of raising the main limit without review. A human must approve each rule change, and it should not grade the release that proposes it.
 
-## Put the Budget Into Daily Release Review
+## How Do You Apply the Gate Each Day?
 
-Introduce the gate with one measured baseline period if your team needs to understand normal change sizes. Keep the gate visible during that period, then commit a threshold with owners and an exception path. Do not tune it to ensure every recent pull request passes.
+Start with a measured trial if the team needs to learn its usual diff sizes. Keep the gate visible during the trial, then commit a limit with owners and an exception path. Do not tune it just to make each recent pull request pass.
 
-Review the policy when repository structure or generator behavior changes. A monorepo may need service-scoped budgets plus a total coordination check, while a schema repository may classify generated clients differently. Keep one unambiguous result for the release unit being judged.
+Review the rule when repo shape or build tool use changes. A monorepo may need service budgets plus one total check, while a schema repo may group built clients in another way. Keep one clear result for the release unit under review.
 
-The **maximum diff size release analysis** gate works best as an early truth check. It says whether the guardian can support its later claims, while test, coverage, migration, scanner, and human-review gates say what those claims contain. That separation keeps a numeric threshold from becoming a false quality score.
+The **maximum diff size release analysis** gate works best as an early truth check. It asks whether the guardian can back its later claims. Tests, coverage, migrations, scans, and human review then show what those claims mean, so one line limit never becomes a false quality score.
 
-Apply the [AI Release Guardian skill](/skills/thetestingacademy/ai-release-guardian) to one representative pull request, record the category totals, and commit \`gates.process.max_diff_lines\` with its owner. If the next change exceeds the limit, split it or record a named human exception before requesting a release decision.
+Apply the [AI Release Guardian skill](/skills/thetestingacademy/ai-release-guardian) to one normal pull request, record each group total, and commit \`gates.process.max_diff_lines\` with its owner. If the next change crosses the limit, split it or record a named human exception before asking for a release choice.
 
 ## Frequently Asked Questions
 
 ### Is 2,000 changed lines the correct limit for every repository?
 
-No. It is the starter value in the assigned gate reference, not an empirical constant for every team. Choose a limit that matches your declared analysis method, repository structure, and review process. Version it as policy, test boundary behavior, and require human review before changing the threshold.
+No. It is the starting value in the gate guide, not a proven constant for each team. Pick a limit that fits your review method, repo shape, and human process. Keep it in source control, test both sides of the line, and require human review before any change.
 
 ### Should generated files count toward the same maximum?
 
-Usually they should be reported separately, as the assigned skill directs, because semantic review focuses on their generator inputs and reproducibility. They are never invisible. Record generated totals, source schema, tool version, clean regeneration result, and consumer tests so exclusion from one budget does not become exclusion from release review.
+The skill says to report them on their own because review should focus on source inputs and a clean rerun. They are never hidden. Record built totals, source schema, tool version, rerun match, and client tests so one budget exclusion does not remove them from release review.
 
 ### Does a large diff automatically mean NO-GO?
 
-It means NO-GO under a required analysis gate because complete promised evidence is unavailable. It does not mean the code is defective. A human-owned exception with alternate review evidence may support GO WITH WAIVERS, or the team can split the release into independently testable units.
+It means NO-GO under a required review gate because the promised proof is not complete. It does not mean the code has a bug. A human-owned exception with other review proof may support GO WITH WAIVERS, or the team can split the release into testable units.
 
 ### Should test files count as source lines?
 
-Count them unless committed policy defines a separate test budget, and always inspect deleted or weakened assertions. Tests influence confidence and can hide risk when removed. Report application and test totals separately if that helps review, but never drop tests from the evidence simply to pass the threshold.
+Count them unless committed rules set a separate test budget, and always inspect deleted or weak checks. Tests shape trust and can hide risk when removed. Show app and test totals on their own if useful, but never drop test lines from proof just to pass the limit.
 
 ### Can full-suite success compensate for an oversized diff?
 
-No. A passing suite proves that existing tests passed for a revision. It does not prove that the guardian mapped every changed behavior, selected missing cases, or noticed an altered contract. Testing and review capacity are independent gates, so one cannot silently replace the other.
+No. A passing suite proves that known tests passed for one commit. It does not prove that the guardian mapped each changed behavior, found missing cases, or saw a changed contract. Test results and review scope are separate gates, so one cannot replace the other.
 
 ### How do renames affect the line count?
 
-Choose and document deterministic behavior. The sample disables rename detection, counting a rename as deletion plus addition, which is conservative. Another policy may use Git's rename detection and report similarity. Whichever method you adopt, pin it in tests and keep the same endpoints and options across local and CI runs.
+Choose one fixed rule and write it down. The sample turns off rename checks, so a rename counts as deleted plus added lines, which is strict. Another rule may use Git's rename score. Pin your choice in tests and use the same endpoints and flags in local and CI runs.
 
 ### Who may approve an exception to the limit?
 
-A named human authorized by repository policy, never the guardian producing the measurement. The report should retain the failed gate, record the waiver owner and acceptance, list alternate evidence, and set scope or expiry. The release owner then makes the final decision with that record visible.
+A named person allowed by repository rules, never the guardian that calculated the count. Keep the failed gate, waiver owner, acceptance, other evidence, scope, and endpoint in the report. The release owner then makes the final choice with that full record in view.
 `,
 };

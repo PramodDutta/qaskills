@@ -1,9 +1,9 @@
 import type { BlogPost } from './index';
 
 export const post: BlogPost = {
-  title: 'Deleted Tests and Weakened Assertions',
+  title: 'Deleted Tests Weakened Assertions: QA Risk',
   description:
-    'Review deleted tests weakened assertions as release risk, trace removed checks to behavior, require replacement evidence, and issue fail-closed verdicts.',
+    'Review release risks in the deleted tests weakened assertions category, trace removed checks to behavior, require proof, and issue fail-closed verdicts.',
   date: '2026-07-18',
   updated: '2026-07-18',
   category: 'Guide',
@@ -16,7 +16,7 @@ export const post: BlogPost = {
     'Git test diff audit',
     'replacement test evidence',
     'fail closed quality gate',
-    'AI Release Guardian',
+    'AI Release Guardian review',
   ],
   relatedSlugs: [
     'empty-related-test-set-release-blocker',
@@ -31,48 +31,48 @@ export const post: BlogPost = {
     'https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches',
   ],
   content: `
-Deleted tests weakened assertions are release risks when a diff removes the only executable proof for important behavior, narrows an expected outcome, or converts a precise check into a permissive one. Treat them as High-priority findings until replacement tests prove the same behavior at the exact judged HEAD and every configured gate passes.
+The deleted tests weakened assertions category identifies release risks when a diff removes the only runnable proof for an important flow, narrows an expected outcome, or converts a precise check into a permissive one. Treat these changes as High-priority findings until new tests prove the same flow at the exact judged HEAD and each configured gate passes.
 
-The [AI Release Guardian skill](/skills/thetestingacademy/ai-release-guardian) makes deleted or weakened tests a first-class Stage 1 finding. A green remaining suite cannot prove that removed evidence was redundant. The Guardian recommends GO, GO WITH WAIVERS, or NO-GO, but it never merges, approves, tags, or deploys.
+The [AI Release Guardian skill](/skills/thetestingacademy/ai-release-guardian) makes deleted or weakened tests a first-class Stage 1 finding. A green remaining suite cannot prove that removed proof was redundant. The Guardian recommends GO, GO WITH WAIVERS, or NO-GO, but it never merges, approves, tags, or deploys.
 
-This guide shows how to detect candidates, map removed checks to behavior, compare replacement evidence, and publish an auditable verdict. Use the [behavior and blast-radius mapping guide](/blog/git-diff-behavior-risk-blast-radius-map) for the production side of the same change.
+This guide shows how to detect items, map removed checks to flow, compare new proof, and publish an auditable verdict. The phrase deleted tests weakened assertions should map to one stable finding type in both report formats. Use the [behavior and blast-radius mapping guide](/blog/git-diff-behavior-risk-blast-radius-map) for the product side of the same change.
 
-## Treat Test Diffs as Release-Scope Changes
+## Why Is Test Evidence Removal a Release Risk?
 
-Tests are executable evidence about intended behavior. Removing a spec, deleting one case from a table, loosening an expected object, or replacing an exact error with a truthiness check can reduce that evidence even when production code is untouched.
+Test evidence removal is a release risk because it can erase the only check for a key product rule. A deleted spec, lost table row, loose object match, or truthy check may prove less even when product code does not change. Review the lost claim before trusting the green suite.
 
-The report category deleted tests weakened assertions covers two related but different changes. Deletion removes a whole test artifact or scenario. Weakening retains executable code but checks less behavior, accepts more outcomes, omits a side effect, or stops proving rejection.
+The report category deleted tests weakened assertions covers two related but different changes. Deletion removes a whole test file or case. Weakening retains runnable code but checks less flow, accepts more outcomes, omits a side effect, or stops proving rejection.
 
-| Test diff | Possible evidence loss | Required review |
+| Test diff | Possible proof loss | Required review |
 | --- | --- | --- |
-| Test file deleted | Every behavior unique to that file | Map all cases to replacement evidence |
-| Test case or table row removed | One state, boundary, role, or error path | Identify the removed scenario and reason |
+| Test file deleted | Each flow unique to that file | Map all cases to new proof |
+| Test case or table row removed | One state, edge, role, or error path | Find the removed case and reason |
 | Exact value becomes truthy check | Contract precision and wrong-value detection | Compare accepted outcome sets |
-| Object equality becomes partial match | Omitted fields or extra fields may pass | Identify which contract fields still matter |
-| Error assertion removed | Failure type, status, message, or no-write guarantee | Prove rejection and side effects elsewhere |
-| Snapshot updated or removed | Changed rendered or serialized contract | Review semantic difference, not file size |
+| Object equality becomes partial match | Omitted fields or extra fields may pass | Find which contract fields still matter |
+| Error check removed | Failure type, status, message, or no-write guarantee | Prove rejection and side effects elsewhere |
+| Snapshot updated or removed | Changed rendered or serialized contract | Review meaning difference, not file size |
 
-Do not assume every assertion edit is weakening. Replacing a brittle implementation check with a public-behavior assertion may improve evidence. Splitting one large test into focused cases may delete lines while increasing clarity. Classification requires semantic comparison, not an assertion-count threshold.
+Do not assume each check edit is weakening. Replacing a brittle code check with a public-flow check may improve proof. Splitting one large test into focused cases may delete lines while increasing clarity. Labeling requires meaning comparison, not a check-count threshold.
 
-The [risk-based testing strategy guide](/blog/risk-based-testing-strategy-guide-2026) helps teams identify behaviors that deserve strong evidence before a pressured pull request. The Guardian then checks whether the diff preserves that agreed release bar.
+The [risk-based testing strategy guide](/blog/risk-based-testing-strategy-guide-2026) helps teams find flows that deserve strong proof before a pressured pull request. The Guardian then checks whether the diff preserves that agreed release bar.
 
-Deleted test evidence begins High because its protected behavior may be High. Final classification should name that behavior, blast radius, replacement, and gate effect. Unknown behavior ownership remains NO-GO until analysis resolves it.
+A deleted-test finding starts at High priority because the protected flow may be High risk. The final label should name that flow, blast radius, new test, and gate effect. Unknown flow ownership remains NO-GO until review resolves it.
 
-## Pin Scope and Preserve Both Sides
+## How Do You Scope a Git Test Diff Audit?
 
-Review test changes against the same base and HEAD used for production risk, selection, and coverage. Preserve removed content from the base revision because it no longer exists in the HEAD checkout. A name-only list cannot show which scenarios or assertions disappeared.
+A Git test diff audit uses the same base and HEAD as product risk, test choice, and line coverage. Save removed content from the base because it no longer exists at HEAD. A file name list is not enough because it cannot show which cases or checks went away.
 
-Follow this procedure:
+Follow these steps:
 
 1. Resolve the target reference, merge base, and full HEAD SHA.
 2. Save rename-aware name-status and full patches for source and test paths.
-3. Extract deleted test files from the base into read-only artifacts.
-4. Record modified test hunks with enough function context to identify each case.
-5. Map removed tests and assertions to behavior before reading the author's rationale.
-6. Search HEAD for replacement evidence, then run it at the judged revision.
-7. Reject stale runs, missing files, and unreviewed equivalence as NO-GO evidence gaps.
+3. Extract deleted test files from the base into read-only files.
+4. Record modified test hunks with enough function context to find each case.
+5. Map removed tests and checks to flow before reading the author's rationale.
+6. Search HEAD for new proof, then run it at the judged revision.
+7. Reject stale runs, missing files, and unreviewed equivalence as NO-GO proof gaps.
 
-Git documents status filtering for deleted paths and rename detection based on similarity. It also provides function context, word diff, pickaxe string search, and regex search over patch text ([Git diff documentation](https://git-scm.com/docs/git-diff)). These tools locate candidates; they do not judge assertion meaning.
+Git documents status filtering for deleted paths and rename detection based on similarity. It also provides function context, word diff, pickaxe string search, and regex search over patch text ([Git diff documentation](https://git-scm.com/docs/git-diff)). These tools locate items; they do not judge check meaning.
 
 \`\`\`bash
 set -eu
@@ -96,23 +96,23 @@ printf '%s\n' "$HEAD_SHA" > artifacts/test-risk/head-sha.txt
 printf '%s\n' "$MERGE_BASE" > artifacts/test-risk/merge-base.txt
 \`\`\`
 
-Repository naming varies, so globs are only one input. Test projects may live under custom directories, use framework-specific suffixes, or generate cases from data files. Include configured test roots, runner projects, fixtures, snapshots, contract examples, and evaluation datasets in the inventory.
+Repo naming varies, so globs are only one input. Test projects may live under custom folders, use framework-specific suffixes, or generate cases from data files. Include configured test roots, runner projects, fixtures, snapshots, contract examples, and evaluation datasets in the list.
 
-A deleted tests weakened assertions audit should retain rename metadata. A renamed test with unchanged behavior differs from deletion, while a rename paired with scenario removal needs both facts. Do not let similarity detection hide changed assertions inside a moved file.
+A deleted tests weakened assertions audit should retain rename metadata. A renamed test with unchanged flow differs from deletion, while a rename paired with case removal needs both facts. Do not let similarity detection hide changed checks inside a moved file.
 
-## Detect Deleted Tests and Removed Cases
+## Detect Deleted Test Release Risk
 
-Start with deleted paths, then inspect removed cases within surviving files. A test file can remain while its only authorization denial case disappears. Table-driven suites can lose one boundary row without changing any test declaration.
+Start with deleted paths, then inspect removed cases within surviving files. A test file can remain while its only authorization denial case disappears. Table-driven suites can lose one edge row without changing any test declaration.
 
-For every deleted file, inventory test names, nested groups, parameter rows, fixtures, snapshots, and helper assertions from the base. Map them to product boundaries such as routes, services, events, schemas, database effects, and user journeys. Group only cases that prove the same observable behavior.
+For each deleted file, list test names, nested groups, parameter rows, fixtures, snapshots, and helper checks from the base. Map them to product edges such as routes, services, events, schemas, database effects, and user journeys. Group only cases that prove the same observable flow.
 
-Search HEAD for replacement names and behavior, not just copied text. A scenario may move from a unit test to an API contract test with different naming. Conversely, a similarly named test may exercise another route or omit the removed side effect.
+Search HEAD for new test names and flow, not just copied text. A case may move from a unit test to an API contract test with different naming. Conversely, a similarly named test may exercise another route or omit the removed side effect.
 
-Jest officially supports listing the test files selected by arguments and running exact paths. Its JSON mode prints test results while other output goes to standard error ([Jest CLI documentation](https://jestjs.io/docs/cli)). Use these capabilities to capture replacement runs, but retain the assertions and behavior mapping that explain relevance.
+Jest officially supports listing the test files selected by arguments and running exact paths. Its JSON mode prints test results while other output goes to standard error ([Jest CLI documentation](https://jestjs.io/docs/cli)). Use these capabilities to capture new runs, but retain the checks and flow mapping that explain relevance.
 
-Vitest documents a list command for matched test names and a related command that follows static imports but not dynamic expressions ([Vitest CLI documentation](https://vitest.dev/guide/cli)). A missing relationship can explain why static selection found nothing; it cannot prove a deleted scenario is safely replaced.
+Vitest documents a list command for matched test names and a related command that follows static imports but not dynamic expressions ([Vitest CLI documentation](https://vitest.dev/guide/cli)). A missing relationship can explain why static selection found nothing; it cannot prove a deleted case is safely replaced.
 
-Record each candidate in a stable shape:
+Record each item in a stable shape:
 
 \`\`\`typescript
 type TestEvidenceChange = {
@@ -130,112 +130,114 @@ type TestEvidenceChange = {
 };
 \`\`\`
 
-Keep behaviorProtected null until a reviewer establishes it. Null is unknown and blocks, while an empty string can be mistaken for no behavior. The [empty related-test set guide](/blog/empty-related-test-set-release-blocker) applies the same fail-closed discipline when replacement selection returns zero.
+Keep behaviorProtected null until a reviewer establishes it. Null is unknown and blocks, while an empty string can be mistaken for no flow. The [empty related-test set guide](/blog/empty-related-test-set-release-blocker) applies the same fail-closed discipline when new test selection returns zero.
 
-The combined deleted tests weakened assertions finding should list deleted cases separately from changed production hunks. Connect them through behavior identifiers so reviewers can see which evidence protected which release risk.
+The combined deleted tests weakened assertions finding should list deleted cases separately from changed product hunks. Connect them through flow identifiers so reviewers can see which proof protected which release risk.
 
-Inspect deleted shared test helpers before assuming only plumbing changed. A helper may contain the assertion that every caller relied on, such as checking an audit record after each request. If HEAD callers still invoke a renamed helper, compare implementations and prove the assertion moved. A replacement that performs only setup can leave dozens of apparently unchanged tests weaker at once.
+Inspect deleted shared test helpers before assuming only plumbing changed. A helper may contain the check that each caller relied on, such as checking an audit record after each request. If HEAD callers still invoke a renamed helper, compare implementations and prove the check moved. A new test that performs only setup can leave dozens of apparently unchanged tests weaker at once.
 
-Snapshots and data-driven inputs can hold scenarios outside test source. Removing a fixture row, deleting an inline snapshot field, or changing a golden response may reduce evidence without deleting a test declaration. Inventory configured snapshot and case-data locations, then connect each removed value to the consuming test and behavior. Generated case files should point back to their generator inputs and review rules.
+Snapshots and data-driven inputs can hold cases outside test source. Removing a fixture row, deleting an inline snapshot field, or changing a golden response may reduce proof without deleting a test declaration. List configured snapshot and case-data locations, then connect each removed value to the consuming test and flow. Built case files should point back to their generator inputs and review rules.
 
-## Inspect Assertion Changes Semantically
+## How Does Assertion Weakening Review Work?
 
-Assertion weakening means the accepted outcome set became broader or an important observation disappeared. Determine what the base test rejected, what the HEAD test accepts, and whether the changed application contract justifies that difference.
+Assertion weakening review compares what the base test rejected with what the HEAD test now accepts. A check is weaker when valid outcomes grow without a cited rule change, or when a key result is no longer observed. The reviewer must decide whether the product contract supports that change.
 
 Examples require context. Exact equality to a full response may be overly coupled when only selected fields are contractual. Partial matching may be correct after that review. However, dropping status, error code, ownership, amount, ordering, or absence of extra writes can remove meaningful protection.
 
-Review these assertion dimensions:
+Review these check dimensions:
 
 - **Value precision:** exact value, range, pattern, truthiness, or existence.
 - **Shape precision:** full object, selected fields, array membership, or snapshot.
 - **Cardinality:** exact count, minimum, maximum, nonempty, or no duplicate items.
 - **Ordering:** stable sequence, partial order, or unordered membership.
 - **Failure contract:** error type, status, code, message shape, and rejected side effects.
-- **Time behavior:** completion, retry count, timeout, eventual state, and no late write.
-- **Security behavior:** allowed actor, denied actor, redaction, and audit evidence.
+- **Time flow:** completion, retry count, timeout, eventual state, and no late write.
+- **Security flow:** allowed actor, denied actor, redaction, and audit proof.
 
-Automated checks can flag removed assertion calls, matcher changes, deleted snapshots, fewer table rows, and changed expected literals. They cannot reliably determine semantic strength across custom matchers, helper functions, generated tests, or changed requirements. Use candidate automation to focus human review, not to emit GO.
+Automated checks can flag removed check calls, matcher changes, deleted snapshots, fewer table rows, and changed expected literals. They cannot reliably determine meaning strength across custom matchers, helper functions, built tests, or changed rules. Use automated detection to focus human review, not to emit GO.
 
-When reporting deleted tests weakened assertions, quote only compact expectation summaries and cite the base hunk. The full source remains in the artifact. Explain the accepted-outcome difference in ordinary language, such as "the test now accepts any nonempty status instead of requiring refunded."
+When reporting deleted tests weakened assertions, quote only compact expectation summaries and cite the base hunk. The full source remains in the file. Explain the accepted-outcome difference in ordinary language, such as "the test now accepts any nonempty status instead of requiring refunded."
 
-Inspect test setup and teardown too. Removing a factory override can stop exercising an admin role even when assertions remain unchanged. Removing cleanup verification can hide residue. Changing a mock from rejection to success can erase a failure path without deleting its test name.
+Inspect test setup and teardown too. Removing a factory override can stop exercising an admin role even when checks remain unchanged. Removing cleanup verification can hide residue. Changing a mock from rejection to success can erase a failure path without deleting its test name.
 
-Asynchronous tests need special review. Removing an await, returned promise, rejection matcher, or eventual-state poll can let the test finish before the meaningful assertion runs. A passing process result then provides little evidence about the delayed behavior. Verify that the runner observes the async chain and that failures inside it reach the reported test result.
+Asynchronous tests need special review. Removing an await, returned promise, rejection matcher, or eventual-state poll can let the test finish before the meaningful check runs. A passing process result then provides little proof about the delayed flow. Verify that the runner observes the async chain and that failures inside it reach the reported test result.
 
-Negative assertions deserve the same care as positive values. Checks for no write, no duplicate event, no secret in output, and no unauthorized access often protect the most damaging outcomes. Replacing them with a successful response check broadens the accepted system state. Record the absent side effect explicitly so replacement tests know what must remain unobserved after the action.
+Negative checks deserve the same care as positive values. Checks for no write, no duplicate event, no secret in output, and no unauthorized access often protect the most damaging outcomes. Replacing them with a successful response check broadens the accepted system state. Record the absent side effect explicitly so new tests know what must remain unobserved after the action.
 
-The [test data management guide](/blog/test-data-management-strategies) covers isolation strategy. For schema-derived factories and relational cleanup, use the [Secure Test Data Engineer skill](/skills/thetestingacademy/secure-test-data-engineer) rather than copying production records into a quick replacement test.
+The [test data management guide](/blog/test-data-management-strategies) covers isolation strategy. For schema-derived factories and relational cleanup, use the [Secure Test Data Engineer skill](/skills/thetestingacademy/secure-test-data-engineer) rather than copying product records into a quick new test.
 
 ## Map Removed Checks to Product Behavior
 
-A removed expectation becomes release risk through the behavior it protected. Trace the tested public boundary to the changed or unchanged production path, then describe the observable failure and blast radius. Do not stop at "orders spec lost one assertion."
+A removed expectation becomes a release risk through the flow it protected. Trace the tested public edge to the changed or unchanged product path, then describe the observable failure and blast radius. Do not stop at "orders spec lost one check."
 
-For example, a deleted check that no ledger entry exists after a rejected refund protects atomicity, not merely database row count. Its blast radius includes every rejected refund and downstream reconciliation. Replacement evidence should drive the rejection through the public API and assert both response and absence of the write.
+For example, a deleted check that no ledger entry exists after a rejected refund protects atomicity, not merely database row count. Its blast radius includes each rejected refund and downstream reconciliation. New proof should drive the rejection through the public API and assert both response and absence of the write.
 
-Use this behavior statement pattern:
+Use this flow statement pattern:
 
-**The removed check proved [observable invariant] when [actor or event] performed [action]; without equivalent evidence, [population or system] could experience [failure].**
+**The removed check proved [observable rule] when [actor or event] performed [action]. Without equivalent proof, [population or system] could experience [failure].**
 
-Map one caller level for any helper or exported function referenced by the removed test. The production code may have several callers with different risk. A unit case for one caller does not automatically replace contract evidence for all routes.
+Map one caller level for any helper or exported function referenced by the removed test. The product code may have several callers with different risk. A unit case for one caller does not automatically replace contract proof for all routes.
 
-The [test impact analysis guide](/blog/test-impact-analysis-ci-guide-2026) helps identify suites connected to changed files. The [diff-hunk coverage tutorial](/blog/changed-line-coverage-diff-hunks-gate) shows whether replacement runs execute changed production lines. Neither proves the replacement assertion checks the same invariant.
+The [test impact analysis guide](/blog/test-impact-analysis-ci-guide-2026) helps find suites connected to changed files. The [diff-hunk coverage tutorial](/blog/changed-line-coverage-diff-hunks-gate) shows whether new runs execute changed product lines. Neither proves that the new test checks the same rule.
 
-Classify the behavior surface using the Guardian defaults. Money, auth, data shape, and public contracts begin High. Business logic and stateful interface behavior begin Medium. Presentation-only evidence may be Low after hunk review. Unknown ownership or reach blocks until resolved.
+Classify the flow surface using the Guardian defaults. Money, auth, data shape, and public contracts begin High. Business logic and stateful interface flow begin Medium.
 
-The report category deleted tests weakened assertions should also include tests removed while production code stays unchanged. Evidence erosion can create release risk for the next unnoticed regression, and a current dependency or configuration change may already affect that behavior through hidden reach.
+Presentation-only proof may be Low after hunk review. Unknown ownership or reach blocks until resolved.
 
-## Distinguish Replacement, Refactor, and Erosion
+The report category deleted tests weakened assertions should also include tests removed while product code stays unchanged. Proof erosion can create release risk for the next unnoticed regression, and a current dependency or config change may already affect that flow through hidden reach.
 
-Not every deleted test blocks permanently. A replacement can provide equivalent or stronger evidence, a refactor can preserve the same cases under clearer boundaries, or a requirement change can deliberately remove an obsolete invariant. Each path needs proof.
+## What Counts as Replacement Test Evidence?
 
-| Disposition | Evidence required | Gate result |
+Replacement test evidence counts only when a new test proves the same product rule, rejects the same wrong outcomes, and checks the same side effects at the judged HEAD. A refactor may keep the same cases under a clearer edge. A cited rule change may also retire an old check, but each path needs proof.
+
+| Disposition | Proof required | Gate result |
 | --- | --- | --- |
-| Equivalent replacement | Same behavior, outcomes, side effects, HEAD run, reviewed assertions | Close finding |
-| Stronger replacement | Original invariant plus clearer public boundary or added outcomes | Close and document improvement |
-| Pure test refactor | Scenario matrix preserved, no assertion loss, exact run evidence | Close after review |
-| Approved requirement change | Cited contract decision and updated positive or negative evidence | Evaluate remaining gates |
-| Evidence erosion | Behavior still required but check removed or broadened | Blocker |
-| Unknown equivalence | Replacement, requirement, or run evidence incomplete | NO-GO |
+| Equivalent new test | Same flow, outcomes, side effects, HEAD run, reviewed checks | Close finding |
+| Stronger new test | Original rule plus clearer public edge or added outcomes | Close and document improvement |
+| Pure test refactor | Case matrix preserved, no check loss, exact run proof | Close after review |
+| Approved rule change | Cited contract choice and updated positive or negative proof | Evaluate remaining gates |
+| Proof erosion | Flow still required but check removed or broadened | Blocker |
+| Unknown equivalence | New test, rule, or run proof incomplete | NO-GO |
 
-Compare scenario matrices rather than raw counts. One parameterized test can replace ten separate cases, and ten shallow tests can replace one meaningful integration test without preserving behavior. Rows should identify actor, precondition, action, expected output, expected side effect, and failure path.
+Compare case matrices rather than raw counts. One parameterized test can replace ten separate cases, and ten shallow tests can replace one meaningful integration test without preserving flow. Rows should identify the actor, precondition, action, expected output, expected side effect, and failure path.
 
-Requirement changes need a repository-visible contract or review artifact. A pull request description saying "no longer needed" is rationale, not authoritative behavior evidence. Update API schemas, acceptance criteria, policy, or other source of truth, then add tests for the new contract.
+Rule changes need a repo-visible contract or review file. A pull request description saying "no longer needed" is rationale, not authoritative flow proof. Update API schemas, acceptance criteria, rule set, or other source of truth, then add tests for the new contract.
 
-A deleted tests weakened assertions review should ask whether replacement evidence is independent of the code under test. A helper that computes expected output by calling the changed implementation can make every result agree. Prefer explicit expectations or separately derived reference logic appropriate to the domain.
+A deleted tests weakened assertions review should ask whether new proof is independent of the code under test. A helper that computes expected output by calling the changed code can make each result agree. Prefer clear expectations or separately derived reference logic appropriate to the domain.
 
-When replacing a test because it is flaky, preserve the protected behavior while repairing synchronization, isolation, data, or environment causes. Deletion is not quarantine, and quarantine is not closure. Required policy should expose new skips and quarantined failures rather than hiding them.
+When replacing a test because it is flaky, preserve the protected flow while repairing synchronization, isolation, data, or environment causes. Deletion is not quarantine, and quarantine is not closure. Required rule set should expose new skips and quarantined failures rather than hiding them.
 
-Run the original base test when practical to understand its evidence, but do not compare base and HEAD results across incompatible application contracts without explanation. The useful comparison is the scenario and invariant, not simply both commands returning success. Preserve base output, replacement output, and the requirement that connects them, especially when framework migration changes reporter formats.
+Run the original base test when practical to understand its proof, but do not compare base and HEAD results across incompatible application contracts without explanation. The useful comparison is the case and rule, not simply both commands returning success. Preserve base output, new test output, and the rule that connects them, especially when framework migration changes reporter formats.
 
-Replacement tests should fail for a controlled violation of the protected invariant during test review when repository policy permits such validation. This mutation can be a temporary local change rather than committed code. It demonstrates that the assertion detects the wrong outcome instead of merely executing. Record the reviewed result without allowing altered production code into release artifacts.
+New tests should fail for a controlled violation of the protected rule during test review when repo rule set permits such validation. This mutation can be a temporary local change rather than committed code. It demonstrates that the check detects the wrong outcome instead of merely executing. Record the reviewed result without allowing altered product code into release files.
 
-Use the [gap classification guide](/blog/uncovered-changed-lines-blocker-waiver-debt) if replacement coverage still leaves zero-hit lines. Evidence erosion is usually a Blocker; a narrow Low item can become a named waiver only under the same owner and acceptance rules as other gaps.
+Use the [gap classification guide](/blog/uncovered-changed-lines-blocker-waiver-debt) if new test coverage still leaves zero-hit lines. Proof erosion is usually a Blocker; a narrow Low item can become a named waiver only under the same owner and acceptance rules as other gaps.
 
 ## Keep Coverage and Selection in Their Proper Roles
 
-Coverage can show that replacement tests execute production lines. It cannot show that assertions remain meaningful. A test with no assertions can produce line hits, while a precise contract test may validate behavior through a boundary without covering every internal branch.
+Coverage can show that new tests execute product lines. It cannot show that checks remain meaningful. A test with no checks can produce line hits, while a precise contract test may validate flow through an edge without covering each internal branch.
 
-Related-test selection has a similar limit. A selected path proves the runner associated a test with changed source according to its strategy. It does not prove the removed scenario exists inside that file. Keep test inventory, assertion review, run result, and coverage as separate evidence fields.
+Related-test choice has a similar limit. A selected path proves the runner associated a test with changed source according to its strategy. It does not prove the removed case exists inside that file. Keep test list, check review, run result, and coverage as separate proof fields.
 
 Use coverage to answer these questions:
 
-1. Did replacement tests execute the changed behavior at the judged HEAD?
-2. Which changed executable lines remain uncovered or unknown?
+1. Did new tests execute the changed flow at the judged HEAD?
+2. Which changed runnable lines remain uncovered or unknown?
 3. Did removed tests uniquely cover a branch that now has zero hits?
-4. Do required suites add execution evidence beyond narrow selection?
+4. Do required suites add run proof beyond narrow selection?
 5. Are source maps, includes, excludes, and merged shards valid?
 
-Use assertion review to answer different questions: which outcome was checked, which wrong outcomes would fail, which side effects were observed, and which requirements justify broader acceptance. Do not collapse both reviews into a single percentage.
+Use check review to answer different questions: which outcome was checked, which wrong outcomes would fail, which side effects were observed, and which rules justify broader acceptance. Do not collapse both reviews into a single percentage.
 
-When deleted tests weakened assertions coincide with high changed-line coverage, keep the evidence-loss finding open until equivalence is proven. A replacement suite may reach every line while accepting an incorrect amount, role, status, or event shape.
+When findings in the deleted tests weakened assertions category coincide with high changed-line coverage, keep the proof-loss finding open until equivalence is proven. A new suite may reach each line while accepting an incorrect amount, role, status, or event shape.
 
-Required suites still run even when focused replacement tests pass. Selection orders fast feedback, while configured suites guard against hidden coupling and mapping errors. A missing suite at the judged HEAD is NO-GO under the Guardian report contract.
+Required suites still run even when focused new tests pass. Selection orders fast feedback, while configured suites guard against hidden coupling and mapping errors. A missing suite at the judged HEAD is NO-GO under the Guardian report contract.
 
-The [release readiness scorecard guide](/blog/ai-release-readiness-scorecard-2026) presents coverage and evidence-removal findings beside static, data, security, and process gates. Separate rows make it clear why one green metric does not cancel another failed gate.
+The [release readiness scorecard guide](/blog/ai-release-readiness-scorecard-2026) presents coverage and proof-removal findings beside static, data, security, and process gates. Separate rows make it clear why one green metric does not cancel another failed gate.
 
-## Enforce the Finding in Gates and Reports
+## Enforce a Fail Closed Quality Gate
 
-Add an evidence-preservation gate beside test, coverage, static, data, and process gates. The policy should block unresolved High findings, unknown equivalence, missing replacement runs, and new skipped coverage beyond the configured limit.
+Add a proof-preservation gate beside test, coverage, static, data, and process gates. The rule set should block unresolved High findings, unknown equivalence, missing new runs, and new test skips beyond the configured limit.
 
 \`\`\`yaml
 gates:
@@ -255,67 +257,67 @@ gates:
     test_evidence_changes_reviewed: true
 \`\`\`
 
-The two added fields are a repository extension to the Guardian starter, so document their semantics and schema. Do not bury them in one workflow condition. A stable policy makes local review and CI verdict calculation agree.
+The two added fields are a repo extension to the Guardian starter, so document their semantics and schema. Do not bury them in one workflow condition. A stable rule set makes local review and CI verdict calculation agree.
 
-GitHub documents that enabled required status checks must pass before collaborators can merge into a protected branch and can require an expected App source ([GitHub protected branches documentation](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)). Expose the final Guardian verdict as a required check while preserving detailed evidence artifacts.
+GitHub documents that enabled required status checks must pass before collaborators can merge into a protected branch and can require an expected App source ([GitHub protected branches documentation](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)). Expose the final Guardian verdict as a required check while preserving detailed proof files.
 
-The JSON report should include each removed or weakened item, protected behavior, blast radius, replacement evidence, reviewer, gate status, and remediation. Markdown should present the same facts in a compact table. CI recomputes the verdict and rejects disagreement.
+The JSON report should include each removed or weakened item, protected flow, blast radius, new proof, reviewer, gate status, and fix. Markdown should present the same facts in a compact table. CI recomputes the verdict and rejects disagreement.
 
-Give every finding a stable identifier derived from base path, test name, expectation summary, and base hunk evidence. Line numbers alone shift during refactoring. Stable identity lets CI show whether a finding closed through replacement, changed classification, or vanished unexpectedly. If a candidate disappears because analyzer logic changed, require an analyzer-version note and rerun review.
+Give each finding a stable identifier derived from base path, test name, expectation summary, and base hunk proof. Line numbers alone shift during refactoring. Stable identity lets CI show whether a finding closed through a new test or a changed label, or vanished unexpectedly. If an item disappears because analyzer logic changed, require an analyzer-version note and rerun review.
 
-Preserve report transitions. A deleted tests weakened assertions item may move from unknown to Blocker after behavior mapping, then close after replacement evidence. Store each transition with HEAD, reviewer, reason, and artifacts. This history prevents a later generated report from making an unresolved finding appear as though it never existed.
+Preserve report transitions. A deleted tests weakened assertions item may move from unknown to Blocker after flow mapping, then close after new proof. Store each transition with HEAD, reviewer, reason, and files. This history prevents a later generated report from making an unresolved finding appear as though it never existed.
 
-Use a NO-GO entry such as: "refund rejection test removed; no replacement asserts absence of ledger writes; High money surface; add a public-boundary rejection test." This gives an owner a concrete path to GO without overstating what coverage proves.
+Use a direct NO-GO entry: "Refund rejection test removed, and no new test checks for ledger writes." Mark the money surface High and ask for a public-edge rejection test. This gives the owner a clear path to GO without overstating what coverage proves.
 
-The [CI/CD testing pipeline guide](/blog/cicd-testing-pipeline-github-actions) covers artifact dependencies. Ensure the verdict job fails closed when the test-diff analyzer, base extraction, replacement run, or reviewer record is missing.
+The [CI/CD testing pipeline guide](/blog/cicd-testing-pipeline-github-actions) covers file dependencies. Ensure the verdict job fails closed when the test-diff analyzer, base extraction, new run, or reviewer record is missing.
 
-## Complete the Audit Before Release
+## Complete the AI Release Guardian Review
 
-Review test evidence after production risk mapping and before the final verdict. This ordering reveals whether a removed case protected one of the changed behaviors, while still catching evidence erosion in unchanged code.
+Review test proof after product risk mapping and before the final verdict. This ordering reveals whether a removed case protected one of the changed flows, while still catching proof erosion in unchanged code.
 
 Use this final checklist:
 
-1. Base, merge base, and full HEAD match every patch, run, coverage file, and review.
-2. Deleted paths, removed cases, table rows, snapshots, fixtures, and assertion changes were inventoried.
-3. Every candidate maps to a behavior, surface, blast radius, and source-of-truth requirement.
-4. Automated detection remained candidate generation, with semantic equivalence reviewed explicitly.
-5. Replacement tests ran at HEAD and assert the original outputs and side effects.
-6. Coverage supports execution evidence without substituting for assertion intent.
+1. Base, merge base, and full HEAD match each patch, run, coverage file, and review.
+2. Deleted paths, removed cases, table rows, snapshots, fixtures, and check changes were inventoried.
+3. Each item maps to a flow, surface, blast radius, and source-of-truth rule.
+4. Automated detection only generated items; reviewers assessed semantic equivalence explicitly.
+5. New tests ran at HEAD and assert the original outputs and side effects.
+6. Coverage supports run proof without substituting for check intent.
 7. New skips, quarantine changes, deleted cleanup, and failure-path changes remain visible.
-8. Markdown and JSON derive the same verdict from repository-owned policy.
+8. Markdown and JSON derive the same verdict from repo-owned rule set.
 
-Regenerate the audit after every commit. A later change can restore an assertion, remove another case, alter a replacement, or change the production behavior that gives the test meaning. Bind human review to the report artifact and judged HEAD.
+Regenerate the audit after each commit. A later change can restore a check, remove another case, alter a new test, or change the product flow that gives the test meaning. Bind human review to the report file and judged HEAD.
 
-Findings should close through evidence, not wording. If a test is intentionally obsolete, cite the changed contract and prove the new one. If evidence moved, cite and run the replacement. If protection disappeared, keep NO-GO until a reviewed test restores it.
+Findings should close through proof, not wording. If a test is intentionally obsolete, cite the changed contract and prove the new one. If proof moved, cite and run the new test. If protection disappeared, keep NO-GO until a reviewed test restores it.
 
-Test the audit tooling with repository fixtures. Include full-file deletion, case deletion, removed parameter row, renamed test, exact-to-partial matcher, missing async await, snapshot field removal, helper assertion removal, equivalent framework migration, and malformed base extraction. Assert candidate identity and unknown states, but keep final semantic classification in a reviewed evidence record.
+Test the audit tooling with repo fixtures. Include full-file deletion, case deletion, removed parameter row, renamed test, exact-to-partial matcher, missing async await, snapshot field removal, helper check removal, equivalent framework migration, and malformed base extraction. Assert item identity and unknown states, but keep final meaning label in a reviewed proof record.
 
-Browse the [QASkills directory](/skills), install AI Release Guardian, and run the test-evidence audit on a pull request that modifies tests. Require reviewed behavior equivalence and exact-HEAD replacement runs before allowing the release verdict to report GO.
+Browse the [QASkills directory](/skills), install AI Release Guardian, and run the test-proof audit on a pull request that modifies tests. Require reviewed flow equivalence and exact-HEAD new runs before allowing the release verdict to report GO.
 
 ## Frequently Asked Questions
 
 ### Does deleting a test always block a release?
 
-It creates a High-priority finding, not an automatic permanent blocker. Close it when a reviewed replacement proves the same or stronger behavior at the judged HEAD, or when a cited contract change makes the old invariant obsolete and new evidence proves the updated requirement. Unknown equivalence remains NO-GO.
+It creates a High-priority finding, not an automatic permanent blocker. Close it when a reviewed new test proves the same or stronger flow at the judged HEAD, or when a cited contract change makes the old rule obsolete and new proof proves the updated rule. Unknown equivalence remains NO-GO.
 
 ### Can assertion counts detect weakening automatically?
 
-No. Counts and matcher changes can identify candidates, but semantic strength depends on accepted outcomes, public contracts, helpers, setup, side effects, and requirement changes. One precise assertion may outperform several shallow checks. Use automation to focus review, then record the human-reviewed behavior difference and executable replacement evidence.
+No. Counts and matcher changes can find items, but meaning strength depends on accepted outcomes, public contracts, helpers, setup, side effects, and rule changes. One precise check may outperform several shallow checks. Use automation to focus review, then record the human-reviewed flow difference and runnable new proof.
 
 ### Is a passing snapshot update sufficient evidence?
 
-No. A snapshot update records acceptance of changed output but does not explain whether the change is correct. Review the semantic difference, map it to the relevant contract, and retain focused assertions for critical fields or behaviors. Large automatic snapshot updates deserve especially careful inspection.
+No. A snapshot update records acceptance of changed output but does not explain whether the change is correct. Review the meaning difference, map it to the key contract, and retain focused checks for critical fields or flows. Large automatic snapshot updates deserve especially careful inspection.
 
 ### What if the test moved to another framework?
 
-Map the original scenario matrix to the new test, inspect its assertions, run it at the same HEAD, and cite its result. Framework migration can preserve or improve evidence, but a similar name or line count is insufficient. Required suites and changed-line coverage still follow repository policy.
+Map the original case matrix to the new test, inspect its checks, run it at the same HEAD, and cite its result. Framework migration can preserve or improve proof, but a similar name or line count is insufficient. Required suites and changed-line coverage still follow repo rule set.
 
 ### Can high coverage cancel a weakened assertion finding?
 
-No. Coverage proves execution, not correctness of expectations. A test may hit every changed line while accepting the wrong status, amount, role, ordering, or side effect. Close the finding only when reviewed assertions prove the protected behavior and the replacement run passes at the judged revision.
+No. Coverage proves execution, not the correctness of expectations. A test may hit each changed line while accepting the wrong status, amount, role, ordering, or side effect. Close the finding only when reviewed checks prove the protected flow and the new run passes at the judged revision.
 
 ### Who reviews whether evidence is equivalent?
 
-Use the named human required by repository policy, ideally someone who understands the behavior and test boundary. AI Release Guardian can inventory changes and propose mappings, but it does not provide formal approval. Record reviewer identity, HEAD, report artifact, rationale, and the evidence used for the decision.
+Use the named human required by repo rule set, ideally someone who understands the flow and test edge. AI Release Guardian can list changes and propose mappings, but it does not provide formal approval. Record reviewer identity, HEAD, report file, rationale, and the proof used for the choice.
 `,
 };

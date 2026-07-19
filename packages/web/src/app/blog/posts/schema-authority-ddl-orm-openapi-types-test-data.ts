@@ -1,7 +1,7 @@
 import type { BlogPost } from './index';
 
 export const post: BlogPost = {
-  title: 'Resolve Test Data Conflicts Across Schemas',
+  title: 'Schema Authority Test Data Guide',
   description:
     'Apply schema authority test data rules across SQL DDL, ORM models, OpenAPI contracts, and TypeScript types whenever declarations conflict at runtime.',
   date: '2026-07-18',
@@ -31,32 +31,32 @@ export const post: BlogPost = {
     'https://spec.openapis.org/oas/v3.1.0',
     'https://www.typescriptlang.org/docs/handbook/typescript-from-scratch',
   ],
-  content: `The **schema authority test data** rules resolve conflicting declarations by asking which layer actually rejects or accepts each value. Start with SQL DDL and migrations for stored data, then ORM models, OpenAPI or JSON Schema for the API boundary, and TypeScript types last. Report every disagreement as a defect instead of silently choosing convenient factory values.
+  content: `Resolve each **schema authority test data** conflict by operation: use DDL for stored-state constraints, runtime validators and OpenAPI for API boundaries, ORM behavior for persistence paths, and TypeScript as compile-time evidence. Report each mismatch instead of hiding it with convenient builder values.
 
-The [Secure Test Data Engineer skill](/skills/thetestingacademy/secure-test-data-engineer) defines this priority and prohibits guessing when schemas stay silent. Use the [test data management guide](/blog/test-data-management-strategies) for ownership and lifecycle, the [synthetic test data guide](/blog/synthetic-test-data-generation-guide) for generation patterns, and [QASkills](/skills) for related database and API testing instructions.
+The [Secure Test Data Engineer skill](/skills/thetestingacademy/secure-test-data-engineer) sets this order and bans guesses when schemas are silent. Use the [test data management guide](/blog/test-data-management-strategies) for owners and data life, the [synthetic test data guide](/blog/synthetic-test-data-generation-guide) for builder plans, and [QASkills](/skills) for more DB and API test guides.
 
-## Understand Why Schema Layers Disagree
+## What Causes DDL ORM OpenAPI Conflicts?
 
-One entity can have several legitimate contracts. SQL controls what persists, an ORM maps application operations, OpenAPI describes request and response boundaries, and TypeScript helps developers before compilation. These layers serve different consumers, so perfect textual equality is neither expected nor always correct.
+One entity can have several valid contracts. SQL controls stored rows, an ORM maps app writes, OpenAPI defines request and response shapes, and TypeScript provides compile-time checking and editor tooling. These layers serve different needs, so their text need not match in all cases.
 
-Conflicts become dangerous when nobody states whether a difference is intentional. A nullable database column may be required on create requests but optional on patch requests. That can be valid. A TypeScript \`string\` for a database \`varchar(50)\` omits a runtime limit and should drive a finding or additional boundary validation.
+Clashes become risky when no one says whether a difference is planned. A DB column may allow null while a create request requires the field and a patch may omit it. That can be valid. A TypeScript \`string\` for DB \`varchar(50)\` misses a run-time limit and should create a finding or edge test.
 
 | Layer | Primary concern | Runtime enforcement | Typical omission |
 | --- | --- | --- | --- |
 | SQL DDL or migration | Stored-state integrity | Database rejects violating writes | Request-specific conditional rules |
-| ORM model | Application persistence mapping | ORM validation plus database execution | Partial indexes, triggers, or older migrations |
+| ORM model | Application persistence mapping | ORM checks when configured, followed by database enforcement during execution | Partial indexes, triggers, or older migrations |
 | OpenAPI 3.1 schema | API request and response contract | Only when gateway or application validates it | Internal storage and cross-row rules |
 | TypeScript type | Compile-time program shape | Types are erased from emitted JavaScript | Length, pattern, uniqueness, and database behavior |
 
-The assigned repository reference turns this into a practical priority: DDL or migrations, ORM, API schema at its boundary, then language types. "Priority" does not mean lower layers can be discarded. It means generation follows the enforcing layer while the mismatch is recorded for correction.
+A schema authority test data decision depends on the operation rather than one fixed hierarchy. Use DDL for stored state, request schemas and validators at API edges, ORM behavior for persistence paths, and code types for compile-time intent. The builder follows the rule that acts on its path while each mismatch stays open for a fix.
 
-For example, suppose OpenAPI allows a 100-character display name, the ORM declares 80, and the database column accepts 50. A valid persisted factory default must fit 50. Boundary tests should still send lengths 50, 51, 80, 81, 100, and 101 to reveal where the public contract and actual storage diverge.
+For example, OpenAPI may allow a 100-character display name, the ORM may allow 80, and the DB may store 50. A valid stored builder value must fit 50. Edge tests should still send lengths 50, 51, 80, 81, 100, and 101 to show where the public promise and stored row differ.
 
-That is the central **schema authority test data** principle: choose the authority for one operation and keep contradictory claims visible. A generator that simply intersects every schema can hide an API promise the service cannot honor.
+That is the core **schema authority test data** rule: choose the source for one path and keep all conflicting claims in view. A builder that keeps only values shared by all schemas can hide an API promise the service cannot meet.
 
-## Use an Operation-Specific Authority Order
+## How Do You Set Test Data Schema Priority?
 
-Authority depends partly on the operation under test. For a direct database insert, SQL is final. For an HTTP request rejected before persistence, OpenAPI and implementation validation describe the boundary, although successful requests must still satisfy storage constraints.
+The right source depends on the path under test. SQL is final for a direct DB insert. For an HTTP request rejected before a write, OpenAPI and app checks define the edge, though a valid request must still meet storage rules.
 
 Use this decision procedure:
 
@@ -66,19 +66,19 @@ Use this decision procedure:
 4. Generate valid defaults from the strictest applicable runtime authority without erasing broader promises.
 5. Create conflict cases that show where declarations disagree, then assign an owner for correction.
 
-The order remains useful because stored data cannot bypass the database's active constraints. PostgreSQL's [constraint documentation](https://www.postgresql.org/docs/current/ddl-constraints.html) explains that violating writes raise errors and covers check, not-null, unique, primary-key, foreign-key, and exclusion constraints. Those rules govern persistence even when upstream declarations are looser.
+This order works because stored rows cannot bypass active DB constraints. PostgreSQL's [constraint documentation](https://www.postgresql.org/docs/current/ddl-constraints.html) says bad writes raise errors and covers check, not-null, unique, primary-key, foreign-key, and exclusion rules. Those rules still govern a write when an earlier layer is loose.
 
-OpenAPI has authority over a documented API contract, not over all internal rows. The [OpenAPI 3.1 specification](https://spec.openapis.org/oas/v3.1.0) defines Schema Objects using JSON Schema Draft 2020-12 vocabularies and supports types, formats, required properties, composition, and other constraints. Whether an application enforces that description at runtime remains an implementation concern.
+OpenAPI governs the public API contract, not all private rows. The [OpenAPI 3.1 specification](https://spec.openapis.org/oas/v3.1.0) defines Schema Objects with JSON Schema Draft 2020-12 terms and supports types, formats, required keys, composition, and more rules. The app still needs code that enforces those rules at run time.
 
-TypeScript is valuable for catching incompatible program operations, but it cannot enforce persisted values after compilation. The official [TypeScript introduction](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch) states that types are erased when JavaScript is produced and do not change runtime behavior. Therefore, a TypeScript interface alone cannot prove an API payload or database row is valid.
+TypeScript can catch wrong code shapes, but it cannot check stored values after the build. The official [TypeScript introduction](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch) says types are erased when JavaScript is compiled and do not change run-time behavior. A TypeScript type alone cannot prove that an API body or database row is valid.
 
-Document intentional boundary differences explicitly. A generated database field can be absent from a create request because the database supplies a default. A response can expose a computed property that is not stored. The authority map should describe these transformations instead of forcing one universal object shape.
+Write down planned boundary differences. A database-generated field can be absent from a create request because the database supplies its default. A response can show a derived field that is not stored. The rule map should show these changes instead of forcing one object shape everywhere.
 
-## Inventory Constraints Before Choosing a Winner
+## Which Rules Drive Database Constraint Testing?
 
-Do not resolve conflicts from memory. Read current migrations, the effective database schema, ORM definitions, OpenAPI components and operation schemas, runtime validators, and TypeScript types. Include generated files only after locating their authoritative input.
+Do not solve conflicts from memory. Read current migrations, the live database schema, ORM rules, OpenAPI components and request schemas, run-time validators, and TypeScript types. Read generated files only after you find the source that produced them.
 
-Build one row per entity field. Record type, requiredness, nullability, lengths, numeric bounds, enum members, format, default, uniqueness, relation, check expression, generation source, and ownership. A blank cell means unknown, not unconstrained.
+Build one row for each entity field. Record type, required and null rules, lengths, number bounds, enum values, format, default, unique scope, link, check, source, and owner. A blank cell means unknown, not free of limits.
 
 | Field property | DDL evidence | ORM evidence | API evidence | Type evidence | Resolution question |
 | --- | --- | --- | --- | --- | --- |
@@ -89,15 +89,15 @@ Build one row per entity field. Record type, requiredness, nullability, lengths,
 | Relation | Foreign key and delete action | Relation mapping | Identifier format only | Branded or plain ID | What parent and lifecycle are required? |
 | Default | Database expression | ORM default | Optional plus documented default | Optional property | Which component supplies it? |
 
-Inventory the deployed migration chain, not only a desired schema snapshot. A model may have been edited without a migration, or an old migration may contain a partial unique index absent from generated ORM metadata. The database remains capable of enforcing what the application forgot.
+Read the deployed migration chain, not just the planned schema view. A model may change without a migration, or an old migration may hold a partial unique index missing from ORM data. The DB can still enforce a rule that the app forgot.
 
-Use direct catalog inspection in controlled test environments when migration history and current state may differ. Compare the result with version-controlled declarations and report drift. Never point exploratory generation or destructive constraint tests at production.
+Read the DB catalog in a safe test setup when migration files and current state may differ. Compare the result with rules in source control and report drift. Never run trial builders or destructive constraint tests on live data.
 
-The [database testing automation guide](/blog/database-testing-automation-guide) can organize constraint checks after this inventory. The [OpenAPI test suite generation guide](/blog/openapi-spec-to-test-suite-generation) helps exercise request contracts, but its generated cases still need database-aware expected outcomes.
+The [database testing automation guide](/blog/database-testing-automation-guide) can group constraint checks after this map. The [OpenAPI test suite generation guide](/blog/openapi-spec-to-test-suite-generation) helps test request contracts, but its built cases still need results based on DB rules.
 
-## Resolve DDL and ORM Conflicts
+## How Should Schema-Driven Test Factories Resolve DDL and ORM?
 
-When DDL and ORM disagree about stored data, generate persistence-valid defaults from active database constraints and open a mapping defect. Do not weaken the database or teach the factory to retry random values until an insert succeeds. Deterministic failures are more useful than accidental compatibility.
+When DDL and ORM clash on stored data, build valid defaults from active DB constraints and open a map defect. Do not weaken the DB or make the builder retry random values until one insert works. A fixed failure gives more value than luck.
 
 Consider this migration and application model:
 
@@ -124,21 +124,21 @@ export type NewCustomerAccount = {
 };
 \`\`\`
 
-The type adds \`pending\`, which the database check rejects. It also says nothing about the email length or uniqueness. A factory should default to \`active\`, construct reserved-domain unique emails no longer than 120 characters, omit \`created_at\` when testing the database default, and use an existing sponsor when that relation is present.
+The type adds \`pending\`, which the DB check rejects. It also says nothing about email length or unique scope. A builder should use \`active\`, make unique reserved-domain emails no longer than 120 characters, omit \`created_at\` when testing the DB default, and use a real sponsor when one is set.
 
-The generator should also emit a targeted \`pending\` case that proves the conflict. If the product intends the new status, the fix may be an additive migration deployed before application writes it. If the type is wrong, remove the member. The test should not decide product policy.
+The builder should also make one \`pending\` case that proves the clash. If the product needs the new status, add and deploy a migration before the app writes it. If the type is wrong, remove that value. The test must not choose product rules.
 
-PostgreSQL notes that check expressions pass when they evaluate to true or null, so a separate \`NOT NULL\` constraint is needed when null must be rejected. This detail matters when translating checks into negative cases. A generator must read the complete column declaration rather than treating one expression as every rule.
+PostgreSQL notes that a check passes when it yields true or null. A separate \`NOT NULL\` rule is needed when null must fail. This fact matters for bad-value cases, so the builder must read the full column rule instead of treating one check as all rules.
 
-Foreign keys add ordering and cleanup semantics. Insert parent rows before children, return actual identifiers, and test the configured delete action. A relation marked optional in TypeScript still needs a valid parent whenever a non-null identifier is supplied.
+Foreign keys add row order and cleanup rules. Insert parents before children, return real IDs, and test the configured \`ON DELETE\` action. A link marked optional in TypeScript still needs a valid parent when the request supplies a non-null ID.
 
-The **schema authority test data** result should name both the chosen valid default and the unresolved mismatch. That report makes a future schema change break one mapping row and factory rather than dozens of copied fixtures.
+The **schema authority test data** result should name the chosen valid default and the open mismatch. That report lets a later schema change invalidate one map row and one builder instead of many copied fixtures.
 
-## Keep API Authority at the Request Boundary
+## Where Does OpenAPI Request Validation Hold Authority?
 
-OpenAPI describes externally visible request and response shapes. Its rules can intentionally differ by operation, especially between create, replace, patch, and response schemas. Generate API tests from the operation actually called instead of one shared domain interface.
+OpenAPI describes public request and response shapes. Its rules can differ on purpose for create, replace, patch, and response paths. Build API tests from the exact path being called instead of one shared domain type.
 
-Suppose the create request requires \`email\` and \`status\`, while the database supplies \`id\` and \`created_at\`. The API factory should omit database-generated fields unless the contract accepts them. After success, response assertions and database checks can verify the generated values.
+Suppose a create request needs \`email\` and \`status\`, while the database supplies \`id\` and \`created_at\`. The API builder should omit database-generated fields unless the contract accepts them. After success, response checks and a database query can verify the new values.
 
 
 \`\`\`yaml
@@ -158,21 +158,21 @@ components:
           enum: [active, suspended]
 \`\`\`
 
-This schema aligns with the table on status membership and email length, but it still does not describe database uniqueness. Generate duplicate-email tests from DDL evidence and assert the API's documented error behavior. If that error contract is absent, record another gap rather than inventing a status code.
+This schema matches the table for status values and email length, but it says nothing about DB uniqueness. Build duplicate-email tests from DDL proof and assert the API's documented error. If no error contract exists, record the gap instead of making up a status code.
 
-OpenAPI \`format\` can carry semantic detail, but the specification leaves some behavior to consuming applications. Verify the validator or application path your service actually uses. A schema file without runtime integration is documentation and generation input, not proof of rejection.
+OpenAPI \`format\` can add meaning, but the spec leaves some checks to the app that reads it. Test the checker or app path that your service uses. A schema file with no run-time link is docs and builder input, not proof that a bad value will fail.
 
-\`required\` is object-level in JSON Schema vocabularies. It identifies property names that must appear; nullability depends on allowed types. Do not translate "not required" into "nullable" or treat \`null\`, an absent key, and JavaScript \`undefined\` as interchangeable.
+\`required\` applies to an object in JSON Schema. It lists keys that must be present, while null depends on the allowed types. Do not turn "not required" into "nullable," and do not treat \`null\`, a missing key, and JavaScript \`undefined\` as the same case.
 
-The [OpenAPI specification to test suite guide](/blog/openapi-spec-to-test-suite-generation) can generate request-boundary cases. Connect those cases to the [constraint field map guide](/blog/constraint-field-map-before-test-data-generation) so storage-only uniqueness, checks, foreign keys, defaults, and generated columns are not lost.
+The [OpenAPI specification to test suite guide](/blog/openapi-spec-to-test-suite-generation) can build request-edge cases. Link those cases to the [constraint field map guide](/blog/constraint-field-map-before-test-data-generation) so DB-only unique rules, checks, foreign keys, defaults, and built columns are not lost.
 
-## Treat TypeScript as Compile-Time Evidence
+## What Do TypeScript Erased Types Mean for Tests?
 
-TypeScript types express developer intent and improve factory ergonomics, but their constraints disappear from emitted JavaScript. Use them to shape builders and variants while tracing runtime acceptance to validators, API handlers, ORM behavior, and DDL.
+TypeScript types show developer intent and make builders easier to use, but their rules vanish from built JavaScript. Use them to shape builders and named cases. Trace run-time acceptance to checkers, API handlers, ORM code, and DDL.
 
-A plain \`string\` does not reveal database length, pattern, collation, or uniqueness. An optional property does not establish whether a JSON request may omit it, set it to null, or send it as undefined. A union can list business states, but the database or API may have a different deployed set.
+A plain \`string\` does not show DB length, pattern, sort rules, or unique scope. An optional key does not show whether a caller may omit it, pass null, or set it to undefined in a JavaScript object before JSON serialization. A union may list business states, but the live DB or API may have a different set.
 
-Branded types such as \`UserId\` can reduce accidental identifier mixing during compilation. Generate them through the repository's constructor when one exists, because that path may validate format. Still inspect the database foreign key and API format before claiming the value is valid at runtime.
+Branded types such as \`UserId\` can stop ID mix-ups at build time. Make them through the repo's constructor when one exists because that path may check the format. Still read the DB foreign key and API format before calling the value valid at run time.
 
 | TypeScript construct | Useful factory signal | Missing runtime question |
 | --- | --- | --- |
@@ -183,15 +183,15 @@ Branded types such as \`UserId\` can reduce accidental identifier mixing during 
 | \`Date\` | Builder expects a date object | Which wire format and database zone apply? |
 | \`Partial<T>\` override | Express test intent | Which final fields remain required? |
 
-Avoid deriving negative cases only by defeating TypeScript with \`as unknown as T\`. That can be useful at a boundary, but it should be driven by a named schema constraint. Otherwise, the test merely proves JavaScript can receive unexpected values, which is already known.
+Do not build all bad cases by bypassing TypeScript with \`as unknown as T\`. That cast can help at an edge, but a named schema rule should drive the case. If not, the test proves only that JavaScript can receive an odd value, which is already known.
 
-Keep unsafe values outside valid factory return types when possible. A valid builder can return \`NewCustomerAccount\`, while a boundary-case function returns serialized request data or SQL parameters expected to fail. This separation prevents invalid fixtures from leaking into unrelated tests.
+Keep unsafe values out of valid builder return types when you can. A valid builder can return \`NewCustomerAccount\`, while an edge-case helper returns request data or SQL values meant to fail. This split stops bad fixtures from leaking into other tests.
 
-The assigned skill prioritizes deterministic output, fixed clocks, worker-aware uniqueness, and explicit overrides. TypeScript makes those builders convenient, while the authority map keeps their defaults honest.
+The skill favors fixed output, fixed clocks, worker-safe unique values, and clear overrides. TypeScript makes those builders easy to call, while the rule map keeps their defaults tied to run-time facts.
 
-## Turn Every Conflict Into a Testable Finding
+## How Do You Turn Schema Conflicts Into Test Cases?
 
-A conflict record should identify entity, field, operation, declarations, selected authority, generated cases, owner, and desired resolution. Avoid a generic note such as "schemas differ." Reviewers need the exact values each layer accepts.
+A clash record should name the entity, field, path, source rules, chosen source, built cases, owner, and planned fix. Avoid a vague note such as "schemas differ." Reviewers need the exact values that each layer accepts.
 
 
 \`\`\`json
@@ -210,23 +210,23 @@ A conflict record should identify entity, field, operation, declarations, select
 }
 \`\`\`
 
-Do not invent an owner in automated output. Resolve ownership from committed repository rules or leave it unassigned for human triage. The important technical behavior is that generation does not proceed silently when an authoritative field remains ambiguous.
+Do not invent an owner in tool output. Read ownership from committed repo rules or leave the field blank for human review. The key point is that the builder must stop when a field source stays unclear.
 
-Conflict tests should assert the exact boundary that rejects the value and confirm no partial write remains. For a request accepted by validation but rejected by SQL, assert the service error according to its documented contract and verify the table did not gain a row.
+Clash tests should assert the exact edge that rejects a value and prove no partial write remains. If an app check accepts a request but SQL rejects it, assert the documented service error and prove the table did not gain a row.
 
-Keep known conflicts visible until declarations align. Marking them as expected failures can be appropriate when repository policy allows it, but the issue and expiry should remain explicit. A permanently ignored mismatch becomes undocumented product behavior.
+Keep known clashes in view until the rules match. An expected failure can be valid when repo rules allow it, but its issue and end date must stay clear. A mismatch ignored for good becomes hidden product behavior.
 
-The release side matters when resolving a conflict changes migrations or public schemas. Use [binding release evidence to HEAD](/blog/bind-release-evidence-to-head-sha) so migration, generated cases, and test results identify one commit. Apply the [maximum diff size release review](/blog/max-diff-lines-release-analysis-gate) when synchronized schema updates create large generated diffs.
+Release checks matter when a clash fix changes migrations or public schemas. Use [binding release evidence to HEAD](/blog/bind-release-evidence-to-head-sha) so the migration, built cases, and test results name one commit. Apply the [maximum diff size release review](/blog/max-diff-lines-release-analysis-gate) when linked schema edits make a large built diff.
 
-The [human control boundary](/blog/ai-release-guardian-human-control-boundary) also applies: the generator can recommend authority based on runtime enforcement, but a schema owner decides whether the API, ORM, or database declaration should change.
+The [human control boundary](/blog/ai-release-guardian-human-control-boundary) also applies to this choice. A builder can suggest the source based on run-time checks, but a schema owner decides whether the API, ORM, or DB rule should change.
 
-## Resolve Defaults, Computed Fields, and Transformations
+## How Should Defaults and Transformations Be Mapped?
 
-**Schema authority test data** decisions become harder when values change between request and storage. An API may accept a local date, application code may normalize it, and the database may store a timestamp. Map each transformation rather than selecting one representation for every test.
+**Schema authority test data** choices get harder when values change between request and storage. An API may accept a local date, app code may change its form, and the DB may store a timestamp. Map each step instead of using one form in every test.
 
-Defaults need an owner. A database \`DEFAULT now()\` is tested by omitting the column during insert and observing the stored value. An application default is tested by calling the application boundary without the field, while an OpenAPI default describes contract behavior consumed according to the service's implementation.
+Defaults need an owner. Test DB \`DEFAULT now()\` by omitting the column on insert and reading the stored value. Test an app default by calling the app without that field. An OpenAPI default documents an expected value, but the service must define and test whether it applies that value.
 
-Do not have the factory populate every default automatically. Doing so can prevent tests from exercising the component responsible for supplying it. Maintain separate builders for direct persistence, API requests, and expected responses when their writable fields differ.
+Do not make the builder fill each default by itself. That can stop tests from checking the part that should supply the value. Keep separate builders for direct DB writes, API requests, and expected responses when their writable fields differ.
 
 | Value behavior | Authority question | Generation approach |
 | --- | --- | --- |
@@ -237,19 +237,19 @@ Do not have the factory populate every default automatically. Doing so can preve
 | Trigger-managed audit field | Which operation changes it? | Avoid direct writes and test trigger behavior |
 | ORM serialization | Which runtime value reaches SQL? | Observe parameters or persisted row at integration boundary |
 
-Computed and generated fields should not appear as ordinary factory overrides unless the operation explicitly allows writing them. An override that bypasses their producer can create impossible states in tests. If low-level corruption testing needs such a state, place it in a clearly named administrative fixture with separate authorization.
+Derived and built fields should not be normal builder overrides unless the path lets clients write them. An override that skips their source can make an impossible test row. If a low-level damage test needs such a row, put it in a clearly named admin fixture with separate approval.
 
-The **schema authority test data** map should record both wire and storage formats. A UUID may remain text across the API while the database uses a native UUID type. A decimal may arrive as a JSON number or string depending on the contract, then become an exact database numeric value.
+The **schema authority test data** map should record wire and storage forms. A UUID may cross the API as text while the DB uses its native UUID type. A decimal may arrive as a JSON number or string, then become an exact DB numeric value.
 
-Transformations can also reject values that individual schemas appear to allow. Record runtime validator and mapper locations beside DDL, OpenAPI, ORM, and TypeScript evidence. A hidden trim, lowercase, or timezone conversion is part of observed behavior and may indicate missing contract documentation.
+Value changes can also reject input that one schema seems to allow. Record checker and mapper paths beside DDL, OpenAPI, ORM, and TypeScript proof. A hidden trim, lowercase step, or time-zone change is real behavior and may show that contract docs are missing.
 
-## Preserve Authority During Schema Evolution
+## How Do Schema Rules Change During a Rollout?
 
-A **schema authority test data** rule must account for deployment order. During an additive migration, old and new application versions can coexist against one database. Valid test data should cover the compatibility interval, not only the final desired model.
+A **schema authority test data** rule must account for deploy order. During an additive migration, old and new app versions may use one DB at the same time. Valid test data should cover that shared window, not just the final model.
 
-For a new nullable column, first deploy storage that accepts old writes. Then deploy application code that understands the field, activate writes when planned, backfill existing rows if required, and tighten constraints only after old writers are gone. Each phase has a different effective contract and deserves its own revision identity.
+For a new nullable column, first deploy storage that accepts old writes. Then deploy app code that reads the field, start new writes when planned, fill old rows if needed, and tighten rules only after old writers are gone. Each phase has its own active contract and needs a named commit.
 
-Enum evolution illustrates the risk. Adding a TypeScript member before the database accepts it creates application values that fail on write. Adding a database member first may be safe for storage, but old readers can still mishandle rows containing it. Tests should exercise writer and reader combinations supported during rollout.
+Enum change shows the risk. Adding a TypeScript value before the DB accepts it creates app values that fail on write. Adding the DB value first may keep writes safe, but old readers can still fail on rows that use it. Test each supported old-new reader and writer pair.
 
 Use an evolution matrix:
 
@@ -261,56 +261,56 @@ Use an evolution matrix:
 | Backfill | Target shape with mixed rows | Readers tolerate transition | Missing and populated field states |
 | Constraint tightening | Final enforced shape | Old writers removed | New boundary and rollback cases |
 
-Do not resolve transition conflicts by declaring the newest file authoritative everywhere. A migration committed at HEAD may not yet be deployed to the environment under test, while a production database may be ahead of a local snapshot during staged rollout. Record environment schema revision and compare it with test expectations.
+Do not solve rollout clashes by treating the newest file as the source everywhere. A migration at HEAD may not yet be on the test DB, while a live DB may be ahead of a local view during staged rollout. Record the DB schema commit and compare it with test needs.
 
-The **schema authority test data** report should distinguish desired authority from active authority. Desired authority guides planned fixes; active authority determines what the current database and service enforce. Conflating them produces tests that pass only after all deployment phases finish.
+The **schema authority test data** report should split the planned source from the active source. The planned source guides fixes, while the active source shows what the current DB and service enforce. Mixing them can make tests pass only after the whole rollout ends.
 
-Rollback planning needs the same precision. If new code writes values old code cannot read, rolling back binaries does not restore compatibility. Generate a case containing the new value, run the supported old reader where policy requires it, and record whether rollout must pause before writes activate.
+Rollback needs the same care. If new code writes values that old code cannot read, rolling back app files will not restore safe use. Build a case with the new value, run the supported old reader when rules require it, and state whether rollout must pause before writes begin.
 
-Link generated datasets to migration and application SHAs. A dataset valid for one phase can become invalid after a constraint tightens, so retaining only a seed is insufficient. Preserve seed, map revision, schema revision, and operation version together.
+Link built datasets to migration and app SHAs. Data valid in one phase can fail after a rule gets tighter, so a seed alone is not enough. Keep the seed, map commit, schema commit, and request version together.
 
-Finally, use **schema authority test data** findings as release evidence. The release guardian can classify a data-shape change as high risk, verify migration notes and tests, and recommend NO-GO when transition behavior is unknown. A human schema owner still decides the intended rollout contract.
+Use **schema authority test data** findings as release proof. The guardian can mark a data-shape change as high risk, check migration notes and tests, and advise NO-GO when rollout behavior is unknown. A human schema owner still chooses the planned contract.
 
-## Apply Authority to Deterministic Generation
+## How Does Secure Synthetic Test Data Use Authority?
 
-Once conflicts are mapped, create a boring valid default from the applicable authority. Add boundary and negative cases mechanically: length at maximum minus one, maximum, and maximum plus one; numeric minimum and adjacent values; every enum member and a non-member; null, absent, and undefined where relevant.
+Once clashes are mapped, make one plain valid default from the active source. Add edge and bad cases by rule: one below, at, and one above a length or number bound. Test each enum value plus one bad value, and test null, missing, and undefined when they apply.
 
-For unique fields, derive worker and sequence identifiers rather than trusting random collision avoidance. For time, use a fixed clock unless the specific test verifies a database default. For relations, insert top-down and return created identifiers instead of predicting sequence values.
+For unique fields, use worker and sequence IDs instead of trusting random luck. Use a fixed clock unless the test checks a DB time default. For linked rows, insert parents first and return real IDs instead of guessing sequence values.
 
-Record the schema revision, generator seed, and conflict-map version with generated datasets. These values make failures reproducible and prevent a dataset created under an old schema from being treated as current evidence.
+Store the schema commit, builder seed, and clash-map version with each built dataset. These values let a team repeat a failure. They also stop old-schema data from being treated as current proof.
 
-Keep production rows out of this process. The Secure Test Data Engineer works from schema shapes and, when approved, locally derived aggregate statistics. It never needs copied customer records to learn that a field is unique, bounded, nullable, or related.
+Keep live rows out of this work. The Secure Test Data Engineer uses schema shapes and, when approved, local summary stats. It does not need copied customer rows to learn that a field is unique, bounded, nullable, or linked.
 
-Make **schema authority test data** review concrete by applying the [Secure Test Data Engineer skill](/skills/thetestingacademy/secure-test-data-engineer) to one entity with DDL, ORM, OpenAPI, and TypeScript declarations. Publish its field conflicts, fix or assign each one, then generate deterministic valid and negative cases from the reviewed map.
+Make **schema authority test data** review real by using the [Secure Test Data Engineer skill](/skills/thetestingacademy/secure-test-data-engineer) on one entity with DDL, ORM, OpenAPI, and TypeScript rules. Publish its field clashes, fix or assign each one, then build fixed valid and bad cases from the reviewed map.
 
 ## Frequently Asked Questions
 
 ### Does DDL always override OpenAPI for every test?
 
-No. DDL is authoritative for persisted state, while OpenAPI describes the API request and response boundary. A create request may be stricter than a nullable table, and a response may contain computed fields. Name the operation, apply the enforcing layer, and report disagreements rather than forcing one shape everywhere.
+No. DDL governs stored rows, while OpenAPI defines API request and response shapes. A create request may be stricter than a table that allows null, and a response may hold derived fields. Name the path, use the layer that acts there, and report mismatches instead of forcing one shape everywhere.
 
 ### What if the ORM is stricter than the database?
 
-Generate application-path defaults that satisfy the ORM, then test whether the stricter rule is intended and documented. Direct database tests still follow DDL. Record the difference because another writer can bypass the ORM, and future schema changes may expose assumptions hidden only in application validation.
+Build app-path defaults that meet the ORM, then test whether its stricter rule is planned and documented. Direct DB tests still follow DDL. Record the gap because another writer can bypass the ORM, and later schema changes may expose rules hidden only in app checks.
 
 ### Why are TypeScript types last in the priority order?
 
-TypeScript erases types when producing JavaScript, so the declarations do not enforce runtime values by themselves. They remain useful evidence of developer intent and factory shape. Runtime validators, API contracts, ORM behavior, and database constraints determine what requests and stored rows actually accept or reject.
+TypeScript erases types when it builds JavaScript, so those rules do not enforce run-time values. They still show developer intent and help shape builders. Run-time checks, API contracts, ORM code, and DB constraints decide which requests and stored rows pass or fail.
 
 ### Should a generator use the strictest value shared by all schemas?
 
-Use shared valid values for routine defaults, but do not stop there. Intersecting schemas can hide a broken public promise or undeployed enum member. Generate conflict cases around each boundary, record which component rejects them, and assign the declaration mismatch for explicit resolution.
+Use values shared by all schemas for normal defaults, but do not stop there. Their overlap can hide a broken public promise or enum value not yet deployed. Build clash cases at each edge, record which part rejects them, and assign the mismatch for a clear fix.
 
 ### How should nullable, optional, and absent values be tested?
 
-Treat them as separate cases. A nullable database column may accept SQL null, an optional API property may be absent, and JavaScript undefined may disappear during serialization. Derive expected behavior from each operation schema and persistence rule, then verify rejection or defaults at the actual boundary.
+Treat them as separate cases. A nullable database column may accept SQL null, an API key may be absent, and JavaScript undefined may vanish when JSON is serialized. Derive the result from each request schema and storage rule, then test failure or defaults at the real boundary.
 
 ### Can generated ORM files be the source of truth?
 
-Only when their upstream authority and deployment state are understood. If they are generated from current DDL, inspect that relationship and regeneration result. If migrations and generated models disagree, active database constraints govern persistence, while the mismatch remains a finding that generation must not conceal.
+Only when you know their source and deploy state. If they are generated from the current DDL, verify that provenance and the clean rebuild result. If migrations and generated models clash, active DB constraints govern stored rows, while the mismatch stays as a finding that builders must not hide.
 
 ### Who decides which conflicting schema should change?
 
-The accountable schema or service owner decides product intent. The test-data agent can identify runtime authority, produce examples, and show the consequences of each declaration. It should not silently edit contracts, weaken constraints, or declare an undocumented behavior correct merely because one layer currently enforces it.
+The named schema or service owner decides product intent. The test-data agent can find the active source, build examples, and show what each rule does. It must not edit contracts, weaken constraints, or call hidden behavior correct just because one layer enforces it today.
 `,
 };

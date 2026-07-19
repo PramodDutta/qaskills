@@ -1,7 +1,7 @@
 import type { BlogPost } from './index';
 
 export const post: BlogPost = {
-  title: 'Make Test Data Cleanup Prove Zero Residue',
+  title: 'Test Data Cleanup Residue Assertion Guide',
   description:
     'Use a test data cleanup residue assertion with run tags, dependency-aware deletion, crash recovery, scoped row counts, and actionable CI evidence.',
   date: '2026-07-18',
@@ -28,15 +28,15 @@ export const post: BlogPost = {
     'https://www.postgresql.org/docs/current/ddl-constraints.html',
     'https://www.postgresql.org/docs/current/tutorial-transactions.html',
   ],
-  content: `A test data cleanup residue assertion proves teardown by counting every resource owned by one run after deletion and requiring zero. The run tag must propagate during creation, deletion must respect dependency order, and failures must name remaining tables or resources. Cleanup without this final observation is only an attempted action.
+  content: `A test data cleanup residue assertion proves teardown by counting each item owned by one run after delete work, then requiring zero. The run tag must reach each new row, deletes must follow key order, and failures must name what remains, since cleanup without that final check is only an attempted action.
 
 The pattern follows the [Secure Test Data Engineer skill](/skills/thetestingacademy/secure-test-data-engineer), which requires cleanup to fail loudly on residue. Use the broader [QASkills directory](/skills) when database cleanup must coordinate with browser, API, or cloud test tools.
 
-## Define Zero Residue as a Test Invariant
+## What Does Zero Residue Testing Prove?
 
-Teardown code can execute successfully while leaving data behind. A delete predicate may omit a child table, a new relation may not appear in the cleanup list, or a background worker may recreate a row after deletion. A passing hook therefore proves only that no observed cleanup call threw.
+Zero residue testing proves that teardown removed all run-owned data, not just that delete calls returned. A query may miss a child table, a new link may be absent from the cleanup list, or a worker may rebuild a row. A passing hook proves only that no cleanup call threw.
 
-Zero residue is an observable postcondition. After normal or recovery cleanup, every owned database row, object, job, message, and external sandbox resource carrying the run identity must be absent. If the system intentionally retains a test audit record, classify and expire it explicitly rather than weakening the invariant silently.
+Zero residue is a state tests can check after normal or retry cleanup, when each owned DB row, file, job, message, and sandbox item must be gone. If the system keeps a test audit row by design, name its class and expiry instead of quietly weakening the rule.
 
 | Cleanup evidence | Strength | Remaining blind spot |
 |---|---|---|
@@ -48,15 +48,15 @@ Zero residue is an observable postcondition. After normal or recovery cleanup, e
 
 A test data cleanup residue assertion needs a declared ownership boundary. List tables directly tagged by the run, tables reachable through tagged parents, and external resources carrying the same identity. Keep shared reference data outside that boundary so cleanup never deletes fixtures owned by another suite.
 
-Separate command invariants from suite invariants. A rejected API request may prove no partial write while valid arrangement rows still exist. The sibling [negative API no-write guide](/blog/negative-api-tests-no-partial-write-row-count) checks the command boundary; this guide proves all test-owned prerequisites and outputs are gone afterward.
+Separate command rules from suite rules, since a rejected API call may prove no partial write while valid setup rows still exist. The sibling [negative API no-write guide](/blog/negative-api-tests-no-partial-write-row-count) checks the command scope; this guide proves all test-owned setup and output rows are gone afterward.
 
-Define when zero must be observed. For local teardown, check immediately after bounded deletion and consumer shutdown. For eventually consistent external stores, poll the supported read path until zero or a strict deadline, then report the last observed identifiers.
+Define when zero must be seen, and check local teardown just after bounded deletes and worker shutdown. For stores with delayed reads, poll the supported path until zero or a strict deadline, then report the last safe ids seen.
 
-The [test data management strategies guide](/blog/test-data-management-strategies) compares disposable databases, transaction rollback, and shared environments. Zero-residue checks remain useful in every mode because they expose escapes from the assumed isolation boundary.
+The [test data management strategies guide](/blog/test-data-management-strategies) compares throwaway DBs, rollback, and shared test systems. Zero checks help in each mode because they catch writes that escaped the planned scope.
 
-## Design One Canonical Run Tag
+## How Does Test Run Tag Cleanup Find Owned Rows?
 
-Allocate the run identity before creating any resource. A useful tag combines a CI run or local session identifier, job, retry attempt, worker, and a collision-resistant suffix when concurrent processes can otherwise choose the same value. Keep the canonical value short enough for every destination.
+Create the run id before any test item, joining the CI run or local session, job, retry, worker, and a short random suffix when two tasks might clash. Keep the main tag short enough for each store.
 
 Do not hide ownership only inside a display name. Product code may truncate, normalize, or permit users to edit that field. Store \`test_run_id\` in an indexed column, exact metadata field, object prefix, message header, or provider-supported tag intended for machine selection.
 
@@ -93,11 +93,11 @@ CREATE INDEX orders_test_run_id_idx ON orders(test_run_id);
 
 This example illustrates a dedicated test environment, not a request to modify production schemas casually. If shared schemas cannot include test columns, use an existing metadata facility or join through an owned root. Never weaken constraints or add unsafe public inputs merely to simplify cleanup.
 
-The run registry is not deletion authority by itself. Cleanup credentials, environment allowlists, and tenant restrictions must independently prevent production access. A forged tag must not make an arbitrary row deletable.
+The run table does not grant delete rights by itself. Cleanup keys, test-system allowlists, and tenant rules must each block live access. A fake tag must never make an unrelated row safe to delete.
 
 A test data cleanup residue assertion should cite the exact run id in its failure. That gives an independent sweeper and a human operator the same selection key without exposing the generated record contents.
 
-## Propagate Ownership Through the Data Graph
+## How Does Integration Test Teardown Track the Data Graph?
 
 Tag every resource at creation time. Retrofitting ownership after a setup failure is unreliable because the process may stop between insert and update. A child should receive the same run tag alongside the returned parent identifier in its original insert.
 
@@ -116,7 +116,7 @@ Some tables cannot accept a direct tag. Join them to a tagged root when the owne
 
 Prefer direct child tags where the schema and environment permit them. A residue query joining through parents returns zero after parent deletion even when an orphaned child remains because constraints were disabled or a separate store is involved. Direct tags preserve attribution independently.
 
-Maintain a resource manifest as a second evidence path for external systems. Append the provider type and returned identifier immediately after creation succeeds. Tag discovery finds resources after a local manifest is lost, while the manifest detects tagging mistakes and supports precise deletion.
+Keep a resource list as a second proof path for outside systems. Save the vendor type and returned id as soon as create work succeeds. Tag search finds items if the local list is lost, while the list catches bad tags and supports exact deletes.
 
 Do not place credentials, tokens, customer-like free text, or full payloads in that manifest. It should contain safe identifiers, run ownership, resource kind, and cleanup status. Encrypt or restrict the artifact according to the environment's normal operational controls.
 
@@ -124,13 +124,13 @@ Production rows never leave their system to seed this graph. Generate determinis
 
 Audit coverage whenever migrations add a table or relationship. A new run-owned table without tagging, deletion, and residue queries is a cleanup defect. Code review should require those three changes together.
 
-## Delete in Dependency Order Inside a Boundary
+## When Should Dependency Ordered Deletion Run?
 
-When foreign keys use restrictive behavior, delete dependent children before referenced parents. When the schema declares cascades, parent deletion can remove children, but residue still needs independent observation. Do not rely on application memory of relations when the migrations provide enforceable truth.
+Dependency ordered deletion removes child rows before parents when foreign keys restrict delete order. A stated cascade may remove the child with its parent, but a fresh residue check must still prove that result. Read SQL rules instead of trusting an old list in app code.
 
 PostgreSQL's [constraint documentation](https://www.postgresql.org/docs/current/ddl-constraints.html) describes foreign keys and their delete actions, including cascade, restrict, set null, and no action. Derive the deletion plan from those declarations and retain constraint names in cleanup diagnostics.
 
-Use one database transaction for related cleanup statements when they share a PostgreSQL database. The [official transaction tutorial](https://www.postgresql.org/docs/current/tutorial-transactions.html) explains the atomic all-or-nothing boundary. If a statement fails, rollback avoids a half-clean relational graph that obscures the original residue.
+Use one DB transaction for linked cleanup statements in the same PostgreSQL store. The [official transaction tutorial](https://www.postgresql.org/docs/current/tutorial-transactions.html) explains this all-or-nothing unit. If one statement fails, rollback keeps the graph from becoming half clean and hard to diagnose.
 
 An ordered cleanup procedure is easier to review:
 
@@ -143,7 +143,7 @@ An ordered cleanup procedure is easier to review:
 7. Mark the registry clean only when every count is zero.
 8. Preserve a failure report and retry safely when any residue remains.
 
-The following TypeScript sketch keeps deletion results separate from residue evidence. Its table order comes from a reviewed dependency map rather than arbitrary naming.
+The TypeScript below keeps delete counts apart from the final residue proof. Its table order comes from a reviewed key map, not a guess based on names.
 
 \`\`\`typescript
 type CleanupCount = { resource: string; deleted: number };
@@ -166,23 +166,23 @@ Never interpolate untrusted table names into SQL. The example uses a closed, rev
 
 Delete counts are diagnostics, not the final assertion. A retry can validly delete zero because an earlier attempt already removed rows. Idempotent cleanup accepts absent resources, then proves the final state is empty.
 
-For transaction-only suites, the [database testing automation guide](/blog/database-testing-automation-guide) helps place rollback within wider storage coverage. Still run residue queries after rollback for high-risk harnesses, especially when application code can open its own connection.
+For rollback-only suites, the [database testing automation guide](/blog/database-testing-automation-guide) places that step inside wider DB checks. Still count leftover rows after rollback when app code can open another pool session.
 
-Partitioned tables and triggers deserve explicit inventory review. A delete against a parent relation may affect partitions, while a trigger can create history or queue rows not obvious from application repositories. Read migrations and database declarations, then add every run-owned destination to residue evidence.
+Partitioned tables and triggers need their own list review. A parent delete may reach partitions, while a trigger may add history or queue rows that app code never shows. Read the SQL files, then add each run-owned target to the final check.
 
-Generated cleanup plans can assist discovery but should not execute without review. Introspection can find foreign keys, yet it cannot decide business ownership, shared reference policy, external resources, or permitted audit retention. Keep a versioned allowlist whose entries cite the schema evidence and owning suite.
+Generated cleanup plans can help find links, but they should not run without review. DB scans can find foreign keys, yet they cannot decide who owns a row, which roots are shared, or which audit rows may stay. Keep a versioned allowlist tied to SQL and the owning suite.
 
 Test deletion predicates against two runs at once. Populate identical shapes under separate tags, clean one run, then prove its counts are zero while the other run remains unchanged. This catches missing tag conditions and joins that select through a shared parent.
 
 Measure updates made during teardown too. Cleanup code that marks shared rows inactive before deleting owned children may leave configuration damage despite zero tagged rows. Prefer isolated test-owned roots; otherwise snapshot and restore the narrowly approved shared fields with separate evidence.
 
-## Query and Assert Every Residue Count
+## How Does a Database Residue Check Prove Cleanup?
 
 Build residue queries from the ownership inventory, not from whatever tables happened to be deleted. That distinction catches a migration that adds a new child table but forgets to update teardown. Query all direct tags and any documented join-based selectors.
 
 Return a structured map of resource names to counts. Require every value to equal zero and include only nonzero entries in the concise failure summary. Attach the complete map as an artifact when diagnostics need all checked surfaces.
 
-Use the test data cleanup residue assertion as the sole transition into a clean registry state. Delete counts and manifest statuses remain supporting diagnostics, not substitutes.
+Use the test data cleanup residue assertion as the only gate to a clean run state. Delete counts and list states help explain the run, but they cannot replace fresh zero counts.
 
 \`\`\`typescript
 type Residue = Record<string, number>;
@@ -223,13 +223,13 @@ Run the assertion even when the test body fails. Preserve the original test erro
 
 The [test impact analysis CI guide](/blog/test-impact-analysis-ci-guide-2026) helps select cleanup checks when migrations or fixture ownership change. Local assertions catch immediate defects; recovery jobs handle process death that prevents assertions from running.
 
-Keep residue evidence after a recovery attempt, not only after local teardown. The recovery report should name the original run, lease owner, cleanup version, attempt number, prior nonzero counts, and final counts. This history distinguishes a recovered process crash from a recurring deletion defect.
+Save residue proof after a repair attempt as well as local teardown. The report should name the first run, lease owner, cleanup version, retry number, old counts, and final counts. That history separates one process crash from a delete bug that keeps returning.
 
 Recovery tests should include unavailable dependencies. Simulate a database success followed by an object-store timeout, preserve the failed state, then retry once the fake store returns. The final clean transition must depend on fresh checks from both systems rather than the earlier database result.
 
-Avoid endless automated retries. Persist the failure, apply a team-defined retry policy, and escalate repeated or ambiguous residue for review. Safety takes priority over aggressively deleting resources whose ownership cannot be proven.
+Do not retry forever. Save the failure, follow the team's retry rules, and send repeated or unclear leftovers for review. Safe ownership matters more than fast deletion when the tool cannot prove who owns an item.
 
-## Make Cleanup Idempotent and Crash-Recoverable
+## How Does Orphaned Test Data Recovery Survive Crashes?
 
 Cleanup can be interrupted too. Design every delete so repeating it converges toward the same empty state. Treat not-found as success for an owned resource, but treat permission errors, selector errors, and ambiguous ownership as failures requiring investigation.
 
@@ -248,19 +248,19 @@ Do not mark clean merely because the manifest says every delete call succeeded. 
 
 An independent sweeper should select only expired active, deleting, or failed runs from approved non-production environments. Apply a grace period so it never competes with a live worker. Use a lease or compare-and-set transition when several sweepers can run concurrently.
 
-Process crashes can also leave uncommitted PostgreSQL transactions. Closing the connection rolls back those uncommitted effects, but writes committed on other connections remain. Recovery therefore queries durable tagged state rather than assuming connection loss solved everything.
+A crash may leave a PostgreSQL transaction open. Closing that session rolls back work not yet committed, but writes on other sessions may remain. Orphaned test data recovery must query stored tagged rows instead of assuming the lost session fixed all state.
 
-Keep deletion limits as safety circuit breakers. If one run unexpectedly matches far more resources than its scenario permits, stop and report rather than continuing broad deletion. The threshold is environment and suite specific; derive it from declared scenario cardinality, not an invented universal number.
+Use delete limits as a safety stop. If one run matches far more items than its test case can make, stop and report instead of issuing a broad delete. Set the limit from that suite's stated row counts, not from a made-up rule for all systems.
 
 Test recovery deliberately. Create a tagged graph, interrupt cleanup after one leaf table, rerun cleanup, and require the final inventory to reach zero. Then simulate a recreated search document or delayed job and confirm the bounded verification catches it.
 
-The [CI/CD pipeline testing guide](/blog/cicd-testing-pipeline-github-actions) can schedule a fast per-job teardown and a separate recovery workflow. Keep recovery evidence linked to the originating run so recurring leaks reveal the responsible suite.
+The [CI/CD pipeline testing guide](/blog/cicd-testing-pipeline-github-actions) can run fast teardown per job and a separate repair task. Link the repair proof to the first run so repeat leaks point to the right suite.
 
-## Guard Parallel and Shared Environments
+## How Should CI Test Data Cleanup Guard Shared Systems?
 
 Parallel workers must never share a run tag. Include worker and retry identity, and verify uniqueness in the run registry. A primary-key collision should fail allocation before any scenario row is created.
 
-Scope all deletion and counting predicates to the canonical tag plus the approved environment or tenant boundary. Defense in depth matters because a malformed tag, query bug, or reused identifier can otherwise select another worker's data.
+Limit each delete and count to the main tag plus an approved test system or tenant. More than one guard matters, since a bad tag, query bug, or reused id could otherwise select another worker's rows.
 
 Use dedicated credentials with the narrowest practical permissions. Test writers may need insert and scoped delete access in an isolated database, while a recovery job may need broader access within one test tenant. Neither should connect to production.
 
@@ -276,13 +276,13 @@ Parallel cleanup can deadlock when workers touch shared parents or delete in inc
 | late background writer | deleting state blocks writes | poll until zero |
 | broad cleanup query | allowlist and deletion circuit breaker | reviewed matched ids |
 
-Reserved names and addresses reduce accidental contact but do not authorize shared-environment deletion. Egress controls, test tenants, provider sandboxes, and scoped credentials remain separate requirements.
+Reserved names and addresses lower the chance of real contact, but they do not grant delete rights. Network blocks, test tenants, vendor sandboxes, and scoped keys are still separate safety checks.
 
-Use aggregate-driven generation rather than importing production rows when a scenario needs realistic frequencies. The sibling [aggregate-driven synthetic data guide](/blog/aggregate-driven-synthetic-test-data-without-production-rows) preserves the rule that production records remain inside their system.
+Use summary-driven setup instead of copied live rows when a case needs common value mixes. The sibling [aggregate-driven synthetic data guide](/blog/aggregate-driven-synthetic-test-data-without-production-rows) keeps live records inside their source system.
 
-The [risk-based testing strategy guide](/blog/risk-based-testing-strategy-guide-2026) can prioritize residue checks for expensive or security-sensitive external systems. Database zero counts should still remain the default for every tagged relational scenario.
+The [risk-based testing strategy guide](/blog/risk-based-testing-strategy-guide-2026) helps rank checks for costly or safety-sensitive outside systems. Zero DB counts should still be the default for each tagged row graph.
 
-## Turn Residue into Actionable CI Evidence
+## Adopt a Test Data Cleanup Residue Assertion
 
 CI should fail the owning test or teardown phase when residue remains. Report the run id, environment, inventory version, nonzero resource counts, cleanup attempt, and a link to restricted diagnostic artifacts. Never print full rows, credentials, or sensitive rejected payloads.
 
@@ -298,13 +298,13 @@ Adopt a fixed evidence procedure:
 
 Missing evidence is not zero. A database timeout, unavailable object listing, or skipped cleanup hook means the suite cannot prove its postcondition. Mark the result failed or indeterminate according to CI policy, but never report clean.
 
-Trend failures by suite, resource type, and cleanup version without inventing a universal pass rate. Repeated line-item residue after one migration suggests an incomplete dependency map. Repeated external jobs suggest producer shutdown or eventual-consistency handling needs attention.
+Group failures by suite, item type, and cleanup version without making up one pass rate. Line-item leftovers after a schema change point to a missing key link. Repeat jobs point to weak producer shutdown or late-write handling.
 
 For release decisions, the [AI release readiness scorecard](/blog/ai-release-readiness-scorecard-2026) demonstrates evidence-backed gates. Residue failures on the exact release commit should remain blockers until cleanup succeeds and the cause is understood.
 
 Implement one test data cleanup residue assertion today for the suite with the most shared state. Start with a direct run tag on every owned table, delete leaves before roots, and make the first nonzero count fail locally and in CI.
 
-Apply the [Secure Test Data Engineer skill](/skills/thetestingacademy/secure-test-data-engineer) to derive the inventory from current migrations. Keep the assertion beside cleanup code so every new table must update deletion and verification together.
+Apply the [Secure Test Data Engineer skill](/skills/thetestingacademy/secure-test-data-engineer) to build the owned-row list from current SQL files. Keep the check beside cleanup code so each new table updates delete work and zero checks together.
 
 ## Frequently Asked Questions
 
@@ -314,7 +314,7 @@ No. The predicate may match nothing, another owned table may be missing, or an a
 
 ### Should cleanup use cascade deletes or explicit child deletes?
 
-Follow the declared schema and testing intent. Cascades are appropriate when the migration defines them, but residue queries should still verify children independently. Explicit leaf-first deletion gives clearer counts for restrictive relationships. Never disable constraints simply to make teardown easier or faster.
+Follow the stated SQL and test goal. Cascades fit when the schema defines them, but fresh queries must still check child rows on their own. Leaf-first deletes give clear counts for strict key links. Never turn off constraints just to make teardown easy or fast.
 
 ### What belongs in a test run tag?
 
@@ -326,10 +326,10 @@ An independent sweeper finds expired registered runs, acquires a lease, switches
 
 ### Can transaction rollback replace residue checks?
 
-Rollback is valuable when all writes share one connection, but application pools, workers, external services, and committed side transactions can escape it. A residue check tests the assumption directly. Use it especially around HTTP integration suites and any code capable of opening another connection.
+Rollback helps when all writes share one DB session, but app pools, workers, outside services, and committed side work can escape. A residue check tests that risk directly. Use it for HTTP suites and any code that can open another session.
 
 ### What if one retained audit record is required?
 
-Define that record outside the forbidden-residue set and assert it explicitly: exact count, safe category, run correlation, retention, and absence of sensitive payload data. All business resources must still reach zero. A documented audit requirement should not become a general tolerance for cleanup leaks.
+Place that row outside the banned leftover set and check it on its own. Require its exact count, safe class, run id, expiry, and lack of private body data. All business rows must still reach zero, and one stated audit need must not excuse other leaks.
 `,
 };

@@ -5,11 +5,15 @@ import { articleFactoryBatch20260718Posts } from './_article-factory-batch-2026-
 import {
   countMarkdownHeadings,
   countProseWords,
+  countReadableSentences,
   extractArticleProse,
   extractExternalLinks,
   extractInternalLinks,
+  extractReadableParagraphs,
   getAverageSentenceWords,
+  getFleschReadingEase,
   getFirstWords,
+  getInternalLinksPerThousandWords,
   getKeywordDensity,
   hasGfmTable,
   hasOrderedProcedure,
@@ -132,6 +136,9 @@ describe('2026-07-18 codebase-driven article factory batch', () => {
       expect(normalize(post.description), `${slug} meta keyword`).toContain(
         normalize(post.primaryKeyword!),
       );
+      expect(normalize(post.title), `${slug} H1 primary keyword`).toContain(
+        normalize(post.primaryKeyword!),
+      );
       expect(post.date, `${slug} date`).toBe('2026-07-18');
       expect(post.updated, `${slug} updated`).toBe('2026-07-18');
       expect(Number.isNaN(Date.parse(post.date)), `${slug} valid date`).toBe(false);
@@ -165,6 +172,7 @@ describe('2026-07-18 codebase-driven article factory batch', () => {
       const keyword = normalize(post.primaryKeyword!);
       const density = getKeywordDensity(post.content, post.primaryKeyword!);
       const averageSentenceWords = getAverageSentenceWords(post.content);
+      const fleschReadingEase = getFleschReadingEase(post.content);
 
       expect(proseWords, `${slug} prose word count`).toBeGreaterThanOrEqual(3_000);
       expect(proseWords, `${slug} prose word count`).toBeLessThanOrEqual(4_000);
@@ -175,6 +183,8 @@ describe('2026-07-18 codebase-driven article factory batch', () => {
       expect(density, `${slug} weighted keyword density`).toBeLessThanOrEqual(3);
       expect(averageSentenceWords, `${slug} average sentence words`).toBeGreaterThanOrEqual(14.5);
       expect(averageSentenceWords, `${slug} average sentence words`).toBeLessThanOrEqual(20);
+      expect(fleschReadingEase, `${slug} Flesch Reading Ease`).toBeGreaterThanOrEqual(55);
+      expect(fleschReadingEase, `${slug} Flesch Reading Ease`).toBeLessThanOrEqual(75);
     }
   });
 
@@ -187,11 +197,44 @@ describe('2026-07-18 codebase-driven article factory batch', () => {
       );
       const internalLinks = extractInternalLinks(post.content);
       const externalLinks = extractExternalLinks(post.content);
+      const searchableHeadings = Array.from(post.content.matchAll(/^#{2,3}\s+(.+)$/gm), (match) =>
+        normalize(match[1]),
+      );
+      const questionHeadings = h2Headings.filter((heading) => heading.endsWith('?'));
+      const readableParagraphs = extractReadableParagraphs(post.content);
+      const linkDensity = getInternalLinksPerThousandWords(post.content);
+      const conclusionHeading = h2Headings.at(-2);
+      const conclusionStart = conclusionHeading
+        ? post.content.indexOf(`## ${conclusionHeading}`)
+        : -1;
+      const faqStart = post.content.indexOf('## Frequently Asked Questions');
+      const conclusion =
+        conclusionStart >= 0 && faqStart > conclusionStart
+          ? post.content.slice(conclusionStart, faqStart)
+          : '';
 
       expect(countMarkdownHeadings(post.content, 1), `${slug} content H1`).toBe(0);
       expect(h2Count, `${slug} H2 count`).toBeGreaterThanOrEqual(8);
       expect(h2Count, `${slug} H2 count`).toBeLessThanOrEqual(12);
       expect(h2Headings.at(-1), `${slug} final FAQ heading`).toBe('Frequently Asked Questions');
+      expect(questionHeadings.length, `${slug} question-form H2 count`).toBeGreaterThanOrEqual(3);
+      for (const questionHeading of questionHeadings) {
+        const questionStart = post.content.indexOf(`## ${questionHeading}`);
+        const answer = post.content
+          .slice(questionStart + questionHeading.length + 3)
+          .trimStart()
+          .split(/\n\s*\n/, 1)[0];
+        expect(
+          countProseWords(answer),
+          `${slug} immediate answer: ${questionHeading}`,
+        ).toBeGreaterThanOrEqual(20);
+      }
+      for (const secondaryKeyword of post.keywords?.slice(1) ?? []) {
+        expect(
+          searchableHeadings.some((heading) => heading.includes(normalize(secondaryKeyword))),
+          `${slug} heading maps secondary keyword: ${secondaryKeyword}`,
+        ).toBe(true);
+      }
       expect(faqItems.length, `${slug} FAQ count`).toBeGreaterThanOrEqual(5);
       expect(faqItems.length, `${slug} FAQ count`).toBeLessThanOrEqual(8);
       for (const item of faqItems) {
@@ -204,6 +247,8 @@ describe('2026-07-18 codebase-driven article factory batch', () => {
       expect(countCodeBlocks(post.content), `${slug} code examples`).toBeGreaterThanOrEqual(2);
       expect(internalLinks.length, `${slug} internal link count`).toBeGreaterThanOrEqual(9);
       expect(internalLinks.length, `${slug} internal link count`).toBeLessThanOrEqual(20);
+      expect(linkDensity, `${slug} internal links per 1,000 words`).toBeGreaterThanOrEqual(3);
+      expect(linkDensity, `${slug} internal links per 1,000 words`).toBeLessThanOrEqual(5);
       expect(new Set(internalLinks).size, `${slug} unique internal links`).toBeGreaterThanOrEqual(
         5,
       );
@@ -220,6 +265,18 @@ describe('2026-07-18 codebase-driven article factory batch', () => {
       expect(externalLinks.length, `${slug} inline source links`).toBeGreaterThanOrEqual(
         post.sources?.length ?? 0,
       );
+      expect(extractInternalLinks(conclusion).length, `${slug} conclusion CTA`).toBeGreaterThan(0);
+      for (const paragraph of readableParagraphs) {
+        const sentenceCount = countReadableSentences(paragraph);
+        expect(
+          sentenceCount,
+          `${slug} paragraph minimum: ${paragraph.slice(0, 80)}`,
+        ).toBeGreaterThanOrEqual(2);
+        expect(
+          sentenceCount,
+          `${slug} paragraph maximum: ${paragraph.slice(0, 80)}`,
+        ).toBeLessThanOrEqual(4);
+      }
     }
   });
 

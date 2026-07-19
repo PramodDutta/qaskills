@@ -77,3 +77,53 @@ export function getAverageSentenceWords(content: string): number {
 
   return prose.split(/\s+/).length / sentences.length;
 }
+
+export function normalizeArticleText(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+export function extractReadableParagraphs(content: string): string[] {
+  return content
+    .replace(FENCED_CODE_PATTERN, '')
+    .split(/\n\s*\n/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean)
+    .filter((paragraph) => !/^(?:#{1,6}\s|\||\d+\.\s|-\s)/.test(paragraph))
+    .filter((paragraph) => !paragraph.includes('\n|'))
+    .filter((paragraph) => countProseWords(paragraph) >= 15);
+}
+
+export function countReadableSentences(value: string): number {
+  return extractArticleProse(value)
+    .split(/[.!?]+(?:["')\]]+)?(?:\s+|$)/)
+    .map((sentence) => sentence.trim())
+    .filter((sentence) => sentence.split(/\s+/).length > 2).length;
+}
+
+function countSyllables(rawWord: string): number {
+  const word = rawWord.toLowerCase().replace(/[^a-z]/g, '');
+  if (!word) return 0;
+  if (word.length <= 3) return 1;
+
+  const normalized = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/i, '').replace(/^y/, '');
+  return Math.max(1, normalized.match(/[aeiouy]{1,2}/g)?.length ?? 1);
+}
+
+export function getFleschReadingEase(content: string): number {
+  const prose = extractReadableParagraphs(content).map(extractArticleProse).join(' ');
+  const words = prose.match(/[A-Za-z]+(?:'[A-Za-z]+)?/g) ?? [];
+  if (words.length === 0) return 0;
+
+  const sentences = Math.max(1, countReadableSentences(prose));
+  const syllables = words.reduce((total, word) => total + countSyllables(word), 0);
+  return 206.835 - 1.015 * (words.length / sentences) - 84.6 * (syllables / words.length);
+}
+
+export function getInternalLinksPerThousandWords(content: string): number {
+  const words = countProseWords(content);
+  return words === 0 ? 0 : (extractInternalLinks(content).length * 1_000) / words;
+}
