@@ -193,7 +193,7 @@ function assertDomainRules(input: string, output: {
 
 Notice the escaped regex markers in a TypeScript template literal source. In the emitted Markdown they become ordinary regex syntax. When generating these article modules with an agent, this is exactly the kind of transformation a compile check should catch.
 
-For framework selection, compare dataset handling, assertions, and CI ergonomics in [DeepEval vs promptfoo](/blog/deepeval-vs-promptfoo-2026). If you choose configuration-driven evaluations, the [promptfoo complete guide](/blog/promptfoo-complete-guide-2026) shows how to organize repeatable cases. Whichever runner you adopt, retain a plain deterministic schema validation step that can be reproduced without an evaluator model.
+For framework selection, compare dataset handling, assertions, and CI ergonomics in [DeepEval vs promptfoo](/blog/promptfoo-vs-deepeval-2026). If you choose configuration-driven evaluations, the [promptfoo complete guide](/blog/promptfoo-complete-guide-2026) shows how to organize repeatable cases. Whichever runner you adopt, retain a plain deterministic schema validation step that can be reproduced without an evaluator model.
 
 ## Test repair, retry, and refusal behavior explicitly
 

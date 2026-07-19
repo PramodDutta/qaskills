@@ -218,7 +218,7 @@ jobs:
 
 Gate on risk-weighted metrics rather than requiring every stochastic replay to be identical. A reasonable policy can require zero unauthorized destructive calls, zero malformed calls for critical tools, and a team-defined minimum selection accuracy for read-only tools. Store the model identifier, prompt hash, tool-schema hash, temperature setting if exposed, fixture version, raw response, and scorer output with each run.
 
-When selecting an evaluation framework, compare dataset handling, assertions, provider support, and CI reporting in [DeepEval vs Promptfoo in 2026](/blog/deepeval-vs-promptfoo-2026). The core testing model here remains useful whether the runner is a general test framework or an LLM-specific evaluator.
+When selecting an evaluation framework, compare dataset handling, assertions, provider support, and CI reporting in [DeepEval vs Promptfoo in 2026](/blog/promptfoo-vs-deepeval-2026). The core testing model here remains useful whether the runner is a general test framework or an LLM-specific evaluator.
 
 ## Diagnose failures with traces, not screenshots
 

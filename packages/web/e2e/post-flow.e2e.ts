@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { articleFactoryBatch20260718Posts } from '../src/app/blog/posts/_article-factory-batch-2026-07';
 import { seoWaveOneArticles2026 } from '../src/app/blog/posts/seo-wave-one-articles-2026';
 
 const playwrightLongTailPosts = [
@@ -100,7 +101,7 @@ test('Playwright CLI article CTA resolves to an installable skill and source art
   expect(markdown).toContain('playwright-cli snapshot');
 });
 
-test('blog index lists the new Playwright long-tail articles', async ({ page }) => {
+test('blog index paginates the approved SEO wave articles', async ({ page }) => {
   await page.goto('/blog');
 
   await expect(
@@ -109,12 +110,34 @@ test('blog index lists the new Playwright long-tail articles', async ({ page }) 
   await expect(
     page.getByText('Playwright CLI Complete Guide for Browser Automation and AI Agents').first(),
   ).toBeVisible();
-  await expect(page.getByText(/Page 1 of \d+/)).toBeVisible();
+  const paginationStatus = page.getByText(/Page 1 of \d+/);
+  await expect(paginationStatus).toBeVisible();
   await expect(page.locator('a[rel="next"]')).toHaveAttribute('href', '/blog?page=2');
 
-  for (const { slug } of seoWaveOneArticles2026) {
-    await expect(page.locator(`a[href="/blog/${slug}"]`).first()).toBeAttached();
+  const pageCountMatch = (await paginationStatus.textContent())?.match(/of (\d+)/);
+  const totalPages = Number(pageCountMatch?.[1]);
+  const remainingSlugs = new Set(seoWaveOneArticles2026.map(({ slug }) => slug));
+
+  expect(totalPages).toBeGreaterThan(1);
+
+  for (let currentPage = 1; currentPage <= totalPages && remainingSlugs.size > 0; currentPage++) {
+    const hrefs = new Set(
+      await page
+        .locator('a[href^="/blog/"]')
+        .evaluateAll((links) => links.map((link) => link.getAttribute('href'))),
+    );
+
+    for (const slug of remainingSlugs) {
+      if (hrefs.has(`/blog/${slug}`)) remainingSlugs.delete(slug);
+    }
+
+    if (remainingSlugs.size > 0 && currentPage < totalPages) {
+      await page.locator('a[rel="next"]').click();
+      await expect(page).toHaveURL(new RegExp(`/blog\\?page=${currentPage + 1}$`));
+    }
   }
+
+  expect([...remainingSlugs], 'SEO wave articles missing from blog pagination').toEqual([]);
 });
 
 test('sitemap publishes every approved SEO wave URL', async ({ request }) => {
@@ -123,6 +146,16 @@ test('sitemap publishes every approved SEO wave URL', async ({ request }) => {
 
   expect(response.ok()).toBeTruthy();
   for (const { slug } of seoWaveOneArticles2026) {
+    expect(xml).toContain(`<loc>https://qaskills.sh/blog/${slug}</loc>`);
+  }
+});
+
+test('sitemap publishes every codebase-driven article factory URL', async ({ request }) => {
+  const response = await request.get('/sitemap.xml');
+  const xml = await response.text();
+
+  expect(response.ok()).toBeTruthy();
+  for (const { slug } of articleFactoryBatch20260718Posts) {
     expect(xml).toContain(`<loc>https://qaskills.sh/blog/${slug}</loc>`);
   }
 });
@@ -259,12 +292,36 @@ for (const { slug, post } of seoWaveOneArticles2026) {
     expect(html).toContain('"@type":"BlogPosting"');
     expect(html).toContain('"@type":"FAQPage"');
     expect(html).toContain('"wordCount":');
+    expect(html).toContain('Pramod Dutta');
+    expect(html).toContain('The Testing Academy');
     expect(html).toContain('Primary sources');
     expect(html).toContain('data-testid="article-sources"');
     expect(html).toContain('data-testid="topic-cluster"');
     expect(html).toContain('/skills/Pramod/playwright-cli');
     expect(html).toContain(post.image!);
     expect(html).toContain(post.imageAlt!);
+  });
+}
+
+for (const { slug, post } of articleFactoryBatch20260718Posts) {
+  test(`article factory post-flow renders: ${slug}`, async ({ request }) => {
+    const response = await request.get(`/blog/${slug}`);
+    const html = await response.text();
+
+    expect(response.ok()).toBeTruthy();
+    expect(html).toContain(post.title);
+    expect(html).toContain(`https://qaskills.sh/blog/${slug}`);
+    expect(html).toContain('"@type":"BlogPosting"');
+    expect(html).toContain('"@type":"FAQPage"');
+    expect(html).toContain('"@type":"BreadcrumbList"');
+    expect(html).toContain('"wordCount":');
+    expect(html).toContain('Pramod Dutta');
+    expect(html.match(/<h1(?:\s|>)/g)).toHaveLength(1);
+    expect(html).toContain('Primary sources');
+    expect(html).toContain('data-testid="article-sources"');
+    expect(html).toMatch(
+      /\/skills\/thetestingacademy\/(?:ai-release-guardian|secure-test-data-engineer)/,
+    );
   });
 }
 

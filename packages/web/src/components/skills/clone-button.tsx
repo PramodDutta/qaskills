@@ -1,6 +1,7 @@
 'use client';
 
 import { useAuth, SignInButton } from '@clerk/nextjs';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { GitFork } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -12,6 +13,20 @@ interface CloneButtonProps {
 }
 
 export function CloneButton({ author, slug }: CloneButtonProps) {
+  if (!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) {
+    return (
+      <Button variant="outline" className="w-full" asChild>
+        <Link href={`/dashboard/create?clone=${encodeURIComponent(`${author}/${slug}`)}`}>
+          <GitFork className="h-4 w-4" /> Clone & Edit
+        </Link>
+      </Button>
+    );
+  }
+
+  return <AuthenticatedCloneButton author={author} slug={slug} />;
+}
+
+function AuthenticatedCloneButton({ author, slug }: CloneButtonProps) {
   const { isSignedIn } = useAuth();
   const router = useRouter();
 
