@@ -1,0 +1,760 @@
+{
+  "batch": 13,
+  "briefs": [
+    {
+      "batch": 13,
+      "batchPosition": 1,
+      "domain": "data-search-cache",
+      "sourceTopicId": "artifact-07",
+      "slug": "artifact-content-endpoint-parity-testing",
+      "primaryKeyword": "artifact content endpoint parity testing",
+      "title": "artifact content endpoint parity testing",
+      "description": "Use artifact content endpoint parity testing to compare raw SKILL.md with its ZIP entry, assert byte equality, and catch shared builder regressions.",
+      "intent": "how-to",
+      "coreQuestion": "How do you prove SKILL.md inside the ZIP is byte-for-byte equivalent to the raw content endpoint for the same database row?",
+      "secondaryKeywords": [
+        "ZIP raw markdown parity test",
+        "SKILL.md byte equality assertion",
+        "artifact content contract testing",
+        "two download endpoints consistency",
+        "shared markdown builder regression"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Artifact Content Endpoint Parity Testing Prove?",
+          "question": true,
+          "coverage": "Define parity as identical UTF-8 bytes produced from one skill row, while separating markdown parity from ZIP container checksum behavior."
+        },
+        {
+          "heading": "How Does a ZIP Raw Markdown Parity Test Work?",
+          "question": true,
+          "secondaryKeyword": "ZIP raw markdown parity test",
+          "coverage": "Trace the artifact route through buildSkillMarkdown, JSZip generation, archive extraction, and comparison with the content route response."
+        },
+        {
+          "heading": "How Should a SKILL.md Byte Equality Assertion Be Written?",
+          "question": true,
+          "secondaryKeyword": "SKILL.md byte equality assertion",
+          "coverage": "Compare Buffer values rather than normalized strings so line endings, trailing newlines, frontmatter order, and encoding changes remain visible."
+        },
+        {
+          "heading": "Artifact Content Contract Testing Across Response Types",
+          "question": false,
+          "secondaryKeyword": "artifact content contract testing",
+          "coverage": "Cover content types, archive paths, response status, requested version behavior, and the canonical markdown payload without conflating transport metadata."
+        },
+        {
+          "heading": "How Do You Verify Two Download Endpoints Consistency?",
+          "question": true,
+          "secondaryKeyword": "two download endpoints consistency",
+          "coverage": "Use one seeded row and request by both UUID and slug, then prove each route selects the same row and returns the same generated SKILL.md."
+        },
+        {
+          "heading": "Detecting a Shared Markdown Builder Regression",
+          "question": false,
+          "secondaryKeyword": "shared markdown builder regression",
+          "coverage": "Mutate array fields, defaults, optional GitHub metadata, and fallback body content to expose drift in the common serialization helper."
+        },
+        {
+          "heading": "Parity Matrix for IDs, Versions, and Markdown Fields",
+          "question": false,
+          "coverage": "Present the required table for UUID and slug lookups, matching and mismatched versions, optional fields, and expected byte-level outcomes."
+        },
+        {
+          "heading": "How Do You Run the Endpoint Parity Procedure?",
+          "question": true,
+          "coverage": "Turn the procedure plan into an integration test that seeds once, calls both handlers, extracts the archive entry, and emits a useful first-difference diagnostic."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer five to eight concise questions about ZIP metadata, line endings, UUID lookup, version mismatches, hashing, and binary versus string comparison."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the single-builder contract and direct readers to the verified skill catalog CTA."
+        }
+      ],
+      "tablePlan": {
+        "title": "Artifact and content endpoint parity matrix",
+        "columns": [
+          "Lookup",
+          "Version query",
+          "Database row variant",
+          "ZIP entry",
+          "Raw response",
+          "Expected assertion"
+        ],
+        "rows": [
+          "slug with current version",
+          "UUID without version",
+          "slug with unavailable version",
+          "row with optional arrays",
+          "row without fullDescription"
+        ],
+        "sources": [
+          "packages/web/src/app/api/skills/[id]/artifact/route.ts",
+          "packages/web/src/app/api/skills/[id]/content/route.ts",
+          "packages/web/src/lib/skill-markdown.ts",
+          "https://stuk.github.io/jszip/documentation/api_jszip/load_async.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to prove byte parity",
+        "steps": [
+          "Seed one deterministic skill row with every markdown field represented.",
+          "Call the raw content handler by slug and capture its response as a Buffer.",
+          "Call the artifact handler for the same slug and current version.",
+          "Load the returned ZIP and extract the exact <slug>/SKILL.md entry as bytes.",
+          "Assert Buffer equality and report the first differing byte and nearby text.",
+          "Repeat with UUID lookup, optional fields, and the fallback body branch."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Extract SKILL.md from the generated ZIP",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/skills/[id]/artifact/route.ts",
+          "focus": "Reuse the route's archive layout and JSZip behavior in an integration assertion."
+        },
+        {
+          "title": "Compare the raw content response",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/skills/[id]/content/route.ts",
+          "focus": "Invoke the raw route with the same row and compare the returned markdown bytes."
+        },
+        {
+          "title": "Build a deterministic markdown fixture",
+          "language": "typescript",
+          "path": "packages/web/src/lib/skill-markdown.ts",
+          "focus": "Exercise defaults, arrays, optional GitHub metadata, and body fallback through buildSkillMarkdown."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts",
+        "packages/web/src/app/api/skills/[id]/content/route.ts",
+        "packages/web/src/lib/skill-markdown.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "/blog/qaskills-cli-extract-skill-package-github"
+      ],
+      "relatedSlugs": [
+        "testing-versioned-zip-artifact-sha256-etag",
+        "testing-skill-md-yaml-frontmatter-roundtrip",
+        "qaskills-cli-download-fallback-github-content-metadata",
+        "qaskills-cli-extract-skill-package-github"
+      ],
+      "sources": [
+        "https://stuk.github.io/jszip/documentation/api_jszip/load_async.html",
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://agentskills.io/specification"
+      ],
+      "cta": "Browse installable QA skills at /skills and apply this parity matrix to the next artifact release."
+    },
+    {
+      "batch": 13,
+      "batchPosition": 2,
+      "domain": "data-search-cache",
+      "sourceTopicId": "install-06",
+      "slug": "install-telemetry-replay-protection-testing",
+      "primaryKeyword": "install telemetry replay protection testing",
+      "title": "install telemetry replay protection testing",
+      "description": "Use install telemetry replay protection testing to expose duplicate events, retry-driven counter inflation, and missing idempotency controls.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you prove retries or replayed install requests do not create duplicate events and inflate counters when no idempotency key is stored?",
+      "secondaryKeywords": [
+        "duplicate install event prevention",
+        "telemetry idempotency key test",
+        "retry counter inflation QA",
+        "replayed POST request testing",
+        "install event deduplication"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Install Telemetry Replay Protection Testing Expose?",
+          "question": true,
+          "coverage": "Explain the current append-and-increment flow, why POST retries can repeat side effects, and which observable outcomes define a replay defect."
+        },
+        {
+          "heading": "How Should Duplicate Install Event Prevention Be Tested?",
+          "question": true,
+          "secondaryKeyword": "duplicate install event prevention",
+          "coverage": "Send identical normalized add events concurrently and sequentially, then compare install rows and both counters with a one-event oracle."
+        },
+        {
+          "heading": "What Belongs in a Telemetry Idempotency Key Test?",
+          "question": true,
+          "secondaryKeyword": "telemetry idempotency key test",
+          "coverage": "Define stable key scope, payload binding, retention, response replay, and conflicting reuse cases without claiming the current route already stores a key."
+        },
+        {
+          "heading": "Retry Counter Inflation QA Matrix",
+          "question": false,
+          "secondaryKeyword": "retry counter inflation QA",
+          "coverage": "Model client timeout, gateway retry, double click, concurrent delivery, and delayed replay against installCount and weeklyInstalls."
+        },
+        {
+          "heading": "How Do You Run Replayed POST Request Testing?",
+          "question": true,
+          "secondaryKeyword": "replayed POST request testing",
+          "coverage": "Capture one valid body and send controlled copies while recording request identity, row count, counter deltas, and response semantics."
+        },
+        {
+          "heading": "Install Event Deduplication Design Options",
+          "question": false,
+          "secondaryKeyword": "install event deduplication",
+          "coverage": "Compare a unique event ID, idempotency table, conditional insert, and transactional counter update using the current schema as the baseline."
+        },
+        {
+          "heading": "Replay Fixtures and Expected Database Deltas",
+          "question": false,
+          "coverage": "Use the required table to distinguish the current behavior from the target once-only side-effect contract."
+        },
+        {
+          "heading": "How Do You Add Replay Tests to CI?",
+          "question": true,
+          "coverage": "Provide an ordered integration workflow with isolated skill counters, deterministic event keys, parallel requests, and database cleanup."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about HTTP idempotency, retry ownership, remove and update events, deduplication windows, concurrency, and unknown skills."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "State the measurable once-only contract and point to the skill directory CTA."
+        }
+      ],
+      "tablePlan": {
+        "title": "Install replay scenario and side-effect matrix",
+        "columns": [
+          "Scenario",
+          "Requests sent",
+          "Distinct event keys",
+          "Expected install rows",
+          "Expected counter delta",
+          "Current risk"
+        ],
+        "rows": [
+          "single add",
+          "sequential retry",
+          "concurrent duplicate",
+          "same key with changed payload",
+          "remove replay",
+          "unknown skill replay"
+        ],
+        "sources": [
+          "packages/web/src/app/api/telemetry/install/route.ts",
+          "packages/web/src/db/schema/relations.ts",
+          "https://www.rfc-editor.org/info/rfc9110",
+          "https://www.postgresql.org/docs/current/ddl-constraints.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to test replay protection",
+        "steps": [
+          "Create a skill fixture with zero install and weekly counters.",
+          "Record the installs row count and both counter values.",
+          "Send one add payload twice with the same proposed idempotency key.",
+          "Repeat the pair concurrently to expose race behavior.",
+          "Assert one accepted event row and a counter delta of one for the target contract.",
+          "Repeat for remove, update, conflicting payload, and unknown-skill cases."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Replay the install route concurrently",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/telemetry/install/route.ts",
+          "focus": "Call POST with identical add bodies and assert the insert and SQL increment side effects."
+        },
+        {
+          "title": "Assert the missing uniqueness boundary",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/relations.ts",
+          "focus": "Inspect the random install ID and absence of an event-key uniqueness constraint when defining the failing baseline."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/telemetry/install/route.ts",
+        "packages/web/src/db/schema/relations.ts",
+        "packages/web/src/lib/telemetry-normalize.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/leaderboard",
+        "/categories/api-testing",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "/blog/api-testing-complete-guide",
+        "/blog/database-testing-automation-guide",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-disable-telemetry-do-not-track",
+        "api-testing-complete-guide",
+        "database-testing-automation-guide",
+        "testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://owasp.org/www-project-api-security/",
+        "https://www.postgresql.org/docs/current/ddl-constraints.html"
+      ],
+      "cta": "Review telemetry-aware testing skills at /skills before defining an idempotency contract."
+    },
+    {
+      "batch": 13,
+      "batchPosition": 3,
+      "domain": "data-search-cache",
+      "sourceTopicId": "install-02",
+      "slug": "install-telemetry-reference-resolution-testing",
+      "primaryKeyword": "install telemetry reference resolution testing",
+      "title": "install telemetry reference resolution testing",
+      "description": "Use install telemetry reference resolution testing to verify UUID, slug, and display-name lookup order, exact matches, and safe unknown references.",
+      "intent": "how-to",
+      "coreQuestion": "How do you prove install telemetry resolves canonical UUIDs directly, then tries exact slug, then exact display name?",
+      "secondaryKeywords": [
+        "telemetry UUID slug name lookup",
+        "skill reference fallback test",
+        "install resolution precedence",
+        "exact slug telemetry query",
+        "display name install lookup"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Install Telemetry Reference Resolution Testing Prove?",
+          "question": true,
+          "coverage": "Define the accepted reference shapes and the exact UUID, slug, display-name, and unknown-reference outcomes exposed by the route."
+        },
+        {
+          "heading": "How Does Telemetry UUID Slug Name Lookup Work?",
+          "question": true,
+          "secondaryKeyword": "telemetry UUID slug name lookup",
+          "coverage": "Trace normalization, UUID recognition, direct assignment, slug query, and final display-name query in execution order."
+        },
+        {
+          "heading": "What Makes a Good Skill Reference Fallback Test?",
+          "question": true,
+          "secondaryKeyword": "skill reference fallback test",
+          "coverage": "Use fixtures whose UUID, slug, and name values are intentionally distinct, including a name that resembles another slug."
+        },
+        {
+          "heading": "Install Resolution Precedence Test Matrix",
+          "question": false,
+          "secondaryKeyword": "install resolution precedence",
+          "coverage": "Cover valid and malformed UUIDs, exact and case-variant slugs, exact display names, collisions, blanks, and unknown references."
+        },
+        {
+          "heading": "How Do You Assert an Exact Slug Telemetry Query?",
+          "question": true,
+          "secondaryKeyword": "exact slug telemetry query",
+          "coverage": "Mock or inspect the Drizzle predicate and prove no partial, normalized, or case-folded match is silently introduced."
+        },
+        {
+          "heading": "Display Name Install Lookup and Collision Risks",
+          "question": false,
+          "secondaryKeyword": "display name install lookup",
+          "coverage": "Explain first-row behavior, duplicate display-name risk, and why deterministic fixture design matters for route-level tests."
+        },
+        {
+          "heading": "Reference Inputs, Queries, and Expected IDs",
+          "question": false,
+          "coverage": "Present the table that maps each body field and reference value to the query path, resolved ID, insert decision, and counter outcome."
+        },
+        {
+          "heading": "How Do You Implement the Resolution Contract Test?",
+          "question": true,
+          "coverage": "Follow the numbered procedure from fixture creation through query spying, POST execution, row assertion, and counter verification."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about UUID syntax, skillSlug precedence, exact matching, duplicate names, unknown skills, and backward compatibility."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the ordered lookup contract and use the catalog CTA."
+        }
+      ],
+      "tablePlan": {
+        "title": "Telemetry reference resolution precedence matrix",
+        "columns": [
+          "Payload fields",
+          "Reference value",
+          "UUID check",
+          "Database lookup",
+          "Resolved ID",
+          "Expected response"
+        ],
+        "rows": [
+          "valid UUID",
+          "exact slug",
+          "exact display name",
+          "skillSlug plus skillId",
+          "malformed UUID-like text",
+          "unknown reference"
+        ],
+        "sources": [
+          "packages/web/src/lib/telemetry-normalize.ts",
+          "packages/web/src/app/api/telemetry/install/route.ts",
+          "https://www.postgresql.org/docs/current/datatype-uuid.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to verify reference resolution",
+        "steps": [
+          "Seed two skills with distinct UUIDs, slugs, and display names.",
+          "Create payload fixtures for each reference shape and one ambiguous-looking value.",
+          "Run normalizeInstallEvent and assert ref plus refIsUuid before route execution.",
+          "Call POST and record which Drizzle lookup executes.",
+          "Assert the inserted skillId and counter delta for every resolved reference.",
+          "Assert unknown references return success without an install row."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Test reference normalization and UUID detection",
+          "language": "typescript",
+          "path": "packages/web/src/lib/telemetry-normalize.ts",
+          "focus": "Exercise skillSlug precedence, skillId fallback, trimming, and refIsUuid."
+        },
+        {
+          "title": "Spy on slug then name resolution",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/telemetry/install/route.ts",
+          "focus": "Verify the direct UUID branch and ordered exact-match database queries."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/lib/telemetry-normalize.ts",
+        "packages/web/src/app/api/telemetry/install/route.ts",
+        "packages/web/src/db/schema/skills.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/leaderboard",
+        "/categories/api-testing",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "/blog/api-testing-complete-guide",
+        "/blog/database-testing-automation-guide",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-disable-telemetry-do-not-track",
+        "api-testing-complete-guide",
+        "database-testing-automation-guide",
+        "testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "sources": [
+        "https://www.postgresql.org/docs/current/datatype-uuid.html",
+        "https://orm.drizzle.team/docs/operators"
+      ],
+      "cta": "Browse QA automation skills at /skills and use the resolution matrix for your telemetry suite."
+    },
+    {
+      "batch": 13,
+      "batchPosition": 4,
+      "domain": "data-search-cache",
+      "sourceTopicId": "install-03",
+      "slug": "install-telemetry-action-mapping-testing",
+      "primaryKeyword": "install telemetry action mapping testing",
+      "title": "install telemetry action mapping testing",
+      "description": "Use install telemetry action mapping testing to cover add, remove, update, unknown, and conflicting fields without inflating install counters.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test install, remove, update, unknown, and conflicting action fields without inflating install counters?",
+      "secondaryKeywords": [
+        "install remove update telemetry test",
+        "unknown action defaults add",
+        "legacy installType precedence",
+        "counter inflation action mapping",
+        "telemetry conflicting fields test"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Install Telemetry Action Mapping Testing Cover?",
+          "question": true,
+          "coverage": "Define normalization outcomes for current action values, legacy installType values, missing fields, unknown text, and conflicts."
+        },
+        {
+          "heading": "How Do You Build an Install Remove Update Telemetry Test?",
+          "question": true,
+          "secondaryKeyword": "install remove update telemetry test",
+          "coverage": "Test each supported action through both the pure normalizer and the POST route, including row persistence and counter changes."
+        },
+        {
+          "heading": "How Should Tests Cover Unknown Action Defaults Add Behavior?",
+          "question": true,
+          "secondaryKeyword": "unknown action defaults add",
+          "coverage": "Show the initialized add value, identify the risk of typo-driven increments, and define the expected behavior without inventing a different contract."
+        },
+        {
+          "heading": "Legacy installType Precedence Cases",
+          "question": false,
+          "secondaryKeyword": "legacy installType precedence",
+          "coverage": "Map legacy remove and update fields against absent, matching, and conflicting current action values."
+        },
+        {
+          "heading": "How Does Counter Inflation Action Mapping Occur?",
+          "question": true,
+          "secondaryKeyword": "counter inflation action mapping",
+          "coverage": "Prove only normalized add events execute the SQL increments and expose cases where malformed values normalize to add."
+        },
+        {
+          "heading": "Telemetry Conflicting Fields Test Design",
+          "question": false,
+          "secondaryKeyword": "telemetry conflicting fields test",
+          "coverage": "Use pairwise cases for action and installType so remove precedence, update precedence, and default behavior stay explicit."
+        },
+        {
+          "heading": "Action Inputs, Normalized Values, and Counter Deltas",
+          "question": false,
+          "coverage": "Present a table covering supported, missing, unknown, mixed-case, non-string, and conflicting action fields."
+        },
+        {
+          "heading": "How Do You Implement the Action Mapping Procedure?",
+          "question": true,
+          "coverage": "Build table-driven Vitest cases for normalization, then a smaller route integration set for insert and counter side effects."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about default add behavior, legacy compatibility, case sensitivity, conflicts, updates, and counter assertions."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the mapping oracle and direct readers to the verified QA skill catalog."
+        }
+      ],
+      "tablePlan": {
+        "title": "Telemetry action normalization truth table",
+        "columns": [
+          "action",
+          "installType",
+          "Normalized type",
+          "Install row",
+          "Counter delta",
+          "Risk note"
+        ],
+        "rows": [
+          "install or missing",
+          "remove",
+          "update",
+          "unknown text",
+          "non-string field",
+          "conflicting current and legacy fields"
+        ],
+        "sources": [
+          "packages/web/src/lib/telemetry-normalize.ts",
+          "packages/web/src/app/api/telemetry/install/route.ts",
+          "https://www.rfc-editor.org/info/rfc9110"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to test action mapping",
+        "steps": [
+          "Define a table of current action and legacy installType combinations.",
+          "Call normalizeInstallEvent for every row and assert the exact normalized type.",
+          "Seed a skill with known install counters.",
+          "POST representative add, remove, update, unknown, and conflict cases.",
+          "Assert every resolved event row stores its normalized installType.",
+          "Assert only add cases increment installCount and weeklyInstalls."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Table-test normalizeInstallEvent",
+          "language": "typescript",
+          "path": "packages/web/src/lib/telemetry-normalize.ts",
+          "focus": "Exercise action, legacy installType, default add, and conflict precedence."
+        },
+        {
+          "title": "Verify add-only counter increments",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/telemetry/install/route.ts",
+          "focus": "Assert route persistence for all event types and SQL increments only for add."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/lib/telemetry-normalize.ts",
+        "packages/web/src/app/api/telemetry/install/route.ts",
+        "packages/web/src/db/schema/relations.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/leaderboard",
+        "/categories/api-testing",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "/blog/api-testing-complete-guide",
+        "/blog/database-testing-automation-guide",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-disable-telemetry-do-not-track",
+        "api-testing-complete-guide",
+        "database-testing-automation-guide",
+        "testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "sources": ["https://www.rfc-editor.org/info/rfc9110", "https://vitest.dev/guide/"],
+      "cta": "Explore QA testing skills at /skills and turn the action truth table into a regression suite."
+    },
+    {
+      "batch": 13,
+      "batchPosition": 5,
+      "domain": "data-search-cache",
+      "sourceTopicId": "search-05",
+      "slug": "typesense-timestamp-mapping-contract-tests",
+      "primaryKeyword": "Typesense timestamp mapping contract tests",
+      "title": "Typesense timestamp mapping contract tests",
+      "description": "Use Typesense timestamp mapping contract tests to verify int64 dates become valid SkillSummary ISO strings and catch field-name or fallback drift.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test that an int64 Typesense createdAt field becomes the ISO date string expected by SkillSummary consumers?",
+      "secondaryKeywords": [
+        "Typesense int64 date conversion",
+        "search document timestamp contract",
+        "createdAt epoch fallback test",
+        "Typesense camel snake date fields",
+        "SkillSummary date mapping test"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Typesense Timestamp Mapping Contract Tests Prove?",
+          "question": true,
+          "coverage": "Define the boundary between an int64 index field and the ISO string consumed by SkillSummary, including malformed and absent values."
+        },
+        {
+          "heading": "How Should Typesense int64 Date Conversion Work?",
+          "question": true,
+          "secondaryKeyword": "Typesense int64 date conversion",
+          "coverage": "Compare seconds, milliseconds, numeric strings, and ISO strings against the declared schema and the mapping implementation."
+        },
+        {
+          "heading": "What Is the Search Document Timestamp Contract?",
+          "question": true,
+          "secondaryKeyword": "search document timestamp contract",
+          "coverage": "State the producer field type, mapper output type, valid date requirement, and consumer expectations without masking a number through a TypeScript cast."
+        },
+        {
+          "heading": "CreatedAt Epoch Fallback Test Cases",
+          "question": false,
+          "secondaryKeyword": "createdAt epoch fallback test",
+          "coverage": "Cover missing fields, null, zero, invalid text, and the explicit Unix epoch fallback while distinguishing valid fallback from invalid conversion."
+        },
+        {
+          "heading": "How Do Typesense Camel Snake Date Fields Interact?",
+          "question": true,
+          "secondaryKeyword": "Typesense camel snake date fields",
+          "coverage": "Test createdAt precedence over created_at and detect conflicting values so migration compatibility remains deterministic."
+        },
+        {
+          "heading": "SkillSummary Date Mapping Test Design",
+          "question": false,
+          "secondaryKeyword": "SkillSummary date mapping test",
+          "coverage": "Use typed fixtures and runtime assertions for string type, parseability, expected instant, and sort behavior."
+        },
+        {
+          "heading": "Timestamp Input and Expected ISO Output Matrix",
+          "question": false,
+          "coverage": "Present the table for int64 seconds, int64 milliseconds, aliases, missing values, and invalid values."
+        },
+        {
+          "heading": "How Do You Implement the Mapping Contract Procedure?",
+          "question": true,
+          "coverage": "Stub the Typesense result, call searchSkills, and assert both the mapped date and untouched pagination and facet fields."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about Typesense int64 units, ISO strings, epoch fallback, field aliases, TypeScript casts, and sorting."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "State the runtime date contract and point readers to relevant skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Typesense timestamp mapping cases",
+        "columns": [
+          "Document field",
+          "Input type",
+          "Example value",
+          "Expected SkillSummary value",
+          "Parseable",
+          "Test result"
+        ],
+        "rows": [
+          "createdAt int64 seconds",
+          "createdAt int64 milliseconds",
+          "createdAt string",
+          "created_at alias",
+          "both fields",
+          "missing field"
+        ],
+        "sources": [
+          "packages/web/src/lib/typesense/client.ts",
+          "packages/web/src/lib/typesense/search.ts",
+          "https://typesense.org/docs/latest/api/collections.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to test Typesense date mapping",
+        "steps": [
+          "Create one hit fixture for every timestamp representation and alias case.",
+          "Stub the Typesense search call with a single controlled hit.",
+          "Call searchSkills using fixed pagination parameters.",
+          "Assert createdAt is a string and Date.parse returns the expected instant.",
+          "Assert the explicit fallback for a missing date.",
+          "Add a failing case that exposes numeric values returned unchanged by a cast."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Declare the indexed timestamp field",
+          "language": "typescript",
+          "path": "packages/web/src/lib/typesense/client.ts",
+          "focus": "Use the int64 createdAt declaration as the producer-side contract."
+        },
+        {
+          "title": "Map Typesense hits into SkillSummary",
+          "language": "typescript",
+          "path": "packages/web/src/lib/typesense/search.ts",
+          "focus": "Stub createdAt and created_at variants and verify the runtime mapped type."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/lib/typesense/client.ts",
+        "packages/web/src/lib/typesense/search.ts",
+        "packages/shared/src/types/skill.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/categories/api-testing",
+        "/blog/testing-typesense-multiselect-facet-filter-queries",
+        "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "/blog/mcp-search-response-normalization-contract-tests",
+        "/blog/database-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "testing-typesense-multiselect-facet-filter-queries",
+        "mcp-search-filter-schema-drift-contract-tests",
+        "mcp-search-response-normalization-contract-tests",
+        "database-testing-automation-guide"
+      ],
+      "sources": [
+        "https://typesense.org/docs/latest/api/collections.html",
+        "https://typesense.org/docs/latest/api/search.html"
+      ],
+      "cta": "Browse search and contract-testing skills at /skills before adding the timestamp fixtures."
+    }
+  ]
+}

@@ -1,0 +1,1112 @@
+{
+  "batch": 48,
+  "briefs": [
+    {
+      "sourceTopicId": "testing-frameworks-55",
+      "batch": 48,
+      "batchPosition": 1,
+      "domain": "testing-frameworks",
+      "slug": "mobile-permission-state-matrix-testing",
+      "primaryKeyword": "mobile permission state matrix testing",
+      "title": "mobile permission state matrix testing",
+      "description": "mobile permission state matrix testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How can a mobile suite cover first request, denial, permanent denial, settings recovery, and revoked permission states?",
+      "intentBoundary": "The nearest page covers a broader mobile workflow. This candidate owns permission lifecycle transitions rather than one prompt.",
+      "secondaryKeywords": [
+        "mobile permission state matrix",
+        "permission denied permanently test",
+        "app settings permission recovery",
+        "runtime permission revocation",
+        "mobile permission prompt automation"
+      ],
+      "outline": [
+        {
+          "heading": "What does mobile permission state matrix testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can a mobile suite cover first request, denial, permanent denial, settings recovery, and revoked permission states?\" in 40 to 60 words. Define the observable contract: the app responds correctly to first request, grant, denial, permanent denial, settings recovery, and permission revocation. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-performance-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an mobile permission state matrix?",
+          "question": true,
+          "secondaryKeyword": "mobile permission state matrix",
+          "coverage": "Describe this exact fixture: a clean app install plus platform-controlled permission setup for camera or location across every lifecycle transition. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/appium-mobile/SKILL.md"]
+        },
+        {
+          "heading": "What breaks permission denied permanently test?",
+          "question": true,
+          "secondaryKeyword": "permission denied permanently test",
+          "coverage": "Explain the failure mechanics behind platform-specific permanent denial, prompt limits, auto-reset, simulator differences, app data leakage, and tests that depend on prior order. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-performance-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "app settings permission recovery fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "app settings permission recovery",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a clean app install plus platform-controlled permission setup for camera or location across every lifecycle transition, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/mobile-performance-testing/SKILL.md"]
+        },
+        {
+          "heading": "How should runtime permission revocation be asserted?",
+          "question": true,
+          "secondaryKeyword": "runtime permission revocation",
+          "coverage": "Build the oracle from OS permission state, prompt presence, application fallback UI, feature behavior, settings navigation, and relaunch state agree. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-performance-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "mobile permission prompt automation in CI",
+          "question": false,
+          "secondaryKeyword": "mobile permission prompt automation",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to appium-mobile and mobile-performance-testing.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-performance-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "mobile permission state matrix testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: permission not determined on first launch; grant from the first prompt; deny and request again; permanent denial followed by settings recovery; permission revoked after the app was granted access. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-performance-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement mobile permission state matrix testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-performance-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the app responds correctly to first request, grant, denial, permanent denial, settings recovery, and permission revocation, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-performance-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/mobile-testing-automation-guide, then open /skills and implement the mobile permission state matrix testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/appium-mobile/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "mobile permission state matrix testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "permission not determined on first launch",
+            "controlledSetup": "a clean app install plus platform-controlled permission setup for camera or location across every lifecycle transition",
+            "expectedObservation": "OS permission state, prompt presence, application fallback UI, feature behavior, settings navigation, and relaunch state agree",
+            "failureSignal": "Observed state differs from the documented the app responds correctly to first request, grant, denial, permanent denial, settings recovery, and permission revocation.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "grant from the first prompt",
+            "controlledSetup": "Change only the condition represented by \"grant from the first prompt\" while retaining the baseline fixture.",
+            "expectedObservation": "OS permission state, prompt presence, application fallback UI, feature behavior, settings navigation, and relaunch state agree",
+            "failureSignal": "Observed state differs from the documented the app responds correctly to first request, grant, denial, permanent denial, settings recovery, and permission revocation.",
+            "evidenceSource": "seed-skills/mobile-performance-testing/SKILL.md"
+          },
+          {
+            "scenario": "deny and request again",
+            "controlledSetup": "Change only the condition represented by \"deny and request again\" while retaining the baseline fixture.",
+            "expectedObservation": "OS permission state, prompt presence, application fallback UI, feature behavior, settings navigation, and relaunch state agree",
+            "failureSignal": "Observed state differs from the documented the app responds correctly to first request, grant, denial, permanent denial, settings recovery, and permission revocation.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "permanent denial followed by settings recovery",
+            "controlledSetup": "Change only the condition represented by \"permanent denial followed by settings recovery\" while retaining the baseline fixture.",
+            "expectedObservation": "OS permission state, prompt presence, application fallback UI, feature behavior, settings navigation, and relaunch state agree",
+            "failureSignal": "Observed state differs from the documented the app responds correctly to first request, grant, denial, permanent denial, settings recovery, and permission revocation.",
+            "evidenceSource": "seed-skills/mobile-performance-testing/SKILL.md"
+          },
+          {
+            "scenario": "permission revoked after the app was granted access",
+            "controlledSetup": "Change only the condition represented by \"permission revoked after the app was granted access\" while retaining the baseline fixture.",
+            "expectedObservation": "OS permission state, prompt presence, application fallback UI, feature behavior, settings navigation, and relaunch state agree",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish platform-specific permanent denial, prompt limits, auto-reset, simulator differences, app data leakage, and tests that depend on prior order.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/appium-mobile/SKILL.md",
+          "seed-skills/mobile-performance-testing/SKILL.md",
+          "https://developer.android.com/training/app-links/deep-linking",
+          "https://developer.android.com/training/permissions/requesting",
+          "https://developer.android.com/identity/sign-in/biometric-auth",
+          "https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run mobile permission state matrix testing",
+        "steps": [
+          "Read seed-skills/appium-mobile/SKILL.md and seed-skills/mobile-performance-testing/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a clean app install plus platform-controlled permission setup for camera or location across every lifecycle transition.",
+          "Run the positive case and capture OS permission state, prompt presence, application fallback UI, feature behavior, settings navigation, and relaunch state agree.",
+          "Inject one failure at a time from platform-specific permanent denial, prompt limits, auto-reset, simulator differences, app data leakage, and tests that depend on prior order, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the mobile permission state matrix testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/appium-mobile/SKILL.md",
+          "focus": "Adapt Appium permission commands and app assertions into explicit state-transition fixtures."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/mobile-performance-testing/SKILL.md",
+          "focus": "Use mobile performance setup guidance to reset application and device state between permission cases."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/appium-mobile/SKILL.md",
+        "seed-skills/mobile-performance-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/mobile-testing-automation-guide",
+        "/blog/appium-mobile-testing-complete-guide",
+        "/blog/mobile-accessibility-testing-guide",
+        "/blog/detox-vs-appium-2026",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "mobile-testing-automation-guide",
+        "appium-mobile-testing-complete-guide",
+        "mobile-accessibility-testing-guide",
+        "detox-vs-appium-2026"
+      ],
+      "sources": [
+        "https://developer.android.com/training/app-links/deep-linking",
+        "https://developer.android.com/training/permissions/requesting",
+        "https://developer.android.com/identity/sign-in/biometric-auth",
+        "https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app"
+      ],
+      "faqQuestions": [
+        "How can a mobile suite cover first request, denial, permanent denial, settings recovery, and revoked permission states?",
+        "What should an mobile permission state matrix fixture record?",
+        "Which failure proves permission denied permanently test is broken?",
+        "How do teams isolate app settings permission recovery?",
+        "Which assertion is strongest for runtime permission revocation?",
+        "How should CI report mobile permission prompt automation failures?"
+      ],
+      "cta": "Review /blog/mobile-testing-automation-guide, then open /skills and implement the mobile permission state matrix testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-19",
+      "batch": 48,
+      "batchPosition": 2,
+      "domain": "testing-frameworks",
+      "slug": "appium-w3c-gesture-coordinate-testing",
+      "primaryKeyword": "Appium W3C gesture coordinate testing",
+      "title": "Appium W3C gesture coordinate testing",
+      "description": "Appium W3C gesture coordinate testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How should Appium tests calculate W3C gesture coordinates across screen sizes, orientation changes, and safe areas?",
+      "intentBoundary": "The nearest page covers a broader appium workflow. This candidate owns coordinate-system oracles for portable W3C gestures.",
+      "secondaryKeywords": [
+        "Appium W3C actions coordinates",
+        "mobile gesture coordinate test",
+        "Appium swipe safe area",
+        "orientation gesture scaling",
+        "pointer action viewport origin"
+      ],
+      "outline": [
+        {
+          "heading": "What does Appium W3C gesture coordinate testing verify?",
+          "question": true,
+          "coverage": "Answer \"How should Appium tests calculate W3C gesture coordinates across screen sizes, orientation changes, and safe areas?\" in 40 to 60 words. Define the observable contract: gesture coordinates are derived from the current viewport, target bounds, orientation, and safe area rather than fixed device pixels. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an Appium W3C actions coordinates?",
+          "question": true,
+          "secondaryKeyword": "Appium W3C actions coordinates",
+          "coverage": "Describe this exact fixture: a scrollable mobile screen executed across portrait, horizontal orientation, compact, tall, and inset-bearing devices. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/appium-mobile/SKILL.md"]
+        },
+        {
+          "heading": "What breaks mobile gesture coordinate test?",
+          "question": true,
+          "secondaryKeyword": "mobile gesture coordinate test",
+          "coverage": "Explain the failure mechanics behind hardcoded pixels, stale dimensions after rotation, navigation bars, display cutouts, element movement, and coordinate origin confusion. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Appium swipe safe area fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "Appium swipe safe area",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a scrollable mobile screen executed across portrait, horizontal orientation, compact, tall, and inset-bearing devices, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/mobile-device-farm/SKILL.md"]
+        },
+        {
+          "heading": "How should orientation gesture scaling be asserted?",
+          "question": true,
+          "secondaryKeyword": "orientation gesture scaling",
+          "coverage": "Build the oracle from recorded window size, element rectangles, computed pointer path, final element visibility, and scroll position prove the intended gesture. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "pointer action viewport origin in CI",
+          "question": false,
+          "secondaryKeyword": "pointer action viewport origin",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to appium-mobile and mobile-device-farm.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Appium W3C gesture coordinate testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: portrait device without display cutout; orientation change before the gesture; device with top and bottom safe areas; gesture relative to a target element; computed endpoint outside the current viewport. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Appium W3C gesture coordinate testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within gesture coordinates are derived from the current viewport, target bounds, orientation, and safe area rather than fixed device pixels, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/appium-mobile-testing-complete-guide, then open /skills and implement the Appium W3C gesture coordinate testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/appium-mobile/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Appium W3C gesture coordinate testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "portrait device without display cutout",
+            "controlledSetup": "a scrollable mobile screen executed across portrait, horizontal orientation, compact, tall, and inset-bearing devices",
+            "expectedObservation": "recorded window size, element rectangles, computed pointer path, final element visibility, and scroll position prove the intended gesture",
+            "failureSignal": "Observed state differs from the documented gesture coordinates are derived from the current viewport, target bounds, orientation, and safe area rather than fixed device pixels.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "orientation change before the gesture",
+            "controlledSetup": "Change only the condition represented by \"orientation change before the gesture\" while retaining the baseline fixture.",
+            "expectedObservation": "recorded window size, element rectangles, computed pointer path, final element visibility, and scroll position prove the intended gesture",
+            "failureSignal": "Observed state differs from the documented gesture coordinates are derived from the current viewport, target bounds, orientation, and safe area rather than fixed device pixels.",
+            "evidenceSource": "seed-skills/mobile-device-farm/SKILL.md"
+          },
+          {
+            "scenario": "device with top and bottom safe areas",
+            "controlledSetup": "Change only the condition represented by \"device with top and bottom safe areas\" while retaining the baseline fixture.",
+            "expectedObservation": "recorded window size, element rectangles, computed pointer path, final element visibility, and scroll position prove the intended gesture",
+            "failureSignal": "Observed state differs from the documented gesture coordinates are derived from the current viewport, target bounds, orientation, and safe area rather than fixed device pixels.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "gesture relative to a target element",
+            "controlledSetup": "Change only the condition represented by \"gesture relative to a target element\" while retaining the baseline fixture.",
+            "expectedObservation": "recorded window size, element rectangles, computed pointer path, final element visibility, and scroll position prove the intended gesture",
+            "failureSignal": "Observed state differs from the documented gesture coordinates are derived from the current viewport, target bounds, orientation, and safe area rather than fixed device pixels.",
+            "evidenceSource": "seed-skills/mobile-device-farm/SKILL.md"
+          },
+          {
+            "scenario": "computed endpoint outside the current viewport",
+            "controlledSetup": "Change only the condition represented by \"computed endpoint outside the current viewport\" while retaining the baseline fixture.",
+            "expectedObservation": "recorded window size, element rectangles, computed pointer path, final element visibility, and scroll position prove the intended gesture",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish hardcoded pixels, stale dimensions after rotation, navigation bars, display cutouts, element movement, and coordinate origin confusion.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/appium-mobile/SKILL.md",
+          "seed-skills/mobile-device-farm/SKILL.md",
+          "https://appium.io/docs/en/latest/guides/caps/",
+          "https://appium.io/docs/en/latest/guides/context/",
+          "https://appium.io/docs/en/latest/ecosystem/",
+          "https://www.w3.org/TR/webdriver2/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Appium W3C gesture coordinate testing",
+        "steps": [
+          "Read seed-skills/appium-mobile/SKILL.md and seed-skills/mobile-device-farm/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a scrollable mobile screen executed across portrait, horizontal orientation, compact, tall, and inset-bearing devices.",
+          "Run the positive case and capture recorded window size, element rectangles, computed pointer path, final element visibility, and scroll position prove the intended gesture.",
+          "Inject one failure at a time from hardcoded pixels, stale dimensions after rotation, navigation bars, display cutouts, element movement, and coordinate origin confusion, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Appium W3C gesture coordinate testing baseline",
+          "language": "java",
+          "path": "seed-skills/appium-mobile/SKILL.md",
+          "focus": "Adapt W3C pointer actions to calculate start and end points from live element and viewport geometry."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "java",
+          "path": "seed-skills/mobile-device-farm/SKILL.md",
+          "focus": "Use device-farm patterns to log dimensions, orientation, safe-area assumptions, and the computed action sequence."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/appium-mobile/SKILL.md",
+        "seed-skills/mobile-device-farm/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/appium-mobile-testing-complete-guide",
+        "/blog/appium-3-migration-guide-2026",
+        "/blog/mobile-testing-automation-guide",
+        "/blog/appium-2-mobile-automation-reference-2026",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "appium-mobile-testing-complete-guide",
+        "appium-3-migration-guide-2026",
+        "mobile-testing-automation-guide",
+        "appium-2-mobile-automation-reference-2026"
+      ],
+      "sources": [
+        "https://appium.io/docs/en/latest/guides/caps/",
+        "https://appium.io/docs/en/latest/guides/context/",
+        "https://appium.io/docs/en/latest/ecosystem/",
+        "https://www.w3.org/TR/webdriver2/"
+      ],
+      "faqQuestions": [
+        "How should Appium tests calculate W3C gesture coordinates across screen sizes, orientation changes, and safe areas?",
+        "What should an Appium W3C actions coordinates fixture record?",
+        "Which failure proves mobile gesture coordinate test is broken?",
+        "How do teams isolate Appium swipe safe area?",
+        "Which assertion is strongest for orientation gesture scaling?",
+        "How should CI report pointer action viewport origin failures?"
+      ],
+      "cta": "Review /blog/appium-mobile-testing-complete-guide, then open /skills and implement the Appium W3C gesture coordinate testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-29",
+      "batch": 48,
+      "batchPosition": 3,
+      "domain": "testing-frameworks",
+      "slug": "newman-bail-partial-report-testing",
+      "primaryKeyword": "Newman bail partial report testing",
+      "title": "Newman bail partial report testing",
+      "description": "Newman bail partial report testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "troubleshooting",
+      "coreQuestion": "What does Newman preserve in reports when bail stops on a failure, and how should CI assert partial results?",
+      "intentBoundary": "The nearest page covers a broader postman workflow. This candidate owns partial-report and exit-status behavior under bail.",
+      "secondaryKeywords": [
+        "Newman bail partial report",
+        "Newman stop on failure",
+        "partial JUnit report Newman",
+        "Newman bail exit status",
+        "collection remaining requests report"
+      ],
+      "outline": [
+        {
+          "heading": "What does Newman bail partial report testing verify?",
+          "question": true,
+          "coverage": "Answer \"What does Newman preserve in reports when bail stops on a failure, and how should CI assert partial results?\" in 40 to 60 words. Define the observable contract: a bailed Newman run preserves completed execution evidence, returns the expected failure status, and clearly marks requests that never ran. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/postman-api/SKILL.md",
+            "seed-skills/postman-newman-automation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an Newman bail partial report?",
+          "question": true,
+          "secondaryKeyword": "Newman bail partial report",
+          "coverage": "Describe this exact fixture: a small collection with a passing request, a controlled failing assertion, later requests, folders, and JSON plus JUnit reporters. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/postman-api/SKILL.md"]
+        },
+        {
+          "heading": "What breaks Newman stop on failure?",
+          "question": true,
+          "secondaryKeyword": "Newman stop on failure",
+          "coverage": "Explain the failure mechanics behind empty reporter files, bail mode differences, shell status masking, reporter flush timing, folder boundaries, and confusing unrun with passed. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/postman-api/SKILL.md",
+            "seed-skills/postman-newman-automation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "partial JUnit report Newman fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "partial JUnit report Newman",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a small collection with a passing request, a controlled failing assertion, later requests, folders, and JSON plus JUnit reporters, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/postman-newman-automation/SKILL.md"]
+        },
+        {
+          "heading": "How should Newman bail exit status be asserted?",
+          "question": true,
+          "secondaryKeyword": "Newman bail exit status",
+          "coverage": "Build the oracle from process exit code, reporter files, execution counts, assertion failures, skipped requests, and stderr establish the partial-run contract. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/postman-api/SKILL.md",
+            "seed-skills/postman-newman-automation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "collection remaining requests report in CI",
+          "question": false,
+          "secondaryKeyword": "collection remaining requests report",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to postman-api and postman-newman-automation.",
+          "repoEvidence": [
+            "seed-skills/postman-api/SKILL.md",
+            "seed-skills/postman-newman-automation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Newman bail partial report testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: collection completes without bail; bail on the first assertion failure; bail on request error; failure inside a nested folder; JSON and JUnit reporter output after bail. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/postman-api/SKILL.md",
+            "seed-skills/postman-newman-automation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Newman bail partial report testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/postman-api/SKILL.md",
+            "seed-skills/postman-newman-automation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within a bailed Newman run preserves completed execution evidence, returns the expected failure status, and clearly marks requests that never ran, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/postman-api/SKILL.md",
+            "seed-skills/postman-newman-automation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/postman-api-testing-guide, then open /skills and implement the Newman bail partial report testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/postman-api/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Newman bail partial report testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "collection completes without bail",
+            "controlledSetup": "a small collection with a passing request, a controlled failing assertion, later requests, folders, and JSON plus JUnit reporters",
+            "expectedObservation": "process exit code, reporter files, execution counts, assertion failures, skipped requests, and stderr establish the partial-run contract",
+            "failureSignal": "Observed state differs from the documented a bailed Newman run preserves completed execution evidence, returns the expected failure status, and clearly marks requests that never ran.",
+            "evidenceSource": "seed-skills/postman-api/SKILL.md"
+          },
+          {
+            "scenario": "bail on the first assertion failure",
+            "controlledSetup": "Change only the condition represented by \"bail on the first assertion failure\" while retaining the baseline fixture.",
+            "expectedObservation": "process exit code, reporter files, execution counts, assertion failures, skipped requests, and stderr establish the partial-run contract",
+            "failureSignal": "Observed state differs from the documented a bailed Newman run preserves completed execution evidence, returns the expected failure status, and clearly marks requests that never ran.",
+            "evidenceSource": "seed-skills/postman-newman-automation/SKILL.md"
+          },
+          {
+            "scenario": "bail on request error",
+            "controlledSetup": "Change only the condition represented by \"bail on request error\" while retaining the baseline fixture.",
+            "expectedObservation": "process exit code, reporter files, execution counts, assertion failures, skipped requests, and stderr establish the partial-run contract",
+            "failureSignal": "Observed state differs from the documented a bailed Newman run preserves completed execution evidence, returns the expected failure status, and clearly marks requests that never ran.",
+            "evidenceSource": "seed-skills/postman-api/SKILL.md"
+          },
+          {
+            "scenario": "failure inside a nested folder",
+            "controlledSetup": "Change only the condition represented by \"failure inside a nested folder\" while retaining the baseline fixture.",
+            "expectedObservation": "process exit code, reporter files, execution counts, assertion failures, skipped requests, and stderr establish the partial-run contract",
+            "failureSignal": "Observed state differs from the documented a bailed Newman run preserves completed execution evidence, returns the expected failure status, and clearly marks requests that never ran.",
+            "evidenceSource": "seed-skills/postman-newman-automation/SKILL.md"
+          },
+          {
+            "scenario": "JSON and JUnit reporter output after bail",
+            "controlledSetup": "Change only the condition represented by \"JSON and JUnit reporter output after bail\" while retaining the baseline fixture.",
+            "expectedObservation": "process exit code, reporter files, execution counts, assertion failures, skipped requests, and stderr establish the partial-run contract",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish empty reporter files, bail mode differences, shell status masking, reporter flush timing, folder boundaries, and confusing unrun with passed.",
+            "evidenceSource": "seed-skills/postman-api/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/postman-api/SKILL.md",
+          "seed-skills/postman-newman-automation/SKILL.md",
+          "https://learning.postman.com/docs/tests-and-scripts/write-scripts/postman-sandbox-api-reference/",
+          "https://learning.postman.com/docs/collections/running-collections/building-workflows/",
+          "https://learning.postman.com/docs/collections/using-newman-cli/newman-options/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Newman bail partial report testing",
+        "steps": [
+          "Read seed-skills/postman-api/SKILL.md and seed-skills/postman-newman-automation/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a small collection with a passing request, a controlled failing assertion, later requests, folders, and JSON plus JUnit reporters.",
+          "Run the positive case and capture process exit code, reporter files, execution counts, assertion failures, skipped requests, and stderr establish the partial-run contract.",
+          "Inject one failure at a time from empty reporter files, bail mode differences, shell status masking, reporter flush timing, folder boundaries, and confusing unrun with passed, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Newman bail partial report testing baseline",
+          "language": "javascript",
+          "path": "seed-skills/postman-api/SKILL.md",
+          "focus": "Adapt Postman collection examples into a deterministic pass, fail, and never-run sequence."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "javascript",
+          "path": "seed-skills/postman-newman-automation/SKILL.md",
+          "focus": "Use Newman automation patterns to spawn the CLI and retain partial JSON, JUnit, stderr, and exit status."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/postman-api/SKILL.md",
+        "seed-skills/postman-newman-automation/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/postman-api-testing-guide",
+        "/blog/newman-postman-ci-automation-guide-2026",
+        "/blog/bruno-vs-postman-api-testing-2026",
+        "/blog/hoppscotch-vs-postman-2026",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "postman-api-testing-guide",
+        "newman-postman-ci-automation-guide-2026",
+        "bruno-vs-postman-api-testing-2026",
+        "hoppscotch-vs-postman-2026"
+      ],
+      "sources": [
+        "https://learning.postman.com/docs/tests-and-scripts/write-scripts/postman-sandbox-api-reference/",
+        "https://learning.postman.com/docs/collections/running-collections/building-workflows/",
+        "https://learning.postman.com/docs/collections/using-newman-cli/newman-options/"
+      ],
+      "faqQuestions": [
+        "What does Newman preserve in reports when bail stops on a failure, and how should CI assert partial results?",
+        "What should an Newman bail partial report fixture record?",
+        "Which failure proves Newman stop on failure is broken?",
+        "How do teams isolate partial JUnit report Newman?",
+        "Which assertion is strongest for Newman bail exit status?",
+        "How should CI report collection remaining requests report failures?"
+      ],
+      "cta": "Review /blog/postman-api-testing-guide, then open /skills and implement the Newman bail partial report testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-38",
+      "batch": 48,
+      "batchPosition": 4,
+      "domain": "testing-frameworks",
+      "slug": "api-head-get-metadata-parity",
+      "primaryKeyword": "API HEAD GET metadata parity",
+      "title": "API HEAD GET metadata parity",
+      "description": "API HEAD GET metadata parity: use repo fixtures, focused assertions, and CI checks to expose failures and prevent regressions before release.",
+      "intent": "how-to",
+      "coreQuestion": "How can contract tests prove HEAD returns GET-equivalent metadata, no response body, and correct cache validators?",
+      "intentBoundary": "The nearest page covers a broader api workflow. This candidate owns HEAD and GET metadata equivalence.",
+      "secondaryKeywords": [
+        "HEAD GET metadata parity",
+        "HTTP HEAD body absence",
+        "HEAD content length test",
+        "ETag parity HEAD GET",
+        "API HEAD cache validation"
+      ],
+      "outline": [
+        {
+          "heading": "What does API HEAD GET metadata parity verify?",
+          "question": true,
+          "coverage": "Answer \"How can contract tests prove HEAD returns GET-equivalent metadata, no response body, and correct cache validators?\" in 40 to 60 words. Define the observable contract: HEAD returns metadata equivalent to GET for the selected representation while omitting response content and preserving cache validators. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/api-testing-rest/SKILL.md",
+            "seed-skills/api-test-suite-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an HEAD GET metadata parity?",
+          "question": true,
+          "secondaryKeyword": "HEAD GET metadata parity",
+          "coverage": "Describe this exact fixture: one resource endpoint with ETag, Last-Modified, Content-Type, Content-Length, Vary, conditional requests, and optional compression. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/api-testing-rest/SKILL.md"]
+        },
+        {
+          "heading": "What breaks HTTP HEAD body absence?",
+          "question": true,
+          "secondaryKeyword": "HTTP HEAD body absence",
+          "coverage": "Explain the failure mechanics behind sending a body on HEAD, computing different validators, compression differences, middleware shortcuts, stale Content-Length, and redirect divergence. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/api-testing-rest/SKILL.md",
+            "seed-skills/api-test-suite-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "HEAD content length test fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "HEAD content length test",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use one resource endpoint with ETag, Last-Modified, Content-Type, Content-Length, Vary, conditional requests, and optional compression, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/api-test-suite-generator/SKILL.md"]
+        },
+        {
+          "heading": "How should ETag parity HEAD GET be asserted?",
+          "question": true,
+          "secondaryKeyword": "ETag parity HEAD GET",
+          "coverage": "Build the oracle from paired GET and HEAD responses compare status, representation metadata, validators, headers, and actual body bytes without assuming every field is identical. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/api-testing-rest/SKILL.md",
+            "seed-skills/api-test-suite-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "API HEAD cache validation in CI",
+          "question": false,
+          "secondaryKeyword": "API HEAD cache validation",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to api-testing-rest and api-test-suite-generator.",
+          "repoEvidence": [
+            "seed-skills/api-testing-rest/SKILL.md",
+            "seed-skills/api-test-suite-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "API HEAD GET metadata parity comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: successful GET and HEAD for one representation; conditional request with matching ETag; missing resource; content negotiation through Accept; compressed GET compared with HEAD metadata. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/api-testing-rest/SKILL.md",
+            "seed-skills/api-test-suite-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement API HEAD GET metadata parity?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/api-testing-rest/SKILL.md",
+            "seed-skills/api-test-suite-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within HEAD returns metadata equivalent to GET for the selected representation while omitting response content and preserving cache validators, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/api-testing-rest/SKILL.md",
+            "seed-skills/api-test-suite-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/api-testing-complete-guide, then open /skills and implement the API HEAD GET metadata parity matrix in the next test run.",
+          "repoEvidence": ["seed-skills/api-testing-rest/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "API HEAD GET metadata parity scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "successful GET and HEAD for one representation",
+            "controlledSetup": "one resource endpoint with ETag, Last-Modified, Content-Type, Content-Length, Vary, conditional requests, and optional compression",
+            "expectedObservation": "paired GET and HEAD responses compare status, representation metadata, validators, headers, and actual body bytes without assuming every field is identical",
+            "failureSignal": "Observed state differs from the documented HEAD returns metadata equivalent to GET for the selected representation while omitting response content and preserving cache validators.",
+            "evidenceSource": "seed-skills/api-testing-rest/SKILL.md"
+          },
+          {
+            "scenario": "conditional request with matching ETag",
+            "controlledSetup": "Change only the condition represented by \"conditional request with matching ETag\" while retaining the baseline fixture.",
+            "expectedObservation": "paired GET and HEAD responses compare status, representation metadata, validators, headers, and actual body bytes without assuming every field is identical",
+            "failureSignal": "Observed state differs from the documented HEAD returns metadata equivalent to GET for the selected representation while omitting response content and preserving cache validators.",
+            "evidenceSource": "seed-skills/api-test-suite-generator/SKILL.md"
+          },
+          {
+            "scenario": "missing resource",
+            "controlledSetup": "Change only the condition represented by \"missing resource\" while retaining the baseline fixture.",
+            "expectedObservation": "paired GET and HEAD responses compare status, representation metadata, validators, headers, and actual body bytes without assuming every field is identical",
+            "failureSignal": "Observed state differs from the documented HEAD returns metadata equivalent to GET for the selected representation while omitting response content and preserving cache validators.",
+            "evidenceSource": "seed-skills/api-testing-rest/SKILL.md"
+          },
+          {
+            "scenario": "content negotiation through Accept",
+            "controlledSetup": "Change only the condition represented by \"content negotiation through Accept\" while retaining the baseline fixture.",
+            "expectedObservation": "paired GET and HEAD responses compare status, representation metadata, validators, headers, and actual body bytes without assuming every field is identical",
+            "failureSignal": "Observed state differs from the documented HEAD returns metadata equivalent to GET for the selected representation while omitting response content and preserving cache validators.",
+            "evidenceSource": "seed-skills/api-test-suite-generator/SKILL.md"
+          },
+          {
+            "scenario": "compressed GET compared with HEAD metadata",
+            "controlledSetup": "Change only the condition represented by \"compressed GET compared with HEAD metadata\" while retaining the baseline fixture.",
+            "expectedObservation": "paired GET and HEAD responses compare status, representation metadata, validators, headers, and actual body bytes without assuming every field is identical",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish sending a body on HEAD, computing different validators, compression differences, middleware shortcuts, stale Content-Length, and redirect divergence.",
+            "evidenceSource": "seed-skills/api-testing-rest/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/api-testing-rest/SKILL.md",
+          "seed-skills/api-test-suite-generator/SKILL.md",
+          "https://www.rfc-editor.org/info/rfc9110",
+          "https://www.rfc-editor.org/info/rfc9111",
+          "https://www.rfc-editor.org/info/rfc7578"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run API HEAD GET metadata parity",
+        "steps": [
+          "Read seed-skills/api-testing-rest/SKILL.md and seed-skills/api-test-suite-generator/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using one resource endpoint with ETag, Last-Modified, Content-Type, Content-Length, Vary, conditional requests, and optional compression.",
+          "Run the positive case and capture paired GET and HEAD responses compare status, representation metadata, validators, headers, and actual body bytes without assuming every field is identical.",
+          "Inject one failure at a time from sending a body on HEAD, computing different validators, compression differences, middleware shortcuts, stale Content-Length, and redirect divergence, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the API HEAD GET metadata parity baseline",
+          "language": "typescript",
+          "path": "seed-skills/api-testing-rest/SKILL.md",
+          "focus": "Adapt REST request assertions to compare GET and HEAD status, metadata, validators, and body absence."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/api-test-suite-generator/SKILL.md",
+          "focus": "Generate route cases for successful, missing, conditional, negotiated, and redirected resources."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/api-testing-rest/SKILL.md",
+        "seed-skills/api-test-suite-generator/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/api-testing-complete-guide",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/testing-content-negotiation-accept-header",
+        "/blog/testing-problem-details-rfc-9457-errors",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "api-testing-complete-guide",
+        "api-testing-best-practices-guide",
+        "testing-content-negotiation-accept-header",
+        "testing-problem-details-rfc-9457-errors"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://www.rfc-editor.org/info/rfc9111",
+        "https://www.rfc-editor.org/info/rfc7578"
+      ],
+      "faqQuestions": [
+        "How can contract tests prove HEAD returns GET-equivalent metadata, no response body, and correct cache validators?",
+        "What should an HEAD GET metadata parity fixture record?",
+        "Which failure proves HTTP HEAD body absence is broken?",
+        "How do teams isolate HEAD content length test?",
+        "Which assertion is strongest for ETag parity HEAD GET?",
+        "How should CI report API HEAD cache validation failures?"
+      ],
+      "cta": "Review /blog/api-testing-complete-guide, then open /skills and implement the API HEAD GET metadata parity matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-60",
+      "batch": 48,
+      "batchPosition": 5,
+      "domain": "testing-frameworks",
+      "slug": "pact-matching-rule-overbreadth-testing",
+      "primaryKeyword": "Pact matching rule overbreadth testing",
+      "title": "Pact matching rule overbreadth testing",
+      "description": "Pact matching rule overbreadth testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How can consumer tests detect Pact matchers that are so permissive they allow breaking provider responses?",
+      "intentBoundary": "The nearest page covers a broader contract workflow. This candidate owns negative tests for over-permissive Pact matching rules.",
+      "secondaryKeywords": [
+        "Pact matcher overbreadth",
+        "consumer contract false positive",
+        "Pact regex matcher test",
+        "strict versus flexible matcher",
+        "contract negative example testing"
+      ],
+      "outline": [
+        {
+          "heading": "What does Pact matching rule overbreadth testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can consumer tests detect Pact matchers that are so permissive they allow breaking provider responses?\" in 40 to 60 words. Define the observable contract: each Pact matcher accepts intended provider variation but rejects mutations that would break the consumer. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/contract-testing-pact/SKILL.md",
+            "seed-skills/api-contract-validator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an Pact matcher overbreadth?",
+          "question": true,
+          "secondaryKeyword": "Pact matcher overbreadth",
+          "coverage": "Describe this exact fixture: a valid interaction plus mutated provider bodies for wrong types, invalid formats, missing fields, broad regex matches, and unexpected array shapes. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/contract-testing-pact/SKILL.md"]
+        },
+        {
+          "heading": "What breaks consumer contract false positive?",
+          "question": true,
+          "secondaryKeyword": "consumer contract false positive",
+          "coverage": "Explain the failure mechanics behind type-only matchers on semantic identifiers, unanchored regexes, permissive arrays, optional critical fields, and positive-only contract tests. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/contract-testing-pact/SKILL.md",
+            "seed-skills/api-contract-validator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Pact regex matcher test fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "Pact regex matcher test",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a valid interaction plus mutated provider bodies for wrong types, invalid formats, missing fields, broad regex matches, and unexpected array shapes, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/api-contract-validator/SKILL.md"]
+        },
+        {
+          "heading": "How should strict versus flexible matcher be asserted?",
+          "question": true,
+          "secondaryKeyword": "strict versus flexible matcher",
+          "coverage": "Build the oracle from consumer expectation checks and provider verification fail only for mutations outside the documented compatibility boundary. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/contract-testing-pact/SKILL.md",
+            "seed-skills/api-contract-validator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "contract negative example testing in CI",
+          "question": false,
+          "secondaryKeyword": "contract negative example testing",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to contract-testing-pact and api-contract-validator.",
+          "repoEvidence": [
+            "seed-skills/contract-testing-pact/SKILL.md",
+            "seed-skills/api-contract-validator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Pact matching rule overbreadth testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: exact matcher with the documented value; type matcher with a semantically invalid value; anchored versus unanchored regex; array with an invalid extra element; critical field removed from the provider response. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/contract-testing-pact/SKILL.md",
+            "seed-skills/api-contract-validator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Pact matching rule overbreadth testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/contract-testing-pact/SKILL.md",
+            "seed-skills/api-contract-validator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within each Pact matcher accepts intended provider variation but rejects mutations that would break the consumer, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/contract-testing-pact/SKILL.md",
+            "seed-skills/api-contract-validator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/api-contract-testing-microservices, then open /skills and implement the Pact matching rule overbreadth testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/contract-testing-pact/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Pact matching rule overbreadth testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "exact matcher with the documented value",
+            "controlledSetup": "a valid interaction plus mutated provider bodies for wrong types, invalid formats, missing fields, broad regex matches, and unexpected array shapes",
+            "expectedObservation": "consumer expectation checks and provider verification fail only for mutations outside the documented compatibility boundary",
+            "failureSignal": "Observed state differs from the documented each Pact matcher accepts intended provider variation but rejects mutations that would break the consumer.",
+            "evidenceSource": "seed-skills/contract-testing-pact/SKILL.md"
+          },
+          {
+            "scenario": "type matcher with a semantically invalid value",
+            "controlledSetup": "Change only the condition represented by \"type matcher with a semantically invalid value\" while retaining the baseline fixture.",
+            "expectedObservation": "consumer expectation checks and provider verification fail only for mutations outside the documented compatibility boundary",
+            "failureSignal": "Observed state differs from the documented each Pact matcher accepts intended provider variation but rejects mutations that would break the consumer.",
+            "evidenceSource": "seed-skills/api-contract-validator/SKILL.md"
+          },
+          {
+            "scenario": "anchored versus unanchored regex",
+            "controlledSetup": "Change only the condition represented by \"anchored versus unanchored regex\" while retaining the baseline fixture.",
+            "expectedObservation": "consumer expectation checks and provider verification fail only for mutations outside the documented compatibility boundary",
+            "failureSignal": "Observed state differs from the documented each Pact matcher accepts intended provider variation but rejects mutations that would break the consumer.",
+            "evidenceSource": "seed-skills/contract-testing-pact/SKILL.md"
+          },
+          {
+            "scenario": "array with an invalid extra element",
+            "controlledSetup": "Change only the condition represented by \"array with an invalid extra element\" while retaining the baseline fixture.",
+            "expectedObservation": "consumer expectation checks and provider verification fail only for mutations outside the documented compatibility boundary",
+            "failureSignal": "Observed state differs from the documented each Pact matcher accepts intended provider variation but rejects mutations that would break the consumer.",
+            "evidenceSource": "seed-skills/api-contract-validator/SKILL.md"
+          },
+          {
+            "scenario": "critical field removed from the provider response",
+            "controlledSetup": "Change only the condition represented by \"critical field removed from the provider response\" while retaining the baseline fixture.",
+            "expectedObservation": "consumer expectation checks and provider verification fail only for mutations outside the documented compatibility boundary",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish type-only matchers on semantic identifiers, unanchored regexes, permissive arrays, optional critical fields, and positive-only contract tests.",
+            "evidenceSource": "seed-skills/contract-testing-pact/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/contract-testing-pact/SKILL.md",
+          "seed-skills/api-contract-validator/SKILL.md",
+          "https://docs.pact.io/implementation_guides/javascript/docs/matching",
+          "https://docs.pact.io/getting_started/matching",
+          "https://www.rfc-editor.org/info/rfc9110"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Pact matching rule overbreadth testing",
+        "steps": [
+          "Read seed-skills/contract-testing-pact/SKILL.md and seed-skills/api-contract-validator/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a valid interaction plus mutated provider bodies for wrong types, invalid formats, missing fields, broad regex matches, and unexpected array shapes.",
+          "Run the positive case and capture consumer expectation checks and provider verification fail only for mutations outside the documented compatibility boundary.",
+          "Inject one failure at a time from type-only matchers on semantic identifiers, unanchored regexes, permissive arrays, optional critical fields, and positive-only contract tests, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Pact matching rule overbreadth testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/contract-testing-pact/SKILL.md",
+          "focus": "Adapt Pact matcher examples into paired valid and intentionally breaking provider payloads."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/api-contract-validator/SKILL.md",
+          "focus": "Use API contract validation patterns to mutate one field at a time and record expected verification failure."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/contract-testing-pact/SKILL.md",
+        "seed-skills/api-contract-validator/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/api-contract-testing-microservices",
+        "/blog/contract-testing-pact-complete-guide",
+        "/blog/bidirectional-contract-testing-pact-2026",
+        "/blog/contract-testing-pact-vs-spring-cloud-contract-2026",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "api-contract-testing-microservices",
+        "contract-testing-pact-complete-guide",
+        "bidirectional-contract-testing-pact-2026",
+        "contract-testing-pact-vs-spring-cloud-contract-2026"
+      ],
+      "sources": [
+        "https://docs.pact.io/implementation_guides/javascript/docs/matching",
+        "https://docs.pact.io/getting_started/matching",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "faqQuestions": [
+        "How can consumer tests detect Pact matchers that are so permissive they allow breaking provider responses?",
+        "What should an Pact matcher overbreadth fixture record?",
+        "Which failure proves consumer contract false positive is broken?",
+        "How do teams isolate Pact regex matcher test?",
+        "Which assertion is strongest for strict versus flexible matcher?",
+        "How should CI report contract negative example testing failures?"
+      ],
+      "cta": "Review /blog/api-contract-testing-microservices, then open /skills and implement the Pact matching rule overbreadth testing matrix in the next test run."
+    }
+  ]
+}

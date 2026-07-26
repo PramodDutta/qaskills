@@ -1,0 +1,1085 @@
+{
+  "batch": 44,
+  "briefs": [
+    {
+      "batch": 44,
+      "batchPosition": 1,
+      "domain": "ai-llm-rag",
+      "slug": "agent-final-state-verification-testing",
+      "primaryKeyword": "Agent final state verification testing",
+      "title": "Agent final state verification testing",
+      "description": "Agent final state verification testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you verify the external state created by agent tools instead of trusting a fluent final answer that claims the task succeeded?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you verify the external state created by agent tools instead of trusting a fluent final answer that claims the task succeeded?\" State the observable success condition, not a general introduction: A direct read from the system of record confirms the expected postcondition and agrees with the ordered tool trace before success is reported.",
+      "intentBoundary": "The metric article scores completion through a judge. This candidate owns deterministic reads of the system of record after tools finish.",
+      "secondaryKeywords": [
+        "how to agent final state verification testing",
+        "agent final state verification testing example",
+        "agent task outcome assertion",
+        "verify tool side effect state",
+        "LLM final answer state mismatch"
+      ],
+      "outline": [
+        {
+          "heading": "What must Agent final state verification testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you verify the external state created by agent tools instead of trusting a fluent final answer that claims the task succeeded?\" in 40 to 60 words. Define the observable contract as: A direct read from the system of record confirms the expected postcondition and agrees with the ordered tool trace before success is reported. Keep the scope inside this intent boundary: The metric article scores completion through a judge. This candidate owns deterministic reads of the system of record after tools finish.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md:134-147 requires the correct trajectory and asserted final state.",
+            "seed-skills/openai-evals-trace-grading/SKILL.md:115-149 combines structured output checks with expected tool calls."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md:134-147 requires the correct trajectory and asserted final state.",
+            "seed-skills/openai-evals-trace-grading/SKILL.md:115-149 combines structured output checks with expected tool calls."
+          ]
+        },
+        {
+          "heading": "How to agent final state verification testing?",
+          "secondaryKeyword": "how to agent final state verification testing",
+          "coverage": "Build the primary positive fixture with this harness: Use a fake repository or API with explicit preconditions and postcondition reads, then compare state, tool results, and narrative claims. The decisive success oracle is: A direct read from the system of record confirms the expected postcondition and agrees with the ordered tool trace before success is reported.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Agent final state verification testing example: scenario and assertion matrix",
+          "secondaryKeyword": "agent final state verification testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose agent task outcome assertion?",
+          "secondaryKeyword": "agent task outcome assertion",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: The final answer claims completion although the external record is missing, wrong, partially updated, or changed by another operation. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should verify tool side effect state run in CI?",
+          "secondaryKeyword": "verify tool side effect state",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify LLM final answer state mismatch?",
+          "secondaryKeyword": "LLM final answer state mismatch",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: The final answer claims completion although the external record is missing, wrong, partially updated, or changed by another operation.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/how-to-test-llm-tool-calling-accuracy before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Agent final state verification testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: A direct read from the system of record confirms the expected postcondition and agrees with the ordered tool trace before success is reported.",
+          "Boundary case for agent final state verification testing example with an exact pass or fail oracle",
+          "Negative case: The final answer claims completion although the external record is missing, wrong, partially updated, or changed by another operation.",
+          "Repeated and concurrent execution for verify tool side effect state",
+          "CI evidence and ownership for LLM final answer state mismatch"
+        ],
+        "sources": [
+          "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "seed-skills/openai-evals-trace-grading/SKILL.md",
+          "https://platform.openai.com/docs/guides/evals",
+          "https://platform.openai.com/docs/guides/function-calling",
+          "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Agent final state verification testing in six steps",
+        "steps": [
+          "Read seed-skills/ai-system-quality-engineer/SKILL.md:134-147 and seed-skills/openai-evals-trace-grading/SKILL.md:115-149, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to agent final state verification testing and agent final state verification testing example without calling production services or mutating shared state.",
+          "Build the harness: Use a fake repository or API with explicit preconditions and postcondition reads, then compare state, tool results, and narrative claims.",
+          "Run the expected path and assert: A direct read from the system of record confirms the expected postcondition and agrees with the ordered tool trace before success is reported.",
+          "Inject boundary and failure cases and assert: The final answer claims completion although the external record is missing, wrong, partially updated, or changed by another operation.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to agent final state verification testing positive contract",
+          "repositoryPath": "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "repositoryLines": "134-147",
+          "exactEvidence": "requires the correct trajectory and asserted final state.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: A direct read from the system of record confirms the expected postcondition and agrees with the ordered tool trace before success is reported.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "agent task outcome assertion negative contract",
+          "repositoryPath": "seed-skills/openai-evals-trace-grading/SKILL.md",
+          "repositoryLines": "115-149",
+          "exactEvidence": "combines structured output checks with expected tool calls.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: The final answer claims completion although the external record is missing, wrong, partially updated, or changed by another operation.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/ai-system-quality-engineer/SKILL.md",
+        "seed-skills/openai-evals-trace-grading/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/how-to-test-llm-tool-calling-accuracy",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/ai-agent-eval-testing-guide",
+        "/blog/deepeval-task-completion-metric-agent"
+      ],
+      "relatedSlugs": [
+        "how-to-test-llm-tool-calling-accuracy",
+        "agent-tool-use-regression-testing-guide-2026",
+        "ai-agent-eval-testing-guide",
+        "deepeval-task-completion-metric-agent"
+      ],
+      "sources": [
+        "https://platform.openai.com/docs/guides/evals",
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
+      ],
+      "faqQuestions": [
+        "How do you verify the external state created by agent tools instead of trusting a fluent final answer that claims the task succeeded?",
+        "What fixture best tests how to agent final state verification testing?",
+        "Which failure signal proves agent final state verification testing example?",
+        "How should CI report agent task outcome assertion?",
+        "When should verify tool side effect state block a release?",
+        "How can teams keep LLM final answer state mismatch repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/how-to-test-llm-tool-calling-accuracy before implementing this regression gate."
+    },
+    {
+      "batch": 44,
+      "batchPosition": 2,
+      "domain": "ai-llm-rag",
+      "slug": "deepeval-judge-version-pinning",
+      "primaryKeyword": "DeepEval judge version pinning",
+      "title": "DeepEval judge version pinning",
+      "description": "DeepEval judge version pinning: use repo evidence, focused fixtures, code examples, and CI checks to expose contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How can a QA team prove that a DeepEval run used the intended judge model and reject silent judge-version changes in CI?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How can a QA team prove that a DeepEval run used the intended judge model and reject silent judge-version changes in CI?\" State the observable success condition, not a general introduction: The evaluation report records configured and resolved judge identity, and CI rejects a mismatch before comparing scores with the baseline.",
+      "intentBoundary": "The calibration guide measures judge quality. This candidate owns build-time identity checks and evidence that the configured judge version actually ran.",
+      "secondaryKeywords": [
+        "how to deepeval judge version pinning",
+        "deepeval judge version pinning example",
+        "DeepEval evaluator model pinning",
+        "LLM judge version regression",
+        "record judge model in eval report"
+      ],
+      "outline": [
+        {
+          "heading": "What must DeepEval judge version pinning prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can a QA team prove that a DeepEval run used the intended judge model and reject silent judge-version changes in CI?\" in 40 to 60 words. Define the observable contract as: The evaluation report records configured and resolved judge identity, and CI rejects a mismatch before comparing scores with the baseline. Keep the scope inside this intent boundary: The calibration guide measures judge quality. This candidate owns build-time identity checks and evidence that the configured judge version actually ran.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md:147-155 requires a pinned judge and periodic human spot checks.",
+            "seed-skills/rag-regression-testing/SKILL.md:48-68 pins judge model, temperature, embeddings, and retrieval settings."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md:147-155 requires a pinned judge and periodic human spot checks.",
+            "seed-skills/rag-regression-testing/SKILL.md:48-68 pins judge model, temperature, embeddings, and retrieval settings."
+          ]
+        },
+        {
+          "heading": "How to deepeval judge version pinning?",
+          "secondaryKeyword": "how to deepeval judge version pinning",
+          "coverage": "Build the primary positive fixture with this harness: Mock judge client metadata for matching and changed model identities, then assert run manifests, comparison eligibility, and failure output. The decisive success oracle is: The evaluation report records configured and resolved judge identity, and CI rejects a mismatch before comparing scores with the baseline.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Deepeval judge version pinning example: scenario and assertion matrix",
+          "secondaryKeyword": "deepeval judge version pinning example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose DeepEval evaluator model pinning?",
+          "secondaryKeyword": "DeepEval evaluator model pinning",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A judge alias resolves to another model while the report retains an old name or presents changed scores as an application regression. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should LLM judge version regression run in CI?",
+          "secondaryKeyword": "LLM judge version regression",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify record judge model in eval report?",
+          "secondaryKeyword": "record judge model in eval report",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A judge alias resolves to another model while the report retains an old name or presents changed scores as an application regression.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use Python and pytest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/deepeval-pytest-llm-testing-guide before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "DeepEval judge version pinning: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: The evaluation report records configured and resolved judge identity, and CI rejects a mismatch before comparing scores with the baseline.",
+          "Boundary case for deepeval judge version pinning example with an exact pass or fail oracle",
+          "Negative case: A judge alias resolves to another model while the report retains an old name or presents changed scores as an application regression.",
+          "Repeated and concurrent execution for LLM judge version regression",
+          "CI evidence and ownership for record judge model in eval report"
+        ],
+        "sources": [
+          "seed-skills/deepeval-llm-evaluation/SKILL.md",
+          "seed-skills/rag-regression-testing/SKILL.md",
+          "https://deepeval.com/docs/introduction",
+          "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+          "https://www.nist.gov/itl/ai-risk-management-framework"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement DeepEval judge version pinning in six steps",
+        "steps": [
+          "Read seed-skills/deepeval-llm-evaluation/SKILL.md:147-155 and seed-skills/rag-regression-testing/SKILL.md:48-68, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to deepeval judge version pinning and deepeval judge version pinning example without calling production services or mutating shared state.",
+          "Build the harness: Mock judge client metadata for matching and changed model identities, then assert run manifests, comparison eligibility, and failure output.",
+          "Run the expected path and assert: The evaluation report records configured and resolved judge identity, and CI rejects a mismatch before comparing scores with the baseline.",
+          "Inject boundary and failure cases and assert: A judge alias resolves to another model while the report retains an old name or presents changed scores as an application regression.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to deepeval judge version pinning positive contract",
+          "repositoryPath": "seed-skills/deepeval-llm-evaluation/SKILL.md",
+          "repositoryLines": "147-155",
+          "exactEvidence": "requires a pinned judge and periodic human spot checks.",
+          "plannedSnippet": "Python and pytest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: The evaluation report records configured and resolved judge identity, and CI rejects a mismatch before comparing scores with the baseline.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "DeepEval evaluator model pinning negative contract",
+          "repositoryPath": "seed-skills/rag-regression-testing/SKILL.md",
+          "repositoryLines": "48-68",
+          "exactEvidence": "pins judge model, temperature, embeddings, and retrieval settings.",
+          "plannedSnippet": "Python and pytest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A judge alias resolves to another model while the report retains an old name or presents changed scores as an application regression.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md",
+        "seed-skills/rag-regression-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates",
+        "/blog/llm-judge-calibration-guide-2026"
+      ],
+      "relatedSlugs": [
+        "deepeval-pytest-llm-testing-guide",
+        "testing-llm-applications-guide",
+        "llm-evaluation-ci-cd-quality-gates",
+        "llm-judge-calibration-guide-2026"
+      ],
+      "sources": [
+        "https://deepeval.com/docs/introduction",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+        "https://www.nist.gov/itl/ai-risk-management-framework"
+      ],
+      "faqQuestions": [
+        "How can a QA team prove that a DeepEval run used the intended judge model and reject silent judge-version changes in CI?",
+        "What fixture best tests how to deepeval judge version pinning?",
+        "Which failure signal proves deepeval judge version pinning example?",
+        "How should CI report DeepEval evaluator model pinning?",
+        "When should LLM judge version regression block a release?",
+        "How can teams keep record judge model in eval report repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/deepeval-pytest-llm-testing-guide before implementing this regression gate."
+    },
+    {
+      "batch": 44,
+      "batchPosition": 3,
+      "domain": "ai-llm-rag",
+      "slug": "llm-async-trace-context-testing",
+      "primaryKeyword": "LLM async trace context testing",
+      "title": "LLM async trace context testing",
+      "description": "LLM async trace context testing: use repo evidence, focused fixtures, code examples, and CI checks to expose contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you prove trace and span context survives promises, queues, background callbacks, and parallel tool calls without cross-request contamination?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you prove trace and span context survives promises, queues, background callbacks, and parallel tool calls without cross-request contamination?\" State the observable success condition, not a general introduction: Promises, queues, callbacks, and parallel tools keep the correct trace and parent span while concurrent requests remain isolated.",
+      "intentBoundary": "The existing page explains trace assertions across services. This candidate owns async context loss and cross-request contamination in LLM workflows.",
+      "secondaryKeywords": [
+        "how to llm async trace context testing",
+        "llm async trace context testing example",
+        "LLM trace context propagation",
+        "async span parent test",
+        "agent trace cross request isolation"
+      ],
+      "outline": [
+        {
+          "heading": "What must LLM async trace context testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you prove trace and span context survives promises, queues, background callbacks, and parallel tool calls without cross-request contamination?\" in 40 to 60 words. Define the observable contract as: Promises, queues, callbacks, and parallel tools keep the correct trace and parent span while concurrent requests remain isolated. Keep the scope inside this intent boundary: The existing page explains trace assertions across services. This candidate owns async context loss and cross-request contamination in LLM workflows.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md:37-53 creates nested retrieval and generation observations under one trace.",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts:12-20 treats parent-child span relationships as testable behavior."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md:37-53 creates nested retrieval and generation observations under one trace.",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts:12-20 treats parent-child span relationships as testable behavior."
+          ]
+        },
+        {
+          "heading": "How to llm async trace context testing?",
+          "secondaryKeyword": "how to llm async trace context testing",
+          "coverage": "Build the primary positive fixture with this harness: Run interleaved asynchronous workflows through an in-memory exporter and assert trace IDs, parent IDs, ordering, and request ownership. The decisive success oracle is: Promises, queues, callbacks, and parallel tools keep the correct trace and parent span while concurrent requests remain isolated.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "Llm async trace context testing example: scenario and assertion matrix",
+          "secondaryKeyword": "llm async trace context testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "What failures expose LLM trace context propagation?",
+          "secondaryKeyword": "LLM trace context propagation",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A span becomes orphaned, attaches to another request, loses baggage, or lets one agent run contaminate another trace. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "How should async span parent test run in CI?",
+          "secondaryKeyword": "async span parent test",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "Which assertions verify agent trace cross request isolation?",
+          "secondaryKeyword": "agent trace cross request isolation",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A span becomes orphaned, attaches to another request, loses baggage, or lets one agent run contaminate another trace.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/langfuse-llm-observability-guide-2026 before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "LLM async trace context testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Promises, queues, callbacks, and parallel tools keep the correct trace and parent span while concurrent requests remain isolated.",
+          "Boundary case for llm async trace context testing example with an exact pass or fail oracle",
+          "Negative case: A span becomes orphaned, attaches to another request, loses baggage, or lets one agent run contaminate another trace.",
+          "Repeated and concurrent execution for async span parent test",
+          "CI evidence and ownership for agent trace cross request isolation"
+        ],
+        "sources": [
+          "seed-skills/langfuse-llm-observability/SKILL.md",
+          "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts",
+          "https://opentelemetry.io/docs/concepts/signals/traces/",
+          "https://opentelemetry.io/docs/specs/semconv/general/trace/",
+          "https://langfuse.com/docs/observability/best-practices"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement LLM async trace context testing in six steps",
+        "steps": [
+          "Read seed-skills/langfuse-llm-observability/SKILL.md:37-53 and packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts:12-20, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to llm async trace context testing and llm async trace context testing example without calling production services or mutating shared state.",
+          "Build the harness: Run interleaved asynchronous workflows through an in-memory exporter and assert trace IDs, parent IDs, ordering, and request ownership.",
+          "Run the expected path and assert: Promises, queues, callbacks, and parallel tools keep the correct trace and parent span while concurrent requests remain isolated.",
+          "Inject boundary and failure cases and assert: A span becomes orphaned, attaches to another request, loses baggage, or lets one agent run contaminate another trace.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to llm async trace context testing positive contract",
+          "repositoryPath": "seed-skills/langfuse-llm-observability/SKILL.md",
+          "repositoryLines": "37-53",
+          "exactEvidence": "creates nested retrieval and generation observations under one trace.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Promises, queues, callbacks, and parallel tools keep the correct trace and parent span while concurrent requests remain isolated.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "LLM trace context propagation negative contract",
+          "repositoryPath": "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts",
+          "repositoryLines": "12-20",
+          "exactEvidence": "treats parent-child span relationships as testable behavior.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A span becomes orphaned, attaches to another request, loses baggage, or lets one agent run contaminate another trace.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/langfuse-llm-observability/SKILL.md",
+        "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/langfuse-llm-observability-guide-2026",
+        "/blog/langfuse-trace-quality-testing-guide",
+        "/blog/llm-observability-vs-evaluation-2026",
+        "/blog/trace-based-testing-opentelemetry-2026"
+      ],
+      "relatedSlugs": [
+        "langfuse-llm-observability-guide-2026",
+        "langfuse-trace-quality-testing-guide",
+        "llm-observability-vs-evaluation-2026",
+        "trace-based-testing-opentelemetry-2026"
+      ],
+      "sources": [
+        "https://opentelemetry.io/docs/concepts/signals/traces/",
+        "https://opentelemetry.io/docs/specs/semconv/general/trace/",
+        "https://langfuse.com/docs/observability/best-practices"
+      ],
+      "faqQuestions": [
+        "How do you prove trace and span context survives promises, queues, background callbacks, and parallel tool calls without cross-request contamination?",
+        "What fixture best tests how to llm async trace context testing?",
+        "Which failure signal proves llm async trace context testing example?",
+        "How should CI report LLM trace context propagation?",
+        "When should async span parent test block a release?",
+        "How can teams keep agent trace cross request isolation repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/langfuse-llm-observability-guide-2026 before implementing this regression gate."
+    },
+    {
+      "batch": 44,
+      "batchPosition": 4,
+      "domain": "ai-llm-rag",
+      "slug": "promptfoo-eval-cache-invalidation-testing",
+      "primaryKeyword": "Promptfoo eval cache invalidation testing",
+      "title": "Promptfoo eval cache invalidation testing",
+      "description": "Promptfoo eval cache invalidation testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you verify Promptfoo cache identity changes when prompts, providers, variables, headers, model settings, or response transforms change?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you verify Promptfoo cache identity changes when prompts, providers, variables, headers, model settings, or response transforms change?\" State the observable success condition, not a general introduction: Equivalent rendered requests reuse cache entries, while any prompt, provider, variable, header, model setting, or transform change misses the cache.",
+      "intentBoundary": "The matrix article compares prompt versions. This candidate owns cache-key mutation and stale-response detection across all rendered request inputs.",
+      "secondaryKeywords": [
+        "how to promptfoo eval cache invalidation testing",
+        "promptfoo eval cache invalidation testing example",
+        "Promptfoo stale cache test",
+        "Promptfoo provider cache key",
+        "disable Promptfoo cache in CI"
+      ],
+      "outline": [
+        {
+          "heading": "What must Promptfoo eval cache invalidation testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you verify Promptfoo cache identity changes when prompts, providers, variables, headers, model settings, or response transforms change?\" in 40 to 60 words. Define the observable contract as: Equivalent rendered requests reuse cache entries, while any prompt, provider, variable, header, model setting, or transform change misses the cache. Keep the scope inside this intent boundary: The matrix article compares prompt versions. This candidate owns cache-key mutation and stale-response detection across all rendered request inputs.",
+          "evidence": [
+            "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts:96-104 warns that cached responses from older targets can invalidate comparisons.",
+            "seed-skills/prompt-testing/SKILL.md:737-741 recommends caching while also pinning every behavior-changing model input."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts:96-104 warns that cached responses from older targets can invalidate comparisons.",
+            "seed-skills/prompt-testing/SKILL.md:737-741 recommends caching while also pinning every behavior-changing model input."
+          ]
+        },
+        {
+          "heading": "How to promptfoo eval cache invalidation testing?",
+          "secondaryKeyword": "how to promptfoo eval cache invalidation testing",
+          "coverage": "Build the primary positive fixture with this harness: Run a pairwise configuration mutation matrix against a counted mock provider and isolated cache directory, then assert hits and misses. The decisive success oracle is: Equivalent rendered requests reuse cache entries, while any prompt, provider, variable, header, model setting, or transform change misses the cache.",
+          "evidence": [
+            "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Promptfoo eval cache invalidation testing example: scenario and assertion matrix",
+          "secondaryKeyword": "promptfoo eval cache invalidation testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose Promptfoo stale cache test?",
+          "secondaryKeyword": "Promptfoo stale cache test",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A semantic request change returns a stale response, or irrelevant serialization differences prevent a legitimate cache hit. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Promptfoo provider cache key run in CI?",
+          "secondaryKeyword": "Promptfoo provider cache key",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify disable Promptfoo cache in CI?",
+          "secondaryKeyword": "disable Promptfoo cache in CI",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A semantic request change returns a stale response, or irrelevant serialization differences prevent a legitimate cache hit.",
+          "evidence": [
+            "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use Promptfoo YAML plus TypeScript or shell assertions and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/promptfoo-complete-guide-2026 before implementing this regression gate.",
+          "evidence": [
+            "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Promptfoo eval cache invalidation testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Equivalent rendered requests reuse cache entries, while any prompt, provider, variable, header, model setting, or transform change misses the cache.",
+          "Boundary case for promptfoo eval cache invalidation testing example with an exact pass or fail oracle",
+          "Negative case: A semantic request change returns a stale response, or irrelevant serialization differences prevent a legitimate cache hit.",
+          "Repeated and concurrent execution for Promptfoo provider cache key",
+          "CI evidence and ownership for disable Promptfoo cache in CI"
+        ],
+        "sources": [
+          "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts",
+          "seed-skills/prompt-testing/SKILL.md",
+          "https://www.promptfoo.dev/docs/configuration/caching/",
+          "https://www.promptfoo.dev/docs/configuration/guide/",
+          "https://www.promptfoo.dev/docs/providers/"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Promptfoo eval cache invalidation testing in six steps",
+        "steps": [
+          "Read packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts:96-104 and seed-skills/prompt-testing/SKILL.md:737-741, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to promptfoo eval cache invalidation testing and promptfoo eval cache invalidation testing example without calling production services or mutating shared state.",
+          "Build the harness: Run a pairwise configuration mutation matrix against a counted mock provider and isolated cache directory, then assert hits and misses.",
+          "Run the expected path and assert: Equivalent rendered requests reuse cache entries, while any prompt, provider, variable, header, model setting, or transform change misses the cache.",
+          "Inject boundary and failure cases and assert: A semantic request change returns a stale response, or irrelevant serialization differences prevent a legitimate cache hit.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to promptfoo eval cache invalidation testing positive contract",
+          "repositoryPath": "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts",
+          "repositoryLines": "96-104",
+          "exactEvidence": "warns that cached responses from older targets can invalidate comparisons.",
+          "plannedSnippet": "Promptfoo YAML plus TypeScript or shell assertions example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Equivalent rendered requests reuse cache entries, while any prompt, provider, variable, header, model setting, or transform change misses the cache.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "Promptfoo stale cache test negative contract",
+          "repositoryPath": "seed-skills/prompt-testing/SKILL.md",
+          "repositoryLines": "737-741",
+          "exactEvidence": "recommends caching while also pinning every behavior-changing model input.",
+          "plannedSnippet": "Promptfoo YAML plus TypeScript or shell assertions failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A semantic request change returns a stale response, or irrelevant serialization differences prevent a legitimate cache hit.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts",
+        "seed-skills/prompt-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026",
+        "/blog/promptfoo-variable-matrix-prompt-versions"
+      ],
+      "relatedSlugs": [
+        "promptfoo-complete-guide-2026",
+        "promptfoo-red-teaming-llm-applications",
+        "prompt-injection-testing-guide-2026",
+        "promptfoo-variable-matrix-prompt-versions"
+      ],
+      "sources": [
+        "https://www.promptfoo.dev/docs/configuration/caching/",
+        "https://www.promptfoo.dev/docs/configuration/guide/",
+        "https://www.promptfoo.dev/docs/providers/"
+      ],
+      "faqQuestions": [
+        "How do you verify Promptfoo cache identity changes when prompts, providers, variables, headers, model settings, or response transforms change?",
+        "What fixture best tests how to promptfoo eval cache invalidation testing?",
+        "Which failure signal proves promptfoo eval cache invalidation testing example?",
+        "How should CI report Promptfoo stale cache test?",
+        "When should Promptfoo provider cache key block a release?",
+        "How can teams keep disable Promptfoo cache in CI repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/promptfoo-complete-guide-2026 before implementing this regression gate."
+    },
+    {
+      "batch": 44,
+      "batchPosition": 5,
+      "domain": "ai-llm-rag",
+      "slug": "rag-query-rewrite-regression-testing",
+      "primaryKeyword": "RAG query rewrite regression testing",
+      "title": "RAG query rewrite regression testing",
+      "description": "RAG query rewrite regression testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test whether a query rewriter preserves entities, constraints, negation, and user intent before retrieval runs?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you test whether a query rewriter preserves entities, constraints, negation, and user intent before retrieval runs?\" State the observable success condition, not a general introduction: The rewritten query preserves entities, constraints, negation, time scope, and user intent while only approved expansion changes are introduced.",
+      "intentBoundary": "The existing retrieval guide measures returned documents. This candidate owns the pre-retrieval rewrite contract and semantic preservation.",
+      "secondaryKeywords": [
+        "how to rag query rewrite regression testing",
+        "rag query rewrite regression testing example",
+        "RAG rewritten query contract",
+        "query expansion regression suite",
+        "retrieval query semantic preservation"
+      ],
+      "outline": [
+        {
+          "heading": "What must RAG query rewrite regression testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you test whether a query rewriter preserves entities, constraints, negation, and user intent before retrieval runs?\" in 40 to 60 words. Define the observable contract as: The rewritten query preserves entities, constraints, negation, time scope, and user intent while only approved expansion changes are introduced. Keep the scope inside this intent boundary: The existing retrieval guide measures returned documents. This candidate owns the pre-retrieval rewrite contract and semantic preservation.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md:63-68 versions the retriever configuration used by every eval.",
+            "seed-skills/rag-evaluation-metrics/SKILL.md:21-28 requires retrieval and generation to be measured as separate subsystems."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md:63-68 versions the retriever configuration used by every eval.",
+            "seed-skills/rag-evaluation-metrics/SKILL.md:21-28 requires retrieval and generation to be measured as separate subsystems."
+          ]
+        },
+        {
+          "heading": "How to rag query rewrite regression testing?",
+          "secondaryKeyword": "how to rag query rewrite regression testing",
+          "coverage": "Build the primary positive fixture with this harness: Store reviewed source-query and rewrite pairs with required semantic facts, then run contract assertions before downstream rank evaluation. The decisive success oracle is: The rewritten query preserves entities, constraints, negation, time scope, and user intent while only approved expansion changes are introduced.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Rag query rewrite regression testing example: scenario and assertion matrix",
+          "secondaryKeyword": "rag query rewrite regression testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose RAG rewritten query contract?",
+          "secondaryKeyword": "RAG rewritten query contract",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A rewrite drops a negation, changes an entity, broadens authorization scope, or improves recall by altering the requested meaning. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should query expansion regression suite run in CI?",
+          "secondaryKeyword": "query expansion regression suite",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify retrieval query semantic preservation?",
+          "secondaryKeyword": "retrieval query semantic preservation",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A rewrite drops a negation, changes an entity, broadens authorization scope, or improves recall by altering the requested meaning.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use Python and pytest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/ragas-rag-evaluation-metrics-complete-guide before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "RAG query rewrite regression testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: The rewritten query preserves entities, constraints, negation, time scope, and user intent while only approved expansion changes are introduced.",
+          "Boundary case for rag query rewrite regression testing example with an exact pass or fail oracle",
+          "Negative case: A rewrite drops a negation, changes an entity, broadens authorization scope, or improves recall by altering the requested meaning.",
+          "Repeated and concurrent execution for query expansion regression suite",
+          "CI evidence and ownership for retrieval query semantic preservation"
+        ],
+        "sources": [
+          "seed-skills/rag-regression-testing/SKILL.md",
+          "seed-skills/rag-evaluation-metrics/SKILL.md",
+          "https://platform.openai.com/docs/guides/retrieval",
+          "https://www.elastic.co/guide/en/elasticsearch/reference/current/search-rank-eval.html",
+          "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement RAG query rewrite regression testing in six steps",
+        "steps": [
+          "Read seed-skills/rag-regression-testing/SKILL.md:63-68 and seed-skills/rag-evaluation-metrics/SKILL.md:21-28, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to rag query rewrite regression testing and rag query rewrite regression testing example without calling production services or mutating shared state.",
+          "Build the harness: Store reviewed source-query and rewrite pairs with required semantic facts, then run contract assertions before downstream rank evaluation.",
+          "Run the expected path and assert: The rewritten query preserves entities, constraints, negation, time scope, and user intent while only approved expansion changes are introduced.",
+          "Inject boundary and failure cases and assert: A rewrite drops a negation, changes an entity, broadens authorization scope, or improves recall by altering the requested meaning.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to rag query rewrite regression testing positive contract",
+          "repositoryPath": "seed-skills/rag-regression-testing/SKILL.md",
+          "repositoryLines": "63-68",
+          "exactEvidence": "versions the retriever configuration used by every eval.",
+          "plannedSnippet": "Python and pytest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: The rewritten query preserves entities, constraints, negation, time scope, and user intent while only approved expansion changes are introduced.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "RAG rewritten query contract negative contract",
+          "repositoryPath": "seed-skills/rag-evaluation-metrics/SKILL.md",
+          "repositoryLines": "21-28",
+          "exactEvidence": "requires retrieval and generation to be measured as separate subsystems.",
+          "plannedSnippet": "Python and pytest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A rewrite drops a negation, changes an entity, broadens authorization scope, or improves recall by altering the requested meaning.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/rag-regression-testing/SKILL.md",
+        "seed-skills/rag-evaluation-metrics/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026",
+        "/blog/rag-regression-testing-cicd-2026"
+      ],
+      "relatedSlugs": [
+        "ragas-rag-evaluation-metrics-complete-guide",
+        "rag-regression-testing-guide-2026",
+        "rag-retrieval-testing-best-practices-2026",
+        "rag-regression-testing-cicd-2026"
+      ],
+      "sources": [
+        "https://platform.openai.com/docs/guides/retrieval",
+        "https://www.elastic.co/guide/en/elasticsearch/reference/current/search-rank-eval.html",
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/"
+      ],
+      "faqQuestions": [
+        "How do you test whether a query rewriter preserves entities, constraints, negation, and user intent before retrieval runs?",
+        "What fixture best tests how to rag query rewrite regression testing?",
+        "Which failure signal proves rag query rewrite regression testing example?",
+        "How should CI report RAG rewritten query contract?",
+        "When should query expansion regression suite block a release?",
+        "How can teams keep retrieval query semantic preservation repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/ragas-rag-evaluation-metrics-complete-guide before implementing this regression gate."
+    }
+  ]
+}

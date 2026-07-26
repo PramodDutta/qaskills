@@ -1,0 +1,988 @@
+{
+  "batch": 8,
+  "briefs": [
+    {
+      "batch": 8,
+      "domain": "web-auth-email",
+      "slug": "email-master-toggle-delivery-tests",
+      "primaryKeyword": "email master toggle delivery tests",
+      "title": "Email master toggle delivery tests",
+      "description": "email master toggle delivery tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you verify that disabling the master email preference suppresses digest and alert delivery even when child toggles remain true?",
+      "secondaryKeywords": [
+        "email master opt out test",
+        "weekly digest preference filter",
+        "new skill alert opt out",
+        "parent child preference testing",
+        "notification delivery matrix"
+      ],
+      "outline": [
+        {
+          "heading": "Email master toggle delivery tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you verify that disabling the master email preference suppresses digest and alert delivery even when child toggles remain true?\" in 40 to 60 words, define the contract as the master email switch must suppress digest and new-skill delivery even when either child preference remains enabled, and state the observable pass criteria.",
+          "keyword": "email master toggle delivery tests",
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:subscriber where clause",
+            "packages/web/src/app/api/skills/route.ts:new skill alert subscriber where clause"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/app/api/cron/weekly-digest/route.ts:subscriber where clause; packages/web/src/app/api/skills/route.ts:new skill alert subscriber where clause; packages/web/src/app/dashboard/preferences/page.tsx:master and child switches. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:subscriber where clause",
+            "packages/web/src/app/api/skills/route.ts:new skill alert subscriber where clause",
+            "packages/web/src/app/dashboard/preferences/page.tsx:master and child switches"
+          ]
+        },
+        {
+          "heading": "Email master opt out test: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for email master opt out test. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "email master opt out test",
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:subscriber where clause",
+            "packages/web/src/app/api/skills/route.ts:new skill alert subscriber where clause"
+          ]
+        },
+        {
+          "heading": "Weekly digest preference filter: Test Matrix",
+          "purpose": "Compare master setting, digest setting, alert setting, subscriber query eligibility, template attempted, and expected delivery count. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "weekly digest preference filter",
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:subscriber where clause",
+            "packages/web/src/app/api/skills/route.ts:new skill alert subscriber where clause",
+            "packages/web/src/app/dashboard/preferences/page.tsx:master and child switches"
+          ]
+        },
+        {
+          "heading": "How Should New skill alert opt out Be Exercised?",
+          "purpose": "Build the harness for new skill alert opt out, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "new skill alert opt out",
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:subscriber where clause",
+            "packages/web/src/app/api/skills/route.ts:new skill alert subscriber where clause"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Parent child preference testing Procedure",
+          "purpose": "Present the numbered procedure for parent child preference testing: Seed one user for every parent-child preference combination. Run the digest subscriber query and skill-alert subscriber query against the same fixture set. Capture send attempts and assert delivery only for rows allowed by both master and child settings. Toggle the controls through the preferences UI and rerun the delivery matrix.",
+          "keyword": "parent child preference testing",
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:subscriber where clause",
+            "packages/web/src/app/api/skills/route.ts:new skill alert subscriber where clause",
+            "packages/web/src/app/dashboard/preferences/page.tsx:master and child switches"
+          ]
+        },
+        {
+          "heading": "Notification delivery matrix: Assertions and Diagnostics",
+          "purpose": "Cover notification delivery matrix with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "notification delivery matrix",
+          "evidence": [
+            "packages/web/src/app/api/skills/route.ts:new skill alert subscriber where clause",
+            "packages/web/src/app/dashboard/preferences/page.tsx:master and child switches"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "UI disabled styling is not delivery proof; the database predicates and send calls remain the source of truth for suppression. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:subscriber where clause",
+            "packages/web/src/app/api/skills/route.ts:new skill alert subscriber where clause",
+            "packages/web/src/app/dashboard/preferences/page.tsx:master and child switches"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you verify that disabling the master email preference suppresses digest and alert delivery even when child toggles remain true?\" plus question variants based on email master opt out test, weekly digest preference filter, new skill alert opt out, parent child preference testing, notification delivery matrix.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:subscriber where clause",
+            "packages/web/src/app/api/skills/route.ts:new skill alert subscriber where clause"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Review the notification controls and add all parent-child combinations to the delivery regression suite.",
+          "keyword": "email master toggle delivery tests",
+          "evidence": ["packages/web/src/app/api/cron/weekly-digest/route.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Email master toggle delivery tests test matrix",
+        "purpose": "Compare master setting, digest setting, alert setting, subscriber query eligibility, template attempted, and expected delivery count.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "master on with both child toggles on",
+          "master off with both child toggles on",
+          "master on with digest off",
+          "master on with alerts off",
+          "master off with both child toggles off"
+        ],
+        "sourcePaths": [
+          "packages/web/src/app/api/cron/weekly-digest/route.ts:subscriber where clause",
+          "packages/web/src/app/api/skills/route.ts:new skill alert subscriber where clause",
+          "packages/web/src/app/dashboard/preferences/page.tsx:master and child switches"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Parent child preference testing Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Seed one user for every parent-child preference combination."
+          },
+          {
+            "number": 2,
+            "action": "Run the digest subscriber query and skill-alert subscriber query against the same fixture set."
+          },
+          {
+            "number": 3,
+            "action": "Capture send attempts and assert delivery only for rows allowed by both master and child settings."
+          },
+          {
+            "number": 4,
+            "action": "Toggle the controls through the preferences UI and rerun the delivery matrix."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/app/api/cron/weekly-digest/route.ts",
+          "symbols": "subscriber where clause",
+          "plannedSnippet": "Show Drizzle query tests for the weekly-digest and new-skill subscriber predicates.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/app/api/skills/route.ts",
+          "symbols": "new skill alert subscriber where clause",
+          "plannedSnippet": "Show a Playwright switch sequence that saves parent and child combinations before triggering controlled delivery.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/cron/weekly-digest/route.ts:subscriber where clause",
+        "packages/web/src/app/api/skills/route.ts:new skill alert subscriber where clause",
+        "packages/web/src/app/dashboard/preferences/page.tsx:master and child switches"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/dashboard/preferences",
+        "/unsubscribe",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled",
+        "/blog/testing-hmac-unsubscribe-token-tampering-expiration",
+        "/blog/testing-lazy-resend-initialization-nextjs-build"
+      ],
+      "relatedSlugs": [
+        "testing-batch-email-partial-failures-promise-allsettled",
+        "testing-hmac-unsubscribe-token-tampering-expiration",
+        "testing-lazy-resend-initialization-nextjs-build",
+        "authentication-authorization-testing-guide"
+      ],
+      "sources": [
+        "https://orm.drizzle.team/docs/data-querying",
+        "https://resend.com/docs/api-reference/emails/send-email"
+      ],
+      "cta": {
+        "route": "/dashboard/preferences",
+        "anchorText": "Open dashboard preferences",
+        "action": "Review the notification controls and add all parent-child combinations to the delivery regression suite."
+      },
+      "batchPosition": 1
+    },
+    {
+      "batch": 8,
+      "domain": "web-auth-email",
+      "slug": "concurrent-preference-bootstrap-tests",
+      "primaryKeyword": "concurrent preference bootstrap tests",
+      "title": "Concurrent preference bootstrap tests",
+      "description": "concurrent preference bootstrap tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you test two first-time preference requests racing to create the same user's settings row?",
+      "secondaryKeywords": [
+        "preference creation race condition",
+        "concurrent api bootstrap test",
+        "duplicate user preference rows",
+        "drizzle insert race testing",
+        "first request concurrency"
+      ],
+      "outline": [
+        {
+          "heading": "Concurrent preference bootstrap tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test two first-time preference requests racing to create the same user's settings row?\" in 40 to 60 words, define the contract as two first-time preference reads must not create duplicate rows or return inconsistent defaults for one authenticated user, and state the observable pass criteria.",
+          "keyword": "concurrent preference bootstrap tests",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET missing-row insert",
+            "packages/web/src/db/schema/users.ts:userPreferences userId definition"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/app/api/user/preferences/route.ts:GET missing-row insert; packages/web/src/db/schema/users.ts:userPreferences userId definition. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET missing-row insert",
+            "packages/web/src/db/schema/users.ts:userPreferences userId definition"
+          ]
+        },
+        {
+          "heading": "Preference creation race condition: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for preference creation race condition. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "preference creation race condition",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET missing-row insert",
+            "packages/web/src/db/schema/users.ts:userPreferences userId definition"
+          ]
+        },
+        {
+          "heading": "Concurrent api bootstrap test: Test Matrix",
+          "purpose": "Compare request overlap, initial row state, insert timing, uniqueness result, returned preferences, error status, and final row count. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "concurrent api bootstrap test",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET missing-row insert",
+            "packages/web/src/db/schema/users.ts:userPreferences userId definition"
+          ]
+        },
+        {
+          "heading": "How Should Duplicate user preference rows Be Exercised?",
+          "purpose": "Build the harness for duplicate user preference rows, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "duplicate user preference rows",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET missing-row insert",
+            "packages/web/src/db/schema/users.ts:userPreferences userId definition"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Drizzle insert race testing Procedure",
+          "purpose": "Present the numbered procedure for drizzle insert race testing: Create a user with no preference row and place a barrier before the insert. Release two GET requests together and record query and insert ordering. Assert both responses, duplicate-key handling, defaults, and the final row count. Repeat the case under the real userId constraint in an integration database.",
+          "keyword": "drizzle insert race testing",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET missing-row insert",
+            "packages/web/src/db/schema/users.ts:userPreferences userId definition"
+          ]
+        },
+        {
+          "heading": "First request concurrency: Assertions and Diagnostics",
+          "purpose": "Cover first request concurrency with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "first request concurrency",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET missing-row insert",
+            "packages/web/src/db/schema/users.ts:userPreferences userId definition"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "A passing sequential test does not cover concurrency; the harness must prove both requests observed the missing state before release. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET missing-row insert",
+            "packages/web/src/db/schema/users.ts:userPreferences userId definition"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test two first-time preference requests racing to create the same user's settings row?\" plus question variants based on preference creation race condition, concurrent api bootstrap test, duplicate user preference rows, drizzle insert race testing, first request concurrency.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET missing-row insert",
+            "packages/web/src/db/schema/users.ts:userPreferences userId definition"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Open the preference page and add a barrier-controlled bootstrap race to the integration suite.",
+          "keyword": "concurrent preference bootstrap tests",
+          "evidence": ["packages/web/src/app/api/user/preferences/route.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Concurrent preference bootstrap tests test matrix",
+        "purpose": "Compare request overlap, initial row state, insert timing, uniqueness result, returned preferences, error status, and final row count.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "single first request",
+          "two requests entering before either insert",
+          "one insert wins before the second query",
+          "duplicate-key result from the losing insert",
+          "subsequent read after bootstrap"
+        ],
+        "sourcePaths": [
+          "packages/web/src/app/api/user/preferences/route.ts:GET missing-row insert",
+          "packages/web/src/db/schema/users.ts:userPreferences userId definition"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Drizzle insert race testing Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Create a user with no preference row and place a barrier before the insert."
+          },
+          {
+            "number": 2,
+            "action": "Release two GET requests together and record query and insert ordering."
+          },
+          {
+            "number": 3,
+            "action": "Assert both responses, duplicate-key handling, defaults, and the final row count."
+          },
+          {
+            "number": 4,
+            "action": "Repeat the case under the real userId constraint in an integration database."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/app/api/user/preferences/route.ts",
+          "symbols": "GET missing-row insert",
+          "plannedSnippet": "Show a deferred-promise route test that forces both missing-row branches to race.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/db/schema/users.ts",
+          "symbols": "userPreferences userId definition",
+          "plannedSnippet": "Show a database integration test that inspects the userPreferences userId constraint and final records.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/user/preferences/route.ts:GET missing-row insert",
+        "packages/web/src/db/schema/users.ts:userPreferences userId definition"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/dashboard/preferences",
+        "/blog/testing-idempotency-key-concurrent-requests",
+        "/blog/testing-clerk-user-created-webhook-idempotency",
+        "/blog/testing-missed-clerk-webhook-user-recovery"
+      ],
+      "relatedSlugs": [
+        "testing-idempotency-key-concurrent-requests",
+        "testing-clerk-user-created-webhook-idempotency",
+        "testing-missed-clerk-webhook-user-recovery",
+        "database-testing-automation-guide"
+      ],
+      "sources": [
+        "https://orm.drizzle.team/docs/insert",
+        "https://www.postgresql.org/docs/current/ddl-constraints.html"
+      ],
+      "cta": {
+        "route": "/dashboard/preferences",
+        "anchorText": "Open dashboard preferences",
+        "action": "Open the preference page and add a barrier-controlled bootstrap race to the integration suite."
+      },
+      "batchPosition": 2
+    },
+    {
+      "batch": 8,
+      "domain": "web-auth-email",
+      "slug": "skill-slug-collision-response-tests",
+      "primaryKeyword": "skill slug collision response tests",
+      "title": "Skill slug collision response tests",
+      "description": "skill slug collision response tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you test generated and supplied skill slugs, empty normalized names, and the duplicate-slug 409 response?",
+      "secondaryKeywords": [
+        "duplicate skill slug 409",
+        "skill name slug normalization",
+        "empty generated slug test",
+        "publish slug uniqueness test",
+        "special character slug testing"
+      ],
+      "outline": [
+        {
+          "heading": "Skill slug collision response tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test generated and supplied skill slugs, empty normalized names, and the duplicate-slug 409 response?\" in 40 to 60 words, define the contract as skill publishing must normalize generated or supplied slugs, reject an empty result, and return 409 when the canonical slug already exists, and state the observable pass criteria.",
+          "keyword": "skill slug collision response tests",
+          "evidence": [
+            "packages/web/src/app/api/skills/route.ts:generateSlug and uniqueness lookup",
+            "packages/web/src/db/schema/skills.ts:slug unique column"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/app/api/skills/route.ts:generateSlug and uniqueness lookup; packages/web/src/db/schema/skills.ts:slug unique column. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/skills/route.ts:generateSlug and uniqueness lookup",
+            "packages/web/src/db/schema/skills.ts:slug unique column"
+          ]
+        },
+        {
+          "heading": "Duplicate skill slug 409: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for duplicate skill slug 409. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "duplicate skill slug 409",
+          "evidence": [
+            "packages/web/src/app/api/skills/route.ts:generateSlug and uniqueness lookup",
+            "packages/web/src/db/schema/skills.ts:slug unique column"
+          ]
+        },
+        {
+          "heading": "Skill name slug normalization: Test Matrix",
+          "purpose": "Compare raw name or supplied slug, normalized slug, validity, existing-row lookup, response status, error body, and insert call. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "skill name slug normalization",
+          "evidence": [
+            "packages/web/src/app/api/skills/route.ts:generateSlug and uniqueness lookup",
+            "packages/web/src/db/schema/skills.ts:slug unique column"
+          ]
+        },
+        {
+          "heading": "How Should Empty generated slug test Be Exercised?",
+          "purpose": "Build the harness for empty generated slug test, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "empty generated slug test",
+          "evidence": [
+            "packages/web/src/app/api/skills/route.ts:generateSlug and uniqueness lookup",
+            "packages/web/src/db/schema/skills.ts:slug unique column"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Publish slug uniqueness test Procedure",
+          "purpose": "Present the numbered procedure for publish slug uniqueness test: Create table-driven names and supplied slugs around every normalization boundary. Capture the normalized value used by the uniqueness lookup. Assert empty output is rejected and an existing slug returns the documented 409 response. Prove only a unique canonical slug reaches the insert branch.",
+          "keyword": "publish slug uniqueness test",
+          "evidence": [
+            "packages/web/src/app/api/skills/route.ts:generateSlug and uniqueness lookup",
+            "packages/web/src/db/schema/skills.ts:slug unique column"
+          ]
+        },
+        {
+          "heading": "Special character slug testing: Assertions and Diagnostics",
+          "purpose": "Cover special character slug testing with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "special character slug testing",
+          "evidence": [
+            "packages/web/src/app/api/skills/route.ts:generateSlug and uniqueness lookup",
+            "packages/web/src/db/schema/skills.ts:slug unique column"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "Keep content validation separate from identity collision behavior so a malformed document does not masquerade as a duplicate slug. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/skills/route.ts:generateSlug and uniqueness lookup",
+            "packages/web/src/db/schema/skills.ts:slug unique column"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test generated and supplied skill slugs, empty normalized names, and the duplicate-slug 409 response?\" plus question variants based on duplicate skill slug 409, skill name slug normalization, empty generated slug test, publish slug uniqueness test, special character slug testing.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/skills/route.ts:generateSlug and uniqueness lookup",
+            "packages/web/src/db/schema/skills.ts:slug unique column"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Review the publishing contract and add the slug boundary table before changing naming or uniqueness logic.",
+          "keyword": "skill slug collision response tests",
+          "evidence": ["packages/web/src/app/api/skills/route.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Skill slug collision response tests test matrix",
+        "purpose": "Compare raw name or supplied slug, normalized slug, validity, existing-row lookup, response status, error body, and insert call.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "plain skill name",
+          "mixed case and repeated spaces",
+          "punctuation-only name producing an empty slug",
+          "explicit valid slug",
+          "slug already stored by another skill"
+        ],
+        "sourcePaths": [
+          "packages/web/src/app/api/skills/route.ts:generateSlug and uniqueness lookup",
+          "packages/web/src/db/schema/skills.ts:slug unique column"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Publish slug uniqueness test Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Create table-driven names and supplied slugs around every normalization boundary."
+          },
+          {
+            "number": 2,
+            "action": "Capture the normalized value used by the uniqueness lookup."
+          },
+          {
+            "number": 3,
+            "action": "Assert empty output is rejected and an existing slug returns the documented 409 response."
+          },
+          {
+            "number": 4,
+            "action": "Prove only a unique canonical slug reaches the insert branch."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/app/api/skills/route.ts",
+          "symbols": "generateSlug and uniqueness lookup",
+          "plannedSnippet": "Show unit cases around generateSlug and the POST uniqueness lookup with exact response assertions.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/db/schema/skills.ts",
+          "symbols": "slug unique column",
+          "plannedSnippet": "Show a schema integration test that attempts duplicate inserts against the unique slug column.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:generateSlug and uniqueness lookup",
+        "packages/web/src/db/schema/skills.ts:slug unique column"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/how-to-publish",
+        "/blog/skill-md-format-guide",
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/blog/malformed-skill-md-frontmatter-parser-tests"
+      ],
+      "relatedSlugs": [
+        "skill-md-format-guide",
+        "how-to-write-high-quality-qa-skills",
+        "malformed-skill-md-frontmatter-parser-tests",
+        "testing-skill-md-yaml-frontmatter-roundtrip"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://www.postgresql.org/docs/current/ddl-constraints.html"
+      ],
+      "cta": {
+        "route": "/how-to-publish",
+        "anchorText": "Open how-to-publish",
+        "action": "Review the publishing contract and add the slug boundary table before changing naming or uniqueness logic."
+      },
+      "batchPosition": 3
+    },
+    {
+      "batch": 8,
+      "domain": "web-auth-email",
+      "slug": "taxonomy-cache-ttl-grouping-tests",
+      "primaryKeyword": "category cache ttl grouping tests",
+      "title": "Category cache ttl grouping tests",
+      "description": "category cache ttl grouping tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test the one-hour categories cache, cache-aside behavior, four output groups, and ignored unknown category types?",
+      "secondaryKeywords": [
+        "categories api cache test",
+        "redis one hour ttl test",
+        "category type grouping assertion",
+        "unknown category type handling",
+        "cache aside fetcher test"
+      ],
+      "outline": [
+        {
+          "heading": "Category cache ttl grouping tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test the one-hour categories cache, cache-aside behavior, four output groups, and ignored unknown category types?\" in 40 to 60 words, define the contract as the categories endpoint must cache grouped output for 3,600 seconds, return the four supported groups, and ignore unknown category types, and state the observable pass criteria.",
+          "keyword": "category cache ttl grouping tests",
+          "evidence": [
+            "packages/web/src/app/api/categories/route.ts:GET grouping and 3600 TTL",
+            "packages/web/src/lib/cache.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/app/api/categories/route.ts:GET grouping and 3600 TTL; packages/web/src/lib/cache.ts:cacheGetOrSet. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/categories/route.ts:GET grouping and 3600 TTL",
+            "packages/web/src/lib/cache.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "Categories api cache test: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for categories api cache test. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "categories api cache test",
+          "evidence": [
+            "packages/web/src/app/api/categories/route.ts:GET grouping and 3600 TTL",
+            "packages/web/src/lib/cache.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "Redis one hour ttl test: Test Matrix",
+          "purpose": "Compare cache state, source rows, category type, output group, unknown-type handling, fetcher call count, and Redis TTL. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "redis one hour ttl test",
+          "evidence": [
+            "packages/web/src/app/api/categories/route.ts:GET grouping and 3600 TTL",
+            "packages/web/src/lib/cache.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "How Should Category type grouping assertion Be Exercised?",
+          "purpose": "Build the harness for category type grouping assertion, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "category type grouping assertion",
+          "evidence": [
+            "packages/web/src/app/api/categories/route.ts:GET grouping and 3600 TTL",
+            "packages/web/src/lib/cache.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Unknown category type handling Procedure",
+          "purpose": "Present the numbered procedure for unknown category type handling: Seed category rows for testing type, framework, language, domain, and one unknown type. Invoke GET through a controlled cacheGetOrSet implementation on cold and warm paths. Assert group membership, ignored rows, fetcher count, and the 3,600-second set option. Add provider failure cases while preserving the successful grouped response.",
+          "keyword": "unknown category type handling",
+          "evidence": [
+            "packages/web/src/app/api/categories/route.ts:GET grouping and 3600 TTL",
+            "packages/web/src/lib/cache.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "Cache aside fetcher test: Assertions and Diagnostics",
+          "purpose": "Cover cache aside fetcher test with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "cache aside fetcher test",
+          "evidence": [
+            "packages/web/src/app/api/categories/route.ts:GET grouping and 3600 TTL",
+            "packages/web/src/lib/cache.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "Do not infer TTL correctness from a cache hit alone; capture the set options and verify grouped data independently. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/categories/route.ts:GET grouping and 3600 TTL",
+            "packages/web/src/lib/cache.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test the one-hour categories cache, cache-aside behavior, four output groups, and ignored unknown category types?\" plus question variants based on categories api cache test, redis one hour ttl test, category type grouping assertion, unknown category type handling, cache aside fetcher test.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/categories/route.ts:GET grouping and 3600 TTL",
+            "packages/web/src/lib/cache.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Browse the category groups and add cold, warm, unknown-type, and TTL cases to the endpoint post-flow.",
+          "keyword": "category cache ttl grouping tests",
+          "evidence": ["packages/web/src/app/api/categories/route.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Category cache ttl grouping tests test matrix",
+        "purpose": "Compare cache state, source rows, category type, output group, unknown-type handling, fetcher call count, and Redis TTL.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "cold cache with all four known types",
+          "warm cache hit",
+          "expired cache entry",
+          "unknown category type mixed with valid rows",
+          "cache write rejection after a successful database fetch"
+        ],
+        "sourcePaths": [
+          "packages/web/src/app/api/categories/route.ts:GET grouping and 3600 TTL",
+          "packages/web/src/lib/cache.ts:cacheGetOrSet"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Unknown category type handling Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Seed category rows for testing type, framework, language, domain, and one unknown type."
+          },
+          {
+            "number": 2,
+            "action": "Invoke GET through a controlled cacheGetOrSet implementation on cold and warm paths."
+          },
+          {
+            "number": 3,
+            "action": "Assert group membership, ignored rows, fetcher count, and the 3,600-second set option."
+          },
+          {
+            "number": 4,
+            "action": "Add provider failure cases while preserving the successful grouped response."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/app/api/categories/route.ts",
+          "symbols": "GET grouping and 3600 TTL",
+          "plannedSnippet": "Show a route test that groups database rows and excludes an unknown category type.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/lib/cache.ts",
+          "symbols": "cacheGetOrSet",
+          "plannedSnippet": "Show a cacheGetOrSet spy asserting the categories cache key, one-hour TTL, and cache-aside call count.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/categories/route.ts:GET grouping and 3600 TTL",
+        "packages/web/src/lib/cache.ts:cacheGetOrSet"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/categories",
+        "/blog/redis-cache-testing-guide",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "/blog/testing-postgresql-jsonb-multiselect-filters-drizzle"
+      ],
+      "relatedSlugs": [
+        "redis-cache-testing-guide",
+        "testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "testing-postgresql-jsonb-multiselect-filters-drizzle",
+        "testing-typesense-multiselect-facet-filter-queries"
+      ],
+      "sources": [
+        "https://upstash.com/docs/redis/sdks/ts/commands/string/get",
+        "https://upstash.com/docs/redis/sdks/ts/commands/string/set"
+      ],
+      "cta": {
+        "route": "/categories",
+        "anchorText": "Open categories",
+        "action": "Browse the category groups and add cold, warm, unknown-type, and TTL cases to the endpoint post-flow."
+      },
+      "batchPosition": 4
+    },
+    {
+      "batch": 8,
+      "domain": "web-auth-email",
+      "slug": "unsubscribe-network-failure-ui-tests",
+      "primaryKeyword": "unsubscribe network failure ui tests",
+      "title": "Unsubscribe network failure ui tests",
+      "description": "unsubscribe network failure ui tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you test rejected fetches, non-OK responses, backend error messages, and the final error UI in an unsubscribe flow?",
+      "secondaryKeywords": [
+        "unsubscribe fetch rejection test",
+        "email opt out error ui",
+        "backend unsubscribe error message",
+        "react network failure state",
+        "unsubscribe non ok response"
+      ],
+      "outline": [
+        {
+          "heading": "Unsubscribe network failure ui tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test rejected fetches, non-OK responses, backend error messages, and the final error UI in an unsubscribe flow?\" in 40 to 60 words, define the contract as the unsubscribe page must leave loading, expose useful backend messages, and render a stable error state for rejected fetches and non-OK responses, and state the observable pass criteria.",
+          "keyword": "unsubscribe network failure ui tests",
+          "evidence": [
+            "packages/web/src/app/unsubscribe/page.tsx:unsubscribe async effect",
+            "packages/web/src/app/api/unsubscribe/route.ts:error responses"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/app/unsubscribe/page.tsx:unsubscribe async effect; packages/web/src/app/api/unsubscribe/route.ts:error responses. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/unsubscribe/page.tsx:unsubscribe async effect",
+            "packages/web/src/app/api/unsubscribe/route.ts:error responses"
+          ]
+        },
+        {
+          "heading": "Unsubscribe fetch rejection test: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for unsubscribe fetch rejection test. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "unsubscribe fetch rejection test",
+          "evidence": [
+            "packages/web/src/app/unsubscribe/page.tsx:unsubscribe async effect",
+            "packages/web/src/app/api/unsubscribe/route.ts:error responses"
+          ]
+        },
+        {
+          "heading": "Email opt out error ui: Test Matrix",
+          "purpose": "Compare token state, fetch outcome, HTTP status, response payload, displayed message, loading completion, and retry navigation. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "email opt out error ui",
+          "evidence": [
+            "packages/web/src/app/unsubscribe/page.tsx:unsubscribe async effect",
+            "packages/web/src/app/api/unsubscribe/route.ts:error responses"
+          ]
+        },
+        {
+          "heading": "How Should Backend unsubscribe error message Be Exercised?",
+          "purpose": "Build the harness for backend unsubscribe error message, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "backend unsubscribe error message",
+          "evidence": [
+            "packages/web/src/app/unsubscribe/page.tsx:unsubscribe async effect",
+            "packages/web/src/app/api/unsubscribe/route.ts:error responses"
+          ]
+        },
+        {
+          "heading": "Step-by-Step React network failure state Procedure",
+          "purpose": "Present the numbered procedure for react network failure state: Open the unsubscribe page with controlled token query values. Route or mock the POST request for rejection, malformed response, explicit error, and success cases. Wait for loading to finish and assert heading, message, icon state, and available navigation. Repeat the non-OK case against the real API error contract.",
+          "keyword": "react network failure state",
+          "evidence": [
+            "packages/web/src/app/unsubscribe/page.tsx:unsubscribe async effect",
+            "packages/web/src/app/api/unsubscribe/route.ts:error responses"
+          ]
+        },
+        {
+          "heading": "Unsubscribe non ok response: Assertions and Diagnostics",
+          "purpose": "Cover unsubscribe non ok response with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "unsubscribe non ok response",
+          "evidence": [
+            "packages/web/src/app/unsubscribe/page.tsx:unsubscribe async effect",
+            "packages/web/src/app/api/unsubscribe/route.ts:error responses"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "A mocked HTTP failure must still resolve the fetch promise, while a network rejection must exercise the catch path; both need distinct cases. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/unsubscribe/page.tsx:unsubscribe async effect",
+            "packages/web/src/app/api/unsubscribe/route.ts:error responses"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test rejected fetches, non-OK responses, backend error messages, and the final error UI in an unsubscribe flow?\" plus question variants based on unsubscribe fetch rejection test, email opt out error ui, backend unsubscribe error message, react network failure state, unsubscribe non ok response.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/unsubscribe/page.tsx:unsubscribe async effect",
+            "packages/web/src/app/api/unsubscribe/route.ts:error responses"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Run the unsubscribe error-state matrix and keep its browser checks in the post-change Playwright flow.",
+          "keyword": "unsubscribe network failure ui tests",
+          "evidence": ["packages/web/src/app/unsubscribe/page.tsx"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Unsubscribe network failure ui tests test matrix",
+        "purpose": "Compare token state, fetch outcome, HTTP status, response payload, displayed message, loading completion, and retry navigation.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "missing token",
+          "network rejection",
+          "non-JSON error response",
+          "non-OK JSON with backend message",
+          "successful unsubscribe"
+        ],
+        "sourcePaths": [
+          "packages/web/src/app/unsubscribe/page.tsx:unsubscribe async effect",
+          "packages/web/src/app/api/unsubscribe/route.ts:error responses"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step React network failure state Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Open the unsubscribe page with controlled token query values."
+          },
+          {
+            "number": 2,
+            "action": "Route or mock the POST request for rejection, malformed response, explicit error, and success cases."
+          },
+          {
+            "number": 3,
+            "action": "Wait for loading to finish and assert heading, message, icon state, and available navigation."
+          },
+          {
+            "number": 4,
+            "action": "Repeat the non-OK case against the real API error contract."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/app/unsubscribe/page.tsx",
+          "symbols": "unsubscribe async effect",
+          "plannedSnippet": "Show a component or browser test for the unsubscribe async effect with rejected and non-OK fetches.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/app/api/unsubscribe/route.ts",
+          "symbols": "error responses",
+          "plannedSnippet": "Show route-handler tests that return representative error messages consumed by the page.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/unsubscribe/page.tsx:unsubscribe async effect",
+        "packages/web/src/app/api/unsubscribe/route.ts:error responses"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/unsubscribe",
+        "/dashboard/preferences",
+        "/blog/testing-hmac-unsubscribe-token-tampering-expiration",
+        "/blog/error-handling-testing-patterns",
+        "/blog/react-nextjs-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "testing-hmac-unsubscribe-token-tampering-expiration",
+        "error-handling-testing-patterns",
+        "react-nextjs-testing-complete-guide",
+        "authentication-authorization-testing-guide"
+      ],
+      "sources": [
+        "https://react.dev/reference/react/useEffect",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "cta": {
+        "route": "/unsubscribe",
+        "anchorText": "Open unsubscribe",
+        "action": "Run the unsubscribe error-state matrix and keep its browser checks in the post-change Playwright flow."
+      },
+      "batchPosition": 5
+    }
+  ]
+}

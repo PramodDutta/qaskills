@@ -1,0 +1,1123 @@
+{
+  "batch": 3,
+  "briefs": [
+    {
+      "id": "cli-sdk-020",
+      "batch": 3,
+      "batchPosition": 1,
+      "domain": "cli-sdk",
+      "slug": "qaskills-malformed-package-json-detection",
+      "primaryKeyword": "QASkills malformed package json detection",
+      "title": "QASkills malformed package json detection",
+      "description": "QASkills malformed package json detection: use repo paths, tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should QASkills framework detection behave when package.json is missing, unreadable, or invalid JSON?",
+      "intentBoundary": "Parser failure resilience shared by package-based detectors, not framework-specific evidence selection.",
+      "secondaryKeywords": [
+        "invalid package json scanner",
+        "framework detection parse error",
+        "missing package json detection",
+        "unreadable package json test",
+        "safe JSON config parsing",
+        "qaskills detector resilience"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills malformed package json detection guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How should QASkills framework detection behave when package.json is missing, unreadable, or invalid JSON?\" in 40 to 60 words, define the observable contract, and state the boundary: Parser failure resilience shared by package-based detectors, not framework-specific evidence selection.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#readJsonSafe",
+            "packages/cli/src/lib/framework-detector.ts#readFileSafe"
+          ]
+        },
+        {
+          "heading": "How does invalid package json scanner work?",
+          "secondaryKeyword": "invalid package json scanner",
+          "coverage": "Walk through the production branch at packages/cli/src/lib/framework-detector.ts#readJsonSafe, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/cli/src/lib/framework-detector.ts#readJsonSafe"]
+        },
+        {
+          "heading": "Which cases define framework detection parse error?",
+          "secondaryKeyword": "framework detection parse error",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise readFileSafe; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#readFileSafe",
+            "packages/cli/src/lib/framework-detector.ts#detectFrameworks"
+          ]
+        },
+        {
+          "heading": "missing package json detection and the current QASkills contract",
+          "secondaryKeyword": "missing package json detection",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/cli/src/lib/framework-detector.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/cli/src/lib/framework-detector.ts#detectFrameworks"]
+        },
+        {
+          "heading": "How do you test unreadable package json test?",
+          "secondaryKeyword": "unreadable package json test",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#readJsonSafe",
+            "packages/cli/src/lib/framework-detector.ts#hasDep"
+          ]
+        },
+        {
+          "heading": "safe JSON config parsing failure and edge-case matrix",
+          "secondaryKeyword": "safe JSON config parsing",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#readFileSafe",
+            "packages/cli/src/lib/framework-detector.ts#hasDep"
+          ]
+        },
+        {
+          "heading": "How should qaskills detector resilience run in CI?",
+          "secondaryKeyword": "qaskills detector resilience",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#readJsonSafe",
+            "packages/cli/src/lib/framework-detector.ts#hasDep"
+          ]
+        },
+        {
+          "heading": "Implementation checklist for QASkills malformed package json detection",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /skills, /categories, /blog/error-handling-testing-patterns.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#readJsonSafe",
+            "packages/cli/src/lib/framework-detector.ts#readFileSafe",
+            "packages/cli/src/lib/framework-detector.ts#detectFrameworks"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#readJsonSafe",
+            "packages/cli/src/lib/framework-detector.ts#readFileSafe"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Browse /categories for the detected framework, then select a matching package from /skills and run the fixture matrix.",
+          "repoEvidence": ["packages/cli/src/lib/framework-detector.ts#readJsonSafe"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills malformed package json detection scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "invalid package json scanner",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at readJsonSafe completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/cli/src/lib/framework-detector.ts#readJsonSafe"
+          },
+          {
+            "scenario": "framework detection parse error",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at readFileSafe selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/cli/src/lib/framework-detector.ts#readFileSafe"
+          },
+          {
+            "scenario": "unreadable package json test",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/cli/src/lib/framework-detector.ts#detectFrameworks"
+          },
+          {
+            "scenario": "qaskills detector resilience",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/cli/src/lib/framework-detector.ts#hasDep"
+          }
+        ],
+        "source": [
+          "packages/cli/src/lib/framework-detector.ts#readJsonSafe",
+          "packages/cli/src/lib/framework-detector.ts#readFileSafe",
+          "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+          "packages/cli/src/lib/framework-detector.ts#hasDep"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/cli/src/lib/framework-detector.ts at readJsonSafe and record the exact inputs, defaults, side effects, and output for \"invalid package json scanner\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"framework detection parse error\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to readFileSafe, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"unreadable package json test\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"qaskills detector resilience\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace readJsonSafe in the current implementation",
+          "repoPath": "packages/cli/src/lib/framework-detector.ts",
+          "symbol": "readJsonSafe",
+          "plan": "Quote the current readJsonSafe branch and annotate how it implements \"invalid package json scanner\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for readFileSafe",
+          "repoPath": "packages/cli/src/lib/framework-detector.ts",
+          "symbol": "readFileSafe",
+          "plan": "Use the real readFileSafe contract to create an executable test for \"framework detection parse error\", then assert the related \"missing package json detection\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for detectFrameworks",
+          "repoPath": "packages/cli/src/lib/framework-detector.ts",
+          "symbol": "detectFrameworks",
+          "plan": "Use the real detectFrameworks contract to create an executable test for \"missing package json detection\", then assert the related \"unreadable package json test\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/framework-detector.ts#readJsonSafe",
+        "packages/cli/src/lib/framework-detector.ts#readFileSafe",
+        "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+        "packages/cli/src/lib/framework-detector.ts#hasDep"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/blog/error-handling-testing-patterns",
+        "/blog/typescript-testing-patterns-guide",
+        "/blog",
+        "/getting-started",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "error-handling-testing-patterns",
+        "typescript-testing-patterns-guide",
+        "test-automation-framework-architecture",
+        "hybrid-automation-framework-guide"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/info/rfc8259",
+        "https://nodejs.org/api/fs.html",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json"
+      ],
+      "faqQuestions": [
+        "What does invalid package json scanner verify in QASkills?",
+        "When should a team test framework detection parse error?",
+        "How can a fixture isolate missing package json detection?",
+        "Which assertion proves unreadable package json test?",
+        "What failure cases belong in safe JSON config parsing tests?",
+        "How should CI run qaskills detector resilience checks?"
+      ],
+      "cta": "Browse /categories for the detected framework, then select a matching package from /skills and run the fixture matrix."
+    },
+    {
+      "id": "cli-sdk-001",
+      "batch": 3,
+      "batchPosition": 2,
+      "domain": "cli-sdk",
+      "slug": "qaskills-local-skill-path-install",
+      "primaryKeyword": "QASkills local skill path install",
+      "title": "QASkills local skill path install",
+      "description": "QASkills local skill path install: use real repo paths, focused tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you install a local SKILL.md package with QASkills and verify the copied files without contacting the registry?",
+      "intentBoundary": "User workflow for local filesystem input only, not registry fallback, GitHub extraction, or custom destination setup.",
+      "secondaryKeywords": [
+        "qaskills add local path",
+        "install local SKILL.md",
+        "test local agent skill",
+        "relative skill path install",
+        "absolute skill path install",
+        "verify copied skill files"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills local skill path install guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you install a local SKILL.md package with QASkills and verify the copied files without contacting the registry?\" in 40 to 60 words, define the observable contract, and state the boundary: User workflow for local filesystem input only, not registry fallback, GitHub extraction, or custom destination setup.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts#resolveSkill",
+            "packages/cli/src/lib/installer.ts#downloadSkill"
+          ]
+        },
+        {
+          "heading": "How does qaskills add local path work?",
+          "secondaryKeyword": "qaskills add local path",
+          "coverage": "Walk through the production branch at packages/cli/src/lib/installer.ts#resolveSkill, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/cli/src/lib/installer.ts#resolveSkill"]
+        },
+        {
+          "heading": "Which cases define install local SKILL.md?",
+          "secondaryKeyword": "install local SKILL.md",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise downloadSkill; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts#downloadSkill",
+            "packages/cli/src/lib/installer.ts#copyDir"
+          ]
+        },
+        {
+          "heading": "test local agent skill and the current QASkills contract",
+          "secondaryKeyword": "test local agent skill",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/cli/src/lib/installer.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/cli/src/lib/installer.ts#copyDir"]
+        },
+        {
+          "heading": "How do you test relative skill path install?",
+          "secondaryKeyword": "relative skill path install",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts#resolveSkill",
+            "packages/cli/src/commands/add.ts#addCommand"
+          ]
+        },
+        {
+          "heading": "absolute skill path install failure and edge-case matrix",
+          "secondaryKeyword": "absolute skill path install",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts#downloadSkill",
+            "packages/cli/src/commands/add.ts#addCommand"
+          ]
+        },
+        {
+          "heading": "How should verify copied skill files run in CI?",
+          "secondaryKeyword": "verify copied skill files",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts#resolveSkill",
+            "packages/cli/src/commands/add.ts#addCommand"
+          ]
+        },
+        {
+          "heading": "Implementation checklist for QASkills local skill path install",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /getting-started, /skills, /blog/skill-md-format-guide.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts#resolveSkill",
+            "packages/cli/src/lib/installer.ts#downloadSkill",
+            "packages/cli/src/lib/installer.ts#copyDir"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts#resolveSkill",
+            "packages/cli/src/lib/installer.ts#downloadSkill"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Follow /getting-started, then browse /skills and run the local installation checks against a disposable directory.",
+          "repoEvidence": ["packages/cli/src/lib/installer.ts#resolveSkill"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills local skill path install scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "qaskills add local path",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at resolveSkill completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/cli/src/lib/installer.ts#resolveSkill"
+          },
+          {
+            "scenario": "install local SKILL.md",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at downloadSkill selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/cli/src/lib/installer.ts#downloadSkill"
+          },
+          {
+            "scenario": "relative skill path install",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/cli/src/lib/installer.ts#copyDir"
+          },
+          {
+            "scenario": "verify copied skill files",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/cli/src/commands/add.ts#addCommand"
+          }
+        ],
+        "source": [
+          "packages/cli/src/lib/installer.ts#resolveSkill",
+          "packages/cli/src/lib/installer.ts#downloadSkill",
+          "packages/cli/src/lib/installer.ts#copyDir",
+          "packages/cli/src/commands/add.ts#addCommand"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/cli/src/lib/installer.ts at resolveSkill and record the exact inputs, defaults, side effects, and output for \"qaskills add local path\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"install local SKILL.md\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to downloadSkill, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"relative skill path install\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"verify copied skill files\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace resolveSkill in the current implementation",
+          "repoPath": "packages/cli/src/lib/installer.ts",
+          "symbol": "resolveSkill",
+          "plan": "Quote the current resolveSkill branch and annotate how it implements \"qaskills add local path\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for downloadSkill",
+          "repoPath": "packages/cli/src/lib/installer.ts",
+          "symbol": "downloadSkill",
+          "plan": "Use the real downloadSkill contract to create an executable test for \"install local SKILL.md\", then assert the related \"test local agent skill\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for copyDir",
+          "repoPath": "packages/cli/src/lib/installer.ts",
+          "symbol": "copyDir",
+          "plan": "Use the real copyDir contract to create an executable test for \"test local agent skill\", then assert the related \"relative skill path install\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/installer.ts#resolveSkill",
+        "packages/cli/src/lib/installer.ts#downloadSkill",
+        "packages/cli/src/lib/installer.ts#copyDir",
+        "packages/cli/src/commands/add.ts#addCommand"
+      ],
+      "internalRoutes": [
+        "/getting-started",
+        "/skills",
+        "/blog/skill-md-format-guide",
+        "/blog/how-to-install-skills-claude-code",
+        "/blog",
+        "/faq",
+        "/agents"
+      ],
+      "relatedSlugs": [
+        "skill-md-format-guide",
+        "how-to-install-skills-claude-code",
+        "how-to-install-skills-cursor",
+        "qaskills-add-custom-directory-ci"
+      ],
+      "sources": [
+        "https://nodejs.org/api/path.html",
+        "https://nodejs.org/api/fs.html",
+        "https://agentskills.io/specification"
+      ],
+      "faqQuestions": [
+        "What does qaskills add local path verify in QASkills?",
+        "When should a team test install local SKILL.md?",
+        "How can a fixture isolate test local agent skill?",
+        "Which assertion proves relative skill path install?",
+        "What failure cases belong in absolute skill path install tests?",
+        "How should CI run verify copied skill files checks?"
+      ],
+      "cta": "Follow /getting-started, then browse /skills and run the local installation checks against a disposable directory."
+    },
+    {
+      "id": "cli-sdk-054",
+      "batch": 3,
+      "batchPosition": 3,
+      "domain": "cli-sdk",
+      "slug": "qaskills-cli-npm-binary-testing",
+      "primaryKeyword": "QASkills CLI npm binary testing",
+      "title": "QASkills CLI npm binary testing",
+      "description": "QASkills CLI npm binary testing: use real repo paths, focused tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "how-to",
+      "coreQuestion": "How can an npm package smoke test prove that the qaskills bin entry resolves to executable built JavaScript with a Node shebang?",
+      "intentBoundary": "Executable binary wiring after packaging, not package file allowlists, npm publication triggers, or runtime feature support.",
+      "secondaryKeywords": [
+        "npm bin smoke test",
+        "Node CLI shebang test",
+        "qaskills executable package",
+        "package json bin mapping",
+        "npx qaskills verification",
+        "CLI dist index executable"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills CLI npm binary testing guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can an npm package smoke test prove that the qaskills bin entry resolves to executable built JavaScript with a Node shebang?\" in 40 to 60 words, define the observable contract, and state the boundary: Executable binary wiring after packaging, not package file allowlists, npm publication triggers, or runtime feature support.",
+          "repoEvidence": ["packages/cli/package.json#bin", "packages/cli/tsup.config.ts#banner"]
+        },
+        {
+          "heading": "How does npm bin smoke test work?",
+          "secondaryKeyword": "npm bin smoke test",
+          "coverage": "Walk through the production branch at packages/cli/package.json#bin, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/cli/package.json#bin"]
+        },
+        {
+          "heading": "Which cases define Node CLI shebang test?",
+          "secondaryKeyword": "Node CLI shebang test",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise banner; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/cli/tsup.config.ts#banner",
+            "packages/cli/src/index.ts#program"
+          ]
+        },
+        {
+          "heading": "qaskills executable package and the current QASkills contract",
+          "secondaryKeyword": "qaskills executable package",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/cli/src/index.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/cli/src/index.ts#program"]
+        },
+        {
+          "heading": "How do you test package json bin mapping?",
+          "secondaryKeyword": "package json bin mapping",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": ["packages/cli/package.json#bin", "packages/cli/e2e/e2e.mjs#CLI"]
+        },
+        {
+          "heading": "npx qaskills verification failure and edge-case matrix",
+          "secondaryKeyword": "npx qaskills verification",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": ["packages/cli/tsup.config.ts#banner", "packages/cli/e2e/e2e.mjs#CLI"]
+        },
+        {
+          "heading": "How should CLI dist index executable run in CI?",
+          "secondaryKeyword": "CLI dist index executable",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": ["packages/cli/package.json#bin", "packages/cli/e2e/e2e.mjs#CLI"]
+        },
+        {
+          "heading": "Implementation checklist for QASkills CLI npm binary testing",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /getting-started, /skills, /blog/ai-qa-skills-directory-2026.",
+          "repoEvidence": [
+            "packages/cli/package.json#bin",
+            "packages/cli/tsup.config.ts#banner",
+            "packages/cli/src/index.ts#program"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": ["packages/cli/package.json#bin", "packages/cli/tsup.config.ts#banner"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Review /getting-started, run the package gate, and use /skills as the live catalog contract before publishing.",
+          "repoEvidence": ["packages/cli/package.json#bin"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills CLI npm binary testing scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "npm bin smoke test",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at bin completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/cli/package.json#bin"
+          },
+          {
+            "scenario": "Node CLI shebang test",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at banner selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/cli/tsup.config.ts#banner"
+          },
+          {
+            "scenario": "package json bin mapping",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/cli/src/index.ts#program"
+          },
+          {
+            "scenario": "CLI dist index executable",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/cli/e2e/e2e.mjs#CLI"
+          }
+        ],
+        "source": [
+          "packages/cli/package.json#bin",
+          "packages/cli/tsup.config.ts#banner",
+          "packages/cli/src/index.ts#program",
+          "packages/cli/e2e/e2e.mjs#CLI"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/cli/package.json at bin and record the exact inputs, defaults, side effects, and output for \"npm bin smoke test\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"Node CLI shebang test\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to banner, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"package json bin mapping\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"CLI dist index executable\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace bin in the current implementation",
+          "repoPath": "packages/cli/package.json",
+          "symbol": "bin",
+          "plan": "Quote the current bin branch and annotate how it implements \"npm bin smoke test\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for banner",
+          "repoPath": "packages/cli/tsup.config.ts",
+          "symbol": "banner",
+          "plan": "Use the real banner contract to create an executable test for \"Node CLI shebang test\", then assert the related \"qaskills executable package\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for program",
+          "repoPath": "packages/cli/src/index.ts",
+          "symbol": "program",
+          "plan": "Use the real program contract to create an executable test for \"qaskills executable package\", then assert the related \"package json bin mapping\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/package.json#bin",
+        "packages/cli/tsup.config.ts#banner",
+        "packages/cli/src/index.ts#program",
+        "packages/cli/e2e/e2e.mjs#CLI"
+      ],
+      "internalRoutes": [
+        "/getting-started",
+        "/skills",
+        "/blog/ai-qa-skills-directory-2026",
+        "/blog/how-to-install-skills-claude-code",
+        "/blog",
+        "/faq",
+        "/categories"
+      ],
+      "relatedSlugs": [
+        "ai-qa-skills-directory-2026",
+        "how-to-install-skills-claude-code",
+        "github-actions-testing-ci-cd-guide",
+        "how-to-publish-ai-agent-skill-directory"
+      ],
+      "sources": [
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json",
+        "https://nodejs.org/api/cli.html",
+        "https://docs.npmjs.com/cli/v11/commands/npm-pack"
+      ],
+      "faqQuestions": [
+        "What does npm bin smoke test verify in QASkills?",
+        "When should a team test Node CLI shebang test?",
+        "How can a fixture isolate qaskills executable package?",
+        "Which assertion proves package json bin mapping?",
+        "What failure cases belong in npx qaskills verification tests?",
+        "How should CI run CLI dist index executable checks?"
+      ],
+      "cta": "Review /getting-started, run the package gate, and use /skills as the live catalog contract before publishing."
+    },
+    {
+      "id": "cli-sdk-045",
+      "batch": 3,
+      "batchPosition": 4,
+      "domain": "cli-sdk",
+      "slug": "qaskills-sdk-bearer-authentication-tests",
+      "primaryKeyword": "QASkills SDK bearer authentication tests",
+      "title": "QASkills SDK bearer authentication tests",
+      "description": "QASkills SDK bearer authentication tests: use repo paths, tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "how-to",
+      "coreQuestion": "When does QASkillsClient add an Authorization Bearer header, and how can tests prove unauthenticated clients omit it?",
+      "intentBoundary": "Shared SDK authentication-header injection, not a particular create request or concurrent-client state.",
+      "secondaryKeywords": [
+        "QASkillsClient apiKey",
+        "SDK Authorization header",
+        "Bearer token fetch test",
+        "authenticated qaskills SDK",
+        "omit empty API key",
+        "SDK credential isolation"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills SDK bearer authentication tests guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"When does QASkillsClient add an Authorization Bearer header, and how can tests prove unauthenticated clients omit it?\" in 40 to 60 words, define the observable contract, and state the boundary: Shared SDK authentication-header injection, not a particular create request or concurrent-client state.",
+          "repoEvidence": [
+            "packages/sdk/src/index.ts#QASkillsConfig",
+            "packages/sdk/src/index.ts#QASkillsClient.request"
+          ]
+        },
+        {
+          "heading": "How does QASkillsClient apiKey work?",
+          "secondaryKeyword": "QASkillsClient apiKey",
+          "coverage": "Walk through the production branch at packages/sdk/src/index.ts#QASkillsConfig, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/sdk/src/index.ts#QASkillsConfig"]
+        },
+        {
+          "heading": "Which cases define SDK Authorization header?",
+          "secondaryKeyword": "SDK Authorization header",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise QASkillsClient.request; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/sdk/src/index.ts#QASkillsClient.request",
+            "packages/sdk/src/index.ts#QASkillsClient.skills.create"
+          ]
+        },
+        {
+          "heading": "Bearer token fetch test and the current QASkills contract",
+          "secondaryKeyword": "Bearer token fetch test",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/sdk/src/index.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/sdk/src/index.ts#QASkillsClient.skills.create"]
+        },
+        {
+          "heading": "How do you test authenticated qaskills SDK?",
+          "secondaryKeyword": "authenticated qaskills SDK",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": [
+            "packages/sdk/src/index.ts#QASkillsConfig",
+            "packages/sdk/src/index.ts#QASkillsClient.reviews.submit"
+          ]
+        },
+        {
+          "heading": "omit empty API key failure and edge-case matrix",
+          "secondaryKeyword": "omit empty API key",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": [
+            "packages/sdk/src/index.ts#QASkillsClient.request",
+            "packages/sdk/src/index.ts#QASkillsClient.reviews.submit"
+          ]
+        },
+        {
+          "heading": "How should SDK credential isolation run in CI?",
+          "secondaryKeyword": "SDK credential isolation",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": [
+            "packages/sdk/src/index.ts#QASkillsConfig",
+            "packages/sdk/src/index.ts#QASkillsClient.reviews.submit"
+          ]
+        },
+        {
+          "heading": "Implementation checklist for QASkills SDK bearer authentication tests",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /how-to-publish, /skills, /privacy.",
+          "repoEvidence": [
+            "packages/sdk/src/index.ts#QASkillsConfig",
+            "packages/sdk/src/index.ts#QASkillsClient.request",
+            "packages/sdk/src/index.ts#QASkillsClient.skills.create"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": [
+            "packages/sdk/src/index.ts#QASkillsConfig",
+            "packages/sdk/src/index.ts#QASkillsClient.request"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Open /skills to choose a stable fixture, then implement the SDK contract test described in this guide.",
+          "repoEvidence": ["packages/sdk/src/index.ts#QASkillsConfig"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills SDK bearer authentication tests scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "QASkillsClient apiKey",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at QASkillsConfig completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/sdk/src/index.ts#QASkillsConfig"
+          },
+          {
+            "scenario": "SDK Authorization header",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at QASkillsClient.request selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/sdk/src/index.ts#QASkillsClient.request"
+          },
+          {
+            "scenario": "authenticated qaskills SDK",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/sdk/src/index.ts#QASkillsClient.skills.create"
+          },
+          {
+            "scenario": "SDK credential isolation",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/sdk/src/index.ts#QASkillsClient.reviews.submit"
+          }
+        ],
+        "source": [
+          "packages/sdk/src/index.ts#QASkillsConfig",
+          "packages/sdk/src/index.ts#QASkillsClient.request",
+          "packages/sdk/src/index.ts#QASkillsClient.skills.create",
+          "packages/sdk/src/index.ts#QASkillsClient.reviews.submit"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/sdk/src/index.ts at QASkillsConfig and record the exact inputs, defaults, side effects, and output for \"QASkillsClient apiKey\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"SDK Authorization header\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to QASkillsClient.request, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"authenticated qaskills SDK\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"SDK credential isolation\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace QASkillsConfig in the current implementation",
+          "repoPath": "packages/sdk/src/index.ts",
+          "symbol": "QASkillsConfig",
+          "plan": "Quote the current QASkillsConfig branch and annotate how it implements \"QASkillsClient apiKey\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for QASkillsClient.request",
+          "repoPath": "packages/sdk/src/index.ts",
+          "symbol": "QASkillsClient.request",
+          "plan": "Use the real QASkillsClient.request contract to create an executable test for \"SDK Authorization header\", then assert the related \"Bearer token fetch test\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for QASkillsClient.skills.create",
+          "repoPath": "packages/sdk/src/index.ts",
+          "symbol": "QASkillsClient.skills.create",
+          "plan": "Use the real QASkillsClient.skills.create contract to create an executable test for \"Bearer token fetch test\", then assert the related \"authenticated qaskills SDK\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/sdk/src/index.ts#QASkillsConfig",
+        "packages/sdk/src/index.ts#QASkillsClient.request",
+        "packages/sdk/src/index.ts#QASkillsClient.skills.create",
+        "packages/sdk/src/index.ts#QASkillsClient.reviews.submit"
+      ],
+      "internalRoutes": [
+        "/how-to-publish",
+        "/skills",
+        "/privacy",
+        "/blog/authentication-authorization-testing-guide",
+        "/blog",
+        "/getting-started",
+        "/faq",
+        "/categories"
+      ],
+      "relatedSlugs": [
+        "authentication-authorization-testing-guide",
+        "typescript-testing-patterns-guide",
+        "testing-cursor-pagination-api-boundaries",
+        "error-handling-testing-patterns"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/info/rfc6750",
+        "https://fetch.spec.whatwg.org/",
+        "https://vitest.dev/guide/mocking.html"
+      ],
+      "faqQuestions": [
+        "What does QASkillsClient apiKey verify in QASkills?",
+        "When should a team test SDK Authorization header?",
+        "How can a fixture isolate Bearer token fetch test?",
+        "Which assertion proves authenticated qaskills SDK?",
+        "What failure cases belong in omit empty API key tests?",
+        "How should CI run SDK credential isolation checks?"
+      ],
+      "cta": "Open /skills to choose a stable fixture, then implement the SDK contract test described in this guide."
+    },
+    {
+      "id": "cli-sdk-009",
+      "batch": 3,
+      "batchPosition": 5,
+      "domain": "cli-sdk",
+      "slug": "qaskills-unknown-agent-error-testing",
+      "primaryKeyword": "QASkills unknown agent error testing",
+      "title": "QASkills unknown agent error testing",
+      "description": "QASkills unknown agent error testing: use repo paths, tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "What should qaskills add and qaskills remove print and change when --agent names an unsupported agent?",
+      "intentBoundary": "Unsupported identifier diagnostics and no-op behavior, not targeting a supported but undetected agent.",
+      "secondaryKeywords": [
+        "qaskills unknown agent",
+        "invalid agent cli error",
+        "unsupported agent install test",
+        "unsupported agent remove test",
+        "agent option validation",
+        "list supported qaskills agents"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills unknown agent error testing guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"What should qaskills add and qaskills remove print and change when --agent names an unsupported agent?\" in 40 to 60 words, define the observable contract, and state the boundary: Unsupported identifier diagnostics and no-op behavior, not targeting a supported but undetected agent.",
+          "repoEvidence": [
+            "packages/cli/src/commands/add.ts#addCommand",
+            "packages/cli/src/commands/remove.ts#removeCommand"
+          ]
+        },
+        {
+          "heading": "How does qaskills unknown agent work?",
+          "secondaryKeyword": "qaskills unknown agent",
+          "coverage": "Walk through the production branch at packages/cli/src/commands/add.ts#addCommand, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/cli/src/commands/add.ts#addCommand"]
+        },
+        {
+          "heading": "Which cases define invalid agent cli error?",
+          "secondaryKeyword": "invalid agent cli error",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise removeCommand; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/cli/src/commands/remove.ts#removeCommand",
+            "packages/cli/src/lib/agent-detector.ts#getAllAgents"
+          ]
+        },
+        {
+          "heading": "unsupported agent install test and the current QASkills contract",
+          "secondaryKeyword": "unsupported agent install test",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/cli/src/lib/agent-detector.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/cli/src/lib/agent-detector.ts#getAllAgents"]
+        },
+        {
+          "heading": "How do you test unsupported agent remove test?",
+          "secondaryKeyword": "unsupported agent remove test",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": [
+            "packages/cli/src/commands/add.ts#addCommand",
+            "packages/shared/src/constants/agents.ts#AGENTS"
+          ]
+        },
+        {
+          "heading": "agent option validation failure and edge-case matrix",
+          "secondaryKeyword": "agent option validation",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": [
+            "packages/cli/src/commands/remove.ts#removeCommand",
+            "packages/shared/src/constants/agents.ts#AGENTS"
+          ]
+        },
+        {
+          "heading": "How should list supported qaskills agents run in CI?",
+          "secondaryKeyword": "list supported qaskills agents",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": [
+            "packages/cli/src/commands/add.ts#addCommand",
+            "packages/shared/src/constants/agents.ts#AGENTS"
+          ]
+        },
+        {
+          "heading": "Implementation checklist for QASkills unknown agent error testing",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /agents, /skills-for, /getting-started.",
+          "repoEvidence": [
+            "packages/cli/src/commands/add.ts#addCommand",
+            "packages/cli/src/commands/remove.ts#removeCommand",
+            "packages/cli/src/lib/agent-detector.ts#getAllAgents"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": [
+            "packages/cli/src/commands/add.ts#addCommand",
+            "packages/cli/src/commands/remove.ts#removeCommand"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Review the supported targets on /agents, then choose a QA package from /skills and test the documented detection case.",
+          "repoEvidence": ["packages/cli/src/commands/add.ts#addCommand"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills unknown agent error testing scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "qaskills unknown agent",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at addCommand completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/cli/src/commands/add.ts#addCommand"
+          },
+          {
+            "scenario": "invalid agent cli error",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at removeCommand selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/cli/src/commands/remove.ts#removeCommand"
+          },
+          {
+            "scenario": "unsupported agent remove test",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/cli/src/lib/agent-detector.ts#getAllAgents"
+          },
+          {
+            "scenario": "list supported qaskills agents",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/shared/src/constants/agents.ts#AGENTS"
+          }
+        ],
+        "source": [
+          "packages/cli/src/commands/add.ts#addCommand",
+          "packages/cli/src/commands/remove.ts#removeCommand",
+          "packages/cli/src/lib/agent-detector.ts#getAllAgents",
+          "packages/shared/src/constants/agents.ts#AGENTS"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/cli/src/commands/add.ts at addCommand and record the exact inputs, defaults, side effects, and output for \"qaskills unknown agent\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"invalid agent cli error\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to removeCommand, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"unsupported agent remove test\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"list supported qaskills agents\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace addCommand in the current implementation",
+          "repoPath": "packages/cli/src/commands/add.ts",
+          "symbol": "addCommand",
+          "plan": "Quote the current addCommand branch and annotate how it implements \"qaskills unknown agent\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for removeCommand",
+          "repoPath": "packages/cli/src/commands/remove.ts",
+          "symbol": "removeCommand",
+          "plan": "Use the real removeCommand contract to create an executable test for \"invalid agent cli error\", then assert the related \"unsupported agent install test\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for getAllAgents",
+          "repoPath": "packages/cli/src/lib/agent-detector.ts",
+          "symbol": "getAllAgents",
+          "plan": "Use the real getAllAgents contract to create an executable test for \"unsupported agent install test\", then assert the related \"unsupported agent remove test\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/commands/add.ts#addCommand",
+        "packages/cli/src/commands/remove.ts#removeCommand",
+        "packages/cli/src/lib/agent-detector.ts#getAllAgents",
+        "packages/shared/src/constants/agents.ts#AGENTS"
+      ],
+      "internalRoutes": ["/agents", "/skills-for", "/getting-started", "/faq", "/skills", "/blog"],
+      "relatedSlugs": [
+        "how-to-install-skills-claude-code",
+        "how-to-install-skills-cursor",
+        "skill-md-format-guide",
+        "ai-qa-skills-directory-2026"
+      ],
+      "sources": [
+        "https://github.com/tj/commander.js",
+        "https://github.com/bombshell-dev/clack",
+        "https://vitest.dev/guide/mocking.html"
+      ],
+      "faqQuestions": [
+        "What does qaskills unknown agent verify in QASkills?",
+        "When should a team test invalid agent cli error?",
+        "How can a fixture isolate unsupported agent install test?",
+        "Which assertion proves unsupported agent remove test?",
+        "What failure cases belong in agent option validation tests?",
+        "How should CI run list supported qaskills agents checks?"
+      ],
+      "cta": "Review the supported targets on /agents, then choose a QA package from /skills and test the documented detection case."
+    }
+  ]
+}

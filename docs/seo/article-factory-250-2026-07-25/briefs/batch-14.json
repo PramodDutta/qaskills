@@ -1,0 +1,746 @@
+{
+  "batch": 14,
+  "briefs": [
+    {
+      "batch": 14,
+      "batchPosition": 1,
+      "domain": "data-search-cache",
+      "sourceTopicId": "review-07",
+      "slug": "empty-review-statistics-contract-testing",
+      "primaryKeyword": "empty review statistics contract testing",
+      "title": "empty review statistics contract testing",
+      "description": "Use empty review statistics contract testing to verify an empty list, zero average, and zero total before a skill receives its first review.",
+      "intent": "how-to",
+      "coreQuestion": "How do you prove a skill with no reviews returns an empty list, averageRating zero, and totalReviews zero?",
+      "secondaryKeywords": [
+        "no reviews API response",
+        "null AVG fallback test",
+        "empty review list contract",
+        "zero total reviews assertion",
+        "first review state testing"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Empty Review Statistics Contract Testing Prove?",
+          "question": true,
+          "coverage": "Define the exact JSON contract for a valid skill with no review rows and distinguish it from missing skillId and database failure responses."
+        },
+        {
+          "heading": "What Should a No Reviews API Response Contain?",
+          "question": true,
+          "secondaryKeyword": "no reviews API response",
+          "coverage": "Assert reviews is an array, averageRating is numeric zero, totalReviews is numeric zero, and no nullable aggregate leaks into JSON."
+        },
+        {
+          "heading": "How Do You Build a Null AVG Fallback Test?",
+          "question": true,
+          "secondaryKeyword": "null AVG fallback test",
+          "coverage": "Use PostgreSQL aggregate behavior on an empty input and verify the route converts null average and count output to stable numeric values."
+        },
+        {
+          "heading": "Empty Review List Contract Across Query Outcomes",
+          "question": false,
+          "secondaryKeyword": "empty review list contract",
+          "coverage": "Compare zero rows, rows hidden by the inner join, missing query input, and thrown database operations without treating them as one state."
+        },
+        {
+          "heading": "How Do You Write a Zero Total Reviews Assertion?",
+          "question": true,
+          "secondaryKeyword": "zero total reviews assertion",
+          "coverage": "Check value and type so string zero, null, undefined, and stale nonzero counts fail with useful diagnostics."
+        },
+        {
+          "heading": "First Review State Testing",
+          "question": false,
+          "secondaryKeyword": "first review state testing",
+          "coverage": "Add one review after the empty assertion and prove list length, count, and average move together from the zero state."
+        },
+        {
+          "heading": "Empty-State Input and Response Matrix",
+          "question": false,
+          "coverage": "Present valid and invalid request cases with database fixtures, HTTP status, list shape, average, and total."
+        },
+        {
+          "heading": "How Do You Run the Empty-State Procedure?",
+          "question": true,
+          "coverage": "Create a skill without reviews, call GET, validate the JSON schema, add one review, and repeat to catch stale aggregates."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about PostgreSQL AVG, count, numeric JSON types, nonexistent skills, inner joins, and first-review transitions."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Reinforce the explicit empty-state contract and direct readers to the API-testing catalog."
+        }
+      ],
+      "tablePlan": {
+        "title": "Review empty-state response contract",
+        "columns": [
+          "Fixture",
+          "Request",
+          "HTTP status",
+          "reviews",
+          "averageRating",
+          "totalReviews"
+        ],
+        "rows": [
+          "valid skill with no reviews",
+          "valid skill after first review",
+          "unknown skill UUID",
+          "missing skillId",
+          "database query failure"
+        ],
+        "sources": [
+          "packages/web/src/app/api/reviews/route.ts",
+          "packages/web/src/db/schema/relations.ts",
+          "https://www.postgresql.org/docs/current/functions-aggregate.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to verify empty review statistics",
+        "steps": [
+          "Seed a skill and user without inserting any review rows.",
+          "Call GET with the seeded skill ID.",
+          "Assert a 200 response and the exact empty-list plus numeric-zero shape.",
+          "Query the database directly to prove the review table is empty.",
+          "Insert one review and call GET again.",
+          "Assert the list, average, and total transition consistently."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Assert the GET empty-state response",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/reviews/route.ts",
+          "focus": "Exercise the separate review and aggregate queries and verify their combined JSON output."
+        },
+        {
+          "title": "Seed a skill with no review rows",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/relations.ts",
+          "focus": "Use the reviews schema to create an explicit empty fixture and then a first-review transition."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/reviews/route.ts",
+        "packages/web/src/db/schema/relations.ts",
+        "packages/web/src/components/skills/review-section.tsx"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/api-testing-complete-guide",
+        "/blog/database-testing-automation-guide",
+        "/blog/authentication-authorization-testing-guide",
+        "/blog/error-handling-testing-patterns"
+      ],
+      "relatedSlugs": [
+        "api-testing-complete-guide",
+        "database-testing-automation-guide",
+        "authentication-authorization-testing-guide",
+        "error-handling-testing-patterns"
+      ],
+      "sources": [
+        "https://www.postgresql.org/docs/current/functions-aggregate.html",
+        "https://www.rfc-editor.org/info/rfc8259"
+      ],
+      "cta": "Browse API testing skills at /skills and add the empty-review contract to your regression suite."
+    },
+    {
+      "batch": 14,
+      "batchPosition": 2,
+      "domain": "data-search-cache",
+      "sourceTopicId": "review-01",
+      "slug": "review-rating-boundary-validation-testing",
+      "primaryKeyword": "review rating boundary validation testing",
+      "title": "review rating boundary validation testing",
+      "description": "Use review rating boundary validation testing to cover missing, fractional, string, and out-of-range values around the accepted one-to-five range.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test missing, null, fractional, string, zero, one, five, and six ratings against the review API?",
+      "secondaryKeywords": [
+        "review API rating validation",
+        "integer rating boundary test",
+        "one to five rating QA",
+        "fractional review rating rejection",
+        "missing rating response test"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Review Rating Boundary Validation Testing Cover?",
+          "question": true,
+          "coverage": "Define the required field, integer requirement, inclusive one-to-five range, and the expected 400 response before database work."
+        },
+        {
+          "heading": "How Do You Test Review API Rating Validation?",
+          "question": true,
+          "secondaryKeyword": "review API rating validation",
+          "coverage": "Separate malformed JSON, missing rating, null rating, wrong types, and numeric range failures so every branch has a precise oracle."
+        },
+        {
+          "heading": "What Belongs in an Integer Rating Boundary Test?",
+          "question": true,
+          "secondaryKeyword": "integer rating boundary test",
+          "coverage": "Use boundary values zero, one, five, and six plus decimals, NaN-like JSON limitations, and large integers."
+        },
+        {
+          "heading": "One to Five Rating QA Matrix",
+          "question": false,
+          "secondaryKeyword": "one to five rating QA",
+          "coverage": "Map valid values to 201 and invalid values to the exact validation message while confirming rejected requests create no row."
+        },
+        {
+          "heading": "How Do You Prove Fractional Review Rating Rejection?",
+          "question": true,
+          "secondaryKeyword": "fractional review rating rejection",
+          "coverage": "Test representative decimals inside and outside the range and assert Number.isInteger blocks them before persistence."
+        },
+        {
+          "heading": "Missing Rating Response Test Cases",
+          "question": false,
+          "secondaryKeyword": "missing rating response test",
+          "coverage": "Contrast omitted, undefined before serialization, null, empty string, numeric string, boolean, and zero."
+        },
+        {
+          "heading": "Rating Input, Status, Message, and Write Matrix",
+          "question": false,
+          "coverage": "Present the required table with body value, JavaScript type, accepted flag, status, error text, and database delta."
+        },
+        {
+          "heading": "How Do You Implement Boundary Tests Without Partial Writes?",
+          "question": true,
+          "coverage": "Run the numbered POST procedure with authenticated fixtures and verify row counts before and after every rejected case."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about inclusive boundaries, numeric strings, fractions, JSON limits, database constraints, and validation order."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the boundary matrix and send readers to verified API-testing skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Review rating boundary value matrix",
+        "columns": [
+          "Rating input",
+          "Runtime type",
+          "Integer",
+          "In range",
+          "Expected status",
+          "Review row delta"
+        ],
+        "rows": ["omitted and null", "string one", "zero", "one", "fractional 3.5", "five", "six"],
+        "sources": [
+          "packages/web/src/app/api/reviews/route.ts",
+          "packages/web/src/db/schema/relations.ts",
+          "https://www.rfc-editor.org/info/rfc9110"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to test review rating boundaries",
+        "steps": [
+          "Create an authenticated user and an existing skill fixture.",
+          "Record the initial review row count.",
+          "POST each invalid body and assert the exact 400 response.",
+          "Verify the row count is unchanged after every rejection.",
+          "POST ratings one through five using fresh user fixtures.",
+          "Assert each valid integer returns 201 and preserves the submitted value."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Table-drive the POST rating branches",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/reviews/route.ts",
+          "focus": "Cover required-field checks and Number.isInteger plus inclusive range validation."
+        },
+        {
+          "title": "Assert database write boundaries",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/relations.ts",
+          "focus": "Verify rejected ratings never reach the non-null integer column and accepted ratings persist unchanged."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/reviews/route.ts",
+        "packages/web/src/db/schema/relations.ts",
+        "packages/web/src/lib/auth.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/api-testing-complete-guide",
+        "/blog/database-testing-automation-guide",
+        "/blog/authentication-authorization-testing-guide",
+        "/blog/error-handling-testing-patterns"
+      ],
+      "relatedSlugs": [
+        "api-testing-complete-guide",
+        "database-testing-automation-guide",
+        "authentication-authorization-testing-guide",
+        "error-handling-testing-patterns"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://www.postgresql.org/docs/current/ddl-constraints.html"
+      ],
+      "cta": "Browse API validation skills at /skills and reuse this boundary matrix for rating endpoints."
+    },
+    {
+      "batch": 14,
+      "batchPosition": 3,
+      "domain": "data-search-cache",
+      "sourceTopicId": "data-09",
+      "slug": "postgres-cascade-delete-relation-testing",
+      "primaryKeyword": "Postgres cascade delete relation testing",
+      "title": "Postgres cascade delete relation testing",
+      "description": "Use Postgres cascade delete relation testing to prove deleting a skill removes junction rows, installs, reviews, and pack items without orphans.",
+      "intent": "how-to",
+      "coreQuestion": "How do you prove deleting a skill removes its junction rows, installs, reviews, and pack items without leaving orphans?",
+      "secondaryKeywords": [
+        "Drizzle onDelete cascade test",
+        "Postgres orphan row prevention",
+        "foreign key cascade integration test",
+        "skill deletion data integrity",
+        "cascade delete multiple relations"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Postgres Cascade Delete Relation Testing Prove?",
+          "question": true,
+          "coverage": "Define the skill as the parent row and inventory every direct child relation whose foreign key declares onDelete cascade."
+        },
+        {
+          "heading": "How Do You Write a Drizzle onDelete Cascade Test?",
+          "question": true,
+          "secondaryKeyword": "Drizzle onDelete cascade test",
+          "coverage": "Build a complete fixture graph, delete only the parent skill, and query every child table without manually deleting dependencies."
+        },
+        {
+          "heading": "What Proves Postgres Orphan Row Prevention?",
+          "question": true,
+          "secondaryKeyword": "Postgres orphan row prevention",
+          "coverage": "Assert zero child rows by skill ID and test that a new child cannot reference the deleted parent."
+        },
+        {
+          "heading": "Foreign Key Cascade Integration Test Scope",
+          "question": false,
+          "secondaryKeyword": "foreign key cascade integration test",
+          "coverage": "Explain why a real PostgreSQL database is required and which assertions a schema-only unit test cannot establish."
+        },
+        {
+          "heading": "How Do You Protect Skill Deletion Data Integrity?",
+          "question": true,
+          "secondaryKeyword": "skill deletion data integrity",
+          "coverage": "Verify unrelated skills, users, categories, and packs survive while only relationships owned by the deleted skill disappear."
+        },
+        {
+          "heading": "Cascade Delete Multiple Relations Fixture Design",
+          "question": false,
+          "secondaryKeyword": "cascade delete multiple relations",
+          "coverage": "Create category links, agent compatibility, installs, reviews, and pack items for one target and one control skill."
+        },
+        {
+          "heading": "Relation, Foreign Key, and Expected Deletion Matrix",
+          "question": false,
+          "coverage": "Present every relation with its foreign key, cascade declaration, target-row outcome, and control-row outcome."
+        },
+        {
+          "heading": "How Do You Run the Full Cascade Procedure?",
+          "question": true,
+          "coverage": "Follow an ordered transaction-safe setup, deletion, orphan check, control check, and cleanup workflow."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about database versus ORM cascades, composite keys, nullable pack authors, transactions, controls, and migration drift."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the graph-level assertion and point to database testing skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Skill relation cascade expectations",
+        "columns": [
+          "Child table",
+          "Foreign key",
+          "Cascade declared",
+          "Target rows before",
+          "Target rows after",
+          "Control rows after"
+        ],
+        "rows": [
+          "skill_categories",
+          "agent_compatibility",
+          "installs",
+          "reviews",
+          "skill_pack_items"
+        ],
+        "sources": [
+          "packages/web/src/db/schema/relations.ts",
+          "packages/web/src/db/schema/skills.ts",
+          "https://www.postgresql.org/docs/current/ddl-constraints.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to verify all skill cascades",
+        "steps": [
+          "Create target and control skills plus shared supporting users, categories, and packs.",
+          "Insert one or more child rows in every skill-owned relation for both skills.",
+          "Record child counts grouped by target and control skill IDs.",
+          "Delete only the target skill in PostgreSQL.",
+          "Assert every target child count is zero and every control count is unchanged.",
+          "Attempt an orphan insert and assert the foreign key rejects it."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the complete relation fixture graph",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/relations.ts",
+          "focus": "Insert rows for every cascading skill foreign key, including composite junction tables."
+        },
+        {
+          "title": "Delete the parent and assert control isolation",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/skills.ts",
+          "focus": "Delete one skill ID and compare target and control child counts in a real database."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/db/schema/relations.ts",
+        "packages/web/src/db/schema/skills.ts",
+        "packages/web/src/db/schema/categories.ts",
+        "packages/web/src/db/schema/users.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide",
+        "/blog/postgres-migration-testing-guide",
+        "/blog/testing-postgresql-jsonb-multiselect-filters-drizzle",
+        "/blog/testing-lazy-neon-database-initialization-nextjs-build"
+      ],
+      "relatedSlugs": [
+        "database-testing-automation-guide",
+        "postgres-migration-testing-guide",
+        "testing-postgresql-jsonb-multiselect-filters-drizzle",
+        "testing-lazy-neon-database-initialization-nextjs-build"
+      ],
+      "sources": [
+        "https://www.postgresql.org/docs/current/ddl-constraints.html",
+        "https://orm.drizzle.team/docs/relations",
+        "https://orm.drizzle.team/docs/indexes-constraints"
+      ],
+      "cta": "Browse database testing skills at /skills and add a complete cascade fixture to your integration suite."
+    },
+    {
+      "batch": 14,
+      "batchPosition": 4,
+      "domain": "data-search-cache",
+      "sourceTopicId": "search-07",
+      "slug": "typesense-collection-schema-drift-testing",
+      "primaryKeyword": "Typesense collection schema drift testing",
+      "title": "Typesense collection schema drift testing",
+      "description": "Use Typesense collection schema drift testing to catch field-type, facet-flag, and default-sort differences before indexed documents fail in CI.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you catch field type, facet flag, and default sorting drift between the declared skills schema and indexed documents?",
+      "secondaryKeywords": [
+        "Typesense schema contract test",
+        "facet flag drift detection",
+        "search document type mismatch",
+        "Typesense default sort schema",
+        "collection migration regression test"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Typesense Collection Schema Drift Testing Catch?",
+          "question": true,
+          "coverage": "Define drift across names, types, array shapes, facet flags, required fields, and default sorting assumptions."
+        },
+        {
+          "heading": "How Do You Build a Typesense Schema Contract Test?",
+          "question": true,
+          "secondaryKeyword": "Typesense schema contract test",
+          "coverage": "Fetch or fixture the live collection schema and compare a normalized representation with skillsSchema in source."
+        },
+        {
+          "heading": "What Does Facet Flag Drift Detection Verify?",
+          "question": true,
+          "secondaryKeyword": "facet flag drift detection",
+          "coverage": "Assert every field used in filter_by or facet_by is declared with compatible type and facet behavior."
+        },
+        {
+          "heading": "Search Document Type Mismatch Cases",
+          "question": false,
+          "secondaryKeyword": "search document type mismatch",
+          "coverage": "Cover scalar versus array values, int32 overflow risk, bool strings, timestamp units, and omitted fields."
+        },
+        {
+          "heading": "How Do You Check the Typesense Default Sort Schema?",
+          "question": true,
+          "secondaryKeyword": "Typesense default sort schema",
+          "coverage": "Verify installCount exists with a sortable numeric type and matches the declared default_sorting_field exactly."
+        },
+        {
+          "heading": "Collection Migration Regression Test Strategy",
+          "question": false,
+          "secondaryKeyword": "collection migration regression test",
+          "coverage": "Describe additive, breaking, and reindex-required changes and the assertions needed before switching collection aliases."
+        },
+        {
+          "heading": "Declared Fields, Runtime Use, and Drift Impact",
+          "question": false,
+          "coverage": "Present the required field-by-field table linking schema declarations to query, facet, sort, and result-mapping use."
+        },
+        {
+          "heading": "How Do You Run the Drift Audit in CI?",
+          "question": true,
+          "coverage": "Normalize schemas, compare deterministic JSON, index representative documents, run one search, and fail with targeted differences."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about schema updates, collection aliases, optional fields, facet flags, int32 versus int64, and reindexing."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the contract boundary and direct readers to search-testing skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Typesense schema declaration and runtime-use map",
+        "columns": [
+          "Field",
+          "Declared type",
+          "Facet",
+          "Query use",
+          "Result use",
+          "Drift consequence"
+        ],
+        "rows": [
+          "name and description",
+          "taxonomy arrays",
+          "featured and verified",
+          "qualityScore and installCount",
+          "createdAt",
+          "default sorting field"
+        ],
+        "sources": [
+          "packages/web/src/lib/typesense/client.ts",
+          "packages/web/src/lib/typesense/search.ts",
+          "https://typesense.org/docs/latest/api/collections.html",
+          "https://typesense.org/docs/latest/api/documents.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to detect collection schema drift",
+        "steps": [
+          "Serialize the repository skillsSchema into a normalized field map.",
+          "Retrieve or fixture the deployed Typesense collection schema.",
+          "Compare field names, types, facet flags, and default sorting field.",
+          "Index one representative document containing every declared field.",
+          "Run the production query_by, facet_by, filter_by, and sort_by combinations.",
+          "Report structural differences separately from document indexing failures."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Normalize the declared skills collection schema",
+          "language": "typescript",
+          "path": "packages/web/src/lib/typesense/client.ts",
+          "focus": "Convert skillsSchema fields and default sorting field into a deterministic contract snapshot."
+        },
+        {
+          "title": "Trace every queried and mapped field",
+          "language": "typescript",
+          "path": "packages/web/src/lib/typesense/search.ts",
+          "focus": "Assert query_by, facet_by, filters, sorting, and SkillSummary mapping are represented in the schema."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/lib/typesense/client.ts",
+        "packages/web/src/lib/typesense/search.ts",
+        "packages/shared/src/types/skill.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/categories/api-testing",
+        "/blog/testing-typesense-multiselect-facet-filter-queries",
+        "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "/blog/mcp-search-response-normalization-contract-tests",
+        "/blog/database-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "testing-typesense-multiselect-facet-filter-queries",
+        "mcp-search-filter-schema-drift-contract-tests",
+        "mcp-search-response-normalization-contract-tests",
+        "database-testing-automation-guide"
+      ],
+      "sources": [
+        "https://typesense.org/docs/latest/api/collections.html",
+        "https://typesense.org/docs/latest/api/documents.html"
+      ],
+      "cta": "Browse search QA skills at /skills and run the schema drift audit before the next reindex."
+    },
+    {
+      "batch": 14,
+      "batchPosition": 5,
+      "domain": "data-search-cache",
+      "sourceTopicId": "install-08",
+      "slug": "install-telemetry-country-header-testing",
+      "primaryKeyword": "install telemetry country header testing",
+      "title": "install telemetry country header testing",
+      "description": "Use install telemetry country header testing to verify cf-ipcountry extraction, missing defaults, unusual values, and persisted install data.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test cf-ipcountry extraction, missing-header defaults, unusual values, and persistence in install rows?",
+      "secondaryKeywords": [
+        "cf-ipcountry header test",
+        "install country default value",
+        "edge geolocation header persistence",
+        "telemetry country validation",
+        "missing country header QA"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Install Telemetry Country Header Testing Prove?",
+          "question": true,
+          "coverage": "Define request-header extraction, empty-string fallback, text persistence, and the boundary between edge-provided data and application validation."
+        },
+        {
+          "heading": "How Do You Write a cf-ipcountry Header Test?",
+          "question": true,
+          "secondaryKeyword": "cf-ipcountry header test",
+          "coverage": "Construct NextRequest fixtures with present, absent, lowercase, and representative country values, then inspect the inserted row."
+        },
+        {
+          "heading": "What Is the Install Country Default Value?",
+          "question": true,
+          "secondaryKeyword": "install country default value",
+          "coverage": "Show that the route supplies an empty string and the schema also declares an empty default, then test the route value explicitly."
+        },
+        {
+          "heading": "Edge Geolocation Header Persistence Cases",
+          "question": false,
+          "secondaryKeyword": "edge geolocation header persistence",
+          "coverage": "Cover two-letter values, Cloudflare special values, whitespace, long text, mixed case, and repeated requests without asserting geographic truth."
+        },
+        {
+          "heading": "How Should Telemetry Country Validation Be Scoped?",
+          "question": true,
+          "secondaryKeyword": "telemetry country validation",
+          "coverage": "Distinguish the current pass-through behavior from a future allowlist and test what the code does today."
+        },
+        {
+          "heading": "Missing Country Header QA",
+          "question": false,
+          "secondaryKeyword": "missing country header QA",
+          "coverage": "Verify no exception occurs, success remains true, and the stored country is the documented empty string."
+        },
+        {
+          "heading": "Header Input and Stored Country Matrix",
+          "question": false,
+          "coverage": "Present request values, header presence, normalized storage, response, and risk notes."
+        },
+        {
+          "heading": "How Do You Run the Country Persistence Procedure?",
+          "question": true,
+          "coverage": "Seed a resolvable skill, send table-driven requests, query the newest install row, and clean up by test run."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about Cloudflare headers, local development, missing values, special codes, trust boundaries, and personal data handling."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the persistence contract and link to telemetry-related skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Country header persistence matrix",
+        "columns": [
+          "cf-ipcountry input",
+          "Header present",
+          "Stored country",
+          "Expected status",
+          "Counter delta",
+          "Validation note"
+        ],
+        "rows": [
+          "US",
+          "lowercase code",
+          "Cloudflare special code",
+          "empty header",
+          "missing header",
+          "unusually long text"
+        ],
+        "sources": [
+          "packages/web/src/app/api/telemetry/install/route.ts",
+          "packages/web/src/db/schema/relations.ts",
+          "https://developers.cloudflare.com/fundamentals/reference/http-request-headers/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to test country header persistence",
+        "steps": [
+          "Seed one skill whose slug resolves through the telemetry route.",
+          "Prepare request cases for present, absent, empty, and unusual header values.",
+          "POST one add event per case with a unique agent marker.",
+          "Query the matching install row and assert the exact country text.",
+          "Assert the response remains successful for each accepted header shape.",
+          "Remove all test rows and restore counters after the suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Inject cf-ipcountry into a telemetry request",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/telemetry/install/route.ts",
+          "focus": "Construct header variants and assert the value passed into the install insert."
+        },
+        {
+          "title": "Verify the persisted text default",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/relations.ts",
+          "focus": "Query the installs.country column for present and missing-header cases."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/telemetry/install/route.ts",
+        "packages/web/src/db/schema/relations.ts",
+        "packages/web/src/lib/telemetry-normalize.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/leaderboard",
+        "/categories/api-testing",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "/blog/api-testing-complete-guide",
+        "/blog/database-testing-automation-guide",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-disable-telemetry-do-not-track",
+        "api-testing-complete-guide",
+        "database-testing-automation-guide",
+        "testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "sources": [
+        "https://developers.cloudflare.com/fundamentals/reference/http-request-headers/",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "cta": "Browse API and telemetry testing skills at /skills before expanding the country-header matrix."
+    }
+  ]
+}

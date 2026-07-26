@@ -1,0 +1,2263 @@
+{
+  "generatedAt": "2026-07-25T00:00:00+05:30",
+  "scope": {
+    "domain": "QASkills CLI, SDK, agent detection, framework detection, command behavior, filesystem delivery, and npm release",
+    "inventoryPath": "/tmp/qaskills-seo-final-inventory-20260725.json",
+    "registryPath": "packages/web/src/app/blog/posts/index.ts",
+    "inventoryItems": 1528,
+    "existingArticles": 1491,
+    "staticRoutes": 37,
+    "titleOverlapRejectThreshold": 0.6,
+    "selectionRule": "Each survivor has a distinct searcher need, direct implementation evidence, enough test and workflow depth for a 3000-word article, and no slug, title, primary-keyword, or intent collision."
+  },
+  "summary": {
+    "survivingCandidates": 60,
+    "rejectedCandidates": 18,
+    "crossCandidateIntentConflicts": 0,
+    "clusters": {
+      "installerSecurity": 3,
+      "agentDetection": 8,
+      "frameworkDetection": 9,
+      "commandContracts": 18,
+      "cliTransport": 5,
+      "sdkContracts": 10,
+      "packageRelease": 7
+    },
+    "verification": {
+      "registryRoutesChecked": 53,
+      "missingInternalRoutes": 0,
+      "repoEvidencePathsChecked": 39,
+      "missingRepoEvidencePaths": 0,
+      "uniqueAuthoritativeSourcesChecked": 65,
+      "automatedSlugTitleKeywordCollisions": 0,
+      "manualCrossCandidateIntentConflicts": 0
+    }
+  },
+  "survivors": [
+    {
+      "id": "cli-sdk-001",
+      "cluster": "installerSecurity",
+      "primaryKeyword": "QASkills local skill path install",
+      "proposedSlug": "qaskills-local-skill-path-install",
+      "titleTag": "Local QASkills Package Installation",
+      "intent": "how-to",
+      "answerFirstQuestion": "How do you install a local SKILL.md package with QASkills and verify the copied files without contacting the registry?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/installer.ts#resolveSkill",
+        "packages/cli/src/lib/installer.ts#downloadSkill",
+        "packages/cli/src/lib/installer.ts#copyDir",
+        "packages/cli/src/commands/add.ts#addCommand"
+      ],
+      "secondaryKeywords": [
+        "qaskills add local path",
+        "install local SKILL.md",
+        "test local agent skill",
+        "relative skill path install",
+        "absolute skill path install",
+        "verify copied skill files"
+      ],
+      "internalRoutes": [
+        "/getting-started",
+        "/skills",
+        "/blog/skill-md-format-guide",
+        "/blog/how-to-install-skills-claude-code"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/path.html",
+        "https://nodejs.org/api/fs.html",
+        "https://agentskills.io/specification"
+      ],
+      "intentBoundary": "User workflow for local filesystem input only, not registry fallback, GitHub extraction, or custom destination setup."
+    },
+    {
+      "id": "cli-sdk-002",
+      "cluster": "installerSecurity",
+      "primaryKeyword": "QASkills skill path traversal tests",
+      "proposedSlug": "qaskills-skill-path-traversal-tests",
+      "titleTag": "Test QASkills Install Path Traversal",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "How should QASkills installation tests prove that an untrusted skill name cannot escape the intended agent skills directory?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/installer.ts#installToAgent",
+        "packages/cli/src/lib/installer.ts#uninstallFromAgent",
+        "packages/cli/src/lib/installer.ts#downloadSkill",
+        "packages/cli/src/commands/add.ts#addCommand"
+      ],
+      "secondaryKeywords": [
+        "agent skill path traversal",
+        "path join security test",
+        "skill name directory escape",
+        "install directory containment",
+        "filesystem traversal regression",
+        "untrusted skill slug validation"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/skill-md-format-guide",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": [
+        "https://owasp.org/www-community/attacks/Path_Traversal",
+        "https://nodejs.org/api/path.html",
+        "https://cwe.mitre.org/data/definitions/22.html"
+      ],
+      "intentBoundary": "Security containment of the final destination path, not temporary-name cleanup or ordinary --dir behavior."
+    },
+    {
+      "id": "cli-sdk-003",
+      "cluster": "installerSecurity",
+      "primaryKeyword": "QASkills multi agent install failure",
+      "proposedSlug": "qaskills-multi-agent-install-failure",
+      "titleTag": "Handle Partial Multi-Agent Installs",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "What happens when QASkills installs to several agents and one filesystem copy fails partway through the loop?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/add.ts#addCommand",
+        "packages/cli/src/lib/installer.ts#installToAgent",
+        "packages/cli/src/lib/installer.ts#copyDir",
+        "packages/cli/src/commands/update.ts#updateCommand"
+      ],
+      "secondaryKeywords": [
+        "partial agent skill install",
+        "multi agent install rollback",
+        "qaskills copy failure",
+        "agent install consistency test",
+        "skill installation transaction",
+        "recover failed agent install"
+      ],
+      "internalRoutes": [
+        "/agents",
+        "/skills",
+        "/blog/how-to-install-skills-claude-code",
+        "/blog/how-to-install-skills-cursor"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://vitest.dev/guide/",
+        "https://github.com/tj/commander.js"
+      ],
+      "intentBoundary": "Failure consistency across several destinations, not source download fallback or one custom directory."
+    },
+    {
+      "id": "cli-sdk-004",
+      "cluster": "agentDetection",
+      "primaryKeyword": "QASkills global project agent detection",
+      "proposedSlug": "qaskills-global-project-agent-detection",
+      "titleTag": "Detect Global and Project Agents",
+      "intent": "informational",
+      "answerFirstQuestion": "How does QASkills distinguish home-directory agents from project-directory agents when resolving configuration and skill paths?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/agent-detector.ts#detectAgents",
+        "packages/cli/src/lib/agent-detector.ts#isGlobalPath",
+        "packages/cli/src/lib/agent-detector.ts#expandHome",
+        "packages/shared/src/constants/agents.ts#AGENTS"
+      ],
+      "secondaryKeywords": [
+        "global agent skills path",
+        "project agent config detection",
+        "qaskills agent scope",
+        "home directory agent rules",
+        "workspace agent skills folder",
+        "agent path resolution tests"
+      ],
+      "internalRoutes": [
+        "/agents",
+        "/skills-for",
+        "/blog/how-to-install-skills-claude-code",
+        "/blog/how-to-install-skills-cursor"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/path.html",
+        "https://nodejs.org/api/os.html",
+        "https://agentskills.io/specification"
+      ],
+      "intentBoundary": "Scope classification and path resolution, not the separate config-file fallback or universal target."
+    },
+    {
+      "id": "cli-sdk-005",
+      "cluster": "agentDetection",
+      "primaryKeyword": "QASkills agent config file detection",
+      "proposedSlug": "qaskills-agent-config-file-detection",
+      "titleTag": "Test Agent Config File Detection",
+      "intent": "how-to",
+      "answerFirstQuestion": "How can you test that QASkills detects a project agent from its config file when its config directory does not exist?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 8 },
+      "repoEvidence": [
+        "packages/cli/src/lib/agent-detector.ts#detectAgents",
+        "packages/cli/src/lib/agent-detector.ts#probeExists",
+        "packages/shared/src/constants/agents.ts#AGENTS",
+        "packages/shared/src/types/agent.ts#AgentDefinition"
+      ],
+      "secondaryKeywords": [
+        "agent configFile fallback",
+        "detect agent without directory",
+        "project instruction file detection",
+        "qaskills config probe test",
+        "agent config path fixture",
+        "AI agent filesystem detection"
+      ],
+      "internalRoutes": ["/agents", "/agents/cursor", "/agents/copilot", "/skills"],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://vitest.dev/guide/mocking.html",
+        "https://agentskills.io/specification"
+      ],
+      "intentBoundary": "The configFile fallback branch for project agents only, not scope classification or skills-directory status."
+    },
+    {
+      "id": "cli-sdk-006",
+      "cluster": "agentDetection",
+      "primaryKeyword": "QASkills universal skills directory",
+      "proposedSlug": "qaskills-universal-skills-directory",
+      "titleTag": "Use the Universal Agent Skills Directory",
+      "intent": "how-to",
+      "answerFirstQuestion": "Why does QASkills always expose the universal ~/.agents/skills destination even when no vendor-specific agent configuration is detected?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/agent-detector.ts#detectAgents",
+        "packages/shared/src/constants/agents.ts#UNIVERSAL_AGENT",
+        "packages/shared/src/constants/agents.ts#AGENTS",
+        "packages/shared/src/types/agent.ts#AgentDefinition"
+      ],
+      "secondaryKeywords": [
+        "agents skills universal directory",
+        "dot agents skills folder",
+        "cross vendor agent skills",
+        "universal skill install target",
+        "qaskills universal agent",
+        "agent skills open standard"
+      ],
+      "internalRoutes": ["/agents", "/skills-for", "/skills", "/blog/skill-md-format-guide"],
+      "authoritativeSources": [
+        "https://agentskills.io/specification",
+        "https://nodejs.org/api/os.html",
+        "https://nodejs.org/api/path.html"
+      ],
+      "intentBoundary": "Cross-vendor destination behavior, not vendor-specific install guides or generic agent scope detection."
+    },
+    {
+      "id": "cli-sdk-007",
+      "cluster": "agentDetection",
+      "primaryKeyword": "QASkills missing skills directory status",
+      "proposedSlug": "qaskills-missing-skills-directory-status",
+      "titleTag": "Track Uncreated Agent Skill Paths",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "How does QASkills report an agent whose configuration exists but whose skills directory has not been created yet?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 8 },
+      "repoEvidence": [
+        "packages/cli/src/lib/agent-detector.ts#DetectedAgent",
+        "packages/cli/src/lib/agent-detector.ts#detectAgents",
+        "packages/cli/src/lib/agent-detector.ts#probeExists",
+        "packages/cli/src/commands/list.ts#listCommand"
+      ],
+      "secondaryKeywords": [
+        "agent skillsDir exists false",
+        "missing agent skill folder",
+        "qaskills detection status",
+        "create agent skills directory",
+        "configured agent no skills",
+        "filesystem probe regression"
+      ],
+      "internalRoutes": [
+        "/agents",
+        "/skills",
+        "/getting-started",
+        "/blog/how-to-install-skills-claude-code"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://agentskills.io/specification",
+        "https://vitest.dev/guide/"
+      ],
+      "intentBoundary": "The DetectedAgent.exists signal after successful agent detection, not a missing agent config or list-command read failure."
+    },
+    {
+      "id": "cli-sdk-008",
+      "cluster": "agentDetection",
+      "primaryKeyword": "QASkills undetected known agent install",
+      "proposedSlug": "qaskills-undetected-known-agent-install",
+      "titleTag": "Target Known Agents Before Setup",
+      "intent": "how-to",
+      "answerFirstQuestion": "How can qaskills add target a supported agent by ID even when that agent was not discovered on the current filesystem?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/add.ts#addCommand",
+        "packages/cli/src/lib/agent-detector.ts#getAllAgents",
+        "packages/shared/src/constants/agents.ts#AGENTS",
+        "packages/cli/src/lib/installer.ts#installToAgent"
+      ],
+      "secondaryKeywords": [
+        "qaskills add agent not detected",
+        "target known agent id",
+        "install before agent initialization",
+        "manual agent skill target",
+        "supported agent fallback",
+        "agent-specific qaskills install"
+      ],
+      "internalRoutes": [
+        "/agents",
+        "/skills",
+        "/getting-started",
+        "/blog/how-to-install-skills-cursor"
+      ],
+      "authoritativeSources": [
+        "https://github.com/tj/commander.js",
+        "https://nodejs.org/api/path.html",
+        "https://agentskills.io/specification"
+      ],
+      "intentBoundary": "Explicit installation to one known but absent agent, not automatic detection or unknown-agent rejection."
+    },
+    {
+      "id": "cli-sdk-009",
+      "cluster": "agentDetection",
+      "primaryKeyword": "QASkills unknown agent error testing",
+      "proposedSlug": "qaskills-unknown-agent-error-testing",
+      "titleTag": "Test Unknown Agent Errors in QASkills",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "What should qaskills add and qaskills remove print and change when --agent names an unsupported agent?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/add.ts#addCommand",
+        "packages/cli/src/commands/remove.ts#removeCommand",
+        "packages/cli/src/lib/agent-detector.ts#getAllAgents",
+        "packages/shared/src/constants/agents.ts#AGENTS"
+      ],
+      "secondaryKeywords": [
+        "qaskills unknown agent",
+        "invalid agent cli error",
+        "unsupported agent install test",
+        "unsupported agent remove test",
+        "agent option validation",
+        "list supported qaskills agents"
+      ],
+      "internalRoutes": ["/agents", "/skills-for", "/getting-started", "/faq"],
+      "authoritativeSources": [
+        "https://github.com/tj/commander.js",
+        "https://github.com/bombshell-dev/clack",
+        "https://vitest.dev/guide/mocking.html"
+      ],
+      "intentBoundary": "Unsupported identifier diagnostics and no-op behavior, not targeting a supported but undetected agent."
+    },
+    {
+      "id": "cli-sdk-010",
+      "cluster": "agentDetection",
+      "primaryKeyword": "QASkills agent id name matching",
+      "proposedSlug": "qaskills-agent-id-name-matching",
+      "titleTag": "Match QASkills Agent IDs and Names",
+      "intent": "informational",
+      "answerFirstQuestion": "Does the QASkills --agent option match stable agent IDs, display names, or both, and is that comparison case-sensitive?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 8 },
+      "repoEvidence": [
+        "packages/cli/src/commands/add.ts#addCommand",
+        "packages/cli/src/commands/remove.ts#removeCommand",
+        "packages/shared/src/constants/agents.ts#AGENTS",
+        "packages/shared/src/types/agent.ts#AgentDefinition"
+      ],
+      "secondaryKeywords": [
+        "qaskills agent id",
+        "qaskills agent display name",
+        "case sensitive agent option",
+        "agent option matching rules",
+        "stable agent identifiers",
+        "CLI agent name tests"
+      ],
+      "internalRoutes": ["/agents", "/agents/claude-code", "/agents/cursor", "/getting-started"],
+      "authoritativeSources": [
+        "https://github.com/tj/commander.js",
+        "https://nodejs.org/api/util.html",
+        "https://vitest.dev/guide/"
+      ],
+      "intentBoundary": "Identifier comparison semantics only, not detection, directory resolution, or invalid-agent messaging."
+    },
+    {
+      "id": "cli-sdk-011",
+      "cluster": "agentDetection",
+      "primaryKeyword": "QASkills yes flag agent selection",
+      "proposedSlug": "qaskills-yes-flag-agent-selection",
+      "titleTag": "Test qaskills add --yes Selection",
+      "intent": "how-to",
+      "answerFirstQuestion": "How does qaskills add --yes bypass the multiselect and install to every detected target without user input?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/add.ts#addCommand",
+        "packages/cli/src/lib/agent-detector.ts#detectAgents",
+        "packages/cli/src/lib/installer.ts#installToAgent",
+        "packages/cli/e2e/e2e.mjs#run"
+      ],
+      "secondaryKeywords": [
+        "qaskills add yes flag",
+        "noninteractive agent selection",
+        "install all detected agents",
+        "skip qaskills multiselect",
+        "CI agent install selection",
+        "qaskills unattended install"
+      ],
+      "internalRoutes": [
+        "/getting-started",
+        "/agents",
+        "/skills",
+        "/blog/qaskills-add-custom-directory-ci"
+      ],
+      "authoritativeSources": [
+        "https://github.com/tj/commander.js",
+        "https://github.com/bombshell-dev/clack",
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax"
+      ],
+      "intentBoundary": "Agent selection semantics of --yes, not custom output directories or non-interactive SKILL.md generation."
+    },
+    {
+      "id": "cli-sdk-012",
+      "cluster": "frameworkDetection",
+      "primaryKeyword": "QASkills Playwright project detection",
+      "proposedSlug": "qaskills-playwright-project-detection",
+      "titleTag": "How QASkills Finds Playwright Projects",
+      "intent": "how-to",
+      "answerFirstQuestion": "How does QASkills detect Playwright from configuration files or package dependencies, and which evidence wins first?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/framework-detector.ts#detectPlaywright",
+        "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+        "packages/cli/src/lib/framework-detector.ts#hasDep",
+        "packages/cli/src/lib/framework-detector.ts#readJsonSafe"
+      ],
+      "secondaryKeywords": [
+        "detect playwright config",
+        "playwright package dependency detection",
+        "qaskills framework detector",
+        "playwright.config.mjs detection",
+        "playwright project evidence",
+        "test playwright auto detection"
+      ],
+      "internalRoutes": [
+        "/categories/e2e-testing",
+        "/skills",
+        "/blog/playwright-e2e-complete-guide",
+        "/blog/playwright-cli-install-quickstart-2026"
+      ],
+      "authoritativeSources": [
+        "https://playwright.dev/docs/test-configuration",
+        "https://nodejs.org/api/fs.html",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json"
+      ],
+      "intentBoundary": "Playwright project classification only, not Playwright test authoring or CLI skill installation."
+    },
+    {
+      "id": "cli-sdk-013",
+      "cluster": "frameworkDetection",
+      "primaryKeyword": "QASkills Cypress project detection",
+      "proposedSlug": "qaskills-cypress-project-detection",
+      "titleTag": "Cypress Evidence Rules in QASkills",
+      "intent": "how-to",
+      "answerFirstQuestion": "How does QASkills detect Cypress from a config file, a cypress directory, or package.json dependency evidence?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/framework-detector.ts#detectCypress",
+        "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+        "packages/cli/src/lib/framework-detector.ts#fileExists",
+        "packages/cli/src/lib/framework-detector.ts#hasDep"
+      ],
+      "secondaryKeywords": [
+        "detect cypress config",
+        "cypress directory detection",
+        "cypress dependency detection",
+        "qaskills cypress evidence",
+        "cypress.config.ts scanner",
+        "test cypress auto detection"
+      ],
+      "internalRoutes": [
+        "/categories/e2e-testing",
+        "/skills",
+        "/blog/cypress-tutorial-beginners-2026",
+        "/compare/playwright-vs-cypress-skills"
+      ],
+      "authoritativeSources": [
+        "https://docs.cypress.io/app/references/configuration",
+        "https://nodejs.org/api/fs.html",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json"
+      ],
+      "intentBoundary": "Cypress project evidence precedence only, not Cypress testing practices or comparisons."
+    },
+    {
+      "id": "cli-sdk-014",
+      "cluster": "frameworkDetection",
+      "primaryKeyword": "QASkills Jest project detection",
+      "proposedSlug": "qaskills-jest-project-detection",
+      "titleTag": "Identify Jest Repositories with QASkills",
+      "intent": "how-to",
+      "answerFirstQuestion": "How does QASkills detect Jest from config files, the package.json jest field, or dependency declarations?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/framework-detector.ts#detectJest",
+        "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+        "packages/cli/src/lib/framework-detector.ts#readJsonSafe",
+        "packages/cli/src/lib/framework-detector.ts#hasDep"
+      ],
+      "secondaryKeywords": [
+        "detect jest config",
+        "package json jest detection",
+        "jest dependency scanner",
+        "qaskills jest evidence",
+        "jest.config.mjs detection",
+        "test jest project detection"
+      ],
+      "internalRoutes": [
+        "/categories/unit-testing",
+        "/skills",
+        "/blog/jest-vs-vitest-2026",
+        "/blog/javascript-testing-frameworks-complete-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://jestjs.io/docs/configuration",
+        "https://nodejs.org/api/fs.html",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json"
+      ],
+      "intentBoundary": "Jest project identification only, not Jest unit-test patterns or Jest versus Vitest selection."
+    },
+    {
+      "id": "cli-sdk-015",
+      "cluster": "frameworkDetection",
+      "primaryKeyword": "QASkills Pytest project detection",
+      "proposedSlug": "qaskills-pytest-project-detection",
+      "titleTag": "Find Pytest Configuration with QASkills",
+      "intent": "how-to",
+      "answerFirstQuestion": "How does QASkills identify Pytest projects from pytest.ini, conftest.py, pyproject.toml, and setup.cfg?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/framework-detector.ts#detectPytest",
+        "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+        "packages/cli/src/lib/framework-detector.ts#readFileSafe",
+        "packages/cli/src/lib/framework-detector.ts#fileExists"
+      ],
+      "secondaryKeywords": [
+        "detect pytest.ini",
+        "detect conftest.py",
+        "pyproject pytest scanner",
+        "setup cfg pytest detection",
+        "qaskills python framework detection",
+        "pytest config evidence order"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/pytest-testing-complete-guide",
+        "/blog/python-unittest-vs-pytest",
+        "/categories/unit-testing"
+      ],
+      "authoritativeSources": [
+        "https://docs.pytest.org/en/stable/reference/customize.html",
+        "https://nodejs.org/api/fs.html",
+        "https://packaging.python.org/en/latest/guides/writing-pyproject-toml/"
+      ],
+      "intentBoundary": "Filesystem identification of Pytest projects, not writing tests or comparing Python frameworks."
+    },
+    {
+      "id": "cli-sdk-016",
+      "cluster": "frameworkDetection",
+      "primaryKeyword": "QASkills Selenium project detection",
+      "proposedSlug": "qaskills-selenium-project-detection",
+      "titleTag": "Scan Selenium Projects Across Languages",
+      "intent": "how-to",
+      "answerFirstQuestion": "How does QASkills detect Selenium across JavaScript, Java, and Python dependency files without executing project code?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/framework-detector.ts#detectSelenium",
+        "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+        "packages/cli/src/lib/framework-detector.ts#readFileSafe",
+        "packages/cli/src/lib/framework-detector.ts#hasDep"
+      ],
+      "secondaryKeywords": [
+        "selenium webdriver dependency detection",
+        "detect selenium pom xml",
+        "detect selenium requirements txt",
+        "webdriverio project detection",
+        "cross language framework scanner",
+        "qaskills selenium evidence"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/selenium-tutorial-complete-beginners-2026",
+        "/blog/rest-assured-java-api-testing",
+        "/categories/e2e-testing"
+      ],
+      "authoritativeSources": [
+        "https://www.selenium.dev/documentation/",
+        "https://maven.apache.org/pom.html",
+        "https://pip.pypa.io/en/stable/reference/requirements-file-format/"
+      ],
+      "intentBoundary": "Cross-language project evidence only, not Selenium setup, Grid, or framework comparison."
+    },
+    {
+      "id": "cli-sdk-017",
+      "cluster": "frameworkDetection",
+      "primaryKeyword": "QASkills k6 project detection",
+      "proposedSlug": "qaskills-k6-project-detection",
+      "titleTag": "Recognize k6 Load Test Repositories",
+      "intent": "how-to",
+      "answerFirstQuestion": "How does QASkills detect k6 from package dependencies, known script names, or a k6 directory?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 9, "coverage": 8 },
+      "repoEvidence": [
+        "packages/cli/src/lib/framework-detector.ts#detectK6",
+        "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+        "packages/cli/src/lib/framework-detector.ts#fileExists",
+        "packages/cli/src/lib/framework-detector.ts#hasDep"
+      ],
+      "secondaryKeywords": [
+        "detect k6 config",
+        "detect load test scripts",
+        "k6 directory scanner",
+        "qaskills performance framework detection",
+        "k6 package dependency evidence",
+        "test k6 auto detection"
+      ],
+      "internalRoutes": [
+        "/categories/performance-testing",
+        "/skills",
+        "/blog/k6-vs-jmeter-performance-testing",
+        "/blog/load-testing-beginners-guide"
+      ],
+      "authoritativeSources": [
+        "https://grafana.com/docs/k6/latest/using-k6/k6-options/",
+        "https://nodejs.org/api/fs.html",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json"
+      ],
+      "intentBoundary": "Recognition of k6 project markers, not authoring load tests or comparing load tools."
+    },
+    {
+      "id": "cli-sdk-018",
+      "cluster": "frameworkDetection",
+      "primaryKeyword": "QASkills Vitest project detection",
+      "proposedSlug": "qaskills-vitest-project-detection",
+      "titleTag": "Locate Vitest Configs and Dependencies",
+      "intent": "how-to",
+      "answerFirstQuestion": "How does QASkills detect Vitest from supported config filenames or package.json dependencies?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 9, "coverage": 8 },
+      "repoEvidence": [
+        "packages/cli/src/lib/framework-detector.ts#detectVitest",
+        "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+        "packages/cli/src/lib/framework-detector.ts#fileExists",
+        "packages/cli/src/lib/framework-detector.ts#hasDep"
+      ],
+      "secondaryKeywords": [
+        "detect vitest config",
+        "vitest dependency scanner",
+        "vitest.config.mts detection",
+        "qaskills unit framework evidence",
+        "test vitest auto detection",
+        "package json vitest detection"
+      ],
+      "internalRoutes": [
+        "/categories/unit-testing",
+        "/skills",
+        "/blog/jest-vs-vitest-2026",
+        "/blog/vitest-config-setup-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://vitest.dev/config/",
+        "https://nodejs.org/api/fs.html",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json"
+      ],
+      "intentBoundary": "Vitest project identification, not Vitest test design or Jest comparison."
+    },
+    {
+      "id": "cli-sdk-019",
+      "cluster": "frameworkDetection",
+      "primaryKeyword": "QASkills multi framework detection order",
+      "proposedSlug": "qaskills-multi-framework-detection-order",
+      "titleTag": "Test Multi-Framework Detection Order",
+      "intent": "informational",
+      "answerFirstQuestion": "In what order does QASkills report several testing frameworks found in the same repository, and how should that order be tested?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+        "packages/cli/src/lib/framework-detector.ts#DetectedFramework",
+        "packages/cli/src/lib/framework-detector.ts#detectPlaywright",
+        "packages/cli/src/lib/framework-detector.ts#detectVitest"
+      ],
+      "secondaryKeywords": [
+        "multiple test framework detection",
+        "framework detector precedence",
+        "qaskills framework result order",
+        "hybrid test project scanner",
+        "framework evidence array",
+        "table driven detector tests"
+      ],
+      "internalRoutes": [
+        "/categories",
+        "/skills",
+        "/blog/test-automation-framework-architecture",
+        "/blog/hybrid-automation-framework-guide"
+      ],
+      "authoritativeSources": [
+        "https://vitest.dev/guide/",
+        "https://nodejs.org/api/fs.html",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json"
+      ],
+      "intentBoundary": "Aggregate ordering when multiple detectors succeed, not the marker rules for any one framework."
+    },
+    {
+      "id": "cli-sdk-020",
+      "cluster": "frameworkDetection",
+      "primaryKeyword": "QASkills malformed package json detection",
+      "proposedSlug": "qaskills-malformed-package-json-detection",
+      "titleTag": "Handle Malformed package.json Detection",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "How should QASkills framework detection behave when package.json is missing, unreadable, or invalid JSON?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/framework-detector.ts#readJsonSafe",
+        "packages/cli/src/lib/framework-detector.ts#readFileSafe",
+        "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+        "packages/cli/src/lib/framework-detector.ts#hasDep"
+      ],
+      "secondaryKeywords": [
+        "invalid package json scanner",
+        "framework detection parse error",
+        "missing package json detection",
+        "unreadable package json test",
+        "safe JSON config parsing",
+        "qaskills detector resilience"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/blog/error-handling-testing-patterns",
+        "/blog/typescript-testing-patterns-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc8259",
+        "https://nodejs.org/api/fs.html",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json"
+      ],
+      "intentBoundary": "Parser failure resilience shared by package-based detectors, not framework-specific evidence selection."
+    },
+    {
+      "id": "cli-sdk-021",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills search filter flag testing",
+      "proposedSlug": "qaskills-search-filter-flag-testing",
+      "titleTag": "Test QASkills Search Filter Flags",
+      "intent": "how-to",
+      "answerFirstQuestion": "How do --type and --framework values from qaskills search become API filter arrays, and how can that mapping be tested?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/search.ts#searchCommand",
+        "packages/cli/src/lib/api-client.ts#searchSkills",
+        "packages/shared/src/types/skill.ts#SkillSearchParams",
+        "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+      ],
+      "secondaryKeywords": [
+        "qaskills search type filter",
+        "qaskills framework filter",
+        "CLI filter argument mapping",
+        "searchSkills parameter test",
+        "QA skill filtered search",
+        "Commander option contract test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/getting-started",
+        "/blog/ai-qa-skills-directory-2026"
+      ],
+      "authoritativeSources": [
+        "https://github.com/tj/commander.js",
+        "https://nodejs.org/api/url.html#class-urlsearchparams",
+        "https://vitest.dev/guide/mocking.html"
+      ],
+      "intentBoundary": "User-facing type and framework flags only, not lower-level repeated-array serialization or result rendering."
+    },
+    {
+      "id": "cli-sdk-022",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills search limit validation",
+      "proposedSlug": "qaskills-search-limit-validation",
+      "titleTag": "Validate QASkills Search Limits",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "What should qaskills search do with zero, negative, decimal, nonnumeric, or oversized --limit values before calling the API?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/search.ts#searchCommand",
+        "packages/cli/src/lib/api-client.ts#searchSkills",
+        "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema",
+        "packages/shared/src/types/skill.ts#SkillSearchParams"
+      ],
+      "secondaryKeywords": [
+        "qaskills search limit",
+        "parseInt CLI limit testing",
+        "invalid page size handling",
+        "search result maximum validation",
+        "CLI numeric option validation",
+        "qaskills pageSize bounds"
+      ],
+      "internalRoutes": ["/skills", "/getting-started", "/faq", "/blog/api-testing-complete-guide"],
+      "authoritativeSources": [
+        "https://github.com/tj/commander.js",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt",
+        "https://zod.dev/"
+      ],
+      "intentBoundary": "Validation of the numeric --limit boundary, not search filters, pagination in the SDK, or empty results."
+    },
+    {
+      "id": "cli-sdk-023",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills empty search result behavior",
+      "proposedSlug": "qaskills-empty-search-result-behavior",
+      "titleTag": "Test Empty QASkills Search Results",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "What output and exit behavior should qaskills search produce when the API succeeds but returns zero skills?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 8 },
+      "repoEvidence": [
+        "packages/cli/src/commands/search.ts#searchCommand",
+        "packages/cli/src/lib/api-client.ts#searchSkills",
+        "packages/shared/src/types/skill.ts#SkillSearchResult",
+        "packages/cli/e2e/e2e.mjs#run"
+      ],
+      "secondaryKeywords": [
+        "qaskills no skills found",
+        "empty CLI search response",
+        "zero result command testing",
+        "search success empty array",
+        "CLI empty state output",
+        "QA skill search no match"
+      ],
+      "internalRoutes": ["/skills", "/categories", "/getting-started", "/faq"],
+      "authoritativeSources": [
+        "https://github.com/bombshell-dev/clack",
+        "https://github.com/tj/commander.js",
+        "https://vitest.dev/guide/"
+      ],
+      "intentBoundary": "Successful zero-result UX, not network failure, filter construction, or result-count truncation."
+    },
+    {
+      "id": "cli-sdk-024",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills search offline error handling",
+      "proposedSlug": "qaskills-search-offline-error-handling",
+      "titleTag": "Handle QASkills Search Offline Errors",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "What does qaskills search actually show when qaskills.sh is unreachable, and how should its offline message be regression-tested?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/search.ts#searchCommand",
+        "packages/cli/src/lib/api-client.ts#request",
+        "packages/cli/src/lib/api-client.ts#searchSkills",
+        "packages/cli/e2e/e2e.mjs#runExpectFail"
+      ],
+      "secondaryKeywords": [
+        "qaskills search network error",
+        "qaskills offline mode",
+        "CLI fetch failure message",
+        "search API unavailable handling",
+        "local seed fallback mismatch",
+        "offline CLI regression test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/getting-started",
+        "/faq",
+        "/blog/error-handling-testing-patterns"
+      ],
+      "authoritativeSources": [
+        "https://fetch.spec.whatwg.org/",
+        "https://nodejs.org/api/globals.html#fetch",
+        "https://vitest.dev/guide/mocking.html"
+      ],
+      "intentBoundary": "Transport failure messaging and documented fallback truthfulness, not empty successful responses or HTTP error formatting."
+    },
+    {
+      "id": "cli-sdk-025",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills search quality score bands",
+      "proposedSlug": "qaskills-search-quality-score-bands",
+      "titleTag": "Test QASkills Quality Score Bands",
+      "intent": "informational",
+      "answerFirstQuestion": "How does qaskills search color quality scores below 50, from 50 to 79, and at 80 or above?",
+      "scores": { "relevance": 9, "specificity": 10, "intentFit": 8, "coverage": 8 },
+      "repoEvidence": [
+        "packages/cli/src/commands/search.ts#searchCommand",
+        "packages/shared/src/types/skill.ts#SkillSummary",
+        "packages/shared/src/utils/quality-score.ts#calculateQualityScore",
+        "packages/cli/e2e/e2e.mjs#run"
+      ],
+      "secondaryKeywords": [
+        "qaskills quality score colors",
+        "CLI score threshold testing",
+        "skill quality display bands",
+        "ANSI terminal score output",
+        "quality score boundary cases",
+        "qaskills search result formatting"
+      ],
+      "internalRoutes": [
+        "/leaderboard",
+        "/skills",
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/blog/ai-qa-skills-directory-2026"
+      ],
+      "authoritativeSources": [
+        "https://github.com/alexeyraspopov/picocolors",
+        "https://vitest.dev/guide/",
+        "https://nodejs.org/api/tty.html"
+      ],
+      "intentBoundary": "Boundary formatting for score presentation only, not score calculation or leaderboard ranking."
+    },
+    {
+      "id": "cli-sdk-026",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills info slug encoding tests",
+      "proposedSlug": "qaskills-info-slug-encoding-tests",
+      "titleTag": "Test QASkills Info Slug Encoding",
+      "intent": "how-to",
+      "answerFirstQuestion": "How does qaskills info safely encode spaces, slashes, Unicode, and reserved characters before requesting a skill?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/info.ts#infoCommand",
+        "packages/cli/src/lib/api-client.ts#getSkill",
+        "packages/cli/src/lib/api-client.ts#buildUrl",
+        "packages/shared/src/types/skill.ts#Skill"
+      ],
+      "secondaryKeywords": [
+        "encode qaskills skill slug",
+        "getSkill encodeURIComponent test",
+        "CLI reserved character path",
+        "skill ID URL encoding",
+        "qaskills info special characters",
+        "API path segment encoding"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/getting-started",
+        "/blog/skill-md-format-guide",
+        "/blog/api-testing-complete-guide"
+      ],
+      "authoritativeSources": [
+        "https://url.spec.whatwg.org/",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent",
+        "https://www.rfc-editor.org/info/rfc3986"
+      ],
+      "intentBoundary": "CLI getSkill path-segment encoding, not SDK path behavior or not-found messaging."
+    },
+    {
+      "id": "cli-sdk-027",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills info missing skill handling",
+      "proposedSlug": "qaskills-info-missing-skill-handling",
+      "titleTag": "Handle Missing QASkills Info Results",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "What should qaskills info print when a skill is missing or the detail request fails, and should that command set a failure status?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/info.ts#infoCommand",
+        "packages/cli/src/lib/api-client.ts#getSkill",
+        "packages/cli/src/lib/api-client.ts#request",
+        "packages/cli/e2e/e2e.mjs#run"
+      ],
+      "secondaryKeywords": [
+        "qaskills info not found",
+        "missing skill CLI error",
+        "skill detail request failure",
+        "qaskills info exit code",
+        "CLI catch block testing",
+        "search suggestion error output"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/getting-started",
+        "/faq",
+        "/blog/error-handling-testing-patterns"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://github.com/bombshell-dev/clack",
+        "https://github.com/tj/commander.js"
+      ],
+      "intentBoundary": "Failure UX and process status for info, not path encoding or successful field formatting."
+    },
+    {
+      "id": "cli-sdk-028",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills info optional metadata output",
+      "proposedSlug": "qaskills-info-optional-metadata-output",
+      "titleTag": "Test QASkills Info Optional Fields",
+      "intent": "informational",
+      "answerFirstQuestion": "How does qaskills info render missing version, frameworks, GitHub URL, license, and array metadata without printing misleading blank lines?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 8, "coverage": 8 },
+      "repoEvidence": [
+        "packages/cli/src/commands/info.ts#infoCommand",
+        "packages/shared/src/types/skill.ts#Skill",
+        "packages/cli/src/lib/api-client.ts#getSkill",
+        "packages/shared/src/schemas/skill-schema.ts#skillFrontmatterSchema"
+      ],
+      "secondaryKeywords": [
+        "qaskills info field formatting",
+        "optional skill metadata display",
+        "missing framework N A output",
+        "skill version fallback output",
+        "conditional GitHub URL display",
+        "CLI detail snapshot tests"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/skill-md-format-guide",
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/getting-started"
+      ],
+      "authoritativeSources": [
+        "https://github.com/bombshell-dev/clack",
+        "https://vitest.dev/guide/snapshot.html",
+        "https://www.typescriptlang.org/docs/handbook/2/narrowing.html"
+      ],
+      "intentBoundary": "Successful presentation of optional fields, not missing-record errors or metadata schema validation."
+    },
+    {
+      "id": "cli-sdk-029",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills list malformed skill folders",
+      "proposedSlug": "qaskills-list-malformed-skill-folders",
+      "titleTag": "List Malformed Skill Folders Safely",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "How does qaskills list handle a child folder with a missing, unreadable, or malformed SKILL.md while continuing to scan other skills?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/list.ts#listCommand",
+        "packages/shared/src/parsers/skill-parser.ts#parseSkillMd",
+        "packages/shared/src/schemas/skill-schema.ts#skillFrontmatterSchema",
+        "packages/cli/src/lib/agent-detector.ts#detectAgents"
+      ],
+      "secondaryKeywords": [
+        "qaskills list malformed SKILL.md",
+        "skill folder parse failure",
+        "missing SKILL.md list output",
+        "continue after invalid skill",
+        "agent skills scan errors",
+        "CLI malformed package marker"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/skill-md-format-guide",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/getting-started"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://yaml.org/spec/1.2.2/",
+        "https://github.com/jonschlinkert/gray-matter"
+      ],
+      "intentBoundary": "Per-child parse failures inside an existing directory, not the missing parent directory or duplicate counting."
+    },
+    {
+      "id": "cli-sdk-030",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills list missing directory handling",
+      "proposedSlug": "qaskills-list-missing-directory-handling",
+      "titleTag": "Recover qaskills list Read Failures",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "What does qaskills list report when a detected agent's skills directory does not exist or cannot be read?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 8 },
+      "repoEvidence": [
+        "packages/cli/src/commands/list.ts#listCommand",
+        "packages/cli/src/lib/agent-detector.ts#detectAgents",
+        "packages/cli/src/lib/agent-detector.ts#DetectedAgent",
+        "packages/cli/src/lib/agent-detector.ts#probeExists"
+      ],
+      "secondaryKeywords": [
+        "qaskills list directory not found",
+        "unreadable agent skills folder",
+        "missing skillsDir output",
+        "CLI readdir failure handling",
+        "empty agent installation directory",
+        "agent list filesystem error"
+      ],
+      "internalRoutes": [
+        "/agents",
+        "/skills",
+        "/getting-started",
+        "/blog/how-to-install-skills-claude-code"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/errors.html",
+        "https://vitest.dev/guide/"
+      ],
+      "intentBoundary": "Parent directory read failure in list, not the DetectedAgent.exists field or malformed child folders."
+    },
+    {
+      "id": "cli-sdk-031",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills duplicate skill install counts",
+      "proposedSlug": "qaskills-duplicate-skill-install-counts",
+      "titleTag": "Count Duplicate Skill Installs Correctly",
+      "intent": "informational",
+      "answerFirstQuestion": "Does qaskills list count the same skill once per agent installation or once per unique skill name across all agents?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 8, "coverage": 8 },
+      "repoEvidence": [
+        "packages/cli/src/commands/list.ts#listCommand",
+        "packages/cli/src/lib/agent-detector.ts#detectAgents",
+        "packages/shared/src/parsers/skill-parser.ts#parseSkillMd",
+        "packages/shared/src/types/skill.ts#SkillFrontmatter"
+      ],
+      "secondaryKeywords": [
+        "qaskills installed skill count",
+        "duplicate skill across agents",
+        "per agent skill inventory",
+        "unique skill count CLI",
+        "multi agent list totals",
+        "installed skills aggregation test"
+      ],
+      "internalRoutes": ["/agents", "/skills", "/leaderboard", "/getting-started"],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://vitest.dev/guide/",
+        "https://agentskills.io/specification"
+      ],
+      "intentBoundary": "Aggregation semantics for valid repeated installations, not registry install counts or malformed folders."
+    },
+    {
+      "id": "cli-sdk-032",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills remove missing skill safely",
+      "proposedSlug": "qaskills-remove-missing-skill-safely",
+      "titleTag": "Remove Missing QASkills Skills Safely",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "Is qaskills remove idempotent when the named skill directory is already absent, and what should tests assert?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/remove.ts#removeCommand",
+        "packages/cli/src/lib/installer.ts#uninstallFromAgent",
+        "packages/cli/src/lib/agent-detector.ts#detectAgents",
+        "packages/cli/src/lib/telemetry.ts#sendTelemetry"
+      ],
+      "secondaryKeywords": [
+        "qaskills remove idempotent",
+        "remove nonexistent skill folder",
+        "fs rm force true test",
+        "safe repeated skill removal",
+        "agent skill uninstall no op",
+        "qaskills remove exit behavior"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/agents",
+        "/getting-started",
+        "/blog/how-to-install-skills-claude-code"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://github.com/tj/commander.js",
+        "https://vitest.dev/guide/"
+      ],
+      "intentBoundary": "Already-absent target idempotency, not cancellation, unknown agents, or telemetry opt-out."
+    },
+    {
+      "id": "cli-sdk-033",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills remove cancellation filesystem safety",
+      "proposedSlug": "qaskills-remove-cancellation-filesystem-safety",
+      "titleTag": "Test QASkills Remove Cancellation",
+      "intent": "how-to",
+      "answerFirstQuestion": "How can a command test prove that declining or cancelling qaskills remove leaves every agent skill directory unchanged?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/remove.ts#removeCommand",
+        "packages/cli/src/lib/installer.ts#uninstallFromAgent",
+        "packages/cli/src/lib/telemetry.ts#sendTelemetry",
+        "packages/cli/src/lib/agent-detector.ts#detectAgents"
+      ],
+      "secondaryKeywords": [
+        "cancel qaskills remove",
+        "decline skill uninstall prompt",
+        "CLI cancellation filesystem test",
+        "remove confirmation no changes",
+        "mock clack confirm cancellation",
+        "prevent accidental skill deletion"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/agents",
+        "/getting-started",
+        "/blog/agent-skill-security-review-checklist"
+      ],
+      "authoritativeSources": [
+        "https://github.com/bombshell-dev/clack",
+        "https://vitest.dev/guide/mocking.html",
+        "https://nodejs.org/api/fs.html"
+      ],
+      "intentBoundary": "User cancellation before deletion, not missing targets or targeting an undetected agent."
+    },
+    {
+      "id": "cli-sdk-034",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills remove undetected agent target",
+      "proposedSlug": "qaskills-remove-undetected-agent-target",
+      "titleTag": "Uninstall Skills from Absent Agents",
+      "intent": "how-to",
+      "answerFirstQuestion": "How can qaskills remove delete a skill from a supported agent path when that agent is not currently detected?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/remove.ts#removeCommand",
+        "packages/cli/src/lib/agent-detector.ts#getAllAgents",
+        "packages/cli/src/lib/installer.ts#uninstallFromAgent",
+        "packages/shared/src/constants/agents.ts#AGENTS"
+      ],
+      "secondaryKeywords": [
+        "qaskills remove agent not detected",
+        "target known agent uninstall",
+        "remove skill by agent id",
+        "manual agent directory cleanup",
+        "supported absent agent removal",
+        "agent-specific skill uninstall"
+      ],
+      "internalRoutes": [
+        "/agents",
+        "/skills",
+        "/getting-started",
+        "/blog/how-to-install-skills-cursor"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/path.html",
+        "https://nodejs.org/api/fs.html",
+        "https://github.com/tj/commander.js"
+      ],
+      "intentBoundary": "Explicit uninstall from a known absent agent, distinct from the install workflow for the same state."
+    },
+    {
+      "id": "cli-sdk-035",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills update one skill agents",
+      "proposedSlug": "qaskills-update-one-skill-agents",
+      "titleTag": "Update One Skill Across All Agents",
+      "intent": "how-to",
+      "answerFirstQuestion": "How does qaskills update <skill> redownload one package and reinstall it across every detected agent?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/update.ts#updateCommand",
+        "packages/cli/src/lib/installer.ts#resolveSkill",
+        "packages/cli/src/lib/installer.ts#downloadSkill",
+        "packages/cli/src/lib/installer.ts#installToAgent"
+      ],
+      "secondaryKeywords": [
+        "qaskills update skill command",
+        "update agent skill package",
+        "reinstall skill all agents",
+        "qaskills update workflow",
+        "verify updated SKILL.md",
+        "agent skill version refresh"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/agents",
+        "/getting-started",
+        "/blog/how-to-install-skills-claude-code"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://github.com/tj/commander.js",
+        "https://semver.org/"
+      ],
+      "intentBoundary": "Successful named update workflow, not update-all behavior, source fallback, or partial failure."
+    },
+    {
+      "id": "cli-sdk-036",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills partial update failure testing",
+      "proposedSlug": "qaskills-partial-update-failure-testing",
+      "titleTag": "Test Partial QASkills Update Failures",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "What state remains when qaskills update succeeds for early agents but fails while copying to a later one?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/update.ts#updateCommand",
+        "packages/cli/src/lib/installer.ts#installToAgent",
+        "packages/cli/src/lib/installer.ts#copyDir",
+        "packages/cli/src/lib/telemetry.ts#sendTelemetry"
+      ],
+      "secondaryKeywords": [
+        "qaskills update partial failure",
+        "multi agent update consistency",
+        "skill update rollback test",
+        "agent copy error recovery",
+        "update telemetry after failure",
+        "partial skill version rollout"
+      ],
+      "internalRoutes": [
+        "/agents",
+        "/skills",
+        "/getting-started",
+        "/blog/error-handling-testing-patterns"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://vitest.dev/guide/mocking.html",
+        "https://github.com/tj/commander.js"
+      ],
+      "intentBoundary": "Failure consistency during update, separate from add-command partial installation and successful update mechanics."
+    },
+    {
+      "id": "cli-sdk-037",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills publish missing skill file",
+      "proposedSlug": "qaskills-publish-missing-skill-file",
+      "titleTag": "Handle Missing SKILL.md on Publish",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "What does qaskills publish do when the current directory has no SKILL.md, and how should that branch be tested?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 8 },
+      "repoEvidence": [
+        "packages/cli/src/commands/publish.ts#publishCommand",
+        "packages/cli/src/commands/init.ts#initCommand",
+        "packages/shared/src/parsers/skill-parser.ts#parseSkillMd",
+        "packages/cli/e2e/e2e.mjs#run"
+      ],
+      "secondaryKeywords": [
+        "qaskills publish no SKILL.md",
+        "missing skill file error",
+        "publish current directory check",
+        "fs access publish test",
+        "qaskills init suggestion",
+        "CLI publish preflight"
+      ],
+      "internalRoutes": [
+        "/how-to-publish",
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/blog/skill-md-format-guide",
+        "/skills"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://github.com/bombshell-dev/clack",
+        "https://agentskills.io/specification"
+      ],
+      "intentBoundary": "Missing-file preflight only, not invalid frontmatter, directory publishing strategy, or remote submission."
+    },
+    {
+      "id": "cli-sdk-038",
+      "cluster": "commandContracts",
+      "primaryKeyword": "QASkills publish validation error paths",
+      "proposedSlug": "qaskills-publish-validation-error-paths",
+      "titleTag": "Test QASkills Publish Validation Errors",
+      "intent": "how-to",
+      "answerFirstQuestion": "How does qaskills publish turn nested Zod validation issues into field-specific CLI diagnostics before asking for confirmation?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/commands/publish.ts#publishCommand",
+        "packages/shared/src/schemas/skill-schema.ts#skillFrontmatterSchema",
+        "packages/shared/src/parsers/skill-parser.ts#parseSkillMd",
+        "packages/shared/src/types/skill.ts#SkillFrontmatter"
+      ],
+      "secondaryKeywords": [
+        "qaskills publish validation errors",
+        "Zod error path CLI",
+        "invalid SKILL.md publish",
+        "frontmatter validation diagnostics",
+        "publish schema safeParse test",
+        "field specific skill errors"
+      ],
+      "internalRoutes": [
+        "/how-to-publish",
+        "/blog/skill-md-format-guide",
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/blog/validate-skill-md-in-ci-pipeline"
+      ],
+      "authoritativeSources": [
+        "https://zod.dev/",
+        "https://yaml.org/spec/1.2.2/",
+        "https://agentskills.io/specification"
+      ],
+      "intentBoundary": "Formatting schema failures in the CLI, not parser round trips, missing files, or web publisher validation."
+    },
+    {
+      "id": "cli-sdk-039",
+      "cluster": "cliTransport",
+      "primaryKeyword": "QASkills CLI API URL override",
+      "proposedSlug": "qaskills-cli-api-url-override",
+      "titleTag": "Override the QASkills CLI API URL",
+      "intent": "how-to",
+      "answerFirstQuestion": "How do you point the QASkills CLI at a local, staging, or mock API with QASKILLS_API_URL while avoiding double slashes?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/api-client.ts#BASE",
+        "packages/cli/src/lib/api-client.ts#buildUrl",
+        "packages/cli/e2e/e2e.mjs#API",
+        "packages/cli/src/lib/api-client.ts#searchSkills"
+      ],
+      "secondaryKeywords": [
+        "QASKILLS_API_URL",
+        "qaskills staging API",
+        "qaskills local API testing",
+        "CLI base URL environment variable",
+        "strip trailing slash base URL",
+        "mock qaskills API"
+      ],
+      "internalRoutes": [
+        "/getting-started",
+        "/skills",
+        "/mcp",
+        "/blog/test-environment-management-guide"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/process.html#processenv",
+        "https://url.spec.whatwg.org/",
+        "https://nodejs.org/api/url.html"
+      ],
+      "intentBoundary": "CLI environment-based endpoint selection, not SDK constructor configuration or request query fields."
+    },
+    {
+      "id": "cli-sdk-040",
+      "cluster": "cliTransport",
+      "primaryKeyword": "QASkills CLI repeated query parameters",
+      "proposedSlug": "qaskills-cli-repeated-query-parameters",
+      "titleTag": "Test Repeated QASkills Query Parameters",
+      "intent": "how-to",
+      "answerFirstQuestion": "How does the QASkills CLI serialize several values for testingTypes, frameworks, languages, domains, and agents into one request URL?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/api-client.ts#buildUrl",
+        "packages/cli/src/lib/api-client.ts#searchSkills",
+        "packages/shared/src/types/skill.ts#SkillSearchParams",
+        "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+      ],
+      "secondaryKeywords": [
+        "URLSearchParams append arrays",
+        "repeated filter query keys",
+        "qaskills array parameter serialization",
+        "multi value skill search",
+        "query parameter order testing",
+        "searchSkills URL contract"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/agents",
+        "/blog/testing-typesense-multiselect-facet-filter-queries"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/url.html#class-urlsearchparams",
+        "https://url.spec.whatwg.org/",
+        "https://www.rfc-editor.org/info/rfc3986"
+      ],
+      "intentBoundary": "Low-level multi-value URL serialization for all API filters, not the search command's two public flags."
+    },
+    {
+      "id": "cli-sdk-041",
+      "cluster": "cliTransport",
+      "primaryKeyword": "QASkills CLI HTTP error bodies",
+      "proposedSlug": "qaskills-cli-http-error-bodies",
+      "titleTag": "Test QASkills CLI HTTP Error Bodies",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "How does the QASkills CLI preserve an HTTP response body or status text when the API returns a non-2xx response?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/api-client.ts#request",
+        "packages/cli/src/lib/api-client.ts#getSkill",
+        "packages/cli/src/lib/api-client.ts#searchSkills",
+        "packages/cli/src/commands/info.ts#infoCommand"
+      ],
+      "secondaryKeywords": [
+        "qaskills API error text",
+        "non 2xx fetch response",
+        "HTTP statusText fallback",
+        "CLI response body diagnostics",
+        "mock fetch error response",
+        "API client error contract"
+      ],
+      "internalRoutes": [
+        "/getting-started",
+        "/faq",
+        "/skills",
+        "/blog/error-handling-testing-patterns"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://fetch.spec.whatwg.org/",
+        "https://nodejs.org/api/globals.html#fetch"
+      ],
+      "intentBoundary": "CLI transport's text-based HTTP error contract, not SDK JSON error parsing or command-specific offline messages."
+    },
+    {
+      "id": "cli-sdk-042",
+      "cluster": "cliTransport",
+      "primaryKeyword": "QASkills CLI request header tests",
+      "proposedSlug": "qaskills-cli-request-header-tests",
+      "titleTag": "Test QASkills CLI Request Headers",
+      "intent": "how-to",
+      "answerFirstQuestion": "Which Content-Type and User-Agent headers does the QASkills CLI add, and how are caller-supplied headers merged?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 8 },
+      "repoEvidence": [
+        "packages/cli/src/lib/api-client.ts#request",
+        "packages/cli/src/lib/api-client.ts#publishSkill",
+        "packages/cli/src/lib/api-client.ts#trackInstall",
+        "packages/cli/package.json"
+      ],
+      "secondaryKeywords": [
+        "qaskills user agent header",
+        "CLI content type header",
+        "fetch header merge order",
+        "custom Authorization header test",
+        "API request identity",
+        "mock fetch request headers"
+      ],
+      "internalRoutes": ["/getting-started", "/skills", "/how-to-publish", "/privacy"],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://fetch.spec.whatwg.org/",
+        "https://nodejs.org/api/globals.html#fetch"
+      ],
+      "intentBoundary": "Header construction and override order, not telemetry payload content or SDK API-key behavior."
+    },
+    {
+      "id": "cli-sdk-043",
+      "cluster": "cliTransport",
+      "primaryKeyword": "QASkills CLI timeout timer cleanup",
+      "proposedSlug": "qaskills-cli-timeout-timer-cleanup",
+      "titleTag": "Test QASkills CLI Timeout Cleanup",
+      "intent": "how-to",
+      "answerFirstQuestion": "How can fake-timer tests prove that the QASkills CLI aborts slow fetches and clears its timeout after success or failure?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/src/lib/api-client.ts#request",
+        "packages/cli/src/lib/api-client.ts#DEFAULT_TIMEOUT_MS",
+        "packages/cli/src/lib/api-client.ts#searchSkills",
+        "packages/cli/src/lib/api-client.ts#getSkill"
+      ],
+      "secondaryKeywords": [
+        "AbortController fake timer test",
+        "clearTimeout fetch cleanup",
+        "qaskills request timeout",
+        "CLI hanging request test",
+        "abort signal assertion",
+        "timer leak regression test"
+      ],
+      "internalRoutes": [
+        "/getting-started",
+        "/skills",
+        "/blog/error-handling-testing-patterns",
+        "/blog/mcp-api-timeout-abortcontroller-testing"
+      ],
+      "authoritativeSources": [
+        "https://dom.spec.whatwg.org/#interface-abortcontroller",
+        "https://nodejs.org/api/globals.html#class-abortcontroller",
+        "https://vitest.dev/guide/mocking/timers"
+      ],
+      "intentBoundary": "Timer lifecycle in the QASkills CLI request helper, not generic MCP timeout handling or HTTP error body formatting."
+    },
+    {
+      "id": "cli-sdk-044",
+      "cluster": "sdkContracts",
+      "primaryKeyword": "QASkills SDK custom base URL",
+      "proposedSlug": "qaskills-sdk-custom-base-url",
+      "titleTag": "Configure a QASkills SDK Base URL",
+      "intent": "how-to",
+      "answerFirstQuestion": "How do you configure QASkillsClient for a local or staging API and test path joining when the base URL has a trailing slash?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/sdk/src/index.ts#QASkillsConfig",
+        "packages/sdk/src/index.ts#QASkillsClient.constructor",
+        "packages/sdk/src/index.ts#QASkillsClient.request",
+        "packages/sdk/src/index.ts#createClient"
+      ],
+      "secondaryKeywords": [
+        "QASkillsClient baseUrl",
+        "qaskills SDK staging endpoint",
+        "SDK local API testing",
+        "base URL trailing slash",
+        "createClient configuration",
+        "mock qaskills SDK server"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/leaderboard",
+        "/blog/ai-qa-skills-directory-2026"
+      ],
+      "authoritativeSources": [
+        "https://url.spec.whatwg.org/",
+        "https://nodejs.org/api/globals.html#fetch",
+        "https://www.typescriptlang.org/docs/handbook/2/classes.html"
+      ],
+      "intentBoundary": "Programmatic SDK constructor setup, not the CLI environment variable or endpoint-specific methods."
+    },
+    {
+      "id": "cli-sdk-045",
+      "cluster": "sdkContracts",
+      "primaryKeyword": "QASkills SDK bearer authentication tests",
+      "proposedSlug": "qaskills-sdk-bearer-authentication-tests",
+      "titleTag": "Test QASkills SDK Bearer Authentication",
+      "intent": "how-to",
+      "answerFirstQuestion": "When does QASkillsClient add an Authorization Bearer header, and how can tests prove unauthenticated clients omit it?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/sdk/src/index.ts#QASkillsConfig",
+        "packages/sdk/src/index.ts#QASkillsClient.request",
+        "packages/sdk/src/index.ts#QASkillsClient.skills.create",
+        "packages/sdk/src/index.ts#QASkillsClient.reviews.submit"
+      ],
+      "secondaryKeywords": [
+        "QASkillsClient apiKey",
+        "SDK Authorization header",
+        "Bearer token fetch test",
+        "authenticated qaskills SDK",
+        "omit empty API key",
+        "SDK credential isolation"
+      ],
+      "internalRoutes": [
+        "/how-to-publish",
+        "/skills",
+        "/privacy",
+        "/blog/authentication-authorization-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc6750",
+        "https://fetch.spec.whatwg.org/",
+        "https://vitest.dev/guide/mocking.html"
+      ],
+      "intentBoundary": "Shared SDK authentication-header injection, not a particular create request or concurrent-client state."
+    },
+    {
+      "id": "cli-sdk-046",
+      "cluster": "sdkContracts",
+      "primaryKeyword": "QASkills SDK list pagination query",
+      "proposedSlug": "qaskills-sdk-list-pagination-query",
+      "titleTag": "Test QASkills SDK List Pagination",
+      "intent": "how-to",
+      "answerFirstQuestion": "How does QASkillsClient.skills.list serialize q, sort, page, and pageSize while omitting undefined values?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/sdk/src/index.ts#QASkillsClient.skills.list",
+        "packages/shared/src/types/skill.ts#SkillSearchParams",
+        "packages/shared/src/types/skill.ts#SkillSearchResult",
+        "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+      ],
+      "secondaryKeywords": [
+        "QASkills SDK pagination",
+        "skills list query parameters",
+        "SDK pageSize test",
+        "URLSearchParams optional fields",
+        "qaskills sort query",
+        "skill catalog paging contract"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/leaderboard",
+        "/blog/testing-cursor-pagination-api-boundaries"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/url.html#class-urlsearchparams",
+        "https://url.spec.whatwg.org/",
+        "https://www.rfc-editor.org/info/rfc3986"
+      ],
+      "intentBoundary": "SDK list pagination and sort serialization, not CLI search limits or search-method option precedence."
+    },
+    {
+      "id": "cli-sdk-047",
+      "cluster": "sdkContracts",
+      "primaryKeyword": "QASkills SDK search option precedence",
+      "proposedSlug": "qaskills-sdk-search-option-precedence",
+      "titleTag": "Test QASkills SDK Search Precedence",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "Can options.query override the positional query passed to QASkillsClient.skills.search, and which value should the contract preserve?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/sdk/src/index.ts#QASkillsClient.skills.search",
+        "packages/sdk/src/index.ts#QASkillsClient.skills.list",
+        "packages/shared/src/types/skill.ts#SkillSearchParams",
+        "packages/sdk/src/index.ts#createClient"
+      ],
+      "secondaryKeywords": [
+        "SDK object spread precedence",
+        "QASkills search query override",
+        "positional query conflict",
+        "skills search options bug",
+        "TypeScript partial search params",
+        "search method contract test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/blog/api-testing-complete-guide",
+        "/blog/ai-qa-skills-directory-2026"
+      ],
+      "authoritativeSources": [
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax",
+        "https://www.typescriptlang.org/docs/handbook/utility-types.html",
+        "https://vitest.dev/guide/"
+      ],
+      "intentBoundary": "Conflict between one positional argument and options.query, not list pagination or CLI flags."
+    },
+    {
+      "id": "cli-sdk-048",
+      "cluster": "sdkContracts",
+      "primaryKeyword": "QASkills SDK skill path encoding",
+      "proposedSlug": "qaskills-sdk-skill-path-encoding",
+      "titleTag": "Test QASkills SDK Skill Path Encoding",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "How should QASkillsClient.skills.get encode an ID or slug containing reserved characters before placing it in an API path?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/sdk/src/index.ts#QASkillsClient.skills.get",
+        "packages/sdk/src/index.ts#QASkillsClient.request",
+        "packages/cli/src/lib/api-client.ts#getSkill",
+        "packages/shared/src/types/skill.ts#Skill"
+      ],
+      "secondaryKeywords": [
+        "QASkills SDK encode slug",
+        "SDK path segment security",
+        "skills get reserved characters",
+        "encodeURIComponent SDK test",
+        "skill ID slash handling",
+        "compare CLI SDK URL encoding"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/getting-started",
+        "/blog/api-testing-complete-guide",
+        "/blog/skill-md-format-guide"
+      ],
+      "authoritativeSources": [
+        "https://url.spec.whatwg.org/",
+        "https://www.rfc-editor.org/info/rfc3986",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent"
+      ],
+      "intentBoundary": "SDK skills.get path behavior, separate from the CLI info encoding contract."
+    },
+    {
+      "id": "cli-sdk-049",
+      "cluster": "sdkContracts",
+      "primaryKeyword": "QASkills SDK create request contract",
+      "proposedSlug": "qaskills-sdk-create-request-contract",
+      "titleTag": "Test QASkills SDK Create Requests",
+      "intent": "how-to",
+      "answerFirstQuestion": "What method, path, headers, and JSON body should QASkillsClient.skills.create send for required and optional skill fields?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/sdk/src/index.ts#QASkillsClient.skills.create",
+        "packages/sdk/src/index.ts#QASkillsClient.request",
+        "packages/shared/src/schemas/skill-schema.ts#skillCreateSchema",
+        "packages/shared/src/types/skill.ts#Skill"
+      ],
+      "secondaryKeywords": [
+        "QASkills SDK create skill",
+        "POST api skills contract",
+        "SDK JSON request body",
+        "optional frameworks serialization",
+        "skill create authentication test",
+        "mock fetch create request"
+      ],
+      "internalRoutes": [
+        "/how-to-publish",
+        "/skills",
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/blog/skill-md-format-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://fetch.spec.whatwg.org/",
+        "https://zod.dev/"
+      ],
+      "intentBoundary": "The SDK skill-creation operation, not CLI publish validation or generic API-key injection."
+    },
+    {
+      "id": "cli-sdk-050",
+      "cluster": "sdkContracts",
+      "primaryKeyword": "QASkills SDK category response typing",
+      "proposedSlug": "qaskills-sdk-category-response-typing",
+      "titleTag": "Test QASkills SDK Category Responses",
+      "intent": "how-to",
+      "answerFirstQuestion": "How should the QASkills SDK validate the grouped testingTypes, frameworks, languages, and domains returned by categories.list?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/sdk/src/index.ts#QASkillsClient.categories.list",
+        "packages/shared/src/types/category.ts#Category",
+        "packages/web/src/app/api/categories/route.ts#GET",
+        "packages/shared/src/constants/index.ts"
+      ],
+      "secondaryKeywords": [
+        "QASkills categories SDK",
+        "category response contract test",
+        "testingTypes API typing",
+        "framework category array",
+        "runtime validate SDK response",
+        "category schema drift"
+      ],
+      "internalRoutes": [
+        "/categories",
+        "/skills",
+        "/categories/e2e-testing",
+        "/categories/api-testing"
+      ],
+      "authoritativeSources": [
+        "https://www.typescriptlang.org/docs/handbook/2/objects.html",
+        "https://zod.dev/",
+        "https://fetch.spec.whatwg.org/"
+      ],
+      "intentBoundary": "Grouped categories response shape, not skill-list facets or search filter serialization."
+    },
+    {
+      "id": "cli-sdk-051",
+      "cluster": "sdkContracts",
+      "primaryKeyword": "QASkills SDK review submission contract",
+      "proposedSlug": "qaskills-sdk-review-submission-contract",
+      "titleTag": "Test QASkills SDK Review Submissions",
+      "intent": "how-to",
+      "answerFirstQuestion": "What request and response contract does QASkillsClient.reviews.submit use for review data and the returned review ID?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/sdk/src/index.ts#QASkillsClient.reviews.submit",
+        "packages/shared/src/schemas/review-schema.ts#reviewCreateSchema",
+        "packages/shared/src/types/review.ts#Review",
+        "packages/web/src/app/api/reviews/route.ts#POST"
+      ],
+      "secondaryKeywords": [
+        "QASkills SDK submit review",
+        "review API contract test",
+        "ReviewCreateInput JSON body",
+        "SDK review ID response",
+        "authenticated review request",
+        "review validation boundaries"
+      ],
+      "internalRoutes": ["/skills", "/leaderboard", "/privacy", "/blog/api-testing-complete-guide"],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://fetch.spec.whatwg.org/",
+        "https://zod.dev/"
+      ],
+      "intentBoundary": "Review submission endpoint only, not skill creation, leaderboard reads, or UI review rendering."
+    },
+    {
+      "id": "cli-sdk-052",
+      "cluster": "sdkContracts",
+      "primaryKeyword": "QASkills SDK leaderboard rank contract",
+      "proposedSlug": "qaskills-sdk-leaderboard-rank-contract",
+      "titleTag": "Test QASkills SDK Leaderboard Ranks",
+      "intent": "how-to",
+      "answerFirstQuestion": "How should QASkillsClient.leaderboard.get verify rank fields, skill summaries, and the updatedAt timestamp?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/sdk/src/index.ts#QASkillsClient.leaderboard.get",
+        "packages/shared/src/types/skill.ts#SkillSummary",
+        "packages/web/src/app/api/leaderboard/route.ts#GET",
+        "packages/web/src/app/leaderboard/page.tsx"
+      ],
+      "secondaryKeywords": [
+        "QASkills leaderboard SDK",
+        "ranked skill response test",
+        "leaderboard updatedAt contract",
+        "SkillSummary rank typing",
+        "SDK leaderboard schema",
+        "ranking response drift test"
+      ],
+      "internalRoutes": [
+        "/leaderboard",
+        "/skills",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "/blog/ai-qa-skills-directory-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.typescriptlang.org/docs/handbook/2/objects.html",
+        "https://zod.dev/",
+        "https://fetch.spec.whatwg.org/"
+      ],
+      "intentBoundary": "SDK response contract for ranks and timestamps, not ranking algorithm or cache isolation."
+    },
+    {
+      "id": "cli-sdk-053",
+      "cluster": "sdkContracts",
+      "primaryKeyword": "QASkills SDK non JSON errors",
+      "proposedSlug": "qaskills-sdk-non-json-errors",
+      "titleTag": "Handle Non-JSON QASkills SDK Errors",
+      "intent": "troubleshooting",
+      "answerFirstQuestion": "What error does QASkillsClient throw when a failed response contains HTML, plain text, malformed JSON, or an empty body?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/sdk/src/index.ts#QASkillsClient.request",
+        "packages/sdk/src/index.ts#QASkillsClient.skills.get",
+        "packages/sdk/src/index.ts#QASkillsClient.skills.create",
+        "packages/sdk/src/index.ts#QASkillsClient.reviews.submit"
+      ],
+      "secondaryKeywords": [
+        "QASkills SDK error parsing",
+        "fetch response json failure",
+        "SDK statusText fallback",
+        "HTML error response test",
+        "empty API error body",
+        "malformed JSON SDK response"
+      ],
+      "internalRoutes": [
+        "/faq",
+        "/skills",
+        "/getting-started",
+        "/blog/error-handling-testing-patterns"
+      ],
+      "authoritativeSources": [
+        "https://fetch.spec.whatwg.org/",
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://www.rfc-editor.org/info/rfc8259"
+      ],
+      "intentBoundary": "SDK JSON-error fallback only, not CLI text errors or successful response validation."
+    },
+    {
+      "id": "cli-sdk-054",
+      "cluster": "packageRelease",
+      "primaryKeyword": "QASkills CLI npm binary testing",
+      "proposedSlug": "qaskills-cli-npm-binary-testing",
+      "titleTag": "Test the QASkills CLI npm Binary",
+      "intent": "how-to",
+      "answerFirstQuestion": "How can an npm package smoke test prove that the qaskills bin entry resolves to executable built JavaScript with a Node shebang?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/package.json#bin",
+        "packages/cli/tsup.config.ts#banner",
+        "packages/cli/src/index.ts#program",
+        "packages/cli/e2e/e2e.mjs#CLI"
+      ],
+      "secondaryKeywords": [
+        "npm bin smoke test",
+        "Node CLI shebang test",
+        "qaskills executable package",
+        "package json bin mapping",
+        "npx qaskills verification",
+        "CLI dist index executable"
+      ],
+      "internalRoutes": [
+        "/getting-started",
+        "/skills",
+        "/blog/ai-qa-skills-directory-2026",
+        "/blog/how-to-install-skills-claude-code"
+      ],
+      "authoritativeSources": [
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json",
+        "https://nodejs.org/api/cli.html",
+        "https://docs.npmjs.com/cli/v11/commands/npm-pack"
+      ],
+      "intentBoundary": "Executable binary wiring after packaging, not package file allowlists, npm publication triggers, or runtime feature support."
+    },
+    {
+      "id": "cli-sdk-055",
+      "cluster": "packageRelease",
+      "primaryKeyword": "QASkills CLI bundled shared dependency",
+      "proposedSlug": "qaskills-cli-bundled-shared-dependency",
+      "titleTag": "Bundle QASkills Shared into the CLI",
+      "intent": "informational",
+      "answerFirstQuestion": "Why does the QASkills CLI bundle @qaskills/shared into its CommonJS output, and how can package tests detect a missing workspace dependency?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/tsup.config.ts#noExternal",
+        "packages/cli/package.json#dependencies",
+        "packages/shared/src/index.ts",
+        "packages/cli/src/lib/telemetry.ts#CLI_VERSION"
+      ],
+      "secondaryKeywords": [
+        "tsup noExternal workspace package",
+        "bundle qaskills shared",
+        "CLI missing module smoke test",
+        "pnpm workspace dependency bundling",
+        "CommonJS bundle inspection",
+        "npm package workspace resolution"
+      ],
+      "internalRoutes": [
+        "/getting-started",
+        "/skills",
+        "/blog/skill-md-format-guide",
+        "/blog/typescript-testing-patterns-guide"
+      ],
+      "authoritativeSources": [
+        "https://tsup.egoist.dev/",
+        "https://pnpm.io/workspaces",
+        "https://nodejs.org/api/modules.html"
+      ],
+      "intentBoundary": "Bundling the private shared workspace package, not SDK dual-module exports or declaration files."
+    },
+    {
+      "id": "cli-sdk-056",
+      "cluster": "packageRelease",
+      "primaryKeyword": "QASkills SDK dual module exports",
+      "proposedSlug": "qaskills-sdk-dual-module-exports",
+      "titleTag": "Test QASkills SDK CJS and ESM Exports",
+      "intent": "how-to",
+      "answerFirstQuestion": "How can consumers and CI verify that @qaskills/sdk loads through both require and import using the declared exports map?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/sdk/package.json#exports",
+        "packages/sdk/tsup.config.ts#format",
+        "packages/sdk/src/index.ts#default",
+        "packages/sdk/src/index.ts#createClient"
+      ],
+      "secondaryKeywords": [
+        "QASkills SDK CommonJS import",
+        "QASkills SDK ESM import",
+        "package exports map test",
+        "dual module package smoke test",
+        "require import compatibility",
+        "tsup cjs esm output"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/leaderboard",
+        "/blog/typescript-testing-patterns-guide"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/packages.html",
+        "https://nodejs.org/api/esm.html",
+        "https://www.typescriptlang.org/docs/handbook/modules/reference.html"
+      ],
+      "intentBoundary": "Runtime module loading for the SDK, not TypeScript declarations or CLI CommonJS bundling."
+    },
+    {
+      "id": "cli-sdk-057",
+      "cluster": "packageRelease",
+      "primaryKeyword": "QASkills TypeScript declaration publishing",
+      "proposedSlug": "qaskills-typescript-declaration-publishing",
+      "titleTag": "Publish QASkills Type Declarations",
+      "intent": "how-to",
+      "answerFirstQuestion": "How should package tests verify that QASkills CLI and SDK declaration files are generated, referenced, and included in published tarballs?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/cli/tsup.config.ts#dts",
+        "packages/sdk/tsup.config.ts#dts",
+        "packages/cli/package.json#types",
+        "packages/sdk/package.json#types"
+      ],
+      "secondaryKeywords": [
+        "TypeScript d.ts package test",
+        "npm declaration file publishing",
+        "tsup dts output",
+        "package types field validation",
+        "SDK declaration smoke test",
+        "missing type definitions regression"
+      ],
+      "internalRoutes": [
+        "/getting-started",
+        "/skills",
+        "/blog/typescript-testing-patterns-guide",
+        "/blog/ai-qa-skills-directory-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html",
+        "https://docs.npmjs.com/cli/v11/commands/npm-pack",
+        "https://nodejs.org/api/packages.html"
+      ],
+      "intentBoundary": "Static type artifact delivery, not runtime CJS or ESM resolution."
+    },
+    {
+      "id": "cli-sdk-058",
+      "cluster": "packageRelease",
+      "primaryKeyword": "QASkills Node runtime compatibility tests",
+      "proposedSlug": "qaskills-node-runtime-compatibility-tests",
+      "titleTag": "Test QASkills Node Runtime Support",
+      "intent": "how-to",
+      "answerFirstQuestion": "How can CI prove the QASkills packages honor the repository's Node 20 minimum while using native fetch and AbortController?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "package.json#engines",
+        ".github/workflows/cli-ci.yml#jobs.build",
+        ".github/workflows/cli-publish.yml#jobs.publish",
+        "packages/cli/src/lib/api-client.ts#request"
+      ],
+      "secondaryKeywords": [
+        "QASkills Node 20 requirement",
+        "Node engines CI test",
+        "native fetch runtime support",
+        "AbortController Node compatibility",
+        "CLI minimum Node version",
+        "npm engine mismatch test"
+      ],
+      "internalRoutes": [
+        "/getting-started",
+        "/skills",
+        "/blog/github-actions-testing-ci-cd-guide",
+        "/faq"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/globals.html#fetch",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json",
+        "https://docs.github.com/en/actions"
+      ],
+      "intentBoundary": "Runtime-version support across packages and CI, not CLI binary mapping or module format."
+    },
+    {
+      "id": "cli-sdk-059",
+      "cluster": "packageRelease",
+      "primaryKeyword": "QASkills CLI CI path filters",
+      "proposedSlug": "qaskills-cli-ci-path-filters",
+      "titleTag": "Guard Workflow Path Filters for CLI",
+      "intent": "how-to",
+      "answerFirstQuestion": "Which file changes trigger QASkills CLI CI, and how can workflow tests catch shared-package changes that would otherwise skip validation?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        ".github/workflows/cli-ci.yml#on",
+        ".github/workflows/cli-ci.yml#jobs.build",
+        "packages/cli/package.json#scripts",
+        "packages/shared/package.json#scripts"
+      ],
+      "secondaryKeywords": [
+        "GitHub Actions path filter tests",
+        "CLI workflow shared package trigger",
+        "qaskills CI change detection",
+        "pull request paths regression",
+        "workflow trigger coverage",
+        "monorepo CI path filters"
+      ],
+      "internalRoutes": [
+        "/getting-started",
+        "/skills",
+        "/blog/github-actions-testing-ci-cd-guide",
+        "/blog/distribute-agent-skills-across-team-monorepo"
+      ],
+      "authoritativeSources": [
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax",
+        "https://pnpm.io/continuous-integration",
+        "https://pnpm.io/filtering"
+      ],
+      "intentBoundary": "Change-based CI trigger coverage, not build task order or npm release tags."
+    },
+    {
+      "id": "cli-sdk-060",
+      "cluster": "packageRelease",
+      "primaryKeyword": "QASkills CLI git tag publishing",
+      "proposedSlug": "qaskills-cli-git-tag-publishing",
+      "titleTag": "Publish QASkills CLI from Git Tags",
+      "intent": "how-to",
+      "answerFirstQuestion": "How does a cli-v* Git tag trigger the QASkills npm publish workflow, and which gates run before package publication?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 10 },
+      "repoEvidence": [
+        ".github/workflows/cli-publish.yml#on",
+        ".github/workflows/cli-publish.yml#jobs.publish",
+        "packages/cli/e2e/e2e.mjs",
+        "packages/cli/package.json#publishConfig"
+      ],
+      "secondaryKeywords": [
+        "qaskills cli-v tag",
+        "npm publish GitHub Actions",
+        "tag triggered package release",
+        "CLI publish E2E gate",
+        "NPM_TOKEN workflow test",
+        "manual CLI publish dispatch"
+      ],
+      "internalRoutes": [
+        "/getting-started",
+        "/skills",
+        "/blog/github-actions-testing-ci-cd-guide",
+        "/blog/how-to-publish-ai-agent-skill-directory"
+      ],
+      "authoritativeSources": [
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax",
+        "https://docs.github.com/en/actions/tutorials/publish-packages/publish-nodejs-packages",
+        "https://docs.npmjs.com/cli/v11/commands/npm-publish"
+      ],
+      "intentBoundary": "Release-trigger and prepublish-gate workflow, not runtime package contents or ordinary pull-request CI."
+    }
+  ],
+  "rejected": [
+    {
+      "primaryKeyword": "QASkills CLI download fallback",
+      "proposedSlug": "qaskills-cli-download-fallback",
+      "collidingRoute": "/blog/qaskills-cli-download-fallback-github-content-metadata",
+      "reason": "Exact primary intent already covers GitHub clone, content endpoint, metadata reconstruction, cleanup, and empty-download behavior."
+    },
+    {
+      "primaryKeyword": "extract SKILL.md packages from GitHub",
+      "proposedSlug": "extract-skill-md-packages-github",
+      "collidingRoute": "/blog/qaskills-cli-extract-skill-package-github",
+      "reason": "Exact keyword and intent collision with the existing package extraction article."
+    },
+    {
+      "primaryKeyword": "qaskills add custom directory",
+      "proposedSlug": "qaskills-add-custom-directory",
+      "collidingRoute": "/blog/qaskills-add-custom-directory-ci",
+      "reason": "The existing article fully answers --dir path resolution, CI setup, cleanup, and verification."
+    },
+    {
+      "primaryKeyword": "qaskills init in CI",
+      "proposedSlug": "qaskills-init-ci-guide",
+      "collidingRoute": "/blog/qaskills-init-non-interactive-ci",
+      "reason": "Exact non-interactive init intent already exists."
+    },
+    {
+      "primaryKeyword": "disable QASkills CLI telemetry",
+      "proposedSlug": "disable-qaskills-cli-telemetry",
+      "collidingRoute": "/blog/qaskills-cli-disable-telemetry-do-not-track",
+      "reason": "Exact keyword and opt-out intent already exists."
+    },
+    {
+      "primaryKeyword": "QASkills temporary name sanitization",
+      "proposedSlug": "qaskills-temporary-name-sanitization",
+      "collidingRoute": "/blog/qaskills-cli-download-fallback-github-content-metadata",
+      "reason": "The existing fallback article already explains safeName normalization and tests punctuation cases."
+    },
+    {
+      "primaryKeyword": "QASkills stale download cleanup",
+      "proposedSlug": "qaskills-stale-download-cleanup",
+      "collidingRoute": "/blog/qaskills-cli-download-fallback-github-content-metadata",
+      "reason": "Temporary download cleanup and stale-file regression tests are already a dedicated section."
+    },
+    {
+      "primaryKeyword": "QASkills empty skill download validation",
+      "proposedSlug": "qaskills-empty-skill-download-validation",
+      "collidingRoute": "/blog/qaskills-cli-download-fallback-github-content-metadata",
+      "reason": "The existing article already covers empty directories, .git-only output, and zero-byte SKILL.md boundaries."
+    },
+    {
+      "primaryKeyword": "QASkills skill package symlink tests",
+      "proposedSlug": "qaskills-skill-package-symlink-tests",
+      "collidingRoute": "/blog/qaskills-cli-extract-skill-package-github",
+      "reason": "The extraction article already identifies symlink behavior as a test boundary in the same package-copy intent."
+    },
+    {
+      "primaryKeyword": "QASkills shallowest SKILL.md selection",
+      "proposedSlug": "qaskills-shallowest-skill-md-selection",
+      "collidingRoute": "/blog/qaskills-cli-extract-skill-package-github",
+      "reason": "Canonical shallowest-file selection is a central section of the existing extraction article."
+    },
+    {
+      "primaryKeyword": "QASkills companion directory extraction",
+      "proposedSlug": "qaskills-companion-directory-extraction",
+      "collidingRoute": "/blog/qaskills-cli-extract-skill-package-github",
+      "reason": "references, scripts, and assets extraction is already fully covered."
+    },
+    {
+      "primaryKeyword": "QASkills init unknown template",
+      "proposedSlug": "qaskills-init-unknown-template",
+      "collidingRoute": "/blog/qaskills-init-non-interactive-ci",
+      "reason": "The existing init article already explains generic fallback behavior and the missing template-name validation."
+    },
+    {
+      "primaryKeyword": "QASkills init overwrite SKILL.md",
+      "proposedSlug": "qaskills-init-overwrite-skill-md",
+      "collidingRoute": "/blog/qaskills-init-non-interactive-ci",
+      "reason": "The existing article already tests overwrite behavior and prescribes disposable directories."
+    },
+    {
+      "primaryKeyword": "QASkills install stale destination files",
+      "proposedSlug": "qaskills-install-stale-destination-files",
+      "collidingRoute": "/blog/qaskills-add-custom-directory-ci",
+      "reason": "The current additive copy behavior and stale destination cleanup are already covered."
+    },
+    {
+      "primaryKeyword": "install QA skills Claude Code",
+      "proposedSlug": "install-qa-skills-claude-code",
+      "collidingRoute": "/blog/how-to-install-skills-claude-code",
+      "reason": "Existing guide satisfies the same installation need."
+    },
+    {
+      "primaryKeyword": "install QA skills Cursor",
+      "proposedSlug": "install-qa-skills-cursor",
+      "collidingRoute": "/blog/how-to-install-skills-cursor",
+      "reason": "Existing step-by-step guide satisfies the same installation need."
+    },
+    {
+      "primaryKeyword": "publish AI agent skill",
+      "proposedSlug": "publish-ai-agent-skill",
+      "collidingRoute": "/blog/how-to-publish-ai-agent-skill-directory",
+      "reason": "Existing long-form publication guide already answers the general directory publishing intent."
+    },
+    {
+      "primaryKeyword": "SKILL.md format guide",
+      "proposedSlug": "skill-md-format-reference",
+      "collidingRoute": "/blog/skill-md-format-guide",
+      "reason": "Exact format-reference intent already exists."
+    }
+  ]
+}

@@ -1,0 +1,1085 @@
+{
+  "batch": 40,
+  "briefs": [
+    {
+      "batch": 40,
+      "batchPosition": 1,
+      "domain": "ai-llm-rag",
+      "slug": "rag-hard-negative-retrieval-testing",
+      "primaryKeyword": "RAG hard negative retrieval testing",
+      "title": "RAG hard negative retrieval testing",
+      "description": "RAG hard negative retrieval testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you curate near-match documents that share vocabulary but contain the wrong entity, date, product, or policy for RAG retrieval tests?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you curate near-match documents that share vocabulary but contain the wrong entity, date, product, or policy for RAG retrieval tests?\" State the observable success condition, not a general introduction: The expected source outranks plausible near-match documents that share vocabulary but do not answer the query, with labels preserved per query.",
+      "intentBoundary": "The existing guide covers qrels and ranking broadly. This candidate owns construction and diagnosis of lexical and semantic hard-negative fixtures.",
+      "secondaryKeywords": [
+        "how to rag hard negative retrieval testing",
+        "rag hard negative retrieval testing example",
+        "RAG hard negative dataset",
+        "near match retrieval fixture",
+        "semantic search false positive test"
+      ],
+      "outline": [
+        {
+          "heading": "What must RAG hard negative retrieval testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you curate near-match documents that share vocabulary but contain the wrong entity, date, product, or policy for RAG retrieval tests?\" in 40 to 60 words. Define the observable contract as: The expected source outranks plausible near-match documents that share vocabulary but do not answer the query, with labels preserved per query. Keep the scope inside this intent boundary: The existing guide covers qrels and ranking broadly. This candidate owns construction and diagnosis of lexical and semantic hard-negative fixtures.",
+          "evidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md:39-72 stores questions, references, and relevant source contexts as a reviewable contract.",
+            "seed-skills/rag-regression-testing/SKILL.md:27-28 requires reviewed baselines and quarantining rather than deleting difficult samples."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md:39-72 stores questions, references, and relevant source contexts as a reviewable contract.",
+            "seed-skills/rag-regression-testing/SKILL.md:27-28 requires reviewed baselines and quarantining rather than deleting difficult samples."
+          ]
+        },
+        {
+          "heading": "How to rag hard negative retrieval testing?",
+          "secondaryKeyword": "how to rag hard negative retrieval testing",
+          "coverage": "Build the primary positive fixture with this harness: Build a reviewed query corpus with one relevant passage and several controlled hard negatives, then evaluate ranks and per-query diagnostics. The decisive success oracle is: The expected source outranks plausible near-match documents that share vocabulary but do not answer the query, with labels preserved per query.",
+          "evidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Rag hard negative retrieval testing example: scenario and assertion matrix",
+          "secondaryKeyword": "rag hard negative retrieval testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose RAG hard negative dataset?",
+          "secondaryKeyword": "RAG hard negative dataset",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A lexical distractor enters the accepted top-k set, displaces the relevant source, or is accidentally labeled as supporting evidence. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should near match retrieval fixture run in CI?",
+          "secondaryKeyword": "near match retrieval fixture",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify semantic search false positive test?",
+          "secondaryKeyword": "semantic search false positive test",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A lexical distractor enters the accepted top-k set, displaces the relevant source, or is accidentally labeled as supporting evidence.",
+          "evidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use Python and pytest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/ragas-rag-evaluation-metrics-complete-guide before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "RAG hard negative retrieval testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: The expected source outranks plausible near-match documents that share vocabulary but do not answer the query, with labels preserved per query.",
+          "Boundary case for rag hard negative retrieval testing example with an exact pass or fail oracle",
+          "Negative case: A lexical distractor enters the accepted top-k set, displaces the relevant source, or is accidentally labeled as supporting evidence.",
+          "Repeated and concurrent execution for near match retrieval fixture",
+          "CI evidence and ownership for semantic search false positive test"
+        ],
+        "sources": [
+          "seed-skills/rag-evaluation-metrics/SKILL.md",
+          "seed-skills/rag-regression-testing/SKILL.md",
+          "https://www.elastic.co/guide/en/elasticsearch/reference/current/search-rank-eval.html",
+          "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/",
+          "https://arxiv.org/abs/2309.15217"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement RAG hard negative retrieval testing in six steps",
+        "steps": [
+          "Read seed-skills/rag-evaluation-metrics/SKILL.md:39-72 and seed-skills/rag-regression-testing/SKILL.md:27-28, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to rag hard negative retrieval testing and rag hard negative retrieval testing example without calling production services or mutating shared state.",
+          "Build the harness: Build a reviewed query corpus with one relevant passage and several controlled hard negatives, then evaluate ranks and per-query diagnostics.",
+          "Run the expected path and assert: The expected source outranks plausible near-match documents that share vocabulary but do not answer the query, with labels preserved per query.",
+          "Inject boundary and failure cases and assert: A lexical distractor enters the accepted top-k set, displaces the relevant source, or is accidentally labeled as supporting evidence.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to rag hard negative retrieval testing positive contract",
+          "repositoryPath": "seed-skills/rag-evaluation-metrics/SKILL.md",
+          "repositoryLines": "39-72",
+          "exactEvidence": "stores questions, references, and relevant source contexts as a reviewable contract.",
+          "plannedSnippet": "Python and pytest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: The expected source outranks plausible near-match documents that share vocabulary but do not answer the query, with labels preserved per query.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "RAG hard negative dataset negative contract",
+          "repositoryPath": "seed-skills/rag-regression-testing/SKILL.md",
+          "repositoryLines": "27-28",
+          "exactEvidence": "requires reviewed baselines and quarantining rather than deleting difficult samples.",
+          "plannedSnippet": "Python and pytest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A lexical distractor enters the accepted top-k set, displaces the relevant source, or is accidentally labeled as supporting evidence.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/rag-evaluation-metrics/SKILL.md",
+        "seed-skills/rag-regression-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026",
+        "/blog/retrieval-relevance-testing-guide-2026"
+      ],
+      "relatedSlugs": [
+        "ragas-rag-evaluation-metrics-complete-guide",
+        "rag-regression-testing-guide-2026",
+        "rag-retrieval-testing-best-practices-2026",
+        "retrieval-relevance-testing-guide-2026"
+      ],
+      "sources": [
+        "https://www.elastic.co/guide/en/elasticsearch/reference/current/search-rank-eval.html",
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/",
+        "https://arxiv.org/abs/2309.15217"
+      ],
+      "faqQuestions": [
+        "How do you curate near-match documents that share vocabulary but contain the wrong entity, date, product, or policy for RAG retrieval tests?",
+        "What fixture best tests how to rag hard negative retrieval testing?",
+        "Which failure signal proves rag hard negative retrieval testing example?",
+        "How should CI report RAG hard negative dataset?",
+        "When should near match retrieval fixture block a release?",
+        "How can teams keep semantic search false positive test repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/ragas-rag-evaluation-metrics-complete-guide before implementing this regression gate."
+    },
+    {
+      "batch": 40,
+      "batchPosition": 2,
+      "domain": "ai-llm-rag",
+      "slug": "ragas-nan-score-handling",
+      "primaryKeyword": "Ragas NaN score handling",
+      "title": "Ragas NaN score handling",
+      "description": "Ragas NaN score handling: build focused fixtures, code examples, and CI checks from repo evidence to expose contract failures before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should a Ragas quality gate detect, report, and fail on NaN metric values instead of dropping them from an aggregate mean?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How should a Ragas quality gate detect, report, and fail on NaN metric values instead of dropping them from an aggregate mean?\" State the observable success condition, not a general introduction: Every sample score is checked for finiteness, incomplete metrics are reported explicitly, and the release policy decides whether to fail or quarantine.",
+      "intentBoundary": "The existing guide interprets valid metric scores. This candidate owns invalid NaN propagation, aggregation, and release-gate behavior.",
+      "secondaryKeywords": [
+        "how to ragas nan score handling",
+        "ragas nan score handling example",
+        "Ragas missing metric score",
+        "Ragas NaN pandas mean",
+        "fail CI on invalid eval score"
+      ],
+      "outline": [
+        {
+          "heading": "What must Ragas NaN score handling prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How should a Ragas quality gate detect, report, and fail on NaN metric values instead of dropping them from an aggregate mean?\" in 40 to 60 words. Define the observable contract as: Every sample score is checked for finiteness, incomplete metrics are reported explicitly, and the release policy decides whether to fail or quarantine. Keep the scope inside this intent boundary: The existing guide interprets valid metric scores. This candidate owns invalid NaN propagation, aggregation, and release-gate behavior.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md:133-150 converts Ragas result columns into aggregate means.",
+            "seed-skills/rag-evaluation-metrics/SKILL.md:25-28 requires explicit thresholds and score distributions rather than silent omissions."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md:133-150 converts Ragas result columns into aggregate means.",
+            "seed-skills/rag-evaluation-metrics/SKILL.md:25-28 requires explicit thresholds and score distributions rather than silent omissions."
+          ]
+        },
+        {
+          "heading": "How to ragas nan score handling?",
+          "secondaryKeyword": "how to ragas nan score handling",
+          "coverage": "Build the primary positive fixture with this harness: Construct Ragas-like result columns containing finite values, NaN, null, and infinity, then assert row accounting and aggregation policy. The decisive success oracle is: Every sample score is checked for finiteness, incomplete metrics are reported explicitly, and the release policy decides whether to fail or quarantine.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Ragas nan score handling example: scenario and assertion matrix",
+          "secondaryKeyword": "ragas nan score handling example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose Ragas missing metric score?",
+          "secondaryKeyword": "Ragas missing metric score",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: NaN, null, or infinity is silently omitted from an aggregate, poisons a mean, or makes an incomplete evaluation appear to pass. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Ragas NaN pandas mean run in CI?",
+          "secondaryKeyword": "Ragas NaN pandas mean",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify fail CI on invalid eval score?",
+          "secondaryKeyword": "fail CI on invalid eval score",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: NaN, null, or infinity is silently omitted from an aggregate, poisons a mean, or makes an incomplete evaluation appear to pass.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use Python and pytest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/ragas-rag-evaluation-metrics-complete-guide before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Ragas NaN score handling: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Every sample score is checked for finiteness, incomplete metrics are reported explicitly, and the release policy decides whether to fail or quarantine.",
+          "Boundary case for ragas nan score handling example with an exact pass or fail oracle",
+          "Negative case: NaN, null, or infinity is silently omitted from an aggregate, poisons a mean, or makes an incomplete evaluation appear to pass.",
+          "Repeated and concurrent execution for Ragas NaN pandas mean",
+          "CI evidence and ownership for fail CI on invalid eval score"
+        ],
+        "sources": [
+          "seed-skills/rag-regression-testing/SKILL.md",
+          "seed-skills/rag-evaluation-metrics/SKILL.md",
+          "https://docs.ragas.io/en/latest/references/evaluate/",
+          "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/",
+          "https://docs.ragas.io/en/stable/getstarted/evals/"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Ragas NaN score handling in six steps",
+        "steps": [
+          "Read seed-skills/rag-regression-testing/SKILL.md:133-150 and seed-skills/rag-evaluation-metrics/SKILL.md:25-28, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to ragas nan score handling and ragas nan score handling example without calling production services or mutating shared state.",
+          "Build the harness: Construct Ragas-like result columns containing finite values, NaN, null, and infinity, then assert row accounting and aggregation policy.",
+          "Run the expected path and assert: Every sample score is checked for finiteness, incomplete metrics are reported explicitly, and the release policy decides whether to fail or quarantine.",
+          "Inject boundary and failure cases and assert: NaN, null, or infinity is silently omitted from an aggregate, poisons a mean, or makes an incomplete evaluation appear to pass.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to ragas nan score handling positive contract",
+          "repositoryPath": "seed-skills/rag-regression-testing/SKILL.md",
+          "repositoryLines": "133-150",
+          "exactEvidence": "converts Ragas result columns into aggregate means.",
+          "plannedSnippet": "Python and pytest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Every sample score is checked for finiteness, incomplete metrics are reported explicitly, and the release policy decides whether to fail or quarantine.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "Ragas missing metric score negative contract",
+          "repositoryPath": "seed-skills/rag-evaluation-metrics/SKILL.md",
+          "repositoryLines": "25-28",
+          "exactEvidence": "requires explicit thresholds and score distributions rather than silent omissions.",
+          "plannedSnippet": "Python and pytest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: NaN, null, or infinity is silently omitted from an aggregate, poisons a mean, or makes an incomplete evaluation appear to pass.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/rag-regression-testing/SKILL.md",
+        "seed-skills/rag-evaluation-metrics/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026",
+        "/blog/rag-regression-testing-cicd-2026"
+      ],
+      "relatedSlugs": [
+        "ragas-rag-evaluation-metrics-complete-guide",
+        "rag-regression-testing-guide-2026",
+        "rag-retrieval-testing-best-practices-2026",
+        "rag-regression-testing-cicd-2026"
+      ],
+      "sources": [
+        "https://docs.ragas.io/en/latest/references/evaluate/",
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/",
+        "https://docs.ragas.io/en/stable/getstarted/evals/"
+      ],
+      "faqQuestions": [
+        "How should a Ragas quality gate detect, report, and fail on NaN metric values instead of dropping them from an aggregate mean?",
+        "What fixture best tests how to ragas nan score handling?",
+        "Which failure signal proves ragas nan score handling example?",
+        "How should CI report Ragas missing metric score?",
+        "When should Ragas NaN pandas mean block a release?",
+        "How can teams keep fail CI on invalid eval score repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/ragas-rag-evaluation-metrics-complete-guide before implementing this regression gate."
+    },
+    {
+      "batch": 40,
+      "batchPosition": 3,
+      "domain": "ai-llm-rag",
+      "slug": "tokenizer-version-drift-testing",
+      "primaryKeyword": "Tokenizer version drift testing",
+      "title": "Tokenizer version drift testing",
+      "description": "Tokenizer version drift testing: use repo evidence, focused fixtures, code examples, and CI checks to expose contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you detect tokenizer-version changes that alter prompt budgets, truncation points, usage estimates, and cost without changing visible text?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you detect tokenizer-version changes that alter prompt budgets, truncation points, usage estimates, and cost without changing visible text?\" State the observable success condition, not a general introduction: The run records tokenizer package and encoding identity, and golden prompts retain expected token counts unless a reviewed version change updates them.",
+      "intentBoundary": "The existing budget page gates reported usage. This candidate owns tokenizer dependency changes that move boundaries before an API call.",
+      "secondaryKeywords": [
+        "how to tokenizer version drift testing",
+        "tokenizer version drift testing example",
+        "LLM token count regression",
+        "tiktoken version drift test",
+        "prompt truncation tokenizer change"
+      ],
+      "outline": [
+        {
+          "heading": "What must Tokenizer version drift testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you detect tokenizer-version changes that alter prompt budgets, truncation points, usage estimates, and cost without changing visible text?\" in 40 to 60 words. Define the observable contract as: The run records tokenizer package and encoding identity, and golden prompts retain expected token counts unless a reviewed version change updates them. Keep the scope inside this intent boundary: The existing budget page gates reported usage. This candidate owns tokenizer dependency changes that move boundaries before an API call.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md:591-639 asserts token usage, latency, and estimated cost budgets.",
+            "seed-skills/ai-system-quality-engineer/SKILL.md:65-70 treats token budgets as deterministic release gates."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md:591-639 asserts token usage, latency, and estimated cost budgets.",
+            "seed-skills/ai-system-quality-engineer/SKILL.md:65-70 treats token budgets as deterministic release gates."
+          ]
+        },
+        {
+          "heading": "How to tokenizer version drift testing?",
+          "secondaryKeyword": "how to tokenizer version drift testing",
+          "coverage": "Build the primary positive fixture with this harness: Evaluate a fixed prompt corpus against pinned and changed tokenizer fixtures, storing package versions, encodings, counts, and budget decisions. The decisive success oracle is: The run records tokenizer package and encoding identity, and golden prompts retain expected token counts unless a reviewed version change updates them.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Tokenizer version drift testing example: scenario and assertion matrix",
+          "secondaryKeyword": "tokenizer version drift testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose LLM token count regression?",
+          "secondaryKeyword": "LLM token count regression",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A tokenizer update changes counts, truncation, or cost estimates while the CI report presents the difference as model behavior. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should tiktoken version drift test run in CI?",
+          "secondaryKeyword": "tiktoken version drift test",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify prompt truncation tokenizer change?",
+          "secondaryKeyword": "prompt truncation tokenizer change",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A tokenizer update changes counts, truncation, or cost estimates while the CI report presents the difference as model behavior.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/golden-dataset-llm-evaluation-guide before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Tokenizer version drift testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: The run records tokenizer package and encoding identity, and golden prompts retain expected token counts unless a reviewed version change updates them.",
+          "Boundary case for tokenizer version drift testing example with an exact pass or fail oracle",
+          "Negative case: A tokenizer update changes counts, truncation, or cost estimates while the CI report presents the difference as model behavior.",
+          "Repeated and concurrent execution for tiktoken version drift test",
+          "CI evidence and ownership for prompt truncation tokenizer change"
+        ],
+        "sources": [
+          "seed-skills/prompt-testing/SKILL.md",
+          "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken",
+          "https://platform.openai.com/docs/models",
+          "https://www.nist.gov/itl/ai-risk-management-framework"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Tokenizer version drift testing in six steps",
+        "steps": [
+          "Read seed-skills/prompt-testing/SKILL.md:591-639 and seed-skills/ai-system-quality-engineer/SKILL.md:65-70, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to tokenizer version drift testing and tokenizer version drift testing example without calling production services or mutating shared state.",
+          "Build the harness: Evaluate a fixed prompt corpus against pinned and changed tokenizer fixtures, storing package versions, encodings, counts, and budget decisions.",
+          "Run the expected path and assert: The run records tokenizer package and encoding identity, and golden prompts retain expected token counts unless a reviewed version change updates them.",
+          "Inject boundary and failure cases and assert: A tokenizer update changes counts, truncation, or cost estimates while the CI report presents the difference as model behavior.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to tokenizer version drift testing positive contract",
+          "repositoryPath": "seed-skills/prompt-testing/SKILL.md",
+          "repositoryLines": "591-639",
+          "exactEvidence": "asserts token usage, latency, and estimated cost budgets.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: The run records tokenizer package and encoding identity, and golden prompts retain expected token counts unless a reviewed version change updates them.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "LLM token count regression negative contract",
+          "repositoryPath": "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "repositoryLines": "65-70",
+          "exactEvidence": "treats token budgets as deterministic release gates.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A tokenizer update changes counts, truncation, or cost estimates while the CI report presents the difference as model behavior.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/prompt-testing/SKILL.md",
+        "seed-skills/ai-system-quality-engineer/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/golden-dataset-llm-evaluation-guide",
+        "/blog/eval-dataset-versioning-guide-2026",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-cost-budget-ci-guide"
+      ],
+      "relatedSlugs": [
+        "golden-dataset-llm-evaluation-guide",
+        "eval-dataset-versioning-guide-2026",
+        "testing-llm-applications-guide",
+        "llm-cost-budget-ci-guide"
+      ],
+      "sources": [
+        "https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken",
+        "https://platform.openai.com/docs/models",
+        "https://www.nist.gov/itl/ai-risk-management-framework"
+      ],
+      "faqQuestions": [
+        "How do you detect tokenizer-version changes that alter prompt budgets, truncation points, usage estimates, and cost without changing visible text?",
+        "What fixture best tests how to tokenizer version drift testing?",
+        "Which failure signal proves tokenizer version drift testing example?",
+        "How should CI report LLM token count regression?",
+        "When should tiktoken version drift test block a release?",
+        "How can teams keep prompt truncation tokenizer change repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/golden-dataset-llm-evaluation-guide before implementing this regression gate."
+    },
+    {
+      "batch": 40,
+      "batchPosition": 4,
+      "domain": "ai-llm-rag",
+      "slug": "promptfoo-provider-rate-limit-recovery",
+      "primaryKeyword": "Promptfoo provider rate limit recovery",
+      "title": "Promptfoo provider rate limit recovery",
+      "description": "Promptfoo provider rate limit recovery: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you script 429 and transient provider failures in Promptfoo and verify bounded concurrency, retries, case accounting, and terminal errors?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you script 429 and transient provider failures in Promptfoo and verify bounded concurrency, retries, case accounting, and terminal errors?\" State the observable success condition, not a general introduction: Promptfoo retries bounded provider throttles, accounts for every case exactly once, and emits a complete machine-readable report after recovery.",
+      "intentBoundary": "The existing page measures cost and latency. This candidate owns correctness and complete case accounting during provider throttling.",
+      "secondaryKeywords": [
+        "how to promptfoo provider rate limit recovery",
+        "promptfoo provider rate limit recovery example",
+        "Promptfoo 429 retry test",
+        "Promptfoo max concurrency rate limit",
+        "LLM provider backoff eval"
+      ],
+      "outline": [
+        {
+          "heading": "What must Promptfoo provider rate limit recovery prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you script 429 and transient provider failures in Promptfoo and verify bounded concurrency, retries, case accounting, and terminal errors?\" in 40 to 60 words. Define the observable contract as: Promptfoo retries bounded provider throttles, accounts for every case exactly once, and emits a complete machine-readable report after recovery. Keep the scope inside this intent boundary: The existing page measures cost and latency. This candidate owns correctness and complete case accounting during provider throttling.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md:68-74 defines machine-readable eval output used to account for every case.",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md:124-133 requires deterministic CI runs and complete result evidence."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md:68-74 defines machine-readable eval output used to account for every case.",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md:124-133 requires deterministic CI runs and complete result evidence."
+          ]
+        },
+        {
+          "heading": "How to promptfoo provider rate limit recovery?",
+          "secondaryKeyword": "how to promptfoo provider rate limit recovery",
+          "coverage": "Build the primary positive fixture with this harness: Point a Promptfoo HTTP provider at a local scripted server that returns 429 and success responses while recording request IDs and attempts. The decisive success oracle is: Promptfoo retries bounded provider throttles, accounts for every case exactly once, and emits a complete machine-readable report after recovery.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Promptfoo provider rate limit recovery example: scenario and assertion matrix",
+          "secondaryKeyword": "promptfoo provider rate limit recovery example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose Promptfoo 429 retry test?",
+          "secondaryKeyword": "Promptfoo 429 retry test",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A 429 response drops or duplicates a case, causes unbounded retries, ignores retry timing, or leaves a partial report marked successful. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Promptfoo max concurrency rate limit run in CI?",
+          "secondaryKeyword": "Promptfoo max concurrency rate limit",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify LLM provider backoff eval?",
+          "secondaryKeyword": "LLM provider backoff eval",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A 429 response drops or duplicates a case, causes unbounded retries, ignores retry timing, or leaves a partial report marked successful.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use Promptfoo YAML plus TypeScript or shell assertions and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/promptfoo-complete-guide-2026 before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Promptfoo provider rate limit recovery: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Promptfoo retries bounded provider throttles, accounts for every case exactly once, and emits a complete machine-readable report after recovery.",
+          "Boundary case for promptfoo provider rate limit recovery example with an exact pass or fail oracle",
+          "Negative case: A 429 response drops or duplicates a case, causes unbounded retries, ignores retry timing, or leaves a partial report marked successful.",
+          "Repeated and concurrent execution for Promptfoo max concurrency rate limit",
+          "CI evidence and ownership for LLM provider backoff eval"
+        ],
+        "sources": [
+          "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "seed-skills/prompt-testing/SKILL.md",
+          "https://www.promptfoo.dev/docs/providers/",
+          "https://www.promptfoo.dev/docs/configuration/guide/",
+          "https://www.rfc-editor.org/info/rfc9110"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Promptfoo provider rate limit recovery in six steps",
+        "steps": [
+          "Read seed-skills/promptfoo-llm-red-teaming/SKILL.md:68-74 and seed-skills/promptfoo-llm-red-teaming/SKILL.md:124-133, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to promptfoo provider rate limit recovery and promptfoo provider rate limit recovery example without calling production services or mutating shared state.",
+          "Build the harness: Point a Promptfoo HTTP provider at a local scripted server that returns 429 and success responses while recording request IDs and attempts.",
+          "Run the expected path and assert: Promptfoo retries bounded provider throttles, accounts for every case exactly once, and emits a complete machine-readable report after recovery.",
+          "Inject boundary and failure cases and assert: A 429 response drops or duplicates a case, causes unbounded retries, ignores retry timing, or leaves a partial report marked successful.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to promptfoo provider rate limit recovery positive contract",
+          "repositoryPath": "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "repositoryLines": "68-74",
+          "exactEvidence": "defines machine-readable eval output used to account for every case.",
+          "plannedSnippet": "Promptfoo YAML plus TypeScript or shell assertions example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Promptfoo retries bounded provider throttles, accounts for every case exactly once, and emits a complete machine-readable report after recovery.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "Promptfoo 429 retry test negative contract",
+          "repositoryPath": "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "repositoryLines": "124-133",
+          "exactEvidence": "requires deterministic CI runs and complete result evidence.",
+          "plannedSnippet": "Promptfoo YAML plus TypeScript or shell assertions failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A 429 response drops or duplicates a case, causes unbounded retries, ignores retry timing, or leaves a partial report marked successful.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+        "seed-skills/prompt-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026",
+        "/blog/llm-eval-cost-latency-testing-guide-2026"
+      ],
+      "relatedSlugs": [
+        "promptfoo-complete-guide-2026",
+        "promptfoo-red-teaming-llm-applications",
+        "prompt-injection-testing-guide-2026",
+        "llm-eval-cost-latency-testing-guide-2026"
+      ],
+      "sources": [
+        "https://www.promptfoo.dev/docs/providers/",
+        "https://www.promptfoo.dev/docs/configuration/guide/",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "faqQuestions": [
+        "How do you script 429 and transient provider failures in Promptfoo and verify bounded concurrency, retries, case accounting, and terminal errors?",
+        "What fixture best tests how to promptfoo provider rate limit recovery?",
+        "Which failure signal proves promptfoo provider rate limit recovery example?",
+        "How should CI report Promptfoo 429 retry test?",
+        "When should Promptfoo max concurrency rate limit block a release?",
+        "How can teams keep LLM provider backoff eval repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/promptfoo-complete-guide-2026 before implementing this regression gate."
+    },
+    {
+      "batch": 40,
+      "batchPosition": 5,
+      "domain": "ai-llm-rag",
+      "slug": "unicode-prompt-injection-normalization-testing",
+      "primaryKeyword": "Unicode prompt injection normalization testing",
+      "title": "Unicode prompt injection normalization testing",
+      "description": "Unicode prompt injection normalization testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test prompt-injection filters against Unicode normalization, confusables, zero-width characters, bidirectional controls, and mixed scripts?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you test prompt-injection filters against Unicode normalization, confusables, zero-width characters, bidirectional controls, and mixed scripts?\" State the observable success condition, not a general introduction: Equivalent Unicode attack forms receive the same safety decision, original text remains available for evidence, and normalization cannot create trusted syntax.",
+      "intentBoundary": "The existing guide covers attack classes. This candidate owns Unicode canonicalization and invisible-character bypass matrices before filtering.",
+      "secondaryKeywords": [
+        "how to unicode prompt injection normalization testing",
+        "unicode prompt injection normalization testing example",
+        "Unicode jailbreak bypass test",
+        "zero width prompt injection",
+        "normalize confusable attack text"
+      ],
+      "outline": [
+        {
+          "heading": "What must Unicode prompt injection normalization testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you test prompt-injection filters against Unicode normalization, confusables, zero-width characters, bidirectional controls, and mixed scripts?\" in 40 to 60 words. Define the observable contract as: Equivalent Unicode attack forms receive the same safety decision, original text remains available for evidence, and normalization cannot create trusted syntax. Keep the scope inside this intent boundary: The existing guide covers attack classes. This candidate owns Unicode canonicalization and invisible-character bypass matrices before filtering.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md:95-99 includes multilingual transformations in the adversarial strategy.",
+            "seed-skills/prompt-testing/SKILL.md:721-728 requires multilingual and adversarial examples in every safety dataset."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md:95-99 includes multilingual transformations in the adversarial strategy.",
+            "seed-skills/prompt-testing/SKILL.md:721-728 requires multilingual and adversarial examples in every safety dataset."
+          ]
+        },
+        {
+          "heading": "How to unicode prompt injection normalization testing?",
+          "secondaryKeyword": "how to unicode prompt injection normalization testing",
+          "coverage": "Build the primary positive fixture with this harness: Generate a reviewed Unicode corpus across NFC, NFD, NFKC, NFKD, confusables, and invisible characters, then compare policy outcomes and code points. The decisive success oracle is: Equivalent Unicode attack forms receive the same safety decision, original text remains available for evidence, and normalization cannot create trusted syntax.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Unicode prompt injection normalization testing example: scenario and assertion matrix",
+          "secondaryKeyword": "unicode prompt injection normalization testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose Unicode jailbreak bypass test?",
+          "secondaryKeyword": "Unicode jailbreak bypass test",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: Homoglyphs, zero-width characters, direction controls, or alternate normalization forms bypass a rule or change role-boundary parsing. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should zero width prompt injection run in CI?",
+          "secondaryKeyword": "zero width prompt injection",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify normalize confusable attack text?",
+          "secondaryKeyword": "normalize confusable attack text",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: Homoglyphs, zero-width characters, direction controls, or alternate normalization forms bypass a rule or change role-boundary parsing.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/promptfoo-complete-guide-2026 before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Unicode prompt injection normalization testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Equivalent Unicode attack forms receive the same safety decision, original text remains available for evidence, and normalization cannot create trusted syntax.",
+          "Boundary case for unicode prompt injection normalization testing example with an exact pass or fail oracle",
+          "Negative case: Homoglyphs, zero-width characters, direction controls, or alternate normalization forms bypass a rule or change role-boundary parsing.",
+          "Repeated and concurrent execution for zero width prompt injection",
+          "CI evidence and ownership for normalize confusable attack text"
+        ],
+        "sources": [
+          "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "seed-skills/prompt-testing/SKILL.md",
+          "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+          "https://www.nist.gov/publications/adversarial-machine-learning-taxonomy-and-terminology-attacks-and-mitigations",
+          "https://www.promptfoo.dev/docs/red-team/configuration/"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Unicode prompt injection normalization testing in six steps",
+        "steps": [
+          "Read seed-skills/promptfoo-llm-red-teaming/SKILL.md:95-99 and seed-skills/prompt-testing/SKILL.md:721-728, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to unicode prompt injection normalization testing and unicode prompt injection normalization testing example without calling production services or mutating shared state.",
+          "Build the harness: Generate a reviewed Unicode corpus across NFC, NFD, NFKC, NFKD, confusables, and invisible characters, then compare policy outcomes and code points.",
+          "Run the expected path and assert: Equivalent Unicode attack forms receive the same safety decision, original text remains available for evidence, and normalization cannot create trusted syntax.",
+          "Inject boundary and failure cases and assert: Homoglyphs, zero-width characters, direction controls, or alternate normalization forms bypass a rule or change role-boundary parsing.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to unicode prompt injection normalization testing positive contract",
+          "repositoryPath": "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "repositoryLines": "95-99",
+          "exactEvidence": "includes multilingual transformations in the adversarial strategy.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Equivalent Unicode attack forms receive the same safety decision, original text remains available for evidence, and normalization cannot create trusted syntax.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "Unicode jailbreak bypass test negative contract",
+          "repositoryPath": "seed-skills/prompt-testing/SKILL.md",
+          "repositoryLines": "721-728",
+          "exactEvidence": "requires multilingual and adversarial examples in every safety dataset.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: Homoglyphs, zero-width characters, direction controls, or alternate normalization forms bypass a rule or change role-boundary parsing.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+        "seed-skills/prompt-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026",
+        "/blog/promptfoo-cli-tutorial-2026"
+      ],
+      "relatedSlugs": [
+        "promptfoo-complete-guide-2026",
+        "promptfoo-red-teaming-llm-applications",
+        "prompt-injection-testing-guide-2026",
+        "promptfoo-cli-tutorial-2026"
+      ],
+      "sources": [
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://www.nist.gov/publications/adversarial-machine-learning-taxonomy-and-terminology-attacks-and-mitigations",
+        "https://www.promptfoo.dev/docs/red-team/configuration/"
+      ],
+      "faqQuestions": [
+        "How do you test prompt-injection filters against Unicode normalization, confusables, zero-width characters, bidirectional controls, and mixed scripts?",
+        "What fixture best tests how to unicode prompt injection normalization testing?",
+        "Which failure signal proves unicode prompt injection normalization testing example?",
+        "How should CI report Unicode jailbreak bypass test?",
+        "When should zero width prompt injection block a release?",
+        "How can teams keep normalize confusable attack text repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/promptfoo-complete-guide-2026 before implementing this regression gate."
+    }
+  ]
+}

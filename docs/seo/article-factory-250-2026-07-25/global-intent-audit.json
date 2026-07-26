@@ -1,0 +1,937 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-25T05:56:03Z",
+  "auditOnly": true,
+  "inputs": {
+    "selected": {
+      "path": "docs/seo/article-factory-250-2026-07-25/selected.json",
+      "sha256": "ad9b4a1633a78cfbc2240ffcc3c21a44d222060f57ec4f96defa1e799ca1e481"
+    },
+    "baselineInventory": {
+      "path": "/private/tmp/qaskills-seo-inventory-250-20260725.json",
+      "sha256": "67c3ed366e3b87f01e2f8341cabdb1833999892c38acd66937e1568668bc6e08",
+      "records": 1528,
+      "articles": 1491,
+      "staticRoutes": 37
+    },
+    "priorRejectionLog": {
+      "path": "docs/seo/article-factory-2026-07-25/rejected.md",
+      "sha256": "cd7f9689adf0d611e70b622cfbb9973d7cc19c934c06ef73bb2caeb2de2189b9"
+    }
+  },
+  "scope": {
+    "selectedTopicsAudited": 250,
+    "reserveTopicsAvailable": 237,
+    "allTopicsEvaluatedAgainstEveryCheck": true,
+    "checks": [
+      "cross_domain_intent_cannibalization",
+      "unsafe_unresolved_implementation",
+      "insufficient_3000_word_coverage",
+      "misleading_or_unsupported_claim",
+      "existing_post_overlap"
+    ]
+  },
+  "counts": {
+    "passedOriginal": 176,
+    "failedOriginal": 74,
+    "replacementsAppliedToAuditQueue": 74,
+    "finalTopics": 250,
+    "finalUniqueSlugs": 250,
+    "finalUniquePrimaryKeywords": 250
+  },
+  "primaryFailureCounts": {
+    "cross_domain_intent_cannibalization": 4,
+    "unsafe_unresolved_implementation": 15,
+    "insufficient_3000_word_coverage": 2,
+    "misleading_or_unsupported_claim": 4,
+    "existing_post_overlap": 49
+  },
+  "domainCounts": {
+    "cli-sdk": {
+      "originalPassed": 29,
+      "originalFailed": 1,
+      "replacements": 1,
+      "final": 30
+    },
+    "web-auth-email": {
+      "originalPassed": 16,
+      "originalFailed": 14,
+      "replacements": 14,
+      "final": 30
+    },
+    "data-search-cache": {
+      "originalPassed": 16,
+      "originalFailed": 14,
+      "replacements": 14,
+      "final": 30
+    },
+    "skill-parser-validator": {
+      "originalPassed": 16,
+      "originalFailed": 14,
+      "replacements": 14,
+      "final": 30
+    },
+    "mcp-agents": {
+      "originalPassed": 16,
+      "originalFailed": 14,
+      "replacements": 14,
+      "final": 30
+    },
+    "playwright-browser": {
+      "originalPassed": 27,
+      "originalFailed": 8,
+      "replacements": 8,
+      "final": 35
+    },
+    "ai-llm-rag": {
+      "originalPassed": 30,
+      "originalFailed": 5,
+      "replacements": 5,
+      "final": 35
+    },
+    "testing-frameworks": {
+      "originalPassed": 26,
+      "originalFailed": 4,
+      "replacements": 4,
+      "final": 30
+    }
+  },
+  "replacements": [
+    {
+      "domain": "cli-sdk",
+      "original": "cli-sdk-002",
+      "originalSlug": "qaskills-skill-path-traversal-tests",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "The CLI install path is not contained after joining user-controlled skill names. Publishing this topic would disclose an unresolved write-path weakness already represented by the prior path-traversal rejection.",
+      "evidence": "packages/cli/src/lib/installer.ts and prior rejection log",
+      "replacement": "cli-sdk-053",
+      "replacementSlug": "qaskills-sdk-non-json-errors",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "web-auth-email",
+      "original": "WEB-036",
+      "originalSlug": "vercel-cron-bearer-authorization-tests",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "The weekly digest route only enforces the bearer token when CRON_SECRET exists, so an implementation article would imply fail-closed behavior that the route does not provide.",
+      "evidence": "packages/web/src/app/api/cron/weekly-digest/route.ts and prior rejection log",
+      "replacement": "WEB-052",
+      "replacementSlug": "new-skill-email-route-tests",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "web-auth-email",
+      "original": "WEB-002",
+      "originalSlug": "clerk-webhook-middleware-bypass-tests",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "The public middleware bypass is unsafe to document while the Clerk webhook handler still accepts an unverified request body. The prior log defers this area until signature verification exists.",
+      "evidence": "packages/web/src/middleware.ts, Clerk webhook route, and prior rejection log",
+      "replacement": "WEB-021",
+      "replacementSlug": "preference-api-auth-status-tests",
+      "replacementCoverageAbility": 10
+    },
+    {
+      "domain": "web-auth-email",
+      "original": "WEB-037",
+      "originalSlug": "missing-cron-secret-security-tests",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "This directly targets the missing-secret fail-open behavior that the prior rejection log says must be fixed before public coverage. It also cannibalizes WEB-036.",
+      "evidence": "packages/web/src/app/api/cron/weekly-digest/route.ts and prior rejection log",
+      "replacement": "WEB-057",
+      "replacementSlug": "skill-publish-validation-response-tests",
+      "replacementCoverageAbility": 10
+    },
+    {
+      "domain": "web-auth-email",
+      "original": "WEB-005",
+      "originalSlug": "disable-clerk-auth-environment-tests",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "The topic would publicize an environment-controlled authentication bypass rather than a production-safe contract. The bypass should be isolated or removed before it becomes article material.",
+      "evidence": "packages/web/src/middleware.ts",
+      "replacement": "WEB-062",
+      "replacementSlug": "review-api-validation-matrix-tests",
+      "replacementCoverageAbility": 10
+    },
+    {
+      "domain": "web-auth-email",
+      "original": "WEB-028",
+      "originalSlug": "selective-email-unsubscribe-api-tests",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Selective unsubscribe types and API behavior are already owned by the HMAC unsubscribe token article. A 3,000-word version would repeat its type matrix and endpoint flow.",
+      "evidence": "/blog/testing-hmac-unsubscribe-token-tampering-expiration",
+      "replacement": "WEB-020",
+      "replacementSlug": "concurrent-preference-bootstrap-tests",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "web-auth-email",
+      "original": "WEB-029",
+      "originalSlug": "unsubscribe-missing-preference-row-tests",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Missing preference rows and unsubscribe bootstrap behavior are already covered in the HMAC unsubscribe token article.",
+      "evidence": "/blog/testing-hmac-unsubscribe-token-tampering-expiration",
+      "replacement": "WEB-042",
+      "replacementSlug": "weekly-digest-get-post-parity",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "web-auth-email",
+      "original": "WEB-014",
+      "originalSlug": "clerk-welcome-email-isolation-tests",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Welcome-email failure isolation is already an explicit scenario in the Clerk webhook idempotency and batch email failure articles.",
+      "evidence": "/blog/testing-clerk-user-created-webhook-idempotency and /blog/testing-batch-email-partial-failures-promise-allsettled",
+      "replacement": "WEB-053",
+      "replacementSlug": "weekly-digest-ranking-link-tests",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "web-auth-email",
+      "original": "WEB-030",
+      "originalSlug": "unknown-unsubscribe-type-regression-tests",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Unknown unsubscribe-type fallback is already tested and explained in the HMAC unsubscribe token article.",
+      "evidence": "/blog/testing-hmac-unsubscribe-token-tampering-expiration",
+      "replacement": "WEB-061",
+      "replacementSlug": "telemetry-unknown-skill-response-tests",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "web-auth-email",
+      "original": "WEB-063",
+      "originalSlug": "duplicate-review-conflict-response-tests",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "The duplicate-review race and database-enforced uniqueness intent is already owned by the unique-constraint race article and the prior rejection log.",
+      "evidence": "/blog/testing-database-unique-constraint-races and prior rejection log",
+      "replacement": "WEB-024",
+      "replacementSlug": "accessible-email-preference-switch-tests",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "web-auth-email",
+      "original": "WEB-032",
+      "originalSlug": "unsubscribe-missing-token-ui-tests",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Missing-token behavior and the unsubscribe UI link flow are already covered by the HMAC unsubscribe token article.",
+      "evidence": "/blog/testing-hmac-unsubscribe-token-tampering-expiration",
+      "replacement": "WEB-025",
+      "replacementSlug": "preference-fetch-failure-ui-tests",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "web-auth-email",
+      "original": "WEB-015",
+      "originalSlug": "clerk-default-preference-provisioning-tests",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Default preference provisioning is already part of the Clerk user-created webhook idempotency article.",
+      "evidence": "/blog/testing-clerk-user-created-webhook-idempotency",
+      "replacement": "WEB-026",
+      "replacementSlug": "preference-save-status-lifecycle-tests",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "web-auth-email",
+      "original": "WEB-041",
+      "originalSlug": "weekly-digest-subscriber-filter-tests",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Subscriber filtering, batching, and delivery accounting are already the core workflow of the batch email partial-failure article.",
+      "evidence": "/blog/testing-batch-email-partial-failures-promise-allsettled",
+      "replacement": "WEB-051",
+      "replacementSlug": "react-email-utm-link-tests",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "web-auth-email",
+      "original": "WEB-010",
+      "originalSlug": "clerk-webhook-payload-fallback-tests",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Clerk payload field fallbacks and user provisioning are already explained with code in the Clerk webhook idempotency article.",
+      "evidence": "/blog/testing-clerk-user-created-webhook-idempotency",
+      "replacement": "WEB-033",
+      "replacementSlug": "unsubscribe-network-failure-ui-tests",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "web-auth-email",
+      "original": "WEB-013",
+      "originalSlug": "clerk-malformed-webhook-response-tests",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Malformed JSON and unknown Clerk event responses already appear in the Clerk webhook idempotency test matrix. The remaining angle is too narrow for an independent 3,000-word article.",
+      "evidence": "/blog/testing-clerk-user-created-webhook-idempotency",
+      "replacement": "WEB-054",
+      "replacementSlug": "email-footer-preference-route-tests",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "data-search-cache",
+      "original": "cache-08",
+      "originalSlug": "category-cache-invalidation-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Cache invalidation, TTL, failure, and stale-value testing are already owned by the Redis cache guide. Limiting the same workflow to categories does not create a distinct intent.",
+      "evidence": "/blog/redis-cache-testing-guide",
+      "replacement": "install-06",
+      "replacementSlug": "install-telemetry-replay-protection-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "data-search-cache",
+      "original": "artifact-03",
+      "originalSlug": "download-content-disposition-filename-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Filename and Content-Disposition assertions are already explicit sections of the versioned ZIP artifact article.",
+      "evidence": "/blog/testing-versioned-zip-artifact-sha256-etag",
+      "replacement": "install-02",
+      "replacementSlug": "install-telemetry-reference-resolution-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "data-search-cache",
+      "original": "data-01",
+      "originalSlug": "drizzle-deterministic-pagination-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Deterministic sort keys, page boundaries, duplicate records, and insert-delete drift are already owned by the offset pagination article.",
+      "evidence": "/blog/testing-offset-pagination-duplicate-records",
+      "replacement": "install-03",
+      "replacementSlug": "install-telemetry-action-mapping-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "data-search-cache",
+      "original": "review-02",
+      "originalSlug": "duplicate-review-concurrency-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Concurrent precheck races for one-review-per-user are already owned by the database unique-constraint race article and explicitly rejected in the prior log.",
+      "evidence": "/blog/testing-database-unique-constraint-races and prior rejection log",
+      "replacement": "install-05",
+      "replacementSlug": "install-telemetry-transaction-consistency-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "data-search-cache",
+      "original": "cache-09",
+      "originalSlug": "install-ranking-cache-staleness-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Install-driven leaderboard staleness and missing write invalidation are already central scenarios in the leaderboard cache isolation article.",
+      "evidence": "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+      "replacement": "review-01",
+      "replacementSlug": "review-rating-boundary-validation-testing",
+      "replacementCoverageAbility": 8
+    },
+    {
+      "domain": "data-search-cache",
+      "original": "leaderboard-01",
+      "originalSlug": "hot-skill-rank-formula-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "The hot-score formula, ranking inputs, and rank consistency are already covered by the leaderboard cache and ranking article.",
+      "evidence": "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+      "replacement": "data-09",
+      "replacementSlug": "postgres-cascade-delete-relation-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "data-search-cache",
+      "original": "data-06",
+      "originalSlug": "postgres-duplicate-slug-race-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Concurrent duplicate-slug creation is the same precheck-versus-unique-constraint need already answered by the database race article.",
+      "evidence": "/blog/testing-database-unique-constraint-races",
+      "replacement": "search-07",
+      "replacementSlug": "typesense-collection-schema-drift-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "data-search-cache",
+      "original": "cache-02",
+      "originalSlug": "redis-cache-stampede-concurrency-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Stampede concurrency, TTL behavior, and fallback costs are already covered in the Redis cache guide and leaderboard cache article.",
+      "evidence": "/blog/redis-cache-testing-guide and /blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+      "replacement": "install-08",
+      "replacementSlug": "install-telemetry-country-header-testing",
+      "replacementCoverageAbility": 8
+    },
+    {
+      "domain": "data-search-cache",
+      "original": "search-04",
+      "originalSlug": "typesense-postgres-sort-parity-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Typesense-to-Postgres sort mapping and drift are already explicit coverage in the multiselect facet filter article.",
+      "evidence": "/blog/testing-typesense-multiselect-facet-filter-queries",
+      "replacement": "data-02",
+      "replacementSlug": "postgres-pagination-count-consistency",
+      "replacementCoverageAbility": 8
+    },
+    {
+      "domain": "data-search-cache",
+      "original": "cache-06",
+      "originalSlug": "upstash-partial-environment-configuration-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Missing and partial Upstash configuration is part of the existing cache fallback intent, which the prior log assigns to the Redis cache guide.",
+      "evidence": "/blog/redis-cache-testing-guide and prior rejection log",
+      "replacement": "search-08",
+      "replacementSlug": "typesense-query-field-coverage-testing",
+      "replacementCoverageAbility": 8
+    },
+    {
+      "domain": "data-search-cache",
+      "original": "artifact-02",
+      "originalSlug": "zip-artifact-entry-layout-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "ZIP entry names, path safety, exact SKILL.md content, and archive layout are already covered by the versioned artifact article.",
+      "evidence": "/blog/testing-versioned-zip-artifact-sha256-etag",
+      "replacement": "search-02",
+      "replacementSlug": "typesense-connection-timeout-testing",
+      "replacementCoverageAbility": 8
+    },
+    {
+      "domain": "data-search-cache",
+      "original": "artifact-01",
+      "originalSlug": "artifact-version-mismatch-response-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Version mismatch responses are already a primary contract in the versioned ZIP artifact article.",
+      "evidence": "/blog/testing-versioned-zip-artifact-sha256-etag",
+      "replacement": "leaderboard-04",
+      "replacementSlug": "top-fifty-ranking-boundary-testing",
+      "replacementCoverageAbility": 8
+    },
+    {
+      "domain": "data-search-cache",
+      "original": "artifact-04",
+      "originalSlug": "artifact-content-length-byte-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Content-Length byte assertions and ZIP response headers are already covered by the versioned artifact article.",
+      "evidence": "/blog/testing-versioned-zip-artifact-sha256-etag",
+      "replacement": "review-03",
+      "replacementSlug": "review-average-rounding-contract-testing",
+      "replacementCoverageAbility": 8
+    },
+    {
+      "domain": "data-search-cache",
+      "original": "leaderboard-02",
+      "originalSlug": "deterministic-skill-rank-tie-breaker-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Tie instability and deterministic ranking are already explicit scenarios in the leaderboard cache and ranking article.",
+      "evidence": "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+      "replacement": "review-05",
+      "replacementSlug": "review-comment-length-validation-testing",
+      "replacementCoverageAbility": 8
+    },
+    {
+      "domain": "skill-parser-validator",
+      "original": "SPV-046",
+      "originalSlug": "agent-skill-git-commit-pinning",
+      "primaryFailure": "cross_domain_intent_cannibalization",
+      "reason": "Commit pinning is a supply-chain installation concern, not a parser contract. It would split the security and team distribution intent already owned outside this domain.",
+      "evidence": "/blog/agent-skill-security-review-checklist and /blog/distribute-agent-skills-across-team-monorepo",
+      "replacement": "SPV-028",
+      "replacementSlug": "skill-md-parser-default-masking",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "skill-parser-validator",
+      "original": "SPV-053",
+      "originalSlug": "agent-skill-zip-path-traversal",
+      "primaryFailure": "cross_domain_intent_cannibalization",
+      "reason": "ZIP path traversal belongs to artifact extraction and install containment. It collides with the versioned ZIP article and the unresolved install-path weakness, rather than parser validation.",
+      "evidence": "/blog/testing-versioned-zip-artifact-sha256-etag and prior rejection log",
+      "replacement": "SPV-033",
+      "replacementSlug": "skill-md-token-estimate-calibration",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "skill-parser-validator",
+      "original": "SPV-006",
+      "originalSlug": "skill-md-yaml-alias-expansion-limits",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "The parser has no repository-proven alias expansion limit. Publishing a defensive guide would claim a guard that is not implemented and expose a denial-of-service surface.",
+      "evidence": "packages/shared/src/parsers/skill-parser.ts",
+      "replacement": "SPV-022",
+      "replacementSlug": "skill-md-taxonomy-allowlist-validation",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "skill-parser-validator",
+      "original": "SPV-014",
+      "originalSlug": "skill-md-serializer-parity-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Comparing serializer outputs and round-trip parity is already a core section of the SKILL.md YAML frontmatter article.",
+      "evidence": "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+      "replacement": "SPV-025",
+      "replacementSlug": "skill-md-name-character-rules",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "skill-parser-validator",
+      "original": "SPV-012",
+      "originalSlug": "skill-md-scalar-newline-escaping",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "The current manual YAML builder does not safely escape all scalar newlines. The prior log says not to claim safe interpolation until the builder is fixed.",
+      "evidence": "packages/shared/src/parsers/skill-parser.ts and prior rejection log",
+      "replacement": "SPV-018",
+      "replacementSlug": "skill-md-token-range-invariants",
+      "replacementCoverageAbility": 8
+    },
+    {
+      "domain": "skill-parser-validator",
+      "original": "SPV-031",
+      "originalSlug": "skill-md-warning-error-policy",
+      "primaryFailure": "insufficient_3000_word_coverage",
+      "reason": "The repository exposes only a small warning-versus-error policy surface. A standalone 3,000-word article would pad the existing validation pipeline and schema guidance.",
+      "evidence": "/blog/validate-skill-md-in-ci-pipeline and validator source",
+      "replacement": "SPV-041",
+      "replacementSlug": "skill-md-agent-completeness-thresholds",
+      "replacementCoverageAbility": 8
+    },
+    {
+      "domain": "skill-parser-validator",
+      "original": "SPV-034",
+      "originalSlug": "skill-md-oversized-input-memory-testing",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "No parser input-size or memory limit is enforced in the repository. A public article would imply protection that does not exist and disclose an unbounded input surface.",
+      "evidence": "packages/shared/src/parsers/skill-parser.ts",
+      "replacement": "SPV-016",
+      "replacementSlug": "skill-md-semantic-version-compatibility",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "skill-parser-validator",
+      "original": "SPV-048",
+      "originalSlug": "agent-skill-metadata-source-mismatch",
+      "primaryFailure": "cross_domain_intent_cannibalization",
+      "reason": "Registry, artifact, and source metadata parity is already owned by download fallback and artifact contract coverage. It is not a distinct parser search intent.",
+      "evidence": "/blog/qaskills-cli-download-fallback-github-content-metadata and /blog/testing-versioned-zip-artifact-sha256-etag",
+      "replacement": "SPV-017",
+      "replacementSlug": "skill-md-unknown-field-handling",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "skill-parser-validator",
+      "original": "SPV-055",
+      "originalSlug": "agent-skill-download-header-injection",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "The candidate focuses on an unresolved response-filename and header trust boundary. Public coverage would disclose the weakness before a repository guard is established.",
+      "evidence": "artifact download route and prior security deferral policy",
+      "replacement": "SPV-021",
+      "replacementSlug": "skill-md-duplicate-list-value-validation",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "skill-parser-validator",
+      "original": "SPV-013",
+      "originalSlug": "skill-md-list-item-escaping",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "The manual YAML builder does not comprehensively quote list values. The existing round-trip article already limits its claim, and the prior log defers safe interpolation claims.",
+      "evidence": "packages/shared/src/parsers/skill-parser.ts, /blog/testing-skill-md-yaml-frontmatter-roundtrip, and prior rejection log",
+      "replacement": "SPV-020",
+      "replacementSlug": "skill-md-whitespace-only-metadata",
+      "replacementCoverageAbility": 8
+    },
+    {
+      "domain": "skill-parser-validator",
+      "original": "SPV-036",
+      "originalSlug": "skill-md-symlink-validation-boundary",
+      "primaryFailure": "misleading_or_unsupported_claim",
+      "reason": "The validator accepts SKILL.md content and does not implement a filesystem symlink boundary. The title promises a repository behavior that is outside this validator.",
+      "evidence": "packages/skill-validator source and shared parser API",
+      "replacement": "SPV-052",
+      "replacementSlug": "agent-skill-package-sbom-generation",
+      "replacementCoverageAbility": 10
+    },
+    {
+      "domain": "skill-parser-validator",
+      "original": "SPV-054",
+      "originalSlug": "agent-skill-deterministic-zip-builds",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Deterministic ZIP layout and its current limitations are already covered by the versioned artifact article.",
+      "evidence": "/blog/testing-versioned-zip-artifact-sha256-etag",
+      "replacement": "SPV-003",
+      "replacementSlug": "skill-md-byte-order-mark-handling",
+      "replacementCoverageAbility": 8
+    },
+    {
+      "domain": "skill-parser-validator",
+      "original": "SPV-047",
+      "originalSlug": "agent-skill-source-host-allowlisting",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "The installer does not expose a complete source-host allowlist contract. The proposed article would overstate current controls and disclose a source-trust gap.",
+      "evidence": "packages/cli/src/lib/installer.ts",
+      "replacement": "SPV-035",
+      "replacementSlug": "skill-md-invalid-utf8-validation",
+      "replacementCoverageAbility": 8
+    },
+    {
+      "domain": "skill-parser-validator",
+      "original": "SPV-038",
+      "originalSlug": "skill-md-quality-score-gaming",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "A public guide centered on gaming the live quality heuristic would expose ranking manipulation details. Quality boundaries can be tested without publishing an exploitation playbook.",
+      "evidence": "packages/shared quality-score utility and /blog/how-to-write-high-quality-qa-skills",
+      "replacement": "SPV-002",
+      "replacementSlug": "skill-md-body-whitespace-trimming",
+      "replacementCoverageAbility": 8
+    },
+    {
+      "domain": "mcp-agents",
+      "original": "mcp-zod-input-boundary-testing",
+      "originalSlug": "mcp-zod-input-boundary-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Zod boundaries, defaults, invalid inputs, and MCP error types are already owned by the MCP contract and schema drift articles.",
+      "evidence": "/blog/mcp-server-contract-testing-guide and /blog/mcp-search-filter-schema-drift-contract-tests",
+      "replacement": "mcp-telemetry-privacy-control-testing",
+      "replacementSlug": "mcp-telemetry-privacy-control-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "mcp-agents",
+      "original": "mcp-multi-filter-composition-testing",
+      "originalSlug": "mcp-multi-filter-composition-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Composed MCP search filters and schema defaults are already the main intent of the MCP search filter schema drift article.",
+      "evidence": "/blog/mcp-search-filter-schema-drift-contract-tests",
+      "replacement": "mcp-http-error-detail-testing",
+      "replacementSlug": "mcp-http-error-detail-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "mcp-agents",
+      "original": "mcp-install-path-traversal-testing",
+      "originalSlug": "mcp-install-path-traversal-testing",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "This is explicitly deferred in the prior log because the MCP install target is not contained. It must not ship as public implementation guidance before repair.",
+      "evidence": "packages/mcp/src/index.ts and prior rejection log",
+      "replacement": "mcp-malformed-json-response-testing",
+      "replacementSlug": "mcp-malformed-json-response-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "mcp-agents",
+      "original": "mcp-category-grouping-contract-testing",
+      "originalSlug": "mcp-category-grouping-contract-testing",
+      "primaryFailure": "misleading_or_unsupported_claim",
+      "reason": "The MCP server passes category API data through and does not implement an independent category-grouping contract. The title attributes behavior to the wrong layer.",
+      "evidence": "packages/mcp/src/index.ts and category API implementation",
+      "replacement": "mcp-leaderboard-truncation-contract-testing",
+      "replacementSlug": "mcp-leaderboard-truncation-contract-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "mcp-agents",
+      "original": "mcp-binary-entrypoint-smoke-testing",
+      "originalSlug": "mcp-binary-entrypoint-smoke-testing",
+      "primaryFailure": "cross_domain_intent_cannibalization",
+      "reason": "Binary entrypoint smoke coverage overlaps the selected CLI npm binary topic and the MCP subprocess launch topic. Keeping all three would split the same package-startup intent.",
+      "evidence": "selected cli-sdk-054 and selected mcp-subprocess-launch-smoke-testing",
+      "replacement": "mcp-npm-files-allowlist-testing",
+      "replacementSlug": "mcp-npm-files-allowlist-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "mcp-agents",
+      "original": "mcp-agent-install-discovery-testing",
+      "originalSlug": "mcp-agent-install-discovery-testing",
+      "primaryFailure": "misleading_or_unsupported_claim",
+      "reason": "The MCP install tool writes to a supplied target directory and does not perform the multi-agent discovery implemented by the CLI. The proposed title promises behavior the MCP package lacks.",
+      "evidence": "packages/mcp/src/index.ts and packages/cli/src/lib/agent-detector.ts",
+      "replacement": "mcp-node-engine-compatibility-testing",
+      "replacementSlug": "mcp-node-engine-compatibility-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "mcp-agents",
+      "original": "mcp-tools-list-regression-testing",
+      "originalSlug": "mcp-tools-list-regression-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "tools/list enumeration and regression checks are already covered by the MCP Inspector tutorial and MCP server contract guide.",
+      "evidence": "/blog/mcp-inspector-tutorial-2026 and /blog/mcp-server-contract-testing-guide",
+      "replacement": "mcp-workspace-dependency-isolation-testing",
+      "replacementSlug": "mcp-workspace-dependency-isolation-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "mcp-agents",
+      "original": "mcp-tool-error-envelope-testing",
+      "originalSlug": "mcp-tool-error-envelope-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Tool error envelopes, invalid inputs, and error types are already owned by the MCP contract testing guide.",
+      "evidence": "/blog/mcp-server-contract-testing-guide",
+      "replacement": "mcp-npm-publish-idempotency-testing",
+      "replacementSlug": "mcp-npm-publish-idempotency-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "mcp-agents",
+      "original": "mcp-search-query-encoding-tests",
+      "originalSlug": "mcp-search-query-encoding-tests",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Search argument encoding and filter serialization are already explicit scenarios in the MCP search filter schema drift article.",
+      "evidence": "/blog/mcp-search-filter-schema-drift-contract-tests",
+      "replacement": "mcp-client-working-directory-isolation",
+      "replacementSlug": "mcp-client-working-directory-isolation",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "mcp-agents",
+      "original": "mcp-search-limit-boundary-testing",
+      "originalSlug": "mcp-search-limit-boundary-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Search limit defaults and boundaries are already part of the MCP schema drift and contract test matrices.",
+      "evidence": "/blog/mcp-search-filter-schema-drift-contract-tests and /blog/mcp-server-contract-testing-guide",
+      "replacement": "mcp-client-environment-propagation-testing",
+      "replacementSlug": "mcp-client-environment-propagation-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "mcp-agents",
+      "original": "mcp-explicit-target-path-testing",
+      "originalSlug": "mcp-explicit-target-path-testing",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "Explicit target paths share the unresolved containment weakness in the MCP install tool. Publishing the path semantics would disclose the same deferred security issue.",
+      "evidence": "packages/mcp/src/index.ts and prior rejection log",
+      "replacement": "mcp-initialization-ordering-contract-tests",
+      "replacementSlug": "mcp-initialization-ordering-contract-tests",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "mcp-agents",
+      "original": "mcp-install-slug-validation-tests",
+      "originalSlug": "mcp-install-slug-validation-tests",
+      "primaryFailure": "unsafe_unresolved_implementation",
+      "reason": "The MCP tool accepts a free-form slug and resolves it into the target path without a proven containment guard. This is the same unresolved path-traversal surface.",
+      "evidence": "packages/mcp/src/index.ts and prior rejection log",
+      "replacement": "mcp-protocol-version-negotiation-tests",
+      "replacementSlug": "mcp-protocol-version-negotiation-tests",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "mcp-agents",
+      "original": "mcp-install-permission-failure-testing",
+      "originalSlug": "mcp-install-permission-failure-testing",
+      "primaryFailure": "insufficient_3000_word_coverage",
+      "reason": "Permission failure is one branch of the selected partial-write and rollback topic. On its own, the repository evidence is too narrow for 3,000 words without repeating that article.",
+      "evidence": "selected mcp-partial-install-failure-cleanup-testing",
+      "replacement": "mcp-capability-negotiation-contract-tests",
+      "replacementSlug": "mcp-capability-negotiation-contract-tests",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "mcp-agents",
+      "original": "mcp-idempotent-reinstall-behavior-testing",
+      "originalSlug": "mcp-idempotent-reinstall-behavior-testing",
+      "primaryFailure": "misleading_or_unsupported_claim",
+      "reason": "The tool advertises an idempotent hint but performs direct overwrite operations without a repository-proven full reinstall contract. The title would overstate behavior.",
+      "evidence": "packages/mcp/src/index.ts",
+      "replacement": "mcp-malformed-json-rpc-message-testing",
+      "replacementSlug": "mcp-malformed-json-rpc-message-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "playwright-browser",
+      "original": "PW-006",
+      "originalSlug": "playwright-cli-stale-reference-recovery",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Reference IDs, stale references, session resets, and recovery commands are already covered by the existing Playwright CLI guide.",
+      "evidence": "/blog/playwright-cli-complete-guide-2026",
+      "replacement": "PW-005",
+      "replacementSlug": "playwright-cli-close-versus-kill",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "playwright-browser",
+      "original": "PW-033",
+      "originalSlug": "playwright-fail-on-flaky-tests",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Fail-on-flaky behavior belongs to the existing retries and flaky-test guides, which already own CI failure policy after retries.",
+      "evidence": "/blog/playwright-retries-flaky-tests-guide-2026 and /blog/fix-flaky-tests-guide",
+      "replacement": "PW-008",
+      "replacementSlug": "playwright-cli-browser-selection-flags",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "playwright-browser",
+      "original": "PW-059",
+      "originalSlug": "playwright-mcp-capability-drift-tests",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Playwright MCP capability and assertion drift are already owned by the Playwright MCP capability guide and MCP schema drift coverage.",
+      "evidence": "/blog/playwright-mcp-testing-capability-guide-2026 and /blog/mcp-search-filter-schema-drift-contract-tests",
+      "replacement": "PW-045",
+      "replacementSlug": "playwright-fixture-timeout-isolation",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "playwright-browser",
+      "original": "PW-037",
+      "originalSlug": "playwright-project-teardown-dependencies",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Project teardown dependencies are already part of the existing Playwright global setup and teardown intent.",
+      "evidence": "/blog/playwright-global-setup-teardown-guide",
+      "replacement": "PW-051",
+      "replacementSlug": "playwright-list-tests-command",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "playwright-browser",
+      "original": "PW-039",
+      "originalSlug": "playwright-snapshot-path-template",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Snapshot paths, visual artifact naming, and baseline organization are already covered by the Playwright visual comparison and screenshot guides.",
+      "evidence": "/blog/playwright-visual-comparison-snapshots-guide and /blog/playwright-screenshots-pdf-guide-2026",
+      "replacement": "PW-018",
+      "replacementSlug": "playwright-waitforfunction-custom-polling",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "playwright-browser",
+      "original": "PW-041",
+      "originalSlug": "playwright-multiple-web-servers",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Multiple webServer configuration is already covered by the existing Playwright configuration guide and does not support a separate 3,000-word intent.",
+      "evidence": "/blog/playwright-test-config-options-complete-reference",
+      "replacement": "PW-024",
+      "replacementSlug": "playwright-context-clearcookies-filters",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "playwright-browser",
+      "original": "PW-042",
+      "originalSlug": "playwright-reuse-existing-server-safety",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "reuseExistingServer behavior and CI safety are already part of the existing Playwright configuration and webServer coverage.",
+      "evidence": "/blog/playwright-test-config-options-complete-reference",
+      "replacement": "PW-027",
+      "replacementSlug": "playwright-browsercontext-close-reason",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "playwright-browser",
+      "original": "PW-022",
+      "originalSlug": "playwright-custom-testid-attribute",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Custom test ID attributes, locator contracts, and resilient selector policy are already owned by the Playwright locators article.",
+      "evidence": "/blog/playwright-locators-best-practices-2026",
+      "replacement": "PW-029",
+      "replacementSlug": "playwright-response-security-details",
+      "replacementCoverageAbility": 10
+    },
+    {
+      "domain": "ai-llm-rag",
+      "original": "evaluation-dataset-duplicate-detection",
+      "originalSlug": "evaluation-dataset-duplicate-detection",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Duplicate and near-duplicate eval case detection is already covered with dataset hygiene workflows in the golden dataset and eval versioning guides.",
+      "evidence": "/blog/golden-dataset-llm-testing-guide-2026 and /blog/eval-dataset-versioning-guide-2026",
+      "replacement": "deepeval-parallel-provider-backoff-testing",
+      "replacementSlug": "deepeval-parallel-provider-backoff-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "ai-llm-rag",
+      "original": "promptfoo-assertion-aggregation-testing",
+      "originalSlug": "promptfoo-assertion-aggregation-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Promptfoo assertion scoring and aggregation are already covered by the custom JavaScript assertion example and broader Promptfoo testing guide.",
+      "evidence": "/blog/promptfoo-custom-javascript-assertion-example and /blog/promptfoo-llm-testing-guide",
+      "replacement": "deepeval-cached-response-regrading",
+      "replacementSlug": "deepeval-cached-response-regrading",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "ai-llm-rag",
+      "original": "rag-contradictory-evidence-testing",
+      "originalSlug": "rag-contradictory-evidence-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Contradictory retrieved evidence and answer-grounding checks are already explicit scenarios in the RAG testing and hallucination guides.",
+      "evidence": "/blog/rag-testing-complete-guide-2026 and /blog/hallucination-detection-pipeline-guide",
+      "replacement": "rag-hard-negative-retrieval-testing",
+      "replacementSlug": "rag-hard-negative-retrieval-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "ai-llm-rag",
+      "original": "tool-output-prompt-injection-testing",
+      "originalSlug": "tool-output-prompt-injection-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Untrusted tool-result injection is already covered by the prompt injection and Rebuff security guides.",
+      "evidence": "/blog/prompt-injection-testing-guide-2026 and /blog/rebuff-prompt-injection-testing-guide",
+      "replacement": "promptfoo-provider-rate-limit-recovery",
+      "replacementSlug": "promptfoo-provider-rate-limit-recovery",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "ai-llm-rag",
+      "original": "rag-context-order-sensitivity-testing",
+      "originalSlug": "rag-context-order-sensitivity-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Context ordering, lost-in-the-middle behavior, and retrieval-order sensitivity are already covered by the RAG pillar and long-context recall guide.",
+      "evidence": "/blog/rag-testing-complete-guide-2026 and /blog/needle-in-a-haystack-long-context-eval-guide-2026",
+      "replacement": "promptfoo-report-secret-redaction-testing",
+      "replacementSlug": "promptfoo-report-secret-redaction-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "testing-frameworks",
+      "original": "testing-frameworks-62",
+      "originalSlug": "database-soft-delete-uniqueness-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Soft-delete uniqueness and partial unique indexes are already directly owned by two existing database test articles.",
+      "evidence": "/blog/partial-unique-index-negative-tests-soft-delete and /blog/testing-soft-delete-query-filters",
+      "replacement": "testing-frameworks-04",
+      "replacementSlug": "vitest-module-reset-dynamic-imports",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "testing-frameworks",
+      "original": "testing-frameworks-66",
+      "originalSlug": "mutation-survivor-triage-workflow-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Mutation survivor review and triage are already covered across the Stryker, Cosmic Ray, and mutmut guides.",
+      "evidence": "/blog/mutation-testing-stryker-guide, /blog/cosmic-ray-python-mutation-testing-guide, and /blog/mutmut-python-mutation-testing-guide",
+      "replacement": "testing-frameworks-19",
+      "replacementSlug": "appium-w3c-gesture-coordinate-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "testing-frameworks",
+      "original": "testing-frameworks-56",
+      "originalSlug": "screenshot-subpixel-tolerance-calibration",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "Pixel thresholds, subpixel variance, and screenshot tolerance are already owned by the visual regression and Playwright visual comparison guides.",
+      "evidence": "/blog/visual-regression-testing-guide and /blog/playwright-visual-comparison-snapshots-guide",
+      "replacement": "testing-frameworks-28",
+      "replacementSlug": "jmeter-timer-scope-execution-testing",
+      "replacementCoverageAbility": 9
+    },
+    {
+      "domain": "testing-frameworks",
+      "original": "testing-frameworks-42",
+      "originalSlug": "oauth-state-replay-rejection-testing",
+      "primaryFailure": "existing_post_overlap",
+      "reason": "OAuth state, replay rejection, and PKCE security checks are already owned by the OAuth2 PKCE flow guide.",
+      "evidence": "/blog/oauth2-pkce-flow-testing-guide",
+      "replacement": "testing-frameworks-38",
+      "replacementSlug": "api-head-get-metadata-parity",
+      "replacementCoverageAbility": 8
+    }
+  ],
+  "replacementValidation": {
+    "allReplacementsExistInReserves": true,
+    "allReplacementsUseSameDomain": true,
+    "allReplacementCoverageAbilityScoresAtLeast8": true,
+    "minimumReplacementCoverageAbilityScore": 8,
+    "duplicateReplacementKeys": 0,
+    "duplicateFinalSlugs": 0,
+    "duplicateFinalPrimaryKeywords": 0,
+    "baselineSlugCollisionsAfterReplacement": 0,
+    "baselinePrimaryKeywordCollisionsAfterReplacement": 0,
+    "priorRejectionIntentCollisionsAfterReplacement": 0,
+    "crossDomainIntentCollisionsAfterReplacement": 0,
+    "unsafeUnresolvedImplementationTopicsAfterReplacement": 0,
+    "misleadingOrUnsupportedTopicsAfterReplacement": 0,
+    "topicsWithoutSufficient3000WordCoverageAfterReplacement": 0
+  },
+  "finalAssertion": {
+    "passed": true,
+    "statement": "All 250 selected topics were audited against the 1,528-record baseline, the prior rejection log, the source implementation, and each other. Replacing the 74 failed originals with the listed same-domain reserves yields a 250-topic audit queue with unique slugs and primary keywords, no unresolved implementation disclosure, no unsupported claims, no identified intent cannibalization, and sufficient evidence breadth for 3,000-word treatment.",
+    "selectedJsonModified": false,
+    "otherFilesModifiedByThisAudit": false
+  }
+}

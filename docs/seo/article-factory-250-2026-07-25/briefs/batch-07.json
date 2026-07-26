@@ -1,0 +1,986 @@
+{
+  "batch": 7,
+  "briefs": [
+    {
+      "batch": 7,
+      "domain": "web-auth-email",
+      "slug": "install-telemetry-compatibility-tests",
+      "primaryKeyword": "install telemetry compatibility tests",
+      "title": "Install telemetry compatibility tests",
+      "description": "install telemetry compatibility tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test current, legacy, and upcoming CLI install payloads through one normalized telemetry event contract?",
+      "secondaryKeywords": [
+        "legacy cli telemetry payload",
+        "skill slug telemetry normalization",
+        "install action mapping tests",
+        "agent type fallback testing",
+        "telemetry schema compatibility"
+      ],
+      "outline": [
+        {
+          "heading": "Install telemetry compatibility tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test current, legacy, and upcoming CLI install payloads through one normalized telemetry event contract?\" in 40 to 60 words, define the contract as current, legacy, and forward-compatible CLI install payloads must normalize into one event shape before skill lookup or install persistence, and state the observable pass criteria.",
+          "keyword": "install telemetry compatibility tests",
+          "evidence": [
+            "packages/web/src/lib/telemetry-normalize.ts:normalizeInstallEvent,isUuid",
+            "packages/web/src/lib/telemetry-normalize.test.ts:payload generations"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/lib/telemetry-normalize.ts:normalizeInstallEvent,isUuid; packages/web/src/lib/telemetry-normalize.test.ts:payload generations; packages/web/src/app/api/telemetry/install/route.ts:POST. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/lib/telemetry-normalize.ts:normalizeInstallEvent,isUuid",
+            "packages/web/src/lib/telemetry-normalize.test.ts:payload generations",
+            "packages/web/src/app/api/telemetry/install/route.ts:POST"
+          ]
+        },
+        {
+          "heading": "Legacy cli telemetry payload: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for legacy cli telemetry payload. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "legacy cli telemetry payload",
+          "evidence": [
+            "packages/web/src/lib/telemetry-normalize.ts:normalizeInstallEvent,isUuid",
+            "packages/web/src/lib/telemetry-normalize.test.ts:payload generations"
+          ]
+        },
+        {
+          "heading": "Skill slug telemetry normalization: Test Matrix",
+          "purpose": "Compare payload generation, skill identifier form, action alias, agent fallback, normalized fields, lookup branch, insert side effect, and HTTP response. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "skill slug telemetry normalization",
+          "evidence": [
+            "packages/web/src/lib/telemetry-normalize.ts:normalizeInstallEvent,isUuid",
+            "packages/web/src/lib/telemetry-normalize.test.ts:payload generations",
+            "packages/web/src/app/api/telemetry/install/route.ts:POST"
+          ]
+        },
+        {
+          "heading": "How Should Install action mapping tests Be Exercised?",
+          "purpose": "Build the harness for install action mapping tests, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "install action mapping tests",
+          "evidence": [
+            "packages/web/src/lib/telemetry-normalize.ts:normalizeInstallEvent,isUuid",
+            "packages/web/src/lib/telemetry-normalize.test.ts:payload generations"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Agent type fallback testing Procedure",
+          "purpose": "Present the numbered procedure for agent type fallback testing: Lift the current and legacy fixtures from telemetry-normalize.test.ts into a table-driven unit suite. Call normalizeInstallEvent for each payload and assert the complete normalized object, not selected fields. Pass normalized events through POST with controlled skill lookup and database insert doubles. Add unknown-skill and malformed-reference cases to the post-change regression command.",
+          "keyword": "agent type fallback testing",
+          "evidence": [
+            "packages/web/src/lib/telemetry-normalize.ts:normalizeInstallEvent,isUuid",
+            "packages/web/src/lib/telemetry-normalize.test.ts:payload generations",
+            "packages/web/src/app/api/telemetry/install/route.ts:POST"
+          ]
+        },
+        {
+          "heading": "Telemetry schema compatibility: Assertions and Diagnostics",
+          "purpose": "Cover telemetry schema compatibility with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "telemetry schema compatibility",
+          "evidence": [
+            "packages/web/src/lib/telemetry-normalize.test.ts:payload generations",
+            "packages/web/src/app/api/telemetry/install/route.ts:POST"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "Keep compatibility normalization separate from unknown-skill persistence policy so a payload regression cannot be hidden by the endpoint's silent-success behavior. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/lib/telemetry-normalize.ts:normalizeInstallEvent,isUuid",
+            "packages/web/src/lib/telemetry-normalize.test.ts:payload generations",
+            "packages/web/src/app/api/telemetry/install/route.ts:POST"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test current, legacy, and upcoming CLI install payloads through one normalized telemetry event contract?\" plus question variants based on legacy cli telemetry payload, skill slug telemetry normalization, install action mapping tests, agent type fallback testing, telemetry schema compatibility.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/lib/telemetry-normalize.ts:normalizeInstallEvent,isUuid",
+            "packages/web/src/lib/telemetry-normalize.test.ts:payload generations"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Browse the skills catalog and attach the compatibility matrix to the CLI telemetry post-flow before changing payload fields.",
+          "keyword": "install telemetry compatibility tests",
+          "evidence": ["packages/web/src/lib/telemetry-normalize.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Install telemetry compatibility tests test matrix",
+        "purpose": "Compare payload generation, skill identifier form, action alias, agent fallback, normalized fields, lookup branch, insert side effect, and HTTP response.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "current payload with skillSlug and explicit action",
+          "legacy payload with skill display name and agentType",
+          "UUID skill reference",
+          "unknown skill reference",
+          "missing optional agent and source fields"
+        ],
+        "sourcePaths": [
+          "packages/web/src/lib/telemetry-normalize.ts:normalizeInstallEvent,isUuid",
+          "packages/web/src/lib/telemetry-normalize.test.ts:payload generations",
+          "packages/web/src/app/api/telemetry/install/route.ts:POST"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Agent type fallback testing Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Lift the current and legacy fixtures from telemetry-normalize.test.ts into a table-driven unit suite."
+          },
+          {
+            "number": 2,
+            "action": "Call normalizeInstallEvent for each payload and assert the complete normalized object, not selected fields."
+          },
+          {
+            "number": 3,
+            "action": "Pass normalized events through POST with controlled skill lookup and database insert doubles."
+          },
+          {
+            "number": 4,
+            "action": "Add unknown-skill and malformed-reference cases to the post-change regression command."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/lib/telemetry-normalize.ts",
+          "symbols": "normalizeInstallEvent,isUuid",
+          "plannedSnippet": "Show a table-driven Vitest suite around normalizeInstallEvent and isUuid using the repository payload generations.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/lib/telemetry-normalize.test.ts",
+          "symbols": "payload generations",
+          "plannedSnippet": "Show a route-level POST test that controls slug, display-name, and UUID lookup before asserting insert behavior.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/lib/telemetry-normalize.ts:normalizeInstallEvent,isUuid",
+        "packages/web/src/lib/telemetry-normalize.test.ts:payload generations",
+        "packages/web/src/app/api/telemetry/install/route.ts:POST"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/api-contract-testing-microservices"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-disable-telemetry-do-not-track",
+        "api-testing-best-practices-guide",
+        "api-contract-testing-microservices",
+        "error-handling-testing-patterns"
+      ],
+      "sources": [
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "cta": {
+        "route": "/skills",
+        "anchorText": "Browse verified QA skills",
+        "action": "Browse the skills catalog and attach the compatibility matrix to the CLI telemetry post-flow before changing payload fields."
+      },
+      "batchPosition": 1
+    },
+    {
+      "batch": 7,
+      "domain": "web-auth-email",
+      "slug": "upstash-cache-configuration-fallback-tests",
+      "primaryKeyword": "upstash cache configuration fallback tests",
+      "title": "Upstash cache configuration fallback tests",
+      "description": "upstash cache configuration fallback tests: build a code-backed QA plan with verified QASkills paths, matrices, assertions, and regression checks.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you test absent, partial, and complete Upstash environment configuration while keeping cache reads and writes fail-soft?",
+      "secondaryKeywords": [
+        "upstash environment variable tests",
+        "redis cache disabled fallback",
+        "cache read fail soft",
+        "cache write nonfatal test",
+        "lazy redis client configuration"
+      ],
+      "outline": [
+        {
+          "heading": "Upstash cache configuration fallback tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test absent, partial, and complete Upstash environment configuration while keeping cache reads and writes fail-soft?\" in 40 to 60 words, define the contract as cache operations must disable themselves when Upstash configuration is absent or partial, and provider failures must not break the underlying request, and state the observable pass criteria.",
+          "keyword": "upstash cache configuration fallback tests",
+          "evidence": [
+            "packages/web/src/lib/cache.ts:getRedis,cacheGet,cacheSet,cacheDel",
+            "packages/web/src/app/api/categories/route.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/lib/cache.ts:getRedis,cacheGet,cacheSet,cacheDel; packages/web/src/app/api/categories/route.ts:cacheGetOrSet. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/lib/cache.ts:getRedis,cacheGet,cacheSet,cacheDel",
+            "packages/web/src/app/api/categories/route.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "Upstash environment variable tests: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for upstash environment variable tests. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "upstash environment variable tests",
+          "evidence": [
+            "packages/web/src/lib/cache.ts:getRedis,cacheGet,cacheSet,cacheDel",
+            "packages/web/src/app/api/categories/route.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "Redis cache disabled fallback: Test Matrix",
+          "purpose": "Compare environment state, Redis client creation, get result, set and delete behavior, fallback execution, log signal, and caller-visible response. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "redis cache disabled fallback",
+          "evidence": [
+            "packages/web/src/lib/cache.ts:getRedis,cacheGet,cacheSet,cacheDel",
+            "packages/web/src/app/api/categories/route.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "How Should Cache read fail soft Be Exercised?",
+          "purpose": "Build the harness for cache read fail soft, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "cache read fail soft",
+          "evidence": [
+            "packages/web/src/lib/cache.ts:getRedis,cacheGet,cacheSet,cacheDel",
+            "packages/web/src/app/api/categories/route.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Cache write nonfatal test Procedure",
+          "purpose": "Present the numbered procedure for cache write nonfatal test: Reset module state and environment variables before every configuration case. Import cache.ts after configuration so the lazy singleton observes the intended environment. Exercise cacheGet, cacheSet, cacheDel, and cacheGetOrSet with controlled Upstash results. Assert the original categories response still succeeds when cache reads or writes reject.",
+          "keyword": "cache write nonfatal test",
+          "evidence": [
+            "packages/web/src/lib/cache.ts:getRedis,cacheGet,cacheSet,cacheDel",
+            "packages/web/src/app/api/categories/route.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "Lazy redis client configuration: Assertions and Diagnostics",
+          "purpose": "Cover lazy redis client configuration with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "lazy redis client configuration",
+          "evidence": [
+            "packages/web/src/lib/cache.ts:getRedis,cacheGet,cacheSet,cacheDel",
+            "packages/web/src/app/api/categories/route.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "Do not confuse a disabled cache with a cached null value, and do not let a mocked Redis success bypass the real fetcher assertions. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/lib/cache.ts:getRedis,cacheGet,cacheSet,cacheDel",
+            "packages/web/src/app/api/categories/route.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test absent, partial, and complete Upstash environment configuration while keeping cache reads and writes fail-soft?\" plus question variants based on upstash environment variable tests, redis cache disabled fallback, cache read fail soft, cache write nonfatal test, lazy redis client configuration.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/lib/cache.ts:getRedis,cacheGet,cacheSet,cacheDel",
+            "packages/web/src/app/api/categories/route.ts:cacheGetOrSet"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Open the category catalog and add the configuration matrix to the cache regression suite before changing Upstash initialization.",
+          "keyword": "upstash cache configuration fallback tests",
+          "evidence": ["packages/web/src/lib/cache.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Upstash cache configuration fallback tests test matrix",
+        "purpose": "Compare environment state, Redis client creation, get result, set and delete behavior, fallback execution, log signal, and caller-visible response.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "both Upstash variables absent",
+          "URL present without token",
+          "token present without URL",
+          "complete configuration with a cache hit",
+          "complete configuration with provider rejection"
+        ],
+        "sourcePaths": [
+          "packages/web/src/lib/cache.ts:getRedis,cacheGet,cacheSet,cacheDel",
+          "packages/web/src/app/api/categories/route.ts:cacheGetOrSet"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Cache write nonfatal test Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Reset module state and environment variables before every configuration case."
+          },
+          {
+            "number": 2,
+            "action": "Import cache.ts after configuration so the lazy singleton observes the intended environment."
+          },
+          {
+            "number": 3,
+            "action": "Exercise cacheGet, cacheSet, cacheDel, and cacheGetOrSet with controlled Upstash results."
+          },
+          {
+            "number": 4,
+            "action": "Assert the original categories response still succeeds when cache reads or writes reject."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/lib/cache.ts",
+          "symbols": "getRedis,cacheGet,cacheSet,cacheDel",
+          "plannedSnippet": "Show Vitest module-isolation tests for getRedis under absent, partial, and complete environment configuration.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/app/api/categories/route.ts",
+          "symbols": "cacheGetOrSet",
+          "plannedSnippet": "Show a cacheGetOrSet test around the categories route that proves the fetcher remains authoritative after Redis errors.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/lib/cache.ts:getRedis,cacheGet,cacheSet,cacheDel",
+        "packages/web/src/app/api/categories/route.ts:cacheGetOrSet"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/categories",
+        "/leaderboard",
+        "/blog/redis-cache-testing-guide",
+        "/blog/testcontainers-redis-key-expiration-testing",
+        "/blog/testing-lazy-neon-database-initialization-nextjs-build"
+      ],
+      "relatedSlugs": [
+        "redis-cache-testing-guide",
+        "testcontainers-redis-key-expiration-testing",
+        "testing-lazy-neon-database-initialization-nextjs-build",
+        "error-handling-testing-patterns"
+      ],
+      "sources": [
+        "https://upstash.com/docs/redis/overall/getstarted",
+        "https://upstash.com/docs/redis/sdks/ts/commands/string/get"
+      ],
+      "cta": {
+        "route": "/categories",
+        "anchorText": "Open categories",
+        "action": "Open the category catalog and add the configuration matrix to the cache regression suite before changing Upstash initialization."
+      },
+      "batchPosition": 2
+    },
+    {
+      "batch": 7,
+      "domain": "web-auth-email",
+      "slug": "clerk-user-updated-webhook-tests",
+      "primaryKeyword": "clerk user updated webhook tests",
+      "title": "Clerk user updated webhook tests",
+      "description": "clerk user updated webhook tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test Clerk user.updated mapping so email, username, name, avatar, and updatedAt stay synchronized?",
+      "secondaryKeywords": [
+        "clerk profile sync tests",
+        "user updated webhook mapping",
+        "clerk email update database",
+        "webhook updatedAt assertion",
+        "clerk avatar sync testing"
+      ],
+      "outline": [
+        {
+          "heading": "Clerk user updated webhook tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test Clerk user.updated mapping so email, username, name, avatar, and updatedAt stay synchronized?\" in 40 to 60 words, define the contract as Clerk user.updated events must synchronize mutable profile fields onto the existing QASkills user without creating a second identity row, and state the observable pass criteria.",
+          "keyword": "clerk user updated webhook tests",
+          "evidence": [
+            "packages/web/src/app/api/webhooks/clerk/route.ts:user.updated branch",
+            "packages/web/src/db/schema/users.ts:users"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/app/api/webhooks/clerk/route.ts:user.updated branch; packages/web/src/db/schema/users.ts:users. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/webhooks/clerk/route.ts:user.updated branch",
+            "packages/web/src/db/schema/users.ts:users"
+          ]
+        },
+        {
+          "heading": "Clerk profile sync tests: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for clerk profile sync tests. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "clerk profile sync tests",
+          "evidence": [
+            "packages/web/src/app/api/webhooks/clerk/route.ts:user.updated branch",
+            "packages/web/src/db/schema/users.ts:users"
+          ]
+        },
+        {
+          "heading": "User updated webhook mapping: Test Matrix",
+          "purpose": "Compare changed Clerk fields, mapped database values, omitted source fields, updatedAt behavior, missing local user handling, and response status. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "user updated webhook mapping",
+          "evidence": [
+            "packages/web/src/app/api/webhooks/clerk/route.ts:user.updated branch",
+            "packages/web/src/db/schema/users.ts:users"
+          ]
+        },
+        {
+          "heading": "How Should Clerk email update database Be Exercised?",
+          "purpose": "Build the harness for clerk email update database, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "clerk email update database",
+          "evidence": [
+            "packages/web/src/app/api/webhooks/clerk/route.ts:user.updated branch",
+            "packages/web/src/db/schema/users.ts:users"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Webhook updatedAt assertion Procedure",
+          "purpose": "Present the numbered procedure for webhook updatedAt assertion: Create signed user.updated fixtures with one controlled field change per case. Stub webhook verification and capture the Drizzle update values and Clerk ID predicate. Assert email, username, name, avatar, and updatedAt mapping for complete and sparse profiles. Replay the event and include missing-row behavior in the webhook post-flow.",
+          "keyword": "webhook updatedAt assertion",
+          "evidence": [
+            "packages/web/src/app/api/webhooks/clerk/route.ts:user.updated branch",
+            "packages/web/src/db/schema/users.ts:users"
+          ]
+        },
+        {
+          "heading": "Clerk avatar sync testing: Assertions and Diagnostics",
+          "purpose": "Cover clerk avatar sync testing with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "clerk avatar sync testing",
+          "evidence": [
+            "packages/web/src/app/api/webhooks/clerk/route.ts:user.updated branch",
+            "packages/web/src/db/schema/users.ts:users"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "This brief owns profile synchronization only, while user.created replay safety and missed-webhook recovery remain in their existing articles. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/webhooks/clerk/route.ts:user.updated branch",
+            "packages/web/src/db/schema/users.ts:users"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test Clerk user.updated mapping so email, username, name, avatar, and updatedAt stay synchronized?\" plus question variants based on clerk profile sync tests, user updated webhook mapping, clerk email update database, webhook updatedAt assertion, clerk avatar sync testing.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/webhooks/clerk/route.ts:user.updated branch",
+            "packages/web/src/db/schema/users.ts:users"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Review the protected preference flow and add the update mapping matrix before changing Clerk profile synchronization.",
+          "keyword": "clerk user updated webhook tests",
+          "evidence": ["packages/web/src/app/api/webhooks/clerk/route.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Clerk user updated webhook tests test matrix",
+        "purpose": "Compare changed Clerk fields, mapped database values, omitted source fields, updatedAt behavior, missing local user handling, and response status.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "email address changed",
+          "username and full name changed",
+          "avatar changed",
+          "optional profile values cleared",
+          "event for a Clerk ID with no local row"
+        ],
+        "sourcePaths": [
+          "packages/web/src/app/api/webhooks/clerk/route.ts:user.updated branch",
+          "packages/web/src/db/schema/users.ts:users"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Webhook updatedAt assertion Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Create signed user.updated fixtures with one controlled field change per case."
+          },
+          {
+            "number": 2,
+            "action": "Stub webhook verification and capture the Drizzle update values and Clerk ID predicate."
+          },
+          {
+            "number": 3,
+            "action": "Assert email, username, name, avatar, and updatedAt mapping for complete and sparse profiles."
+          },
+          {
+            "number": 4,
+            "action": "Replay the event and include missing-row behavior in the webhook post-flow."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/app/api/webhooks/clerk/route.ts",
+          "symbols": "user.updated branch",
+          "plannedSnippet": "Show a route test for the user.updated branch that captures the update set and where clause.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/db/schema/users.ts",
+          "symbols": "users",
+          "plannedSnippet": "Show schema-backed assertions proving Clerk IDs remain the stable lookup key while profile columns change.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/webhooks/clerk/route.ts:user.updated branch",
+        "packages/web/src/db/schema/users.ts:users"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/blog/testing-clerk-user-created-webhook-idempotency",
+        "/blog/testing-missed-clerk-webhook-user-recovery",
+        "/blog/webhook-testing-complete-guide-2026",
+        "/dashboard/preferences"
+      ],
+      "relatedSlugs": [
+        "testing-clerk-user-created-webhook-idempotency",
+        "testing-missed-clerk-webhook-user-recovery",
+        "webhook-testing-complete-guide-2026",
+        "authentication-authorization-testing-guide"
+      ],
+      "sources": [
+        "https://clerk.com/docs/guides/development/webhooks/overview",
+        "https://clerk.com/docs/guides/development/webhooks/syncing"
+      ],
+      "cta": {
+        "route": "/dashboard/preferences",
+        "anchorText": "Open dashboard preferences",
+        "action": "Review the protected preference flow and add the update mapping matrix before changing Clerk profile synchronization."
+      },
+      "batchPosition": 3
+    },
+    {
+      "batch": 7,
+      "domain": "web-auth-email",
+      "slug": "new-skill-email-route-tests",
+      "primaryKeyword": "new skill email route tests",
+      "title": "New skill email route tests",
+      "description": "new skill email route tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you verify that author and slug values create a valid skill detail URL and matching CLI install command in alert emails?",
+      "secondaryKeywords": [
+        "skill alert url test",
+        "author slug email link",
+        "qaskills cli command email",
+        "react email dynamic route",
+        "published skill cta assertion"
+      ],
+      "outline": [
+        {
+          "heading": "New skill email route tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you verify that author and slug values create a valid skill detail URL and matching CLI install command in alert emails?\" in 40 to 60 words, define the contract as new-skill alert templates must derive one valid author-qualified skill URL and a matching CLI install command from the published skill record, and state the observable pass criteria.",
+          "keyword": "new skill email route tests",
+          "evidence": [
+            "packages/web/src/emails/new-skill-alert.tsx:skillUrl and quick install code",
+            "packages/web/src/app/skills/[author]/[slug]/page.tsx:skill detail route"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/emails/new-skill-alert.tsx:skillUrl and quick install code; packages/web/src/app/skills/[author]/[slug]/page.tsx:skill detail route. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/emails/new-skill-alert.tsx:skillUrl and quick install code",
+            "packages/web/src/app/skills/[author]/[slug]/page.tsx:skill detail route"
+          ]
+        },
+        {
+          "heading": "Skill alert url test: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for skill alert url test. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "skill alert url test",
+          "evidence": [
+            "packages/web/src/emails/new-skill-alert.tsx:skillUrl and quick install code",
+            "packages/web/src/app/skills/[author]/[slug]/page.tsx:skill detail route"
+          ]
+        },
+        {
+          "heading": "Author slug email link: Test Matrix",
+          "purpose": "Compare author, slug, encoded route, displayed skill name, CLI command, CTA href, tracking parameters, and destination route. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "author slug email link",
+          "evidence": [
+            "packages/web/src/emails/new-skill-alert.tsx:skillUrl and quick install code",
+            "packages/web/src/app/skills/[author]/[slug]/page.tsx:skill detail route"
+          ]
+        },
+        {
+          "heading": "How Should Qaskills cli command email Be Exercised?",
+          "purpose": "Build the harness for qaskills cli command email, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "qaskills cli command email",
+          "evidence": [
+            "packages/web/src/emails/new-skill-alert.tsx:skillUrl and quick install code",
+            "packages/web/src/app/skills/[author]/[slug]/page.tsx:skill detail route"
+          ]
+        },
+        {
+          "heading": "Step-by-Step React email dynamic route Procedure",
+          "purpose": "Present the numbered procedure for react email dynamic route: Create a canonical published-skill fixture with author, slug, name, and description. Render NewSkillAlert and extract every href plus the quick-install code block. Resolve the author-qualified route against the dynamic skill page contract. Assert the route slug and CLI argument remain identical in the email regression test.",
+          "keyword": "react email dynamic route",
+          "evidence": [
+            "packages/web/src/emails/new-skill-alert.tsx:skillUrl and quick install code",
+            "packages/web/src/app/skills/[author]/[slug]/page.tsx:skill detail route"
+          ]
+        },
+        {
+          "heading": "Published skill cta assertion: Assertions and Diagnostics",
+          "purpose": "Cover published skill cta assertion with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "published skill cta assertion",
+          "evidence": [
+            "packages/web/src/emails/new-skill-alert.tsx:skillUrl and quick install code",
+            "packages/web/src/app/skills/[author]/[slug]/page.tsx:skill detail route"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "Test route construction independently from delivery so a Resend failure cannot obscure a broken destination or install command. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/emails/new-skill-alert.tsx:skillUrl and quick install code",
+            "packages/web/src/app/skills/[author]/[slug]/page.tsx:skill detail route"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you verify that author and slug values create a valid skill detail URL and matching CLI install command in alert emails?\" plus question variants based on skill alert url test, author slug email link, qaskills cli command email, react email dynamic route, published skill cta assertion.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/emails/new-skill-alert.tsx:skillUrl and quick install code",
+            "packages/web/src/app/skills/[author]/[slug]/page.tsx:skill detail route"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Open the publishing guide and add the rendered-link contract before changing alert template routes or CLI copy.",
+          "keyword": "new skill email route tests",
+          "evidence": ["packages/web/src/emails/new-skill-alert.tsx"]
+        }
+      ],
+      "tablePlan": {
+        "title": "New skill email route tests test matrix",
+        "purpose": "Compare author, slug, encoded route, displayed skill name, CLI command, CTA href, tracking parameters, and destination route.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "simple author and slug",
+          "mixed-case author display value",
+          "hyphenated slug",
+          "characters requiring route encoding",
+          "mismatch between route slug and CLI argument"
+        ],
+        "sourcePaths": [
+          "packages/web/src/emails/new-skill-alert.tsx:skillUrl and quick install code",
+          "packages/web/src/app/skills/[author]/[slug]/page.tsx:skill detail route"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step React email dynamic route Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Create a canonical published-skill fixture with author, slug, name, and description."
+          },
+          {
+            "number": 2,
+            "action": "Render NewSkillAlert and extract every href plus the quick-install code block."
+          },
+          {
+            "number": 3,
+            "action": "Resolve the author-qualified route against the dynamic skill page contract."
+          },
+          {
+            "number": 4,
+            "action": "Assert the route slug and CLI argument remain identical in the email regression test."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/emails/new-skill-alert.tsx",
+          "symbols": "skillUrl and quick install code",
+          "plannedSnippet": "Show a React Email render test that extracts skillUrl, CTA text, and the qaskills add command.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/app/skills/[author]/[slug]/page.tsx",
+          "symbols": "skill detail route",
+          "plannedSnippet": "Show a route-contract assertion against the [author]/[slug] page parameters using the same fixture.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/emails/new-skill-alert.tsx:skillUrl and quick install code",
+        "packages/web/src/app/skills/[author]/[slug]/page.tsx:skill detail route"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/how-to-publish",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled",
+        "/blog/testing-lazy-resend-initialization-nextjs-build",
+        "/blog/how-to-write-high-quality-qa-skills"
+      ],
+      "relatedSlugs": [
+        "testing-batch-email-partial-failures-promise-allsettled",
+        "testing-lazy-resend-initialization-nextjs-build",
+        "how-to-write-high-quality-qa-skills",
+        "qaskills-add-custom-directory-ci"
+      ],
+      "sources": [
+        "https://react.email/docs/components/link",
+        "https://nextjs.org/docs/app/getting-started/layouts-and-pages"
+      ],
+      "cta": {
+        "route": "/how-to-publish",
+        "anchorText": "Open how-to-publish",
+        "action": "Open the publishing guide and add the rendered-link contract before changing alert template routes or CLI copy."
+      },
+      "batchPosition": 4
+    },
+    {
+      "batch": 7,
+      "domain": "web-auth-email",
+      "slug": "preference-api-auth-status-tests",
+      "primaryKeyword": "preference api auth status tests",
+      "title": "Preference api auth status tests",
+      "description": "preference api auth status tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test the difference between an unauthenticated Clerk request, a missing database user, and an internal preference failure?",
+      "secondaryKeywords": [
+        "preferences api 401 404",
+        "clerk user missing database",
+        "nextjs auth error matrix",
+        "api status code assertions",
+        "preference endpoint failure tests"
+      ],
+      "outline": [
+        {
+          "heading": "Preference api auth status tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test the difference between an unauthenticated Clerk request, a missing database user, and an internal preference failure?\" in 40 to 60 words, define the contract as the preference API must distinguish no Clerk session, an authenticated identity without a local user, and an unexpected preference failure, and state the observable pass criteria.",
+          "keyword": "preference api auth status tests",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET and PATCH 401,404,500 branches",
+            "packages/web/src/middleware.ts:isProtectedRoute"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/app/api/user/preferences/route.ts:GET and PATCH 401,404,500 branches; packages/web/src/middleware.ts:isProtectedRoute. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET and PATCH 401,404,500 branches",
+            "packages/web/src/middleware.ts:isProtectedRoute"
+          ]
+        },
+        {
+          "heading": "Preferences api 401 404: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for preferences api 401 404. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "preferences api 401 404",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET and PATCH 401,404,500 branches",
+            "packages/web/src/middleware.ts:isProtectedRoute"
+          ]
+        },
+        {
+          "heading": "Clerk user missing database: Test Matrix",
+          "purpose": "Compare request identity, middleware result, local-user lookup, preference query result, response status, response body, and logging expectation. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "clerk user missing database",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET and PATCH 401,404,500 branches",
+            "packages/web/src/middleware.ts:isProtectedRoute"
+          ]
+        },
+        {
+          "heading": "How Should Nextjs auth error matrix Be Exercised?",
+          "purpose": "Build the harness for nextjs auth error matrix, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "nextjs auth error matrix",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET and PATCH 401,404,500 branches",
+            "packages/web/src/middleware.ts:isProtectedRoute"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Api status code assertions Procedure",
+          "purpose": "Present the numbered procedure for api status code assertions: Build a request matrix that controls Clerk auth and getAuthUser independently. Invoke GET and PATCH for each identity state without bypassing middleware assumptions. Assert exact 401, 404, success, and 500 bodies alongside database call counts. Run the same public and protected route checks in the browser post-flow.",
+          "keyword": "api status code assertions",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET and PATCH 401,404,500 branches",
+            "packages/web/src/middleware.ts:isProtectedRoute"
+          ]
+        },
+        {
+          "heading": "Preference endpoint failure tests: Assertions and Diagnostics",
+          "purpose": "Cover preference endpoint failure tests with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "preference endpoint failure tests",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET and PATCH 401,404,500 branches",
+            "packages/web/src/middleware.ts:isProtectedRoute"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "A 401 proves no authenticated session, while a 404 proves identity and local persistence disagree; tests must never treat them as interchangeable. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET and PATCH 401,404,500 branches",
+            "packages/web/src/middleware.ts:isProtectedRoute"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test the difference between an unauthenticated Clerk request, a missing database user, and an internal preference failure?\" plus question variants based on preferences api 401 404, clerk user missing database, nextjs auth error matrix, api status code assertions, preference endpoint failure tests.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:GET and PATCH 401,404,500 branches",
+            "packages/web/src/middleware.ts:isProtectedRoute"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Exercise the protected preferences route and add the status matrix to the API post-flow before changing auth handling.",
+          "keyword": "preference api auth status tests",
+          "evidence": ["packages/web/src/app/api/user/preferences/route.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Preference api auth status tests test matrix",
+        "purpose": "Compare request identity, middleware result, local-user lookup, preference query result, response status, response body, and logging expectation.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "unauthenticated request",
+          "authenticated Clerk user missing locally",
+          "known user with preferences",
+          "known user without a preference row",
+          "database query rejection"
+        ],
+        "sourcePaths": [
+          "packages/web/src/app/api/user/preferences/route.ts:GET and PATCH 401,404,500 branches",
+          "packages/web/src/middleware.ts:isProtectedRoute"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Api status code assertions Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Build a request matrix that controls Clerk auth and getAuthUser independently."
+          },
+          {
+            "number": 2,
+            "action": "Invoke GET and PATCH for each identity state without bypassing middleware assumptions."
+          },
+          {
+            "number": 3,
+            "action": "Assert exact 401, 404, success, and 500 bodies alongside database call counts."
+          },
+          {
+            "number": 4,
+            "action": "Run the same public and protected route checks in the browser post-flow."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/app/api/user/preferences/route.ts",
+          "symbols": "GET and PATCH 401,404,500 branches",
+          "plannedSnippet": "Show route-handler tests for the GET and PATCH 401, 404, and 500 branches.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/middleware.ts",
+          "symbols": "isProtectedRoute",
+          "plannedSnippet": "Show middleware matrix assertions proving the preference subtree is protected before route code executes.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/user/preferences/route.ts:GET and PATCH 401,404,500 branches",
+        "packages/web/src/middleware.ts:isProtectedRoute"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/dashboard/preferences",
+        "/blog/authentication-authorization-testing-guide",
+        "/blog/testing-missed-clerk-webhook-user-recovery",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "authentication-authorization-testing-guide",
+        "testing-missed-clerk-webhook-user-recovery",
+        "api-testing-best-practices-guide",
+        "api-security-testing-checklist-2026"
+      ],
+      "sources": [
+        "https://clerk.com/docs/reference/nextjs/app-router/current-user",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "cta": {
+        "route": "/dashboard/preferences",
+        "anchorText": "Open dashboard preferences",
+        "action": "Exercise the protected preferences route and add the status matrix to the API post-flow before changing auth handling."
+      },
+      "batchPosition": 5
+    }
+  ]
+}

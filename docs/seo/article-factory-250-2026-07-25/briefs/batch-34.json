@@ -1,0 +1,965 @@
+{
+  "batch": 34,
+  "briefs": [
+    {
+      "id": "PW-023",
+      "batch": 34,
+      "domain": "playwright-browser",
+      "slug": "playwright-context-indexeddb-storage-state",
+      "primaryKeyword": "playwright context indexeddb storage state",
+      "title": "Playwright Context IndexedDB Storage State",
+      "description": "playwright context indexeddb storage state: capture and restore IndexedDB authentication state. Repo evidence maps checks and CI-safe steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you include IndexedDB data in Playwright BrowserContext storage state and prove that authentication still restores correctly?",
+      "secondaryKeywords": [
+        "playwright storage state indexeddb",
+        "include indexeddb authentication state",
+        "playwright browsercontext storage snapshot",
+        "restore indexeddb login playwright",
+        "indexeddb auth token e2e",
+        "storage state roundtrip test"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright Context IndexedDB Storage State Control?",
+          "question": true,
+          "coverage": "Answer How do you include IndexedDB data in Playwright BrowserContext storage state and prove that authentication still restores correctly? Define the boundary: BrowserContext storage state can include IndexedDB data when explicitly requested for applications that store auth there. State what this workflow does not replace.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/children-playwright-core-2026.ts"]
+        },
+        {
+          "heading": "How Does Playwright Storage State IndexedDB Work?",
+          "question": true,
+          "secondaryKeyword": "playwright storage state indexeddb",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind save context.storageState({ path: 'playwright/.auth/user.json', indexedDB: true }) and load it into a new context. Distinguish observation from assertion.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/children-playwright-core-2026.ts"]
+        },
+        {
+          "heading": "Include IndexedDB Authentication State: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "include indexeddb authentication state",
+          "coverage": "Walk through the relevant repository example in packages/web/src/app/blog/posts/children-playwright-core-2026.ts and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/children-playwright-core-2026.ts"]
+        },
+        {
+          "heading": "When Should QA Teams Use Playwright BrowserContext Storage Snapshot?",
+          "question": true,
+          "secondaryKeyword": "playwright browsercontext storage snapshot",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/storage-state.md"]
+        },
+        {
+          "heading": "Restore IndexedDB Login Playwright: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "restore indexeddb login playwright",
+          "coverage": "Reproduce and diagnose this primary risk: the state file contains cookies and localStorage but silently omits the IndexedDB credential. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/storage-state.md"]
+        },
+        {
+          "heading": "IndexedDB Auth Token E2e: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "indexeddb auth token e2e",
+          "coverage": "Specify the assertion and CI record: prove the new context restores the authenticated user while an omitted-IndexedDB control cannot reuse that token. Require state-file path, origin entries, IndexedDB inclusion flag, restored identity, and control result so the result remains reviewable.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/children-playwright-core-2026.ts",
+            "seed-skills/playwright-cli/references/storage-state.md"
+          ]
+        },
+        {
+          "heading": "Storage State Roundtrip Test Comparison Table",
+          "question": false,
+          "secondaryKeyword": "storage state roundtrip test",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/children-playwright-core-2026.ts",
+            "seed-skills/playwright-cli/references/storage-state.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright Context IndexedDB Storage State?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/children-playwright-core-2026.ts",
+            "seed-skills/playwright-cli/references/storage-state.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/children-playwright-core-2026.ts",
+            "seed-skills/playwright-cli/references/storage-state.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/children-playwright-core-2026.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright Context IndexedDB Storage State Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "cookies and localStorage",
+            "useWhen": "Use the default storage snapshot for common authentication state",
+            "expectedEvidence": "state-file path, origin entries, IndexedDB inclusion flag, restored identity, and control result",
+            "mainRisk": "the state file contains cookies and localStorage but silently omits the IndexedDB credential"
+          },
+          {
+            "option": "IndexedDB inclusion",
+            "useWhen": "Enable when the application stores authentication material in IndexedDB",
+            "expectedEvidence": "state-file path, origin entries, IndexedDB inclusion flag, restored identity, and control result",
+            "mainRisk": "the state file contains cookies and localStorage but silently omits the IndexedDB credential"
+          },
+          {
+            "option": "fresh context control",
+            "useWhen": "Prove the saved state, not shared process state, restores the session",
+            "expectedEvidence": "state-file path, origin entries, IndexedDB inclusion flag, restored identity, and control result",
+            "mainRisk": "the state file contains cookies and localStorage but silently omits the IndexedDB credential"
+          },
+          {
+            "option": "interactive login",
+            "useWhen": "Use only to create or refresh state, not as the assertion itself",
+            "expectedEvidence": "state-file path, origin entries, IndexedDB inclusion flag, restored identity, and control result",
+            "mainRisk": "the state file contains cookies and localStorage but silently omits the IndexedDB credential"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/api/class-browsercontext#browser-context-storage-state",
+          "packages/web/src/app/blog/posts/children-playwright-core-2026.ts",
+          "seed-skills/playwright-cli/references/storage-state.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright context indexeddb storage state",
+        "steps": [
+          "Read packages/web/src/app/blog/posts/children-playwright-core-2026.ts and define the expected contract: BrowserContext storage state can include IndexedDB data when explicitly requested for applications that store auth there.",
+          "Create the smallest isolated test or CLI session and implement save context.storageState({ path: 'playwright/.auth/user.json', indexedDB: true }) and load it into a new context.",
+          "Exercise the success case, then reproduce the controlled failure where the state file contains cookies and localStorage but silently omits the IndexedDB credential.",
+          "Apply the release assertion: prove the new context restores the authenticated user while an omitted-IndexedDB control cannot reuse that token.",
+          "Capture state-file path, origin entries, IndexedDB inclusion flag, restored identity, and control result, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright Context IndexedDB Storage State: primary implementation",
+          "language": "typescript",
+          "repoPath": "packages/web/src/app/blog/posts/children-playwright-core-2026.ts",
+          "plannedSnippet": "await context.storageState({ path: 'playwright/.auth/user.json', indexedDB: true });",
+          "purpose": "Implement save context.storageState({ path: 'playwright/.auth/user.json', indexedDB: true }) and load it into a new context using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright Context IndexedDB Storage State: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-cli/references/storage-state.md",
+          "plannedSnippet": "const restored = await browser.newContext({ storageState: 'playwright/.auth/user.json' });",
+          "purpose": "Prove prove the new context restores the authenticated user while an omitted-IndexedDB control cannot reuse that token and retain state-file path, origin entries, IndexedDB inclusion flag, restored identity, and control result."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/blog/posts/children-playwright-core-2026.ts",
+        "seed-skills/playwright-cli/references/storage-state.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-storagestate-authentication-reference",
+        "/blog/playwright-authentication-testing-storage-state-2026",
+        "/blog/playwright-browser-context-guide-2026",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-storagestate-authentication-reference",
+        "playwright-authentication-testing-storage-state-2026",
+        "playwright-browser-context-guide-2026",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/api/class-browsercontext#browser-context-storage-state",
+        "https://playwright.dev/docs/auth",
+        "https://playwright.dev/docs/release-notes"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright storage state indexeddb?",
+        "How do you verify include indexeddb authentication state?",
+        "When should a QA team choose playwright browsercontext storage snapshot?",
+        "What causes failures in restore indexeddb login playwright?",
+        "Which evidence should indexeddb auth token e2e retain?",
+        "How should CI handle storage state roundtrip test?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 1
+    },
+    {
+      "id": "PW-044",
+      "batch": 34,
+      "domain": "playwright-browser",
+      "slug": "playwright-global-timeout-ci",
+      "primaryKeyword": "playwright global timeout ci",
+      "title": "Playwright Global Timeout CI",
+      "description": "playwright global timeout ci: cap total browser-suite time without masking test causes. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you set a Playwright global timeout that caps the entire CI run without masking per-test timeout causes?",
+      "secondaryKeywords": [
+        "playwright globaltimeout config",
+        "cap total e2e runtime",
+        "playwright ci job timeout",
+        "global versus test timeout",
+        "browser suite deadline",
+        "diagnose global timeout exceeded"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright Global Timeout CI Control?",
+          "question": true,
+          "coverage": "Answer How do you set a Playwright global timeout that caps the entire CI run without masking per-test timeout causes? Define the boundary: globalTimeout limits the entire Playwright run independently from test, hook, action, navigation, and web-server deadlines. State what this workflow does not replace.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "How Does Playwright Globaltimeout Config Work?",
+          "question": true,
+          "secondaryKeyword": "playwright globaltimeout config",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind set a CI-only globalTimeout above the expected full-suite duration but below the CI job timeout. Distinguish observation from assertion.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "Cap Total E2e Runtime: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "cap total e2e runtime",
+          "coverage": "Walk through the relevant repository example in packages/web/playwright.config.ts and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "When Should QA Teams Use Playwright CI Job Timeout?",
+          "question": true,
+          "secondaryKeyword": "playwright ci job timeout",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["packages/web/package.json"]
+        },
+        {
+          "heading": "Global Versus Test Timeout: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "global versus test timeout",
+          "coverage": "Reproduce and diagnose this primary risk: the suite-wide cap expires before reporters upload evidence or is used to hide one consistently slow test. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["packages/web/package.json"]
+        },
+        {
+          "heading": "Browser Suite Deadline: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "browser suite deadline",
+          "coverage": "Specify the assertion and CI record: trigger a controlled suite overrun and confirm reports distinguish the global deadline from individual test timeouts. Require configured deadlines, elapsed suite time, last completed test, reporter output, and CI job status so the result remains reviewable.",
+          "repoEvidence": ["packages/web/playwright.config.ts", "packages/web/package.json"]
+        },
+        {
+          "heading": "Diagnose Global Timeout Exceeded Comparison Table",
+          "question": false,
+          "secondaryKeyword": "diagnose global timeout exceeded",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": ["packages/web/playwright.config.ts", "packages/web/package.json"]
+        },
+        {
+          "heading": "How Do You Implement Playwright Global Timeout CI?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": ["packages/web/playwright.config.ts", "packages/web/package.json"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": ["packages/web/playwright.config.ts", "packages/web/package.json"]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright Global Timeout CI Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "globalTimeout",
+            "useWhen": "Bound total Playwright execution across every project and test",
+            "expectedEvidence": "configured deadlines, elapsed suite time, last completed test, reporter output, and CI job status",
+            "mainRisk": "the suite-wide cap expires before reporters upload evidence or is used to hide one consistently slow test"
+          },
+          {
+            "option": "test timeout",
+            "useWhen": "Bound one test plus its fixture and hook lifecycle",
+            "expectedEvidence": "configured deadlines, elapsed suite time, last completed test, reporter output, and CI job status",
+            "mainRisk": "the suite-wide cap expires before reporters upload evidence or is used to hide one consistently slow test"
+          },
+          {
+            "option": "webServer timeout",
+            "useWhen": "Bound application startup before test execution",
+            "expectedEvidence": "configured deadlines, elapsed suite time, last completed test, reporter output, and CI job status",
+            "mainRisk": "the suite-wide cap expires before reporters upload evidence or is used to hide one consistently slow test"
+          },
+          {
+            "option": "CI job timeout",
+            "useWhen": "Provide an outer platform safety cap after Playwright cleanup time",
+            "expectedEvidence": "configured deadlines, elapsed suite time, last completed test, reporter output, and CI job status",
+            "mainRisk": "the suite-wide cap expires before reporters upload evidence or is used to hide one consistently slow test"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/test-timeouts",
+          "packages/web/playwright.config.ts",
+          "packages/web/package.json"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright global timeout ci",
+        "steps": [
+          "Read packages/web/playwright.config.ts and define the expected contract: globalTimeout limits the entire Playwright run independently from test, hook, action, navigation, and web-server deadlines.",
+          "Create the smallest isolated test or CLI session and implement set a CI-only globalTimeout above the expected full-suite duration but below the CI job timeout.",
+          "Exercise the success case, then reproduce the controlled failure where the suite-wide cap expires before reporters upload evidence or is used to hide one consistently slow test.",
+          "Apply the release assertion: trigger a controlled suite overrun and confirm reports distinguish the global deadline from individual test timeouts.",
+          "Capture configured deadlines, elapsed suite time, last completed test, reporter output, and CI job status, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright Global Timeout CI: primary implementation",
+          "language": "typescript",
+          "repoPath": "packages/web/playwright.config.ts",
+          "plannedSnippet": "export default defineConfig({ globalTimeout: process.env.CI ? 30 * 60_000 : undefined });",
+          "purpose": "Implement set a CI-only globalTimeout above the expected full-suite duration but below the CI job timeout using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright Global Timeout CI: failure assertion and evidence",
+          "language": "json",
+          "repoPath": "packages/web/package.json",
+          "plannedSnippet": "npx playwright test --reporter=dot",
+          "purpose": "Prove trigger a controlled suite overrun and confirm reports distinguish the global deadline from individual test timeouts and retain configured deadlines, elapsed suite time, last completed test, reporter output, and CI job status."
+        }
+      ],
+      "repoEvidence": ["packages/web/playwright.config.ts", "packages/web/package.json"],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-test-config-options-complete-reference",
+        "/blog/playwright-test-timeout-exceeded-after-hook-fix",
+        "/blog/playwright-ci-github-actions-complete-guide-2026",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-test-config-options-complete-reference",
+        "playwright-test-timeout-exceeded-after-hook-fix",
+        "playwright-ci-github-actions-complete-guide-2026",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/test-timeouts",
+        "https://playwright.dev/docs/api/class-testconfig#test-config-global-timeout",
+        "https://playwright.dev/docs/ci"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright globaltimeout config?",
+        "How do you verify cap total e2e runtime?",
+        "When should a QA team choose playwright ci job timeout?",
+        "What causes failures in global versus test timeout?",
+        "Which evidence should browser suite deadline retain?",
+        "How should CI handle diagnose global timeout exceeded?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 2
+    },
+    {
+      "id": "PW-014",
+      "batch": 34,
+      "domain": "playwright-browser",
+      "slug": "playwright-cli-conditional-api-mocking",
+      "primaryKeyword": "playwright cli conditional api mocking",
+      "title": "Playwright CLI Conditional API Mocking",
+      "description": "playwright cli conditional api mocking: mock API responses from request-body conditions. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you inspect a request body and return different mocked API responses through Playwright CLI run-code?",
+      "secondaryKeywords": [
+        "playwright cli request body mock",
+        "conditional route fulfill playwright",
+        "playwright run-code api mock",
+        "mock response by request payload",
+        "playwright cli login api mock",
+        "terminal conditional network stub"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright CLI Conditional API Mocking Control?",
+          "question": true,
+          "coverage": "Answer How do you inspect a request body and return different mocked API responses through Playwright CLI run-code? Define the boundary: Playwright CLI run-code can register page routes, inspect postDataJSON, and fulfill different responses. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/request-mocking.md"]
+        },
+        {
+          "heading": "How Does Playwright CLI Request Body Mock Work?",
+          "question": true,
+          "secondaryKeyword": "playwright cli request body mock",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind route the target endpoint, parse the request payload, branch on validated fields, and fulfill an explicit status and JSON body. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/request-mocking.md"]
+        },
+        {
+          "heading": "Conditional Route Fulfill Playwright: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "conditional route fulfill playwright",
+          "coverage": "Walk through the relevant repository example in seed-skills/playwright-cli/references/request-mocking.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/request-mocking.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Playwright Run-code API Mock?",
+          "question": true,
+          "secondaryKeyword": "playwright run-code api mock",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/running-code.md"]
+        },
+        {
+          "heading": "Mock Response By Request Payload: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "mock response by request payload",
+          "coverage": "Reproduce and diagnose this primary risk: a broad route intercepts unrelated calls or unvalidated JSON parsing crashes the browser workflow. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/running-code.md"]
+        },
+        {
+          "heading": "Playwright CLI Login API Mock: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "playwright cli login api mock",
+          "coverage": "Specify the assertion and CI record: submit matching, nonmatching, and malformed payloads and assert both UI behavior and captured request evidence. Require matched URL, request payload, selected branch, fulfilled status, response body, and UI assertion so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/references/request-mocking.md",
+            "seed-skills/playwright-cli/references/running-code.md"
+          ]
+        },
+        {
+          "heading": "Terminal Conditional Network Stub Comparison Table",
+          "question": false,
+          "secondaryKeyword": "terminal conditional network stub",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/references/request-mocking.md",
+            "seed-skills/playwright-cli/references/running-code.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright CLI Conditional API Mocking?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/references/request-mocking.md",
+            "seed-skills/playwright-cli/references/running-code.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/references/request-mocking.md",
+            "seed-skills/playwright-cli/references/running-code.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/request-mocking.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright CLI Conditional API Mocking Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "payload branch",
+            "useWhen": "Return a deterministic response for one request-body condition",
+            "expectedEvidence": "matched URL, request payload, selected branch, fulfilled status, response body, and UI assertion",
+            "mainRisk": "a broad route intercepts unrelated calls or unvalidated JSON parsing crashes the browser workflow"
+          },
+          {
+            "option": "default branch",
+            "useWhen": "Return an explicit fallback so unmatched requests do not hang",
+            "expectedEvidence": "matched URL, request payload, selected branch, fulfilled status, response body, and UI assertion",
+            "mainRisk": "a broad route intercepts unrelated calls or unvalidated JSON parsing crashes the browser workflow"
+          },
+          {
+            "option": "route fallback",
+            "useWhen": "Allow unrelated handlers or network traffic to continue when appropriate",
+            "expectedEvidence": "matched URL, request payload, selected branch, fulfilled status, response body, and UI assertion",
+            "mainRisk": "a broad route intercepts unrelated calls or unvalidated JSON parsing crashes the browser workflow"
+          },
+          {
+            "option": "abort",
+            "useWhen": "Model a transport failure separately from an application error response",
+            "expectedEvidence": "matched URL, request payload, selected branch, fulfilled status, response body, and UI assertion",
+            "mainRisk": "a broad route intercepts unrelated calls or unvalidated JSON parsing crashes the browser workflow"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/getting-started-cli",
+          "seed-skills/playwright-cli/references/request-mocking.md",
+          "seed-skills/playwright-cli/references/running-code.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright cli conditional api mocking",
+        "steps": [
+          "Read seed-skills/playwright-cli/references/request-mocking.md and define the expected contract: Playwright CLI run-code can register page routes, inspect postDataJSON, and fulfill different responses.",
+          "Create the smallest isolated test or CLI session and implement route the target endpoint, parse the request payload, branch on validated fields, and fulfill an explicit status and JSON body.",
+          "Exercise the success case, then reproduce the controlled failure where a broad route intercepts unrelated calls or unvalidated JSON parsing crashes the browser workflow.",
+          "Apply the release assertion: submit matching, nonmatching, and malformed payloads and assert both UI behavior and captured request evidence.",
+          "Capture matched URL, request payload, selected branch, fulfilled status, response body, and UI assertion, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright CLI Conditional API Mocking: primary implementation",
+          "language": "bash",
+          "repoPath": "seed-skills/playwright-cli/references/request-mocking.md",
+          "plannedSnippet": "playwright-cli run-code \"async page => page.route(\\\"**/api/login\\\", async route => { const body = route.request().postDataJSON(); await route.fulfill({ status: body.role === \\\"admin\\\" ? 200 : 403, json: { role: body.role } }); })\"",
+          "purpose": "Implement route the target endpoint, parse the request payload, branch on validated fields, and fulfill an explicit status and JSON body using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright CLI Conditional API Mocking: failure assertion and evidence",
+          "language": "bash",
+          "repoPath": "seed-skills/playwright-cli/references/running-code.md",
+          "plannedSnippet": "playwright-cli run-code \"async page => { await page.getByRole(\\\"button\\\", { name: \\\"Sign in\\\" }).click(); await page.getByRole(\\\"status\\\").waitFor(); }\"",
+          "purpose": "Prove submit matching, nonmatching, and malformed payloads and assert both UI behavior and captured request evidence and retain matched URL, request payload, selected branch, fulfilled status, response body, and UI assertion."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/playwright-cli/references/request-mocking.md",
+        "seed-skills/playwright-cli/references/running-code.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-cli-complete-guide-2026",
+        "/blog/playwright-route-fulfill-mock-api-guide",
+        "/blog/playwright-network-mocking-route-handler-guide",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-cli-complete-guide-2026",
+        "playwright-route-fulfill-mock-api-guide",
+        "playwright-network-mocking-route-handler-guide",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/getting-started-cli",
+        "https://github.com/microsoft/playwright-cli",
+        "https://playwright.dev/docs/network"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright cli request body mock?",
+        "How do you verify conditional route fulfill playwright?",
+        "When should a QA team choose playwright run-code api mock?",
+        "What causes failures in mock response by request payload?",
+        "Which evidence should playwright cli login api mock retain?",
+        "How should CI handle terminal conditional network stub?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 3
+    },
+    {
+      "id": "PW-057",
+      "batch": 34,
+      "domain": "playwright-browser",
+      "slug": "playwright-mcp-evidence-manifest-testing",
+      "primaryKeyword": "playwright mcp evidence manifest testing",
+      "title": "Playwright MCP Evidence Manifest Testing",
+      "description": "playwright mcp evidence manifest testing: validate every MCP evidence-manifest artifact. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you validate that a Playwright MCP run's evidence manifest references every required screenshot, trace, log, and session artifact?",
+      "secondaryKeywords": [
+        "playwright mcp artifact manifest",
+        "validate browser agent evidence",
+        "mcp screenshot trace inventory",
+        "missing browser artifact test",
+        "agent session evidence checksum",
+        "playwright mcp output contract"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright MCP Evidence Manifest Testing Control?",
+          "question": true,
+          "coverage": "Answer How do you validate that a Playwright MCP run's evidence manifest references every required screenshot, trace, log, and session artifact? Define the boundary: an MCP evidence manifest is complete only when each required artifact is declared, addressable, and tied to the run. State what this workflow does not replace.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts"]
+        },
+        {
+          "heading": "How Does Playwright MCP Artifact Manifest Work?",
+          "question": true,
+          "secondaryKeyword": "playwright mcp artifact manifest",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind validate manifest schema, required artifact classes, relative paths, content metadata, and optional checksums. Distinguish observation from assertion.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts"]
+        },
+        {
+          "heading": "Validate Browser Agent Evidence: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "validate browser agent evidence",
+          "coverage": "Walk through the relevant repository example in packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts"]
+        },
+        {
+          "heading": "When Should QA Teams Use MCP Screenshot Trace Inventory?",
+          "question": true,
+          "secondaryKeyword": "mcp screenshot trace inventory",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["packages/web/e2e/article-factory-2026-07-25.e2e.ts"]
+        },
+        {
+          "heading": "Missing Browser Artifact Test: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "missing browser artifact test",
+          "coverage": "Reproduce and diagnose this primary risk: the manifest passes while a screenshot, trace, log, or saved session path is missing or points outside the run. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["packages/web/e2e/article-factory-2026-07-25.e2e.ts"]
+        },
+        {
+          "heading": "Agent Session Evidence Checksum: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "agent session evidence checksum",
+          "coverage": "Specify the assertion and CI record: create missing, duplicate, corrupt, and cross-run artifact cases and assert precise validation failures. Require manifest, artifact type, path, size, checksum when used, sensitivity class, and validation result so the result remains reviewable.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts",
+            "packages/web/e2e/article-factory-2026-07-25.e2e.ts"
+          ]
+        },
+        {
+          "heading": "Playwright MCP Output Contract Comparison Table",
+          "question": false,
+          "secondaryKeyword": "playwright mcp output contract",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts",
+            "packages/web/e2e/article-factory-2026-07-25.e2e.ts"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright MCP Evidence Manifest Testing?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts",
+            "packages/web/e2e/article-factory-2026-07-25.e2e.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts",
+            "packages/web/e2e/article-factory-2026-07-25.e2e.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright MCP Evidence Manifest Testing Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "screenshot entry",
+            "useWhen": "Provide visual evidence tied to a named browser step",
+            "expectedEvidence": "manifest, artifact type, path, size, checksum when used, sensitivity class, and validation result",
+            "mainRisk": "the manifest passes while a screenshot, trace, log, or saved session path is missing or points outside the run"
+          },
+          {
+            "option": "trace entry",
+            "useWhen": "Provide runner or browser chronology for diagnostic replay",
+            "expectedEvidence": "manifest, artifact type, path, size, checksum when used, sensitivity class, and validation result",
+            "mainRisk": "the manifest passes while a screenshot, trace, log, or saved session path is missing or points outside the run"
+          },
+          {
+            "option": "log entry",
+            "useWhen": "Provide console or network evidence with an explicit format",
+            "expectedEvidence": "manifest, artifact type, path, size, checksum when used, sensitivity class, and validation result",
+            "mainRisk": "the manifest passes while a screenshot, trace, log, or saved session path is missing or points outside the run"
+          },
+          {
+            "option": "session entry",
+            "useWhen": "Declare saved state with sensitivity and retention controls",
+            "expectedEvidence": "manifest, artifact type, path, size, checksum when used, sensitivity class, and validation result",
+            "mainRisk": "the manifest passes while a screenshot, trace, log, or saved session path is missing or points outside the run"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/mcp/configuration/options",
+          "packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts",
+          "packages/web/e2e/article-factory-2026-07-25.e2e.ts"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright mcp evidence manifest testing",
+        "steps": [
+          "Read packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts and define the expected contract: an MCP evidence manifest is complete only when each required artifact is declared, addressable, and tied to the run.",
+          "Create the smallest isolated test or CLI session and implement validate manifest schema, required artifact classes, relative paths, content metadata, and optional checksums.",
+          "Exercise the success case, then reproduce the controlled failure where the manifest passes while a screenshot, trace, log, or saved session path is missing or points outside the run.",
+          "Apply the release assertion: create missing, duplicate, corrupt, and cross-run artifact cases and assert precise validation failures.",
+          "Capture manifest, artifact type, path, size, checksum when used, sensitivity class, and validation result, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright MCP Evidence Manifest Testing: primary implementation",
+          "language": "typescript",
+          "repoPath": "packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts",
+          "plannedSnippet": "const required = [\"screenshot\", \"trace\", \"console\", \"network\"]; expect(new Set(manifest.artifacts.map(a => a.type))).toEqual(new Set(required));",
+          "purpose": "Implement validate manifest schema, required artifact classes, relative paths, content metadata, and optional checksums using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright MCP Evidence Manifest Testing: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "packages/web/e2e/article-factory-2026-07-25.e2e.ts",
+          "plannedSnippet": "for (const artifact of manifest.artifacts) await expect(fs.stat(path.join(runDir, artifact.path))).resolves.toBeDefined();",
+          "purpose": "Prove create missing, duplicate, corrupt, and cross-run artifact cases and assert precise validation failures and retain manifest, artifact type, path, size, checksum when used, sensitivity class, and validation result."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts",
+        "packages/web/e2e/article-factory-2026-07-25.e2e.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-mcp-browser-automation-guide",
+        "/blog/playwright-screenshots-videos-traces-complete-guide",
+        "/blog/observability-driven-testing-guide",
+        "/blog/playwright-mcp-testing-capability-guide-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-mcp-browser-automation-guide",
+        "playwright-screenshots-videos-traces-complete-guide",
+        "observability-driven-testing-guide",
+        "playwright-mcp-testing-capability-guide-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/mcp/configuration/options",
+        "https://playwright.dev/mcp/capabilities",
+        "https://github.com/microsoft/playwright-mcp"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright mcp artifact manifest?",
+        "How do you verify validate browser agent evidence?",
+        "When should a QA team choose mcp screenshot trace inventory?",
+        "What causes failures in missing browser artifact test?",
+        "Which evidence should agent session evidence checksum retain?",
+        "How should CI handle playwright mcp output contract?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 4
+    },
+    {
+      "id": "PW-018",
+      "batch": 34,
+      "domain": "playwright-browser",
+      "slug": "playwright-waitforfunction-custom-polling",
+      "primaryKeyword": "playwright waitforfunction custom polling",
+      "title": "Playwright waitForFunction Custom Polling",
+      "description": "playwright waitforfunction custom polling: poll custom browser state without fixed waits. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you configure Playwright waitForFunction polling for browser state that cannot be expressed as a locator assertion?",
+      "secondaryKeywords": [
+        "playwright waitforfunction interval",
+        "wait for browser global playwright",
+        "playwright raf polling",
+        "waitforfunction timeout debugging",
+        "service worker readiness wait",
+        "browser state polling test"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright waitForFunction Custom Polling Control?",
+          "question": true,
+          "coverage": "Answer How do you configure Playwright waitForFunction polling for browser state that cannot be expressed as a locator assertion? Define the boundary: page.waitForFunction repeatedly evaluates a browser predicate until it is truthy or its timeout expires. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/running-code.md"]
+        },
+        {
+          "heading": "How Does Playwright waitForFunction Interval Work?",
+          "question": true,
+          "secondaryKeyword": "playwright waitforfunction interval",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind use requestAnimationFrame or a measured interval only for browser state that cannot use a locator assertion. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/running-code.md"]
+        },
+        {
+          "heading": "Wait For Browser Global Playwright: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "wait for browser global playwright",
+          "coverage": "Walk through the relevant repository example in seed-skills/playwright-cli/references/running-code.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/running-code.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Playwright Raf Polling?",
+          "question": true,
+          "secondaryKeyword": "playwright raf polling",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/offline-mode-tester/SKILL.md"]
+        },
+        {
+          "heading": "waitForFunction Timeout Debugging: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "waitforfunction timeout debugging",
+          "coverage": "Reproduce and diagnose this primary risk: the predicate has side effects, closes over unavailable test values, or replaces a better web-first assertion. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/offline-mode-tester/SKILL.md"]
+        },
+        {
+          "heading": "Service Worker Readiness Wait: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "service worker readiness wait",
+          "coverage": "Specify the assertion and CI record: exercise ready, delayed, and never-ready states while recording polling choice, elapsed time, and timeout error. Require predicate, argument, polling mode, timeout, elapsed time, and final browser value so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/references/running-code.md",
+            "seed-skills/offline-mode-tester/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Browser State Polling Test Comparison Table",
+          "question": false,
+          "secondaryKeyword": "browser state polling test",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/references/running-code.md",
+            "seed-skills/offline-mode-tester/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright waitForFunction Custom Polling?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/references/running-code.md",
+            "seed-skills/offline-mode-tester/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/references/running-code.md",
+            "seed-skills/offline-mode-tester/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/running-code.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright waitForFunction Custom Polling Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "locator assertion",
+            "useWhen": "Prefer for DOM state because it retries with user-facing diagnostics",
+            "expectedEvidence": "predicate, argument, polling mode, timeout, elapsed time, and final browser value",
+            "mainRisk": "the predicate has side effects, closes over unavailable test values, or replaces a better web-first assertion"
+          },
+          {
+            "option": "requestAnimationFrame polling",
+            "useWhen": "Observe browser state aligned with rendering updates",
+            "expectedEvidence": "predicate, argument, polling mode, timeout, elapsed time, and final browser value",
+            "mainRisk": "the predicate has side effects, closes over unavailable test values, or replaces a better web-first assertion"
+          },
+          {
+            "option": "numeric interval polling",
+            "useWhen": "Check nonvisual state at a deliberate bounded cadence",
+            "expectedEvidence": "predicate, argument, polling mode, timeout, elapsed time, and final browser value",
+            "mainRisk": "the predicate has side effects, closes over unavailable test values, or replaces a better web-first assertion"
+          },
+          {
+            "option": "fixed timeout",
+            "useWhen": "Avoid because elapsed time does not prove the required condition",
+            "expectedEvidence": "predicate, argument, polling mode, timeout, elapsed time, and final browser value",
+            "mainRisk": "the predicate has side effects, closes over unavailable test values, or replaces a better web-first assertion"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/api/class-page#page-wait-for-function",
+          "seed-skills/playwright-cli/references/running-code.md",
+          "seed-skills/offline-mode-tester/SKILL.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright waitforfunction custom polling",
+        "steps": [
+          "Read seed-skills/playwright-cli/references/running-code.md and define the expected contract: page.waitForFunction repeatedly evaluates a browser predicate until it is truthy or its timeout expires.",
+          "Create the smallest isolated test or CLI session and implement use requestAnimationFrame or a measured interval only for browser state that cannot use a locator assertion.",
+          "Exercise the success case, then reproduce the controlled failure where the predicate has side effects, closes over unavailable test values, or replaces a better web-first assertion.",
+          "Apply the release assertion: exercise ready, delayed, and never-ready states while recording polling choice, elapsed time, and timeout error.",
+          "Capture predicate, argument, polling mode, timeout, elapsed time, and final browser value, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright waitForFunction Custom Polling: primary implementation",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-cli/references/running-code.md",
+          "plannedSnippet": "await page.waitForFunction(() => window.appReady === true, undefined, { polling: 'raf' });",
+          "purpose": "Implement use requestAnimationFrame or a measured interval only for browser state that cannot use a locator assertion using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright waitForFunction Custom Polling: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "seed-skills/offline-mode-tester/SKILL.md",
+          "plannedSnippet": "await page.waitForFunction(status => navigator.serviceWorker.controller?.state === status, 'activated', { polling: 250, timeout: 10_000 });",
+          "purpose": "Prove exercise ready, delayed, and never-ready states while recording polling choice, elapsed time, and timeout error and retain predicate, argument, polling mode, timeout, elapsed time, and final browser value."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/playwright-cli/references/running-code.md",
+        "seed-skills/offline-mode-tester/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-testing-best-practices-2026",
+        "/blog/playwright-clock-time-control-testing-guide",
+        "/blog/playwright-retries-flaky-test-handling-guide",
+        "/blog/playwright-e2e-complete-guide"
+      ],
+      "relatedSlugs": [
+        "playwright-testing-best-practices-2026",
+        "playwright-clock-time-control-testing-guide",
+        "playwright-retries-flaky-test-handling-guide",
+        "playwright-e2e-complete-guide"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/api/class-page#page-wait-for-function",
+        "https://playwright.dev/docs/actionability",
+        "https://playwright.dev/docs/test-timeouts"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright waitforfunction interval?",
+        "How do you verify wait for browser global playwright?",
+        "When should a QA team choose playwright raf polling?",
+        "What causes failures in waitforfunction timeout debugging?",
+        "Which evidence should service worker readiness wait retain?",
+        "How should CI handle browser state polling test?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 5
+    }
+  ]
+}

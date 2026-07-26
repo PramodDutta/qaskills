@@ -1,0 +1,1085 @@
+{
+  "batch": 39,
+  "briefs": [
+    {
+      "batch": 39,
+      "batchPosition": 1,
+      "domain": "ai-llm-rag",
+      "slug": "model-alias-update-detection-testing",
+      "primaryKeyword": "Model alias update detection testing",
+      "title": "Model alias update detection testing",
+      "description": "Model alias update detection testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you detect when a provider model alias resolves to a new backend version and separate that change from prompt or dataset regressions?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you detect when a provider model alias resolves to a new backend version and separate that change from prompt or dataset regressions?\" State the observable success condition, not a general introduction: Each run records the requested alias and resolved model identity, then separates an identity change from prompt, parameter, and dataset changes.",
+      "intentBoundary": "The existing non-determinism guide tracks variable model behavior. This candidate owns detecting and attributing silent provider alias resolution changes.",
+      "secondaryKeywords": [
+        "how to model alias update detection testing",
+        "model alias update detection testing example",
+        "LLM model alias drift test",
+        "record resolved model version",
+        "provider model update regression"
+      ],
+      "outline": [
+        {
+          "heading": "What must Model alias update detection testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you detect when a provider model alias resolves to a new backend version and separate that change from prompt or dataset regressions?\" in 40 to 60 words. Define the observable contract as: Each run records the requested alias and resolved model identity, then separates an identity change from prompt, parameter, and dataset changes. Keep the scope inside this intent boundary: The existing non-determinism guide tracks variable model behavior. This candidate owns detecting and attributing silent provider alias resolution changes.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md:719-741 requires pinned model versions and logs every behavior-changing parameter.",
+            "seed-skills/rag-regression-testing/SKILL.md:48-68 pins the judge, embeddings, prompt, and retriever versions."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md:719-741 requires pinned model versions and logs every behavior-changing parameter.",
+            "seed-skills/rag-regression-testing/SKILL.md:48-68 pins the judge, embeddings, prompt, and retriever versions."
+          ]
+        },
+        {
+          "heading": "How to model alias update detection testing?",
+          "secondaryKeyword": "how to model alias update detection testing",
+          "coverage": "Build the primary positive fixture with this harness: Mock provider responses with stable and changed resolved identities, pin all other inputs, and compare run manifests before comparing quality scores. The decisive success oracle is: Each run records the requested alias and resolved model identity, then separates an identity change from prompt, parameter, and dataset changes.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Model alias update detection testing example: scenario and assertion matrix",
+          "secondaryKeyword": "model alias update detection testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose LLM model alias drift test?",
+          "secondaryKeyword": "LLM model alias drift test",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A provider silently changes the model behind an alias and the regression report attributes the resulting behavior to unrelated application code. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should record resolved model version run in CI?",
+          "secondaryKeyword": "record resolved model version",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify provider model update regression?",
+          "secondaryKeyword": "provider model update regression",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A provider silently changes the model behind an alias and the regression report attributes the resulting behavior to unrelated application code.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/golden-dataset-llm-evaluation-guide before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Model alias update detection testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Each run records the requested alias and resolved model identity, then separates an identity change from prompt, parameter, and dataset changes.",
+          "Boundary case for model alias update detection testing example with an exact pass or fail oracle",
+          "Negative case: A provider silently changes the model behind an alias and the regression report attributes the resulting behavior to unrelated application code.",
+          "Repeated and concurrent execution for record resolved model version",
+          "CI evidence and ownership for provider model update regression"
+        ],
+        "sources": [
+          "seed-skills/prompt-testing/SKILL.md",
+          "seed-skills/rag-regression-testing/SKILL.md",
+          "https://platform.openai.com/docs/models",
+          "https://www.nist.gov/itl/ai-risk-management-framework",
+          "https://deepeval.com/docs/evaluation-end-to-end-single-turn"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Model alias update detection testing in six steps",
+        "steps": [
+          "Read seed-skills/prompt-testing/SKILL.md:719-741 and seed-skills/rag-regression-testing/SKILL.md:48-68, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to model alias update detection testing and model alias update detection testing example without calling production services or mutating shared state.",
+          "Build the harness: Mock provider responses with stable and changed resolved identities, pin all other inputs, and compare run manifests before comparing quality scores.",
+          "Run the expected path and assert: Each run records the requested alias and resolved model identity, then separates an identity change from prompt, parameter, and dataset changes.",
+          "Inject boundary and failure cases and assert: A provider silently changes the model behind an alias and the regression report attributes the resulting behavior to unrelated application code.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to model alias update detection testing positive contract",
+          "repositoryPath": "seed-skills/prompt-testing/SKILL.md",
+          "repositoryLines": "719-741",
+          "exactEvidence": "requires pinned model versions and logs every behavior-changing parameter.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Each run records the requested alias and resolved model identity, then separates an identity change from prompt, parameter, and dataset changes.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "LLM model alias drift test negative contract",
+          "repositoryPath": "seed-skills/rag-regression-testing/SKILL.md",
+          "repositoryLines": "48-68",
+          "exactEvidence": "pins the judge, embeddings, prompt, and retriever versions.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A provider silently changes the model behind an alias and the regression report attributes the resulting behavior to unrelated application code.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/prompt-testing/SKILL.md",
+        "seed-skills/rag-regression-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/golden-dataset-llm-evaluation-guide",
+        "/blog/eval-dataset-versioning-guide-2026",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-non-determinism-flaky-eval-guide-2026"
+      ],
+      "relatedSlugs": [
+        "golden-dataset-llm-evaluation-guide",
+        "eval-dataset-versioning-guide-2026",
+        "testing-llm-applications-guide",
+        "llm-non-determinism-flaky-eval-guide-2026"
+      ],
+      "sources": [
+        "https://platform.openai.com/docs/models",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn"
+      ],
+      "faqQuestions": [
+        "How do you detect when a provider model alias resolves to a new backend version and separate that change from prompt or dataset regressions?",
+        "What fixture best tests how to model alias update detection testing?",
+        "Which failure signal proves model alias update detection testing example?",
+        "How should CI report LLM model alias drift test?",
+        "When should record resolved model version block a release?",
+        "How can teams keep provider model update regression repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/golden-dataset-llm-evaluation-guide before implementing this regression gate."
+    },
+    {
+      "batch": 39,
+      "batchPosition": 2,
+      "domain": "ai-llm-rag",
+      "slug": "multi-turn-jailbreak-persistence-testing",
+      "primaryKeyword": "Multi turn jailbreak persistence testing",
+      "title": "Multi turn jailbreak persistence testing",
+      "description": "Multi turn jailbreak persistence testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test whether a jailbreak planted in an early turn continues to alter policy, memory, tool choices, or refusals in later turns?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you test whether a jailbreak planted in an early turn continues to alter policy, memory, tool choices, or refusals in later turns?\" State the observable success condition, not a general introduction: An attack planted in an earlier turn cannot weaken later policy checks, alter trusted roles, trigger unsafe tools, or survive a defined state reset.",
+      "intentBoundary": "The existing page measures jailbreak misses per prompt. This candidate owns state persistence and recovery across a complete conversation.",
+      "secondaryKeywords": [
+        "how to multi turn jailbreak persistence testing",
+        "multi turn jailbreak persistence testing example",
+        "multi turn prompt injection test",
+        "jailbreak conversation persistence",
+        "LLM safety state reset"
+      ],
+      "outline": [
+        {
+          "heading": "What must Multi turn jailbreak persistence testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you test whether a jailbreak planted in an early turn continues to alter policy, memory, tool choices, or refusals in later turns?\" in 40 to 60 words. Define the observable contract as: An attack planted in an earlier turn cannot weaken later policy checks, alter trusted roles, trigger unsafe tools, or survive a defined state reset. Keep the scope inside this intent boundary: The existing page measures jailbreak misses per prompt. This candidate owns state persistence and recovery across a complete conversation.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md:95-99 defines iterative jailbreak and prompt-injection strategies.",
+            "seed-skills/ai-agent-eval/SKILL.md:597-670 defines multi-turn conversation evaluation as a separate test surface."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md:95-99 defines iterative jailbreak and prompt-injection strategies.",
+            "seed-skills/ai-agent-eval/SKILL.md:597-670 defines multi-turn conversation evaluation as a separate test surface."
+          ]
+        },
+        {
+          "heading": "How to multi turn jailbreak persistence testing?",
+          "secondaryKeyword": "how to multi turn jailbreak persistence testing",
+          "coverage": "Build the primary positive fixture with this harness: Replay versioned conversations with the attack at different turns, benign follow-ups, explicit reset points, and snapshots of policy and tool decisions. The decisive success oracle is: An attack planted in an earlier turn cannot weaken later policy checks, alter trusted roles, trigger unsafe tools, or survive a defined state reset.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Multi turn jailbreak persistence testing example: scenario and assertion matrix",
+          "secondaryKeyword": "multi turn jailbreak persistence testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose multi turn prompt injection test?",
+          "secondaryKeyword": "multi turn prompt injection test",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A later benign request inherits malicious instructions, refusal behavior changes, or tool selection remains compromised after the attack turn. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should jailbreak conversation persistence run in CI?",
+          "secondaryKeyword": "jailbreak conversation persistence",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify LLM safety state reset?",
+          "secondaryKeyword": "LLM safety state reset",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A later benign request inherits malicious instructions, refusal behavior changes, or tool selection remains compromised after the attack turn.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/promptfoo-complete-guide-2026 before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Multi turn jailbreak persistence testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: An attack planted in an earlier turn cannot weaken later policy checks, alter trusted roles, trigger unsafe tools, or survive a defined state reset.",
+          "Boundary case for multi turn jailbreak persistence testing example with an exact pass or fail oracle",
+          "Negative case: A later benign request inherits malicious instructions, refusal behavior changes, or tool selection remains compromised after the attack turn.",
+          "Repeated and concurrent execution for jailbreak conversation persistence",
+          "CI evidence and ownership for LLM safety state reset"
+        ],
+        "sources": [
+          "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "seed-skills/ai-agent-eval/SKILL.md",
+          "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+          "https://www.promptfoo.dev/docs/red-team/configuration/",
+          "https://www.nist.gov/publications/adversarial-machine-learning-taxonomy-and-terminology-attacks-and-mitigations"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Multi turn jailbreak persistence testing in six steps",
+        "steps": [
+          "Read seed-skills/promptfoo-llm-red-teaming/SKILL.md:95-99 and seed-skills/ai-agent-eval/SKILL.md:597-670, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to multi turn jailbreak persistence testing and multi turn jailbreak persistence testing example without calling production services or mutating shared state.",
+          "Build the harness: Replay versioned conversations with the attack at different turns, benign follow-ups, explicit reset points, and snapshots of policy and tool decisions.",
+          "Run the expected path and assert: An attack planted in an earlier turn cannot weaken later policy checks, alter trusted roles, trigger unsafe tools, or survive a defined state reset.",
+          "Inject boundary and failure cases and assert: A later benign request inherits malicious instructions, refusal behavior changes, or tool selection remains compromised after the attack turn.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to multi turn jailbreak persistence testing positive contract",
+          "repositoryPath": "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "repositoryLines": "95-99",
+          "exactEvidence": "defines iterative jailbreak and prompt-injection strategies.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: An attack planted in an earlier turn cannot weaken later policy checks, alter trusted roles, trigger unsafe tools, or survive a defined state reset.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "multi turn prompt injection test negative contract",
+          "repositoryPath": "seed-skills/ai-agent-eval/SKILL.md",
+          "repositoryLines": "597-670",
+          "exactEvidence": "defines multi-turn conversation evaluation as a separate test surface.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A later benign request inherits malicious instructions, refusal behavior changes, or tool selection remains compromised after the attack turn.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+        "seed-skills/ai-agent-eval/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026",
+        "/blog/testing-guardrail-false-negative-jailbreaks"
+      ],
+      "relatedSlugs": [
+        "promptfoo-complete-guide-2026",
+        "promptfoo-red-teaming-llm-applications",
+        "prompt-injection-testing-guide-2026",
+        "testing-guardrail-false-negative-jailbreaks"
+      ],
+      "sources": [
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://www.promptfoo.dev/docs/red-team/configuration/",
+        "https://www.nist.gov/publications/adversarial-machine-learning-taxonomy-and-terminology-attacks-and-mitigations"
+      ],
+      "faqQuestions": [
+        "How do you test whether a jailbreak planted in an early turn continues to alter policy, memory, tool choices, or refusals in later turns?",
+        "What fixture best tests how to multi turn jailbreak persistence testing?",
+        "Which failure signal proves multi turn jailbreak persistence testing example?",
+        "How should CI report multi turn prompt injection test?",
+        "When should jailbreak conversation persistence block a release?",
+        "How can teams keep LLM safety state reset repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/promptfoo-complete-guide-2026 before implementing this regression gate."
+    },
+    {
+      "batch": 39,
+      "batchPosition": 3,
+      "domain": "ai-llm-rag",
+      "slug": "parallel-tool-call-ordering-tests",
+      "primaryKeyword": "Parallel tool call ordering tests",
+      "title": "Parallel tool call ordering tests",
+      "description": "Parallel tool call ordering tests: use repo evidence, focused fixtures, code examples, and CI checks to expose contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test parallel tool calls when some operations are independent but others require deterministic dependencies, joins, and side-effect order?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you test parallel tool calls when some operations are independent but others require deterministic dependencies, joins, and side-effect order?\" State the observable success condition, not a general introduction: Independent calls fan out, dependent calls wait for prerequisites, each result joins to the correct call ID, and side effects follow declared order.",
+      "intentBoundary": "The existing guide scores selection and arguments. This candidate owns dependency order, fan-out, fan-in, and correlation under parallel calls.",
+      "secondaryKeywords": [
+        "how to parallel tool call ordering tests",
+        "parallel tool call ordering tests example",
+        "parallel function call dependency test",
+        "agent tool join ordering",
+        "concurrent tool result correlation"
+      ],
+      "outline": [
+        {
+          "heading": "What must Parallel tool call ordering tests prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you test parallel tool calls when some operations are independent but others require deterministic dependencies, joins, and side-effect order?\" in 40 to 60 words. Define the observable contract as: Independent calls fan out, dependent calls wait for prerequisites, each result joins to the correct call ID, and side effects follow declared order. Keep the scope inside this intent boundary: The existing guide scores selection and arguments. This candidate owns dependency order, fan-out, fan-in, and correlation under parallel calls.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md:134-147 requires correct tool order and asserted final state.",
+            "seed-skills/openai-evals-trace-grading/SKILL.md:58-92 records ordered tool calls in each agent trace."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md:134-147 requires correct tool order and asserted final state.",
+            "seed-skills/openai-evals-trace-grading/SKILL.md:58-92 records ordered tool calls in each agent trace."
+          ]
+        },
+        {
+          "heading": "How to parallel tool call ordering tests?",
+          "secondaryKeyword": "how to parallel tool call ordering tests",
+          "coverage": "Build the primary positive fixture with this harness: Control deferred tool promises and record an event ledger for dispatch, completion, correlation, join, and side-effect timestamps. The decisive success oracle is: Independent calls fan out, dependent calls wait for prerequisites, each result joins to the correct call ID, and side effects follow declared order.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Parallel tool call ordering tests example: scenario and assertion matrix",
+          "secondaryKeyword": "parallel tool call ordering tests example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose parallel function call dependency test?",
+          "secondaryKeyword": "parallel function call dependency test",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A dependent call starts early, results attach to the wrong request, a join omits data, or concurrent side effects produce a nondeterministic state. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should agent tool join ordering run in CI?",
+          "secondaryKeyword": "agent tool join ordering",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify concurrent tool result correlation?",
+          "secondaryKeyword": "concurrent tool result correlation",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A dependent call starts early, results attach to the wrong request, a join omits data, or concurrent side effects produce a nondeterministic state.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/how-to-test-llm-tool-calling-accuracy before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/openai-evals-trace-grading/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Parallel tool call ordering tests: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Independent calls fan out, dependent calls wait for prerequisites, each result joins to the correct call ID, and side effects follow declared order.",
+          "Boundary case for parallel tool call ordering tests example with an exact pass or fail oracle",
+          "Negative case: A dependent call starts early, results attach to the wrong request, a join omits data, or concurrent side effects produce a nondeterministic state.",
+          "Repeated and concurrent execution for agent tool join ordering",
+          "CI evidence and ownership for concurrent tool result correlation"
+        ],
+        "sources": [
+          "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "seed-skills/openai-evals-trace-grading/SKILL.md",
+          "https://platform.openai.com/docs/guides/function-calling",
+          "https://platform.openai.com/docs/guides/evals",
+          "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Parallel tool call ordering tests in six steps",
+        "steps": [
+          "Read seed-skills/ai-system-quality-engineer/SKILL.md:134-147 and seed-skills/openai-evals-trace-grading/SKILL.md:58-92, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to parallel tool call ordering tests and parallel tool call ordering tests example without calling production services or mutating shared state.",
+          "Build the harness: Control deferred tool promises and record an event ledger for dispatch, completion, correlation, join, and side-effect timestamps.",
+          "Run the expected path and assert: Independent calls fan out, dependent calls wait for prerequisites, each result joins to the correct call ID, and side effects follow declared order.",
+          "Inject boundary and failure cases and assert: A dependent call starts early, results attach to the wrong request, a join omits data, or concurrent side effects produce a nondeterministic state.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to parallel tool call ordering tests positive contract",
+          "repositoryPath": "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "repositoryLines": "134-147",
+          "exactEvidence": "requires correct tool order and asserted final state.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Independent calls fan out, dependent calls wait for prerequisites, each result joins to the correct call ID, and side effects follow declared order.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "parallel function call dependency test negative contract",
+          "repositoryPath": "seed-skills/openai-evals-trace-grading/SKILL.md",
+          "repositoryLines": "58-92",
+          "exactEvidence": "records ordered tool calls in each agent trace.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A dependent call starts early, results attach to the wrong request, a join omits data, or concurrent side effects produce a nondeterministic state.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/ai-system-quality-engineer/SKILL.md",
+        "seed-skills/openai-evals-trace-grading/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/how-to-test-llm-tool-calling-accuracy",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/ai-agent-eval-testing-guide",
+        "/blog/openai-trace-grading-tutorial-2026"
+      ],
+      "relatedSlugs": [
+        "how-to-test-llm-tool-calling-accuracy",
+        "agent-tool-use-regression-testing-guide-2026",
+        "ai-agent-eval-testing-guide",
+        "openai-trace-grading-tutorial-2026"
+      ],
+      "sources": [
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://platform.openai.com/docs/guides/evals",
+        "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
+      ],
+      "faqQuestions": [
+        "How do you test parallel tool calls when some operations are independent but others require deterministic dependencies, joins, and side-effect order?",
+        "What fixture best tests how to parallel tool call ordering tests?",
+        "Which failure signal proves parallel tool call ordering tests example?",
+        "How should CI report parallel function call dependency test?",
+        "When should agent tool join ordering block a release?",
+        "How can teams keep concurrent tool result correlation repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/how-to-test-llm-tool-calling-accuracy before implementing this regression gate."
+    },
+    {
+      "batch": 39,
+      "batchPosition": 4,
+      "domain": "ai-llm-rag",
+      "slug": "prompt-role-spoofing-detection-testing",
+      "primaryKeyword": "Prompt role spoofing detection testing",
+      "title": "Prompt role spoofing detection testing",
+      "description": "Prompt role spoofing detection testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test user content that imitates system, developer, assistant, or tool message boundaries without letting it change actual message roles?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you test user content that imitates system, developer, assistant, or tool message boundaries without letting it change actual message roles?\" State the observable success condition, not a general introduction: Strings that imitate system, developer, assistant, or tool boundaries remain untrusted user content and cannot create a privileged message role.",
+      "intentBoundary": "The broad guide covers instruction override. This candidate owns serialization and role-boundary spoofing in structured chat inputs.",
+      "secondaryKeywords": [
+        "how to prompt role spoofing detection testing",
+        "prompt role spoofing detection testing example",
+        "LLM system role spoofing test",
+        "fake tool message injection",
+        "chat role boundary validation"
+      ],
+      "outline": [
+        {
+          "heading": "What must Prompt role spoofing detection testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you test user content that imitates system, developer, assistant, or tool message boundaries without letting it change actual message roles?\" in 40 to 60 words. Define the observable contract as: Strings that imitate system, developer, assistant, or tool boundaries remain untrusted user content and cannot create a privileged message role. Keep the scope inside this intent boundary: The broad guide covers instruction override. This candidate owns serialization and role-boundary spoofing in structured chat inputs.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md:115-122 requires injected instructions never to override system policy.",
+            "seed-skills/ai-system-quality-engineer/SKILL.md:149-163 turns prompt injection and hijacking attempts into explicit assertions."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md:115-122 requires injected instructions never to override system policy.",
+            "seed-skills/ai-system-quality-engineer/SKILL.md:149-163 turns prompt injection and hijacking attempts into explicit assertions."
+          ]
+        },
+        {
+          "heading": "How to prompt role spoofing detection testing?",
+          "secondaryKeyword": "how to prompt role spoofing detection testing",
+          "coverage": "Build the primary positive fixture with this harness: Send an adversarial corpus through the real message construction boundary and assert serialized roles, content, tool identifiers, and policy decisions. The decisive success oracle is: Strings that imitate system, developer, assistant, or tool boundaries remain untrusted user content and cannot create a privileged message role.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Prompt role spoofing detection testing example: scenario and assertion matrix",
+          "secondaryKeyword": "prompt role spoofing detection testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose LLM system role spoofing test?",
+          "secondaryKeyword": "LLM system role spoofing test",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A parser, template, or adapter promotes role-like text, accepts a fake tool result, or lets user content override trusted instructions. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should fake tool message injection run in CI?",
+          "secondaryKeyword": "fake tool message injection",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify chat role boundary validation?",
+          "secondaryKeyword": "chat role boundary validation",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A parser, template, or adapter promotes role-like text, accepts a fake tool result, or lets user content override trusted instructions.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/promptfoo-complete-guide-2026 before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Prompt role spoofing detection testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Strings that imitate system, developer, assistant, or tool boundaries remain untrusted user content and cannot create a privileged message role.",
+          "Boundary case for prompt role spoofing detection testing example with an exact pass or fail oracle",
+          "Negative case: A parser, template, or adapter promotes role-like text, accepts a fake tool result, or lets user content override trusted instructions.",
+          "Repeated and concurrent execution for fake tool message injection",
+          "CI evidence and ownership for chat role boundary validation"
+        ],
+        "sources": [
+          "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+          "https://www.promptfoo.dev/docs/red-team/configuration/",
+          "https://json-schema.org/draft/2020-12/json-schema-core"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Prompt role spoofing detection testing in six steps",
+        "steps": [
+          "Read seed-skills/promptfoo-llm-red-teaming/SKILL.md:115-122 and seed-skills/ai-system-quality-engineer/SKILL.md:149-163, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to prompt role spoofing detection testing and prompt role spoofing detection testing example without calling production services or mutating shared state.",
+          "Build the harness: Send an adversarial corpus through the real message construction boundary and assert serialized roles, content, tool identifiers, and policy decisions.",
+          "Run the expected path and assert: Strings that imitate system, developer, assistant, or tool boundaries remain untrusted user content and cannot create a privileged message role.",
+          "Inject boundary and failure cases and assert: A parser, template, or adapter promotes role-like text, accepts a fake tool result, or lets user content override trusted instructions.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to prompt role spoofing detection testing positive contract",
+          "repositoryPath": "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "repositoryLines": "115-122",
+          "exactEvidence": "requires injected instructions never to override system policy.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Strings that imitate system, developer, assistant, or tool boundaries remain untrusted user content and cannot create a privileged message role.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "LLM system role spoofing test negative contract",
+          "repositoryPath": "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "repositoryLines": "149-163",
+          "exactEvidence": "turns prompt injection and hijacking attempts into explicit assertions.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A parser, template, or adapter promotes role-like text, accepts a fake tool result, or lets user content override trusted instructions.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+        "seed-skills/ai-system-quality-engineer/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026",
+        "/blog/promptfoo-cli-tutorial-2026"
+      ],
+      "relatedSlugs": [
+        "promptfoo-complete-guide-2026",
+        "promptfoo-red-teaming-llm-applications",
+        "prompt-injection-testing-guide-2026",
+        "promptfoo-cli-tutorial-2026"
+      ],
+      "sources": [
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://www.promptfoo.dev/docs/red-team/configuration/",
+        "https://json-schema.org/draft/2020-12/json-schema-core"
+      ],
+      "faqQuestions": [
+        "How do you test user content that imitates system, developer, assistant, or tool message boundaries without letting it change actual message roles?",
+        "What fixture best tests how to prompt role spoofing detection testing?",
+        "Which failure signal proves prompt role spoofing detection testing example?",
+        "How should CI report LLM system role spoofing test?",
+        "When should fake tool message injection block a release?",
+        "How can teams keep chat role boundary validation repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/promptfoo-complete-guide-2026 before implementing this regression gate."
+    },
+    {
+      "batch": 39,
+      "batchPosition": 5,
+      "domain": "ai-llm-rag",
+      "slug": "deepeval-cached-response-regrading",
+      "primaryKeyword": "DeepEval cached response regrading",
+      "title": "DeepEval cached response regrading",
+      "description": "DeepEval cached response regrading: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you cache application responses while forcing DeepEval to regrade them after a rubric, threshold, or judge version changes?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you cache application responses while forcing DeepEval to regrade them after a rubric, threshold, or judge version changes?\" State the observable success condition, not a general introduction: The application response is generated once, stored with immutable provenance, and regraded by pinned evaluators without changing the original output.",
+      "intentBoundary": "The existing page covers overall eval cost. This candidate owns cache-key separation between system outputs and judge artifacts during regrading.",
+      "secondaryKeywords": [
+        "how to deepeval cached response regrading",
+        "deepeval cached response regrading example",
+        "DeepEval response cache test",
+        "regrade LLM outputs without recall",
+        "separate generation and evaluation cache"
+      ],
+      "outline": [
+        {
+          "heading": "What must DeepEval cached response regrading prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you cache application responses while forcing DeepEval to regrade them after a rubric, threshold, or judge version changes?\" in 40 to 60 words. Define the observable contract as: The application response is generated once, stored with immutable provenance, and regraded by pinned evaluators without changing the original output. Keep the scope inside this intent boundary: The existing page covers overall eval cost. This candidate owns cache-key separation between system outputs and judge artifacts during regrading.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md:140-148 recommends caching app responses so reruns can rejudge without regenerating.",
+            "seed-skills/prompt-testing/SKILL.md:739-741 treats response caching and model version pinning as separate controls."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md:140-148 recommends caching app responses so reruns can rejudge without regenerating.",
+            "seed-skills/prompt-testing/SKILL.md:739-741 treats response caching and model version pinning as separate controls."
+          ]
+        },
+        {
+          "heading": "How to deepeval cached response regrading?",
+          "secondaryKeyword": "how to deepeval cached response regrading",
+          "coverage": "Build the primary positive fixture with this harness: Checksum cached responses, count generator calls, run two pinned judge configurations, and compare only evaluator outputs linked to one response ID. The decisive success oracle is: The application response is generated once, stored with immutable provenance, and regraded by pinned evaluators without changing the original output.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Deepeval cached response regrading example: scenario and assertion matrix",
+          "secondaryKeyword": "deepeval cached response regrading example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose DeepEval response cache test?",
+          "secondaryKeyword": "DeepEval response cache test",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A regrade calls the generator again, mutates cached evidence, changes sample identity, or compares judge results from different application responses. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should regrade LLM outputs without recall run in CI?",
+          "secondaryKeyword": "regrade LLM outputs without recall",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify separate generation and evaluation cache?",
+          "secondaryKeyword": "separate generation and evaluation cache",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A regrade calls the generator again, mutates cached evidence, changes sample identity, or compares judge results from different application responses.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use Python and pytest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/deepeval-pytest-llm-testing-guide before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "DeepEval cached response regrading: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: The application response is generated once, stored with immutable provenance, and regraded by pinned evaluators without changing the original output.",
+          "Boundary case for deepeval cached response regrading example with an exact pass or fail oracle",
+          "Negative case: A regrade calls the generator again, mutates cached evidence, changes sample identity, or compares judge results from different application responses.",
+          "Repeated and concurrent execution for regrade LLM outputs without recall",
+          "CI evidence and ownership for separate generation and evaluation cache"
+        ],
+        "sources": [
+          "seed-skills/deepeval-llm-evaluation/SKILL.md",
+          "seed-skills/prompt-testing/SKILL.md",
+          "https://deepeval.com/docs/evaluation-datasets",
+          "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+          "https://deepeval.com/docs/introduction"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement DeepEval cached response regrading in six steps",
+        "steps": [
+          "Read seed-skills/deepeval-llm-evaluation/SKILL.md:140-148 and seed-skills/prompt-testing/SKILL.md:739-741, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to deepeval cached response regrading and deepeval cached response regrading example without calling production services or mutating shared state.",
+          "Build the harness: Checksum cached responses, count generator calls, run two pinned judge configurations, and compare only evaluator outputs linked to one response ID.",
+          "Run the expected path and assert: The application response is generated once, stored with immutable provenance, and regraded by pinned evaluators without changing the original output.",
+          "Inject boundary and failure cases and assert: A regrade calls the generator again, mutates cached evidence, changes sample identity, or compares judge results from different application responses.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to deepeval cached response regrading positive contract",
+          "repositoryPath": "seed-skills/deepeval-llm-evaluation/SKILL.md",
+          "repositoryLines": "140-148",
+          "exactEvidence": "recommends caching app responses so reruns can rejudge without regenerating.",
+          "plannedSnippet": "Python and pytest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: The application response is generated once, stored with immutable provenance, and regraded by pinned evaluators without changing the original output.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "DeepEval response cache test negative contract",
+          "repositoryPath": "seed-skills/prompt-testing/SKILL.md",
+          "repositoryLines": "739-741",
+          "exactEvidence": "treats response caching and model version pinning as separate controls.",
+          "plannedSnippet": "Python and pytest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A regrade calls the generator again, mutates cached evidence, changes sample identity, or compares judge results from different application responses.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md",
+        "seed-skills/prompt-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates",
+        "/blog/llm-eval-cost-latency-testing-guide-2026"
+      ],
+      "relatedSlugs": [
+        "deepeval-pytest-llm-testing-guide",
+        "testing-llm-applications-guide",
+        "llm-evaluation-ci-cd-quality-gates",
+        "llm-eval-cost-latency-testing-guide-2026"
+      ],
+      "sources": [
+        "https://deepeval.com/docs/evaluation-datasets",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+        "https://deepeval.com/docs/introduction"
+      ],
+      "faqQuestions": [
+        "How do you cache application responses while forcing DeepEval to regrade them after a rubric, threshold, or judge version changes?",
+        "What fixture best tests how to deepeval cached response regrading?",
+        "Which failure signal proves deepeval cached response regrading example?",
+        "How should CI report DeepEval response cache test?",
+        "When should regrade LLM outputs without recall block a release?",
+        "How can teams keep separate generation and evaluation cache repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/deepeval-pytest-llm-testing-guide before implementing this regression gate."
+    }
+  ]
+}

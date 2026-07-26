@@ -1,0 +1,1115 @@
+{
+  "batch": 50,
+  "briefs": [
+    {
+      "sourceTopicId": "testing-frameworks-44",
+      "batch": 50,
+      "batchPosition": 1,
+      "domain": "testing-frameworks",
+      "slug": "samesite-cookie-navigation-matrix-testing",
+      "primaryKeyword": "SameSite cookie navigation matrix testing",
+      "title": "SameSite cookie navigation matrix testing",
+      "description": "SameSite cookie navigation matrix testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How do SameSite Strict, Lax, and None cookies behave across top-level navigation, subresources, redirects, and methods?",
+      "intentBoundary": "The nearest page covers a broader security workflow. This candidate owns a navigation and request-context matrix for SameSite cookies.",
+      "secondaryKeywords": [
+        "SameSite cookie navigation test",
+        "Lax POST redirect cookie",
+        "Strict cross site navigation",
+        "SameSite None Secure test",
+        "cookie request context matrix"
+      ],
+      "outline": [
+        {
+          "heading": "What does SameSite cookie navigation matrix testing verify?",
+          "question": true,
+          "coverage": "Answer \"How do SameSite Strict, Lax, and None cookies behave across top-level navigation, subresources, redirects, and methods?\" in 40 to 60 words. Define the observable contract: Strict, Lax, and None cookie delivery is verified across site relationships, navigation types, request methods, redirects, and secure transport. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an SameSite cookie navigation test?",
+          "question": true,
+          "secondaryKeyword": "SameSite cookie navigation test",
+          "coverage": "Describe this exact fixture: two controlled sites plus a target application that records cookies on top-level GET, form POST, subresource, fetch, and redirect requests. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/security-best-practices/SKILL.md"]
+        },
+        {
+          "heading": "What breaks Lax POST redirect cookie?",
+          "question": true,
+          "secondaryKeyword": "Lax POST redirect cookie",
+          "coverage": "Explain the failure mechanics behind confusing origin with site, insecure SameSite=None, browser defaults, redirect method changes, old cookies, and shared test profiles. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Strict cross site navigation fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "Strict cross site navigation",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use two controlled sites plus a target application that records cookies on top-level GET, form POST, subresource, fetch, and redirect requests, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/owasp-security/SKILL.md"]
+        },
+        {
+          "heading": "How should SameSite None Secure test be asserted?",
+          "question": true,
+          "secondaryKeyword": "SameSite None Secure test",
+          "coverage": "Build the oracle from server-side request logs, browser cookie state, navigation type, method, site relationship, Secure flag, and redirect hops explain delivery. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "cookie request context matrix in CI",
+          "question": false,
+          "secondaryKeyword": "cookie request context matrix",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to security-best-practices and owasp-security.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "SameSite cookie navigation matrix testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: same-site top-level navigation; cross-site top-level GET; cross-site form POST; cross-site subresource or fetch; redirect chain for Strict, Lax, and None cookies. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement SameSite cookie navigation matrix testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within Strict, Lax, and None cookie delivery is verified across site relationships, navigation types, request methods, redirects, and secure transport, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/security-testing-complete-guide, then open /skills and implement the SameSite cookie navigation matrix testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/security-best-practices/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "SameSite cookie navigation matrix testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "same-site top-level navigation",
+            "controlledSetup": "two controlled sites plus a target application that records cookies on top-level GET, form POST, subresource, fetch, and redirect requests",
+            "expectedObservation": "server-side request logs, browser cookie state, navigation type, method, site relationship, Secure flag, and redirect hops explain delivery",
+            "failureSignal": "Observed state differs from the documented Strict, Lax, and None cookie delivery is verified across site relationships, navigation types, request methods, redirects, and secure transport.",
+            "evidenceSource": "seed-skills/security-best-practices/SKILL.md"
+          },
+          {
+            "scenario": "cross-site top-level GET",
+            "controlledSetup": "Change only the condition represented by \"cross-site top-level GET\" while retaining the baseline fixture.",
+            "expectedObservation": "server-side request logs, browser cookie state, navigation type, method, site relationship, Secure flag, and redirect hops explain delivery",
+            "failureSignal": "Observed state differs from the documented Strict, Lax, and None cookie delivery is verified across site relationships, navigation types, request methods, redirects, and secure transport.",
+            "evidenceSource": "seed-skills/owasp-security/SKILL.md"
+          },
+          {
+            "scenario": "cross-site form POST",
+            "controlledSetup": "Change only the condition represented by \"cross-site form POST\" while retaining the baseline fixture.",
+            "expectedObservation": "server-side request logs, browser cookie state, navigation type, method, site relationship, Secure flag, and redirect hops explain delivery",
+            "failureSignal": "Observed state differs from the documented Strict, Lax, and None cookie delivery is verified across site relationships, navigation types, request methods, redirects, and secure transport.",
+            "evidenceSource": "seed-skills/security-best-practices/SKILL.md"
+          },
+          {
+            "scenario": "cross-site subresource or fetch",
+            "controlledSetup": "Change only the condition represented by \"cross-site subresource or fetch\" while retaining the baseline fixture.",
+            "expectedObservation": "server-side request logs, browser cookie state, navigation type, method, site relationship, Secure flag, and redirect hops explain delivery",
+            "failureSignal": "Observed state differs from the documented Strict, Lax, and None cookie delivery is verified across site relationships, navigation types, request methods, redirects, and secure transport.",
+            "evidenceSource": "seed-skills/owasp-security/SKILL.md"
+          },
+          {
+            "scenario": "redirect chain for Strict, Lax, and None cookies",
+            "controlledSetup": "Change only the condition represented by \"redirect chain for Strict, Lax, and None cookies\" while retaining the baseline fixture.",
+            "expectedObservation": "server-side request logs, browser cookie state, navigation type, method, site relationship, Secure flag, and redirect hops explain delivery",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish confusing origin with site, insecure SameSite=None, browser defaults, redirect method changes, old cookies, and shared test profiles.",
+            "evidenceSource": "seed-skills/security-best-practices/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/security-best-practices/SKILL.md",
+          "seed-skills/owasp-security/SKILL.md",
+          "https://www.w3.org/TR/CSP3/",
+          "https://fetch.spec.whatwg.org/",
+          "https://www.rfc-editor.org/info/rfc9700",
+          "https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run SameSite cookie navigation matrix testing",
+        "steps": [
+          "Read seed-skills/security-best-practices/SKILL.md and seed-skills/owasp-security/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using two controlled sites plus a target application that records cookies on top-level GET, form POST, subresource, fetch, and redirect requests.",
+          "Run the positive case and capture server-side request logs, browser cookie state, navigation type, method, site relationship, Secure flag, and redirect hops explain delivery.",
+          "Inject one failure at a time from confusing origin with site, insecure SameSite=None, browser defaults, redirect method changes, old cookies, and shared test profiles, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the SameSite cookie navigation matrix testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/security-best-practices/SKILL.md",
+          "focus": "Adapt cookie and security checks into a two-site request logger with isolated browser contexts."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/owasp-security/SKILL.md",
+          "focus": "Use OWASP-oriented fixtures to compare attributes, transport, navigation context, and server-observed cookies."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/security-best-practices/SKILL.md",
+        "seed-skills/owasp-security/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/security-testing-complete-guide",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/owasp-zap-api-security-testing-guide-2026",
+        "/blog/authentication-authorization-testing-guide",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "security-testing-complete-guide",
+        "api-security-testing-checklist-2026",
+        "owasp-zap-api-security-testing-guide-2026",
+        "authentication-authorization-testing-guide"
+      ],
+      "sources": [
+        "https://www.w3.org/TR/CSP3/",
+        "https://fetch.spec.whatwg.org/",
+        "https://www.rfc-editor.org/info/rfc9700",
+        "https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html"
+      ],
+      "faqQuestions": [
+        "How do SameSite Strict, Lax, and None cookies behave across top-level navigation, subresources, redirects, and methods?",
+        "What should an SameSite cookie navigation test fixture record?",
+        "Which failure proves Lax POST redirect cookie is broken?",
+        "How do teams isolate Strict cross site navigation?",
+        "Which assertion is strongest for SameSite None Secure test?",
+        "How should CI report cookie request context matrix failures?"
+      ],
+      "cta": "Review /blog/security-testing-complete-guide, then open /skills and implement the SameSite cookie navigation matrix testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-28",
+      "batch": 50,
+      "batchPosition": 2,
+      "domain": "testing-frameworks",
+      "slug": "jmeter-timer-scope-execution-testing",
+      "primaryKeyword": "JMeter timer scope execution testing",
+      "title": "JMeter timer scope execution testing",
+      "description": "JMeter timer scope execution testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "Where does a JMeter timer apply in the test tree, and how can a test confirm its delay reaches only intended samplers?",
+      "intentBoundary": "The nearest page covers a broader jmeter workflow. This candidate owns timer scoping and execution-order verification.",
+      "secondaryKeywords": [
+        "JMeter timer scope test",
+        "constant timer execution order",
+        "JMeter timer child sampler",
+        "throughput timer placement",
+        "measure JMeter think time"
+      ],
+      "outline": [
+        {
+          "heading": "What does JMeter timer scope execution testing verify?",
+          "question": true,
+          "coverage": "Answer \"Where does a JMeter timer apply in the test tree, and how can a test confirm its delay reaches only intended samplers?\" in 40 to 60 words. Define the observable contract: each timer delays only the samplers in its JMeter tree scope, and multiple applicable timers produce the expected combined pre-sampler delay. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an JMeter timer scope test?",
+          "question": true,
+          "secondaryKeyword": "JMeter timer scope test",
+          "coverage": "Describe this exact fixture: a JMX tree with sibling samplers, nested controllers, parent timers, child timers, and timestamp capture around each request. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/jmeter-load/SKILL.md"]
+        },
+        {
+          "heading": "What breaks constant timer execution order?",
+          "question": true,
+          "secondaryKeyword": "constant timer execution order",
+          "coverage": "Explain the failure mechanics behind placing a timer under the wrong controller, cumulative timers, scheduler noise, server latency, throughput timer semantics, and assertions on wall time alone. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "JMeter timer child sampler fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "JMeter timer child sampler",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a JMX tree with sibling samplers, nested controllers, parent timers, child timers, and timestamp capture around each request, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/performance-test-scenario-generator/SKILL.md"]
+        },
+        {
+          "heading": "How should throughput timer placement be asserted?",
+          "question": true,
+          "secondaryKeyword": "throughput timer placement",
+          "coverage": "Build the oracle from sampler start times, timer values, tree position, labels, and result logs show which delays applied before each sampler. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "measure JMeter think time in CI",
+          "question": false,
+          "secondaryKeyword": "measure JMeter think time",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to jmeter-load and performance-test-scenario-generator.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "JMeter timer scope execution testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: timer at thread-group scope; timer under one controller; two timers applicable to one sampler; sibling sampler outside the timer scope; throughput timer compared with constant delay. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement JMeter timer scope execution testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within each timer delays only the samplers in its JMeter tree scope, and multiple applicable timers produce the expected combined pre-sampler delay, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/jmeter-distributed-load-testing-complete-guide, then open /skills and implement the JMeter timer scope execution testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/jmeter-load/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "JMeter timer scope execution testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "timer at thread-group scope",
+            "controlledSetup": "a JMX tree with sibling samplers, nested controllers, parent timers, child timers, and timestamp capture around each request",
+            "expectedObservation": "sampler start times, timer values, tree position, labels, and result logs show which delays applied before each sampler",
+            "failureSignal": "Observed state differs from the documented each timer delays only the samplers in its JMeter tree scope, and multiple applicable timers produce the expected combined pre-sampler delay.",
+            "evidenceSource": "seed-skills/jmeter-load/SKILL.md"
+          },
+          {
+            "scenario": "timer under one controller",
+            "controlledSetup": "Change only the condition represented by \"timer under one controller\" while retaining the baseline fixture.",
+            "expectedObservation": "sampler start times, timer values, tree position, labels, and result logs show which delays applied before each sampler",
+            "failureSignal": "Observed state differs from the documented each timer delays only the samplers in its JMeter tree scope, and multiple applicable timers produce the expected combined pre-sampler delay.",
+            "evidenceSource": "seed-skills/performance-test-scenario-generator/SKILL.md"
+          },
+          {
+            "scenario": "two timers applicable to one sampler",
+            "controlledSetup": "Change only the condition represented by \"two timers applicable to one sampler\" while retaining the baseline fixture.",
+            "expectedObservation": "sampler start times, timer values, tree position, labels, and result logs show which delays applied before each sampler",
+            "failureSignal": "Observed state differs from the documented each timer delays only the samplers in its JMeter tree scope, and multiple applicable timers produce the expected combined pre-sampler delay.",
+            "evidenceSource": "seed-skills/jmeter-load/SKILL.md"
+          },
+          {
+            "scenario": "sibling sampler outside the timer scope",
+            "controlledSetup": "Change only the condition represented by \"sibling sampler outside the timer scope\" while retaining the baseline fixture.",
+            "expectedObservation": "sampler start times, timer values, tree position, labels, and result logs show which delays applied before each sampler",
+            "failureSignal": "Observed state differs from the documented each timer delays only the samplers in its JMeter tree scope, and multiple applicable timers produce the expected combined pre-sampler delay.",
+            "evidenceSource": "seed-skills/performance-test-scenario-generator/SKILL.md"
+          },
+          {
+            "scenario": "throughput timer compared with constant delay",
+            "controlledSetup": "Change only the condition represented by \"throughput timer compared with constant delay\" while retaining the baseline fixture.",
+            "expectedObservation": "sampler start times, timer values, tree position, labels, and result logs show which delays applied before each sampler",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish placing a timer under the wrong controller, cumulative timers, scheduler noise, server latency, throughput timer semantics, and assertions on wall time alone.",
+            "evidenceSource": "seed-skills/jmeter-load/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/jmeter-load/SKILL.md",
+          "seed-skills/performance-test-scenario-generator/SKILL.md",
+          "https://jmeter.apache.org/usermanual/component_reference.html",
+          "https://jmeter.apache.org/usermanual/remote-test.html",
+          "https://jmeter.apache.org/usermanual/best-practices.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run JMeter timer scope execution testing",
+        "steps": [
+          "Read seed-skills/jmeter-load/SKILL.md and seed-skills/performance-test-scenario-generator/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a JMX tree with sibling samplers, nested controllers, parent timers, child timers, and timestamp capture around each request.",
+          "Run the positive case and capture sampler start times, timer values, tree position, labels, and result logs show which delays applied before each sampler.",
+          "Inject one failure at a time from placing a timer under the wrong controller, cumulative timers, scheduler noise, server latency, throughput timer semantics, and assertions on wall time alone, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the JMeter timer scope execution testing baseline",
+          "language": "xml",
+          "path": "seed-skills/jmeter-load/SKILL.md",
+          "focus": "Adapt the JMeter timer and result examples into a small tree with timestamped sampler evidence."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "xml",
+          "path": "seed-skills/performance-test-scenario-generator/SKILL.md",
+          "focus": "Use scenario generator guidance to separate configured think time from network and server response duration."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/jmeter-load/SKILL.md",
+        "seed-skills/performance-test-scenario-generator/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/performance-testing",
+        "/blog/jmeter-distributed-load-testing-complete-guide",
+        "/blog/jmeter-response-assertion-jmx-guide",
+        "/blog/jmeter-vs-k6-vs-gatling-2026",
+        "/blog/jmeter-vs-locust-vs-gatling-comparison",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "jmeter-distributed-load-testing-complete-guide",
+        "jmeter-response-assertion-jmx-guide",
+        "jmeter-vs-k6-vs-gatling-2026",
+        "jmeter-vs-locust-vs-gatling-comparison"
+      ],
+      "sources": [
+        "https://jmeter.apache.org/usermanual/component_reference.html",
+        "https://jmeter.apache.org/usermanual/remote-test.html",
+        "https://jmeter.apache.org/usermanual/best-practices.html"
+      ],
+      "faqQuestions": [
+        "Where does a JMeter timer apply in the test tree, and how can a test confirm its delay reaches only intended samplers?",
+        "What should an JMeter timer scope test fixture record?",
+        "Which failure proves constant timer execution order is broken?",
+        "How do teams isolate JMeter timer child sampler?",
+        "Which assertion is strongest for throughput timer placement?",
+        "How should CI report measure JMeter think time failures?"
+      ],
+      "cta": "Review /blog/jmeter-distributed-load-testing-complete-guide, then open /skills and implement the JMeter timer scope execution testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-10",
+      "batch": 50,
+      "batchPosition": 3,
+      "domain": "testing-frameworks",
+      "slug": "selenium-bidi-event-ordering-tests",
+      "primaryKeyword": "Selenium BiDi event ordering tests",
+      "title": "Selenium BiDi event ordering tests",
+      "description": "Selenium BiDi event ordering tests: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How can Selenium BiDi tests assert network and log event ordering without relying on nondeterministic callback timing?",
+      "intentBoundary": "The nearest page covers a broader selenium workflow. This candidate owns event-ordering oracles after BiDi subscription.",
+      "secondaryKeywords": [
+        "Selenium BiDi event order",
+        "WebDriver BiDi network events",
+        "BiDi callback race testing",
+        "Selenium log event sequence",
+        "BiDi subscription timing"
+      ],
+      "outline": [
+        {
+          "heading": "What does Selenium BiDi event ordering tests verify?",
+          "question": true,
+          "coverage": "Answer \"How can Selenium BiDi tests assert network and log event ordering without relying on nondeterministic callback timing?\" in 40 to 60 words. Define the observable contract: BiDi subscriptions are active before the triggering action and events are ordered by protocol identity and timestamps rather than callback arrival alone. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/selenium-java/SKILL.md",
+            "seed-skills/selenium-grid-parallel/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an Selenium BiDi event order?",
+          "question": true,
+          "secondaryKeyword": "Selenium BiDi event order",
+          "coverage": "Describe this exact fixture: a deterministic page that issues one request, redirects, writes console messages, and completes after a known DOM signal. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/selenium-java/SKILL.md"]
+        },
+        {
+          "heading": "What breaks WebDriver BiDi network events?",
+          "question": true,
+          "secondaryKeyword": "WebDriver BiDi network events",
+          "coverage": "Explain the failure mechanics behind subscribing after navigation, callback thread races, unrelated background traffic, missing correlation IDs, cleanup leakage, and demanding a total order not guaranteed by the protocol. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/selenium-java/SKILL.md",
+            "seed-skills/selenium-grid-parallel/SKILL.md"
+          ]
+        },
+        {
+          "heading": "BiDi callback race testing fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "BiDi callback race testing",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a deterministic page that issues one request, redirects, writes console messages, and completes after a known DOM signal, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/selenium-grid-parallel/SKILL.md"]
+        },
+        {
+          "heading": "How should Selenium log event sequence be asserted?",
+          "question": true,
+          "secondaryKeyword": "Selenium log event sequence",
+          "coverage": "Build the oracle from subscription time, request IDs, event types, protocol timestamps, callback sequence, and final page state support an explicit partial-order assertion. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/selenium-java/SKILL.md",
+            "seed-skills/selenium-grid-parallel/SKILL.md"
+          ]
+        },
+        {
+          "heading": "BiDi subscription timing in CI",
+          "question": false,
+          "secondaryKeyword": "BiDi subscription timing",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to selenium-java and selenium-grid-parallel.",
+          "repoEvidence": [
+            "seed-skills/selenium-java/SKILL.md",
+            "seed-skills/selenium-grid-parallel/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Selenium BiDi event ordering tests comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: subscribe before the page action; subscribe after the request begins; request and response events for one ID; console message emitted during navigation; two sessions collecting events in parallel. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/selenium-java/SKILL.md",
+            "seed-skills/selenium-grid-parallel/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Selenium BiDi event ordering tests?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/selenium-java/SKILL.md",
+            "seed-skills/selenium-grid-parallel/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within BiDi subscriptions are active before the triggering action and events are ordered by protocol identity and timestamps rather than callback arrival alone, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/selenium-java/SKILL.md",
+            "seed-skills/selenium-grid-parallel/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/selenium-grid-3-to-4-migration-guide, then open /skills and implement the Selenium BiDi event ordering tests matrix in the next test run.",
+          "repoEvidence": ["seed-skills/selenium-java/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Selenium BiDi event ordering tests scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "subscribe before the page action",
+            "controlledSetup": "a deterministic page that issues one request, redirects, writes console messages, and completes after a known DOM signal",
+            "expectedObservation": "subscription time, request IDs, event types, protocol timestamps, callback sequence, and final page state support an explicit partial-order assertion",
+            "failureSignal": "Observed state differs from the documented BiDi subscriptions are active before the triggering action and events are ordered by protocol identity and timestamps rather than callback arrival alone.",
+            "evidenceSource": "seed-skills/selenium-java/SKILL.md"
+          },
+          {
+            "scenario": "subscribe after the request begins",
+            "controlledSetup": "Change only the condition represented by \"subscribe after the request begins\" while retaining the baseline fixture.",
+            "expectedObservation": "subscription time, request IDs, event types, protocol timestamps, callback sequence, and final page state support an explicit partial-order assertion",
+            "failureSignal": "Observed state differs from the documented BiDi subscriptions are active before the triggering action and events are ordered by protocol identity and timestamps rather than callback arrival alone.",
+            "evidenceSource": "seed-skills/selenium-grid-parallel/SKILL.md"
+          },
+          {
+            "scenario": "request and response events for one ID",
+            "controlledSetup": "Change only the condition represented by \"request and response events for one ID\" while retaining the baseline fixture.",
+            "expectedObservation": "subscription time, request IDs, event types, protocol timestamps, callback sequence, and final page state support an explicit partial-order assertion",
+            "failureSignal": "Observed state differs from the documented BiDi subscriptions are active before the triggering action and events are ordered by protocol identity and timestamps rather than callback arrival alone.",
+            "evidenceSource": "seed-skills/selenium-java/SKILL.md"
+          },
+          {
+            "scenario": "console message emitted during navigation",
+            "controlledSetup": "Change only the condition represented by \"console message emitted during navigation\" while retaining the baseline fixture.",
+            "expectedObservation": "subscription time, request IDs, event types, protocol timestamps, callback sequence, and final page state support an explicit partial-order assertion",
+            "failureSignal": "Observed state differs from the documented BiDi subscriptions are active before the triggering action and events are ordered by protocol identity and timestamps rather than callback arrival alone.",
+            "evidenceSource": "seed-skills/selenium-grid-parallel/SKILL.md"
+          },
+          {
+            "scenario": "two sessions collecting events in parallel",
+            "controlledSetup": "Change only the condition represented by \"two sessions collecting events in parallel\" while retaining the baseline fixture.",
+            "expectedObservation": "subscription time, request IDs, event types, protocol timestamps, callback sequence, and final page state support an explicit partial-order assertion",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish subscribing after navigation, callback thread races, unrelated background traffic, missing correlation IDs, cleanup leakage, and demanding a total order not guaranteed by the protocol.",
+            "evidenceSource": "seed-skills/selenium-java/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/selenium-java/SKILL.md",
+          "seed-skills/selenium-grid-parallel/SKILL.md",
+          "https://www.selenium.dev/documentation/webdriver/waits/",
+          "https://www.selenium.dev/documentation/grid/architecture/",
+          "https://www.selenium.dev/documentation/webdriver/bidi/",
+          "https://www.w3.org/TR/webdriver2/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Selenium BiDi event ordering tests",
+        "steps": [
+          "Read seed-skills/selenium-java/SKILL.md and seed-skills/selenium-grid-parallel/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a deterministic page that issues one request, redirects, writes console messages, and completes after a known DOM signal.",
+          "Run the positive case and capture subscription time, request IDs, event types, protocol timestamps, callback sequence, and final page state support an explicit partial-order assertion.",
+          "Inject one failure at a time from subscribing after navigation, callback thread races, unrelated background traffic, missing correlation IDs, cleanup leakage, and demanding a total order not guaranteed by the protocol, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Selenium BiDi event ordering tests baseline",
+          "language": "java",
+          "path": "seed-skills/selenium-java/SKILL.md",
+          "focus": "Adapt Selenium BiDi subscription examples into a timestamped, request-correlated event buffer."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "java",
+          "path": "seed-skills/selenium-grid-parallel/SKILL.md",
+          "focus": "Use Grid isolation guidance to scope listeners per session and remove subscriptions after each test."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/selenium-java/SKILL.md",
+        "seed-skills/selenium-grid-parallel/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/e2e-testing",
+        "/blog/selenium-grid-3-to-4-migration-guide",
+        "/blog/selenium-bidirectional-bidi-protocol-guide",
+        "/blog/selenium-webdriver-bidi-2026-official-reference",
+        "/blog/selenium-4-relative-locators-guide-2026",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "selenium-grid-3-to-4-migration-guide",
+        "selenium-bidirectional-bidi-protocol-guide",
+        "selenium-webdriver-bidi-2026-official-reference",
+        "selenium-4-relative-locators-guide-2026"
+      ],
+      "sources": [
+        "https://www.selenium.dev/documentation/webdriver/waits/",
+        "https://www.selenium.dev/documentation/grid/architecture/",
+        "https://www.selenium.dev/documentation/webdriver/bidi/",
+        "https://www.w3.org/TR/webdriver2/"
+      ],
+      "faqQuestions": [
+        "How can Selenium BiDi tests assert network and log event ordering without relying on nondeterministic callback timing?",
+        "What should an Selenium BiDi event order fixture record?",
+        "Which failure proves WebDriver BiDi network events is broken?",
+        "How do teams isolate BiDi callback race testing?",
+        "Which assertion is strongest for Selenium log event sequence?",
+        "How should CI report BiDi subscription timing failures?"
+      ],
+      "cta": "Review /blog/selenium-grid-3-to-4-migration-guide, then open /skills and implement the Selenium BiDi event ordering tests matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-47",
+      "batch": 50,
+      "batchPosition": 4,
+      "domain": "testing-frameworks",
+      "slug": "skip-link-target-focus-testing",
+      "primaryKeyword": "skip link target focus testing",
+      "title": "skip link target focus testing",
+      "description": "skip link target focus testing: use repo fixtures, focused assertions, and CI checks to expose failures and prevent regressions before release.",
+      "intent": "how-to",
+      "coreQuestion": "How can tests prove a skip link becomes visible, moves focus to the main region, and works repeatedly with keyboard input?",
+      "intentBoundary": "The nearest page covers a broader a11y workflow. This candidate owns focus transfer and repeatability for skip navigation.",
+      "secondaryKeywords": [
+        "skip link focus target",
+        "keyboard bypass block test",
+        "skip navigation visibility",
+        "main landmark focus assertion",
+        "repeat skip link activation"
+      ],
+      "outline": [
+        {
+          "heading": "What does skip link target focus testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can tests prove a skip link becomes visible, moves focus to the main region, and works repeatedly with keyboard input?\" in 40 to 60 words. Define the observable contract: the first keyboard-reachable skip link becomes visible, moves focus to the main region, and works again after focus returns to the page start. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an skip link focus target?",
+          "question": true,
+          "secondaryKeyword": "skip link focus target",
+          "coverage": "Describe this exact fixture: a representative page with header navigation, a visually hidden skip link, a main landmark target, route changes, and repeated activation. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/accessibility-a11y-enhanced/SKILL.md"]
+        },
+        {
+          "heading": "What breaks keyboard bypass block test?",
+          "question": true,
+          "secondaryKeyword": "keyboard bypass block test",
+          "coverage": "Explain the failure mechanics behind fragment scrolling without focus, non-focusable targets, hidden focus styles, sticky headers, SPA rerenders, and one-time-only activation. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "skip navigation visibility fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "skip navigation visibility",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a representative page with header navigation, a visually hidden skip link, a main landmark target, route changes, and repeated activation, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/wcag-accessibility-testing/SKILL.md"]
+        },
+        {
+          "heading": "How should main landmark focus assertion be asserted?",
+          "question": true,
+          "secondaryKeyword": "main landmark focus assertion",
+          "coverage": "Build the oracle from tab order, visibility, activeElement, target identity, scroll position, focus indicator, and subsequent key behavior prove usable bypass navigation. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "repeat skip link activation in CI",
+          "question": false,
+          "secondaryKeyword": "repeat skip link activation",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to accessibility-a11y-enhanced and wcag-accessibility-testing.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "skip link target focus testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: first Tab reveals the skip link; Enter moves focus to the main target; target is already visible without scrolling; activation after a client-side route change; second activation after focus returns to the top. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement skip link target focus testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the first keyboard-reachable skip link becomes visible, moves focus to the main region, and works again after focus returns to the page start, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/accessibility-testing-automation-guide, then open /skills and implement the skip link target focus testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/accessibility-a11y-enhanced/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "skip link target focus testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "first Tab reveals the skip link",
+            "controlledSetup": "a representative page with header navigation, a visually hidden skip link, a main landmark target, route changes, and repeated activation",
+            "expectedObservation": "tab order, visibility, activeElement, target identity, scroll position, focus indicator, and subsequent key behavior prove usable bypass navigation",
+            "failureSignal": "Observed state differs from the documented the first keyboard-reachable skip link becomes visible, moves focus to the main region, and works again after focus returns to the page start.",
+            "evidenceSource": "seed-skills/accessibility-a11y-enhanced/SKILL.md"
+          },
+          {
+            "scenario": "Enter moves focus to the main target",
+            "controlledSetup": "Change only the condition represented by \"Enter moves focus to the main target\" while retaining the baseline fixture.",
+            "expectedObservation": "tab order, visibility, activeElement, target identity, scroll position, focus indicator, and subsequent key behavior prove usable bypass navigation",
+            "failureSignal": "Observed state differs from the documented the first keyboard-reachable skip link becomes visible, moves focus to the main region, and works again after focus returns to the page start.",
+            "evidenceSource": "seed-skills/wcag-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "target is already visible without scrolling",
+            "controlledSetup": "Change only the condition represented by \"target is already visible without scrolling\" while retaining the baseline fixture.",
+            "expectedObservation": "tab order, visibility, activeElement, target identity, scroll position, focus indicator, and subsequent key behavior prove usable bypass navigation",
+            "failureSignal": "Observed state differs from the documented the first keyboard-reachable skip link becomes visible, moves focus to the main region, and works again after focus returns to the page start.",
+            "evidenceSource": "seed-skills/accessibility-a11y-enhanced/SKILL.md"
+          },
+          {
+            "scenario": "activation after a client-side route change",
+            "controlledSetup": "Change only the condition represented by \"activation after a client-side route change\" while retaining the baseline fixture.",
+            "expectedObservation": "tab order, visibility, activeElement, target identity, scroll position, focus indicator, and subsequent key behavior prove usable bypass navigation",
+            "failureSignal": "Observed state differs from the documented the first keyboard-reachable skip link becomes visible, moves focus to the main region, and works again after focus returns to the page start.",
+            "evidenceSource": "seed-skills/wcag-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "second activation after focus returns to the top",
+            "controlledSetup": "Change only the condition represented by \"second activation after focus returns to the top\" while retaining the baseline fixture.",
+            "expectedObservation": "tab order, visibility, activeElement, target identity, scroll position, focus indicator, and subsequent key behavior prove usable bypass navigation",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish fragment scrolling without focus, non-focusable targets, hidden focus styles, sticky headers, SPA rerenders, and one-time-only activation.",
+            "evidenceSource": "seed-skills/accessibility-a11y-enhanced/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+          "seed-skills/wcag-accessibility-testing/SKILL.md",
+          "https://www.w3.org/TR/accname-1.2/",
+          "https://www.w3.org/TR/mediaqueries-5/",
+          "https://www.w3.org/WAI/WCAG21/Techniques/general/G1"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run skip link target focus testing",
+        "steps": [
+          "Read seed-skills/accessibility-a11y-enhanced/SKILL.md and seed-skills/wcag-accessibility-testing/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a representative page with header navigation, a visually hidden skip link, a main landmark target, route changes, and repeated activation.",
+          "Run the positive case and capture tab order, visibility, activeElement, target identity, scroll position, focus indicator, and subsequent key behavior prove usable bypass navigation.",
+          "Inject one failure at a time from fragment scrolling without focus, non-focusable targets, hidden focus styles, sticky headers, SPA rerenders, and one-time-only activation, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the skip link target focus testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+          "focus": "Adapt keyboard accessibility checks to assert visibility, activeElement, target, and repeat activation."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/wcag-accessibility-testing/SKILL.md",
+          "focus": "Use the WCAG bypass-block workflow to pair automated focus assertions with a short manual keyboard review."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+        "seed-skills/wcag-accessibility-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/accessibility-testing",
+        "/blog/accessibility-testing-automation-guide",
+        "/blog/mobile-accessibility-testing-guide",
+        "/blog/axe-core-playwright-accessibility-testing-2026",
+        "/blog/wcag-2-2-testing-checklist-qa-engineers",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "accessibility-testing-automation-guide",
+        "mobile-accessibility-testing-guide",
+        "axe-core-playwright-accessibility-testing-2026",
+        "wcag-2-2-testing-checklist-qa-engineers"
+      ],
+      "sources": [
+        "https://www.w3.org/TR/accname-1.2/",
+        "https://www.w3.org/TR/mediaqueries-5/",
+        "https://www.w3.org/WAI/WCAG21/Techniques/general/G1"
+      ],
+      "faqQuestions": [
+        "How can tests prove a skip link becomes visible, moves focus to the main region, and works repeatedly with keyboard input?",
+        "What should an skip link focus target fixture record?",
+        "Which failure proves keyboard bypass block test is broken?",
+        "How do teams isolate skip navigation visibility?",
+        "Which assertion is strongest for main landmark focus assertion?",
+        "How should CI report repeat skip link activation failures?"
+      ],
+      "cta": "Review /blog/accessibility-testing-automation-guide, then open /skills and implement the skip link target focus testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-51",
+      "batch": 50,
+      "batchPosition": 5,
+      "domain": "testing-frameworks",
+      "slug": "third-party-performance-budget-testing",
+      "primaryKeyword": "third party performance budget testing",
+      "title": "third party performance budget testing",
+      "description": "third party performance budget testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How should a performance budget isolate third-party scripts by origin, transfer size, main-thread cost, and failure policy?",
+      "intentBoundary": "The nearest page covers a broader performance workflow. This candidate owns origin-scoped budgets for third-party code.",
+      "secondaryKeywords": [
+        "third party performance budget",
+        "script origin transfer budget",
+        "tag manager performance test",
+        "third party CPU cost CI",
+        "Lighthouse third party budget"
+      ],
+      "outline": [
+        {
+          "heading": "What does third party performance budget testing verify?",
+          "question": true,
+          "coverage": "Answer \"How should a performance budget isolate third-party scripts by origin, transfer size, main-thread cost, and failure policy?\" in 40 to 60 words. Define the observable contract: third-party cost is grouped by an explicit ownership rule and gated by transfer size, request count, main-thread work, or an approved exception. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an third party performance budget?",
+          "question": true,
+          "secondaryKeyword": "third party performance budget",
+          "coverage": "Describe this exact fixture: a page with first-party code, analytics, tag manager, chat, consent-controlled scripts, cached resources, and one self-hosted vendor asset. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/web-vitals-testing/SKILL.md"]
+        },
+        {
+          "heading": "What breaks script origin transfer budget?",
+          "question": true,
+          "secondaryKeyword": "script origin transfer budget",
+          "coverage": "Explain the failure mechanics behind misclassifying CDNs, self-hosted vendor code, cache-dependent totals, consent variation, dynamic injection, and budgets without an owner or waiver. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "tag manager performance test fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "tag manager performance test",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a page with first-party code, analytics, tag manager, chat, consent-controlled scripts, cached resources, and one self-hosted vendor asset, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/performance-budget-testing/SKILL.md"]
+        },
+        {
+          "heading": "How should third party CPU cost CI be asserted?",
+          "question": true,
+          "secondaryKeyword": "third party CPU cost CI",
+          "coverage": "Build the oracle from request origin, resource sizes, initiator data, task attribution, consent state, cache state, and budget output explain every assigned cost. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Lighthouse third party budget in CI",
+          "question": false,
+          "secondaryKeyword": "Lighthouse third party budget",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to web-vitals-testing and performance-budget-testing.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "third party performance budget testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: first-party application resource; vendor resource from an external origin; self-hosted vendor bundle; third-party request blocked by consent; cached third-party resource with main-thread cost. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement third party performance budget testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within third-party cost is grouped by an explicit ownership rule and gated by transfer size, request count, main-thread work, or an approved exception, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/performance-testing-complete-guide, then open /skills and implement the third party performance budget testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/web-vitals-testing/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "third party performance budget testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "first-party application resource",
+            "controlledSetup": "a page with first-party code, analytics, tag manager, chat, consent-controlled scripts, cached resources, and one self-hosted vendor asset",
+            "expectedObservation": "request origin, resource sizes, initiator data, task attribution, consent state, cache state, and budget output explain every assigned cost",
+            "failureSignal": "Observed state differs from the documented third-party cost is grouped by an explicit ownership rule and gated by transfer size, request count, main-thread work, or an approved exception.",
+            "evidenceSource": "seed-skills/web-vitals-testing/SKILL.md"
+          },
+          {
+            "scenario": "vendor resource from an external origin",
+            "controlledSetup": "Change only the condition represented by \"vendor resource from an external origin\" while retaining the baseline fixture.",
+            "expectedObservation": "request origin, resource sizes, initiator data, task attribution, consent state, cache state, and budget output explain every assigned cost",
+            "failureSignal": "Observed state differs from the documented third-party cost is grouped by an explicit ownership rule and gated by transfer size, request count, main-thread work, or an approved exception.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          },
+          {
+            "scenario": "self-hosted vendor bundle",
+            "controlledSetup": "Change only the condition represented by \"self-hosted vendor bundle\" while retaining the baseline fixture.",
+            "expectedObservation": "request origin, resource sizes, initiator data, task attribution, consent state, cache state, and budget output explain every assigned cost",
+            "failureSignal": "Observed state differs from the documented third-party cost is grouped by an explicit ownership rule and gated by transfer size, request count, main-thread work, or an approved exception.",
+            "evidenceSource": "seed-skills/web-vitals-testing/SKILL.md"
+          },
+          {
+            "scenario": "third-party request blocked by consent",
+            "controlledSetup": "Change only the condition represented by \"third-party request blocked by consent\" while retaining the baseline fixture.",
+            "expectedObservation": "request origin, resource sizes, initiator data, task attribution, consent state, cache state, and budget output explain every assigned cost",
+            "failureSignal": "Observed state differs from the documented third-party cost is grouped by an explicit ownership rule and gated by transfer size, request count, main-thread work, or an approved exception.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          },
+          {
+            "scenario": "cached third-party resource with main-thread cost",
+            "controlledSetup": "Change only the condition represented by \"cached third-party resource with main-thread cost\" while retaining the baseline fixture.",
+            "expectedObservation": "request origin, resource sizes, initiator data, task attribution, consent state, cache state, and budget output explain every assigned cost",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish misclassifying CDNs, self-hosted vendor code, cache-dependent totals, consent variation, dynamic injection, and budgets without an owner or waiver.",
+            "evidenceSource": "seed-skills/web-vitals-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/web-vitals-testing/SKILL.md",
+          "seed-skills/performance-budget-testing/SKILL.md",
+          "https://web.dev/articles/bfcache",
+          "https://www.w3.org/TR/resource-timing-2/",
+          "https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md",
+          "https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run third party performance budget testing",
+        "steps": [
+          "Read seed-skills/web-vitals-testing/SKILL.md and seed-skills/performance-budget-testing/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a page with first-party code, analytics, tag manager, chat, consent-controlled scripts, cached resources, and one self-hosted vendor asset.",
+          "Run the positive case and capture request origin, resource sizes, initiator data, task attribution, consent state, cache state, and budget output explain every assigned cost.",
+          "Inject one failure at a time from misclassifying CDNs, self-hosted vendor code, cache-dependent totals, consent variation, dynamic injection, and budgets without an owner or waiver, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the third party performance budget testing baseline",
+          "language": "javascript",
+          "path": "seed-skills/web-vitals-testing/SKILL.md",
+          "focus": "Adapt Web Vitals resource collection to group requests by an explicit first-party and third-party ownership map."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "javascript",
+          "path": "seed-skills/performance-budget-testing/SKILL.md",
+          "focus": "Use performance budget patterns to gate transfer, request count, and execution cost with named owners and exceptions."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/web-vitals-testing/SKILL.md",
+        "seed-skills/performance-budget-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/performance-testing",
+        "/blog/performance-testing-complete-guide",
+        "/blog/lighthouse-ci-performance-budget-gates-guide-2026",
+        "/blog/core-web-vitals-testing-guide-2026",
+        "/blog/sitespeed-io-performance-testing-guide-2026",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "performance-testing-complete-guide",
+        "lighthouse-ci-performance-budget-gates-guide-2026",
+        "core-web-vitals-testing-guide-2026",
+        "sitespeed-io-performance-testing-guide-2026"
+      ],
+      "sources": [
+        "https://web.dev/articles/bfcache",
+        "https://www.w3.org/TR/resource-timing-2/",
+        "https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md",
+        "https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver"
+      ],
+      "faqQuestions": [
+        "How should a performance budget isolate third-party scripts by origin, transfer size, main-thread cost, and failure policy?",
+        "What should an third party performance budget fixture record?",
+        "Which failure proves script origin transfer budget is broken?",
+        "How do teams isolate tag manager performance test?",
+        "Which assertion is strongest for third party CPU cost CI?",
+        "How should CI report Lighthouse third party budget failures?"
+      ],
+      "cta": "Review /blog/performance-testing-complete-guide, then open /skills and implement the third party performance budget testing matrix in the next test run."
+    }
+  ]
+}

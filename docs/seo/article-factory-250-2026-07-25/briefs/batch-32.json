@@ -1,0 +1,980 @@
+{
+  "batch": 32,
+  "briefs": [
+    {
+      "id": "PW-017",
+      "batch": 32,
+      "domain": "playwright-browser",
+      "slug": "playwright-requestfailed-error-diagnostics",
+      "primaryKeyword": "playwright requestfailed error diagnostics",
+      "title": "Playwright requestfailed Error Diagnostics",
+      "description": "playwright requestfailed error diagnostics: separate transport failures from completed HTTP error responses. Repo evidence maps checks and CI-safe steps.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you distinguish Playwright requestfailed transport errors from completed HTTP error responses and preserve useful failure text?",
+      "secondaryKeywords": [
+        "playwright request failure text",
+        "requestfailed versus 404",
+        "playwright transport error debugging",
+        "failed browser request listener",
+        "network error evidence playwright",
+        "request failure ci logs"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright requestfailed Error Diagnostics Control?",
+          "question": true,
+          "coverage": "Answer How do you distinguish Playwright requestfailed transport errors from completed HTTP error responses and preserve useful failure text? Define the boundary: requestfailed reports requests that do not receive a completed HTTP response, while 4xx and 5xx responses still complete. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/race-condition-finder/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright Request Failure Text Work?",
+          "question": true,
+          "secondaryKeyword": "playwright request failure text",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind page.on('requestfailed', request => failures.push({ url: request.url(), error: request.failure()?.errorText })). Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/race-condition-finder/SKILL.md"]
+        },
+        {
+          "heading": "requestfailed Versus 404: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "requestfailed versus 404",
+          "coverage": "Walk through the relevant repository example in seed-skills/race-condition-finder/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/race-condition-finder/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Playwright Transport Error Debugging?",
+          "question": true,
+          "secondaryKeyword": "playwright transport error debugging",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/console-error-hunter/SKILL.md"]
+        },
+        {
+          "heading": "Failed Browser Request Listener: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "failed browser request listener",
+          "coverage": "Reproduce and diagnose this primary risk: a completed 404 is misclassified as a transport failure or failure text is discarded. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/console-error-hunter/SKILL.md"]
+        },
+        {
+          "heading": "Network Error Evidence Playwright: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "network error evidence playwright",
+          "coverage": "Specify the assertion and CI record: correlate request failure text with response status events and preserve both in CI evidence. Require request URL, method, failure text, matching response status, and trace reference so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/race-condition-finder/SKILL.md",
+            "seed-skills/console-error-hunter/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Request Failure CI Logs Comparison Table",
+          "question": false,
+          "secondaryKeyword": "request failure ci logs",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/race-condition-finder/SKILL.md",
+            "seed-skills/console-error-hunter/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright requestfailed Error Diagnostics?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/race-condition-finder/SKILL.md",
+            "seed-skills/console-error-hunter/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/race-condition-finder/SKILL.md",
+            "seed-skills/console-error-hunter/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/race-condition-finder/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright requestfailed Error Diagnostics Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "requestfailed event",
+            "useWhen": "Diagnose DNS, connection, cancellation, and other incomplete request paths",
+            "expectedEvidence": "request URL, method, failure text, matching response status, and trace reference",
+            "mainRisk": "a completed 404 is misclassified as a transport failure or failure text is discarded"
+          },
+          {
+            "option": "response event",
+            "useWhen": "Inspect completed HTTP responses including 4xx and 5xx statuses",
+            "expectedEvidence": "request URL, method, failure text, matching response status, and trace reference",
+            "mainRisk": "a completed 404 is misclassified as a transport failure or failure text is discarded"
+          },
+          {
+            "option": "trace network panel",
+            "useWhen": "Correlate timing and surrounding browser actions after a failure",
+            "expectedEvidence": "request URL, method, failure text, matching response status, and trace reference",
+            "mainRisk": "a completed 404 is misclassified as a transport failure or failure text is discarded"
+          },
+          {
+            "option": "application assertion",
+            "useWhen": "Decide whether a completed error response violates the user flow",
+            "expectedEvidence": "request URL, method, failure text, matching response status, and trace reference",
+            "mainRisk": "a completed 404 is misclassified as a transport failure or failure text is discarded"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/api/class-page#page-event-request-failed",
+          "seed-skills/race-condition-finder/SKILL.md",
+          "seed-skills/console-error-hunter/SKILL.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright requestfailed error diagnostics",
+        "steps": [
+          "Read seed-skills/race-condition-finder/SKILL.md and define the expected contract: requestfailed reports requests that do not receive a completed HTTP response, while 4xx and 5xx responses still complete.",
+          "Create the smallest isolated test or CLI session and implement page.on('requestfailed', request => failures.push({ url: request.url(), error: request.failure()?.errorText })).",
+          "Exercise the success case, then reproduce the controlled failure where a completed 404 is misclassified as a transport failure or failure text is discarded.",
+          "Apply the release assertion: correlate request failure text with response status events and preserve both in CI evidence.",
+          "Capture request URL, method, failure text, matching response status, and trace reference, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright requestfailed Error Diagnostics: primary implementation",
+          "language": "typescript",
+          "repoPath": "seed-skills/race-condition-finder/SKILL.md",
+          "plannedSnippet": "page.on('requestfailed', request => failures.push({ url: request.url(), error: request.failure()?.errorText }));",
+          "purpose": "Implement page.on('requestfailed', request => failures.push({ url: request.url(), error: request.failure()?.errorText })) using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright requestfailed Error Diagnostics: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "seed-skills/console-error-hunter/SKILL.md",
+          "plannedSnippet": "page.on('response', response => responses.push({ url: response.url(), status: response.status() }));",
+          "purpose": "Prove correlate request failure text with response status events and preserve both in CI evidence and retain request URL, method, failure text, matching response status, and trace reference."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/race-condition-finder/SKILL.md",
+        "seed-skills/console-error-hunter/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-network-interception-route-guide",
+        "/blog/playwright-har-replay-not-found-fallback",
+        "/blog/playwright-trace-viewer-debugging-guide",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-network-interception-route-guide",
+        "playwright-har-replay-not-found-fallback",
+        "playwright-trace-viewer-debugging-guide",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/api/class-page#page-event-request-failed",
+        "https://playwright.dev/docs/network",
+        "https://playwright.dev/docs/events"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright request failure text?",
+        "How do you verify requestfailed versus 404?",
+        "When should a QA team choose playwright transport error debugging?",
+        "What causes failures in failed browser request listener?",
+        "Which evidence should network error evidence playwright retain?",
+        "How should CI handle request failure ci logs?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 1
+    },
+    {
+      "id": "PW-032",
+      "batch": 32,
+      "domain": "playwright-browser",
+      "slug": "playwright-max-failures-ci",
+      "primaryKeyword": "playwright max failures ci",
+      "title": "Playwright Max Failures CI",
+      "description": "playwright max failures ci: cap noisy CI runs while preserving the first useful failure. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How should a CI pipeline configure Playwright maxFailures to stop noisy runs without hiding the first useful failure?",
+      "secondaryKeywords": [
+        "playwright maxfailures config",
+        "stop playwright after failure",
+        "ci fail fast browser tests",
+        "playwright max failures flag",
+        "preserve first failure evidence",
+        "large e2e suite failure cap"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright Max Failures CI Control?",
+          "question": true,
+          "coverage": "Answer How should a CI pipeline configure Playwright maxFailures to stop noisy runs without hiding the first useful failure? Define the boundary: maxFailures stops a Playwright suite after the configured number of failures. State what this workflow does not replace.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "How Does Playwright Maxfailures Config Work?",
+          "question": true,
+          "secondaryKeyword": "playwright maxfailures config",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind set maxFailures conditionally in playwright.config.ts or pass --max-failures for a diagnostic run. Distinguish observation from assertion.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "Stop Playwright After Failure: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "stop playwright after failure",
+          "coverage": "Walk through the relevant repository example in packages/web/playwright.config.ts and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "When Should QA Teams Use CI Fail Fast Browser Tests?",
+          "question": true,
+          "secondaryKeyword": "ci fail fast browser tests",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-cli-agent-loop/SKILL.md"]
+        },
+        {
+          "heading": "Playwright Max Failures Flag: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "playwright max failures flag",
+          "coverage": "Reproduce and diagnose this primary risk: a low cap hides independent regressions or a high cap wastes CI time after infrastructure failure. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-cli-agent-loop/SKILL.md"]
+        },
+        {
+          "heading": "Preserve First Failure Evidence: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "preserve first failure evidence",
+          "coverage": "Specify the assertion and CI record: prove the cap stops execution at the expected count and retains traces, screenshots, and reporter output. Require failure order, cap value, skipped remainder, traces, and final exit status so the result remains reviewable.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "seed-skills/playwright-cli-agent-loop/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Large E2e Suite Failure Cap Comparison Table",
+          "question": false,
+          "secondaryKeyword": "large e2e suite failure cap",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "seed-skills/playwright-cli-agent-loop/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright Max Failures CI?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "seed-skills/playwright-cli-agent-loop/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "seed-skills/playwright-cli-agent-loop/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright Max Failures CI Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "maxFailures 1",
+            "useWhen": "Stop after the first failure for a focused diagnostic or smoke gate",
+            "expectedEvidence": "failure order, cap value, skipped remainder, traces, and final exit status",
+            "mainRisk": "a low cap hides independent regressions or a high cap wastes CI time after infrastructure failure"
+          },
+          {
+            "option": "small failure cap",
+            "useWhen": "Collect a limited sample of independent failures in a large suite",
+            "expectedEvidence": "failure order, cap value, skipped remainder, traces, and final exit status",
+            "mainRisk": "a low cap hides independent regressions or a high cap wastes CI time after infrastructure failure"
+          },
+          {
+            "option": "unlimited local run",
+            "useWhen": "Inspect broad impact when time and browser capacity are available",
+            "expectedEvidence": "failure order, cap value, skipped remainder, traces, and final exit status",
+            "mainRisk": "a low cap hides independent regressions or a high cap wastes CI time after infrastructure failure"
+          },
+          {
+            "option": "shard-aware cap",
+            "useWhen": "Apply and report the cap per shard without claiming global coverage",
+            "expectedEvidence": "failure order, cap value, skipped remainder, traces, and final exit status",
+            "mainRisk": "a low cap hides independent regressions or a high cap wastes CI time after infrastructure failure"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/test-cli",
+          "packages/web/playwright.config.ts",
+          "seed-skills/playwright-cli-agent-loop/SKILL.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright max failures ci",
+        "steps": [
+          "Read packages/web/playwright.config.ts and define the expected contract: maxFailures stops a Playwright suite after the configured number of failures.",
+          "Create the smallest isolated test or CLI session and implement set maxFailures conditionally in playwright.config.ts or pass --max-failures for a diagnostic run.",
+          "Exercise the success case, then reproduce the controlled failure where a low cap hides independent regressions or a high cap wastes CI time after infrastructure failure.",
+          "Apply the release assertion: prove the cap stops execution at the expected count and retains traces, screenshots, and reporter output.",
+          "Capture failure order, cap value, skipped remainder, traces, and final exit status, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright Max Failures CI: primary implementation",
+          "language": "typescript",
+          "repoPath": "packages/web/playwright.config.ts",
+          "plannedSnippet": "export default defineConfig({ maxFailures: process.env.CI ? 3 : 0 });",
+          "purpose": "Implement set maxFailures conditionally in playwright.config.ts or pass --max-failures for a diagnostic run using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright Max Failures CI: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-cli-agent-loop/SKILL.md",
+          "plannedSnippet": "npx playwright test --max-failures=1 --trace=retain-on-failure",
+          "purpose": "Prove prove the cap stops execution at the expected count and retains traces, screenshots, and reporter output and retain failure order, cap value, skipped remainder, traces, and final exit status."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/playwright.config.ts",
+        "seed-skills/playwright-cli-agent-loop/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-test-config-options-complete-reference",
+        "/blog/playwright-ci-github-actions-complete-guide-2026",
+        "/blog/ci-fail-fast-vs-continue-on-error-jobs",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-test-config-options-complete-reference",
+        "playwright-ci-github-actions-complete-guide-2026",
+        "ci-fail-fast-vs-continue-on-error-jobs",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/test-cli",
+        "https://playwright.dev/docs/test-configuration",
+        "https://playwright.dev/docs/api/class-testconfig#test-config-max-failures"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright maxfailures config?",
+        "How do you verify stop playwright after failure?",
+        "When should a QA team choose ci fail fast browser tests?",
+        "What causes failures in playwright max failures flag?",
+        "Which evidence should preserve first failure evidence retain?",
+        "How should CI handle large e2e suite failure cap?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 2
+    },
+    {
+      "id": "PW-011",
+      "batch": 32,
+      "domain": "playwright-browser",
+      "slug": "playwright-cli-console-warning-filter",
+      "primaryKeyword": "playwright cli console warning filter",
+      "title": "Playwright CLI Console Warning Filter",
+      "description": "playwright cli console warning filter: filter CLI console warnings without hiding browser failures. Repo evidence maps checks and CI-safe steps.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you filter Playwright CLI console output to warnings and separate useful browser failures from noise?",
+      "secondaryKeywords": [
+        "playwright cli console warning",
+        "filter browser console errors",
+        "playwright console noise allowlist",
+        "browser warning source location",
+        "console error qa evidence",
+        "terminal browser log filtering"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright CLI Console Warning Filter Control?",
+          "question": true,
+          "coverage": "Answer How do you filter Playwright CLI console output to warnings and separate useful browser failures from noise? Define the boundary: Playwright CLI can read console output by severity, while the QA gate owns documented noise rules. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright CLI Console Warning Work?",
+          "question": true,
+          "secondaryKeyword": "playwright cli console warning",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind run playwright-cli console warning, normalize source locations, and compare messages with a narrow allowlist. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "Filter Browser Console Errors: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "filter browser console errors",
+          "coverage": "Walk through the relevant repository example in seed-skills/playwright-cli/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Playwright Console Noise Allowlist?",
+          "question": true,
+          "secondaryKeyword": "playwright console noise allowlist",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/console-error-hunter/SKILL.md"]
+        },
+        {
+          "heading": "Browser Warning Source Location: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "browser warning source location",
+          "coverage": "Reproduce and diagnose this primary risk: substring filters suppress unrelated errors or source locations are omitted from CI logs. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/console-error-hunter/SKILL.md"]
+        },
+        {
+          "heading": "Console Error Qa Evidence: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "console error qa evidence",
+          "coverage": "Specify the assertion and CI record: retain allowed messages in evidence and fail only on unexpected warning or error signatures. Require severity, text, source URL, line, column, allowlist reason, and screenshot so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/console-error-hunter/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Terminal Browser Log Filtering Comparison Table",
+          "question": false,
+          "secondaryKeyword": "terminal browser log filtering",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/console-error-hunter/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright CLI Console Warning Filter?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/console-error-hunter/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/console-error-hunter/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright CLI Console Warning Filter Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "console warning",
+            "useWhen": "Limit CLI output to warning-level browser messages for initial triage",
+            "expectedEvidence": "severity, text, source URL, line, column, allowlist reason, and screenshot",
+            "mainRisk": "substring filters suppress unrelated errors or source locations are omitted from CI logs"
+          },
+          {
+            "option": "all console output",
+            "useWhen": "Preserve context when warning-only output is insufficient",
+            "expectedEvidence": "severity, text, source URL, line, column, allowlist reason, and screenshot",
+            "mainRisk": "substring filters suppress unrelated errors or source locations are omitted from CI logs"
+          },
+          {
+            "option": "exact allowlist",
+            "useWhen": "Document one accepted signature without muting a whole category",
+            "expectedEvidence": "severity, text, source URL, line, column, allowlist reason, and screenshot",
+            "mainRisk": "substring filters suppress unrelated errors or source locations are omitted from CI logs"
+          },
+          {
+            "option": "failure gate",
+            "useWhen": "Fail after collection so evidence is not lost at the first message",
+            "expectedEvidence": "severity, text, source URL, line, column, allowlist reason, and screenshot",
+            "mainRisk": "substring filters suppress unrelated errors or source locations are omitted from CI logs"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/getting-started-cli",
+          "seed-skills/playwright-cli/SKILL.md",
+          "seed-skills/console-error-hunter/SKILL.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright cli console warning filter",
+        "steps": [
+          "Read seed-skills/playwright-cli/SKILL.md and define the expected contract: Playwright CLI can read console output by severity, while the QA gate owns documented noise rules.",
+          "Create the smallest isolated test or CLI session and implement run playwright-cli console warning, normalize source locations, and compare messages with a narrow allowlist.",
+          "Exercise the success case, then reproduce the controlled failure where substring filters suppress unrelated errors or source locations are omitted from CI logs.",
+          "Apply the release assertion: retain allowed messages in evidence and fail only on unexpected warning or error signatures.",
+          "Capture severity, text, source URL, line, column, allowlist reason, and screenshot, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright CLI Console Warning Filter: primary implementation",
+          "language": "bash",
+          "repoPath": "seed-skills/playwright-cli/SKILL.md",
+          "plannedSnippet": "playwright-cli console warning",
+          "purpose": "Implement run playwright-cli console warning, normalize source locations, and compare messages with a narrow allowlist using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright CLI Console Warning Filter: failure assertion and evidence",
+          "language": "bash",
+          "repoPath": "seed-skills/console-error-hunter/SKILL.md",
+          "plannedSnippet": "const unexpected = messages.filter(message => !allowedExactMessages.has(message.text)); expect(unexpected).toEqual([]);",
+          "purpose": "Prove retain allowed messages in evidence and fail only on unexpected warning or error signatures and retain severity, text, source URL, line, column, allowlist reason, and screenshot."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/playwright-cli/SKILL.md",
+        "seed-skills/console-error-hunter/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-cli-complete-guide-2026",
+        "/blog/playwright-debug-mode-inspector-guide",
+        "/blog/observability-driven-testing-guide",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-cli-complete-guide-2026",
+        "playwright-debug-mode-inspector-guide",
+        "observability-driven-testing-guide",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/getting-started-cli",
+        "https://github.com/microsoft/playwright-cli",
+        "https://playwright.dev/docs/api/class-consolemessage"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright cli console warning?",
+        "How do you verify filter browser console errors?",
+        "When should a QA team choose playwright console noise allowlist?",
+        "What causes failures in browser warning source location?",
+        "Which evidence should console error qa evidence retain?",
+        "How should CI handle terminal browser log filtering?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 3
+    },
+    {
+      "id": "PW-045",
+      "batch": 32,
+      "domain": "playwright-browser",
+      "slug": "playwright-fixture-timeout-isolation",
+      "primaryKeyword": "playwright fixture timeout isolation",
+      "title": "Playwright Fixture Timeout Isolation",
+      "description": "playwright fixture timeout isolation: give slow fixtures a deadline separate from each test. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you give a slow Playwright fixture its own timeout without increasing every test's timeout?",
+      "secondaryKeywords": [
+        "playwright fixture timeout option",
+        "slow worker fixture playwright",
+        "fixture timeout versus test timeout",
+        "playwright authentication fixture timeout",
+        "separate setup deadline",
+        "worker scoped fixture timeout"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright Fixture Timeout Isolation Control?",
+          "question": true,
+          "coverage": "Answer How do you give a slow Playwright fixture its own timeout without increasing every test's timeout? Define the boundary: Playwright fixture options can assign a timeout to fixture setup and teardown independently of the test timeout. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/playwright-advance-e2e/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright Fixture Timeout Option Work?",
+          "question": true,
+          "secondaryKeyword": "playwright fixture timeout option",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind declare the slow fixture as a tuple with a timeout option and keep the normal test timeout unchanged. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/playwright-advance-e2e/SKILL.md"]
+        },
+        {
+          "heading": "Slow Worker Fixture Playwright: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "slow worker fixture playwright",
+          "coverage": "Walk through the relevant repository example in seed-skills/playwright-advance-e2e/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/playwright-advance-e2e/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Fixture Timeout Versus Test Timeout?",
+          "question": true,
+          "secondaryKeyword": "fixture timeout versus test timeout",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "Playwright Authentication Fixture Timeout: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "playwright authentication fixture timeout",
+          "coverage": "Reproduce and diagnose this primary risk: the global test timeout is inflated to compensate for one slow worker or authentication fixture. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "Separate Setup Deadline: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "separate setup deadline",
+          "coverage": "Specify the assertion and CI record: exercise a fixture timeout and a test timeout separately, then compare their error messages and durations. Require fixture name, scope, setup duration, fixture timeout, test timeout, and trace so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/playwright-advance-e2e/SKILL.md",
+            "packages/web/playwright.config.ts"
+          ]
+        },
+        {
+          "heading": "Worker Scoped Fixture Timeout Comparison Table",
+          "question": false,
+          "secondaryKeyword": "worker scoped fixture timeout",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/playwright-advance-e2e/SKILL.md",
+            "packages/web/playwright.config.ts"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright Fixture Timeout Isolation?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/playwright-advance-e2e/SKILL.md",
+            "packages/web/playwright.config.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/playwright-advance-e2e/SKILL.md",
+            "packages/web/playwright.config.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/playwright-advance-e2e/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright Fixture Timeout Isolation Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "fixture timeout",
+            "useWhen": "Bound one expensive setup or teardown operation",
+            "expectedEvidence": "fixture name, scope, setup duration, fixture timeout, test timeout, and trace",
+            "mainRisk": "the global test timeout is inflated to compensate for one slow worker or authentication fixture"
+          },
+          {
+            "option": "test timeout",
+            "useWhen": "Bound the test body, fixture usage, and associated hooks",
+            "expectedEvidence": "fixture name, scope, setup duration, fixture timeout, test timeout, and trace",
+            "mainRisk": "the global test timeout is inflated to compensate for one slow worker or authentication fixture"
+          },
+          {
+            "option": "worker fixture",
+            "useWhen": "Pay slow setup once per worker with an explicit ownership model",
+            "expectedEvidence": "fixture name, scope, setup duration, fixture timeout, test timeout, and trace",
+            "mainRisk": "the global test timeout is inflated to compensate for one slow worker or authentication fixture"
+          },
+          {
+            "option": "global timeout increase",
+            "useWhen": "Avoid when only one fixture needs additional time",
+            "expectedEvidence": "fixture name, scope, setup duration, fixture timeout, test timeout, and trace",
+            "mainRisk": "the global test timeout is inflated to compensate for one slow worker or authentication fixture"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/test-fixtures",
+          "seed-skills/playwright-advance-e2e/SKILL.md",
+          "packages/web/playwright.config.ts"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright fixture timeout isolation",
+        "steps": [
+          "Read seed-skills/playwright-advance-e2e/SKILL.md and define the expected contract: Playwright fixture options can assign a timeout to fixture setup and teardown independently of the test timeout.",
+          "Create the smallest isolated test or CLI session and implement declare the slow fixture as a tuple with a timeout option and keep the normal test timeout unchanged.",
+          "Exercise the success case, then reproduce the controlled failure where the global test timeout is inflated to compensate for one slow worker or authentication fixture.",
+          "Apply the release assertion: exercise a fixture timeout and a test timeout separately, then compare their error messages and durations.",
+          "Capture fixture name, scope, setup duration, fixture timeout, test timeout, and trace, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright Fixture Timeout Isolation: primary implementation",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-advance-e2e/SKILL.md",
+          "plannedSnippet": "const test = base.extend({ account: [async ({}, use) => use(await createAccount()), { timeout: 60_000 }] });",
+          "purpose": "Implement declare the slow fixture as a tuple with a timeout option and keep the normal test timeout unchanged using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright Fixture Timeout Isolation: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "packages/web/playwright.config.ts",
+          "plannedSnippet": "test('fixture deadline remains isolated', async ({ account }) => { expect(account.id).toBeTruthy(); });",
+          "purpose": "Prove exercise a fixture timeout and a test timeout separately, then compare their error messages and durations and retain fixture name, scope, setup duration, fixture timeout, test timeout, and trace."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/playwright-advance-e2e/SKILL.md",
+        "packages/web/playwright.config.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-fixtures-complete-reference-2026",
+        "/blog/playwright-test-config-options-complete-reference",
+        "/blog/playwright-test-timeout-exceeded-after-hook-fix",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-fixtures-complete-reference-2026",
+        "playwright-test-config-options-complete-reference",
+        "playwright-test-timeout-exceeded-after-hook-fix",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/test-fixtures",
+        "https://playwright.dev/docs/test-timeouts",
+        "https://playwright.dev/docs/api/class-fixtures"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright fixture timeout option?",
+        "How do you verify slow worker fixture playwright?",
+        "When should a QA team choose fixture timeout versus test timeout?",
+        "What causes failures in playwright authentication fixture timeout?",
+        "Which evidence should separate setup deadline retain?",
+        "How should CI handle worker scoped fixture timeout?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 4
+    },
+    {
+      "id": "PW-051",
+      "batch": 32,
+      "domain": "playwright-browser",
+      "slug": "playwright-list-tests-command",
+      "primaryKeyword": "playwright list tests command",
+      "title": "Playwright List Tests Command",
+      "description": "playwright list tests command: collect Playwright tests without running them and gate CI. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you list Playwright tests without running them and turn the collected inventory into a CI validation gate?",
+      "secondaryKeywords": [
+        "playwright test list flag",
+        "collect tests without running",
+        "playwright test inventory ci",
+        "detect zero discovered tests",
+        "list tests by project",
+        "validate playwright testmatch"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright List Tests Command Control?",
+          "question": true,
+          "coverage": "Answer How do you list Playwright tests without running them and turn the collected inventory into a CI validation gate? Define the boundary: the Playwright list command resolves configuration and prints discovered tests without execution. State what this workflow does not replace.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "How Does Playwright Test List Flag Work?",
+          "question": true,
+          "secondaryKeyword": "playwright test list flag",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind run npx playwright test --list for the same project and filters used by CI. Distinguish observation from assertion.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "Collect Tests Without Running: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "collect tests without running",
+          "coverage": "Walk through the relevant repository example in packages/web/playwright.config.ts and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "When Should QA Teams Use Playwright Test Inventory CI?",
+          "question": true,
+          "secondaryKeyword": "playwright test inventory ci",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["packages/web/e2e/article-factory-2026-07-25.e2e.ts"]
+        },
+        {
+          "heading": "Detect Zero Discovered Tests: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "detect zero discovered tests",
+          "coverage": "Reproduce and diagnose this primary risk: testMatch, project, grep, or path filters silently produce an empty or incomplete inventory. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["packages/web/e2e/article-factory-2026-07-25.e2e.ts"]
+        },
+        {
+          "heading": "List Tests By Project: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "list tests by project",
+          "coverage": "Specify the assertion and CI record: parse or review the collected inventory, assert it is nonempty, and compare expected projects and files. Require collected test count, project names, file paths, titles, and selection arguments so the result remains reviewable.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "packages/web/e2e/article-factory-2026-07-25.e2e.ts"
+          ]
+        },
+        {
+          "heading": "Validate Playwright Testmatch Comparison Table",
+          "question": false,
+          "secondaryKeyword": "validate playwright testmatch",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "packages/web/e2e/article-factory-2026-07-25.e2e.ts"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright List Tests Command?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "packages/web/e2e/article-factory-2026-07-25.e2e.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "packages/web/e2e/article-factory-2026-07-25.e2e.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright List Tests Command Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "--list",
+            "useWhen": "Inspect resolved test collection without launching browsers",
+            "expectedEvidence": "collected test count, project names, file paths, titles, and selection arguments",
+            "mainRisk": "testMatch, project, grep, or path filters silently produce an empty or incomplete inventory"
+          },
+          {
+            "option": "project filter",
+            "useWhen": "Confirm each configured browser or environment contributes tests",
+            "expectedEvidence": "collected test count, project names, file paths, titles, and selection arguments",
+            "mainRisk": "testMatch, project, grep, or path filters silently produce an empty or incomplete inventory"
+          },
+          {
+            "option": "file or grep filter",
+            "useWhen": "Audit a narrower selection before using it in CI",
+            "expectedEvidence": "collected test count, project names, file paths, titles, and selection arguments",
+            "mainRisk": "testMatch, project, grep, or path filters silently produce an empty or incomplete inventory"
+          },
+          {
+            "option": "full execution",
+            "useWhen": "Run after collection proves that the intended tests are discoverable",
+            "expectedEvidence": "collected test count, project names, file paths, titles, and selection arguments",
+            "mainRisk": "testMatch, project, grep, or path filters silently produce an empty or incomplete inventory"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/test-cli",
+          "packages/web/playwright.config.ts",
+          "packages/web/e2e/article-factory-2026-07-25.e2e.ts"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright list tests command",
+        "steps": [
+          "Read packages/web/playwright.config.ts and define the expected contract: the Playwright list command resolves configuration and prints discovered tests without execution.",
+          "Create the smallest isolated test or CLI session and implement run npx playwright test --list for the same project and filters used by CI.",
+          "Exercise the success case, then reproduce the controlled failure where testMatch, project, grep, or path filters silently produce an empty or incomplete inventory.",
+          "Apply the release assertion: parse or review the collected inventory, assert it is nonempty, and compare expected projects and files.",
+          "Capture collected test count, project names, file paths, titles, and selection arguments, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright List Tests Command: primary implementation",
+          "language": "typescript",
+          "repoPath": "packages/web/playwright.config.ts",
+          "plannedSnippet": "npx playwright test --list --project=chromium",
+          "purpose": "Implement run npx playwright test --list for the same project and filters used by CI using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright List Tests Command: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "packages/web/e2e/article-factory-2026-07-25.e2e.ts",
+          "plannedSnippet": "test \"$(npx playwright test --list | grep -c \"\\[chromium\\]\")\" -gt 0",
+          "purpose": "Prove parse or review the collected inventory, assert it is nonempty, and compare expected projects and files and retain collected test count, project names, file paths, titles, and selection arguments."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/playwright.config.ts",
+        "packages/web/e2e/article-factory-2026-07-25.e2e.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-test-config-options-complete-reference",
+        "/blog/empty-related-test-set-release-blocker",
+        "/blog/playwright-ci-github-actions-complete-guide-2026",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-test-config-options-complete-reference",
+        "empty-related-test-set-release-blocker",
+        "playwright-ci-github-actions-complete-guide-2026",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/test-cli",
+        "https://playwright.dev/docs/running-tests",
+        "https://playwright.dev/docs/test-configuration"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright test list flag?",
+        "How do you verify collect tests without running?",
+        "When should a QA team choose playwright test inventory ci?",
+        "What causes failures in detect zero discovered tests?",
+        "Which evidence should list tests by project retain?",
+        "How should CI handle validate playwright testmatch?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 5
+    }
+  ]
+}

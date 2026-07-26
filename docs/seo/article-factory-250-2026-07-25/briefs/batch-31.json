@@ -1,0 +1,981 @@
+{
+  "batch": 31,
+  "briefs": [
+    {
+      "id": "PW-016",
+      "batch": 31,
+      "domain": "playwright-browser",
+      "slug": "playwright-pageerror-failure-gate",
+      "primaryKeyword": "playwright pageerror failure gate",
+      "title": "Playwright pageerror Failure Gate",
+      "description": "playwright pageerror failure gate: build an allowlisted gate for uncaught page errors. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you collect uncaught page errors and fail a Playwright test without treating expected browser noise as a product regression?",
+      "secondaryKeywords": [
+        "playwright pageerror listener",
+        "fail test on javascript error",
+        "browser uncaught exception gate",
+        "playwright expected error allowlist",
+        "page error evidence attachment",
+        "javascript regression e2e test"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright pageerror Failure Gate Control?",
+          "question": true,
+          "coverage": "Answer How do you collect uncaught page errors and fail a Playwright test without treating expected browser noise as a product regression? Define the boundary: page.on('pageerror') reports uncaught exceptions from the browser page. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/angry-user-simulator/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright pageerror Listener Work?",
+          "question": true,
+          "secondaryKeyword": "playwright pageerror listener",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind page.on('pageerror', error => unexpectedErrors.push(normalize(error))) before navigation. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/angry-user-simulator/SKILL.md"]
+        },
+        {
+          "heading": "Fail Test On Javascript Error: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "fail test on javascript error",
+          "coverage": "Walk through the relevant repository example in seed-skills/angry-user-simulator/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/angry-user-simulator/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Browser Uncaught Exception Gate?",
+          "question": true,
+          "secondaryKeyword": "browser uncaught exception gate",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/console-error-hunter/SKILL.md"]
+        },
+        {
+          "heading": "Playwright Expected Error Allowlist: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "playwright expected error allowlist",
+          "coverage": "Reproduce and diagnose this primary risk: the listener starts after navigation or a broad allowlist hides a product regression. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/console-error-hunter/SKILL.md"]
+        },
+        {
+          "heading": "Page Error Evidence Attachment: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "page error evidence attachment",
+          "coverage": "Specify the assertion and CI record: filter documented expected messages, attach the normalized errors, and assert that the unexpected list is empty. Require message, stack, page URL, allowlist decision, and test attachment so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/angry-user-simulator/SKILL.md",
+            "seed-skills/console-error-hunter/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Javascript Regression E2e Test Comparison Table",
+          "question": false,
+          "secondaryKeyword": "javascript regression e2e test",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/angry-user-simulator/SKILL.md",
+            "seed-skills/console-error-hunter/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright pageerror Failure Gate?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/angry-user-simulator/SKILL.md",
+            "seed-skills/console-error-hunter/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/angry-user-simulator/SKILL.md",
+            "seed-skills/console-error-hunter/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/angry-user-simulator/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright pageerror Failure Gate Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "pageerror listener",
+            "useWhen": "Capture uncaught page exceptions that reach Playwright's page event",
+            "expectedEvidence": "message, stack, page URL, allowlist decision, and test attachment",
+            "mainRisk": "the listener starts after navigation or a broad allowlist hides a product regression"
+          },
+          {
+            "option": "console error listener",
+            "useWhen": "Capture explicit console.error calls without treating them as uncaught exceptions",
+            "expectedEvidence": "message, stack, page URL, allowlist decision, and test attachment",
+            "mainRisk": "the listener starts after navigation or a broad allowlist hides a product regression"
+          },
+          {
+            "option": "narrow allowlist",
+            "useWhen": "Exclude one documented expected message while retaining its evidence",
+            "expectedEvidence": "message, stack, page URL, allowlist decision, and test attachment",
+            "mainRisk": "the listener starts after navigation or a broad allowlist hides a product regression"
+          },
+          {
+            "option": "release assertion",
+            "useWhen": "Fail only after normalized unexpected errors have been attached",
+            "expectedEvidence": "message, stack, page URL, allowlist decision, and test attachment",
+            "mainRisk": "the listener starts after navigation or a broad allowlist hides a product regression"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/events",
+          "seed-skills/angry-user-simulator/SKILL.md",
+          "seed-skills/console-error-hunter/SKILL.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright pageerror failure gate",
+        "steps": [
+          "Read seed-skills/angry-user-simulator/SKILL.md and define the expected contract: page.on('pageerror') reports uncaught exceptions from the browser page.",
+          "Create the smallest isolated test or CLI session and implement page.on('pageerror', error => unexpectedErrors.push(normalize(error))) before navigation.",
+          "Exercise the success case, then reproduce the controlled failure where the listener starts after navigation or a broad allowlist hides a product regression.",
+          "Apply the release assertion: filter documented expected messages, attach the normalized errors, and assert that the unexpected list is empty.",
+          "Capture message, stack, page URL, allowlist decision, and test attachment, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright pageerror Failure Gate: primary implementation",
+          "language": "typescript",
+          "repoPath": "seed-skills/angry-user-simulator/SKILL.md",
+          "plannedSnippet": "const errors = []; page.on('pageerror', error => errors.push({ message: error.message, stack: error.stack }));",
+          "purpose": "Implement page.on('pageerror', error => unexpectedErrors.push(normalize(error))) before navigation using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright pageerror Failure Gate: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "seed-skills/console-error-hunter/SKILL.md",
+          "plannedSnippet": "await testInfo.attach('page-errors', { body: JSON.stringify(errors) }); expect(unexpectedErrors).toEqual([]);",
+          "purpose": "Prove filter documented expected messages, attach the normalized errors, and assert that the unexpected list is empty and retain message, stack, page URL, allowlist decision, and test attachment."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/angry-user-simulator/SKILL.md",
+        "seed-skills/console-error-hunter/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-e2e-complete-guide",
+        "/blog/playwright-debug-mode-inspector-guide",
+        "/blog/observability-driven-testing-guide",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-e2e-complete-guide",
+        "playwright-debug-mode-inspector-guide",
+        "observability-driven-testing-guide",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/events",
+        "https://playwright.dev/docs/api/class-page#page-event-page-error",
+        "https://playwright.dev/docs/test-assertions"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright pageerror listener?",
+        "How do you verify fail test on javascript error?",
+        "When should a QA team choose browser uncaught exception gate?",
+        "What causes failures in playwright expected error allowlist?",
+        "Which evidence should page error evidence attachment retain?",
+        "How should CI handle javascript regression e2e test?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 1
+    },
+    {
+      "id": "PW-031",
+      "batch": 31,
+      "domain": "playwright-browser",
+      "slug": "playwright-last-failed-command",
+      "primaryKeyword": "playwright last failed command",
+      "title": "Playwright Last Failed Command",
+      "description": "playwright last failed command: rerun only the previous Playwright failures locally and in CI. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you rerun only the tests that failed in the previous Playwright invocation and keep the result useful in CI?",
+      "secondaryKeywords": [
+        "playwright test last failed",
+        "rerun failed playwright tests",
+        "playwright last run failures",
+        "agent smallest failing test",
+        "ci rerun failed specs",
+        "playwright failure cache"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright Last Failed Command Control?",
+          "question": true,
+          "coverage": "Answer How do you rerun only the tests that failed in the previous Playwright invocation and keep the result useful in CI? Define the boundary: the Playwright last-failed command selects failures recorded by the preceding run. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/playwright-cli-agent-loop/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright Test Last Failed Work?",
+          "question": true,
+          "secondaryKeyword": "playwright test last failed",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind npx playwright test --last-failed. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/playwright-cli-agent-loop/SKILL.md"]
+        },
+        {
+          "heading": "Rerun Failed Playwright Tests: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "rerun failed playwright tests",
+          "coverage": "Walk through the relevant repository example in seed-skills/playwright-cli-agent-loop/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/playwright-cli-agent-loop/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Playwright Last Run Failures?",
+          "question": true,
+          "secondaryKeyword": "playwright last run failures",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["packages/web/package.json"]
+        },
+        {
+          "heading": "Agent Smallest Failing Test: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "agent smallest failing test",
+          "coverage": "Reproduce and diagnose this primary risk: the CI job has no previous-run state or silently selects zero tests. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["packages/web/package.json"]
+        },
+        {
+          "heading": "CI Rerun Failed Specs: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "ci rerun failed specs",
+          "coverage": "Specify the assertion and CI record: record the prior run, selected test count, rerun result, and a full-suite fallback for ephemeral CI workspaces. Require prior failure list, selected test IDs, rerun report, and fallback decision so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli-agent-loop/SKILL.md",
+            "packages/web/package.json"
+          ]
+        },
+        {
+          "heading": "Playwright Failure Cache Comparison Table",
+          "question": false,
+          "secondaryKeyword": "playwright failure cache",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli-agent-loop/SKILL.md",
+            "packages/web/package.json"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright Last Failed Command?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli-agent-loop/SKILL.md",
+            "packages/web/package.json"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli-agent-loop/SKILL.md",
+            "packages/web/package.json"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/playwright-cli-agent-loop/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright Last Failed Command Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "--last-failed",
+            "useWhen": "Rerun tests recorded as failed by the previous Playwright invocation",
+            "expectedEvidence": "prior failure list, selected test IDs, rerun report, and fallback decision",
+            "mainRisk": "the CI job has no previous-run state or silently selects zero tests"
+          },
+          {
+            "option": "file or grep filter",
+            "useWhen": "Select a known failing scope without depending on saved runner state",
+            "expectedEvidence": "prior failure list, selected test IDs, rerun report, and fallback decision",
+            "mainRisk": "the CI job has no previous-run state or silently selects zero tests"
+          },
+          {
+            "option": "retries",
+            "useWhen": "Repeat a failure within the same invocation for classification",
+            "expectedEvidence": "prior failure list, selected test IDs, rerun report, and fallback decision",
+            "mainRisk": "the CI job has no previous-run state or silently selects zero tests"
+          },
+          {
+            "option": "full suite",
+            "useWhen": "Re-establish confidence when the saved failure set is absent or stale",
+            "expectedEvidence": "prior failure list, selected test IDs, rerun report, and fallback decision",
+            "mainRisk": "the CI job has no previous-run state or silently selects zero tests"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/test-cli",
+          "seed-skills/playwright-cli-agent-loop/SKILL.md",
+          "packages/web/package.json"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright last failed command",
+        "steps": [
+          "Read seed-skills/playwright-cli-agent-loop/SKILL.md and define the expected contract: the Playwright last-failed command selects failures recorded by the preceding run.",
+          "Create the smallest isolated test or CLI session and implement npx playwright test --last-failed.",
+          "Exercise the success case, then reproduce the controlled failure where the CI job has no previous-run state or silently selects zero tests.",
+          "Apply the release assertion: record the prior run, selected test count, rerun result, and a full-suite fallback for ephemeral CI workspaces.",
+          "Capture prior failure list, selected test IDs, rerun report, and fallback decision, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright Last Failed Command: primary implementation",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-cli-agent-loop/SKILL.md",
+          "plannedSnippet": "npx playwright test && npx playwright test --last-failed",
+          "purpose": "Implement npx playwright test --last-failed using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright Last Failed Command: failure assertion and evidence",
+          "language": "json",
+          "repoPath": "packages/web/package.json",
+          "plannedSnippet": "npx playwright test --last-failed --reporter=list; test \"$SELECTED_COUNT\" -gt 0",
+          "purpose": "Prove record the prior run, selected test count, rerun result, and a full-suite fallback for ephemeral CI workspaces and retain prior failure list, selected test IDs, rerun report, and fallback decision."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/playwright-cli-agent-loop/SKILL.md",
+        "packages/web/package.json"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-cli-debug-tests-traces-agents-guide-2026",
+        "/blog/playwright-retries-flaky-test-handling-guide",
+        "/blog/playwright-ci-github-actions-complete-guide-2026",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-cli-debug-tests-traces-agents-guide-2026",
+        "playwright-retries-flaky-test-handling-guide",
+        "playwright-ci-github-actions-complete-guide-2026",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/test-cli",
+        "https://playwright.dev/docs/running-tests",
+        "https://playwright.dev/docs/test-retries"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright test last failed?",
+        "How do you verify rerun failed playwright tests?",
+        "When should a QA team choose playwright last run failures?",
+        "What causes failures in agent smallest failing test?",
+        "Which evidence should ci rerun failed specs retain?",
+        "How should CI handle playwright failure cache?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 2
+    },
+    {
+      "id": "PW-005",
+      "batch": 31,
+      "domain": "playwright-browser",
+      "slug": "playwright-cli-close-versus-kill",
+      "primaryKeyword": "playwright cli close versus kill",
+      "title": "Playwright CLI Close Versus Kill",
+      "description": "playwright cli close versus kill: choose close, close-all, or kill-all without orphaned sessions. Repo evidence maps checks and CI-safe steps.",
+      "intent": "troubleshooting",
+      "coreQuestion": "When should you use close, close-all, or kill-all to stop Playwright CLI browser sessions and daemon processes?",
+      "secondaryKeywords": [
+        "playwright cli close all",
+        "playwright cli kill all",
+        "stop playwright cli sessions",
+        "playwright zombie browser process",
+        "close browser daemon terminal",
+        "playwright cli cleanup commands"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright CLI Close Versus Kill Control?",
+          "question": true,
+          "coverage": "Answer When should you use close, close-all, or kill-all to stop Playwright CLI browser sessions and daemon processes? Define the boundary: Playwright CLI separates graceful page and session closure from forceful daemon termination. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright CLI Close All Work?",
+          "question": true,
+          "secondaryKeyword": "playwright cli close all",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind use playwright-cli close for the active page, close-all for graceful cleanup, and kill-all only for stuck processes. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "Playwright CLI Kill All: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "playwright cli kill all",
+          "coverage": "Walk through the relevant repository example in seed-skills/playwright-cli/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Stop Playwright CLI Sessions?",
+          "question": true,
+          "secondaryKeyword": "stop playwright cli sessions",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/session-management.md"]
+        },
+        {
+          "heading": "Playwright Zombie Browser Process: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "playwright zombie browser process",
+          "coverage": "Reproduce and diagnose this primary risk: kill-all discards useful state or close-all leaves a zombie daemon after a failed run. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/session-management.md"]
+        },
+        {
+          "heading": "Close Browser Daemon Terminal: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "close browser daemon terminal",
+          "coverage": "Specify the assertion and CI record: list sessions after cleanup and prove that no named browser process remains. Require session list before and after cleanup, exit status, and retained failure evidence so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/session-management.md"
+          ]
+        },
+        {
+          "heading": "Playwright CLI Cleanup Commands Comparison Table",
+          "question": false,
+          "secondaryKeyword": "playwright cli cleanup commands",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/session-management.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright CLI Close Versus Kill?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/session-management.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/session-management.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright CLI Close Versus Kill Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "close",
+            "useWhen": "Close the active page while keeping the selected CLI session available",
+            "expectedEvidence": "session list before and after cleanup, exit status, and retained failure evidence",
+            "mainRisk": "kill-all discards useful state or close-all leaves a zombie daemon after a failed run"
+          },
+          {
+            "option": "close-all",
+            "useWhen": "Gracefully close every CLI browser session at the end of normal work",
+            "expectedEvidence": "session list before and after cleanup, exit status, and retained failure evidence",
+            "mainRisk": "kill-all discards useful state or close-all leaves a zombie daemon after a failed run"
+          },
+          {
+            "option": "kill-all",
+            "useWhen": "Force termination only when a daemon or browser process is unresponsive",
+            "expectedEvidence": "session list before and after cleanup, exit status, and retained failure evidence",
+            "mainRisk": "kill-all discards useful state or close-all leaves a zombie daemon after a failed run"
+          },
+          {
+            "option": "delete-data",
+            "useWhen": "Remove persisted profile data separately from process cleanup",
+            "expectedEvidence": "session list before and after cleanup, exit status, and retained failure evidence",
+            "mainRisk": "kill-all discards useful state or close-all leaves a zombie daemon after a failed run"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/getting-started-cli",
+          "seed-skills/playwright-cli/SKILL.md",
+          "seed-skills/playwright-cli/references/session-management.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright cli close versus kill",
+        "steps": [
+          "Read seed-skills/playwright-cli/SKILL.md and define the expected contract: Playwright CLI separates graceful page and session closure from forceful daemon termination.",
+          "Create the smallest isolated test or CLI session and implement use playwright-cli close for the active page, close-all for graceful cleanup, and kill-all only for stuck processes.",
+          "Exercise the success case, then reproduce the controlled failure where kill-all discards useful state or close-all leaves a zombie daemon after a failed run.",
+          "Apply the release assertion: list sessions after cleanup and prove that no named browser process remains.",
+          "Capture session list before and after cleanup, exit status, and retained failure evidence, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright CLI Close Versus Kill: primary implementation",
+          "language": "bash",
+          "repoPath": "seed-skills/playwright-cli/SKILL.md",
+          "plannedSnippet": "playwright-cli list && playwright-cli close-all",
+          "purpose": "Implement use playwright-cli close for the active page, close-all for graceful cleanup, and kill-all only for stuck processes using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright CLI Close Versus Kill: failure assertion and evidence",
+          "language": "bash",
+          "repoPath": "seed-skills/playwright-cli/references/session-management.md",
+          "plannedSnippet": "playwright-cli kill-all && playwright-cli list",
+          "purpose": "Prove list sessions after cleanup and prove that no named browser process remains and retain session list before and after cleanup, exit status, and retained failure evidence."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/playwright-cli/SKILL.md",
+        "seed-skills/playwright-cli/references/session-management.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-cli-complete-guide-2026",
+        "/blog/playwright-cli-sessions-dashboard-attach-guide-2026",
+        "/blog/playwright-target-page-context-closed-fix",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-cli-complete-guide-2026",
+        "playwright-cli-sessions-dashboard-attach-guide-2026",
+        "playwright-target-page-context-closed-fix",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/getting-started-cli",
+        "https://github.com/microsoft/playwright-cli",
+        "https://github.com/microsoft/playwright-cli/blob/main/skills/playwright-cli/SKILL.md"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright cli close all?",
+        "How do you verify playwright cli kill all?",
+        "When should a QA team choose stop playwright cli sessions?",
+        "What causes failures in playwright zombie browser process?",
+        "Which evidence should close browser daemon terminal retain?",
+        "How should CI handle playwright cli cleanup commands?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 3
+    },
+    {
+      "id": "PW-058",
+      "batch": 31,
+      "domain": "playwright-browser",
+      "slug": "playwright-mcp-deterministic-tool-sequences",
+      "primaryKeyword": "playwright mcp deterministic tool sequences",
+      "title": "Playwright MCP Deterministic Tool Sequences",
+      "description": "playwright mcp deterministic tool sequences: turn browser-agent exploration into a replayable tool sequence. Repo evidence maps checks and CI-safe steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you turn a Playwright MCP browser exploration into a deterministic, replayable sequence with explicit observations and assertions?",
+      "secondaryKeywords": [
+        "playwright mcp tool sequence",
+        "replay browser agent workflow",
+        "mcp snapshot action assertion loop",
+        "deterministic ai browser test",
+        "convert mcp exploration to test",
+        "playwright mcp sequence contract"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright MCP Deterministic Tool Sequences Control?",
+          "question": true,
+          "coverage": "Answer How do you turn a Playwright MCP browser exploration into a deterministic, replayable sequence with explicit observations and assertions? Define the boundary: a deterministic MCP workflow records each observation, tool input, browser result, and assertion boundary. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/playwright-cli-agent-loop/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright MCP Tool Sequence Work?",
+          "question": true,
+          "secondaryKeyword": "playwright mcp tool sequence",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind capture a fresh snapshot, choose a stable target, perform one action, record the result, then assert an observable state. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/playwright-cli-agent-loop/SKILL.md"]
+        },
+        {
+          "heading": "Replay Browser Agent Workflow: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "replay browser agent workflow",
+          "coverage": "Walk through the relevant repository example in seed-skills/playwright-cli-agent-loop/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/playwright-cli-agent-loop/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use MCP Snapshot Action Assertion Loop?",
+          "question": true,
+          "secondaryKeyword": "mcp snapshot action assertion loop",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/children-playwright-mcp-2026.ts"]
+        },
+        {
+          "heading": "Deterministic Ai Browser Test: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "deterministic ai browser test",
+          "coverage": "Reproduce and diagnose this primary risk: the sequence depends on hidden agent memory, stale refs, timing guesses, or omitted assertions. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/children-playwright-mcp-2026.ts"]
+        },
+        {
+          "heading": "Convert MCP Exploration To Test: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "convert mcp exploration to test",
+          "coverage": "Specify the assertion and CI record: replay the ordered sequence in a fresh session without reusing stale element references. Require ordered tool calls, snapshots, action results, assertions, and replay status so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli-agent-loop/SKILL.md",
+            "packages/web/src/app/blog/posts/children-playwright-mcp-2026.ts"
+          ]
+        },
+        {
+          "heading": "Playwright MCP Sequence Contract Comparison Table",
+          "question": false,
+          "secondaryKeyword": "playwright mcp sequence contract",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli-agent-loop/SKILL.md",
+            "packages/web/src/app/blog/posts/children-playwright-mcp-2026.ts"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright MCP Deterministic Tool Sequences?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli-agent-loop/SKILL.md",
+            "packages/web/src/app/blog/posts/children-playwright-mcp-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli-agent-loop/SKILL.md",
+            "packages/web/src/app/blog/posts/children-playwright-mcp-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/playwright-cli-agent-loop/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright MCP Deterministic Tool Sequences Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "snapshot and action loop",
+            "useWhen": "Use explicit observations and one browser action per recorded step",
+            "expectedEvidence": "ordered tool calls, snapshots, action results, assertions, and replay status",
+            "mainRisk": "the sequence depends on hidden agent memory, stale refs, timing guesses, or omitted assertions"
+          },
+          {
+            "option": "locator assertion",
+            "useWhen": "Convert the resulting browser state into a deterministic check",
+            "expectedEvidence": "ordered tool calls, snapshots, action results, assertions, and replay status",
+            "mainRisk": "the sequence depends on hidden agent memory, stale refs, timing guesses, or omitted assertions"
+          },
+          {
+            "option": "generated Playwright test",
+            "useWhen": "Promote a proven sequence into source-controlled regression code",
+            "expectedEvidence": "ordered tool calls, snapshots, action results, assertions, and replay status",
+            "mainRisk": "the sequence depends on hidden agent memory, stale refs, timing guesses, or omitted assertions"
+          },
+          {
+            "option": "ad hoc agent action",
+            "useWhen": "Retain only for exploration because it lacks a replay contract",
+            "expectedEvidence": "ordered tool calls, snapshots, action results, assertions, and replay status",
+            "mainRisk": "the sequence depends on hidden agent memory, stale refs, timing guesses, or omitted assertions"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/mcp/introduction",
+          "seed-skills/playwright-cli-agent-loop/SKILL.md",
+          "packages/web/src/app/blog/posts/children-playwright-mcp-2026.ts"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright mcp deterministic tool sequences",
+        "steps": [
+          "Read seed-skills/playwright-cli-agent-loop/SKILL.md and define the expected contract: a deterministic MCP workflow records each observation, tool input, browser result, and assertion boundary.",
+          "Create the smallest isolated test or CLI session and implement capture a fresh snapshot, choose a stable target, perform one action, record the result, then assert an observable state.",
+          "Exercise the success case, then reproduce the controlled failure where the sequence depends on hidden agent memory, stale refs, timing guesses, or omitted assertions.",
+          "Apply the release assertion: replay the ordered sequence in a fresh session without reusing stale element references.",
+          "Capture ordered tool calls, snapshots, action results, assertions, and replay status, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright MCP Deterministic Tool Sequences: primary implementation",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-cli-agent-loop/SKILL.md",
+          "plannedSnippet": "const sequence = [{ tool: \"browser_snapshot\" }, { tool: \"browser_click\", ref: \"submit\" }];",
+          "purpose": "Implement capture a fresh snapshot, choose a stable target, perform one action, record the result, then assert an observable state using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright MCP Deterministic Tool Sequences: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "packages/web/src/app/blog/posts/children-playwright-mcp-2026.ts",
+          "plannedSnippet": "for (const step of sequence) await replay(step); await expect(page.getByRole(\"status\")).toHaveText(\"Saved\");",
+          "purpose": "Prove replay the ordered sequence in a fresh session without reusing stale element references and retain ordered tool calls, snapshots, action results, assertions, and replay status."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/playwright-cli-agent-loop/SKILL.md",
+        "packages/web/src/app/blog/posts/children-playwright-mcp-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-mcp-testing-capability-guide-2026",
+        "/blog/playwright-mcp-regression-testing-guide-2026",
+        "/blog/playwright-generator-agent-test-code-guide-2026",
+        "/blog/playwright-mcp-browser-automation-guide"
+      ],
+      "relatedSlugs": [
+        "playwright-mcp-testing-capability-guide-2026",
+        "playwright-mcp-regression-testing-guide-2026",
+        "playwright-generator-agent-test-code-guide-2026",
+        "playwright-mcp-browser-automation-guide"
+      ],
+      "sources": [
+        "https://playwright.dev/mcp/introduction",
+        "https://playwright.dev/mcp/capabilities",
+        "https://playwright.dev/mcp/tools/interaction",
+        "https://github.com/microsoft/playwright-mcp"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright mcp tool sequence?",
+        "How do you verify replay browser agent workflow?",
+        "When should a QA team choose mcp snapshot action assertion loop?",
+        "What causes failures in deterministic ai browser test?",
+        "Which evidence should convert mcp exploration to test retain?",
+        "How should CI handle playwright mcp sequence contract?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 4
+    },
+    {
+      "id": "PW-008",
+      "batch": 31,
+      "domain": "playwright-browser",
+      "slug": "playwright-cli-browser-selection-flags",
+      "primaryKeyword": "playwright cli browser selection flags",
+      "title": "Playwright CLI Browser Selection Flags",
+      "description": "playwright cli browser selection flags: select Chrome, Firefox, WebKit, or Edge for each CLI session. Repo evidence maps checks and CI-safe steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you select Chrome, Firefox, WebKit, or Edge when opening a Playwright CLI session?",
+      "secondaryKeywords": [
+        "playwright cli chrome flag",
+        "playwright cli firefox browser",
+        "playwright cli webkit session",
+        "playwright cli msedge",
+        "cross browser cli automation",
+        "select browser from terminal"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright CLI Browser Selection Flags Control?",
+          "question": true,
+          "coverage": "Answer How do you select Chrome, Firefox, WebKit, or Edge when opening a Playwright CLI session? Define the boundary: the Playwright CLI open command accepts an explicit browser selection flag. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright CLI Chrome Flag Work?",
+          "question": true,
+          "secondaryKeyword": "playwright cli chrome flag",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind open the target URL with --browser=chrome, firefox, webkit, or msedge and isolate each run with a named session. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "Playwright CLI Firefox Browser: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "playwright cli firefox browser",
+          "coverage": "Walk through the relevant repository example in seed-skills/playwright-cli/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Playwright CLI Webkit Session?",
+          "question": true,
+          "secondaryKeyword": "playwright cli webkit session",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/session-management.md"]
+        },
+        {
+          "heading": "Playwright CLI Msedge: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "playwright cli msedge",
+          "coverage": "Reproduce and diagnose this primary risk: a default browser is mistaken for cross-browser coverage or multiple sessions share state. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/session-management.md"]
+        },
+        {
+          "heading": "Cross Browser CLI Automation: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "cross browser cli automation",
+          "coverage": "Specify the assertion and CI record: record the selected engine, visible user agent evidence, session name, and cross-browser result. Require command, browser value, session name, screenshot, and result matrix so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/session-management.md"
+          ]
+        },
+        {
+          "heading": "Select Browser From Terminal Comparison Table",
+          "question": false,
+          "secondaryKeyword": "select browser from terminal",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/session-management.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright CLI Browser Selection Flags?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/session-management.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/session-management.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright CLI Browser Selection Flags Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "chrome",
+            "useWhen": "Exercise the installed Chrome channel through the CLI session",
+            "expectedEvidence": "command, browser value, session name, screenshot, and result matrix",
+            "mainRisk": "a default browser is mistaken for cross-browser coverage or multiple sessions share state"
+          },
+          {
+            "option": "firefox",
+            "useWhen": "Exercise Playwright Firefox behavior in an isolated session",
+            "expectedEvidence": "command, browser value, session name, screenshot, and result matrix",
+            "mainRisk": "a default browser is mistaken for cross-browser coverage or multiple sessions share state"
+          },
+          {
+            "option": "webkit",
+            "useWhen": "Exercise WebKit-specific rendering and interaction behavior",
+            "expectedEvidence": "command, browser value, session name, screenshot, and result matrix",
+            "mainRisk": "a default browser is mistaken for cross-browser coverage or multiple sessions share state"
+          },
+          {
+            "option": "msedge",
+            "useWhen": "Exercise the installed Microsoft Edge channel when available",
+            "expectedEvidence": "command, browser value, session name, screenshot, and result matrix",
+            "mainRisk": "a default browser is mistaken for cross-browser coverage or multiple sessions share state"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/getting-started-cli",
+          "seed-skills/playwright-cli/SKILL.md",
+          "seed-skills/playwright-cli/references/session-management.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright cli browser selection flags",
+        "steps": [
+          "Read seed-skills/playwright-cli/SKILL.md and define the expected contract: the Playwright CLI open command accepts an explicit browser selection flag.",
+          "Create the smallest isolated test or CLI session and implement open the target URL with --browser=chrome, firefox, webkit, or msedge and isolate each run with a named session.",
+          "Exercise the success case, then reproduce the controlled failure where a default browser is mistaken for cross-browser coverage or multiple sessions share state.",
+          "Apply the release assertion: record the selected engine, visible user agent evidence, session name, and cross-browser result.",
+          "Capture command, browser value, session name, screenshot, and result matrix, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright CLI Browser Selection Flags: primary implementation",
+          "language": "bash",
+          "repoPath": "seed-skills/playwright-cli/SKILL.md",
+          "plannedSnippet": "playwright-cli -s=firefox-check open https://qaskills.sh --browser=firefox",
+          "purpose": "Implement open the target URL with --browser=chrome, firefox, webkit, or msedge and isolate each run with a named session using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright CLI Browser Selection Flags: failure assertion and evidence",
+          "language": "bash",
+          "repoPath": "seed-skills/playwright-cli/references/session-management.md",
+          "plannedSnippet": "playwright-cli -s=webkit-check open https://qaskills.sh --browser=webkit",
+          "purpose": "Prove record the selected engine, visible user agent evidence, session name, and cross-browser result and retain command, browser value, session name, screenshot, and result matrix."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/playwright-cli/SKILL.md",
+        "seed-skills/playwright-cli/references/session-management.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-cli-complete-guide-2026",
+        "/blog/playwright-projects-multi-browser-guide-2026",
+        "/blog/cross-browser-testing-guide",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-cli-complete-guide-2026",
+        "playwright-projects-multi-browser-guide-2026",
+        "cross-browser-testing-guide",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/getting-started-cli",
+        "https://github.com/microsoft/playwright-cli",
+        "https://playwright.dev/docs/browsers"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright cli chrome flag?",
+        "How do you verify playwright cli firefox browser?",
+        "When should a QA team choose playwright cli webkit session?",
+        "What causes failures in playwright cli msedge?",
+        "Which evidence should cross browser cli automation retain?",
+        "How should CI handle select browser from terminal?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 5
+    }
+  ]
+}

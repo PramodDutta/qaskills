@@ -10,7 +10,7 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "test": "turbo test",
-    "test:post-flow": "QASKILLS_DISABLE_AUTH=1 corepack pnpm build && corepack pnpm --filter @qaskills/web test:unit && corepack pnpm --filter @qaskills/web test:e2e",
+    "test:post-flow": "corepack pnpm --filter @qaskills/web audit:article-factory-250 && QASKILLS_DISABLE_AUTH=1 corepack pnpm build && corepack pnpm --filter @qaskills/web test:unit && corepack pnpm --filter @qaskills/web test:e2e",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "db:push": "pnpm --filter @qaskills/web db:push",

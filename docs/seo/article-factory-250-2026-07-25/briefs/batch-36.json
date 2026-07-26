@@ -1,0 +1,977 @@
+{
+  "batch": 36,
+  "briefs": [
+    {
+      "id": "PW-029",
+      "batch": 36,
+      "domain": "playwright-browser",
+      "slug": "playwright-response-security-details",
+      "primaryKeyword": "playwright response security details",
+      "title": "Playwright Response Security Details",
+      "description": "playwright response security details: assert TLS protocol and certificate metadata in API tests. Repo evidence maps checks and CI-safe steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you assert TLS protocol, certificate issuer, subject, and validity through Playwright APIResponse security details?",
+      "secondaryKeywords": [
+        "playwright apiresponse securitydetails",
+        "assert tls protocol playwright",
+        "test certificate issuer browser",
+        "playwright certificate validity",
+        "https response security test",
+        "tls regression playwright"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright Response Security Details Control?",
+          "question": true,
+          "coverage": "Answer How do you assert TLS protocol, certificate issuer, subject, and validity through Playwright APIResponse security details? Define the boundary: Playwright response security details expose negotiated protocol and available certificate metadata for HTTPS responses. State what this workflow does not replace.",
+          "repoEvidence": ["packages/web/package.json"]
+        },
+        {
+          "heading": "How Does Playwright Apiresponse Securitydetails Work?",
+          "question": true,
+          "secondaryKeyword": "playwright apiresponse securitydetails",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind request the HTTPS endpoint, read securityDetails, and assert the fields owned by the environment contract. Distinguish observation from assertion.",
+          "repoEvidence": ["packages/web/package.json"]
+        },
+        {
+          "heading": "Assert Tls Protocol Playwright: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "assert tls protocol playwright",
+          "coverage": "Walk through the relevant repository example in packages/web/package.json and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["packages/web/package.json"]
+        },
+        {
+          "heading": "When Should QA Teams Use Test Certificate Issuer Browser?",
+          "question": true,
+          "secondaryKeyword": "test certificate issuer browser",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/pillar-playwright-core-2026.ts"]
+        },
+        {
+          "heading": "Playwright Certificate Validity: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "playwright certificate validity",
+          "coverage": "Reproduce and diagnose this primary risk: tests pin volatile certificate values or assume security details exist for non-HTTPS responses. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/pillar-playwright-core-2026.ts"]
+        },
+        {
+          "heading": "Https Response Security Test: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "https response security test",
+          "coverage": "Specify the assertion and CI record: compare expected protocol, issuer or subject rules, validity boundaries, and the missing-details HTTP control. Require URL, status, protocol, issuer, subject, validity dates, and environment rule so the result remains reviewable.",
+          "repoEvidence": [
+            "packages/web/package.json",
+            "packages/web/src/app/blog/posts/pillar-playwright-core-2026.ts"
+          ]
+        },
+        {
+          "heading": "Tls Regression Playwright Comparison Table",
+          "question": false,
+          "secondaryKeyword": "tls regression playwright",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "packages/web/package.json",
+            "packages/web/src/app/blog/posts/pillar-playwright-core-2026.ts"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright Response Security Details?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "packages/web/package.json",
+            "packages/web/src/app/blog/posts/pillar-playwright-core-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "packages/web/package.json",
+            "packages/web/src/app/blog/posts/pillar-playwright-core-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["packages/web/package.json"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright Response Security Details Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "protocol assertion",
+            "useWhen": "Detect an unexpected negotiated TLS protocol under a controlled endpoint",
+            "expectedEvidence": "URL, status, protocol, issuer, subject, validity dates, and environment rule",
+            "mainRisk": "tests pin volatile certificate values or assume security details exist for non-HTTPS responses"
+          },
+          {
+            "option": "issuer rule",
+            "useWhen": "Check the approved certificate authority without pinning unrelated text",
+            "expectedEvidence": "URL, status, protocol, issuer, subject, validity dates, and environment rule",
+            "mainRisk": "tests pin volatile certificate values or assume security details exist for non-HTTPS responses"
+          },
+          {
+            "option": "validity boundary",
+            "useWhen": "Confirm the current test time lies within reported certificate validity",
+            "expectedEvidence": "URL, status, protocol, issuer, subject, validity dates, and environment rule",
+            "mainRisk": "tests pin volatile certificate values or assume security details exist for non-HTTPS responses"
+          },
+          {
+            "option": "HTTP control",
+            "useWhen": "Verify code handles absent security details for a non-TLS response",
+            "expectedEvidence": "URL, status, protocol, issuer, subject, validity dates, and environment rule",
+            "mainRisk": "tests pin volatile certificate values or assume security details exist for non-HTTPS responses"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/api/class-apiresponse#api-response-security-details",
+          "packages/web/package.json",
+          "packages/web/src/app/blog/posts/pillar-playwright-core-2026.ts"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright response security details",
+        "steps": [
+          "Read packages/web/package.json and define the expected contract: Playwright response security details expose negotiated protocol and available certificate metadata for HTTPS responses.",
+          "Create the smallest isolated test or CLI session and implement request the HTTPS endpoint, read securityDetails, and assert the fields owned by the environment contract.",
+          "Exercise the success case, then reproduce the controlled failure where tests pin volatile certificate values or assume security details exist for non-HTTPS responses.",
+          "Apply the release assertion: compare expected protocol, issuer or subject rules, validity boundaries, and the missing-details HTTP control.",
+          "Capture URL, status, protocol, issuer, subject, validity dates, and environment rule, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright Response Security Details: primary implementation",
+          "language": "json",
+          "repoPath": "packages/web/package.json",
+          "plannedSnippet": "const response = await request.get(httpsUrl); const details = await response.securityDetails();",
+          "purpose": "Implement request the HTTPS endpoint, read securityDetails, and assert the fields owned by the environment contract using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright Response Security Details: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "packages/web/src/app/blog/posts/pillar-playwright-core-2026.ts",
+          "plannedSnippet": "expect(details?.protocol).toMatch(/^TLS/); expect(new Date(details.expires * 1000).getTime()).toBeGreaterThan(Date.now());",
+          "purpose": "Prove compare expected protocol, issuer or subject rules, validity boundaries, and the missing-details HTTP control and retain URL, status, protocol, issuer, subject, validity dates, and environment rule."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/package.json",
+        "packages/web/src/app/blog/posts/pillar-playwright-core-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-api-testing-context-request-guide",
+        "/blog/playwright-1-61-webauthn-passkeys-guide-2026",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-api-testing-context-request-guide",
+        "playwright-1-61-webauthn-passkeys-guide-2026",
+        "api-security-testing-checklist-2026",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/api/class-apiresponse#api-response-security-details",
+        "https://playwright.dev/docs/release-notes",
+        "https://playwright.dev/docs/api-testing"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright apiresponse securitydetails?",
+        "How do you verify assert tls protocol playwright?",
+        "When should a QA team choose test certificate issuer browser?",
+        "What causes failures in playwright certificate validity?",
+        "Which evidence should https response security test retain?",
+        "How should CI handle tls regression playwright?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 1
+    },
+    {
+      "id": "PW-052",
+      "batch": 36,
+      "domain": "playwright-browser",
+      "slug": "playwright-pass-with-no-tests",
+      "primaryKeyword": "playwright pass with no tests",
+      "title": "Playwright Pass With No Tests",
+      "description": "playwright pass with no tests: allow intentional empty selections without hiding bad filters. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "troubleshooting",
+      "coreQuestion": "When should Playwright use pass-with-no-tests, and how do you prevent that flag from hiding a broken test-selection rule?",
+      "secondaryKeywords": [
+        "playwright pass with no tests flag",
+        "playwright no tests found ci",
+        "allow empty changed test set",
+        "detect broken test filter",
+        "empty e2e suite release gate",
+        "playwright zero tests exit code"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright Pass With No Tests Control?",
+          "question": true,
+          "coverage": "Answer When should Playwright use pass-with-no-tests, and how do you prevent that flag from hiding a broken test-selection rule? Define the boundary: pass-with-no-tests changes the exit behavior for an empty Playwright selection but does not prove the selector is correct. State what this workflow does not replace.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "How Does Playwright Pass With No Tests Flag Work?",
+          "question": true,
+          "secondaryKeyword": "playwright pass with no tests flag",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind use --pass-with-no-tests only after a separate collection gate explains why an empty changed-test set is permitted. Distinguish observation from assertion.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "Playwright No Tests Found CI: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "playwright no tests found ci",
+          "coverage": "Walk through the relevant repository example in packages/web/playwright.config.ts and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "When Should QA Teams Use Allow Empty Changed Test Set?",
+          "question": true,
+          "secondaryKeyword": "allow empty changed test set",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["packages/web/package.json"]
+        },
+        {
+          "heading": "Detect Broken Test Filter: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "detect broken test filter",
+          "coverage": "Reproduce and diagnose this primary risk: a typo in testMatch, grep, path, or project silently produces a passing zero-test CI job. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["packages/web/package.json"]
+        },
+        {
+          "heading": "Empty E2e Suite Release Gate: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "empty e2e suite release gate",
+          "coverage": "Specify the assertion and CI record: test intentional-empty and broken-filter controls, recording selection arguments and collected counts. Require selection rule, collected count, empty-set reason, command exit code, and fallback result so the result remains reviewable.",
+          "repoEvidence": ["packages/web/playwright.config.ts", "packages/web/package.json"]
+        },
+        {
+          "heading": "Playwright Zero Tests Exit Code Comparison Table",
+          "question": false,
+          "secondaryKeyword": "playwright zero tests exit code",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": ["packages/web/playwright.config.ts", "packages/web/package.json"]
+        },
+        {
+          "heading": "How Do You Implement Playwright Pass With No Tests?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": ["packages/web/playwright.config.ts", "packages/web/package.json"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": ["packages/web/playwright.config.ts", "packages/web/package.json"]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright Pass With No Tests Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "default no-tests failure",
+            "useWhen": "Protect fixed suites and release gates from broken discovery",
+            "expectedEvidence": "selection rule, collected count, empty-set reason, command exit code, and fallback result",
+            "mainRisk": "a typo in testMatch, grep, path, or project silently produces a passing zero-test CI job"
+          },
+          {
+            "option": "--pass-with-no-tests",
+            "useWhen": "Permit an audited dynamic selection that can legitimately be empty",
+            "expectedEvidence": "selection rule, collected count, empty-set reason, command exit code, and fallback result",
+            "mainRisk": "a typo in testMatch, grep, path, or project silently produces a passing zero-test CI job"
+          },
+          {
+            "option": "--list preflight",
+            "useWhen": "Expose the selected inventory before deciding whether empty is valid",
+            "expectedEvidence": "selection rule, collected count, empty-set reason, command exit code, and fallback result",
+            "mainRisk": "a typo in testMatch, grep, path, or project silently produces a passing zero-test CI job"
+          },
+          {
+            "option": "full-suite fallback",
+            "useWhen": "Recover confidence when the dynamic selector cannot be explained",
+            "expectedEvidence": "selection rule, collected count, empty-set reason, command exit code, and fallback result",
+            "mainRisk": "a typo in testMatch, grep, path, or project silently produces a passing zero-test CI job"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/test-cli",
+          "packages/web/playwright.config.ts",
+          "packages/web/package.json"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright pass with no tests",
+        "steps": [
+          "Read packages/web/playwright.config.ts and define the expected contract: pass-with-no-tests changes the exit behavior for an empty Playwright selection but does not prove the selector is correct.",
+          "Create the smallest isolated test or CLI session and implement use --pass-with-no-tests only after a separate collection gate explains why an empty changed-test set is permitted.",
+          "Exercise the success case, then reproduce the controlled failure where a typo in testMatch, grep, path, or project silently produces a passing zero-test CI job.",
+          "Apply the release assertion: test intentional-empty and broken-filter controls, recording selection arguments and collected counts.",
+          "Capture selection rule, collected count, empty-set reason, command exit code, and fallback result, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright Pass With No Tests: primary implementation",
+          "language": "typescript",
+          "repoPath": "packages/web/playwright.config.ts",
+          "plannedSnippet": "npx playwright test --list --only-changed=origin/main",
+          "purpose": "Implement use --pass-with-no-tests only after a separate collection gate explains why an empty changed-test set is permitted using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright Pass With No Tests: failure assertion and evidence",
+          "language": "json",
+          "repoPath": "packages/web/package.json",
+          "plannedSnippet": "npx playwright test --only-changed=origin/main --pass-with-no-tests",
+          "purpose": "Prove test intentional-empty and broken-filter controls, recording selection arguments and collected counts and retain selection rule, collected count, empty-set reason, command exit code, and fallback result."
+        }
+      ],
+      "repoEvidence": ["packages/web/playwright.config.ts", "packages/web/package.json"],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/empty-related-test-set-release-blocker",
+        "/blog/playwright-test-config-options-complete-reference",
+        "/blog/ci-detect-tests-affected-by-changed-files",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "empty-related-test-set-release-blocker",
+        "playwright-test-config-options-complete-reference",
+        "ci-detect-tests-affected-by-changed-files",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/test-cli",
+        "https://playwright.dev/docs/running-tests",
+        "https://playwright.dev/docs/ci"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright pass with no tests flag?",
+        "How do you verify playwright no tests found ci?",
+        "When should a QA team choose allow empty changed test set?",
+        "What causes failures in detect broken test filter?",
+        "Which evidence should empty e2e suite release gate retain?",
+        "How should CI handle playwright zero tests exit code?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 2
+    },
+    {
+      "id": "PW-001",
+      "batch": 36,
+      "domain": "playwright-browser",
+      "slug": "playwright-cli-cookie-commands",
+      "primaryKeyword": "playwright cli cookie commands",
+      "title": "Playwright CLI Cookie Commands",
+      "description": "playwright cli cookie commands: list, set, filter, delete, and clear CLI cookies. Use repo-backed examples, evidence checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you list, filter, read, set, delete, and clear browser cookies with Playwright CLI?",
+      "secondaryKeywords": [
+        "playwright cli cookie list",
+        "playwright cli cookie set",
+        "playwright cli cookie delete",
+        "filter cookies by domain",
+        "set secure cookie terminal",
+        "clear browser cookies cli"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright CLI Cookie Commands Control?",
+          "question": true,
+          "coverage": "Answer How do you list, filter, read, set, delete, and clear browser cookies with Playwright CLI? Define the boundary: Playwright CLI exposes cookie commands for inspection and mutation in the active browser session. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright CLI Cookie List Work?",
+          "question": true,
+          "secondaryKeyword": "playwright cli cookie list",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind list and inspect cookies first, set explicit attributes, delete a named cookie, and reserve cookie-clear for full reset cases. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "Playwright CLI Cookie Set: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "playwright cli cookie set",
+          "coverage": "Walk through the relevant repository example in seed-skills/playwright-cli/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Playwright CLI Cookie Delete?",
+          "question": true,
+          "secondaryKeyword": "playwright cli cookie delete",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/storage-state.md"]
+        },
+        {
+          "heading": "Filter Cookies By Domain: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "filter cookies by domain",
+          "coverage": "Reproduce and diagnose this primary risk: a cookie is written for the wrong domain or path, or cookie-clear removes unrelated test state. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/storage-state.md"]
+        },
+        {
+          "heading": "Set Secure Cookie Terminal: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "set secure cookie terminal",
+          "coverage": "Specify the assertion and CI record: compare before and after cookie state and assert the corresponding authenticated or preference UI behavior. Require cookie name, value redaction, domain, path, security attributes, and UI result so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/storage-state.md"
+          ]
+        },
+        {
+          "heading": "Clear Browser Cookies CLI Comparison Table",
+          "question": false,
+          "secondaryKeyword": "clear browser cookies cli",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/storage-state.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright CLI Cookie Commands?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/storage-state.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/storage-state.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright CLI Cookie Commands Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "cookie-list and cookie-get",
+            "useWhen": "Inspect active cookie scope before changing state",
+            "expectedEvidence": "cookie name, value redaction, domain, path, security attributes, and UI result",
+            "mainRisk": "a cookie is written for the wrong domain or path, or cookie-clear removes unrelated test state"
+          },
+          {
+            "option": "cookie-set",
+            "useWhen": "Create a named value with explicit domain, path, and security attributes",
+            "expectedEvidence": "cookie name, value redaction, domain, path, security attributes, and UI result",
+            "mainRisk": "a cookie is written for the wrong domain or path, or cookie-clear removes unrelated test state"
+          },
+          {
+            "option": "cookie-delete",
+            "useWhen": "Remove a target cookie while preserving unrelated session state",
+            "expectedEvidence": "cookie name, value redaction, domain, path, security attributes, and UI result",
+            "mainRisk": "a cookie is written for the wrong domain or path, or cookie-clear removes unrelated test state"
+          },
+          {
+            "option": "cookie-clear",
+            "useWhen": "Reset the complete cookie jar only for a deliberate clean-session test",
+            "expectedEvidence": "cookie name, value redaction, domain, path, security attributes, and UI result",
+            "mainRisk": "a cookie is written for the wrong domain or path, or cookie-clear removes unrelated test state"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/getting-started-cli",
+          "seed-skills/playwright-cli/SKILL.md",
+          "seed-skills/playwright-cli/references/storage-state.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright cli cookie commands",
+        "steps": [
+          "Read seed-skills/playwright-cli/SKILL.md and define the expected contract: Playwright CLI exposes cookie commands for inspection and mutation in the active browser session.",
+          "Create the smallest isolated test or CLI session and implement list and inspect cookies first, set explicit attributes, delete a named cookie, and reserve cookie-clear for full reset cases.",
+          "Exercise the success case, then reproduce the controlled failure where a cookie is written for the wrong domain or path, or cookie-clear removes unrelated test state.",
+          "Apply the release assertion: compare before and after cookie state and assert the corresponding authenticated or preference UI behavior.",
+          "Capture cookie name, value redaction, domain, path, security attributes, and UI result, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright CLI Cookie Commands: primary implementation",
+          "language": "bash",
+          "repoPath": "seed-skills/playwright-cli/SKILL.md",
+          "plannedSnippet": "playwright-cli cookie-list --domain=qaskills.sh && playwright-cli cookie-get session_id",
+          "purpose": "Implement list and inspect cookies first, set explicit attributes, delete a named cookie, and reserve cookie-clear for full reset cases using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright CLI Cookie Commands: failure assertion and evidence",
+          "language": "bash",
+          "repoPath": "seed-skills/playwright-cli/references/storage-state.md",
+          "plannedSnippet": "playwright-cli cookie-set experiment treatment --domain=qaskills.sh --path=/ --secure --sameSite=Lax",
+          "purpose": "Prove compare before and after cookie state and assert the corresponding authenticated or preference UI behavior and retain cookie name, value redaction, domain, path, security attributes, and UI result."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/playwright-cli/SKILL.md",
+        "seed-skills/playwright-cli/references/storage-state.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-cli-complete-guide-2026",
+        "/blog/playwright-storagestate-authentication-reference",
+        "/blog/playwright-testing-best-practices-2026",
+        "/blog/playwright-e2e-complete-guide"
+      ],
+      "relatedSlugs": [
+        "playwright-cli-complete-guide-2026",
+        "playwright-storagestate-authentication-reference",
+        "playwright-testing-best-practices-2026",
+        "playwright-e2e-complete-guide"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/getting-started-cli",
+        "https://github.com/microsoft/playwright-cli",
+        "https://playwright.dev/docs/api/class-browsercontext#browser-context-cookies"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright cli cookie list?",
+        "How do you verify playwright cli cookie set?",
+        "When should a QA team choose playwright cli cookie delete?",
+        "What causes failures in filter cookies by domain?",
+        "Which evidence should set secure cookie terminal retain?",
+        "How should CI handle clear browser cookies cli?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 3
+    },
+    {
+      "id": "PW-027",
+      "batch": 36,
+      "domain": "playwright-browser",
+      "slug": "playwright-browsercontext-close-reason",
+      "primaryKeyword": "playwright browsercontext close reason",
+      "title": "Playwright BrowserContext Close Reason",
+      "description": "playwright browsercontext close reason: attach a diagnostic reason to BrowserContext teardown. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you attach and diagnose a reason when closing a manually created Playwright BrowserContext?",
+      "secondaryKeywords": [
+        "browsercontext close reason option",
+        "playwright context closed error message",
+        "diagnose manual context cleanup",
+        "playwright fixture context ownership",
+        "context close aftereach failure",
+        "secondary browser context teardown"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright BrowserContext Close Reason Control?",
+          "question": true,
+          "coverage": "Answer How do you attach and diagnose a reason when closing a manually created Playwright BrowserContext? Define the boundary: BrowserContext close accepts a reason that is reported to operations interrupted by manual context closure. State what this workflow does not replace.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/playwright-target-page-context-closed-fix.ts"
+          ]
+        },
+        {
+          "heading": "How Does BrowserContext Close Reason Option Work?",
+          "question": true,
+          "secondaryKeyword": "browsercontext close reason option",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind close only manually owned secondary contexts with an explicit reason such as 'completed secondary role flow'. Distinguish observation from assertion.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/playwright-target-page-context-closed-fix.ts"
+          ]
+        },
+        {
+          "heading": "Playwright Context Closed Error Message: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "playwright context closed error message",
+          "coverage": "Walk through the relevant repository example in packages/web/src/app/blog/posts/playwright-target-page-context-closed-fix.ts and connect each planned code line to the documented behavior.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/playwright-target-page-context-closed-fix.ts"
+          ]
+        },
+        {
+          "heading": "When Should QA Teams Use Diagnose Manual Context Cleanup?",
+          "question": true,
+          "secondaryKeyword": "diagnose manual context cleanup",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-advance-e2e/SKILL.md"]
+        },
+        {
+          "heading": "Playwright Fixture Context Ownership: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "playwright fixture context ownership",
+          "coverage": "Reproduce and diagnose this primary risk: test code closes the runner-owned context or teardown obscures the original assertion failure. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-advance-e2e/SKILL.md"]
+        },
+        {
+          "heading": "Context Close Aftereach Failure: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "context close aftereach failure",
+          "coverage": "Specify the assertion and CI record: trigger an interrupted wait, inspect the propagated reason, and prove the fixture-owned default context is not closed manually. Require context owner, close reason, interrupted operation, teardown order, and original test result so the result remains reviewable.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/playwright-target-page-context-closed-fix.ts",
+            "seed-skills/playwright-advance-e2e/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Secondary Browser Context Teardown Comparison Table",
+          "question": false,
+          "secondaryKeyword": "secondary browser context teardown",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/playwright-target-page-context-closed-fix.ts",
+            "seed-skills/playwright-advance-e2e/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright BrowserContext Close Reason?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/playwright-target-page-context-closed-fix.ts",
+            "seed-skills/playwright-advance-e2e/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/playwright-target-page-context-closed-fix.ts",
+            "seed-skills/playwright-advance-e2e/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/playwright-target-page-context-closed-fix.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright BrowserContext Close Reason Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "manual secondary context",
+            "useWhen": "Close explicitly with a reason after its independent flow completes",
+            "expectedEvidence": "context owner, close reason, interrupted operation, teardown order, and original test result",
+            "mainRisk": "test code closes the runner-owned context or teardown obscures the original assertion failure"
+          },
+          {
+            "option": "fixture-owned context",
+            "useWhen": "Let the Playwright runner own default context teardown",
+            "expectedEvidence": "context owner, close reason, interrupted operation, teardown order, and original test result",
+            "mainRisk": "test code closes the runner-owned context or teardown obscures the original assertion failure"
+          },
+          {
+            "option": "browser close",
+            "useWhen": "Use only when the test owns the entire browser lifecycle",
+            "expectedEvidence": "context owner, close reason, interrupted operation, teardown order, and original test result",
+            "mainRisk": "test code closes the runner-owned context or teardown obscures the original assertion failure"
+          },
+          {
+            "option": "implicit process exit",
+            "useWhen": "Avoid because it loses cleanup order and diagnostic intent",
+            "expectedEvidence": "context owner, close reason, interrupted operation, teardown order, and original test result",
+            "mainRisk": "test code closes the runner-owned context or teardown obscures the original assertion failure"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/api/class-browsercontext#browser-context-close",
+          "packages/web/src/app/blog/posts/playwright-target-page-context-closed-fix.ts",
+          "seed-skills/playwright-advance-e2e/SKILL.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright browsercontext close reason",
+        "steps": [
+          "Read packages/web/src/app/blog/posts/playwright-target-page-context-closed-fix.ts and define the expected contract: BrowserContext close accepts a reason that is reported to operations interrupted by manual context closure.",
+          "Create the smallest isolated test or CLI session and implement close only manually owned secondary contexts with an explicit reason such as 'completed secondary role flow'.",
+          "Exercise the success case, then reproduce the controlled failure where test code closes the runner-owned context or teardown obscures the original assertion failure.",
+          "Apply the release assertion: trigger an interrupted wait, inspect the propagated reason, and prove the fixture-owned default context is not closed manually.",
+          "Capture context owner, close reason, interrupted operation, teardown order, and original test result, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright BrowserContext Close Reason: primary implementation",
+          "language": "typescript",
+          "repoPath": "packages/web/src/app/blog/posts/playwright-target-page-context-closed-fix.ts",
+          "plannedSnippet": "const secondary = await browser.newContext(); await secondary.close({ reason: 'completed secondary role flow' });",
+          "purpose": "Implement close only manually owned secondary contexts with an explicit reason such as 'completed secondary role flow' using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright BrowserContext Close Reason: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-advance-e2e/SKILL.md",
+          "plannedSnippet": "await expect(pendingAction).rejects.toThrow(/completed secondary role flow/);",
+          "purpose": "Prove trigger an interrupted wait, inspect the propagated reason, and prove the fixture-owned default context is not closed manually and retain context owner, close reason, interrupted operation, teardown order, and original test result."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/blog/posts/playwright-target-page-context-closed-fix.ts",
+        "seed-skills/playwright-advance-e2e/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-target-page-context-closed-fix",
+        "/blog/playwright-browser-context-guide-2026",
+        "/blog/playwright-fixtures-complete-reference-2026",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-target-page-context-closed-fix",
+        "playwright-browser-context-guide-2026",
+        "playwright-fixtures-complete-reference-2026",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/api/class-browsercontext#browser-context-close",
+        "https://playwright.dev/docs/test-fixtures",
+        "https://playwright.dev/docs/browser-contexts"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use browsercontext close reason option?",
+        "How do you verify playwright context closed error message?",
+        "When should a QA team choose diagnose manual context cleanup?",
+        "What causes failures in playwright fixture context ownership?",
+        "Which evidence should context close aftereach failure retain?",
+        "How should CI handle secondary browser context teardown?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 4
+    },
+    {
+      "id": "PW-025",
+      "batch": 36,
+      "domain": "playwright-browser",
+      "slug": "playwright-context-init-script-ordering",
+      "primaryKeyword": "playwright context init script ordering",
+      "title": "Playwright Context Init Script Ordering",
+      "description": "playwright context init script ordering: make multiple context init scripts deterministic. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should Playwright tests structure BrowserContext init scripts when ordering between multiple scripts is not guaranteed?",
+      "secondaryKeywords": [
+        "browsercontext addinitscript order",
+        "playwright init script race",
+        "combine browser setup scripts",
+        "mock browser api before load",
+        "playwright deterministic init script",
+        "context versus page init script"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright Context Init Script Ordering Control?",
+          "question": true,
+          "coverage": "Answer How should Playwright tests structure BrowserContext init scripts when ordering between multiple scripts is not guaranteed? Define the boundary: Playwright evaluates init scripts before page code, but ordering between multiple registered scripts is not guaranteed. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/playwright-page-evaluate/SKILL.md"]
+        },
+        {
+          "heading": "How Does BrowserContext Addinitscript Order Work?",
+          "question": true,
+          "secondaryKeyword": "browsercontext addinitscript order",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind combine dependent setup into one init script or make separate scripts independent and idempotent. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/playwright-page-evaluate/SKILL.md"]
+        },
+        {
+          "heading": "Playwright Init Script Race: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "playwright init script race",
+          "coverage": "Walk through the relevant repository example in seed-skills/playwright-page-evaluate/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/playwright-page-evaluate/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Combine Browser Setup Scripts?",
+          "question": true,
+          "secondaryKeyword": "combine browser setup scripts",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/playwright-closed-shadow-root-testing-workarounds.ts"
+          ]
+        },
+        {
+          "heading": "Mock Browser API Before Load: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "mock browser api before load",
+          "coverage": "Reproduce and diagnose this primary risk: one init script reads a global that another script may not have initialized yet. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/playwright-closed-shadow-root-testing-workarounds.ts"
+          ]
+        },
+        {
+          "heading": "Playwright Deterministic Init Script: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "playwright deterministic init script",
+          "coverage": "Specify the assertion and CI record: register scripts in alternate orders across repeated contexts and assert the same browser-visible result. Require script registration set, dependency graph, execution markers, final globals, and repeat results so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/playwright-page-evaluate/SKILL.md",
+            "packages/web/src/app/blog/posts/playwright-closed-shadow-root-testing-workarounds.ts"
+          ]
+        },
+        {
+          "heading": "Context Versus Page Init Script Comparison Table",
+          "question": false,
+          "secondaryKeyword": "context versus page init script",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/playwright-page-evaluate/SKILL.md",
+            "packages/web/src/app/blog/posts/playwright-closed-shadow-root-testing-workarounds.ts"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright Context Init Script Ordering?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/playwright-page-evaluate/SKILL.md",
+            "packages/web/src/app/blog/posts/playwright-closed-shadow-root-testing-workarounds.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/playwright-page-evaluate/SKILL.md",
+            "packages/web/src/app/blog/posts/playwright-closed-shadow-root-testing-workarounds.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/playwright-page-evaluate/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright Context Init Script Ordering Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "single composed script",
+            "useWhen": "Keep ordered dependent setup inside one explicit function",
+            "expectedEvidence": "script registration set, dependency graph, execution markers, final globals, and repeat results",
+            "mainRisk": "one init script reads a global that another script may not have initialized yet"
+          },
+          {
+            "option": "independent scripts",
+            "useWhen": "Use when each script can execute in any order without shared assumptions",
+            "expectedEvidence": "script registration set, dependency graph, execution markers, final globals, and repeat results",
+            "mainRisk": "one init script reads a global that another script may not have initialized yet"
+          },
+          {
+            "option": "context init script",
+            "useWhen": "Apply setup to every page created in the context",
+            "expectedEvidence": "script registration set, dependency graph, execution markers, final globals, and repeat results",
+            "mainRisk": "one init script reads a global that another script may not have initialized yet"
+          },
+          {
+            "option": "page init script",
+            "useWhen": "Apply page-specific setup without claiming context-wide coverage",
+            "expectedEvidence": "script registration set, dependency graph, execution markers, final globals, and repeat results",
+            "mainRisk": "one init script reads a global that another script may not have initialized yet"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/api/class-browsercontext#browser-context-add-init-script",
+          "seed-skills/playwright-page-evaluate/SKILL.md",
+          "packages/web/src/app/blog/posts/playwright-closed-shadow-root-testing-workarounds.ts"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright context init script ordering",
+        "steps": [
+          "Read seed-skills/playwright-page-evaluate/SKILL.md and define the expected contract: Playwright evaluates init scripts before page code, but ordering between multiple registered scripts is not guaranteed.",
+          "Create the smallest isolated test or CLI session and implement combine dependent setup into one init script or make separate scripts independent and idempotent.",
+          "Exercise the success case, then reproduce the controlled failure where one init script reads a global that another script may not have initialized yet.",
+          "Apply the release assertion: register scripts in alternate orders across repeated contexts and assert the same browser-visible result.",
+          "Capture script registration set, dependency graph, execution markers, final globals, and repeat results, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright Context Init Script Ordering: primary implementation",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-page-evaluate/SKILL.md",
+          "plannedSnippet": "await context.addInitScript(() => { window.qaConfig = { seed: 7 }; window.random = () => window.qaConfig.seed; });",
+          "purpose": "Implement combine dependent setup into one init script or make separate scripts independent and idempotent using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright Context Init Script Ordering: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "packages/web/src/app/blog/posts/playwright-closed-shadow-root-testing-workarounds.ts",
+          "plannedSnippet": "await expect.poll(() => page.evaluate(() => window.random())).toBe(7);",
+          "purpose": "Prove register scripts in alternate orders across repeated contexts and assert the same browser-visible result and retain script registration set, dependency graph, execution markers, final globals, and repeat results."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/playwright-page-evaluate/SKILL.md",
+        "packages/web/src/app/blog/posts/playwright-closed-shadow-root-testing-workarounds.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-page-evaluate-complete-guide",
+        "/blog/playwright-closed-shadow-root-testing-workarounds",
+        "/blog/playwright-browser-context-guide-2026",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-page-evaluate-complete-guide",
+        "playwright-closed-shadow-root-testing-workarounds",
+        "playwright-browser-context-guide-2026",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/api/class-browsercontext#browser-context-add-init-script",
+        "https://playwright.dev/docs/mock-browser-apis",
+        "https://playwright.dev/docs/api/class-page#page-add-init-script"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use browsercontext addinitscript order?",
+        "How do you verify playwright init script race?",
+        "When should a QA team choose combine browser setup scripts?",
+        "What causes failures in mock browser api before load?",
+        "Which evidence should playwright deterministic init script retain?",
+        "How should CI handle context versus page init script?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 5
+    }
+  ]
+}

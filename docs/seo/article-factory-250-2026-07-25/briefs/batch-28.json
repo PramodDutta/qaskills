@@ -1,0 +1,893 @@
+{
+  "batch": 28,
+  "briefs": [
+    {
+      "batch": 28,
+      "domain": "mcp-agents",
+      "slug": "mcp-subprocess-launch-smoke-testing",
+      "primaryKeyword": "MCP subprocess launch smoke testing",
+      "title": "MCP subprocess launch smoke testing",
+      "description": "MCP subprocess launch smoke testing guide with repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams shipping MCP servers.",
+      "intent": "how-to",
+      "coreQuestion": "How can an integration harness spawn the MCP binary, capture stderr, perform initialize and tools/list, then terminate it without hanging?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states A harness must start the real binary, complete initialize and tools/list, capture stderr, and terminate every process deterministically. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "spawn MCP server test",
+        "stdio handshake smoke test",
+        "capture MCP stderr",
+        "MCP process hang detection",
+        "tools list subprocess test"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP subprocess launch smoke testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can an integration harness spawn the MCP binary, capture stderr, perform initialize and tools/list, then terminate it without hanging?\" in 40 to 60 words, define the observable contract, and state this article's boundary: A harness must start the real binary, complete initialize and tools/list, capture stderr, and terminate every process deterministically.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            "packages/mcp/src/index.ts: main starts a stdio server and reports fatal errors on stderr",
+            "docs/product/MCP-SERVER-PLAN-2026-07.md: the acceptance bar specifies a live initialize, tools/list, search, and install smoke flow"
+          ]
+        },
+        {
+          "heading": "How should QA teams test spawn MCP server test?",
+          "secondaryKeyword": "spawn MCP server test",
+          "coverage": "Build the primary fixture and oracle around this behavior: The process stays alive through the smoke exchange and exits after the harness closes input. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": ["packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Test matrix for stdio handshake smoke test",
+          "secondaryKeyword": "stdio handshake smoke test",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "What failures expose capture MCP stderr?",
+          "secondaryKeyword": "capture MCP stderr",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: Startup hangs, diagnostics contaminate stdout, a child survives cleanup, or tools/list never returns. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": ["docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "CI coverage for MCP process hang detection",
+          "secondaryKeyword": "MCP process hang detection",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "How should tools list subprocess test be asserted?",
+          "secondaryKeyword": "tools list subprocess test",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Use child_process.spawn with line framing, timeouts, stderr capture, and finally-based termination.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Subprocess lifecycle phase and required smoke assertion",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "spawn MCP server test: one positive row, one boundary or negative row, and its exact oracle",
+          "stdio handshake smoke test: one positive row, one boundary or negative row, and its exact oracle",
+          "capture MCP stderr: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP process hang detection: one positive row, one boundary or negative row, and its exact oracle",
+          "tools list subprocess test: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          "packages/mcp/src/index.ts",
+          "docs/product/MCP-SERVER-PLAN-2026-07.md",
+          "packages/mcp/package.json",
+          "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+          "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+          "https://nodejs.org/api/process.html"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP subprocess launch smoke testing in six steps",
+        "steps": [
+          "Read packages/mcp/src/index.ts and record the production contract without changing it.",
+          "Create isolated fixtures for spawn MCP server test and stdio handshake smoke test.",
+          "Build the harness: Use child_process.spawn with line framing, timeouts, stderr capture, and finally-based termination.",
+          "Execute the expected path and assert: The process stays alive through the smoke exchange and exits after the harness closes input.",
+          "Inject boundary and failure cases and assert: Startup hangs, diagnostics contaminate stdout, a child survives cleanup, or tools/list never returns.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "Spawn MCP server test positive contract",
+          "repositoryPath": "packages/mcp/src/index.ts",
+          "exactEvidence": "main starts a stdio server and reports fatal errors on stderr",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Prove the expected path: The process stays alive through the smoke exchange and exits after the harness closes input.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "Capture MCP stderr negative contract",
+          "repositoryPath": "docs/product/MCP-SERVER-PLAN-2026-07.md",
+          "exactEvidence": "the acceptance bar specifies a live initialize, tools/list, search, and install smoke flow",
+          "plannedSnippet": "Node subprocess smoke test implementing the acceptance sequence recorded in the repository plan",
+          "testGoal": "Force and diagnose the rejected path: Startup hangs, diagnostics contaminate stdout, a child survives cleanup, or tools/list never returns.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "packages/mcp/src/index.ts",
+        "docs/product/MCP-SERVER-PLAN-2026-07.md",
+        "packages/mcp/package.json"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/mcp-conformance-github-actions-baseline-2026",
+        "/blog/qaskills-mcp-server-guide",
+        "/skills",
+        "/blog",
+        "/getting-started"
+      ],
+      "relatedSlugs": [
+        "mcp-inspector-tutorial-2026",
+        "mcp-conformance-github-actions-baseline-2026",
+        "qaskills-mcp-server-guide",
+        "mcp-server-contract-testing-guide"
+      ],
+      "sources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+        "https://nodejs.org/api/process.html"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 1
+    },
+    {
+      "batch": 28,
+      "domain": "mcp-agents",
+      "slug": "mcp-node-engine-compatibility-testing",
+      "primaryKeyword": "MCP Node engine compatibility testing",
+      "title": "MCP Node engine compatibility testing",
+      "description": "MCP Node engine compatibility testing with repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams shipping MCP servers.",
+      "intent": "how-to",
+      "coreQuestion": "How can CI prove the MCP package runs on its declared minimum Node version and does not silently depend on newer fetch, URL, or filesystem behavior?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states The packed package must run on Node 20, its declared minimum, and avoid accidental dependence on newer runtime behavior. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "MCP Node 20 smoke test",
+        "npm engines compatibility",
+        "Node fetch runtime test",
+        "minimum Node version CI",
+        "MCP runtime version matrix"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP Node engine compatibility testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can CI prove the MCP package runs on its declared minimum Node version and does not silently depend on newer fetch, URL, or filesystem behavior?\" in 40 to 60 words, define the observable contract, and state this article's boundary: The packed package must run on Node 20, its declared minimum, and avoid accidental dependence on newer runtime behavior.",
+          "evidence": ["packages/mcp/package.json", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            "packages/mcp/package.json: engines requires Node 20 or newer",
+            ".github/workflows/mcp-publish.yml: setup-node builds and publishes with Node 20"
+          ]
+        },
+        {
+          "heading": "How should QA teams test MCP Node 20 smoke test?",
+          "secondaryKeyword": "MCP Node 20 smoke test",
+          "coverage": "Build the primary fixture and oracle around this behavior: Build, startup, fetch use, URL construction, and filesystem installation pass on the minimum runtime. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": ["packages/mcp/package.json"]
+        },
+        {
+          "heading": "Test matrix for npm engines compatibility",
+          "secondaryKeyword": "npm engines compatibility",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": ["packages/mcp/package.json", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "What failures expose Node fetch runtime test?",
+          "secondaryKeyword": "Node fetch runtime test",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: A newer-only global, syntax feature, dependency, or package export fails on Node 20. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": [".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "CI coverage for minimum Node version CI",
+          "secondaryKeyword": "minimum Node version CI",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": ["packages/mcp/package.json", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "How should MCP runtime version matrix be asserted?",
+          "secondaryKeyword": "MCP runtime version matrix",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": ["packages/mcp/package.json", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Run packed-package smoke tests across the minimum and current Node versions in CI.",
+          "evidence": ["packages/mcp/package.json", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": ["packages/mcp/package.json", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": ["packages/mcp/package.json", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": ["packages/mcp/package.json", ".github/workflows/mcp-publish.yml"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Node version matrix and MCP runtime capability checks",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "MCP Node 20 smoke test: one positive row, one boundary or negative row, and its exact oracle",
+          "npm engines compatibility: one positive row, one boundary or negative row, and its exact oracle",
+          "Node fetch runtime test: one positive row, one boundary or negative row, and its exact oracle",
+          "minimum Node version CI: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP runtime version matrix: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          "packages/mcp/package.json",
+          ".github/workflows/mcp-publish.yml",
+          "packages/mcp/src/index.ts",
+          "https://nodejs.org/api/packages.html",
+          "https://nodejs.org/api/globals.html#fetch",
+          "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP Node engine compatibility testing in six steps",
+        "steps": [
+          "Read packages/mcp/package.json and record the production contract without changing it.",
+          "Create isolated fixtures for MCP Node 20 smoke test and npm engines compatibility.",
+          "Build the harness: Run packed-package smoke tests across the minimum and current Node versions in CI.",
+          "Execute the expected path and assert: Build, startup, fetch use, URL construction, and filesystem installation pass on the minimum runtime.",
+          "Inject boundary and failure cases and assert: A newer-only global, syntax feature, dependency, or package export fails on Node 20.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "MCP Node 20 smoke test positive contract",
+          "repositoryPath": "packages/mcp/package.json",
+          "exactEvidence": "engines requires Node 20 or newer",
+          "plannedSnippet": "TypeScript metadata contract test that parses committed JSON and compares exact fields",
+          "testGoal": "Prove the expected path: Build, startup, fetch use, URL construction, and filesystem installation pass on the minimum runtime.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "Node fetch runtime test negative contract",
+          "repositoryPath": ".github/workflows/mcp-publish.yml",
+          "exactEvidence": "setup-node builds and publishes with Node 20",
+          "plannedSnippet": "TypeScript workflow contract test that parses YAML and asserts step order, permissions, conditions, and commands",
+          "testGoal": "Force and diagnose the rejected path: A newer-only global, syntax feature, dependency, or package export fails on Node 20.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "packages/mcp/package.json",
+        ".github/workflows/mcp-publish.yml",
+        "packages/mcp/src/index.ts"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-package-registry-version-drift-tests",
+        "/getting-started",
+        "/skills",
+        "/blog"
+      ],
+      "relatedSlugs": [
+        "qaskills-mcp-server-guide",
+        "mcp-package-registry-version-drift-tests",
+        "mcp-server-contract-testing-guide",
+        "mcp-server-testing-guide-2026"
+      ],
+      "sources": [
+        "https://nodejs.org/api/packages.html",
+        "https://nodejs.org/api/globals.html#fetch",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 2
+    },
+    {
+      "batch": 28,
+      "domain": "mcp-agents",
+      "slug": "mcp-stdio-stdout-contamination-testing",
+      "primaryKeyword": "MCP stdio stdout contamination testing",
+      "title": "MCP stdio stdout contamination testing",
+      "description": "MCP stdio stdout contamination testing with repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams shipping MCP servers.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How can a QA engineer prove that an MCP stdio server writes only valid protocol messages to stdout while sending diagnostics to stderr?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states Stdout contains only framed protocol messages, while diagnostics and fatal errors use stderr. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "MCP stdout protocol corruption",
+        "stdio server console log test",
+        "MCP stderr diagnostics",
+        "JSON-RPC stdout validation",
+        "MCP process output capture"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP stdio stdout contamination testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can a QA engineer prove that an MCP stdio server writes only valid protocol messages to stdout while sending diagnostics to stderr?\" in 40 to 60 words, define the observable contract, and state this article's boundary: Stdout contains only framed protocol messages, while diagnostics and fatal errors use stderr.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            "packages/mcp/src/index.ts: main connects StdioServerTransport and the fatal path uses console.error",
+            "docs/product/MCP-SERVER-PLAN-2026-07.md: acceptance bar forbids console.log on the stdout protocol channel"
+          ]
+        },
+        {
+          "heading": "How should QA teams test MCP stdout protocol corruption?",
+          "secondaryKeyword": "MCP stdout protocol corruption",
+          "coverage": "Build the primary fixture and oracle around this behavior: Every stdout line parses as the expected JSON-RPC message during initialize and tools/list. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": ["packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Test matrix for stdio server console log test",
+          "secondaryKeyword": "stdio server console log test",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "What failures expose MCP stderr diagnostics?",
+          "secondaryKeyword": "MCP stderr diagnostics",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: console.log, dependency output, stack traces, or banners appear on the protocol channel. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": ["docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "CI coverage for JSON-RPC stdout validation",
+          "secondaryKeyword": "JSON-RPC stdout validation",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "How should MCP process output capture be asserted?",
+          "secondaryKeyword": "MCP process output capture",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Spawn the server, capture stdout and stderr separately, and parse every stdout frame.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Process output channel and permitted content",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "MCP stdout protocol corruption: one positive row, one boundary or negative row, and its exact oracle",
+          "stdio server console log test: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP stderr diagnostics: one positive row, one boundary or negative row, and its exact oracle",
+          "JSON-RPC stdout validation: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP process output capture: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          "packages/mcp/src/index.ts",
+          "docs/product/MCP-SERVER-PLAN-2026-07.md",
+          "packages/mcp/package.json",
+          "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+          "https://www.jsonrpc.org/specification",
+          "https://ts.sdk.modelcontextprotocol.io/"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP stdio stdout contamination testing in six steps",
+        "steps": [
+          "Read packages/mcp/src/index.ts and record the production contract without changing it.",
+          "Create isolated fixtures for MCP stdout protocol corruption and stdio server console log test.",
+          "Build the harness: Spawn the server, capture stdout and stderr separately, and parse every stdout frame.",
+          "Execute the expected path and assert: Every stdout line parses as the expected JSON-RPC message during initialize and tools/list.",
+          "Inject boundary and failure cases and assert: console.log, dependency output, stack traces, or banners appear on the protocol channel.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "MCP stdout protocol corruption positive contract",
+          "repositoryPath": "packages/mcp/src/index.ts",
+          "exactEvidence": "main connects StdioServerTransport and the fatal path uses console.error",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Prove the expected path: Every stdout line parses as the expected JSON-RPC message during initialize and tools/list.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "MCP stderr diagnostics negative contract",
+          "repositoryPath": "docs/product/MCP-SERVER-PLAN-2026-07.md",
+          "exactEvidence": "acceptance bar forbids console.log on the stdout protocol channel",
+          "plannedSnippet": "Node subprocess smoke test implementing the acceptance sequence recorded in the repository plan",
+          "testGoal": "Force and diagnose the rejected path: console.log, dependency output, stack traces, or banners appear on the protocol channel.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "packages/mcp/src/index.ts",
+        "docs/product/MCP-SERVER-PLAN-2026-07.md",
+        "packages/mcp/package.json"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-testing-guide-2026",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/mcp-official-conformance-suite-server-guide-2026",
+        "/skills",
+        "/blog",
+        "/getting-started"
+      ],
+      "relatedSlugs": [
+        "mcp-server-testing-guide-2026",
+        "mcp-inspector-tutorial-2026",
+        "mcp-official-conformance-suite-server-guide-2026",
+        "qaskills-mcp-server-guide"
+      ],
+      "sources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+        "https://www.jsonrpc.org/specification",
+        "https://ts.sdk.modelcontextprotocol.io/"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 3
+    },
+    {
+      "batch": 28,
+      "domain": "mcp-agents",
+      "slug": "mcp-workspace-dependency-isolation-testing",
+      "primaryKeyword": "MCP workspace dependency isolation testing",
+      "title": "MCP workspace dependency isolation testing",
+      "description": "MCP workspace dependency isolation testing explained through repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams.",
+      "intent": "how-to",
+      "coreQuestion": "How can a packed-package test prove the MCP server runs outside the monorepo without undeclared @qaskills workspace dependencies?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states The packed MCP server must install and run outside the monorepo using only declared runtime dependencies. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "MCP packed package isolation",
+        "undeclared workspace dependency test",
+        "npm tarball standalone smoke",
+        "monorepo dependency leak",
+        "qaskills MCP clean install"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP workspace dependency isolation testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can a packed-package test prove the MCP server runs outside the monorepo without undeclared @qaskills workspace dependencies?\" in 40 to 60 words, define the observable contract, and state this article's boundary: The packed MCP server must install and run outside the monorepo using only declared runtime dependencies.",
+          "evidence": ["packages/mcp/package.json", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            "packages/mcp/package.json: runtime dependencies are limited to the MCP SDK and Zod",
+            "docs/product/MCP-SERVER-PLAN-2026-07.md: standalone package isolation is an explicit design choice"
+          ]
+        },
+        {
+          "heading": "How should QA teams test MCP packed package isolation?",
+          "secondaryKeyword": "MCP packed package isolation",
+          "coverage": "Build the primary fixture and oracle around this behavior: A clean temporary project can install the tarball and complete a protocol smoke test. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": ["packages/mcp/package.json"]
+        },
+        {
+          "heading": "Test matrix for undeclared workspace dependency test",
+          "secondaryKeyword": "undeclared workspace dependency test",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": ["packages/mcp/package.json", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "What failures expose npm tarball standalone smoke?",
+          "secondaryKeyword": "npm tarball standalone smoke",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: Runtime resolution reaches workspace packages, root node_modules, source aliases, or undeclared files. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": ["docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "CI coverage for monorepo dependency leak",
+          "secondaryKeyword": "monorepo dependency leak",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": ["packages/mcp/package.json", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "How should qaskills MCP clean install be asserted?",
+          "secondaryKeyword": "qaskills MCP clean install",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": ["packages/mcp/package.json", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Pack the module, install it with an isolated cache and prefix, then launch its binary.",
+          "evidence": ["packages/mcp/package.json", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": ["packages/mcp/package.json", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": ["packages/mcp/package.json", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": ["packages/mcp/package.json", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Workspace dependency leak vectors and isolation assertions",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "MCP packed package isolation: one positive row, one boundary or negative row, and its exact oracle",
+          "undeclared workspace dependency test: one positive row, one boundary or negative row, and its exact oracle",
+          "npm tarball standalone smoke: one positive row, one boundary or negative row, and its exact oracle",
+          "monorepo dependency leak: one positive row, one boundary or negative row, and its exact oracle",
+          "qaskills MCP clean install: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          "packages/mcp/package.json",
+          "docs/product/MCP-SERVER-PLAN-2026-07.md",
+          "packages/mcp/src/index.ts",
+          "https://docs.npmjs.com/cli/v11/commands/npm-pack/",
+          "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/",
+          "https://nodejs.org/api/packages.html"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP workspace dependency isolation testing in six steps",
+        "steps": [
+          "Read packages/mcp/package.json and record the production contract without changing it.",
+          "Create isolated fixtures for MCP packed package isolation and undeclared workspace dependency test.",
+          "Build the harness: Pack the module, install it with an isolated cache and prefix, then launch its binary.",
+          "Execute the expected path and assert: A clean temporary project can install the tarball and complete a protocol smoke test.",
+          "Inject boundary and failure cases and assert: Runtime resolution reaches workspace packages, root node_modules, source aliases, or undeclared files.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "MCP packed package isolation positive contract",
+          "repositoryPath": "packages/mcp/package.json",
+          "exactEvidence": "runtime dependencies are limited to the MCP SDK and Zod",
+          "plannedSnippet": "TypeScript metadata contract test that parses committed JSON and compares exact fields",
+          "testGoal": "Prove the expected path: A clean temporary project can install the tarball and complete a protocol smoke test.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "Npm tarball standalone smoke negative contract",
+          "repositoryPath": "docs/product/MCP-SERVER-PLAN-2026-07.md",
+          "exactEvidence": "standalone package isolation is an explicit design choice",
+          "plannedSnippet": "Node subprocess smoke test implementing the acceptance sequence recorded in the repository plan",
+          "testGoal": "Force and diagnose the rejected path: Runtime resolution reaches workspace packages, root node_modules, source aliases, or undeclared files.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "packages/mcp/package.json",
+        "docs/product/MCP-SERVER-PLAN-2026-07.md",
+        "packages/mcp/src/index.ts"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-registry-qa-teams-guide-2026",
+        "/getting-started",
+        "/skills",
+        "/blog"
+      ],
+      "relatedSlugs": [
+        "qaskills-mcp-server-guide",
+        "mcp-registry-qa-teams-guide-2026",
+        "mcp-server-contract-testing-guide",
+        "mcp-server-testing-guide-2026"
+      ],
+      "sources": [
+        "https://docs.npmjs.com/cli/v11/commands/npm-pack/",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/",
+        "https://nodejs.org/api/packages.html"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 4
+    },
+    {
+      "batch": 28,
+      "domain": "mcp-agents",
+      "slug": "mcp-npm-publish-idempotency-testing",
+      "primaryKeyword": "MCP npm publish idempotency testing",
+      "title": "MCP npm publish idempotency testing",
+      "description": "MCP npm publish idempotency testing guide with repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams shipping MCP servers.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How can a release workflow safely rerun when an MCP package version already exists on npm but registry publication still needs to proceed?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states A rerun must skip an npm version that already exists while still attempting the independent MCP Registry publication. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "rerun MCP publish workflow",
+        "npm version already exists",
+        "idempotent package release",
+        "registry publish retry",
+        "MCP release partial failure"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP npm publish idempotency testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can a release workflow safely rerun when an MCP package version already exists on npm but registry publication still needs to proceed?\" in 40 to 60 words, define the observable contract, and state this article's boundary: A rerun must skip an npm version that already exists while still attempting the independent MCP Registry publication.",
+          "evidence": [".github/workflows/mcp-publish.yml", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            ".github/workflows/mcp-publish.yml: npm view checks the exact version and skips npm publish when it already exists",
+            ".github/workflows/mcp-publish.yml: registry publication runs after the conditional npm step"
+          ]
+        },
+        {
+          "heading": "How should QA teams test rerun MCP publish workflow?",
+          "secondaryKeyword": "rerun MCP publish workflow",
+          "coverage": "Build the primary fixture and oracle around this behavior: Both first publish and retry paths reach the correct later workflow steps. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": [".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Test matrix for npm version already exists",
+          "secondaryKeyword": "npm version already exists",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": [".github/workflows/mcp-publish.yml", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "What failures expose idempotent package release?",
+          "secondaryKeyword": "idempotent package release",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: An existing npm version fails the job, triggers a duplicate publish, or prevents registry recovery. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": [".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "CI coverage for registry publish retry",
+          "secondaryKeyword": "registry publish retry",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": [".github/workflows/mcp-publish.yml", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "How should MCP release partial failure be asserted?",
+          "secondaryKeyword": "MCP release partial failure",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": [".github/workflows/mcp-publish.yml", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Stub npm view outcomes and inspect conditional workflow execution for first-run and rerun cases.",
+          "evidence": [".github/workflows/mcp-publish.yml", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": [".github/workflows/mcp-publish.yml", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": [".github/workflows/mcp-publish.yml", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": [".github/workflows/mcp-publish.yml", ".github/workflows/mcp-publish.yml"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Release state compared with npm and MCP Registry actions",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "rerun MCP publish workflow: one positive row, one boundary or negative row, and its exact oracle",
+          "npm version already exists: one positive row, one boundary or negative row, and its exact oracle",
+          "idempotent package release: one positive row, one boundary or negative row, and its exact oracle",
+          "registry publish retry: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP release partial failure: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          ".github/workflows/mcp-publish.yml",
+          "packages/mcp/src/index.ts",
+          "packages/mcp/package.json",
+          "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/",
+          "https://modelcontextprotocol.io/registry/quickstart",
+          "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP npm publish idempotency testing in six steps",
+        "steps": [
+          "Read .github/workflows/mcp-publish.yml and record the production contract without changing it.",
+          "Create isolated fixtures for rerun MCP publish workflow and npm version already exists.",
+          "Build the harness: Stub npm view outcomes and inspect conditional workflow execution for first-run and rerun cases.",
+          "Execute the expected path and assert: Both first publish and retry paths reach the correct later workflow steps.",
+          "Inject boundary and failure cases and assert: An existing npm version fails the job, triggers a duplicate publish, or prevents registry recovery.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "Rerun MCP publish workflow positive contract",
+          "repositoryPath": ".github/workflows/mcp-publish.yml",
+          "exactEvidence": "npm view checks the exact version and skips npm publish when it already exists",
+          "plannedSnippet": "TypeScript workflow contract test that parses YAML and asserts step order, permissions, conditions, and commands",
+          "testGoal": "Prove the expected path: Both first publish and retry paths reach the correct later workflow steps.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "Idempotent package release negative contract",
+          "repositoryPath": ".github/workflows/mcp-publish.yml",
+          "exactEvidence": "registry publication runs after the conditional npm step",
+          "plannedSnippet": "TypeScript workflow contract test that parses YAML and asserts step order, permissions, conditions, and commands",
+          "testGoal": "Force and diagnose the rejected path: An existing npm version fails the job, triggers a duplicate publish, or prevents registry recovery.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        ".github/workflows/mcp-publish.yml",
+        "packages/mcp/src/index.ts",
+        "packages/mcp/package.json"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-registry-qa-teams-guide-2026",
+        "/blog/mcp-package-registry-version-drift-tests",
+        "/blog/qaskills-mcp-server-guide",
+        "/skills",
+        "/blog",
+        "/getting-started"
+      ],
+      "relatedSlugs": [
+        "mcp-registry-qa-teams-guide-2026",
+        "mcp-package-registry-version-drift-tests",
+        "qaskills-mcp-server-guide",
+        "mcp-server-contract-testing-guide"
+      ],
+      "sources": [
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/",
+        "https://modelcontextprotocol.io/registry/quickstart",
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 5
+    }
+  ]
+}

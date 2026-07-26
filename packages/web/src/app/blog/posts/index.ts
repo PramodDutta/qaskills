@@ -13,6 +13,7 @@ export interface BlogPost {
   pillarSlug?: string;
   relatedSlugs?: string[];
   sources?: string[];
+  repoEvidence?: string[];
 }
 
 // Import all posts
@@ -126,6 +127,7 @@ import { post as migratingFrameworksGuide } from './migrating-test-frameworks-gu
 import { generatedSeoBatch2026Posts } from './generated-seo-batch-2026';
 import { articleFactoryBatch20260718Posts } from './_article-factory-batch-2026-07';
 import { articleFactoryBatch20260725Posts } from './_article-factory-batch-2026-07-25';
+import { articleFactory250Posts } from './_article-factory-250-2026-07-25';
 import { playwrightLongTail2026Posts } from './playwright-long-tail-batch-2026';
 import { seoPriorityOverrides2026 } from './seo-priority-overrides-2026';
 import { seoWaveOneArticles2026 } from './seo-wave-one-articles-2026';
@@ -2386,17 +2388,21 @@ export const posts: Record<string, BlogPost> = {
   'testing-toxic-output-multilingual-prompts': t250c_testingToxicOutputMultilingualPrompts,
   'testing-webhook-out-of-order-delivery': t250c_testingWebhookOutOfOrderDelivery,
   'testing-webhook-replay-attack-protection': t250c_testingWebhookReplayAttackProtection,
-  'how-to-create-a-claude-skill-skill-md-complete-guide': sg_howToCreateAClaudeSkillSkillMdCompleteGuide,
-  'claude-skill-description-frontmatter-triggering-guide': sg_claudeSkillDescriptionFrontmatterTriggeringGuide,
+  'how-to-create-a-claude-skill-skill-md-complete-guide':
+    sg_howToCreateAClaudeSkillSkillMdCompleteGuide,
+  'claude-skill-description-frontmatter-triggering-guide':
+    sg_claudeSkillDescriptionFrontmatterTriggeringGuide,
   'github-copilot-instructions-md-for-testing-teams': sg_githubCopilotInstructionsMdForTestingTeams,
   'agents-md-complete-guide-ai-coding-agents': sg_agentsMdCompleteGuideAiCodingAgents,
   'cursor-rules-file-guide-test-automation': sg_cursorRulesFileGuideTestAutomation,
   'how-to-create-mcp-server-for-qa-testing-tools': sg_howToCreateMcpServerForQaTestingTools,
-  'claude-skills-vs-cursor-rules-vs-copilot-instructions': sg_claudeSkillsVsCursorRulesVsCopilotInstructions,
+  'claude-skills-vs-cursor-rules-vs-copilot-instructions':
+    sg_claudeSkillsVsCursorRulesVsCopilotInstructions,
   'how-to-publish-ai-agent-skill-directory': sg_howToPublishAiAgentSkillDirectory,
   'progressive-disclosure-agent-skill-design': sg_progressiveDisclosureAgentSkillDesign,
   'claude-code-custom-slash-commands-guide': sg_claudeCodeCustomSlashCommandsGuide,
-  'github-copilot-path-specific-instructions-applyto': sg_githubCopilotPathSpecificInstructionsApplyto,
+  'github-copilot-path-specific-instructions-applyto':
+    sg_githubCopilotPathSpecificInstructionsApplyto,
   'windsurf-rules-and-memories-guide': sg_windsurfRulesAndMemoriesGuide,
   'gemini-cli-gemini-md-configuration-guide': sg_geminiCliGeminiMdConfigurationGuide,
   'agent-skills-open-standard-portability': sg_agentSkillsOpenStandardPortability,
@@ -2415,13 +2421,15 @@ export const posts: Record<string, BlogPost> = {
   'ci-cache-pnpm-store-github-actions': d716_ciCachePnpmStoreGithubActions,
   'testing-llm-structured-output-json-schema-guide': d716_testingLlmStructuredOutputJsonSchemaGuide,
   'testing-api-rate-limiting-429-retry-guide': d716_testingApiRateLimiting429RetryGuide,
-  'deepeval-conversational-multiturn-metrics-guide': d716_deepevalConversationalMultiturnMetricsGuide,
+  'deepeval-conversational-multiturn-metrics-guide':
+    d716_deepevalConversationalMultiturnMetricsGuide,
   'ci-matrix-strategy-parallel-test-jobs-guide': d716_ciMatrixStrategyParallelTestJobsGuide,
   'ci-fail-fast-vs-continue-on-error-jobs': d716_ciFailFastVsContinueOnErrorJobs,
   'testing-jwt-token-expiry-validation-guide': d716_testingJwtTokenExpiryValidationGuide,
   'testing-database-connection-pool-exhaustion': d716_testingDatabaseConnectionPoolExhaustion,
   'javascript-testing-frameworks-complete-guide-2026': pillarJsTesting2026,
-  'chai-assertions-cheat-sheet-expect-should-assert': d718_chaiAssertionsCheatSheetExpectShouldAssert,
+  'chai-assertions-cheat-sheet-expect-should-assert':
+    d718_chaiAssertionsCheatSheetExpectShouldAssert,
   'mocha-hooks-before-after-beforeeach-guide': d718_mochaHooksBeforeAfterBeforeeachGuide,
   'testing-async-code-mocha-chai-guide': d718_testingAsyncCodeMochaChaiGuide,
   'chai-as-promised-testing-promises-guide': d718_chaiAsPromisedTestingPromisesGuide,
@@ -2629,6 +2637,7 @@ export const posts: Record<string, BlogPost> = {
   ...Object.fromEntries(seoWaveOneArticles2026.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(articleFactoryBatch20260718Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(articleFactoryBatch20260725Posts.map(({ slug, post }) => [slug, post])),
+  ...Object.fromEntries(articleFactory250Posts.map(({ slug, post }) => [slug, post])),
 };
 
 // Ordered list for the blog listing page (newest first)
@@ -4819,49 +4828,109 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
     slug: 'testing-webhook-replay-attack-protection',
     ...t250c_testingWebhookReplayAttackProtection,
   },
-  { slug: 'how-to-create-a-claude-skill-skill-md-complete-guide', ...sg_howToCreateAClaudeSkillSkillMdCompleteGuide },
-  { slug: 'claude-skill-description-frontmatter-triggering-guide', ...sg_claudeSkillDescriptionFrontmatterTriggeringGuide },
-  { slug: 'github-copilot-instructions-md-for-testing-teams', ...sg_githubCopilotInstructionsMdForTestingTeams },
+  {
+    slug: 'how-to-create-a-claude-skill-skill-md-complete-guide',
+    ...sg_howToCreateAClaudeSkillSkillMdCompleteGuide,
+  },
+  {
+    slug: 'claude-skill-description-frontmatter-triggering-guide',
+    ...sg_claudeSkillDescriptionFrontmatterTriggeringGuide,
+  },
+  {
+    slug: 'github-copilot-instructions-md-for-testing-teams',
+    ...sg_githubCopilotInstructionsMdForTestingTeams,
+  },
   { slug: 'agents-md-complete-guide-ai-coding-agents', ...sg_agentsMdCompleteGuideAiCodingAgents },
   { slug: 'cursor-rules-file-guide-test-automation', ...sg_cursorRulesFileGuideTestAutomation },
-  { slug: 'how-to-create-mcp-server-for-qa-testing-tools', ...sg_howToCreateMcpServerForQaTestingTools },
-  { slug: 'claude-skills-vs-cursor-rules-vs-copilot-instructions', ...sg_claudeSkillsVsCursorRulesVsCopilotInstructions },
+  {
+    slug: 'how-to-create-mcp-server-for-qa-testing-tools',
+    ...sg_howToCreateMcpServerForQaTestingTools,
+  },
+  {
+    slug: 'claude-skills-vs-cursor-rules-vs-copilot-instructions',
+    ...sg_claudeSkillsVsCursorRulesVsCopilotInstructions,
+  },
   { slug: 'how-to-publish-ai-agent-skill-directory', ...sg_howToPublishAiAgentSkillDirectory },
-  { slug: 'progressive-disclosure-agent-skill-design', ...sg_progressiveDisclosureAgentSkillDesign },
+  {
+    slug: 'progressive-disclosure-agent-skill-design',
+    ...sg_progressiveDisclosureAgentSkillDesign,
+  },
   { slug: 'claude-code-custom-slash-commands-guide', ...sg_claudeCodeCustomSlashCommandsGuide },
-  { slug: 'github-copilot-path-specific-instructions-applyto', ...sg_githubCopilotPathSpecificInstructionsApplyto },
+  {
+    slug: 'github-copilot-path-specific-instructions-applyto',
+    ...sg_githubCopilotPathSpecificInstructionsApplyto,
+  },
   { slug: 'windsurf-rules-and-memories-guide', ...sg_windsurfRulesAndMemoriesGuide },
   { slug: 'gemini-cli-gemini-md-configuration-guide', ...sg_geminiCliGeminiMdConfigurationGuide },
   { slug: 'agent-skills-open-standard-portability', ...sg_agentSkillsOpenStandardPortability },
-  { slug: 'claude-skill-not-triggering-troubleshooting', ...sg2_claudeSkillNotTriggeringTroubleshooting },
-  { slug: 'claude-code-plugin-skills-marketplace-guide', ...sg2_claudeCodePluginSkillsMarketplaceGuide },
+  {
+    slug: 'claude-skill-not-triggering-troubleshooting',
+    ...sg2_claudeSkillNotTriggeringTroubleshooting,
+  },
+  {
+    slug: 'claude-code-plugin-skills-marketplace-guide',
+    ...sg2_claudeCodePluginSkillsMarketplaceGuide,
+  },
   { slug: 'how-to-test-and-evolve-agent-skills', ...sg2_howToTestAndEvolveAgentSkills },
   { slug: 'skill-md-vs-mcp-server-when-to-use-which', ...sg2_skillMdVsMcpServerWhenToUseWhich },
-  { slug: 'distribute-agent-skills-across-team-monorepo', ...sg2_distributeAgentSkillsAcrossTeamMonorepo },
+  {
+    slug: 'distribute-agent-skills-across-team-monorepo',
+    ...sg2_distributeAgentSkillsAcrossTeamMonorepo,
+  },
   { slug: 'agent-skill-security-review-checklist', ...sg2_agentSkillSecurityReviewChecklist },
   { slug: 'copilot-coding-agent-setup-testing-repos', ...sg2_copilotCodingAgentSetupTestingRepos },
   { slug: 'cline-roo-code-rules-configuration-guide', ...sg2_clineRooCodeRulesConfigurationGuide },
   { slug: 'aider-conventions-file-testing-guide', ...sg2_aiderConventionsFileTestingGuide },
   { slug: 'validate-skill-md-in-ci-pipeline', ...sg2_validateSkillMdInCiPipeline },
-  { slug: 'playwright-trace-merge-sharded-reports-guide', ...d716_playwrightTraceMergeShardedReportsGuide },
+  {
+    slug: 'playwright-trace-merge-sharded-reports-guide',
+    ...d716_playwrightTraceMergeShardedReportsGuide,
+  },
   { slug: 'how-to-test-llm-tool-calling-accuracy', ...d716_howToTestLlmToolCallingAccuracy },
   { slug: 'ci-cache-pnpm-store-github-actions', ...d716_ciCachePnpmStoreGithubActions },
-  { slug: 'testing-llm-structured-output-json-schema-guide', ...d716_testingLlmStructuredOutputJsonSchemaGuide },
-  { slug: 'testing-api-rate-limiting-429-retry-guide', ...d716_testingApiRateLimiting429RetryGuide },
-  { slug: 'deepeval-conversational-multiturn-metrics-guide', ...d716_deepevalConversationalMultiturnMetricsGuide },
-  { slug: 'ci-matrix-strategy-parallel-test-jobs-guide', ...d716_ciMatrixStrategyParallelTestJobsGuide },
+  {
+    slug: 'testing-llm-structured-output-json-schema-guide',
+    ...d716_testingLlmStructuredOutputJsonSchemaGuide,
+  },
+  {
+    slug: 'testing-api-rate-limiting-429-retry-guide',
+    ...d716_testingApiRateLimiting429RetryGuide,
+  },
+  {
+    slug: 'deepeval-conversational-multiturn-metrics-guide',
+    ...d716_deepevalConversationalMultiturnMetricsGuide,
+  },
+  {
+    slug: 'ci-matrix-strategy-parallel-test-jobs-guide',
+    ...d716_ciMatrixStrategyParallelTestJobsGuide,
+  },
   { slug: 'ci-fail-fast-vs-continue-on-error-jobs', ...d716_ciFailFastVsContinueOnErrorJobs },
-  { slug: 'testing-jwt-token-expiry-validation-guide', ...d716_testingJwtTokenExpiryValidationGuide },
-  { slug: 'testing-database-connection-pool-exhaustion', ...d716_testingDatabaseConnectionPoolExhaustion },
+  {
+    slug: 'testing-jwt-token-expiry-validation-guide',
+    ...d716_testingJwtTokenExpiryValidationGuide,
+  },
+  {
+    slug: 'testing-database-connection-pool-exhaustion',
+    ...d716_testingDatabaseConnectionPoolExhaustion,
+  },
   { slug: 'javascript-testing-frameworks-complete-guide-2026', ...pillarJsTesting2026 },
-  { slug: 'chai-assertions-cheat-sheet-expect-should-assert', ...d718_chaiAssertionsCheatSheetExpectShouldAssert },
-  { slug: 'mocha-hooks-before-after-beforeeach-guide', ...d718_mochaHooksBeforeAfterBeforeeachGuide },
+  {
+    slug: 'chai-assertions-cheat-sheet-expect-should-assert',
+    ...d718_chaiAssertionsCheatSheetExpectShouldAssert,
+  },
+  {
+    slug: 'mocha-hooks-before-after-beforeeach-guide',
+    ...d718_mochaHooksBeforeAfterBeforeeachGuide,
+  },
   { slug: 'testing-async-code-mocha-chai-guide', ...d718_testingAsyncCodeMochaChaiGuide },
   { slug: 'chai-as-promised-testing-promises-guide', ...d718_chaiAsPromisedTestingPromisesGuide },
   { slug: 'mocha-test-coverage-c8-nyc-guide', ...d718_mochaTestCoverageC8NycGuide },
   { slug: 'playwright-python-upload-files-guide', ...d718_playwrightPythonUploadFilesGuide },
   { slug: 'playwright-python-handle-file-downloads', ...d718_playwrightPythonHandleFileDownloads },
-  { slug: 'python-playwright-install-fix-browser-errors', ...d718_pythonPlaywrightInstallFixBrowserErrors },
+  {
+    slug: 'python-playwright-install-fix-browser-errors',
+    ...d718_pythonPlaywrightInstallFixBrowserErrors,
+  },
   { slug: 'vitest-vi-hoisted-complete-guide', ...d718_vitestViHoistedCompleteGuide },
   { slug: 'vitest-mocking-vi-mock-vi-fn-vi-spyon', ...d718_vitestMockingViMockViFnViSpyon },
   {
@@ -5185,6 +5254,10 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
     ...post,
   })),
   ...articleFactoryBatch20260725Posts.map(({ slug, post }) => ({
+    slug,
+    ...post,
+  })),
+  ...articleFactory250Posts.map(({ slug, post }) => ({
     slug,
     ...post,
   })),

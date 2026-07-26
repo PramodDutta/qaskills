@@ -1,0 +1,986 @@
+{
+  "batch": 11,
+  "briefs": [
+    {
+      "batch": 11,
+      "domain": "web-auth-email",
+      "slug": "accessible-email-preference-switch-tests",
+      "primaryKeyword": "accessible email preference switch tests",
+      "title": "Accessible email preference switch tests",
+      "description": "accessible email preference switch tests: build a code-backed QA plan with verified QASkills paths, matrices, assertions, and regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test role, aria-checked, disabled state, keyboard behavior, and visible state for email preference switches?",
+      "secondaryKeywords": [
+        "aria checked switch tests",
+        "disabled notification toggle test",
+        "keyboard switch accessibility",
+        "playwright preference switch test",
+        "react role switch testing"
+      ],
+      "outline": [
+        {
+          "heading": "Accessible email preference switch tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test role, aria-checked, disabled state, keyboard behavior, and visible state for email preference switches?\" in 40 to 60 words, define the contract as email preference switches must expose role and aria-checked state, support keyboard activation, and reflect master-toggle disabled behavior visibly and semantically, and state the observable pass criteria.",
+          "keyword": "accessible email preference switch tests",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:role switch controls",
+            "packages/web/src/components/ui/button.tsx:Button"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/app/dashboard/preferences/page.tsx:role switch controls; packages/web/src/components/ui/button.tsx:Button. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:role switch controls",
+            "packages/web/src/components/ui/button.tsx:Button"
+          ]
+        },
+        {
+          "heading": "Aria checked switch tests: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for aria checked switch tests. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "aria checked switch tests",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:role switch controls",
+            "packages/web/src/components/ui/button.tsx:Button"
+          ]
+        },
+        {
+          "heading": "Disabled notification toggle test: Test Matrix",
+          "purpose": "Compare control, role, accessible name, aria-checked, disabled state, keyboard input, visual state, and saved value. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "disabled notification toggle test",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:role switch controls",
+            "packages/web/src/components/ui/button.tsx:Button"
+          ]
+        },
+        {
+          "heading": "How Should Keyboard switch accessibility Be Exercised?",
+          "purpose": "Build the harness for keyboard switch accessibility, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "keyboard switch accessibility",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:role switch controls",
+            "packages/web/src/components/ui/button.tsx:Button"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Playwright preference switch test Procedure",
+          "purpose": "Present the numbered procedure for playwright preference switch test: Open authenticated preferences with known saved values. Locate controls by role and accessible name, then assert aria-checked and disabled state. Use Tab and Space to change allowed switches and prove disabled children do not change. Save, reload, and verify the accessible and persisted states remain aligned.",
+          "keyword": "playwright preference switch test",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:role switch controls",
+            "packages/web/src/components/ui/button.tsx:Button"
+          ]
+        },
+        {
+          "heading": "React role switch testing: Assertions and Diagnostics",
+          "purpose": "Cover react role switch testing with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "react role switch testing",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:role switch controls",
+            "packages/web/src/components/ui/button.tsx:Button"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "A color or position change is not enough; the browser test must assert semantics, keyboard behavior, and persistence. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:role switch controls",
+            "packages/web/src/components/ui/button.tsx:Button"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test role, aria-checked, disabled state, keyboard behavior, and visible state for email preference switches?\" plus question variants based on aria checked switch tests, disabled notification toggle test, keyboard switch accessibility, playwright preference switch test, react role switch testing.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:role switch controls",
+            "packages/web/src/components/ui/button.tsx:Button"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Run the preference controls with keyboard-only input and add the switch matrix to the Playwright post-flow.",
+          "keyword": "accessible email preference switch tests",
+          "evidence": ["packages/web/src/app/dashboard/preferences/page.tsx"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Accessible email preference switch tests test matrix",
+        "purpose": "Compare control, role, accessible name, aria-checked, disabled state, keyboard input, visual state, and saved value.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "master switch on and off",
+          "enabled child switch",
+          "child switch disabled by master",
+          "Space key activation",
+          "Tab focus order and focus visibility"
+        ],
+        "sourcePaths": [
+          "packages/web/src/app/dashboard/preferences/page.tsx:role switch controls",
+          "packages/web/src/components/ui/button.tsx:Button"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Playwright preference switch test Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Open authenticated preferences with known saved values."
+          },
+          {
+            "number": 2,
+            "action": "Locate controls by role and accessible name, then assert aria-checked and disabled state."
+          },
+          {
+            "number": 3,
+            "action": "Use Tab and Space to change allowed switches and prove disabled children do not change."
+          },
+          {
+            "number": 4,
+            "action": "Save, reload, and verify the accessible and persisted states remain aligned."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/app/dashboard/preferences/page.tsx",
+          "symbols": "role switch controls",
+          "plannedSnippet": "Show Playwright role-based assertions against the switch controls in the preference page.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/components/ui/button.tsx",
+          "symbols": "Button",
+          "plannedSnippet": "Show component-level keyboard and disabled-state checks using the shared Button behavior as supporting evidence.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/dashboard/preferences/page.tsx:role switch controls",
+        "packages/web/src/components/ui/button.tsx:Button"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/dashboard/preferences",
+        "/blog/accessibility-testing-automation-guide",
+        "/blog/testing-autocomplete-keyboard-accessibility",
+        "/blog/testing-modal-focus-trap-accessibility"
+      ],
+      "relatedSlugs": [
+        "accessibility-testing-automation-guide",
+        "testing-autocomplete-keyboard-accessibility",
+        "testing-modal-focus-trap-accessibility",
+        "axe-core-playwright-accessibility-testing-2026"
+      ],
+      "sources": [
+        "https://www.w3.org/WAI/ARIA/apg/patterns/switch/",
+        "https://playwright.dev/docs/accessibility-testing"
+      ],
+      "cta": {
+        "route": "/dashboard/preferences",
+        "anchorText": "Open dashboard preferences",
+        "action": "Run the preference controls with keyboard-only input and add the switch matrix to the Playwright post-flow."
+      },
+      "batchPosition": 1
+    },
+    {
+      "batch": 11,
+      "domain": "web-auth-email",
+      "slug": "email-footer-preference-route-tests",
+      "primaryKeyword": "email footer preference route tests",
+      "title": "Email footer preference route tests",
+      "description": "email footer preference route tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you verify that every QASkills email footer links to an existing preference page and an appropriate unsubscribe target?",
+      "secondaryKeywords": [
+        "email footer link checker",
+        "preference page email link",
+        "unsubscribe footer route test",
+        "react email broken link test",
+        "email template route inventory"
+      ],
+      "outline": [
+        {
+          "heading": "Email footer preference route tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you verify that every QASkills email footer links to an existing preference page and an appropriate unsubscribe target?\" in 40 to 60 words, define the contract as every QASkills email footer must link to the existing preference page and use the correct unsubscribe destination for that template, and state the observable pass criteria.",
+          "keyword": "email footer preference route tests",
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:footer links",
+            "packages/web/src/emails/new-skill-alert.tsx:footer links"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/emails/welcome.tsx:footer links; packages/web/src/emails/new-skill-alert.tsx:footer links; packages/web/src/emails/weekly-digest.tsx:footer links. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:footer links",
+            "packages/web/src/emails/new-skill-alert.tsx:footer links",
+            "packages/web/src/emails/weekly-digest.tsx:footer links"
+          ]
+        },
+        {
+          "heading": "Email footer link checker: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for email footer link checker. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "email footer link checker",
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:footer links",
+            "packages/web/src/emails/new-skill-alert.tsx:footer links"
+          ]
+        },
+        {
+          "heading": "Preference page email link: Test Matrix",
+          "purpose": "Compare template, footer link label, href path, token requirement, route existence, tracking query, and signed-out behavior. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "preference page email link",
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:footer links",
+            "packages/web/src/emails/new-skill-alert.tsx:footer links",
+            "packages/web/src/emails/weekly-digest.tsx:footer links"
+          ]
+        },
+        {
+          "heading": "How Should Unsubscribe footer route test Be Exercised?",
+          "purpose": "Build the harness for unsubscribe footer route test, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "unsubscribe footer route test",
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:footer links",
+            "packages/web/src/emails/new-skill-alert.tsx:footer links"
+          ]
+        },
+        {
+          "heading": "Step-by-Step React email broken link test Procedure",
+          "purpose": "Present the numbered procedure for react email broken link test: Render all three templates with deterministic props and unsubscribe URLs. Extract footer anchors by visible label rather than DOM position. Resolve each path against the repository route inventory and classify auth or token requirements. Navigate representative links in Playwright and assert destination headings or expected auth handling.",
+          "keyword": "react email broken link test",
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:footer links",
+            "packages/web/src/emails/new-skill-alert.tsx:footer links",
+            "packages/web/src/emails/weekly-digest.tsx:footer links"
+          ]
+        },
+        {
+          "heading": "Email template route inventory: Assertions and Diagnostics",
+          "purpose": "Cover email template route inventory with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "email template route inventory",
+          "evidence": [
+            "packages/web/src/emails/new-skill-alert.tsx:footer links",
+            "packages/web/src/emails/weekly-digest.tsx:footer links"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "A syntactically valid href can still target the wrong auth flow; route existence and expected access behavior both need assertions. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:footer links",
+            "packages/web/src/emails/new-skill-alert.tsx:footer links",
+            "packages/web/src/emails/weekly-digest.tsx:footer links"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you verify that every QASkills email footer links to an existing preference page and an appropriate unsubscribe target?\" plus question variants based on email footer link checker, preference page email link, unsubscribe footer route test, react email broken link test, email template route inventory.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:footer links",
+            "packages/web/src/emails/new-skill-alert.tsx:footer links"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Render every email footer and add route-inventory checks before editing preference or unsubscribe links.",
+          "keyword": "email footer preference route tests",
+          "evidence": ["packages/web/src/emails/welcome.tsx"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Email footer preference route tests test matrix",
+        "purpose": "Compare template, footer link label, href path, token requirement, route existence, tracking query, and signed-out behavior.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "welcome email footer",
+          "new-skill alert footer",
+          "weekly digest footer",
+          "preference link while signed out",
+          "unsubscribe link with missing or invalid token"
+        ],
+        "sourcePaths": [
+          "packages/web/src/emails/welcome.tsx:footer links",
+          "packages/web/src/emails/new-skill-alert.tsx:footer links",
+          "packages/web/src/emails/weekly-digest.tsx:footer links"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step React email broken link test Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Render all three templates with deterministic props and unsubscribe URLs."
+          },
+          {
+            "number": 2,
+            "action": "Extract footer anchors by visible label rather than DOM position."
+          },
+          {
+            "number": 3,
+            "action": "Resolve each path against the repository route inventory and classify auth or token requirements."
+          },
+          {
+            "number": 4,
+            "action": "Navigate representative links in Playwright and assert destination headings or expected auth handling."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/emails/welcome.tsx",
+          "symbols": "footer links",
+          "plannedSnippet": "Show a shared React Email link-extraction test over welcome, new-skill alert, and weekly digest templates.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/emails/new-skill-alert.tsx",
+          "symbols": "footer links",
+          "plannedSnippet": "Show a Playwright route check for preferences and unsubscribe destinations with appropriate auth state.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/emails/welcome.tsx:footer links",
+        "packages/web/src/emails/new-skill-alert.tsx:footer links",
+        "packages/web/src/emails/weekly-digest.tsx:footer links"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/dashboard/preferences",
+        "/unsubscribe",
+        "/blog/testing-hmac-unsubscribe-token-tampering-expiration",
+        "/blog/testing-lazy-resend-initialization-nextjs-build",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled"
+      ],
+      "relatedSlugs": [
+        "testing-hmac-unsubscribe-token-tampering-expiration",
+        "testing-lazy-resend-initialization-nextjs-build",
+        "testing-batch-email-partial-failures-promise-allsettled",
+        "react-nextjs-testing-complete-guide"
+      ],
+      "sources": [
+        "https://react.email/docs/components/link",
+        "https://www.rfc-editor.org/info/rfc8058/"
+      ],
+      "cta": {
+        "route": "/dashboard/preferences",
+        "anchorText": "Open dashboard preferences",
+        "action": "Render every email footer and add route-inventory checks before editing preference or unsubscribe links."
+      },
+      "batchPosition": 2
+    },
+    {
+      "batch": 11,
+      "domain": "web-auth-email",
+      "slug": "weekly-digest-ranking-query-tests",
+      "primaryKeyword": "weekly digest ranking query tests",
+      "title": "Weekly digest ranking query tests",
+      "description": "weekly digest ranking query tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you verify that digest candidates are limited to ten and ordered by weekly installs before lifetime installs?",
+      "secondaryKeywords": [
+        "weekly installs digest ranking",
+        "top ten skills email test",
+        "drizzle multi column order test",
+        "digest tie breaker testing",
+        "scheduled ranking query"
+      ],
+      "outline": [
+        {
+          "heading": "Weekly digest ranking query tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you verify that digest candidates are limited to ten and ordered by weekly installs before lifetime installs?\" in 40 to 60 words, define the contract as weekly digest candidates must be limited to ten and ordered first by weekly installs, then by lifetime installs as the tie breaker, and state the observable pass criteria.",
+          "keyword": "weekly digest ranking query tests",
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills query",
+            "packages/web/src/db/schema/skills.ts:weeklyInstalls,installCount"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills query; packages/web/src/db/schema/skills.ts:weeklyInstalls,installCount. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills query",
+            "packages/web/src/db/schema/skills.ts:weeklyInstalls,installCount"
+          ]
+        },
+        {
+          "heading": "Weekly installs digest ranking: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for weekly installs digest ranking. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "weekly installs digest ranking",
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills query",
+            "packages/web/src/db/schema/skills.ts:weeklyInstalls,installCount"
+          ]
+        },
+        {
+          "heading": "Top ten skills email test: Test Matrix",
+          "purpose": "Compare skill fixture, weeklyInstalls, installCount, expected position, actual position, limit inclusion, and tie-break result. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "top ten skills email test",
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills query",
+            "packages/web/src/db/schema/skills.ts:weeklyInstalls,installCount"
+          ]
+        },
+        {
+          "heading": "How Should Drizzle multi column order test Be Exercised?",
+          "purpose": "Build the harness for drizzle multi column order test, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "drizzle multi column order test",
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills query",
+            "packages/web/src/db/schema/skills.ts:weeklyInstalls,installCount"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Digest tie breaker testing Procedure",
+          "purpose": "Present the numbered procedure for digest tie breaker testing: Seed more than ten skills with deliberate weekly and lifetime count ties. Execute the exact topSkills query used by the digest handler. Assert ordered IDs, tie behavior, selected projection, and ten-row limit. Render the resulting order into a digest as a cross-layer control.",
+          "keyword": "digest tie breaker testing",
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills query",
+            "packages/web/src/db/schema/skills.ts:weeklyInstalls,installCount"
+          ]
+        },
+        {
+          "heading": "Scheduled ranking query: Assertions and Diagnostics",
+          "purpose": "Cover scheduled ranking query with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "scheduled ranking query",
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills query",
+            "packages/web/src/db/schema/skills.ts:weeklyInstalls,installCount"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "Template rank badges cannot prove query ordering; this brief owns database selection and links to separate rendered-link coverage. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills query",
+            "packages/web/src/db/schema/skills.ts:weeklyInstalls,installCount"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you verify that digest candidates are limited to ten and ordered by weekly installs before lifetime installs?\" plus question variants based on weekly installs digest ranking, top ten skills email test, drizzle multi column order test, digest tie breaker testing, scheduled ranking query.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills query",
+            "packages/web/src/db/schema/skills.ts:weeklyInstalls,installCount"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Compare seeded ranking fixtures with the leaderboard and add the ten-row digest query assertion.",
+          "keyword": "weekly digest ranking query tests",
+          "evidence": ["packages/web/src/app/api/cron/weekly-digest/route.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Weekly digest ranking query tests test matrix",
+        "purpose": "Compare skill fixture, weeklyInstalls, installCount, expected position, actual position, limit inclusion, and tie-break result.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "distinct weekly install counts",
+          "equal weekly counts with different lifetime totals",
+          "complete tie on both counters",
+          "eleventh-ranked skill",
+          "zero-install skill near the boundary"
+        ],
+        "sourcePaths": [
+          "packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills query",
+          "packages/web/src/db/schema/skills.ts:weeklyInstalls,installCount"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Digest tie breaker testing Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Seed more than ten skills with deliberate weekly and lifetime count ties."
+          },
+          {
+            "number": 2,
+            "action": "Execute the exact topSkills query used by the digest handler."
+          },
+          {
+            "number": 3,
+            "action": "Assert ordered IDs, tie behavior, selected projection, and ten-row limit."
+          },
+          {
+            "number": 4,
+            "action": "Render the resulting order into a digest as a cross-layer control."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/app/api/cron/weekly-digest/route.ts",
+          "symbols": "topSkills query",
+          "plannedSnippet": "Show a database query test around the digest topSkills orderBy and limit clauses.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/db/schema/skills.ts",
+          "symbols": "weeklyInstalls,installCount",
+          "plannedSnippet": "Show schema-backed fixtures for weeklyInstalls and installCount boundary values.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills query",
+        "packages/web/src/db/schema/skills.ts:weeklyInstalls,installCount"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/leaderboard",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled",
+        "/blog/testing-lazy-neon-database-initialization-nextjs-build"
+      ],
+      "relatedSlugs": [
+        "testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "testing-batch-email-partial-failures-promise-allsettled",
+        "testing-lazy-neon-database-initialization-nextjs-build",
+        "database-testing-automation-guide"
+      ],
+      "sources": [
+        "https://orm.drizzle.team/docs/data-querying",
+        "https://vercel.com/docs/cron-jobs"
+      ],
+      "cta": {
+        "route": "/leaderboard",
+        "anchorText": "Open leaderboard",
+        "action": "Compare seeded ranking fixtures with the leaderboard and add the ten-row digest query assertion."
+      },
+      "batchPosition": 3
+    },
+    {
+      "batch": 11,
+      "domain": "web-auth-email",
+      "slug": "nextjs-static-asset-matcher-tests",
+      "primaryKeyword": "nextjs static asset matcher tests",
+      "title": "Nextjs static asset matcher tests",
+      "description": "nextjs static asset matcher tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test a Next.js middleware matcher that skips static files but still evaluates requests whose query strings contain file-like names?",
+      "secondaryKeywords": [
+        "nextjs middleware regex tests",
+        "exclude static files middleware",
+        "middleware matcher query string",
+        "nextjs asset bypass matrix",
+        "test middleware file extensions"
+      ],
+      "outline": [
+        {
+          "heading": "Nextjs static asset matcher tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test a Next.js middleware matcher that skips static files but still evaluates requests whose query strings contain file-like names?\" in 40 to 60 words, define the contract as the Next.js middleware matcher must skip static asset paths while still evaluating application requests whose query strings contain file-like names, and state the observable pass criteria.",
+          "keyword": "nextjs static asset matcher tests",
+          "evidence": [
+            "packages/web/src/middleware.ts:config.matcher",
+            "packages/web/src/app/robots.ts:robots"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/middleware.ts:config.matcher; packages/web/src/app/robots.ts:robots. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/middleware.ts:config.matcher",
+            "packages/web/src/app/robots.ts:robots"
+          ]
+        },
+        {
+          "heading": "Nextjs middleware regex tests: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for nextjs middleware regex tests. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "nextjs middleware regex tests",
+          "evidence": [
+            "packages/web/src/middleware.ts:config.matcher",
+            "packages/web/src/app/robots.ts:robots"
+          ]
+        },
+        {
+          "heading": "Exclude static files middleware: Test Matrix",
+          "purpose": "Compare pathname, query string, extension pattern, expected middleware match, auth protection, and route outcome. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "exclude static files middleware",
+          "evidence": [
+            "packages/web/src/middleware.ts:config.matcher",
+            "packages/web/src/app/robots.ts:robots"
+          ]
+        },
+        {
+          "heading": "How Should Middleware matcher query string Be Exercised?",
+          "purpose": "Build the harness for middleware matcher query string, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "middleware matcher query string",
+          "evidence": [
+            "packages/web/src/middleware.ts:config.matcher",
+            "packages/web/src/app/robots.ts:robots"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Nextjs asset bypass matrix Procedure",
+          "purpose": "Present the numbered procedure for nextjs asset bypass matrix: Convert representative URLs into a pathname and query test table. Apply the matcher semantics to each URL without treating query strings as path extensions. Run public and protected browser requests and observe Clerk middleware behavior. Keep robots and framework asset controls in the post-change route matrix.",
+          "keyword": "nextjs asset bypass matrix",
+          "evidence": [
+            "packages/web/src/middleware.ts:config.matcher",
+            "packages/web/src/app/robots.ts:robots"
+          ]
+        },
+        {
+          "heading": "Test middleware file extensions: Assertions and Diagnostics",
+          "purpose": "Cover test middleware file extensions with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "test middleware file extensions",
+          "evidence": [
+            "packages/web/src/middleware.ts:config.matcher",
+            "packages/web/src/app/robots.ts:robots"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "A regular expression unit test alone does not prove Next.js matcher semantics, so include an integration request through middleware. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/middleware.ts:config.matcher",
+            "packages/web/src/app/robots.ts:robots"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test a Next.js middleware matcher that skips static files but still evaluates requests whose query strings contain file-like names?\" plus question variants based on nextjs middleware regex tests, exclude static files middleware, middleware matcher query string, nextjs asset bypass matrix, test middleware file extensions.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/middleware.ts:config.matcher",
+            "packages/web/src/app/robots.ts:robots"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Run the public and protected route matrix before changing middleware exclusions.",
+          "keyword": "nextjs static asset matcher tests",
+          "evidence": ["packages/web/src/middleware.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Nextjs static asset matcher tests test matrix",
+        "purpose": "Compare pathname, query string, extension pattern, expected middleware match, auth protection, and route outcome.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "framework static asset path",
+          "image or font file path",
+          "robots route",
+          "application path with a file-like query value",
+          "protected API or dashboard path"
+        ],
+        "sourcePaths": [
+          "packages/web/src/middleware.ts:config.matcher",
+          "packages/web/src/app/robots.ts:robots"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Nextjs asset bypass matrix Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Convert representative URLs into a pathname and query test table."
+          },
+          {
+            "number": 2,
+            "action": "Apply the matcher semantics to each URL without treating query strings as path extensions."
+          },
+          {
+            "number": 3,
+            "action": "Run public and protected browser requests and observe Clerk middleware behavior."
+          },
+          {
+            "number": 4,
+            "action": "Keep robots and framework asset controls in the post-change route matrix."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/middleware.ts",
+          "symbols": "config.matcher",
+          "plannedSnippet": "Show parameterized matcher tests against config.matcher in middleware.ts.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/app/robots.ts",
+          "symbols": "robots",
+          "plannedSnippet": "Show a route-level control for robots.ts and application URLs carrying file-like query values.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/middleware.ts:config.matcher",
+        "packages/web/src/app/robots.ts:robots"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/blog/react-nextjs-testing-complete-guide",
+        "/blog/authentication-authorization-testing-guide",
+        "/blog/api-security-testing-checklist-2026"
+      ],
+      "relatedSlugs": [
+        "react-nextjs-testing-complete-guide",
+        "authentication-authorization-testing-guide",
+        "api-security-testing-checklist-2026",
+        "github-actions-testing-ci-cd-guide"
+      ],
+      "sources": [
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware",
+        "https://clerk.com/docs/reference/nextjs/clerk-middleware"
+      ],
+      "cta": {
+        "route": "/getting-started",
+        "anchorText": "Open getting-started",
+        "action": "Run the public and protected route matrix before changing middleware exclusions."
+      },
+      "batchPosition": 4
+    },
+    {
+      "batch": 11,
+      "domain": "web-auth-email",
+      "slug": "email-preference-payload-validation-tests",
+      "primaryKeyword": "email preference payload validation tests",
+      "title": "Email preference payload validation tests",
+      "description": "email preference payload validation tests: build a code-backed QA plan with verified QASkills paths, matrices, assertions, and regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test boolean-only email preference contracts and expose malformed, extra, null, or string values before database writes?",
+      "secondaryKeywords": [
+        "boolean api validation tests",
+        "invalid preference json body",
+        "email settings schema validation",
+        "reject string booleans api",
+        "nextjs patch input validation"
+      ],
+      "outline": [
+        {
+          "heading": "Email preference payload validation tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test boolean-only email preference contracts and expose malformed, extra, null, or string values before database writes?\" in 40 to 60 words, define the contract as the preference PATCH body must accept only the intended boolean settings and reject malformed, null, string, numeric, or unexpected values before persistence, and state the observable pass criteria.",
+          "keyword": "email preference payload validation tests",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH request body",
+            "packages/web/src/db/schema/users.ts:boolean preference columns"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/app/api/user/preferences/route.ts:PATCH request body; packages/web/src/db/schema/users.ts:boolean preference columns. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH request body",
+            "packages/web/src/db/schema/users.ts:boolean preference columns"
+          ]
+        },
+        {
+          "heading": "Boolean api validation tests: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for boolean api validation tests. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "boolean api validation tests",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH request body",
+            "packages/web/src/db/schema/users.ts:boolean preference columns"
+          ]
+        },
+        {
+          "heading": "Invalid preference json body: Test Matrix",
+          "purpose": "Compare request body, field type, unknown keys, validation outcome, response status, database calls, and retained preference values. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "invalid preference json body",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH request body",
+            "packages/web/src/db/schema/users.ts:boolean preference columns"
+          ]
+        },
+        {
+          "heading": "How Should Email settings schema validation Be Exercised?",
+          "purpose": "Build the harness for email settings schema validation, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "email settings schema validation",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH request body",
+            "packages/web/src/db/schema/users.ts:boolean preference columns"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Reject string booleans api Procedure",
+          "purpose": "Present the numbered procedure for reject string booleans api: Derive an explicit boolean-only request contract from the preference columns. POST or PATCH a table of valid, malformed, and extra-key payloads. Assert rejection details and prove invalid bodies never reach update or insert. Keep one full valid UI payload as a compatibility control.",
+          "keyword": "reject string booleans api",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH request body",
+            "packages/web/src/db/schema/users.ts:boolean preference columns"
+          ]
+        },
+        {
+          "heading": "Nextjs patch input validation: Assertions and Diagnostics",
+          "purpose": "Cover nextjs patch input validation with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "nextjs patch input validation",
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH request body",
+            "packages/web/src/db/schema/users.ts:boolean preference columns"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "TypeScript annotations do not validate runtime JSON; tests must send wire-level values that bypass compile-time checks. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH request body",
+            "packages/web/src/db/schema/users.ts:boolean preference columns"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test boolean-only email preference contracts and expose malformed, extra, null, or string values before database writes?\" plus question variants based on boolean api validation tests, invalid preference json body, email settings schema validation, reject string booleans api, nextjs patch input validation.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH request body",
+            "packages/web/src/db/schema/users.ts:boolean preference columns"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Add a boolean-only payload matrix to the preference API tests before changing request fields.",
+          "keyword": "email preference payload validation tests",
+          "evidence": ["packages/web/src/app/api/user/preferences/route.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Email preference payload validation tests test matrix",
+        "purpose": "Compare request body, field type, unknown keys, validation outcome, response status, database calls, and retained preference values.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "valid true and false booleans",
+          "string booleans",
+          "null and numeric values",
+          "unknown extra key",
+          "malformed JSON or array body"
+        ],
+        "sourcePaths": [
+          "packages/web/src/app/api/user/preferences/route.ts:PATCH request body",
+          "packages/web/src/db/schema/users.ts:boolean preference columns"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Reject string booleans api Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Derive an explicit boolean-only request contract from the preference columns."
+          },
+          {
+            "number": 2,
+            "action": "POST or PATCH a table of valid, malformed, and extra-key payloads."
+          },
+          {
+            "number": 3,
+            "action": "Assert rejection details and prove invalid bodies never reach update or insert."
+          },
+          {
+            "number": 4,
+            "action": "Keep one full valid UI payload as a compatibility control."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/app/api/user/preferences/route.ts",
+          "symbols": "PATCH request body",
+          "plannedSnippet": "Show route tests for body parsing and boolean field validation before Drizzle writes.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/db/schema/users.ts",
+          "symbols": "boolean preference columns",
+          "plannedSnippet": "Show schema-backed assertions tying accepted request keys to boolean preference columns.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/user/preferences/route.ts:PATCH request body",
+        "packages/web/src/db/schema/users.ts:boolean preference columns"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/dashboard/preferences",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/authentication-authorization-testing-guide"
+      ],
+      "relatedSlugs": [
+        "api-security-testing-checklist-2026",
+        "api-testing-best-practices-guide",
+        "authentication-authorization-testing-guide",
+        "error-handling-testing-patterns"
+      ],
+      "sources": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+        "https://zod.dev/api"
+      ],
+      "cta": {
+        "route": "/dashboard/preferences",
+        "anchorText": "Open dashboard preferences",
+        "action": "Add a boolean-only payload matrix to the preference API tests before changing request fields."
+      },
+      "batchPosition": 5
+    }
+  ]
+}
