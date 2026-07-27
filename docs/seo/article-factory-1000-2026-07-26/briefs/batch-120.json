@@ -1,0 +1,1163 @@
+{
+  "batch": 120,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-098",
+      "batch": 120,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "pdf-form-field-accessibility-testing",
+      "primaryKeyword": "PDF form field accessibility testing",
+      "title": "Pdf Form Field Accessibility Testing",
+      "description": "PDF form field accessibility testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify names, roles, values, instructions, and error associations in PDF forms?",
+      "intentBoundary": "Owns interactive PDF form semantics, not HTML forms or static PDF text.",
+      "secondaryKeywords": [
+        "AcroForm accessible name",
+        "PDF field tooltip",
+        "form error association",
+        "PDF form field accessibility testing checklist",
+        "PDF form field accessibility testing CI strategy",
+        "PDF form field accessibility testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does PDF form field accessibility testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify names, roles, values, instructions, and error associations in PDF forms?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build AcroForm accessible name?",
+          "question": true,
+          "secondaryKeyword": "AcroForm accessible name",
+          "coverage": "Create an isolated fixture for AcroForm accessible name. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/pdf-generation-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks PDF field tooltip?",
+          "question": true,
+          "secondaryKeyword": "PDF field tooltip",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for PDF field tooltip. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts",
+            "seed-skills/accessibility-manual-audit/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Form error association fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "form error association",
+          "coverage": "Turn form error association into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should PDF form field accessibility testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "PDF form field accessibility testing checklist",
+          "coverage": "Build the oracle for PDF form field accessibility testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/pdf-generation-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "PDF form field accessibility testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "PDF form field accessibility testing CI strategy",
+          "coverage": "Package PDF form field accessibility testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts",
+            "seed-skills/accessibility-manual-audit/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Pdf Form Field Accessibility Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement PDF form field accessibility testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/pdf-generation-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Pdf Form Field Accessibility Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/accessibility-manual-audit/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF form field accessibility testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/accessibility-manual-audit/SKILL.md"
+          },
+          {
+            "scenario": "AcroForm accessible name",
+            "controlledSetup": "Change only the condition represented by \"AcroForm accessible name\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF form field accessibility testing.",
+            "failureSignal": "The observed result differs from the approved AcroForm accessible name contract.",
+            "evidenceSource": "seed-skills/pdf-generation-testing/SKILL.md"
+          },
+          {
+            "scenario": "PDF field tooltip",
+            "controlledSetup": "Change only the condition represented by \"PDF field tooltip\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF form field accessibility testing.",
+            "failureSignal": "The observed result differs from the approved PDF field tooltip contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF form field accessibility testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/accessibility-manual-audit/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF form field accessibility testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/pdf-generation-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/accessibility-manual-audit/SKILL.md",
+          "seed-skills/pdf-generation-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts",
+          "https://www.w3.org/WAI/WCAG22/Techniques/",
+          "https://www.w3.org/TR/WCAG22/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run PDF form field accessibility testing",
+        "steps": [
+          "Read seed-skills/accessibility-manual-audit/SKILL.md and seed-skills/pdf-generation-testing/SKILL.md and packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for PDF form field accessibility testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for AcroForm accessible name, PDF field tooltip, form error association, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the PDF form field accessibility testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/accessibility-manual-audit/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated PDF form field accessibility testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/pdf-generation-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/accessibility-manual-audit/SKILL.md",
+        "seed-skills/pdf-generation-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/accessibility-testing",
+        "/blog/mobile-accessibility-testing-guide",
+        "/blog/accessibility-testing-automation-guide",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-accessibility-testing-guide",
+        "accessibility-testing-automation-guide",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://www.w3.org/WAI/WCAG22/Techniques/",
+        "https://www.w3.org/TR/WCAG22/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify names, roles, values, instructions, and error associations in PDF forms?",
+        "What should a AcroForm accessible name fixture record?",
+        "Which failure proves PDF field tooltip is broken?",
+        "How do teams isolate form error association?",
+        "Which assertion is strongest for PDF form field accessibility testing checklist?",
+        "How should CI report PDF form field accessibility testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-accessibility-testing-guide, then open /skills and add the PDF form field accessibility testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-180",
+      "batch": 120,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "poison-message-quarantine-testing",
+      "primaryKeyword": "poison message quarantine testing",
+      "title": "Poison Message Quarantine Testing",
+      "description": "poison message quarantine testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify repeatedly failing messages move to quarantine with enough diagnostics?",
+      "intentBoundary": "Owns poison-message handling, not transient retry queues or schema rejection alone.",
+      "secondaryKeywords": [
+        "dead letter threshold",
+        "quarantine metadata",
+        "replay corrected message",
+        "poison message quarantine testing checklist",
+        "poison message quarantine testing CI strategy",
+        "poison message quarantine testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does poison message quarantine testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify repeatedly failing messages move to quarantine with enough diagnostics?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/queue-message-testing/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build dead letter threshold?",
+          "question": true,
+          "secondaryKeyword": "dead letter threshold",
+          "coverage": "Create an isolated fixture for dead letter threshold. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks quarantine metadata?",
+          "question": true,
+          "secondaryKeyword": "quarantine metadata",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for quarantine metadata. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts",
+            "seed-skills/queue-message-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Replay corrected message fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "replay corrected message",
+          "coverage": "Turn replay corrected message into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/queue-message-testing/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should poison message quarantine testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "poison message quarantine testing checklist",
+          "coverage": "Build the oracle for poison message quarantine testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Poison message quarantine testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "poison message quarantine testing CI strategy",
+          "coverage": "Package poison message quarantine testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts",
+            "seed-skills/queue-message-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Poison Message Quarantine Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/queue-message-testing/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement poison message quarantine testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/queue-message-testing/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/queue-message-testing/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Poison Message Quarantine Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/queue-message-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by poison message quarantine testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/queue-message-testing/SKILL.md"
+          },
+          {
+            "scenario": "dead letter threshold",
+            "controlledSetup": "Change only the condition represented by \"dead letter threshold\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by poison message quarantine testing.",
+            "failureSignal": "The observed result differs from the approved dead letter threshold contract.",
+            "evidenceSource": "seed-skills/retry-resilience-testing/SKILL.md"
+          },
+          {
+            "scenario": "quarantine metadata",
+            "controlledSetup": "Change only the condition represented by \"quarantine metadata\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by poison message quarantine testing.",
+            "failureSignal": "The observed result differs from the approved quarantine metadata contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by poison message quarantine testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/queue-message-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by poison message quarantine testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/retry-resilience-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/queue-message-testing/SKILL.md",
+          "seed-skills/retry-resilience-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts",
+          "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/best-practices-message-deduplication.html",
+          "https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run poison message quarantine testing",
+        "steps": [
+          "Read seed-skills/queue-message-testing/SKILL.md and seed-skills/retry-resilience-testing/SKILL.md and packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for poison message quarantine testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for dead letter threshold, quarantine metadata, replay corrected message, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the poison message quarantine testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/queue-message-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated poison message quarantine testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/retry-resilience-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/queue-message-testing/SKILL.md",
+        "seed-skills/retry-resilience-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/error-handling-testing-patterns",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/microservices-testing-strategies",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "error-handling-testing-patterns",
+        "chaos-engineering-resilience-testing",
+        "microservices-testing-strategies",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/best-practices-message-deduplication.html",
+        "https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify repeatedly failing messages move to quarantine with enough diagnostics?",
+        "What should a dead letter threshold fixture record?",
+        "Which failure proves quarantine metadata is broken?",
+        "How do teams isolate replay corrected message?",
+        "Which assertion is strongest for poison message quarantine testing checklist?",
+        "How should CI report poison message quarantine testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/error-handling-testing-patterns, then open /skills and add the poison message quarantine testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-035",
+      "batch": 120,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "protobuf-unknown-field-preservation-testing",
+      "primaryKeyword": "Protobuf unknown field preservation testing",
+      "title": "Protobuf Unknown Field Preservation Testing",
+      "description": "Protobuf unknown field preservation testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams prove old and new services preserve unknown fields through parse and reserialize cycles?",
+      "intentBoundary": "Owns unknown-field round trips, not tag renumbering or broad protobuf evolution.",
+      "secondaryKeywords": [
+        "unknown field round trip",
+        "protobuf proxy compatibility",
+        "old reader new field",
+        "Protobuf unknown field preservation testing checklist",
+        "Protobuf unknown field preservation testing CI strategy",
+        "Protobuf unknown field preservation testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Protobuf unknown field preservation testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams prove old and new services preserve unknown fields through parse and reserialize cycles?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/grpc-testing/SKILL.md",
+            "seed-skills/contract-first-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build unknown field round trip?",
+          "question": true,
+          "secondaryKeyword": "unknown field round trip",
+          "coverage": "Create an isolated fixture for unknown field round trip. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/contract-first-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/grpc-protobuf-breaking-change-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks protobuf proxy compatibility?",
+          "question": true,
+          "secondaryKeyword": "protobuf proxy compatibility",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for protobuf proxy compatibility. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/grpc-protobuf-breaking-change-testing-guide.ts",
+            "seed-skills/grpc-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Old reader new field fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "old reader new field",
+          "coverage": "Turn old reader new field into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/grpc-testing/SKILL.md",
+            "seed-skills/contract-first-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Protobuf unknown field preservation testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Protobuf unknown field preservation testing checklist",
+          "coverage": "Build the oracle for Protobuf unknown field preservation testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/contract-first-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/grpc-protobuf-breaking-change-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Protobuf unknown field preservation testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Protobuf unknown field preservation testing CI strategy",
+          "coverage": "Package Protobuf unknown field preservation testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/grpc-protobuf-breaking-change-testing-guide.ts",
+            "seed-skills/grpc-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Protobuf Unknown Field Preservation Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/grpc-testing/SKILL.md",
+            "seed-skills/contract-first-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Protobuf unknown field preservation testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/grpc-testing/SKILL.md",
+            "seed-skills/contract-first-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/grpc-protobuf-breaking-change-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/contract-first-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/grpc-protobuf-breaking-change-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/grpc-testing/SKILL.md",
+            "seed-skills/contract-first-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Protobuf Unknown Field Preservation Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/grpc-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Protobuf unknown field preservation testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/grpc-testing/SKILL.md"
+          },
+          {
+            "scenario": "unknown field round trip",
+            "controlledSetup": "Change only the condition represented by \"unknown field round trip\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Protobuf unknown field preservation testing.",
+            "failureSignal": "The observed result differs from the approved unknown field round trip contract.",
+            "evidenceSource": "seed-skills/contract-first-testing/SKILL.md"
+          },
+          {
+            "scenario": "protobuf proxy compatibility",
+            "controlledSetup": "Change only the condition represented by \"protobuf proxy compatibility\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Protobuf unknown field preservation testing.",
+            "failureSignal": "The observed result differs from the approved protobuf proxy compatibility contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/grpc-protobuf-breaking-change-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Protobuf unknown field preservation testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/grpc-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Protobuf unknown field preservation testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/contract-first-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/grpc-testing/SKILL.md",
+          "seed-skills/contract-first-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/grpc-protobuf-breaking-change-testing-guide.ts",
+          "https://protobuf.dev/programming-guides/proto3/",
+          "https://protobuf.dev/support/cross-version-runtime-guarantee/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Protobuf unknown field preservation testing",
+        "steps": [
+          "Read seed-skills/grpc-testing/SKILL.md and seed-skills/contract-first-testing/SKILL.md and packages/web/src/app/blog/posts/grpc-protobuf-breaking-change-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Protobuf unknown field preservation testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for unknown field round trip, protobuf proxy compatibility, old reader new field, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Protobuf unknown field preservation testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/grpc-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Protobuf unknown field preservation testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/contract-first-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/grpc-testing/SKILL.md",
+        "seed-skills/contract-first-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/grpc-protobuf-breaking-change-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/api-testing",
+        "/blog/api-testing-complete-guide",
+        "/blog/api-contract-testing-microservices",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "api-testing-complete-guide",
+        "api-contract-testing-microservices",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://protobuf.dev/programming-guides/proto3/",
+        "https://protobuf.dev/support/cross-version-runtime-guarantee/"
+      ],
+      "faqQuestions": [
+        "How can QA teams prove old and new services preserve unknown fields through parse and reserialize cycles?",
+        "What should a unknown field round trip fixture record?",
+        "Which failure proves protobuf proxy compatibility is broken?",
+        "How do teams isolate old reader new field?",
+        "Which assertion is strongest for Protobuf unknown field preservation testing checklist?",
+        "How should CI report Protobuf unknown field preservation testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-testing-complete-guide, then open /skills and add the Protobuf unknown field preservation testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-064",
+      "batch": 120,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "api-property-authorization-testing",
+      "primaryKeyword": "API property authorization testing",
+      "title": "API Property Authorization Testing",
+      "description": "API property authorization testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify users cannot read or change object properties outside their role?",
+      "intentBoundary": "Owns broken object property authorization, not object identifier authorization.",
+      "secondaryKeywords": [
+        "BOPLA field access",
+        "sensitive property mutation",
+        "role-based response fields",
+        "API property authorization testing checklist",
+        "API property authorization testing CI strategy",
+        "API property authorization testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does API property authorization testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify users cannot read or change object properties outside their role?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build BOPLA field access?",
+          "question": true,
+          "secondaryKeyword": "BOPLA field access",
+          "coverage": "Create an isolated fixture for BOPLA field access. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks sensitive property mutation?",
+          "question": true,
+          "secondaryKeyword": "sensitive property mutation",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for sensitive property mutation. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/api-security-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Role-based response fields fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "role-based response fields",
+          "coverage": "Turn role-based response fields into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should API property authorization testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "API property authorization testing checklist",
+          "coverage": "Build the oracle for API property authorization testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "API property authorization testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "API property authorization testing CI strategy",
+          "coverage": "Package API property authorization testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/api-security-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "API Property Authorization Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement API property authorization testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "API Property Authorization Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/api-security-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API property authorization testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/api-security-testing/SKILL.md"
+          },
+          {
+            "scenario": "BOPLA field access",
+            "controlledSetup": "Change only the condition represented by \"BOPLA field access\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API property authorization testing.",
+            "failureSignal": "The observed result differs from the approved BOPLA field access contract.",
+            "evidenceSource": "seed-skills/authorization-testing/SKILL.md"
+          },
+          {
+            "scenario": "sensitive property mutation",
+            "controlledSetup": "Change only the condition represented by \"sensitive property mutation\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API property authorization testing.",
+            "failureSignal": "The observed result differs from the approved sensitive property mutation contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API property authorization testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/api-security-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API property authorization testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/authorization-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/api-security-testing/SKILL.md",
+          "seed-skills/authorization-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+          "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+          "https://owasp.org/www-project-application-security-verification-standard/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run API property authorization testing",
+        "steps": [
+          "Read seed-skills/api-security-testing/SKILL.md and seed-skills/authorization-testing/SKILL.md and packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for API property authorization testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for BOPLA field access, sensitive property mutation, role-based response fields, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the API property authorization testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/api-security-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated API property authorization testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/authorization-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/api-security-testing/SKILL.md",
+        "seed-skills/authorization-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/dast-vs-sast-vs-sca-qa-guide-2026",
+        "/blog/security-testing-ai-generated-code",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "api-security-testing-checklist-2026",
+        "dast-vs-sast-vs-sca-qa-guide-2026",
+        "security-testing-ai-generated-code",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "https://owasp.org/www-project-application-security-verification-standard/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify users cannot read or change object properties outside their role?",
+        "What should a BOPLA field access fixture record?",
+        "Which failure proves sensitive property mutation is broken?",
+        "How do teams isolate role-based response fields?",
+        "Which assertion is strongest for API property authorization testing checklist?",
+        "How should CI report API property authorization testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-security-testing-checklist-2026, then open /skills and add the API property authorization testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-047",
+      "batch": 120,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "artillery-arrival-rate-overload-testing",
+      "primaryKeyword": "Artillery arrival rate overload testing",
+      "title": "Artillery Arrival Rate Overload Testing",
+      "description": "Artillery arrival rate overload testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How can QA teams detect when requested arrivals exceed generator capacity and distort the workload?",
+      "intentBoundary": "Owns Artillery generator overload, not target-system saturation alone.",
+      "secondaryKeywords": [
+        "arrival rate lag",
+        "virtual user creation backlog",
+        "generator CPU saturation",
+        "Artillery arrival rate overload testing checklist",
+        "Artillery arrival rate overload testing CI strategy",
+        "Artillery arrival rate overload testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Artillery arrival rate overload testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams detect when requested arrivals exceed generator capacity and distort the workload?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/artillery-load-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build arrival rate lag?",
+          "question": true,
+          "secondaryKeyword": "arrival rate lag",
+          "coverage": "Create an isolated fixture for arrival rate lag. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks virtual user creation backlog?",
+          "question": true,
+          "secondaryKeyword": "virtual user creation backlog",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for virtual user creation backlog. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts",
+            "seed-skills/artillery-load-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Generator CPU saturation fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "generator CPU saturation",
+          "coverage": "Turn generator CPU saturation into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/artillery-load-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Artillery arrival rate overload testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Artillery arrival rate overload testing checklist",
+          "coverage": "Build the oracle for Artillery arrival rate overload testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts"
+          ]
+        },
+        {
+          "heading": "Artillery arrival rate overload testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Artillery arrival rate overload testing CI strategy",
+          "coverage": "Package Artillery arrival rate overload testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts",
+            "seed-skills/artillery-load-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Artillery Arrival Rate Overload Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/artillery-load-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Artillery arrival rate overload testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/artillery-load-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/artillery-load-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Artillery Arrival Rate Overload Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/artillery-load-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Artillery arrival rate overload testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/artillery-load-testing/SKILL.md"
+          },
+          {
+            "scenario": "arrival rate lag",
+            "controlledSetup": "Change only the condition represented by \"arrival rate lag\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Artillery arrival rate overload testing.",
+            "failureSignal": "The observed result differs from the approved arrival rate lag contract.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          },
+          {
+            "scenario": "virtual user creation backlog",
+            "controlledSetup": "Change only the condition represented by \"virtual user creation backlog\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Artillery arrival rate overload testing.",
+            "failureSignal": "The observed result differs from the approved virtual user creation backlog contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Artillery arrival rate overload testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/artillery-load-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Artillery arrival rate overload testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/artillery-load-testing/SKILL.md",
+          "seed-skills/performance-budget-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts",
+          "https://www.artillery.io/docs/reference/test-script",
+          "https://www.artillery.io/docs/reference/engines/http"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Artillery arrival rate overload testing",
+        "steps": [
+          "Read seed-skills/artillery-load-testing/SKILL.md and seed-skills/performance-budget-testing/SKILL.md and packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Artillery arrival rate overload testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for arrival rate lag, virtual user creation backlog, generator CPU saturation, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Artillery arrival rate overload testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/artillery-load-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Artillery arrival rate overload testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/performance-budget-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/artillery-load-testing/SKILL.md",
+        "seed-skills/performance-budget-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/performance-testing",
+        "/blog/load-testing-beginners-guide",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "load-testing-beginners-guide",
+        "chaos-engineering-resilience-testing",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://www.artillery.io/docs/reference/test-script",
+        "https://www.artillery.io/docs/reference/engines/http"
+      ],
+      "faqQuestions": [
+        "How can QA teams detect when requested arrivals exceed generator capacity and distort the workload?",
+        "What should a arrival rate lag fixture record?",
+        "Which failure proves virtual user creation backlog is broken?",
+        "How do teams isolate generator CPU saturation?",
+        "Which assertion is strongest for Artillery arrival rate overload testing checklist?",
+        "How should CI report Artillery arrival rate overload testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/load-testing-beginners-guide, then open /skills and add the Artillery arrival rate overload testing checks to the next QA run."
+    }
+  ]
+}

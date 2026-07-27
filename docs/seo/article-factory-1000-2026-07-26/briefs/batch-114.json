@@ -1,0 +1,1164 @@
+{
+  "batch": 114,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-046",
+      "batch": 114,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "artillery-phase-transition-load-testing",
+      "primaryKeyword": "Artillery phase transition load testing",
+      "title": "Artillery Phase Transition Load Testing",
+      "description": "Artillery phase transition load testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify arrival rates and virtual users change cleanly across adjacent Artillery phases?",
+      "intentBoundary": "Owns phase-boundary behavior, not whole-script configuration.",
+      "secondaryKeywords": [
+        "rampTo phase boundary",
+        "arrival count handoff",
+        "phase duration accuracy",
+        "Artillery phase transition load testing checklist",
+        "Artillery phase transition load testing CI strategy",
+        "Artillery phase transition load testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Artillery phase transition load testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify arrival rates and virtual users change cleanly across adjacent Artillery phases?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/artillery-load-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build rampTo phase boundary?",
+          "question": true,
+          "secondaryKeyword": "rampTo phase boundary",
+          "coverage": "Create an isolated fixture for rampTo phase boundary. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks arrival count handoff?",
+          "question": true,
+          "secondaryKeyword": "arrival count handoff",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for arrival count handoff. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts",
+            "seed-skills/artillery-load-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Phase duration accuracy fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "phase duration accuracy",
+          "coverage": "Turn phase duration accuracy into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/artillery-load-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Artillery phase transition load testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Artillery phase transition load testing checklist",
+          "coverage": "Build the oracle for Artillery phase transition load testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts"
+          ]
+        },
+        {
+          "heading": "Artillery phase transition load testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Artillery phase transition load testing CI strategy",
+          "coverage": "Package Artillery phase transition load testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts",
+            "seed-skills/artillery-load-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Artillery Phase Transition Load Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/artillery-load-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Artillery phase transition load testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/artillery-load-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/artillery-load-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Artillery Phase Transition Load Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/artillery-load-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Artillery phase transition load testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/artillery-load-testing/SKILL.md"
+          },
+          {
+            "scenario": "rampTo phase boundary",
+            "controlledSetup": "Change only the condition represented by \"rampTo phase boundary\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Artillery phase transition load testing.",
+            "failureSignal": "The observed result differs from the approved rampTo phase boundary contract.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          },
+          {
+            "scenario": "arrival count handoff",
+            "controlledSetup": "Change only the condition represented by \"arrival count handoff\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Artillery phase transition load testing.",
+            "failureSignal": "The observed result differs from the approved arrival count handoff contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Artillery phase transition load testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/artillery-load-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Artillery phase transition load testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/artillery-load-testing/SKILL.md",
+          "seed-skills/performance-budget-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts",
+          "https://www.artillery.io/docs/reference/test-script",
+          "https://www.artillery.io/docs/reference/engines/http"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Artillery phase transition load testing",
+        "steps": [
+          "Read seed-skills/artillery-load-testing/SKILL.md and seed-skills/performance-budget-testing/SKILL.md and packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Artillery phase transition load testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for rampTo phase boundary, arrival count handoff, phase duration accuracy, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Artillery phase transition load testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/artillery-load-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Artillery phase transition load testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/performance-budget-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/artillery-load-testing/SKILL.md",
+        "seed-skills/performance-budget-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/performance-testing",
+        "/blog/load-testing-beginners-guide",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "load-testing-beginners-guide",
+        "chaos-engineering-resilience-testing",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://www.artillery.io/docs/reference/test-script",
+        "https://www.artillery.io/docs/reference/engines/http"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify arrival rates and virtual users change cleanly across adjacent Artillery phases?",
+        "What should a rampTo phase boundary fixture record?",
+        "Which failure proves arrival count handoff is broken?",
+        "How do teams isolate phase duration accuracy?",
+        "Which assertion is strongest for Artillery phase transition load testing checklist?",
+        "How should CI report Artillery phase transition load testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/load-testing-beginners-guide, then open /skills and add the Artillery phase transition load testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-010",
+      "batch": 114,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "openapi-additionalproperties-policy-testing",
+      "primaryKeyword": "OpenAPI additionalProperties policy testing",
+      "title": "Openapi Additionalproperties Policy Testing",
+      "description": "OpenAPI additionalProperties policy testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify unknown object fields are accepted or rejected exactly as documented?",
+      "intentBoundary": "Owns additionalProperties behavior, not top-level version compatibility.",
+      "secondaryKeywords": [
+        "reject unknown JSON fields",
+        "free form object contract",
+        "additional property schema",
+        "OpenAPI additionalProperties policy testing checklist",
+        "OpenAPI additionalProperties policy testing CI strategy",
+        "OpenAPI additionalProperties policy testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does OpenAPI additionalProperties policy testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify unknown object fields are accepted or rejected exactly as documented?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build reject unknown JSON fields?",
+          "question": true,
+          "secondaryKeyword": "reject unknown JSON fields",
+          "coverage": "Create an isolated fixture for reject unknown JSON fields. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "What breaks free form object contract?",
+          "question": true,
+          "secondaryKeyword": "free form object contract",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for free form object contract. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+            "seed-skills/openapi-validation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Additional property schema fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "additional property schema",
+          "coverage": "Turn additional property schema into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should OpenAPI additionalProperties policy testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "OpenAPI additionalProperties policy testing checklist",
+          "coverage": "Build the oracle for OpenAPI additionalProperties policy testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "OpenAPI additionalProperties policy testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "OpenAPI additionalProperties policy testing CI strategy",
+          "coverage": "Package OpenAPI additionalProperties policy testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+            "seed-skills/openapi-validation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Openapi Additionalproperties Policy Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement OpenAPI additionalProperties policy testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Openapi Additionalproperties Policy Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/openapi-validation/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI additionalProperties policy testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/openapi-validation/SKILL.md"
+          },
+          {
+            "scenario": "reject unknown JSON fields",
+            "controlledSetup": "Change only the condition represented by \"reject unknown JSON fields\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI additionalProperties policy testing.",
+            "failureSignal": "The observed result differs from the approved reject unknown JSON fields contract.",
+            "evidenceSource": "seed-skills/api-schema-evolution/SKILL.md"
+          },
+          {
+            "scenario": "free form object contract",
+            "controlledSetup": "Change only the condition represented by \"free form object contract\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI additionalProperties policy testing.",
+            "failureSignal": "The observed result differs from the approved free form object contract contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI additionalProperties policy testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/openapi-validation/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI additionalProperties policy testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/api-schema-evolution/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/openapi-validation/SKILL.md",
+          "seed-skills/api-schema-evolution/SKILL.md",
+          "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+          "https://spec.openapis.org/oas/v3.1.1.html",
+          "https://json-schema.org/draft/2020-12/json-schema-validation"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run OpenAPI additionalProperties policy testing",
+        "steps": [
+          "Read seed-skills/openapi-validation/SKILL.md and seed-skills/api-schema-evolution/SKILL.md and packages/web/src/app/blog/posts/api-contract-testing-microservices.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for OpenAPI additionalProperties policy testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for reject unknown JSON fields, free form object contract, additional property schema, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the OpenAPI additionalProperties policy testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/openapi-validation/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated OpenAPI additionalProperties policy testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/api-schema-evolution/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/openapi-validation/SKILL.md",
+        "seed-skills/api-schema-evolution/SKILL.md",
+        "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/api-testing",
+        "/blog/api-testing-complete-guide",
+        "/blog/api-contract-testing-microservices",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "api-testing-complete-guide",
+        "api-contract-testing-microservices",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://spec.openapis.org/oas/v3.1.1.html",
+        "https://json-schema.org/draft/2020-12/json-schema-validation"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify unknown object fields are accepted or rejected exactly as documented?",
+        "What should a reject unknown JSON fields fixture record?",
+        "Which failure proves free form object contract is broken?",
+        "How do teams isolate additional property schema?",
+        "Which assertion is strongest for OpenAPI additionalProperties policy testing checklist?",
+        "How should CI report OpenAPI additionalProperties policy testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-testing-complete-guide, then open /skills and add the OpenAPI additionalProperties policy testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-003",
+      "batch": 114,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "openapi-discriminator-mapping-validation",
+      "primaryKeyword": "OpenAPI discriminator mapping validation",
+      "title": "Openapi Discriminator Mapping Validation",
+      "description": "OpenAPI discriminator mapping validation: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams prove discriminator values resolve to the intended component schemas?",
+      "intentBoundary": "Owns explicit discriminator mappings and missing targets, not generic oneOf testing.",
+      "secondaryKeywords": [
+        "discriminator target resolution",
+        "unknown discriminator values",
+        "mapping reference drift",
+        "OpenAPI discriminator mapping validation checklist",
+        "OpenAPI discriminator mapping validation CI strategy",
+        "OpenAPI discriminator mapping validation failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does OpenAPI discriminator mapping validation verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams prove discriminator values resolve to the intended component schemas?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build discriminator target resolution?",
+          "question": true,
+          "secondaryKeyword": "discriminator target resolution",
+          "coverage": "Create an isolated fixture for discriminator target resolution. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "What breaks unknown discriminator values?",
+          "question": true,
+          "secondaryKeyword": "unknown discriminator values",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for unknown discriminator values. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+            "seed-skills/openapi-validation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Mapping reference drift fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "mapping reference drift",
+          "coverage": "Turn mapping reference drift into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should OpenAPI discriminator mapping validation checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "OpenAPI discriminator mapping validation checklist",
+          "coverage": "Build the oracle for OpenAPI discriminator mapping validation checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "OpenAPI discriminator mapping validation CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "OpenAPI discriminator mapping validation CI strategy",
+          "coverage": "Package OpenAPI discriminator mapping validation CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+            "seed-skills/openapi-validation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Openapi Discriminator Mapping Validation comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement OpenAPI discriminator mapping validation?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Openapi Discriminator Mapping Validation scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/openapi-validation/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI discriminator mapping validation.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/openapi-validation/SKILL.md"
+          },
+          {
+            "scenario": "discriminator target resolution",
+            "controlledSetup": "Change only the condition represented by \"discriminator target resolution\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI discriminator mapping validation.",
+            "failureSignal": "The observed result differs from the approved discriminator target resolution contract.",
+            "evidenceSource": "seed-skills/api-schema-evolution/SKILL.md"
+          },
+          {
+            "scenario": "unknown discriminator values",
+            "controlledSetup": "Change only the condition represented by \"unknown discriminator values\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI discriminator mapping validation.",
+            "failureSignal": "The observed result differs from the approved unknown discriminator values contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI discriminator mapping validation.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/openapi-validation/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI discriminator mapping validation.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/api-schema-evolution/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/openapi-validation/SKILL.md",
+          "seed-skills/api-schema-evolution/SKILL.md",
+          "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+          "https://spec.openapis.org/oas/v3.1.1.html",
+          "https://json-schema.org/draft/2020-12/json-schema-validation"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run OpenAPI discriminator mapping validation",
+        "steps": [
+          "Read seed-skills/openapi-validation/SKILL.md and seed-skills/api-schema-evolution/SKILL.md and packages/web/src/app/blog/posts/api-contract-testing-microservices.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for OpenAPI discriminator mapping validation with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for discriminator target resolution, unknown discriminator values, mapping reference drift, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the OpenAPI discriminator mapping validation baseline",
+          "language": "typescript",
+          "path": "seed-skills/openapi-validation/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated OpenAPI discriminator mapping validation fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/api-schema-evolution/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/openapi-validation/SKILL.md",
+        "seed-skills/api-schema-evolution/SKILL.md",
+        "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/api-testing",
+        "/blog/api-testing-complete-guide",
+        "/blog/api-contract-testing-microservices",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "api-testing-complete-guide",
+        "api-contract-testing-microservices",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://spec.openapis.org/oas/v3.1.1.html",
+        "https://json-schema.org/draft/2020-12/json-schema-validation"
+      ],
+      "faqQuestions": [
+        "How can QA teams prove discriminator values resolve to the intended component schemas?",
+        "What should a discriminator target resolution fixture record?",
+        "Which failure proves unknown discriminator values is broken?",
+        "How do teams isolate mapping reference drift?",
+        "Which assertion is strongest for OpenAPI discriminator mapping validation checklist?",
+        "How should CI report OpenAPI discriminator mapping validation CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-testing-complete-guide, then open /skills and add the OpenAPI discriminator mapping validation checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-176",
+      "batch": 114,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "circuit-breaker-half-open-testing",
+      "primaryKeyword": "circuit breaker half open testing",
+      "title": "Circuit Breaker Half Open Testing",
+      "description": "circuit breaker half open testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify concurrent probes close or reopen a circuit without a request surge?",
+      "intentBoundary": "Owns half-open probe concurrency, not open-state fallback behavior broadly.",
+      "secondaryKeywords": [
+        "half-open probe limit",
+        "circuit close race",
+        "failed recovery probe",
+        "circuit breaker half open testing checklist",
+        "circuit breaker half open testing CI strategy",
+        "circuit breaker half open testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does circuit breaker half open testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify concurrent probes close or reopen a circuit without a request surge?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build half-open probe limit?",
+          "question": true,
+          "secondaryKeyword": "half-open probe limit",
+          "coverage": "Create an isolated fixture for half-open probe limit. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/error-handling-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          ]
+        },
+        {
+          "heading": "What breaks circuit close race?",
+          "question": true,
+          "secondaryKeyword": "circuit close race",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for circuit close race. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failed recovery probe fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "failed recovery probe",
+          "coverage": "Turn failed recovery probe into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should circuit breaker half open testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "circuit breaker half open testing checklist",
+          "coverage": "Build the oracle for circuit breaker half open testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/error-handling-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          ]
+        },
+        {
+          "heading": "Circuit breaker half open testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "circuit breaker half open testing CI strategy",
+          "coverage": "Package circuit breaker half open testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Circuit Breaker Half Open Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement circuit breaker half open testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/error-handling-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Circuit Breaker Half Open Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/retry-resilience-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by circuit breaker half open testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/retry-resilience-testing/SKILL.md"
+          },
+          {
+            "scenario": "half-open probe limit",
+            "controlledSetup": "Change only the condition represented by \"half-open probe limit\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by circuit breaker half open testing.",
+            "failureSignal": "The observed result differs from the approved half-open probe limit contract.",
+            "evidenceSource": "seed-skills/error-handling-testing/SKILL.md"
+          },
+          {
+            "scenario": "circuit close race",
+            "controlledSetup": "Change only the condition represented by \"circuit close race\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by circuit breaker half open testing.",
+            "failureSignal": "The observed result differs from the approved circuit close race contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by circuit breaker half open testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/retry-resilience-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by circuit breaker half open testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/error-handling-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/retry-resilience-testing/SKILL.md",
+          "seed-skills/error-handling-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts",
+          "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/",
+          "https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run circuit breaker half open testing",
+        "steps": [
+          "Read seed-skills/retry-resilience-testing/SKILL.md and seed-skills/error-handling-testing/SKILL.md and packages/web/src/app/blog/posts/error-handling-testing-patterns.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for circuit breaker half open testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for half-open probe limit, circuit close race, failed recovery probe, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the circuit breaker half open testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/retry-resilience-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated circuit breaker half open testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/error-handling-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/retry-resilience-testing/SKILL.md",
+        "seed-skills/error-handling-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/error-handling-testing-patterns",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/microservices-testing-strategies",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "error-handling-testing-patterns",
+        "chaos-engineering-resilience-testing",
+        "microservices-testing-strategies",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/",
+        "https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify concurrent probes close or reopen a circuit without a request surge?",
+        "What should a half-open probe limit fixture record?",
+        "Which failure proves circuit close race is broken?",
+        "How do teams isolate failed recovery probe?",
+        "Which assertion is strongest for circuit breaker half open testing checklist?",
+        "How should CI report circuit breaker half open testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/error-handling-testing-patterns, then open /skills and add the circuit breaker half open testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-004",
+      "batch": 114,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "openapi-readonly-writeonly-contract-testing",
+      "primaryKeyword": "OpenAPI readOnly writeOnly contract testing",
+      "title": "Openapi Readonly Writeonly Contract Testing",
+      "description": "OpenAPI readOnly writeOnly contract testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify readOnly and writeOnly fields appear only in their permitted directions?",
+      "intentBoundary": "Owns request and response visibility semantics, not field authorization policy.",
+      "secondaryKeywords": [
+        "request writeOnly property",
+        "response readOnly property",
+        "directional schema validation",
+        "OpenAPI readOnly writeOnly contract testing checklist",
+        "OpenAPI readOnly writeOnly contract testing CI strategy",
+        "OpenAPI readOnly writeOnly contract testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does OpenAPI readOnly writeOnly contract testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify readOnly and writeOnly fields appear only in their permitted directions?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build request writeOnly property?",
+          "question": true,
+          "secondaryKeyword": "request writeOnly property",
+          "coverage": "Create an isolated fixture for request writeOnly property. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "What breaks response readOnly property?",
+          "question": true,
+          "secondaryKeyword": "response readOnly property",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for response readOnly property. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+            "seed-skills/openapi-validation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Directional schema validation fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "directional schema validation",
+          "coverage": "Turn directional schema validation into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should OpenAPI readOnly writeOnly contract testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "OpenAPI readOnly writeOnly contract testing checklist",
+          "coverage": "Build the oracle for OpenAPI readOnly writeOnly contract testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "OpenAPI readOnly writeOnly contract testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "OpenAPI readOnly writeOnly contract testing CI strategy",
+          "coverage": "Package OpenAPI readOnly writeOnly contract testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+            "seed-skills/openapi-validation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Openapi Readonly Writeonly Contract Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement OpenAPI readOnly writeOnly contract testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Openapi Readonly Writeonly Contract Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/openapi-validation/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI readOnly writeOnly contract testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/openapi-validation/SKILL.md"
+          },
+          {
+            "scenario": "request writeOnly property",
+            "controlledSetup": "Change only the condition represented by \"request writeOnly property\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI readOnly writeOnly contract testing.",
+            "failureSignal": "The observed result differs from the approved request writeOnly property contract.",
+            "evidenceSource": "seed-skills/api-schema-evolution/SKILL.md"
+          },
+          {
+            "scenario": "response readOnly property",
+            "controlledSetup": "Change only the condition represented by \"response readOnly property\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI readOnly writeOnly contract testing.",
+            "failureSignal": "The observed result differs from the approved response readOnly property contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI readOnly writeOnly contract testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/openapi-validation/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI readOnly writeOnly contract testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/api-schema-evolution/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/openapi-validation/SKILL.md",
+          "seed-skills/api-schema-evolution/SKILL.md",
+          "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+          "https://spec.openapis.org/oas/v3.1.1.html",
+          "https://json-schema.org/draft/2020-12/json-schema-validation"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run OpenAPI readOnly writeOnly contract testing",
+        "steps": [
+          "Read seed-skills/openapi-validation/SKILL.md and seed-skills/api-schema-evolution/SKILL.md and packages/web/src/app/blog/posts/api-contract-testing-microservices.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for OpenAPI readOnly writeOnly contract testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for request writeOnly property, response readOnly property, directional schema validation, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the OpenAPI readOnly writeOnly contract testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/openapi-validation/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated OpenAPI readOnly writeOnly contract testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/api-schema-evolution/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/openapi-validation/SKILL.md",
+        "seed-skills/api-schema-evolution/SKILL.md",
+        "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/api-testing",
+        "/blog/api-testing-complete-guide",
+        "/blog/api-contract-testing-microservices",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "api-testing-complete-guide",
+        "api-contract-testing-microservices",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://spec.openapis.org/oas/v3.1.1.html",
+        "https://json-schema.org/draft/2020-12/json-schema-validation"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify readOnly and writeOnly fields appear only in their permitted directions?",
+        "What should a request writeOnly property fixture record?",
+        "Which failure proves response readOnly property is broken?",
+        "How do teams isolate directional schema validation?",
+        "Which assertion is strongest for OpenAPI readOnly writeOnly contract testing checklist?",
+        "How should CI report OpenAPI readOnly writeOnly contract testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-testing-complete-guide, then open /skills and add the OpenAPI readOnly writeOnly contract testing checks to the next QA run."
+    }
+  ]
+}

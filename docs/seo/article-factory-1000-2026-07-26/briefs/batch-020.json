@@ -1,0 +1,1184 @@
+{
+  "batch": 20,
+  "briefs": [
+    {
+      "sourceTopicId": "cli-sdk-031",
+      "batch": 20,
+      "batchPosition": 1,
+      "domain": "cli-sdk",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-duplicate-skill-install-counts",
+      "primaryKeyword": "QASkills duplicate skill install counts",
+      "title": "Qaskills Duplicate Skill Install Counts",
+      "description": "QASkills duplicate skill install counts: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "informational",
+      "coreQuestion": "Does qaskills list count the same skill once per agent installation or once per unique skill name across all agents?",
+      "intentBoundary": "Aggregation semantics for valid repeated installations, not registry install counts or malformed folders.",
+      "secondaryKeywords": [
+        "qaskills installed skill count",
+        "duplicate skill across agents",
+        "per agent skill inventory",
+        "unique skill count CLI",
+        "multi agent list totals",
+        "installed skills aggregation test"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills duplicate skill install counts verify?",
+          "question": true,
+          "coverage": "Answer \"Does qaskills list count the same skill once per agent installation or once per unique skill name across all agents?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts",
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "How do you build qaskills installed skill count?",
+          "question": true,
+          "secondaryKeyword": "qaskills installed skill count",
+          "coverage": "Create an isolated fixture for qaskills installed skill count. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts",
+            "packages/shared/src/parsers/skill-parser.ts"
+          ]
+        },
+        {
+          "heading": "What breaks duplicate skill across agents?",
+          "question": true,
+          "secondaryKeyword": "duplicate skill across agents",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for duplicate skill across agents. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/shared/src/parsers/skill-parser.ts",
+            "packages/shared/src/types/skill.ts"
+          ]
+        },
+        {
+          "heading": "Per agent skill inventory fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "per agent skill inventory",
+          "coverage": "Turn per agent skill inventory into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/shared/src/types/skill.ts",
+            "packages/cli/src/commands/list.ts"
+          ]
+        },
+        {
+          "heading": "How should unique skill count CLI be asserted?",
+          "question": true,
+          "secondaryKeyword": "unique skill count CLI",
+          "coverage": "Build the oracle for unique skill count CLI from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts",
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "Multi agent list totals in CI",
+          "question": false,
+          "secondaryKeyword": "multi agent list totals",
+          "coverage": "Package multi agent list totals as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts",
+            "packages/shared/src/parsers/skill-parser.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Duplicate Skill Install Counts comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts",
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills duplicate skill install counts?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts",
+            "packages/cli/src/lib/agent-detector.ts",
+            "packages/shared/src/parsers/skill-parser.ts",
+            "packages/shared/src/types/skill.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts",
+            "packages/shared/src/parsers/skill-parser.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts",
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Duplicate Skill Install Counts scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/commands/list.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills duplicate skill install counts.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/commands/list.ts"
+          },
+          {
+            "scenario": "qaskills installed skill count",
+            "controlledSetup": "Change only the condition represented by \"qaskills installed skill count\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills duplicate skill install counts.",
+            "failureSignal": "The observed result differs from the approved qaskills installed skill count contract.",
+            "evidenceSource": "packages/cli/src/lib/agent-detector.ts"
+          },
+          {
+            "scenario": "duplicate skill across agents",
+            "controlledSetup": "Change only the condition represented by \"duplicate skill across agents\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills duplicate skill install counts.",
+            "failureSignal": "The observed result differs from the approved duplicate skill across agents contract.",
+            "evidenceSource": "packages/shared/src/parsers/skill-parser.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills duplicate skill install counts.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/shared/src/types/skill.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills duplicate skill install counts.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/cli/src/commands/list.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/commands/list.ts",
+          "packages/cli/src/lib/agent-detector.ts",
+          "packages/shared/src/parsers/skill-parser.ts",
+          "packages/shared/src/types/skill.ts",
+          "https://nodejs.org/api/fs.html",
+          "https://vitest.dev/guide/",
+          "https://agentskills.io/specification"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills duplicate skill install counts",
+        "steps": [
+          "Read packages/cli/src/commands/list.ts and packages/cli/src/lib/agent-detector.ts and packages/shared/src/parsers/skill-parser.ts and packages/shared/src/types/skill.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills duplicate skill install counts with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for qaskills installed skill count, duplicate skill across agents, per agent skill inventory, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills duplicate skill install counts baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/commands/list.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills duplicate skill install counts fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/agent-detector.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/commands/list.ts",
+        "packages/cli/src/lib/agent-detector.ts",
+        "packages/shared/src/parsers/skill-parser.ts",
+        "packages/shared/src/types/skill.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/agents",
+        "/leaderboard",
+        "/getting-started",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide",
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/blog/how-to-install-skills-claude-code"
+      ],
+      "relatedSlugs": [
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide",
+        "how-to-write-high-quality-qa-skills",
+        "how-to-install-skills-claude-code"
+      ],
+      "sources": [
+        "https://nodejs.org/api/fs.html",
+        "https://vitest.dev/guide/",
+        "https://agentskills.io/specification"
+      ],
+      "faqQuestions": [
+        "Does qaskills list count the same skill once per agent installation or once per unique skill name across all agents?",
+        "What should a qaskills installed skill count fixture record?",
+        "Which failure proves duplicate skill across agents is broken?",
+        "How do teams isolate per agent skill inventory?",
+        "Which assertion is strongest for unique skill count CLI?",
+        "How should CI report multi agent list totals failures?"
+      ],
+      "cta": "Read /blog/mcp-for-qa-engineers-guide, then open /skills and add the QASkills duplicate skill install counts checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-026",
+      "batch": 20,
+      "batchPosition": 2,
+      "domain": "cli-sdk",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-info-slug-encoding-tests",
+      "primaryKeyword": "QASkills info slug encoding tests",
+      "title": "Qaskills Info Slug Encoding Tests",
+      "description": "QASkills info slug encoding tests: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How does qaskills info safely encode spaces, slashes, Unicode, and reserved characters before requesting a skill?",
+      "intentBoundary": "CLI getSkill path-segment encoding, not SDK path behavior or not-found messaging.",
+      "secondaryKeywords": [
+        "encode qaskills skill slug",
+        "getSkill encodeURIComponent test",
+        "CLI reserved character path",
+        "skill ID URL encoding",
+        "qaskills info special characters",
+        "API path segment encoding"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills info slug encoding tests verify?",
+          "question": true,
+          "coverage": "Answer \"How does qaskills info safely encode spaces, slashes, Unicode, and reserved characters before requesting a skill?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "How do you build encode qaskills skill slug?",
+          "question": true,
+          "secondaryKeyword": "encode qaskills skill slug",
+          "coverage": "Create an isolated fixture for encode qaskills skill slug. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "What breaks getSkill encodeURIComponent test?",
+          "question": true,
+          "secondaryKeyword": "getSkill encodeURIComponent test",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for getSkill encodeURIComponent test. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts",
+            "packages/shared/src/types/skill.ts"
+          ]
+        },
+        {
+          "heading": "CLI reserved character path fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "CLI reserved character path",
+          "coverage": "Turn CLI reserved character path into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/shared/src/types/skill.ts",
+            "packages/cli/src/commands/info.ts"
+          ]
+        },
+        {
+          "heading": "How should skill ID URL encoding be asserted?",
+          "question": true,
+          "secondaryKeyword": "skill ID URL encoding",
+          "coverage": "Build the oracle for skill ID URL encoding from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills info special characters in CI",
+          "question": false,
+          "secondaryKeyword": "qaskills info special characters",
+          "coverage": "Package qaskills info special characters as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Info Slug Encoding Tests comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills info slug encoding tests?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts",
+            "packages/cli/src/lib/api-client.ts",
+            "packages/cli/src/lib/api-client.ts",
+            "packages/shared/src/types/skill.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Info Slug Encoding Tests scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/commands/info.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills info slug encoding tests.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/commands/info.ts"
+          },
+          {
+            "scenario": "encode qaskills skill slug",
+            "controlledSetup": "Change only the condition represented by \"encode qaskills skill slug\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills info slug encoding tests.",
+            "failureSignal": "The observed result differs from the approved encode qaskills skill slug contract.",
+            "evidenceSource": "packages/cli/src/lib/api-client.ts"
+          },
+          {
+            "scenario": "getSkill encodeURIComponent test",
+            "controlledSetup": "Change only the condition represented by \"getSkill encodeURIComponent test\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills info slug encoding tests.",
+            "failureSignal": "The observed result differs from the approved getSkill encodeURIComponent test contract.",
+            "evidenceSource": "packages/cli/src/lib/api-client.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills info slug encoding tests.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/shared/src/types/skill.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills info slug encoding tests.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/cli/src/commands/info.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/commands/info.ts",
+          "packages/cli/src/lib/api-client.ts",
+          "packages/cli/src/lib/api-client.ts",
+          "packages/shared/src/types/skill.ts",
+          "https://url.spec.whatwg.org/",
+          "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent",
+          "https://www.rfc-editor.org/info/rfc3986"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills info slug encoding tests",
+        "steps": [
+          "Read packages/cli/src/commands/info.ts and packages/cli/src/lib/api-client.ts and packages/cli/src/lib/api-client.ts and packages/shared/src/types/skill.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills info slug encoding tests with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for encode qaskills skill slug, getSkill encodeURIComponent test, CLI reserved character path, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills info slug encoding tests baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/commands/info.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills info slug encoding tests fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/api-client.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/commands/info.ts",
+        "packages/cli/src/lib/api-client.ts",
+        "packages/cli/src/lib/api-client.ts",
+        "packages/shared/src/types/skill.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/blog/skill-md-format-guide",
+        "/blog/api-testing-complete-guide",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "skill-md-format-guide",
+        "api-testing-complete-guide",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide"
+      ],
+      "sources": [
+        "https://url.spec.whatwg.org/",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent",
+        "https://www.rfc-editor.org/info/rfc3986"
+      ],
+      "faqQuestions": [
+        "How does qaskills info safely encode spaces, slashes, Unicode, and reserved characters before requesting a skill?",
+        "What should a encode qaskills skill slug fixture record?",
+        "Which failure proves getSkill encodeURIComponent test is broken?",
+        "How do teams isolate CLI reserved character path?",
+        "Which assertion is strongest for skill ID URL encoding?",
+        "How should CI report qaskills info special characters failures?"
+      ],
+      "cta": "Read /blog/skill-md-format-guide, then open /skills and add the QASkills info slug encoding tests checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-028",
+      "batch": 20,
+      "batchPosition": 3,
+      "domain": "cli-sdk",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-info-optional-metadata-output",
+      "primaryKeyword": "QASkills info optional metadata output",
+      "title": "Qaskills Info Optional Metadata Output",
+      "description": "QASkills info optional metadata output: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "informational",
+      "coreQuestion": "How does qaskills info render missing version, frameworks, GitHub URL, license, and array metadata without printing misleading blank lines?",
+      "intentBoundary": "Successful presentation of optional fields, not missing-record errors or metadata schema validation.",
+      "secondaryKeywords": [
+        "qaskills info field formatting",
+        "optional skill metadata display",
+        "missing framework N A output",
+        "skill version fallback output",
+        "conditional GitHub URL display",
+        "CLI detail snapshot tests"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills info optional metadata output verify?",
+          "question": true,
+          "coverage": "Answer \"How does qaskills info render missing version, frameworks, GitHub URL, license, and array metadata without printing misleading blank lines?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts",
+            "packages/shared/src/types/skill.ts"
+          ]
+        },
+        {
+          "heading": "How do you build qaskills info field formatting?",
+          "question": true,
+          "secondaryKeyword": "qaskills info field formatting",
+          "coverage": "Create an isolated fixture for qaskills info field formatting. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/shared/src/types/skill.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "What breaks optional skill metadata display?",
+          "question": true,
+          "secondaryKeyword": "optional skill metadata display",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for optional skill metadata display. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts",
+            "packages/shared/src/schemas/skill-schema.ts"
+          ]
+        },
+        {
+          "heading": "Missing framework N A output fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "missing framework N A output",
+          "coverage": "Turn missing framework N A output into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/cli/src/commands/info.ts"
+          ]
+        },
+        {
+          "heading": "How should skill version fallback output be asserted?",
+          "question": true,
+          "secondaryKeyword": "skill version fallback output",
+          "coverage": "Build the oracle for skill version fallback output from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts",
+            "packages/shared/src/types/skill.ts"
+          ]
+        },
+        {
+          "heading": "Conditional GitHub URL display in CI",
+          "question": false,
+          "secondaryKeyword": "conditional GitHub URL display",
+          "coverage": "Package conditional GitHub URL display as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/shared/src/types/skill.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Info Optional Metadata Output comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts",
+            "packages/shared/src/types/skill.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills info optional metadata output?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts",
+            "packages/shared/src/types/skill.ts",
+            "packages/cli/src/lib/api-client.ts",
+            "packages/shared/src/schemas/skill-schema.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/shared/src/types/skill.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts",
+            "packages/shared/src/types/skill.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Info Optional Metadata Output scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/commands/info.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills info optional metadata output.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/commands/info.ts"
+          },
+          {
+            "scenario": "qaskills info field formatting",
+            "controlledSetup": "Change only the condition represented by \"qaskills info field formatting\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills info optional metadata output.",
+            "failureSignal": "The observed result differs from the approved qaskills info field formatting contract.",
+            "evidenceSource": "packages/shared/src/types/skill.ts"
+          },
+          {
+            "scenario": "optional skill metadata display",
+            "controlledSetup": "Change only the condition represented by \"optional skill metadata display\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills info optional metadata output.",
+            "failureSignal": "The observed result differs from the approved optional skill metadata display contract.",
+            "evidenceSource": "packages/cli/src/lib/api-client.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills info optional metadata output.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/shared/src/schemas/skill-schema.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills info optional metadata output.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/cli/src/commands/info.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/commands/info.ts",
+          "packages/shared/src/types/skill.ts",
+          "packages/cli/src/lib/api-client.ts",
+          "packages/shared/src/schemas/skill-schema.ts",
+          "https://github.com/bombshell-dev/clack",
+          "https://vitest.dev/guide/snapshot.html",
+          "https://www.typescriptlang.org/docs/handbook/2/narrowing.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills info optional metadata output",
+        "steps": [
+          "Read packages/cli/src/commands/info.ts and packages/shared/src/types/skill.ts and packages/cli/src/lib/api-client.ts and packages/shared/src/schemas/skill-schema.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills info optional metadata output with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for qaskills info field formatting, optional skill metadata display, missing framework N A output, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills info optional metadata output baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/commands/info.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills info optional metadata output fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/shared/src/types/skill.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/commands/info.ts",
+        "packages/shared/src/types/skill.ts",
+        "packages/cli/src/lib/api-client.ts",
+        "packages/shared/src/schemas/skill-schema.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/skill-md-format-guide",
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/getting-started",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "skill-md-format-guide",
+        "how-to-write-high-quality-qa-skills",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide"
+      ],
+      "sources": [
+        "https://github.com/bombshell-dev/clack",
+        "https://vitest.dev/guide/snapshot.html",
+        "https://www.typescriptlang.org/docs/handbook/2/narrowing.html"
+      ],
+      "faqQuestions": [
+        "How does qaskills info render missing version, frameworks, GitHub URL, license, and array metadata without printing misleading blank lines?",
+        "What should a qaskills info field formatting fixture record?",
+        "Which failure proves optional skill metadata display is broken?",
+        "How do teams isolate missing framework N A output?",
+        "Which assertion is strongest for skill version fallback output?",
+        "How should CI report conditional GitHub URL display failures?"
+      ],
+      "cta": "Read /blog/skill-md-format-guide, then open /skills and add the QASkills info optional metadata output checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-mcp-075",
+      "batch": 20,
+      "batchPosition": 4,
+      "domain": "cli-sdk-mcp",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-init-existing-file-overwrite",
+      "primaryKeyword": "QASkills init existing file overwrite",
+      "title": "Qaskills Init Existing File Overwrite",
+      "description": "QASkills init existing file overwrite: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should QA teams diagnose QASkills init existing file overwrite, including pre-existing SKILL.md replacement and data-loss guards?",
+      "intentBoundary": "Covers pre-existing SKILL.md replacement and data-loss guards. Excludes destination skill version replacement.",
+      "secondaryKeywords": [
+        "how to test init existing file overwrite",
+        "init existing file overwrite test cases",
+        "init existing file overwrite edge cases",
+        "init existing file overwrite CI validation",
+        "init existing file overwrite failure diagnostics",
+        "init existing file overwrite regression coverage"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills init existing file overwrite verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams diagnose QASkills init existing file overwrite, including pre-existing SKILL.md replacement and data-loss guards?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/commands/init.ts",
+            "packages/shared/src/parsers/skill-parser.ts"
+          ]
+        },
+        {
+          "heading": "How do you build how to test init existing file overwrite?",
+          "question": true,
+          "secondaryKeyword": "how to test init existing file overwrite",
+          "coverage": "Create an isolated fixture for how to test init existing file overwrite. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/shared/src/parsers/skill-parser.ts",
+            "packages/shared/src/schemas/skill-schema.ts"
+          ]
+        },
+        {
+          "heading": "What breaks init existing file overwrite test cases?",
+          "question": true,
+          "secondaryKeyword": "init existing file overwrite test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for init existing file overwrite test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/cli/src/commands/init.ts"
+          ]
+        },
+        {
+          "heading": "Init existing file overwrite edge cases fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "init existing file overwrite edge cases",
+          "coverage": "Turn init existing file overwrite edge cases into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/cli/src/commands/init.ts",
+            "packages/shared/src/parsers/skill-parser.ts"
+          ]
+        },
+        {
+          "heading": "How should init existing file overwrite CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "init existing file overwrite CI validation",
+          "coverage": "Build the oracle for init existing file overwrite CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/shared/src/parsers/skill-parser.ts",
+            "packages/shared/src/schemas/skill-schema.ts"
+          ]
+        },
+        {
+          "heading": "Init existing file overwrite failure diagnostics in CI",
+          "question": false,
+          "secondaryKeyword": "init existing file overwrite failure diagnostics",
+          "coverage": "Package init existing file overwrite failure diagnostics as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/cli/src/commands/init.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Init Existing File Overwrite comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/commands/init.ts",
+            "packages/shared/src/parsers/skill-parser.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills init existing file overwrite?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/commands/init.ts",
+            "packages/shared/src/parsers/skill-parser.ts",
+            "packages/shared/src/schemas/skill-schema.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/shared/src/parsers/skill-parser.ts",
+            "packages/shared/src/schemas/skill-schema.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/commands/init.ts",
+            "packages/shared/src/parsers/skill-parser.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Init Existing File Overwrite scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/commands/init.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills init existing file overwrite.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/commands/init.ts"
+          },
+          {
+            "scenario": "how to test init existing file overwrite",
+            "controlledSetup": "Change only the condition represented by \"how to test init existing file overwrite\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills init existing file overwrite.",
+            "failureSignal": "The observed result differs from the approved how to test init existing file overwrite contract.",
+            "evidenceSource": "packages/shared/src/parsers/skill-parser.ts"
+          },
+          {
+            "scenario": "init existing file overwrite test cases",
+            "controlledSetup": "Change only the condition represented by \"init existing file overwrite test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills init existing file overwrite.",
+            "failureSignal": "The observed result differs from the approved init existing file overwrite test cases contract.",
+            "evidenceSource": "packages/shared/src/schemas/skill-schema.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills init existing file overwrite.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/cli/src/commands/init.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills init existing file overwrite.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/shared/src/parsers/skill-parser.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/commands/init.ts",
+          "packages/shared/src/parsers/skill-parser.ts",
+          "packages/shared/src/schemas/skill-schema.ts",
+          "https://github.com/tj/commander.js",
+          "https://github.com/bombshell-dev/clack",
+          "https://nodejs.org/api/process.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills init existing file overwrite",
+        "steps": [
+          "Read packages/cli/src/commands/init.ts and packages/shared/src/parsers/skill-parser.ts and packages/shared/src/schemas/skill-schema.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills init existing file overwrite with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for how to test init existing file overwrite, init existing file overwrite test cases, init existing file overwrite edge cases, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills init existing file overwrite baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/commands/init.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills init existing file overwrite fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/shared/src/parsers/skill-parser.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/commands/init.ts",
+        "packages/shared/src/parsers/skill-parser.ts",
+        "packages/shared/src/schemas/skill-schema.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/how-to-publish",
+        "/blog/qaskills-init-non-interactive-ci",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide",
+        "/blog/how-to-write-high-quality-qa-skills"
+      ],
+      "relatedSlugs": [
+        "qaskills-init-non-interactive-ci",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide",
+        "how-to-write-high-quality-qa-skills"
+      ],
+      "sources": [
+        "https://github.com/tj/commander.js",
+        "https://github.com/bombshell-dev/clack",
+        "https://nodejs.org/api/process.html"
+      ],
+      "faqQuestions": [
+        "How should QA teams diagnose QASkills init existing file overwrite, including pre-existing SKILL.md replacement and data-loss guards?",
+        "What should a how to test init existing file overwrite fixture record?",
+        "Which failure proves init existing file overwrite test cases is broken?",
+        "How do teams isolate init existing file overwrite edge cases?",
+        "Which assertion is strongest for init existing file overwrite CI validation?",
+        "How should CI report init existing file overwrite failure diagnostics failures?"
+      ],
+      "cta": "Read /blog/qaskills-init-non-interactive-ci, then open /skills and add the QASkills init existing file overwrite checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-mcp-001",
+      "batch": 20,
+      "batchPosition": 5,
+      "domain": "cli-sdk-mcp",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-agent-catalog-order-contract",
+      "primaryKeyword": "QASkills agent catalog order contract",
+      "title": "Qaskills Agent Catalog Order Contract",
+      "description": "QASkills agent catalog order contract: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "informational",
+      "coreQuestion": "What should QA teams verify for QASkills agent catalog order contract, including stable AGENTS order and repeatable detection output?",
+      "intentBoundary": "Covers stable AGENTS order and repeatable detection output. Excludes vendor setup tutorials or framework detection.",
+      "secondaryKeywords": [
+        "how to test agent catalog order contract",
+        "agent catalog order contract test cases",
+        "agent catalog order contract edge cases",
+        "agent catalog order contract CI validation",
+        "agent catalog order contract failure diagnostics",
+        "agent catalog order contract regression coverage"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills agent catalog order contract verify?",
+          "question": true,
+          "coverage": "Answer \"What should QA teams verify for QASkills agent catalog order contract, including stable AGENTS order and repeatable detection output?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/shared/src/constants/agents.ts"
+          ]
+        },
+        {
+          "heading": "How do you build how to test agent catalog order contract?",
+          "question": true,
+          "secondaryKeyword": "how to test agent catalog order contract",
+          "coverage": "Create an isolated fixture for how to test agent catalog order contract. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/shared/src/constants/agents.ts",
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "What breaks agent catalog order contract test cases?",
+          "question": true,
+          "secondaryKeyword": "agent catalog order contract test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for agent catalog order contract test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts",
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Agent catalog order contract edge cases fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "agent catalog order contract edge cases",
+          "coverage": "Turn agent catalog order contract edge cases into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/shared/src/constants/agents.ts"
+          ]
+        },
+        {
+          "heading": "How should agent catalog order contract CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "agent catalog order contract CI validation",
+          "coverage": "Build the oracle for agent catalog order contract CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/shared/src/constants/agents.ts"
+          ]
+        },
+        {
+          "heading": "Agent catalog order contract failure diagnostics in CI",
+          "question": false,
+          "secondaryKeyword": "agent catalog order contract failure diagnostics",
+          "coverage": "Package agent catalog order contract failure diagnostics as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/shared/src/constants/agents.ts",
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Agent Catalog Order Contract comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/shared/src/constants/agents.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills agent catalog order contract?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/shared/src/constants/agents.ts",
+            "packages/shared/src/constants/agents.ts",
+            "packages/cli/src/lib/agent-detector.ts",
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/shared/src/constants/agents.ts",
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/shared/src/constants/agents.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Agent Catalog Order Contract scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/shared/src/constants/agents.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills agent catalog order contract.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/shared/src/constants/agents.ts"
+          },
+          {
+            "scenario": "how to test agent catalog order contract",
+            "controlledSetup": "Change only the condition represented by \"how to test agent catalog order contract\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills agent catalog order contract.",
+            "failureSignal": "The observed result differs from the approved how to test agent catalog order contract contract.",
+            "evidenceSource": "packages/shared/src/constants/agents.ts"
+          },
+          {
+            "scenario": "agent catalog order contract test cases",
+            "controlledSetup": "Change only the condition represented by \"agent catalog order contract test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills agent catalog order contract.",
+            "failureSignal": "The observed result differs from the approved agent catalog order contract test cases contract.",
+            "evidenceSource": "packages/cli/src/lib/agent-detector.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills agent catalog order contract.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills agent catalog order contract.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/shared/src/constants/agents.ts"
+          }
+        ],
+        "sources": [
+          "packages/shared/src/constants/agents.ts",
+          "packages/shared/src/constants/agents.ts",
+          "packages/cli/src/lib/agent-detector.ts",
+          "packages/cli/src/lib/installer.ts",
+          "https://agentskills.io/specification",
+          "https://nodejs.org/api/fs.html",
+          "https://nodejs.org/api/path.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills agent catalog order contract",
+        "steps": [
+          "Read packages/shared/src/constants/agents.ts and packages/shared/src/constants/agents.ts and packages/cli/src/lib/agent-detector.ts and packages/cli/src/lib/installer.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills agent catalog order contract with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for how to test agent catalog order contract, agent catalog order contract test cases, agent catalog order contract edge cases, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills agent catalog order contract baseline",
+          "language": "typescript",
+          "path": "packages/shared/src/constants/agents.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills agent catalog order contract fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/shared/src/constants/agents.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/shared/src/constants/agents.ts",
+        "packages/shared/src/constants/agents.ts",
+        "packages/cli/src/lib/agent-detector.ts",
+        "packages/cli/src/lib/installer.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/agents",
+        "/getting-started",
+        "/blog/agent-skills-open-standard-portability",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide",
+        "/blog/how-to-write-high-quality-qa-skills"
+      ],
+      "relatedSlugs": [
+        "agent-skills-open-standard-portability",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide",
+        "how-to-write-high-quality-qa-skills"
+      ],
+      "sources": [
+        "https://agentskills.io/specification",
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/path.html"
+      ],
+      "faqQuestions": [
+        "What should QA teams verify for QASkills agent catalog order contract, including stable AGENTS order and repeatable detection output?",
+        "What should a how to test agent catalog order contract fixture record?",
+        "Which failure proves agent catalog order contract test cases is broken?",
+        "How do teams isolate agent catalog order contract edge cases?",
+        "Which assertion is strongest for agent catalog order contract CI validation?",
+        "How should CI report agent catalog order contract failure diagnostics failures?"
+      ],
+      "cta": "Read /blog/agent-skills-open-standard-portability, then open /skills and add the QASkills agent catalog order contract checks to the next QA run."
+    }
+  ]
+}

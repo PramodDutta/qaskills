@@ -1,0 +1,1169 @@
+{
+  "batch": 17,
+  "briefs": [
+    {
+      "sourceTopicId": "mcp-agents-35",
+      "batch": 17,
+      "batchPosition": 1,
+      "domain": "mcp-agents",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "mcp-utf8-skill-installation-tests",
+      "primaryKeyword": "MCP UTF-8 skill installation tests",
+      "title": "MCP Utf-8 Skill Installation Tests",
+      "description": "MCP UTF-8 skill installation tests: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can install tests prove that Unicode YAML, multilingual markdown, emoji, and final newlines survive API download and UTF-8 file writing?",
+      "intentBoundary": "The existing article tests parser round trips. This topic validates downloaded Unicode document bytes at the final MCP filesystem destination.",
+      "secondaryKeywords": [
+        "Unicode SKILL.md write test",
+        "multilingual skill installation",
+        "emoji frontmatter preservation",
+        "UTF-8 byte equality assertion",
+        "markdown final newline test"
+      ],
+      "outline": [
+        {
+          "heading": "What does MCP UTF-8 skill installation tests verify?",
+          "question": true,
+          "coverage": "Answer \"How can install tests prove that Unicode YAML, multilingual markdown, emoji, and final newlines survive API download and UTF-8 file writing?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "packages/web/src/app/api/skills/[id]/content/route.ts"
+          ]
+        },
+        {
+          "heading": "How do you build Unicode SKILL.md write test?",
+          "question": true,
+          "secondaryKeyword": "Unicode SKILL.md write test",
+          "coverage": "Create an isolated fixture for Unicode SKILL.md write test. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/web/src/app/api/skills/[id]/content/route.ts",
+            "packages/mcp/src/index.ts"
+          ]
+        },
+        {
+          "heading": "What breaks multilingual skill installation?",
+          "question": true,
+          "secondaryKeyword": "multilingual skill installation",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for multilingual skill installation. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "packages/web/src/app/api/skills/[id]/content/route.ts"
+          ]
+        },
+        {
+          "heading": "Emoji frontmatter preservation fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "emoji frontmatter preservation",
+          "coverage": "Turn emoji frontmatter preservation into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/web/src/app/api/skills/[id]/content/route.ts",
+            "packages/mcp/src/index.ts"
+          ]
+        },
+        {
+          "heading": "How should UTF-8 byte equality assertion be asserted?",
+          "question": true,
+          "secondaryKeyword": "UTF-8 byte equality assertion",
+          "coverage": "Build the oracle for UTF-8 byte equality assertion from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "packages/web/src/app/api/skills/[id]/content/route.ts"
+          ]
+        },
+        {
+          "heading": "Markdown final newline test in CI",
+          "question": false,
+          "secondaryKeyword": "markdown final newline test",
+          "coverage": "Package markdown final newline test as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/api/skills/[id]/content/route.ts",
+            "packages/mcp/src/index.ts"
+          ]
+        },
+        {
+          "heading": "MCP Utf-8 Skill Installation Tests comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "packages/web/src/app/api/skills/[id]/content/route.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement MCP UTF-8 skill installation tests?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "packages/web/src/app/api/skills/[id]/content/route.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/web/src/app/api/skills/[id]/content/route.ts",
+            "packages/mcp/src/index.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "packages/web/src/app/api/skills/[id]/content/route.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "MCP Utf-8 Skill Installation Tests scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/mcp/src/index.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by MCP UTF-8 skill installation tests.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/mcp/src/index.ts"
+          },
+          {
+            "scenario": "Unicode SKILL.md write test",
+            "controlledSetup": "Change only the condition represented by \"Unicode SKILL.md write test\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by MCP UTF-8 skill installation tests.",
+            "failureSignal": "The observed result differs from the approved Unicode SKILL.md write test contract.",
+            "evidenceSource": "packages/web/src/app/api/skills/[id]/content/route.ts"
+          },
+          {
+            "scenario": "multilingual skill installation",
+            "controlledSetup": "Change only the condition represented by \"multilingual skill installation\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by MCP UTF-8 skill installation tests.",
+            "failureSignal": "The observed result differs from the approved multilingual skill installation contract.",
+            "evidenceSource": "packages/mcp/src/index.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by MCP UTF-8 skill installation tests.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/web/src/app/api/skills/[id]/content/route.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by MCP UTF-8 skill installation tests.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/mcp/src/index.ts"
+          }
+        ],
+        "sources": [
+          "packages/mcp/src/index.ts",
+          "packages/web/src/app/api/skills/[id]/content/route.ts",
+          "https://nodejs.org/api/fs.html",
+          "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+          "https://developer.mozilla.org/en-US/docs/Web/API/Response"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run MCP UTF-8 skill installation tests",
+        "steps": [
+          "Read packages/mcp/src/index.ts and packages/web/src/app/api/skills/[id]/content/route.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for MCP UTF-8 skill installation tests with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for Unicode SKILL.md write test, multilingual skill installation, emoji frontmatter preservation, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the MCP UTF-8 skill installation tests baseline",
+          "language": "typescript",
+          "path": "packages/mcp/src/index.ts",
+          "focus": "Adapt the repository workflow into an isolated MCP UTF-8 skill installation tests fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/skills/[id]/content/route.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/mcp/src/index.ts",
+        "packages/web/src/app/api/skills/[id]/content/route.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/mcp",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "qaskills-mcp-server-guide",
+        "testing-skill-md-yaml-frontmatter-roundtrip",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide"
+      ],
+      "sources": [
+        "https://nodejs.org/api/fs.html",
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Response"
+      ],
+      "faqQuestions": [
+        "How can install tests prove that Unicode YAML, multilingual markdown, emoji, and final newlines survive API download and UTF-8 file writing?",
+        "What should a Unicode SKILL.md write test fixture record?",
+        "Which failure proves multilingual skill installation is broken?",
+        "How do teams isolate emoji frontmatter preservation?",
+        "Which assertion is strongest for UTF-8 byte equality assertion?",
+        "How should CI report markdown final newline test failures?"
+      ],
+      "cta": "Read /blog/qaskills-mcp-server-guide, then open /skills and add the MCP UTF-8 skill installation tests checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-005",
+      "batch": 17,
+      "batchPosition": 2,
+      "domain": "cli-sdk",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-agent-config-file-detection",
+      "primaryKeyword": "QASkills agent config file detection",
+      "title": "Qaskills Agent Config File Detection",
+      "description": "QASkills agent config file detection: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can you test that QASkills detects a project agent from its config file when its config directory does not exist?",
+      "intentBoundary": "The configFile fallback branch for project agents only, not scope classification or skills-directory status.",
+      "secondaryKeywords": [
+        "agent configFile fallback",
+        "detect agent without directory",
+        "project instruction file detection",
+        "qaskills config probe test",
+        "agent config path fixture",
+        "AI agent filesystem detection"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills agent config file detection verify?",
+          "question": true,
+          "coverage": "Answer \"How can you test that QASkills detects a project agent from its config file when its config directory does not exist?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "How do you build agent configFile fallback?",
+          "question": true,
+          "secondaryKeyword": "agent configFile fallback",
+          "coverage": "Create an isolated fixture for agent configFile fallback. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts",
+            "packages/shared/src/constants/agents.ts"
+          ]
+        },
+        {
+          "heading": "What breaks detect agent without directory?",
+          "question": true,
+          "secondaryKeyword": "detect agent without directory",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for detect agent without directory. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/shared/src/constants/agents.ts",
+            "packages/shared/src/types/agent.ts"
+          ]
+        },
+        {
+          "heading": "Project instruction file detection fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "project instruction file detection",
+          "coverage": "Turn project instruction file detection into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/shared/src/types/agent.ts",
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "How should qaskills config probe test be asserted?",
+          "question": true,
+          "secondaryKeyword": "qaskills config probe test",
+          "coverage": "Build the oracle for qaskills config probe test from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "Agent config path fixture in CI",
+          "question": false,
+          "secondaryKeyword": "agent config path fixture",
+          "coverage": "Package agent config path fixture as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts",
+            "packages/shared/src/constants/agents.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Agent Config File Detection comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills agent config file detection?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts",
+            "packages/cli/src/lib/agent-detector.ts",
+            "packages/shared/src/constants/agents.ts",
+            "packages/shared/src/types/agent.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts",
+            "packages/shared/src/constants/agents.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Agent Config File Detection scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/lib/agent-detector.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills agent config file detection.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/lib/agent-detector.ts"
+          },
+          {
+            "scenario": "agent configFile fallback",
+            "controlledSetup": "Change only the condition represented by \"agent configFile fallback\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills agent config file detection.",
+            "failureSignal": "The observed result differs from the approved agent configFile fallback contract.",
+            "evidenceSource": "packages/cli/src/lib/agent-detector.ts"
+          },
+          {
+            "scenario": "detect agent without directory",
+            "controlledSetup": "Change only the condition represented by \"detect agent without directory\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills agent config file detection.",
+            "failureSignal": "The observed result differs from the approved detect agent without directory contract.",
+            "evidenceSource": "packages/shared/src/constants/agents.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills agent config file detection.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/shared/src/types/agent.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills agent config file detection.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/cli/src/lib/agent-detector.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/lib/agent-detector.ts",
+          "packages/cli/src/lib/agent-detector.ts",
+          "packages/shared/src/constants/agents.ts",
+          "packages/shared/src/types/agent.ts",
+          "https://nodejs.org/api/fs.html",
+          "https://vitest.dev/guide/mocking.html",
+          "https://agentskills.io/specification"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills agent config file detection",
+        "steps": [
+          "Read packages/cli/src/lib/agent-detector.ts and packages/cli/src/lib/agent-detector.ts and packages/shared/src/constants/agents.ts and packages/shared/src/types/agent.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills agent config file detection with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for agent configFile fallback, detect agent without directory, project instruction file detection, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills agent config file detection baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/agent-detector.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills agent config file detection fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/agent-detector.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/agent-detector.ts",
+        "packages/cli/src/lib/agent-detector.ts",
+        "packages/shared/src/constants/agents.ts",
+        "packages/shared/src/types/agent.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/agents",
+        "/agents/cursor",
+        "/agents/copilot",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide",
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/blog/how-to-install-skills-claude-code"
+      ],
+      "relatedSlugs": [
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide",
+        "how-to-write-high-quality-qa-skills",
+        "how-to-install-skills-claude-code"
+      ],
+      "sources": [
+        "https://nodejs.org/api/fs.html",
+        "https://vitest.dev/guide/mocking.html",
+        "https://agentskills.io/specification"
+      ],
+      "faqQuestions": [
+        "How can you test that QASkills detects a project agent from its config file when its config directory does not exist?",
+        "What should a agent configFile fallback fixture record?",
+        "Which failure proves detect agent without directory is broken?",
+        "How do teams isolate project instruction file detection?",
+        "Which assertion is strongest for qaskills config probe test?",
+        "How should CI report agent config path fixture failures?"
+      ],
+      "cta": "Read /blog/mcp-for-qa-engineers-guide, then open /skills and add the QASkills agent config file detection checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-mcp-056",
+      "batch": 17,
+      "batchPosition": 3,
+      "domain": "cli-sdk-mcp",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-equal-depth-skill-selection",
+      "primaryKeyword": "QASkills equal depth SKILL selection",
+      "title": "Qaskills Equal Depth Skill Selection",
+      "description": "QASkills equal depth SKILL selection: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should QA teams diagnose QASkills equal depth SKILL selection, including determinism when several SKILL.md files have equal depth?",
+      "intentBoundary": "Covers determinism when several SKILL.md files have equal depth. Excludes root-versus-deeper selection already documented.",
+      "secondaryKeywords": [
+        "how to test equal depth SKILL selection",
+        "equal depth SKILL selection test cases",
+        "equal depth SKILL selection edge cases",
+        "equal depth SKILL selection CI validation",
+        "equal depth SKILL selection failure diagnostics",
+        "equal depth SKILL selection regression coverage"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills equal depth SKILL selection verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams diagnose QASkills equal depth SKILL selection, including determinism when several SKILL.md files have equal depth?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How do you build how to test equal depth SKILL selection?",
+          "question": true,
+          "secondaryKeyword": "how to test equal depth SKILL selection",
+          "coverage": "Create an isolated fixture for how to test equal depth SKILL selection. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "What breaks equal depth SKILL selection test cases?",
+          "question": true,
+          "secondaryKeyword": "equal depth SKILL selection test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for equal depth SKILL selection test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.test.ts"
+          ]
+        },
+        {
+          "heading": "Equal depth SKILL selection edge cases fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "equal depth SKILL selection edge cases",
+          "coverage": "Turn equal depth SKILL selection edge cases into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.test.ts",
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How should equal depth SKILL selection CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "equal depth SKILL selection CI validation",
+          "coverage": "Build the oracle for equal depth SKILL selection CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Equal depth SKILL selection failure diagnostics in CI",
+          "question": false,
+          "secondaryKeyword": "equal depth SKILL selection failure diagnostics",
+          "coverage": "Package equal depth SKILL selection failure diagnostics as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Equal Depth Skill Selection comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills equal depth SKILL selection?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.test.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Equal Depth Skill Selection scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/lib/installer.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills equal depth SKILL selection.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "how to test equal depth SKILL selection",
+            "controlledSetup": "Change only the condition represented by \"how to test equal depth SKILL selection\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills equal depth SKILL selection.",
+            "failureSignal": "The observed result differs from the approved how to test equal depth SKILL selection contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "equal depth SKILL selection test cases",
+            "controlledSetup": "Change only the condition represented by \"equal depth SKILL selection test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills equal depth SKILL selection.",
+            "failureSignal": "The observed result differs from the approved equal depth SKILL selection test cases contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills equal depth SKILL selection.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.test.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills equal depth SKILL selection.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.test.ts",
+          "https://agentskills.io/specification",
+          "https://nodejs.org/api/fs.html",
+          "https://nodejs.org/api/child_process.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills equal depth SKILL selection",
+        "steps": [
+          "Read packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.test.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills equal depth SKILL selection with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for how to test equal depth SKILL selection, equal depth SKILL selection test cases, equal depth SKILL selection edge cases, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills equal depth SKILL selection baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/installer.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills equal depth SKILL selection fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/installer.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.test.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "/blog/qaskills-cli-extract-skill-package-github",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-download-fallback-github-content-metadata",
+        "qaskills-cli-extract-skill-package-github",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide"
+      ],
+      "sources": [
+        "https://agentskills.io/specification",
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/child_process.html"
+      ],
+      "faqQuestions": [
+        "How should QA teams diagnose QASkills equal depth SKILL selection, including determinism when several SKILL.md files have equal depth?",
+        "What should a how to test equal depth SKILL selection fixture record?",
+        "Which failure proves equal depth SKILL selection test cases is broken?",
+        "How do teams isolate equal depth SKILL selection edge cases?",
+        "Which assertion is strongest for equal depth SKILL selection CI validation?",
+        "How should CI report equal depth SKILL selection failure diagnostics failures?"
+      ],
+      "cta": "Read /blog/qaskills-cli-download-fallback-github-content-metadata, then open /skills and add the QASkills equal depth SKILL selection checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-023",
+      "batch": 17,
+      "batchPosition": 4,
+      "domain": "cli-sdk",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-empty-search-result-behavior",
+      "primaryKeyword": "QASkills empty search result behavior",
+      "title": "Qaskills Empty Search Result Behavior",
+      "description": "QASkills empty search result behavior: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "troubleshooting",
+      "coreQuestion": "What output and exit behavior should qaskills search produce when the API succeeds but returns zero skills?",
+      "intentBoundary": "Successful zero-result UX, not network failure, filter construction, or result-count truncation.",
+      "secondaryKeywords": [
+        "qaskills no skills found",
+        "empty CLI search response",
+        "zero result command testing",
+        "search success empty array",
+        "CLI empty state output",
+        "QA skill search no match"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills empty search result behavior verify?",
+          "question": true,
+          "coverage": "Answer \"What output and exit behavior should qaskills search produce when the API succeeds but returns zero skills?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/commands/search.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "How do you build qaskills no skills found?",
+          "question": true,
+          "secondaryKeyword": "qaskills no skills found",
+          "coverage": "Create an isolated fixture for qaskills no skills found. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts",
+            "packages/shared/src/types/skill.ts"
+          ]
+        },
+        {
+          "heading": "What breaks empty CLI search response?",
+          "question": true,
+          "secondaryKeyword": "empty CLI search response",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for empty CLI search response. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/shared/src/types/skill.ts",
+            "packages/cli/e2e/e2e.mjs"
+          ]
+        },
+        {
+          "heading": "Zero result command testing fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "zero result command testing",
+          "coverage": "Turn zero result command testing into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/cli/e2e/e2e.mjs",
+            "packages/cli/src/commands/search.ts"
+          ]
+        },
+        {
+          "heading": "How should search success empty array be asserted?",
+          "question": true,
+          "secondaryKeyword": "search success empty array",
+          "coverage": "Build the oracle for search success empty array from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/cli/src/commands/search.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "CLI empty state output in CI",
+          "question": false,
+          "secondaryKeyword": "CLI empty state output",
+          "coverage": "Package CLI empty state output as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts",
+            "packages/shared/src/types/skill.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Empty Search Result Behavior comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/commands/search.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills empty search result behavior?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/commands/search.ts",
+            "packages/cli/src/lib/api-client.ts",
+            "packages/shared/src/types/skill.ts",
+            "packages/cli/e2e/e2e.mjs"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts",
+            "packages/shared/src/types/skill.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/commands/search.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Empty Search Result Behavior scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/commands/search.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills empty search result behavior.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/commands/search.ts"
+          },
+          {
+            "scenario": "qaskills no skills found",
+            "controlledSetup": "Change only the condition represented by \"qaskills no skills found\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills empty search result behavior.",
+            "failureSignal": "The observed result differs from the approved qaskills no skills found contract.",
+            "evidenceSource": "packages/cli/src/lib/api-client.ts"
+          },
+          {
+            "scenario": "empty CLI search response",
+            "controlledSetup": "Change only the condition represented by \"empty CLI search response\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills empty search result behavior.",
+            "failureSignal": "The observed result differs from the approved empty CLI search response contract.",
+            "evidenceSource": "packages/shared/src/types/skill.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills empty search result behavior.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/cli/e2e/e2e.mjs"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills empty search result behavior.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/cli/src/commands/search.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/commands/search.ts",
+          "packages/cli/src/lib/api-client.ts",
+          "packages/shared/src/types/skill.ts",
+          "packages/cli/e2e/e2e.mjs",
+          "https://github.com/bombshell-dev/clack",
+          "https://github.com/tj/commander.js",
+          "https://vitest.dev/guide/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills empty search result behavior",
+        "steps": [
+          "Read packages/cli/src/commands/search.ts and packages/cli/src/lib/api-client.ts and packages/shared/src/types/skill.ts and packages/cli/e2e/e2e.mjs and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills empty search result behavior with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for qaskills no skills found, empty CLI search response, zero result command testing, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills empty search result behavior baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/commands/search.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills empty search result behavior fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/api-client.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/commands/search.ts",
+        "packages/cli/src/lib/api-client.ts",
+        "packages/shared/src/types/skill.ts",
+        "packages/cli/e2e/e2e.mjs"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories",
+        "/getting-started",
+        "/faq",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide",
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/blog/how-to-install-skills-claude-code"
+      ],
+      "relatedSlugs": [
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide",
+        "how-to-write-high-quality-qa-skills",
+        "how-to-install-skills-claude-code"
+      ],
+      "sources": [
+        "https://github.com/bombshell-dev/clack",
+        "https://github.com/tj/commander.js",
+        "https://vitest.dev/guide/"
+      ],
+      "faqQuestions": [
+        "What output and exit behavior should qaskills search produce when the API succeeds but returns zero skills?",
+        "What should a qaskills no skills found fixture record?",
+        "Which failure proves empty CLI search response is broken?",
+        "How do teams isolate zero result command testing?",
+        "Which assertion is strongest for search success empty array?",
+        "How should CI report CLI empty state output failures?"
+      ],
+      "cta": "Read /blog/mcp-for-qa-engineers-guide, then open /skills and add the QASkills empty search result behavior checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-mcp-050",
+      "batch": 17,
+      "batchPosition": 5,
+      "domain": "cli-sdk-mcp",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-executable-bit-copy-testing",
+      "primaryKeyword": "QASkills executable bit copy testing",
+      "title": "Qaskills Executable Bit Copy Testing",
+      "description": "QASkills executable bit copy testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams test QASkills executable bit copy testing, including script mode preservation for companion scripts?",
+      "intentBoundary": "Covers script mode preservation for companion scripts. Excludes npm binary shebang packaging.",
+      "secondaryKeywords": [
+        "how to test executable bit copy",
+        "executable bit copy test cases",
+        "executable bit copy edge cases",
+        "executable bit copy CI validation",
+        "executable bit copy failure diagnostics",
+        "executable bit copy regression coverage"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills executable bit copy testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams test QASkills executable bit copy testing, including script mode preservation for companion scripts?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How do you build how to test executable bit copy?",
+          "question": true,
+          "secondaryKeyword": "how to test executable bit copy",
+          "coverage": "Create an isolated fixture for how to test executable bit copy. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "What breaks executable bit copy test cases?",
+          "question": true,
+          "secondaryKeyword": "executable bit copy test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for executable bit copy test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.test.ts"
+          ]
+        },
+        {
+          "heading": "Executable bit copy edge cases fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "executable bit copy edge cases",
+          "coverage": "Turn executable bit copy edge cases into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.test.ts",
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How should executable bit copy CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "executable bit copy CI validation",
+          "coverage": "Build the oracle for executable bit copy CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Executable bit copy failure diagnostics in CI",
+          "question": false,
+          "secondaryKeyword": "executable bit copy failure diagnostics",
+          "coverage": "Package executable bit copy failure diagnostics as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Executable Bit Copy Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills executable bit copy testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.test.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Executable Bit Copy Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/lib/installer.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills executable bit copy testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "how to test executable bit copy",
+            "controlledSetup": "Change only the condition represented by \"how to test executable bit copy\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills executable bit copy testing.",
+            "failureSignal": "The observed result differs from the approved how to test executable bit copy contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "executable bit copy test cases",
+            "controlledSetup": "Change only the condition represented by \"executable bit copy test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills executable bit copy testing.",
+            "failureSignal": "The observed result differs from the approved executable bit copy test cases contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills executable bit copy testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.test.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills executable bit copy testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.test.ts",
+          "https://agentskills.io/specification",
+          "https://nodejs.org/api/fs.html",
+          "https://nodejs.org/api/child_process.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills executable bit copy testing",
+        "steps": [
+          "Read packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.test.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills executable bit copy testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for how to test executable bit copy, executable bit copy test cases, executable bit copy edge cases, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills executable bit copy testing baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/installer.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills executable bit copy testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/installer.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.test.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "/blog/qaskills-cli-extract-skill-package-github",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-download-fallback-github-content-metadata",
+        "qaskills-cli-extract-skill-package-github",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide"
+      ],
+      "sources": [
+        "https://agentskills.io/specification",
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/child_process.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams test QASkills executable bit copy testing, including script mode preservation for companion scripts?",
+        "What should a how to test executable bit copy fixture record?",
+        "Which failure proves executable bit copy test cases is broken?",
+        "How do teams isolate executable bit copy edge cases?",
+        "Which assertion is strongest for executable bit copy CI validation?",
+        "How should CI report executable bit copy failure diagnostics failures?"
+      ],
+      "cta": "Read /blog/qaskills-cli-download-fallback-github-content-metadata, then open /skills and add the QASkills executable bit copy testing checks to the next QA run."
+    }
+  ]
+}

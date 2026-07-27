@@ -128,6 +128,7 @@ import { generatedSeoBatch2026Posts } from './generated-seo-batch-2026';
 import { articleFactoryBatch20260718Posts } from './_article-factory-batch-2026-07';
 import { articleFactoryBatch20260725Posts } from './_article-factory-batch-2026-07-25';
 import { articleFactory250Posts } from './_article-factory-250-2026-07-25';
+import { articleFactory1000ExtensionPosts } from './_article-factory-1000-extension-2026-07-26';
 import { playwrightLongTail2026Posts } from './playwright-long-tail-batch-2026';
 import { seoPriorityOverrides2026 } from './seo-priority-overrides-2026';
 import { seoWaveOneArticles2026 } from './seo-wave-one-articles-2026';
@@ -2638,6 +2639,7 @@ export const posts: Record<string, BlogPost> = {
   ...Object.fromEntries(articleFactoryBatch20260718Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(articleFactoryBatch20260725Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(articleFactory250Posts.map(({ slug, post }) => [slug, post])),
+  ...Object.fromEntries(articleFactory1000ExtensionPosts.map(({ slug, post }) => [slug, post])),
 };
 
 // Ordered list for the blog listing page (newest first)
@@ -5258,6 +5260,10 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
     ...post,
   })),
   ...articleFactory250Posts.map(({ slug, post }) => ({
+    slug,
+    ...post,
+  })),
+  ...articleFactory1000ExtensionPosts.map(({ slug, post }) => ({
     slug,
     ...post,
   })),

@@ -1,0 +1,1170 @@
+{
+  "batch": 140,
+  "briefs": [
+    {
+      "sourceTopicId": "frameworks-qa-085",
+      "batch": 140,
+      "batchPosition": 1,
+      "domain": "frameworks-qa-practice",
+      "campaignCluster": "frameworks-qa-practice",
+      "slug": "minitest-parallel-executor-state-isolation",
+      "primaryKeyword": "Minitest parallel executor state isolation",
+      "title": "Minitest Parallel Executor State Isolation",
+      "description": "Minitest parallel executor state isolation: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How should QA teams verify Minitest parallel executor state isolation, specifically parallel test workers and shared mutable state?",
+      "intentBoundary": "Owns parallel test workers and shared mutable state. It excludes Rails system tests, RSpec comparisons, or general Ruby setup, plus AI, RAG, MCP, and unrelated infrastructure topics.",
+      "secondaryKeywords": [
+        "Minitest parallel executor state isolation example",
+        "Minitest parallel executor state isolation test cases",
+        "Minitest parallel executor state isolation failure modes",
+        "how to verify minitest parallel executor state isolation",
+        "Minitest parallel test workers and shared mutable state",
+        "Minitest parallel executor state isolation best practices"
+      ],
+      "outline": [
+        {
+          "heading": "What does Minitest parallel executor state isolation verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams verify Minitest parallel executor state isolation, specifically parallel test workers and shared mutable state?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/ruby-testunit/SKILL.md",
+            "seed-skills/rspec-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build Minitest parallel executor state isolation example?",
+          "question": true,
+          "secondaryKeyword": "Minitest parallel executor state isolation example",
+          "coverage": "Create an isolated fixture for Minitest parallel executor state isolation example. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/rspec-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/rspec-ruby-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks Minitest parallel executor state isolation test cases?",
+          "question": true,
+          "secondaryKeyword": "Minitest parallel executor state isolation test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for Minitest parallel executor state isolation test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/rspec-ruby-testing-guide.ts",
+            "seed-skills/ruby-testunit/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Minitest parallel executor state isolation failure modes fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "Minitest parallel executor state isolation failure modes",
+          "coverage": "Turn Minitest parallel executor state isolation failure modes into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/ruby-testunit/SKILL.md",
+            "seed-skills/rspec-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should how to verify minitest parallel executor state isolation be asserted?",
+          "question": true,
+          "secondaryKeyword": "how to verify minitest parallel executor state isolation",
+          "coverage": "Build the oracle for how to verify minitest parallel executor state isolation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/rspec-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/rspec-ruby-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Minitest parallel test workers and shared mutable state in CI",
+          "question": false,
+          "secondaryKeyword": "Minitest parallel test workers and shared mutable state",
+          "coverage": "Package Minitest parallel test workers and shared mutable state as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/rspec-ruby-testing-guide.ts",
+            "seed-skills/ruby-testunit/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Minitest Parallel Executor State Isolation comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/ruby-testunit/SKILL.md",
+            "seed-skills/rspec-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Minitest parallel executor state isolation?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/ruby-testunit/SKILL.md",
+            "seed-skills/rspec-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/rspec-ruby-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/rspec-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/rspec-ruby-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/ruby-testunit/SKILL.md",
+            "seed-skills/rspec-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Minitest Parallel Executor State Isolation scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/ruby-testunit/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Minitest parallel executor state isolation.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/ruby-testunit/SKILL.md"
+          },
+          {
+            "scenario": "Minitest parallel executor state isolation example",
+            "controlledSetup": "Change only the condition represented by \"Minitest parallel executor state isolation example\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Minitest parallel executor state isolation.",
+            "failureSignal": "The observed result differs from the approved Minitest parallel executor state isolation example contract.",
+            "evidenceSource": "seed-skills/rspec-testing/SKILL.md"
+          },
+          {
+            "scenario": "Minitest parallel executor state isolation test cases",
+            "controlledSetup": "Change only the condition represented by \"Minitest parallel executor state isolation test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Minitest parallel executor state isolation.",
+            "failureSignal": "The observed result differs from the approved Minitest parallel executor state isolation test cases contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/rspec-ruby-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Minitest parallel executor state isolation.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/ruby-testunit/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Minitest parallel executor state isolation.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/rspec-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/ruby-testunit/SKILL.md",
+          "seed-skills/rspec-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/rspec-ruby-testing-guide.ts",
+          "https://github.com/minitest/minitest",
+          "https://ruby-doc.org/3.4.1/gems/minitest/Minitest.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Minitest parallel executor state isolation",
+        "steps": [
+          "Read seed-skills/ruby-testunit/SKILL.md and seed-skills/rspec-testing/SKILL.md and packages/web/src/app/blog/posts/rspec-ruby-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Minitest parallel executor state isolation with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for Minitest parallel executor state isolation example, Minitest parallel executor state isolation test cases, Minitest parallel executor state isolation failure modes, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Minitest parallel executor state isolation baseline",
+          "language": "typescript",
+          "path": "seed-skills/ruby-testunit/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Minitest parallel executor state isolation fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/rspec-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/ruby-testunit/SKILL.md",
+        "seed-skills/rspec-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/rspec-ruby-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/unit-testing",
+        "/blog/rspec-ruby-testing-guide",
+        "/blog/test-automation-framework-architecture",
+        "/blog/test-case-design-techniques-guide",
+        "/blog/regression-testing-strategies-guide"
+      ],
+      "relatedSlugs": [
+        "rspec-ruby-testing-guide",
+        "test-automation-framework-architecture",
+        "test-case-design-techniques-guide",
+        "regression-testing-strategies-guide"
+      ],
+      "sources": [
+        "https://github.com/minitest/minitest",
+        "https://ruby-doc.org/3.4.1/gems/minitest/Minitest.html"
+      ],
+      "faqQuestions": [
+        "How should QA teams verify Minitest parallel executor state isolation, specifically parallel test workers and shared mutable state?",
+        "What should a Minitest parallel executor state isolation example fixture record?",
+        "Which failure proves Minitest parallel executor state isolation test cases is broken?",
+        "How do teams isolate Minitest parallel executor state isolation failure modes?",
+        "Which assertion is strongest for how to verify minitest parallel executor state isolation?",
+        "How should CI report Minitest parallel test workers and shared mutable state failures?"
+      ],
+      "cta": "Read /blog/rspec-ruby-testing-guide, then open /skills and add the Minitest parallel executor state isolation checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-17",
+      "batch": 140,
+      "batchPosition": 2,
+      "domain": "testing-frameworks",
+      "campaignCluster": "frameworks-qa-practice",
+      "slug": "appium-plugin-driver-compatibility-testing",
+      "primaryKeyword": "Appium plugin driver compatibility testing",
+      "title": "Appium Plugin Driver Compatibility Testing",
+      "description": "Appium plugin driver compatibility testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How can teams verify an Appium driver and plugin combination before a server upgrade reaches CI?",
+      "intentBoundary": "The nearest page covers a broader appium workflow. This candidate owns driver-plugin-server compatibility contracts.",
+      "secondaryKeywords": [
+        "Appium plugin compatibility test",
+        "Appium driver version matrix",
+        "plugin server upgrade check",
+        "Appium extension compatibility",
+        "mobile grid plugin validation"
+      ],
+      "outline": [
+        {
+          "heading": "What does Appium plugin driver compatibility testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can teams verify an Appium driver and plugin combination before a server upgrade reaches CI?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build Appium plugin compatibility test?",
+          "question": true,
+          "secondaryKeyword": "Appium plugin compatibility test",
+          "coverage": "Create an isolated fixture for Appium plugin compatibility test. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/mobile-device-farm/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What breaks Appium driver version matrix?",
+          "question": true,
+          "secondaryKeyword": "Appium driver version matrix",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for Appium driver version matrix. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Plugin server upgrade check fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "plugin server upgrade check",
+          "coverage": "Turn plugin server upgrade check into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/mobile-device-farm/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Appium extension compatibility be asserted?",
+          "question": true,
+          "secondaryKeyword": "Appium extension compatibility",
+          "coverage": "Build the oracle for Appium extension compatibility from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Mobile grid plugin validation in CI",
+          "question": false,
+          "secondaryKeyword": "mobile grid plugin validation",
+          "coverage": "Package mobile grid plugin validation as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "seed-skills/mobile-device-farm/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Appium Plugin Driver Compatibility Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Appium plugin driver compatibility testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/mobile-device-farm/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Appium Plugin Driver Compatibility Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/appium-mobile/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Appium plugin driver compatibility testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "Appium plugin compatibility test",
+            "controlledSetup": "Change only the condition represented by \"Appium plugin compatibility test\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Appium plugin driver compatibility testing.",
+            "failureSignal": "The observed result differs from the approved Appium plugin compatibility test contract.",
+            "evidenceSource": "seed-skills/mobile-device-farm/SKILL.md"
+          },
+          {
+            "scenario": "Appium driver version matrix",
+            "controlledSetup": "Change only the condition represented by \"Appium driver version matrix\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Appium plugin driver compatibility testing.",
+            "failureSignal": "The observed result differs from the approved Appium driver version matrix contract.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Appium plugin driver compatibility testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/mobile-device-farm/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Appium plugin driver compatibility testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/appium-mobile/SKILL.md",
+          "seed-skills/mobile-device-farm/SKILL.md",
+          "https://appium.io/docs/en/latest/guides/caps/",
+          "https://appium.io/docs/en/latest/guides/context/",
+          "https://appium.io/docs/en/latest/ecosystem/",
+          "https://www.w3.org/TR/webdriver2/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Appium plugin driver compatibility testing",
+        "steps": [
+          "Read seed-skills/appium-mobile/SKILL.md and seed-skills/mobile-device-farm/SKILL.md and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Appium plugin driver compatibility testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for Appium plugin compatibility test, Appium driver version matrix, plugin server upgrade check, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Appium plugin driver compatibility testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/appium-mobile/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Appium plugin driver compatibility testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/mobile-device-farm/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/appium-mobile/SKILL.md",
+        "seed-skills/mobile-device-farm/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/appium-mobile-testing-complete-guide",
+        "/blog/appium-3-migration-guide-2026",
+        "/blog/mobile-testing-automation-guide",
+        "/blog/test-automation-framework-architecture"
+      ],
+      "relatedSlugs": [
+        "appium-mobile-testing-complete-guide",
+        "appium-3-migration-guide-2026",
+        "mobile-testing-automation-guide",
+        "test-automation-framework-architecture"
+      ],
+      "sources": [
+        "https://appium.io/docs/en/latest/guides/caps/",
+        "https://appium.io/docs/en/latest/guides/context/",
+        "https://appium.io/docs/en/latest/ecosystem/",
+        "https://www.w3.org/TR/webdriver2/"
+      ],
+      "faqQuestions": [
+        "How can teams verify an Appium driver and plugin combination before a server upgrade reaches CI?",
+        "What should a Appium plugin compatibility test fixture record?",
+        "Which failure proves Appium driver version matrix is broken?",
+        "How do teams isolate plugin server upgrade check?",
+        "Which assertion is strongest for Appium extension compatibility?",
+        "How should CI report mobile grid plugin validation failures?"
+      ],
+      "cta": "Read /blog/appium-mobile-testing-complete-guide, then open /skills and add the Appium plugin driver compatibility testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "frameworks-qa-135",
+      "batch": 140,
+      "batchPosition": 3,
+      "domain": "frameworks-qa-practice",
+      "campaignCluster": "frameworks-qa-practice",
+      "slug": "mock-call-order-without-overspecification",
+      "primaryKeyword": "Mock call order without overspecification",
+      "title": "Mock Call Order Without Overspecification",
+      "description": "Mock call order without overspecification: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How should QA teams verify Mock call order without overspecification, specifically business-significant order without incidental sequence coupling?",
+      "intentBoundary": "Owns business-significant order without incidental sequence coupling. It excludes framework installation, browser request interception, or generic mock tutorials, plus AI, RAG, MCP, and unrelated infrastructure topics.",
+      "secondaryKeywords": [
+        "Mock call order without overspecification example",
+        "Mock call order without overspecification test cases",
+        "Mock call order without overspecification failure modes",
+        "how to verify mock call order without overspecification",
+        "mocking practice business-significant order without incidental sequence coupling",
+        "Mock call order without overspecification best practices"
+      ],
+      "outline": [
+        {
+          "heading": "What does Mock call order without overspecification verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams verify Mock call order without overspecification, specifically business-significant order without incidental sequence coupling?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build Mock call order without overspecification example?",
+          "question": true,
+          "secondaryKeyword": "Mock call order without overspecification example",
+          "coverage": "Create an isolated fixture for Mock call order without overspecification example. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/msw-mocking/SKILL.md",
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks Mock call order without overspecification test cases?",
+          "question": true,
+          "secondaryKeyword": "Mock call order without overspecification test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for Mock call order without overspecification test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts",
+            "seed-skills/jest-mocking-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Mock call order without overspecification failure modes fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "Mock call order without overspecification failure modes",
+          "coverage": "Turn Mock call order without overspecification failure modes into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should how to verify mock call order without overspecification be asserted?",
+          "question": true,
+          "secondaryKeyword": "how to verify mock call order without overspecification",
+          "coverage": "Build the oracle for how to verify mock call order without overspecification from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/msw-mocking/SKILL.md",
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Mocking practice business-significant order without incidental sequence coupling in CI",
+          "question": false,
+          "secondaryKeyword": "mocking practice business-significant order without incidental sequence coupling",
+          "coverage": "Package mocking practice business-significant order without incidental sequence coupling as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts",
+            "seed-skills/jest-mocking-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Mock Call Order Without Overspecification comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Mock call order without overspecification?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md",
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/msw-mocking/SKILL.md",
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Mock Call Order Without Overspecification scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/jest-mocking-patterns/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock call order without overspecification.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/jest-mocking-patterns/SKILL.md"
+          },
+          {
+            "scenario": "Mock call order without overspecification example",
+            "controlledSetup": "Change only the condition represented by \"Mock call order without overspecification example\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock call order without overspecification.",
+            "failureSignal": "The observed result differs from the approved Mock call order without overspecification example contract.",
+            "evidenceSource": "seed-skills/msw-mocking/SKILL.md"
+          },
+          {
+            "scenario": "Mock call order without overspecification test cases",
+            "controlledSetup": "Change only the condition represented by \"Mock call order without overspecification test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock call order without overspecification.",
+            "failureSignal": "The observed result differs from the approved Mock call order without overspecification test cases contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock call order without overspecification.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/jest-mocking-patterns/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock call order without overspecification.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/msw-mocking/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/jest-mocking-patterns/SKILL.md",
+          "seed-skills/msw-mocking/SKILL.md",
+          "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts",
+          "https://jestjs.io/docs/mock-functions",
+          "https://docs.python.org/3/library/unittest.mock.html",
+          "https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Mock call order without overspecification",
+        "steps": [
+          "Read seed-skills/jest-mocking-patterns/SKILL.md and seed-skills/msw-mocking/SKILL.md and packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Mock call order without overspecification with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for Mock call order without overspecification example, Mock call order without overspecification test cases, Mock call order without overspecification failure modes, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Mock call order without overspecification baseline",
+          "language": "typescript",
+          "path": "seed-skills/jest-mocking-patterns/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Mock call order without overspecification fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/msw-mocking/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/jest-mocking-patterns/SKILL.md",
+        "seed-skills/msw-mocking/SKILL.md",
+        "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/unit-testing",
+        "/blog/api-mocking-service-virtualization-guide",
+        "/blog/test-automation-framework-architecture",
+        "/blog/test-case-design-techniques-guide",
+        "/blog/regression-testing-strategies-guide"
+      ],
+      "relatedSlugs": [
+        "api-mocking-service-virtualization-guide",
+        "test-automation-framework-architecture",
+        "test-case-design-techniques-guide",
+        "regression-testing-strategies-guide"
+      ],
+      "sources": [
+        "https://jestjs.io/docs/mock-functions",
+        "https://docs.python.org/3/library/unittest.mock.html",
+        "https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html"
+      ],
+      "faqQuestions": [
+        "How should QA teams verify Mock call order without overspecification, specifically business-significant order without incidental sequence coupling?",
+        "What should a Mock call order without overspecification example fixture record?",
+        "Which failure proves Mock call order without overspecification test cases is broken?",
+        "How do teams isolate Mock call order without overspecification failure modes?",
+        "Which assertion is strongest for how to verify mock call order without overspecification?",
+        "How should CI report mocking practice business-significant order without incidental sequence coupling failures?"
+      ],
+      "cta": "Read /blog/api-mocking-service-virtualization-guide, then open /skills and add the Mock call order without overspecification checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "frameworks-qa-134",
+      "batch": 140,
+      "batchPosition": 4,
+      "domain": "frameworks-qa-practice",
+      "campaignCluster": "frameworks-qa-practice",
+      "slug": "mock-contract-drift-detection",
+      "primaryKeyword": "Mock contract drift detection",
+      "title": "Mock Contract Drift Detection",
+      "description": "Mock contract drift detection: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified cleanup.",
+      "intent": "how-to",
+      "coreQuestion": "How should QA teams verify Mock contract drift detection, specifically mock interfaces checked against changing production contracts?",
+      "intentBoundary": "Owns mock interfaces checked against changing production contracts. It excludes framework installation, browser request interception, or generic mock tutorials, plus AI, RAG, MCP, and unrelated infrastructure topics.",
+      "secondaryKeywords": [
+        "Mock contract drift detection example",
+        "Mock contract drift detection test cases",
+        "Mock contract drift detection failure modes",
+        "how to verify mock contract drift detection",
+        "mocking practice mock interfaces checked against changing production contracts",
+        "Mock contract drift detection best practices"
+      ],
+      "outline": [
+        {
+          "heading": "What does Mock contract drift detection verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams verify Mock contract drift detection, specifically mock interfaces checked against changing production contracts?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build Mock contract drift detection example?",
+          "question": true,
+          "secondaryKeyword": "Mock contract drift detection example",
+          "coverage": "Create an isolated fixture for Mock contract drift detection example. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/msw-mocking/SKILL.md",
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks Mock contract drift detection test cases?",
+          "question": true,
+          "secondaryKeyword": "Mock contract drift detection test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for Mock contract drift detection test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts",
+            "seed-skills/jest-mocking-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Mock contract drift detection failure modes fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "Mock contract drift detection failure modes",
+          "coverage": "Turn Mock contract drift detection failure modes into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should how to verify mock contract drift detection be asserted?",
+          "question": true,
+          "secondaryKeyword": "how to verify mock contract drift detection",
+          "coverage": "Build the oracle for how to verify mock contract drift detection from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/msw-mocking/SKILL.md",
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Mocking practice mock interfaces checked against changing production contracts in CI",
+          "question": false,
+          "secondaryKeyword": "mocking practice mock interfaces checked against changing production contracts",
+          "coverage": "Package mocking practice mock interfaces checked against changing production contracts as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts",
+            "seed-skills/jest-mocking-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Mock Contract Drift Detection comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Mock contract drift detection?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md",
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/msw-mocking/SKILL.md",
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Mock Contract Drift Detection scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/jest-mocking-patterns/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock contract drift detection.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/jest-mocking-patterns/SKILL.md"
+          },
+          {
+            "scenario": "Mock contract drift detection example",
+            "controlledSetup": "Change only the condition represented by \"Mock contract drift detection example\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock contract drift detection.",
+            "failureSignal": "The observed result differs from the approved Mock contract drift detection example contract.",
+            "evidenceSource": "seed-skills/msw-mocking/SKILL.md"
+          },
+          {
+            "scenario": "Mock contract drift detection test cases",
+            "controlledSetup": "Change only the condition represented by \"Mock contract drift detection test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock contract drift detection.",
+            "failureSignal": "The observed result differs from the approved Mock contract drift detection test cases contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock contract drift detection.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/jest-mocking-patterns/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock contract drift detection.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/msw-mocking/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/jest-mocking-patterns/SKILL.md",
+          "seed-skills/msw-mocking/SKILL.md",
+          "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts",
+          "https://jestjs.io/docs/mock-functions",
+          "https://docs.python.org/3/library/unittest.mock.html",
+          "https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Mock contract drift detection",
+        "steps": [
+          "Read seed-skills/jest-mocking-patterns/SKILL.md and seed-skills/msw-mocking/SKILL.md and packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Mock contract drift detection with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for Mock contract drift detection example, Mock contract drift detection test cases, Mock contract drift detection failure modes, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Mock contract drift detection baseline",
+          "language": "typescript",
+          "path": "seed-skills/jest-mocking-patterns/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Mock contract drift detection fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/msw-mocking/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/jest-mocking-patterns/SKILL.md",
+        "seed-skills/msw-mocking/SKILL.md",
+        "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/unit-testing",
+        "/blog/api-mocking-service-virtualization-guide",
+        "/blog/test-automation-framework-architecture",
+        "/blog/test-case-design-techniques-guide",
+        "/blog/regression-testing-strategies-guide"
+      ],
+      "relatedSlugs": [
+        "api-mocking-service-virtualization-guide",
+        "test-automation-framework-architecture",
+        "test-case-design-techniques-guide",
+        "regression-testing-strategies-guide"
+      ],
+      "sources": [
+        "https://jestjs.io/docs/mock-functions",
+        "https://docs.python.org/3/library/unittest.mock.html",
+        "https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html"
+      ],
+      "faqQuestions": [
+        "How should QA teams verify Mock contract drift detection, specifically mock interfaces checked against changing production contracts?",
+        "What should a Mock contract drift detection example fixture record?",
+        "Which failure proves Mock contract drift detection test cases is broken?",
+        "How do teams isolate Mock contract drift detection failure modes?",
+        "Which assertion is strongest for how to verify mock contract drift detection?",
+        "How should CI report mocking practice mock interfaces checked against changing production contracts failures?"
+      ],
+      "cta": "Read /blog/api-mocking-service-virtualization-guide, then open /skills and add the Mock contract drift detection checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "frameworks-qa-143",
+      "batch": 140,
+      "batchPosition": 5,
+      "domain": "frameworks-qa-practice",
+      "campaignCluster": "frameworks-qa-practice",
+      "slug": "mock-exception-type-fidelity",
+      "primaryKeyword": "Mock exception type fidelity",
+      "title": "Mock Exception Type Fidelity",
+      "description": "Mock exception type fidelity: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified cleanup.",
+      "intent": "how-to",
+      "coreQuestion": "How should QA teams verify Mock exception type fidelity, specifically preserving exception classes, fields, and causal chains in doubles?",
+      "intentBoundary": "Owns preserving exception classes, fields, and causal chains in doubles. It excludes framework installation, browser request interception, or generic mock tutorials, plus AI, RAG, MCP, and unrelated infrastructure topics.",
+      "secondaryKeywords": [
+        "Mock exception type fidelity example",
+        "Mock exception type fidelity test cases",
+        "Mock exception type fidelity failure modes",
+        "how to verify mock exception type fidelity",
+        "mocking practice preserving exception classes, fields, and causal chains in doubles",
+        "Mock exception type fidelity best practices"
+      ],
+      "outline": [
+        {
+          "heading": "What does Mock exception type fidelity verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams verify Mock exception type fidelity, specifically preserving exception classes, fields, and causal chains in doubles?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build Mock exception type fidelity example?",
+          "question": true,
+          "secondaryKeyword": "Mock exception type fidelity example",
+          "coverage": "Create an isolated fixture for Mock exception type fidelity example. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/msw-mocking/SKILL.md",
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks Mock exception type fidelity test cases?",
+          "question": true,
+          "secondaryKeyword": "Mock exception type fidelity test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for Mock exception type fidelity test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts",
+            "seed-skills/jest-mocking-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Mock exception type fidelity failure modes fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "Mock exception type fidelity failure modes",
+          "coverage": "Turn Mock exception type fidelity failure modes into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should how to verify mock exception type fidelity be asserted?",
+          "question": true,
+          "secondaryKeyword": "how to verify mock exception type fidelity",
+          "coverage": "Build the oracle for how to verify mock exception type fidelity from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/msw-mocking/SKILL.md",
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Mocking practice preserving exception classes, fields, and causal chains in doubles in CI",
+          "question": false,
+          "secondaryKeyword": "mocking practice preserving exception classes, fields, and causal chains in doubles",
+          "coverage": "Package mocking practice preserving exception classes, fields, and causal chains in doubles as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts",
+            "seed-skills/jest-mocking-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Mock Exception Type Fidelity comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Mock exception type fidelity?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md",
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/msw-mocking/SKILL.md",
+            "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/jest-mocking-patterns/SKILL.md",
+            "seed-skills/msw-mocking/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Mock Exception Type Fidelity scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/jest-mocking-patterns/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock exception type fidelity.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/jest-mocking-patterns/SKILL.md"
+          },
+          {
+            "scenario": "Mock exception type fidelity example",
+            "controlledSetup": "Change only the condition represented by \"Mock exception type fidelity example\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock exception type fidelity.",
+            "failureSignal": "The observed result differs from the approved Mock exception type fidelity example contract.",
+            "evidenceSource": "seed-skills/msw-mocking/SKILL.md"
+          },
+          {
+            "scenario": "Mock exception type fidelity test cases",
+            "controlledSetup": "Change only the condition represented by \"Mock exception type fidelity test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock exception type fidelity.",
+            "failureSignal": "The observed result differs from the approved Mock exception type fidelity test cases contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock exception type fidelity.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/jest-mocking-patterns/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Mock exception type fidelity.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/msw-mocking/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/jest-mocking-patterns/SKILL.md",
+          "seed-skills/msw-mocking/SKILL.md",
+          "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts",
+          "https://jestjs.io/docs/mock-functions",
+          "https://docs.python.org/3/library/unittest.mock.html",
+          "https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Mock exception type fidelity",
+        "steps": [
+          "Read seed-skills/jest-mocking-patterns/SKILL.md and seed-skills/msw-mocking/SKILL.md and packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Mock exception type fidelity with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for Mock exception type fidelity example, Mock exception type fidelity test cases, Mock exception type fidelity failure modes, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Mock exception type fidelity baseline",
+          "language": "typescript",
+          "path": "seed-skills/jest-mocking-patterns/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Mock exception type fidelity fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/msw-mocking/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/jest-mocking-patterns/SKILL.md",
+        "seed-skills/msw-mocking/SKILL.md",
+        "packages/web/src/app/blog/posts/jest-mock-vs-mockimplementation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/unit-testing",
+        "/blog/api-mocking-service-virtualization-guide",
+        "/blog/test-automation-framework-architecture",
+        "/blog/test-case-design-techniques-guide",
+        "/blog/regression-testing-strategies-guide"
+      ],
+      "relatedSlugs": [
+        "api-mocking-service-virtualization-guide",
+        "test-automation-framework-architecture",
+        "test-case-design-techniques-guide",
+        "regression-testing-strategies-guide"
+      ],
+      "sources": [
+        "https://jestjs.io/docs/mock-functions",
+        "https://docs.python.org/3/library/unittest.mock.html",
+        "https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html"
+      ],
+      "faqQuestions": [
+        "How should QA teams verify Mock exception type fidelity, specifically preserving exception classes, fields, and causal chains in doubles?",
+        "What should a Mock exception type fidelity example fixture record?",
+        "Which failure proves Mock exception type fidelity test cases is broken?",
+        "How do teams isolate Mock exception type fidelity failure modes?",
+        "Which assertion is strongest for how to verify mock exception type fidelity?",
+        "How should CI report mocking practice preserving exception classes, fields, and causal chains in doubles failures?"
+      ],
+      "cta": "Read /blog/api-mocking-service-virtualization-guide, then open /skills and add the Mock exception type fidelity checks to the next QA run."
+    }
+  ]
+}

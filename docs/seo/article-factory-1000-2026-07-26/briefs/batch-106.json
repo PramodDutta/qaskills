@@ -1,0 +1,1162 @@
+{
+  "batch": 106,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-132",
+      "batch": 106,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "kubernetes-default-deny-policy-testing",
+      "primaryKeyword": "Kubernetes default deny policy testing",
+      "title": "Kubernetes Default Deny Policy Testing",
+      "description": "Kubernetes default deny policy testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify ingress and egress remain blocked except for explicit NetworkPolicy paths?",
+      "intentBoundary": "Owns Kubernetes network isolation, not admission policy or service-mesh retries.",
+      "secondaryKeywords": [
+        "default deny ingress",
+        "DNS egress exception",
+        "namespace selector access",
+        "Kubernetes default deny policy testing checklist",
+        "Kubernetes default deny policy testing CI strategy",
+        "Kubernetes default deny policy testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Kubernetes default deny policy testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify ingress and egress remain blocked except for explicit NetworkPolicy paths?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build default deny ingress?",
+          "question": true,
+          "secondaryKeyword": "default deny ingress",
+          "coverage": "Create an isolated fixture for default deny ingress. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks DNS egress exception?",
+          "question": true,
+          "secondaryKeyword": "DNS egress exception",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for DNS egress exception. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts",
+            "seed-skills/kubernetes-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Namespace selector access fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "namespace selector access",
+          "coverage": "Turn namespace selector access into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Kubernetes default deny policy testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Kubernetes default deny policy testing checklist",
+          "coverage": "Build the oracle for Kubernetes default deny policy testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Kubernetes default deny policy testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Kubernetes default deny policy testing CI strategy",
+          "coverage": "Package Kubernetes default deny policy testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts",
+            "seed-skills/kubernetes-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Kubernetes Default Deny Policy Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Kubernetes default deny policy testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Kubernetes Default Deny Policy Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/kubernetes-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes default deny policy testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/kubernetes-testing/SKILL.md"
+          },
+          {
+            "scenario": "default deny ingress",
+            "controlledSetup": "Change only the condition represented by \"default deny ingress\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes default deny policy testing.",
+            "failureSignal": "The observed result differs from the approved default deny ingress contract.",
+            "evidenceSource": "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          },
+          {
+            "scenario": "DNS egress exception",
+            "controlledSetup": "Change only the condition represented by \"DNS egress exception\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes default deny policy testing.",
+            "failureSignal": "The observed result differs from the approved DNS egress exception contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes default deny policy testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/kubernetes-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes default deny policy testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/kubernetes-testing/SKILL.md",
+          "seed-skills/chaos-testing-kubernetes/SKILL.md",
+          "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts",
+          "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
+          "https://kubernetes.io/docs/concepts/services-networking/service/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Kubernetes default deny policy testing",
+        "steps": [
+          "Read seed-skills/kubernetes-testing/SKILL.md and seed-skills/chaos-testing-kubernetes/SKILL.md and packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Kubernetes default deny policy testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for default deny ingress, DNS egress exception, namespace selector access, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Kubernetes default deny policy testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/kubernetes-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Kubernetes default deny policy testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/chaos-testing-kubernetes/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/kubernetes-testing/SKILL.md",
+        "seed-skills/chaos-testing-kubernetes/SKILL.md",
+        "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/chaos-mesh-kubernetes-testing-guide",
+        "/blog/docker-testing-strategies-guide",
+        "/blog/cloudflare-workers-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "chaos-mesh-kubernetes-testing-guide",
+        "docker-testing-strategies-guide",
+        "cloudflare-workers-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
+        "https://kubernetes.io/docs/concepts/services-networking/service/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify ingress and egress remain blocked except for explicit NetworkPolicy paths?",
+        "What should a default deny ingress fixture record?",
+        "Which failure proves DNS egress exception is broken?",
+        "How do teams isolate namespace selector access?",
+        "Which assertion is strongest for Kubernetes default deny policy testing checklist?",
+        "How should CI report Kubernetes default deny policy testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/chaos-mesh-kubernetes-testing-guide, then open /skills and add the Kubernetes default deny policy testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-055",
+      "batch": 106,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "chaos-system-clock-skew-testing",
+      "primaryKeyword": "chaos system clock skew testing",
+      "title": "Chaos System Clock Skew Testing",
+      "description": "chaos system clock skew testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams shift system time safely and verify leases, tokens, logs, and scheduled work?",
+      "intentBoundary": "Owns host clock faults, not user timezone formatting or distributed load-worker drift.",
+      "secondaryKeywords": [
+        "expired token clock drift",
+        "lease timestamp skew",
+        "scheduled task time jump",
+        "chaos system clock skew testing checklist",
+        "chaos system clock skew testing CI strategy",
+        "chaos system clock skew testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does chaos system clock skew testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams shift system time safely and verify leases, tokens, logs, and scheduled work?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/chaos-engineering-advanced/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build expired token clock drift?",
+          "question": true,
+          "secondaryKeyword": "expired token clock drift",
+          "coverage": "Create an isolated fixture for expired token clock drift. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts"
+          ]
+        },
+        {
+          "heading": "What breaks lease timestamp skew?",
+          "question": true,
+          "secondaryKeyword": "lease timestamp skew",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for lease timestamp skew. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts",
+            "seed-skills/chaos-engineering-advanced/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Scheduled task time jump fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "scheduled task time jump",
+          "coverage": "Turn scheduled task time jump into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/chaos-engineering-advanced/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should chaos system clock skew testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "chaos system clock skew testing checklist",
+          "coverage": "Build the oracle for chaos system clock skew testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts"
+          ]
+        },
+        {
+          "heading": "Chaos system clock skew testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "chaos system clock skew testing CI strategy",
+          "coverage": "Package chaos system clock skew testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts",
+            "seed-skills/chaos-engineering-advanced/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Chaos System Clock Skew Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/chaos-engineering-advanced/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement chaos system clock skew testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/chaos-engineering-advanced/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/chaos-engineering-advanced/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Chaos System Clock Skew Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/chaos-engineering-advanced/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by chaos system clock skew testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/chaos-engineering-advanced/SKILL.md"
+          },
+          {
+            "scenario": "expired token clock drift",
+            "controlledSetup": "Change only the condition represented by \"expired token clock drift\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by chaos system clock skew testing.",
+            "failureSignal": "The observed result differs from the approved expired token clock drift contract.",
+            "evidenceSource": "seed-skills/retry-resilience-testing/SKILL.md"
+          },
+          {
+            "scenario": "lease timestamp skew",
+            "controlledSetup": "Change only the condition represented by \"lease timestamp skew\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by chaos system clock skew testing.",
+            "failureSignal": "The observed result differs from the approved lease timestamp skew contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by chaos system clock skew testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/chaos-engineering-advanced/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by chaos system clock skew testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/retry-resilience-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/chaos-engineering-advanced/SKILL.md",
+          "seed-skills/retry-resilience-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts",
+          "https://principlesofchaos.org/",
+          "https://chaos-mesh.org/docs/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run chaos system clock skew testing",
+        "steps": [
+          "Read seed-skills/chaos-engineering-advanced/SKILL.md and seed-skills/retry-resilience-testing/SKILL.md and packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for chaos system clock skew testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for expired token clock drift, lease timestamp skew, scheduled task time jump, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the chaos system clock skew testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/chaos-engineering-advanced/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated chaos system clock skew testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/retry-resilience-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/chaos-engineering-advanced/SKILL.md",
+        "seed-skills/retry-resilience-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/performance-testing",
+        "/blog/load-testing-beginners-guide",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "load-testing-beginners-guide",
+        "chaos-engineering-resilience-testing",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://principlesofchaos.org/",
+        "https://chaos-mesh.org/docs/"
+      ],
+      "faqQuestions": [
+        "How can QA teams shift system time safely and verify leases, tokens, logs, and scheduled work?",
+        "What should a expired token clock drift fixture record?",
+        "Which failure proves lease timestamp skew is broken?",
+        "How do teams isolate scheduled task time jump?",
+        "Which assertion is strongest for chaos system clock skew testing checklist?",
+        "How should CI report chaos system clock skew testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/load-testing-beginners-guide, then open /skills and add the chaos system clock skew testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-128",
+      "batch": 106,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "kubernetes-hpa-metric-staleness-testing",
+      "primaryKeyword": "Kubernetes HPA metric staleness testing",
+      "title": "Kubernetes Hpa Metric Staleness Testing",
+      "description": "Kubernetes HPA metric staleness testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify missing or delayed metrics cannot drive unsafe scaling decisions?",
+      "intentBoundary": "Owns autoscaler metric freshness, not stabilization-window load behavior.",
+      "secondaryKeywords": [
+        "stale custom metric",
+        "missing pod metrics",
+        "HPA scaling decision",
+        "Kubernetes HPA metric staleness testing checklist",
+        "Kubernetes HPA metric staleness testing CI strategy",
+        "Kubernetes HPA metric staleness testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Kubernetes HPA metric staleness testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify missing or delayed metrics cannot drive unsafe scaling decisions?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build stale custom metric?",
+          "question": true,
+          "secondaryKeyword": "stale custom metric",
+          "coverage": "Create an isolated fixture for stale custom metric. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks missing pod metrics?",
+          "question": true,
+          "secondaryKeyword": "missing pod metrics",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for missing pod metrics. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts",
+            "seed-skills/kubernetes-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "HPA scaling decision fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "HPA scaling decision",
+          "coverage": "Turn HPA scaling decision into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Kubernetes HPA metric staleness testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Kubernetes HPA metric staleness testing checklist",
+          "coverage": "Build the oracle for Kubernetes HPA metric staleness testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Kubernetes HPA metric staleness testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Kubernetes HPA metric staleness testing CI strategy",
+          "coverage": "Package Kubernetes HPA metric staleness testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts",
+            "seed-skills/kubernetes-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Kubernetes Hpa Metric Staleness Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Kubernetes HPA metric staleness testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Kubernetes Hpa Metric Staleness Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/kubernetes-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes HPA metric staleness testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/kubernetes-testing/SKILL.md"
+          },
+          {
+            "scenario": "stale custom metric",
+            "controlledSetup": "Change only the condition represented by \"stale custom metric\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes HPA metric staleness testing.",
+            "failureSignal": "The observed result differs from the approved stale custom metric contract.",
+            "evidenceSource": "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          },
+          {
+            "scenario": "missing pod metrics",
+            "controlledSetup": "Change only the condition represented by \"missing pod metrics\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes HPA metric staleness testing.",
+            "failureSignal": "The observed result differs from the approved missing pod metrics contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes HPA metric staleness testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/kubernetes-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes HPA metric staleness testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/kubernetes-testing/SKILL.md",
+          "seed-skills/chaos-testing-kubernetes/SKILL.md",
+          "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts",
+          "https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/",
+          "https://kubernetes.io/docs/concepts/policy/resource-quotas/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Kubernetes HPA metric staleness testing",
+        "steps": [
+          "Read seed-skills/kubernetes-testing/SKILL.md and seed-skills/chaos-testing-kubernetes/SKILL.md and packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Kubernetes HPA metric staleness testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for stale custom metric, missing pod metrics, HPA scaling decision, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Kubernetes HPA metric staleness testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/kubernetes-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Kubernetes HPA metric staleness testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/chaos-testing-kubernetes/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/kubernetes-testing/SKILL.md",
+        "seed-skills/chaos-testing-kubernetes/SKILL.md",
+        "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/chaos-mesh-kubernetes-testing-guide",
+        "/blog/docker-testing-strategies-guide",
+        "/blog/cloudflare-workers-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "chaos-mesh-kubernetes-testing-guide",
+        "docker-testing-strategies-guide",
+        "cloudflare-workers-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/",
+        "https://kubernetes.io/docs/concepts/policy/resource-quotas/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify missing or delayed metrics cannot drive unsafe scaling decisions?",
+        "What should a stale custom metric fixture record?",
+        "Which failure proves missing pod metrics is broken?",
+        "How do teams isolate HPA scaling decision?",
+        "Which assertion is strongest for Kubernetes HPA metric staleness testing checklist?",
+        "How should CI report Kubernetes HPA metric staleness testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/chaos-mesh-kubernetes-testing-guide, then open /skills and add the Kubernetes HPA metric staleness testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-134",
+      "batch": 106,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "kubernetes-job-backoff-limit-testing",
+      "primaryKeyword": "Kubernetes Job backoff limit testing",
+      "title": "Kubernetes Job Backoff Limit Testing",
+      "description": "Kubernetes Job backoff limit testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify failed pods stop, retry, or mark jobs failed at exact boundaries?",
+      "intentBoundary": "Owns Job retry accounting, not application-level retry budgets.",
+      "secondaryKeywords": [
+        "backoffLimit boundary",
+        "podFailurePolicy rule",
+        "Job terminal condition",
+        "Kubernetes Job backoff limit testing checklist",
+        "Kubernetes Job backoff limit testing CI strategy",
+        "Kubernetes Job backoff limit testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Kubernetes Job backoff limit testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify failed pods stop, retry, or mark jobs failed at exact boundaries?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build backoffLimit boundary?",
+          "question": true,
+          "secondaryKeyword": "backoffLimit boundary",
+          "coverage": "Create an isolated fixture for backoffLimit boundary. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks podFailurePolicy rule?",
+          "question": true,
+          "secondaryKeyword": "podFailurePolicy rule",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for podFailurePolicy rule. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts",
+            "seed-skills/kubernetes-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Job terminal condition fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "Job terminal condition",
+          "coverage": "Turn Job terminal condition into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Kubernetes Job backoff limit testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Kubernetes Job backoff limit testing checklist",
+          "coverage": "Build the oracle for Kubernetes Job backoff limit testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Kubernetes Job backoff limit testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Kubernetes Job backoff limit testing CI strategy",
+          "coverage": "Package Kubernetes Job backoff limit testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts",
+            "seed-skills/kubernetes-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Kubernetes Job Backoff Limit Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Kubernetes Job backoff limit testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Kubernetes Job Backoff Limit Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/kubernetes-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes Job backoff limit testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/kubernetes-testing/SKILL.md"
+          },
+          {
+            "scenario": "backoffLimit boundary",
+            "controlledSetup": "Change only the condition represented by \"backoffLimit boundary\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes Job backoff limit testing.",
+            "failureSignal": "The observed result differs from the approved backoffLimit boundary contract.",
+            "evidenceSource": "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          },
+          {
+            "scenario": "podFailurePolicy rule",
+            "controlledSetup": "Change only the condition represented by \"podFailurePolicy rule\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes Job backoff limit testing.",
+            "failureSignal": "The observed result differs from the approved podFailurePolicy rule contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes Job backoff limit testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/kubernetes-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes Job backoff limit testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/kubernetes-testing/SKILL.md",
+          "seed-skills/chaos-testing-kubernetes/SKILL.md",
+          "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts",
+          "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
+          "https://kubernetes.io/docs/concepts/workloads/controllers/job/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Kubernetes Job backoff limit testing",
+        "steps": [
+          "Read seed-skills/kubernetes-testing/SKILL.md and seed-skills/chaos-testing-kubernetes/SKILL.md and packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Kubernetes Job backoff limit testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for backoffLimit boundary, podFailurePolicy rule, Job terminal condition, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Kubernetes Job backoff limit testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/kubernetes-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Kubernetes Job backoff limit testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/chaos-testing-kubernetes/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/kubernetes-testing/SKILL.md",
+        "seed-skills/chaos-testing-kubernetes/SKILL.md",
+        "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/chaos-mesh-kubernetes-testing-guide",
+        "/blog/docker-testing-strategies-guide",
+        "/blog/cloudflare-workers-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "chaos-mesh-kubernetes-testing-guide",
+        "docker-testing-strategies-guide",
+        "cloudflare-workers-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/",
+        "https://kubernetes.io/docs/concepts/workloads/controllers/job/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify failed pods stop, retry, or mark jobs failed at exact boundaries?",
+        "What should a backoffLimit boundary fixture record?",
+        "Which failure proves podFailurePolicy rule is broken?",
+        "How do teams isolate Job terminal condition?",
+        "Which assertion is strongest for Kubernetes Job backoff limit testing checklist?",
+        "How should CI report Kubernetes Job backoff limit testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/chaos-mesh-kubernetes-testing-guide, then open /skills and add the Kubernetes Job backoff limit testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-043",
+      "batch": 106,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "jmeter-transaction-controller-timing-testing",
+      "primaryKeyword": "JMeter transaction controller timing testing",
+      "title": "Jmeter Transaction Controller Timing Testing",
+      "description": "JMeter transaction controller timing testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify parent transaction timing includes or excludes nested timers as intended?",
+      "intentBoundary": "Owns transaction-controller measurement semantics, not timer execution scope.",
+      "secondaryKeywords": [
+        "generate parent sample",
+        "transaction nested timer",
+        "controller duration assertion",
+        "JMeter transaction controller timing testing checklist",
+        "JMeter transaction controller timing testing CI strategy",
+        "JMeter transaction controller timing testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does JMeter transaction controller timing testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify parent transaction timing includes or excludes nested timers as intended?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build generate parent sample?",
+          "question": true,
+          "secondaryKeyword": "generate parent sample",
+          "coverage": "Create an isolated fixture for generate parent sample. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks transaction nested timer?",
+          "question": true,
+          "secondaryKeyword": "transaction nested timer",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for transaction nested timer. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts",
+            "seed-skills/jmeter-load/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Controller duration assertion fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "controller duration assertion",
+          "coverage": "Turn controller duration assertion into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should JMeter transaction controller timing testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "JMeter transaction controller timing testing checklist",
+          "coverage": "Build the oracle for JMeter transaction controller timing testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts"
+          ]
+        },
+        {
+          "heading": "JMeter transaction controller timing testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "JMeter transaction controller timing testing CI strategy",
+          "coverage": "Package JMeter transaction controller timing testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts",
+            "seed-skills/jmeter-load/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Jmeter Transaction Controller Timing Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement JMeter transaction controller timing testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Jmeter Transaction Controller Timing Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/jmeter-load/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JMeter transaction controller timing testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/jmeter-load/SKILL.md"
+          },
+          {
+            "scenario": "generate parent sample",
+            "controlledSetup": "Change only the condition represented by \"generate parent sample\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JMeter transaction controller timing testing.",
+            "failureSignal": "The observed result differs from the approved generate parent sample contract.",
+            "evidenceSource": "seed-skills/performance-test-scenario-generator/SKILL.md"
+          },
+          {
+            "scenario": "transaction nested timer",
+            "controlledSetup": "Change only the condition represented by \"transaction nested timer\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JMeter transaction controller timing testing.",
+            "failureSignal": "The observed result differs from the approved transaction nested timer contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JMeter transaction controller timing testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/jmeter-load/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JMeter transaction controller timing testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/performance-test-scenario-generator/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/jmeter-load/SKILL.md",
+          "seed-skills/performance-test-scenario-generator/SKILL.md",
+          "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts",
+          "https://jmeter.apache.org/usermanual/component_reference.html",
+          "https://jmeter.apache.org/usermanual/best-practices.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run JMeter transaction controller timing testing",
+        "steps": [
+          "Read seed-skills/jmeter-load/SKILL.md and seed-skills/performance-test-scenario-generator/SKILL.md and packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for JMeter transaction controller timing testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for generate parent sample, transaction nested timer, controller duration assertion, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the JMeter transaction controller timing testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/jmeter-load/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated JMeter transaction controller timing testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/performance-test-scenario-generator/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/jmeter-load/SKILL.md",
+        "seed-skills/performance-test-scenario-generator/SKILL.md",
+        "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/performance-testing",
+        "/blog/load-testing-beginners-guide",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "load-testing-beginners-guide",
+        "chaos-engineering-resilience-testing",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://jmeter.apache.org/usermanual/component_reference.html",
+        "https://jmeter.apache.org/usermanual/best-practices.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify parent transaction timing includes or excludes nested timers as intended?",
+        "What should a generate parent sample fixture record?",
+        "Which failure proves transaction nested timer is broken?",
+        "How do teams isolate controller duration assertion?",
+        "Which assertion is strongest for JMeter transaction controller timing testing checklist?",
+        "How should CI report JMeter transaction controller timing testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/load-testing-beginners-guide, then open /skills and add the JMeter transaction controller timing testing checks to the next QA run."
+    }
+  ]
+}

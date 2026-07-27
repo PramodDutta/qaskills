@@ -1,0 +1,1160 @@
+{
+  "batch": 113,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-090",
+      "batch": 113,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "mobile-clock-change-sync-testing",
+      "primaryKeyword": "mobile clock change sync testing",
+      "title": "Mobile Clock Change Sync Testing",
+      "description": "mobile clock change sync testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify offline changes reconcile after manual clock, timezone, or DST shifts?",
+      "intentBoundary": "Owns device-clock effects on sync ordering, not display timezone formatting.",
+      "secondaryKeywords": [
+        "offline timestamp conflict",
+        "device clock rollback",
+        "DST sync ordering",
+        "mobile clock change sync testing checklist",
+        "mobile clock change sync testing CI strategy",
+        "mobile clock change sync testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does mobile clock change sync testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify offline changes reconcile after manual clock, timezone, or DST shifts?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/data-integrity-testing/SKILL.md",
+            "seed-skills/offline-mode-tester/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build offline timestamp conflict?",
+          "question": true,
+          "secondaryKeyword": "offline timestamp conflict",
+          "coverage": "Create an isolated fixture for offline timestamp conflict. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/offline-mode-tester/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks device clock rollback?",
+          "question": true,
+          "secondaryKeyword": "device clock rollback",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for device clock rollback. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/data-integrity-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "DST sync ordering fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "DST sync ordering",
+          "coverage": "Turn DST sync ordering into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/data-integrity-testing/SKILL.md",
+            "seed-skills/offline-mode-tester/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should mobile clock change sync testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "mobile clock change sync testing checklist",
+          "coverage": "Build the oracle for mobile clock change sync testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/offline-mode-tester/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Mobile clock change sync testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "mobile clock change sync testing CI strategy",
+          "coverage": "Package mobile clock change sync testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/data-integrity-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Mobile Clock Change Sync Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/data-integrity-testing/SKILL.md",
+            "seed-skills/offline-mode-tester/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement mobile clock change sync testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/data-integrity-testing/SKILL.md",
+            "seed-skills/offline-mode-tester/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/offline-mode-tester/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/data-integrity-testing/SKILL.md",
+            "seed-skills/offline-mode-tester/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Mobile Clock Change Sync Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/data-integrity-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile clock change sync testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/data-integrity-testing/SKILL.md"
+          },
+          {
+            "scenario": "offline timestamp conflict",
+            "controlledSetup": "Change only the condition represented by \"offline timestamp conflict\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile clock change sync testing.",
+            "failureSignal": "The observed result differs from the approved offline timestamp conflict contract.",
+            "evidenceSource": "seed-skills/offline-mode-tester/SKILL.md"
+          },
+          {
+            "scenario": "device clock rollback",
+            "controlledSetup": "Change only the condition represented by \"device clock rollback\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile clock change sync testing.",
+            "failureSignal": "The observed result differs from the approved device clock rollback contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile clock change sync testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/data-integrity-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile clock change sync testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/offline-mode-tester/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/data-integrity-testing/SKILL.md",
+          "seed-skills/offline-mode-tester/SKILL.md",
+          "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+          "https://www.rfc-editor.org/rfc/rfc3339.html",
+          "https://developer.android.com/reference/java/time/Clock"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run mobile clock change sync testing",
+        "steps": [
+          "Read seed-skills/data-integrity-testing/SKILL.md and seed-skills/offline-mode-tester/SKILL.md and packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for mobile clock change sync testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for offline timestamp conflict, device clock rollback, DST sync ordering, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the mobile clock change sync testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/data-integrity-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated mobile clock change sync testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/offline-mode-tester/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/data-integrity-testing/SKILL.md",
+        "seed-skills/offline-mode-tester/SKILL.md",
+        "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/mobile-testing-automation-guide",
+        "/blog/appium-mobile-testing-complete-guide",
+        "/blog/mobile-device-farm-testing-strategy-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-testing-automation-guide",
+        "appium-mobile-testing-complete-guide",
+        "mobile-device-farm-testing-strategy-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc3339.html",
+        "https://developer.android.com/reference/java/time/Clock"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify offline changes reconcile after manual clock, timezone, or DST shifts?",
+        "What should a offline timestamp conflict fixture record?",
+        "Which failure proves device clock rollback is broken?",
+        "How do teams isolate DST sync ordering?",
+        "Which assertion is strongest for mobile clock change sync testing checklist?",
+        "How should CI report mobile clock change sync testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-testing-automation-guide, then open /skills and add the mobile clock change sync testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-062",
+      "batch": 113,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "mtls-client-certificate-revocation-testing",
+      "primaryKeyword": "mTLS client certificate revocation testing",
+      "title": "Mtls Client Certificate Revocation Testing",
+      "description": "mTLS client certificate revocation testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify revoked, expired, and wrong-purpose client certificates fail closed?",
+      "intentBoundary": "Owns client certificate status and EKU, not server TLS chain validation.",
+      "secondaryKeywords": [
+        "CRL client certificate",
+        "OCSP revocation test",
+        "clientAuth EKU",
+        "mTLS client certificate revocation testing checklist",
+        "mTLS client certificate revocation testing CI strategy",
+        "mTLS client certificate revocation testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does mTLS client certificate revocation testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify revoked, expired, and wrong-purpose client certificates fail closed?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/ssl-tls-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build CRL client certificate?",
+          "question": true,
+          "secondaryKeyword": "CRL client certificate",
+          "coverage": "Create an isolated fixture for CRL client certificate. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks OCSP revocation test?",
+          "question": true,
+          "secondaryKeyword": "OCSP revocation test",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for OCSP revocation test. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/ssl-tls-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "ClientAuth EKU fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "clientAuth EKU",
+          "coverage": "Turn clientAuth EKU into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/ssl-tls-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should mTLS client certificate revocation testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "mTLS client certificate revocation testing checklist",
+          "coverage": "Build the oracle for mTLS client certificate revocation testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "MTLS client certificate revocation testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "mTLS client certificate revocation testing CI strategy",
+          "coverage": "Package mTLS client certificate revocation testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/ssl-tls-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Mtls Client Certificate Revocation Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/ssl-tls-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement mTLS client certificate revocation testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/ssl-tls-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/ssl-tls-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Mtls Client Certificate Revocation Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/ssl-tls-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mTLS client certificate revocation testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/ssl-tls-testing/SKILL.md"
+          },
+          {
+            "scenario": "CRL client certificate",
+            "controlledSetup": "Change only the condition represented by \"CRL client certificate\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mTLS client certificate revocation testing.",
+            "failureSignal": "The observed result differs from the approved CRL client certificate contract.",
+            "evidenceSource": "seed-skills/authentication-testing/SKILL.md"
+          },
+          {
+            "scenario": "OCSP revocation test",
+            "controlledSetup": "Change only the condition represented by \"OCSP revocation test\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mTLS client certificate revocation testing.",
+            "failureSignal": "The observed result differs from the approved OCSP revocation test contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mTLS client certificate revocation testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/ssl-tls-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mTLS client certificate revocation testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/authentication-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/ssl-tls-testing/SKILL.md",
+          "seed-skills/authentication-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+          "https://www.rfc-editor.org/rfc/rfc8446.html",
+          "https://www.rfc-editor.org/rfc/rfc5280.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run mTLS client certificate revocation testing",
+        "steps": [
+          "Read seed-skills/ssl-tls-testing/SKILL.md and seed-skills/authentication-testing/SKILL.md and packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for mTLS client certificate revocation testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for CRL client certificate, OCSP revocation test, clientAuth EKU, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the mTLS client certificate revocation testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/ssl-tls-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated mTLS client certificate revocation testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/authentication-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/ssl-tls-testing/SKILL.md",
+        "seed-skills/authentication-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/dast-vs-sast-vs-sca-qa-guide-2026",
+        "/blog/security-testing-ai-generated-code",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "api-security-testing-checklist-2026",
+        "dast-vs-sast-vs-sca-qa-guide-2026",
+        "security-testing-ai-generated-code",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc8446.html",
+        "https://www.rfc-editor.org/rfc/rfc5280.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify revoked, expired, and wrong-purpose client certificates fail closed?",
+        "What should a CRL client certificate fixture record?",
+        "Which failure proves OCSP revocation test is broken?",
+        "How do teams isolate clientAuth EKU?",
+        "Which assertion is strongest for mTLS client certificate revocation testing checklist?",
+        "How should CI report mTLS client certificate revocation testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-security-testing-checklist-2026, then open /skills and add the mTLS client certificate revocation testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-076",
+      "batch": 113,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "android-process-death-restoration-testing",
+      "primaryKeyword": "Android process death restoration testing",
+      "title": "Android Process Death Restoration Testing",
+      "description": "Android process death restoration testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify saved UI and domain state restore after Android kills the process?",
+      "intentBoundary": "Owns OS process recreation, not rotation-only configuration changes.",
+      "secondaryKeywords": [
+        "saved state handle",
+        "process recreation test",
+        "pending navigation restoration",
+        "Android process death restoration testing checklist",
+        "Android process death restoration testing CI strategy",
+        "Android process death restoration testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Android process death restoration testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify saved UI and domain state restore after Android kills the process?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build saved state handle?",
+          "question": true,
+          "secondaryKeyword": "saved state handle",
+          "coverage": "Create an isolated fixture for saved state handle. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks process recreation test?",
+          "question": true,
+          "secondaryKeyword": "process recreation test",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for process recreation test. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/espresso-android/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Pending navigation restoration fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "pending navigation restoration",
+          "coverage": "Turn pending navigation restoration into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Android process death restoration testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Android process death restoration testing checklist",
+          "coverage": "Build the oracle for Android process death restoration testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Android process death restoration testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Android process death restoration testing CI strategy",
+          "coverage": "Package Android process death restoration testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/espresso-android/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Android Process Death Restoration Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Android process death restoration testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Android Process Death Restoration Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/espresso-android/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android process death restoration testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/espresso-android/SKILL.md"
+          },
+          {
+            "scenario": "saved state handle",
+            "controlledSetup": "Change only the condition represented by \"saved state handle\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android process death restoration testing.",
+            "failureSignal": "The observed result differs from the approved saved state handle contract.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "process recreation test",
+            "controlledSetup": "Change only the condition represented by \"process recreation test\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android process death restoration testing.",
+            "failureSignal": "The observed result differs from the approved process recreation test contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android process death restoration testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/espresso-android/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android process death restoration testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/espresso-android/SKILL.md",
+          "seed-skills/appium-mobile/SKILL.md",
+          "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+          "https://developer.android.com/guide/components/activities/process-lifecycle",
+          "https://developer.android.com/topic/libraries/architecture/saving-states"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Android process death restoration testing",
+        "steps": [
+          "Read seed-skills/espresso-android/SKILL.md and seed-skills/appium-mobile/SKILL.md and packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Android process death restoration testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for saved state handle, process recreation test, pending navigation restoration, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Android process death restoration testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/espresso-android/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Android process death restoration testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/appium-mobile/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/espresso-android/SKILL.md",
+        "seed-skills/appium-mobile/SKILL.md",
+        "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/mobile-testing-automation-guide",
+        "/blog/appium-mobile-testing-complete-guide",
+        "/blog/mobile-device-farm-testing-strategy-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-testing-automation-guide",
+        "appium-mobile-testing-complete-guide",
+        "mobile-device-farm-testing-strategy-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://developer.android.com/guide/components/activities/process-lifecycle",
+        "https://developer.android.com/topic/libraries/architecture/saving-states"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify saved UI and domain state restore after Android kills the process?",
+        "What should a saved state handle fixture record?",
+        "Which failure proves process recreation test is broken?",
+        "How do teams isolate pending navigation restoration?",
+        "Which assertion is strongest for Android process death restoration testing checklist?",
+        "How should CI report Android process death restoration testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-testing-automation-guide, then open /skills and add the Android process death restoration testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-066",
+      "batch": 113,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "api-mass-assignment-allowlist-testing",
+      "primaryKeyword": "API mass assignment allowlist testing",
+      "title": "API Mass Assignment Allowlist Testing",
+      "description": "API mass assignment allowlist testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams prove untrusted request fields cannot bind privileged model properties?",
+      "intentBoundary": "Owns request-model binding allowlists, not response property authorization.",
+      "secondaryKeywords": [
+        "privileged field injection",
+        "DTO binding allowlist",
+        "unknown update property",
+        "API mass assignment allowlist testing checklist",
+        "API mass assignment allowlist testing CI strategy",
+        "API mass assignment allowlist testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does API mass assignment allowlist testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams prove untrusted request fields cannot bind privileged model properties?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build privileged field injection?",
+          "question": true,
+          "secondaryKeyword": "privileged field injection",
+          "coverage": "Create an isolated fixture for privileged field injection. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks DTO binding allowlist?",
+          "question": true,
+          "secondaryKeyword": "DTO binding allowlist",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for DTO binding allowlist. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/api-security-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Unknown update property fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "unknown update property",
+          "coverage": "Turn unknown update property into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should API mass assignment allowlist testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "API mass assignment allowlist testing checklist",
+          "coverage": "Build the oracle for API mass assignment allowlist testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "API mass assignment allowlist testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "API mass assignment allowlist testing CI strategy",
+          "coverage": "Package API mass assignment allowlist testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/api-security-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "API Mass Assignment Allowlist Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement API mass assignment allowlist testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "API Mass Assignment Allowlist Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/api-security-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API mass assignment allowlist testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/api-security-testing/SKILL.md"
+          },
+          {
+            "scenario": "privileged field injection",
+            "controlledSetup": "Change only the condition represented by \"privileged field injection\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API mass assignment allowlist testing.",
+            "failureSignal": "The observed result differs from the approved privileged field injection contract.",
+            "evidenceSource": "seed-skills/authorization-testing/SKILL.md"
+          },
+          {
+            "scenario": "DTO binding allowlist",
+            "controlledSetup": "Change only the condition represented by \"DTO binding allowlist\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API mass assignment allowlist testing.",
+            "failureSignal": "The observed result differs from the approved DTO binding allowlist contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API mass assignment allowlist testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/api-security-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API mass assignment allowlist testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/authorization-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/api-security-testing/SKILL.md",
+          "seed-skills/authorization-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+          "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+          "https://owasp.org/www-project-application-security-verification-standard/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run API mass assignment allowlist testing",
+        "steps": [
+          "Read seed-skills/api-security-testing/SKILL.md and seed-skills/authorization-testing/SKILL.md and packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for API mass assignment allowlist testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for privileged field injection, DTO binding allowlist, unknown update property, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the API mass assignment allowlist testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/api-security-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated API mass assignment allowlist testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/authorization-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/api-security-testing/SKILL.md",
+        "seed-skills/authorization-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/dast-vs-sast-vs-sca-qa-guide-2026",
+        "/blog/security-testing-ai-generated-code",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "api-security-testing-checklist-2026",
+        "dast-vs-sast-vs-sca-qa-guide-2026",
+        "security-testing-ai-generated-code",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "https://owasp.org/www-project-application-security-verification-standard/"
+      ],
+      "faqQuestions": [
+        "How can QA teams prove untrusted request fields cannot bind privileged model properties?",
+        "What should a privileged field injection fixture record?",
+        "Which failure proves DTO binding allowlist is broken?",
+        "How do teams isolate unknown update property?",
+        "Which assertion is strongest for API mass assignment allowlist testing checklist?",
+        "How should CI report API mass assignment allowlist testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-security-testing-checklist-2026, then open /skills and add the API mass assignment allowlist testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-058",
+      "batch": 113,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "oauth-device-code-polling-abuse-testing",
+      "primaryKeyword": "OAuth device code polling abuse testing",
+      "title": "Oauth Device Code Polling Abuse Testing",
+      "description": "OAuth device code polling abuse testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify slow_down, expiry, denial, and brute-force controls in device authorization?",
+      "intentBoundary": "Owns device-code polling controls, not browser-based OAuth redirects.",
+      "secondaryKeywords": [
+        "slow_down polling response",
+        "expired device code",
+        "user code guessing",
+        "OAuth device code polling abuse testing checklist",
+        "OAuth device code polling abuse testing CI strategy",
+        "OAuth device code polling abuse testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does OAuth device code polling abuse testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify slow_down, expiry, denial, and brute-force controls in device authorization?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/oauth-security-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build slow_down polling response?",
+          "question": true,
+          "secondaryKeyword": "slow_down polling response",
+          "coverage": "Create an isolated fixture for slow_down polling response. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks expired device code?",
+          "question": true,
+          "secondaryKeyword": "expired device code",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for expired device code. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/oauth-security-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "User code guessing fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "user code guessing",
+          "coverage": "Turn user code guessing into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/oauth-security-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should OAuth device code polling abuse testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "OAuth device code polling abuse testing checklist",
+          "coverage": "Build the oracle for OAuth device code polling abuse testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "OAuth device code polling abuse testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "OAuth device code polling abuse testing CI strategy",
+          "coverage": "Package OAuth device code polling abuse testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/oauth-security-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Oauth Device Code Polling Abuse Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/oauth-security-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement OAuth device code polling abuse testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/oauth-security-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/oauth-security-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Oauth Device Code Polling Abuse Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/oauth-security-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OAuth device code polling abuse testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/oauth-security-testing/SKILL.md"
+          },
+          {
+            "scenario": "slow_down polling response",
+            "controlledSetup": "Change only the condition represented by \"slow_down polling response\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OAuth device code polling abuse testing.",
+            "failureSignal": "The observed result differs from the approved slow_down polling response contract.",
+            "evidenceSource": "seed-skills/authentication-testing/SKILL.md"
+          },
+          {
+            "scenario": "expired device code",
+            "controlledSetup": "Change only the condition represented by \"expired device code\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OAuth device code polling abuse testing.",
+            "failureSignal": "The observed result differs from the approved expired device code contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OAuth device code polling abuse testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/oauth-security-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OAuth device code polling abuse testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/authentication-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/oauth-security-testing/SKILL.md",
+          "seed-skills/authentication-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+          "https://www.rfc-editor.org/rfc/rfc8628.html",
+          "https://www.rfc-editor.org/rfc/rfc9700.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run OAuth device code polling abuse testing",
+        "steps": [
+          "Read seed-skills/oauth-security-testing/SKILL.md and seed-skills/authentication-testing/SKILL.md and packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for OAuth device code polling abuse testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for slow_down polling response, expired device code, user code guessing, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the OAuth device code polling abuse testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/oauth-security-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated OAuth device code polling abuse testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/authentication-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/oauth-security-testing/SKILL.md",
+        "seed-skills/authentication-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/dast-vs-sast-vs-sca-qa-guide-2026",
+        "/blog/security-testing-ai-generated-code",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "api-security-testing-checklist-2026",
+        "dast-vs-sast-vs-sca-qa-guide-2026",
+        "security-testing-ai-generated-code",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc8628.html",
+        "https://www.rfc-editor.org/rfc/rfc9700.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify slow_down, expiry, denial, and brute-force controls in device authorization?",
+        "What should a slow_down polling response fixture record?",
+        "Which failure proves expired device code is broken?",
+        "How do teams isolate user code guessing?",
+        "Which assertion is strongest for OAuth device code polling abuse testing checklist?",
+        "How should CI report OAuth device code polling abuse testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-security-testing-checklist-2026, then open /skills and add the OAuth device code polling abuse testing checks to the next QA run."
+    }
+  ]
+}

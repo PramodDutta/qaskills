@@ -1,0 +1,1163 @@
+{
+  "batch": 112,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-089",
+      "batch": 112,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "mobile-database-upgrade-rollback-testing",
+      "primaryKeyword": "mobile database upgrade rollback testing",
+      "title": "Mobile Database Upgrade Rollback Testing",
+      "description": "mobile database upgrade rollback testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify interrupted schema upgrades recover without corrupting local app data?",
+      "intentBoundary": "Owns on-device database rollback and recovery, not server rolling migrations.",
+      "secondaryKeywords": [
+        "interrupted Room migration",
+        "SQLite schema rollback",
+        "local data integrity",
+        "mobile database upgrade rollback testing checklist",
+        "mobile database upgrade rollback testing CI strategy",
+        "mobile database upgrade rollback testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does mobile database upgrade rollback testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify interrupted schema upgrades recover without corrupting local app data?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/data-integrity-testing/SKILL.md",
+            "seed-skills/offline-mode-tester/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build interrupted Room migration?",
+          "question": true,
+          "secondaryKeyword": "interrupted Room migration",
+          "coverage": "Create an isolated fixture for interrupted Room migration. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/offline-mode-tester/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks SQLite schema rollback?",
+          "question": true,
+          "secondaryKeyword": "SQLite schema rollback",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for SQLite schema rollback. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/data-integrity-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Local data integrity fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "local data integrity",
+          "coverage": "Turn local data integrity into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/data-integrity-testing/SKILL.md",
+            "seed-skills/offline-mode-tester/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should mobile database upgrade rollback testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "mobile database upgrade rollback testing checklist",
+          "coverage": "Build the oracle for mobile database upgrade rollback testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/offline-mode-tester/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Mobile database upgrade rollback testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "mobile database upgrade rollback testing CI strategy",
+          "coverage": "Package mobile database upgrade rollback testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/data-integrity-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Mobile Database Upgrade Rollback Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/data-integrity-testing/SKILL.md",
+            "seed-skills/offline-mode-tester/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement mobile database upgrade rollback testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/data-integrity-testing/SKILL.md",
+            "seed-skills/offline-mode-tester/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/offline-mode-tester/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/data-integrity-testing/SKILL.md",
+            "seed-skills/offline-mode-tester/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Mobile Database Upgrade Rollback Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/data-integrity-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile database upgrade rollback testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/data-integrity-testing/SKILL.md"
+          },
+          {
+            "scenario": "interrupted Room migration",
+            "controlledSetup": "Change only the condition represented by \"interrupted Room migration\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile database upgrade rollback testing.",
+            "failureSignal": "The observed result differs from the approved interrupted Room migration contract.",
+            "evidenceSource": "seed-skills/offline-mode-tester/SKILL.md"
+          },
+          {
+            "scenario": "SQLite schema rollback",
+            "controlledSetup": "Change only the condition represented by \"SQLite schema rollback\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile database upgrade rollback testing.",
+            "failureSignal": "The observed result differs from the approved SQLite schema rollback contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile database upgrade rollback testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/data-integrity-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile database upgrade rollback testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/offline-mode-tester/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/data-integrity-testing/SKILL.md",
+          "seed-skills/offline-mode-tester/SKILL.md",
+          "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+          "https://www.sqlite.org/lang_altertable.html",
+          "https://developer.android.com/training/data-storage/room/migrating-db-versions"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run mobile database upgrade rollback testing",
+        "steps": [
+          "Read seed-skills/data-integrity-testing/SKILL.md and seed-skills/offline-mode-tester/SKILL.md and packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for mobile database upgrade rollback testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for interrupted Room migration, SQLite schema rollback, local data integrity, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the mobile database upgrade rollback testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/data-integrity-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated mobile database upgrade rollback testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/offline-mode-tester/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/data-integrity-testing/SKILL.md",
+        "seed-skills/offline-mode-tester/SKILL.md",
+        "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/mobile-testing-automation-guide",
+        "/blog/appium-mobile-testing-complete-guide",
+        "/blog/mobile-device-farm-testing-strategy-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-testing-automation-guide",
+        "appium-mobile-testing-complete-guide",
+        "mobile-device-farm-testing-strategy-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://www.sqlite.org/lang_altertable.html",
+        "https://developer.android.com/training/data-storage/room/migrating-db-versions"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify interrupted schema upgrades recover without corrupting local app data?",
+        "What should a interrupted Room migration fixture record?",
+        "Which failure proves SQLite schema rollback is broken?",
+        "How do teams isolate local data integrity?",
+        "Which assertion is strongest for mobile database upgrade rollback testing checklist?",
+        "How should CI report mobile database upgrade rollback testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-testing-automation-guide, then open /skills and add the mobile database upgrade rollback testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-093",
+      "batch": 112,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "mobile-dynamic-type-truncation-testing",
+      "primaryKeyword": "mobile dynamic type truncation testing",
+      "title": "Mobile Dynamic Type Truncation Testing",
+      "description": "mobile dynamic type truncation testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify native content remains complete at every supported text-size category?",
+      "intentBoundary": "Owns OS text scaling, not responsive browser zoom or visual snapshots.",
+      "secondaryKeywords": [
+        "largest content size",
+        "native label clipping",
+        "dynamic type reflow",
+        "mobile dynamic type truncation testing checklist",
+        "mobile dynamic type truncation testing CI strategy",
+        "mobile dynamic type truncation testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does mobile dynamic type truncation testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify native content remains complete at every supported text-size category?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build largest content size?",
+          "question": true,
+          "secondaryKeyword": "largest content size",
+          "coverage": "Create an isolated fixture for largest content size. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks native label clipping?",
+          "question": true,
+          "secondaryKeyword": "native label clipping",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for native label clipping. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts",
+            "seed-skills/mobile-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Dynamic type reflow fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "dynamic type reflow",
+          "coverage": "Turn dynamic type reflow into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should mobile dynamic type truncation testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "mobile dynamic type truncation testing checklist",
+          "coverage": "Build the oracle for mobile dynamic type truncation testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Mobile dynamic type truncation testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "mobile dynamic type truncation testing CI strategy",
+          "coverage": "Package mobile dynamic type truncation testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts",
+            "seed-skills/mobile-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Mobile Dynamic Type Truncation Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement mobile dynamic type truncation testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Mobile Dynamic Type Truncation Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/mobile-accessibility-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile dynamic type truncation testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/mobile-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "largest content size",
+            "controlledSetup": "Change only the condition represented by \"largest content size\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile dynamic type truncation testing.",
+            "failureSignal": "The observed result differs from the approved largest content size contract.",
+            "evidenceSource": "seed-skills/wcag-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "native label clipping",
+            "controlledSetup": "Change only the condition represented by \"native label clipping\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile dynamic type truncation testing.",
+            "failureSignal": "The observed result differs from the approved native label clipping contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile dynamic type truncation testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/mobile-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by mobile dynamic type truncation testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/wcag-accessibility-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/mobile-accessibility-testing/SKILL.md",
+          "seed-skills/wcag-accessibility-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts",
+          "https://www.w3.org/TR/WCAG22/",
+          "https://www.w3.org/WAI/standards-guidelines/mobile/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run mobile dynamic type truncation testing",
+        "steps": [
+          "Read seed-skills/mobile-accessibility-testing/SKILL.md and seed-skills/wcag-accessibility-testing/SKILL.md and packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for mobile dynamic type truncation testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for largest content size, native label clipping, dynamic type reflow, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the mobile dynamic type truncation testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/mobile-accessibility-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated mobile dynamic type truncation testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/wcag-accessibility-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/mobile-accessibility-testing/SKILL.md",
+        "seed-skills/wcag-accessibility-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/accessibility-testing",
+        "/blog/mobile-accessibility-testing-guide",
+        "/blog/accessibility-testing-automation-guide",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-accessibility-testing-guide",
+        "accessibility-testing-automation-guide",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://www.w3.org/TR/WCAG22/",
+        "https://www.w3.org/WAI/standards-guidelines/mobile/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify native content remains complete at every supported text-size category?",
+        "What should a largest content size fixture record?",
+        "Which failure proves native label clipping is broken?",
+        "How do teams isolate dynamic type reflow?",
+        "Which assertion is strongest for mobile dynamic type truncation testing checklist?",
+        "How should CI report mobile dynamic type truncation testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-accessibility-testing-guide, then open /skills and add the mobile dynamic type truncation testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-005",
+      "batch": 112,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "openapi-default-value-drift-testing",
+      "primaryKeyword": "OpenAPI default value drift testing",
+      "title": "Openapi Default Value Drift Testing",
+      "description": "OpenAPI default value drift testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How can QA teams compare documented OpenAPI defaults with runtime behavior and generated clients?",
+      "intentBoundary": "Owns default-value agreement, not optional field omission or server configuration defaults.",
+      "secondaryKeywords": [
+        "documented default mismatch",
+        "generated client default behavior",
+        "runtime default contract",
+        "OpenAPI default value drift testing checklist",
+        "OpenAPI default value drift testing CI strategy",
+        "OpenAPI default value drift testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does OpenAPI default value drift testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams compare documented OpenAPI defaults with runtime behavior and generated clients?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build documented default mismatch?",
+          "question": true,
+          "secondaryKeyword": "documented default mismatch",
+          "coverage": "Create an isolated fixture for documented default mismatch. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "What breaks generated client default behavior?",
+          "question": true,
+          "secondaryKeyword": "generated client default behavior",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for generated client default behavior. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+            "seed-skills/openapi-validation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Runtime default contract fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "runtime default contract",
+          "coverage": "Turn runtime default contract into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should OpenAPI default value drift testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "OpenAPI default value drift testing checklist",
+          "coverage": "Build the oracle for OpenAPI default value drift testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "OpenAPI default value drift testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "OpenAPI default value drift testing CI strategy",
+          "coverage": "Package OpenAPI default value drift testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+            "seed-skills/openapi-validation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Openapi Default Value Drift Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement OpenAPI default value drift testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Openapi Default Value Drift Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/openapi-validation/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI default value drift testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/openapi-validation/SKILL.md"
+          },
+          {
+            "scenario": "documented default mismatch",
+            "controlledSetup": "Change only the condition represented by \"documented default mismatch\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI default value drift testing.",
+            "failureSignal": "The observed result differs from the approved documented default mismatch contract.",
+            "evidenceSource": "seed-skills/api-schema-evolution/SKILL.md"
+          },
+          {
+            "scenario": "generated client default behavior",
+            "controlledSetup": "Change only the condition represented by \"generated client default behavior\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI default value drift testing.",
+            "failureSignal": "The observed result differs from the approved generated client default behavior contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI default value drift testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/openapi-validation/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI default value drift testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/api-schema-evolution/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/openapi-validation/SKILL.md",
+          "seed-skills/api-schema-evolution/SKILL.md",
+          "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+          "https://spec.openapis.org/oas/v3.1.1.html",
+          "https://json-schema.org/draft/2020-12/json-schema-validation"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run OpenAPI default value drift testing",
+        "steps": [
+          "Read seed-skills/openapi-validation/SKILL.md and seed-skills/api-schema-evolution/SKILL.md and packages/web/src/app/blog/posts/api-contract-testing-microservices.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for OpenAPI default value drift testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for documented default mismatch, generated client default behavior, runtime default contract, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the OpenAPI default value drift testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/openapi-validation/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated OpenAPI default value drift testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/api-schema-evolution/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/openapi-validation/SKILL.md",
+        "seed-skills/api-schema-evolution/SKILL.md",
+        "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/api-testing",
+        "/blog/api-testing-complete-guide",
+        "/blog/api-contract-testing-microservices",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "api-testing-complete-guide",
+        "api-contract-testing-microservices",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://spec.openapis.org/oas/v3.1.1.html",
+        "https://json-schema.org/draft/2020-12/json-schema-validation"
+      ],
+      "faqQuestions": [
+        "How can QA teams compare documented OpenAPI defaults with runtime behavior and generated clients?",
+        "What should a documented default mismatch fixture record?",
+        "Which failure proves generated client default behavior is broken?",
+        "How do teams isolate runtime default contract?",
+        "Which assertion is strongest for OpenAPI default value drift testing checklist?",
+        "How should CI report OpenAPI default value drift testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-testing-complete-guide, then open /skills and add the OpenAPI default value drift testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-044",
+      "batch": 112,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "locust-worker-rebalance-load-testing",
+      "primaryKeyword": "Locust worker rebalance load testing",
+      "title": "Locust Worker Rebalance Load Testing",
+      "description": "Locust worker rebalance load testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify user distribution and throughput recover when Locust workers join or leave?",
+      "intentBoundary": "Owns distributed worker membership changes, not static distributed setup.",
+      "secondaryKeywords": [
+        "Locust worker loss",
+        "user redistribution",
+        "distributed runner recovery",
+        "Locust worker rebalance load testing checklist",
+        "Locust worker rebalance load testing CI strategy",
+        "Locust worker rebalance load testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Locust worker rebalance load testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify user distribution and throughput recover when Locust workers join or leave?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/locust-load-testing/SKILL.md",
+            "seed-skills/stress-testing-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build Locust worker loss?",
+          "question": true,
+          "secondaryKeyword": "Locust worker loss",
+          "coverage": "Create an isolated fixture for Locust worker loss. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/stress-testing-patterns/SKILL.md",
+            "packages/web/src/app/blog/posts/locust-load-testing-python-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks user redistribution?",
+          "question": true,
+          "secondaryKeyword": "user redistribution",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for user redistribution. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/locust-load-testing-python-guide-2026.ts",
+            "seed-skills/locust-load-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Distributed runner recovery fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "distributed runner recovery",
+          "coverage": "Turn distributed runner recovery into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/locust-load-testing/SKILL.md",
+            "seed-skills/stress-testing-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Locust worker rebalance load testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Locust worker rebalance load testing checklist",
+          "coverage": "Build the oracle for Locust worker rebalance load testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/stress-testing-patterns/SKILL.md",
+            "packages/web/src/app/blog/posts/locust-load-testing-python-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Locust worker rebalance load testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Locust worker rebalance load testing CI strategy",
+          "coverage": "Package Locust worker rebalance load testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/locust-load-testing-python-guide-2026.ts",
+            "seed-skills/locust-load-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Locust Worker Rebalance Load Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/locust-load-testing/SKILL.md",
+            "seed-skills/stress-testing-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Locust worker rebalance load testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/locust-load-testing/SKILL.md",
+            "seed-skills/stress-testing-patterns/SKILL.md",
+            "packages/web/src/app/blog/posts/locust-load-testing-python-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/stress-testing-patterns/SKILL.md",
+            "packages/web/src/app/blog/posts/locust-load-testing-python-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/locust-load-testing/SKILL.md",
+            "seed-skills/stress-testing-patterns/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Locust Worker Rebalance Load Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/locust-load-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Locust worker rebalance load testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/locust-load-testing/SKILL.md"
+          },
+          {
+            "scenario": "Locust worker loss",
+            "controlledSetup": "Change only the condition represented by \"Locust worker loss\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Locust worker rebalance load testing.",
+            "failureSignal": "The observed result differs from the approved Locust worker loss contract.",
+            "evidenceSource": "seed-skills/stress-testing-patterns/SKILL.md"
+          },
+          {
+            "scenario": "user redistribution",
+            "controlledSetup": "Change only the condition represented by \"user redistribution\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Locust worker rebalance load testing.",
+            "failureSignal": "The observed result differs from the approved user redistribution contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/locust-load-testing-python-guide-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Locust worker rebalance load testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/locust-load-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Locust worker rebalance load testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/stress-testing-patterns/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/locust-load-testing/SKILL.md",
+          "seed-skills/stress-testing-patterns/SKILL.md",
+          "packages/web/src/app/blog/posts/locust-load-testing-python-guide-2026.ts",
+          "https://docs.locust.io/en/stable/running-distributed.html",
+          "https://docs.locust.io/en/stable/writing-a-locustfile.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Locust worker rebalance load testing",
+        "steps": [
+          "Read seed-skills/locust-load-testing/SKILL.md and seed-skills/stress-testing-patterns/SKILL.md and packages/web/src/app/blog/posts/locust-load-testing-python-guide-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Locust worker rebalance load testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for Locust worker loss, user redistribution, distributed runner recovery, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Locust worker rebalance load testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/locust-load-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Locust worker rebalance load testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/stress-testing-patterns/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/locust-load-testing/SKILL.md",
+        "seed-skills/stress-testing-patterns/SKILL.md",
+        "packages/web/src/app/blog/posts/locust-load-testing-python-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/performance-testing",
+        "/blog/load-testing-beginners-guide",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "load-testing-beginners-guide",
+        "chaos-engineering-resilience-testing",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://docs.locust.io/en/stable/running-distributed.html",
+        "https://docs.locust.io/en/stable/writing-a-locustfile.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify user distribution and throughput recover when Locust workers join or leave?",
+        "What should a Locust worker loss fixture record?",
+        "Which failure proves user redistribution is broken?",
+        "How do teams isolate distributed runner recovery?",
+        "Which assertion is strongest for Locust worker rebalance load testing checklist?",
+        "How should CI report Locust worker rebalance load testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/load-testing-beginners-guide, then open /skills and add the Locust worker rebalance load testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-197",
+      "batch": 112,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "production-smoke-account-permission-testing",
+      "primaryKeyword": "production smoke account permission testing",
+      "title": "Production Smoke Account Permission Testing",
+      "description": "production smoke account permission testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify smoke-test identities have enough access to test but cannot harm real data?",
+      "intentBoundary": "Owns least-privilege smoke accounts, not authentication flow coverage broadly.",
+      "secondaryKeywords": [
+        "smoke service account",
+        "production test permission",
+        "restricted synthetic identity",
+        "production smoke account permission testing checklist",
+        "production smoke account permission testing CI strategy",
+        "production smoke account permission testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does production smoke account permission testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify smoke-test identities have enough access to test but cannot harm real data?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/testing-in-production/SKILL.md",
+            "seed-skills/production-smoke-suite/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build smoke service account?",
+          "question": true,
+          "secondaryKeyword": "smoke service account",
+          "coverage": "Create an isolated fixture for smoke service account. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/production-smoke-suite/SKILL.md",
+            "packages/web/src/app/blog/posts/testing-in-production-strategies.ts"
+          ]
+        },
+        {
+          "heading": "What breaks production test permission?",
+          "question": true,
+          "secondaryKeyword": "production test permission",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for production test permission. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/testing-in-production-strategies.ts",
+            "seed-skills/testing-in-production/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Restricted synthetic identity fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "restricted synthetic identity",
+          "coverage": "Turn restricted synthetic identity into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/testing-in-production/SKILL.md",
+            "seed-skills/production-smoke-suite/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should production smoke account permission testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "production smoke account permission testing checklist",
+          "coverage": "Build the oracle for production smoke account permission testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/production-smoke-suite/SKILL.md",
+            "packages/web/src/app/blog/posts/testing-in-production-strategies.ts"
+          ]
+        },
+        {
+          "heading": "Production smoke account permission testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "production smoke account permission testing CI strategy",
+          "coverage": "Package production smoke account permission testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/testing-in-production-strategies.ts",
+            "seed-skills/testing-in-production/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Production Smoke Account Permission Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/testing-in-production/SKILL.md",
+            "seed-skills/production-smoke-suite/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement production smoke account permission testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/testing-in-production/SKILL.md",
+            "seed-skills/production-smoke-suite/SKILL.md",
+            "packages/web/src/app/blog/posts/testing-in-production-strategies.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/production-smoke-suite/SKILL.md",
+            "packages/web/src/app/blog/posts/testing-in-production-strategies.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/testing-in-production/SKILL.md",
+            "seed-skills/production-smoke-suite/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Production Smoke Account Permission Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/testing-in-production/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by production smoke account permission testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/testing-in-production/SKILL.md"
+          },
+          {
+            "scenario": "smoke service account",
+            "controlledSetup": "Change only the condition represented by \"smoke service account\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by production smoke account permission testing.",
+            "failureSignal": "The observed result differs from the approved smoke service account contract.",
+            "evidenceSource": "seed-skills/production-smoke-suite/SKILL.md"
+          },
+          {
+            "scenario": "production test permission",
+            "controlledSetup": "Change only the condition represented by \"production test permission\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by production smoke account permission testing.",
+            "failureSignal": "The observed result differs from the approved production test permission contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/testing-in-production-strategies.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by production smoke account permission testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/testing-in-production/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by production smoke account permission testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/production-smoke-suite/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/testing-in-production/SKILL.md",
+          "seed-skills/production-smoke-suite/SKILL.md",
+          "packages/web/src/app/blog/posts/testing-in-production-strategies.ts",
+          "https://sre.google/workbook/canarying-releases/",
+          "https://sre.google/workbook/monitoring/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run production smoke account permission testing",
+        "steps": [
+          "Read seed-skills/testing-in-production/SKILL.md and seed-skills/production-smoke-suite/SKILL.md and packages/web/src/app/blog/posts/testing-in-production-strategies.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for production smoke account permission testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for smoke service account, production test permission, restricted synthetic identity, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the production smoke account permission testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/testing-in-production/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated production smoke account permission testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/production-smoke-suite/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/testing-in-production/SKILL.md",
+        "seed-skills/production-smoke-suite/SKILL.md",
+        "packages/web/src/app/blog/posts/testing-in-production-strategies.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/testing-in-production-strategies",
+        "/blog/incident-driven-test-creation-guide",
+        "/blog/microservices-testing-strategies",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "testing-in-production-strategies",
+        "incident-driven-test-creation-guide",
+        "microservices-testing-strategies",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://sre.google/workbook/canarying-releases/",
+        "https://sre.google/workbook/monitoring/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify smoke-test identities have enough access to test but cannot harm real data?",
+        "What should a smoke service account fixture record?",
+        "Which failure proves production test permission is broken?",
+        "How do teams isolate restricted synthetic identity?",
+        "Which assertion is strongest for production smoke account permission testing checklist?",
+        "How should CI report production smoke account permission testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/testing-in-production-strategies, then open /skills and add the production smoke account permission testing checks to the next QA run."
+    }
+  ]
+}

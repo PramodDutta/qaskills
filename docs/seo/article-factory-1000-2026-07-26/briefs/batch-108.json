@@ -1,0 +1,1160 @@
+{
+  "batch": 108,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-175",
+      "batch": 108,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "retry-budget-exhaustion-testing",
+      "primaryKeyword": "retry budget exhaustion testing",
+      "title": "Retry Budget Exhaustion Testing",
+      "description": "retry budget exhaustion testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify retries stop before they consume shared latency and capacity budgets?",
+      "intentBoundary": "Owns aggregate retry budget depletion, not per-request exponential backoff basics.",
+      "secondaryKeywords": [
+        "retry token budget",
+        "retry storm prevention",
+        "budget replenishment",
+        "retry budget exhaustion testing checklist",
+        "retry budget exhaustion testing CI strategy",
+        "retry budget exhaustion testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does retry budget exhaustion testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify retries stop before they consume shared latency and capacity budgets?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build retry token budget?",
+          "question": true,
+          "secondaryKeyword": "retry token budget",
+          "coverage": "Create an isolated fixture for retry token budget. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/error-handling-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          ]
+        },
+        {
+          "heading": "What breaks retry storm prevention?",
+          "question": true,
+          "secondaryKeyword": "retry storm prevention",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for retry storm prevention. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Budget replenishment fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "budget replenishment",
+          "coverage": "Turn budget replenishment into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should retry budget exhaustion testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "retry budget exhaustion testing checklist",
+          "coverage": "Build the oracle for retry budget exhaustion testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/error-handling-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          ]
+        },
+        {
+          "heading": "Retry budget exhaustion testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "retry budget exhaustion testing CI strategy",
+          "coverage": "Package retry budget exhaustion testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Retry Budget Exhaustion Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement retry budget exhaustion testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/error-handling-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Retry Budget Exhaustion Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/retry-resilience-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by retry budget exhaustion testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/retry-resilience-testing/SKILL.md"
+          },
+          {
+            "scenario": "retry token budget",
+            "controlledSetup": "Change only the condition represented by \"retry token budget\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by retry budget exhaustion testing.",
+            "failureSignal": "The observed result differs from the approved retry token budget contract.",
+            "evidenceSource": "seed-skills/error-handling-testing/SKILL.md"
+          },
+          {
+            "scenario": "retry storm prevention",
+            "controlledSetup": "Change only the condition represented by \"retry storm prevention\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by retry budget exhaustion testing.",
+            "failureSignal": "The observed result differs from the approved retry storm prevention contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by retry budget exhaustion testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/retry-resilience-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by retry budget exhaustion testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/error-handling-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/retry-resilience-testing/SKILL.md",
+          "seed-skills/error-handling-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts",
+          "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/",
+          "https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run retry budget exhaustion testing",
+        "steps": [
+          "Read seed-skills/retry-resilience-testing/SKILL.md and seed-skills/error-handling-testing/SKILL.md and packages/web/src/app/blog/posts/error-handling-testing-patterns.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for retry budget exhaustion testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for retry token budget, retry storm prevention, budget replenishment, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the retry budget exhaustion testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/retry-resilience-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated retry budget exhaustion testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/error-handling-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/retry-resilience-testing/SKILL.md",
+        "seed-skills/error-handling-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/error-handling-testing-patterns",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/microservices-testing-strategies",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "error-handling-testing-patterns",
+        "chaos-engineering-resilience-testing",
+        "microservices-testing-strategies",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/",
+        "https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify retries stop before they consume shared latency and capacity budgets?",
+        "What should a retry token budget fixture record?",
+        "Which failure proves retry storm prevention is broken?",
+        "How do teams isolate budget replenishment?",
+        "Which assertion is strongest for retry budget exhaustion testing checklist?",
+        "How should CI report retry budget exhaustion testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/error-handling-testing-patterns, then open /skills and add the retry budget exhaustion testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-139",
+      "batch": 108,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "serverless-cold-start-budget-testing",
+      "primaryKeyword": "serverless cold start budget testing",
+      "title": "Serverless Cold Start Budget Testing",
+      "description": "serverless cold start budget testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams measure initialization latency separately from warm invocation latency?",
+      "intentBoundary": "Owns function cold starts, not browser performance or autoscaling stabilization.",
+      "secondaryKeywords": [
+        "Lambda init duration",
+        "provisioned concurrency baseline",
+        "cold invocation percentile",
+        "serverless cold start budget testing checklist",
+        "serverless cold start budget testing CI strategy",
+        "serverless cold start budget testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does serverless cold start budget testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams measure initialization latency separately from warm invocation latency?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/serverless-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build Lambda init duration?",
+          "question": true,
+          "secondaryKeyword": "Lambda init duration",
+          "coverage": "Create an isolated fixture for Lambda init duration. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/cloudflare-workers-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks provisioned concurrency baseline?",
+          "question": true,
+          "secondaryKeyword": "provisioned concurrency baseline",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for provisioned concurrency baseline. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/cloudflare-workers-testing-guide.ts",
+            "seed-skills/serverless-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Cold invocation percentile fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "cold invocation percentile",
+          "coverage": "Turn cold invocation percentile into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/serverless-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should serverless cold start budget testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "serverless cold start budget testing checklist",
+          "coverage": "Build the oracle for serverless cold start budget testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/cloudflare-workers-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Serverless cold start budget testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "serverless cold start budget testing CI strategy",
+          "coverage": "Package serverless cold start budget testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/cloudflare-workers-testing-guide.ts",
+            "seed-skills/serverless-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Serverless Cold Start Budget Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/serverless-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement serverless cold start budget testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/serverless-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/cloudflare-workers-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/cloudflare-workers-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/serverless-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Serverless Cold Start Budget Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/serverless-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by serverless cold start budget testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/serverless-testing/SKILL.md"
+          },
+          {
+            "scenario": "Lambda init duration",
+            "controlledSetup": "Change only the condition represented by \"Lambda init duration\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by serverless cold start budget testing.",
+            "failureSignal": "The observed result differs from the approved Lambda init duration contract.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          },
+          {
+            "scenario": "provisioned concurrency baseline",
+            "controlledSetup": "Change only the condition represented by \"provisioned concurrency baseline\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by serverless cold start budget testing.",
+            "failureSignal": "The observed result differs from the approved provisioned concurrency baseline contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/cloudflare-workers-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by serverless cold start budget testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/serverless-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by serverless cold start budget testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/serverless-testing/SKILL.md",
+          "seed-skills/performance-budget-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/cloudflare-workers-testing-guide.ts",
+          "https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html",
+          "https://docs.aws.amazon.com/lambda/latest/operatorguide/execution-environments.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run serverless cold start budget testing",
+        "steps": [
+          "Read seed-skills/serverless-testing/SKILL.md and seed-skills/performance-budget-testing/SKILL.md and packages/web/src/app/blog/posts/cloudflare-workers-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for serverless cold start budget testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for Lambda init duration, provisioned concurrency baseline, cold invocation percentile, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the serverless cold start budget testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/serverless-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated serverless cold start budget testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/performance-budget-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/serverless-testing/SKILL.md",
+        "seed-skills/performance-budget-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/cloudflare-workers-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/chaos-mesh-kubernetes-testing-guide",
+        "/blog/docker-testing-strategies-guide",
+        "/blog/cloudflare-workers-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "chaos-mesh-kubernetes-testing-guide",
+        "docker-testing-strategies-guide",
+        "cloudflare-workers-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html",
+        "https://docs.aws.amazon.com/lambda/latest/operatorguide/execution-environments.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams measure initialization latency separately from warm invocation latency?",
+        "What should a Lambda init duration fixture record?",
+        "Which failure proves provisioned concurrency baseline is broken?",
+        "How do teams isolate cold invocation percentile?",
+        "Which assertion is strongest for serverless cold start budget testing checklist?",
+        "How should CI report serverless cold start budget testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/chaos-mesh-kubernetes-testing-guide, then open /skills and add the serverless cold start budget testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-149",
+      "batch": 108,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "alertmanager-deduplication-fingerprint-testing",
+      "primaryKeyword": "Alertmanager deduplication fingerprint testing",
+      "title": "Alertmanager Deduplication Fingerprint Testing",
+      "description": "Alertmanager deduplication fingerprint testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify label changes group, split, and repeat notifications as intended?",
+      "intentBoundary": "Owns Alertmanager fingerprint and grouping behavior, not event idempotency.",
+      "secondaryKeywords": [
+        "alert label fingerprint",
+        "group_wait notification",
+        "repeat_interval dedupe",
+        "Alertmanager deduplication fingerprint testing checklist",
+        "Alertmanager deduplication fingerprint testing CI strategy",
+        "Alertmanager deduplication fingerprint testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Alertmanager deduplication fingerprint testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify label changes group, split, and repeat notifications as intended?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build alert label fingerprint?",
+          "question": true,
+          "secondaryKeyword": "alert label fingerprint",
+          "coverage": "Create an isolated fixture for alert label fingerprint. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks group_wait notification?",
+          "question": true,
+          "secondaryKeyword": "group_wait notification",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for group_wait notification. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts",
+            "seed-skills/alerting-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Repeat_interval dedupe fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "repeat_interval dedupe",
+          "coverage": "Turn repeat_interval dedupe into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Alertmanager deduplication fingerprint testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Alertmanager deduplication fingerprint testing checklist",
+          "coverage": "Build the oracle for Alertmanager deduplication fingerprint testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Alertmanager deduplication fingerprint testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Alertmanager deduplication fingerprint testing CI strategy",
+          "coverage": "Package Alertmanager deduplication fingerprint testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts",
+            "seed-skills/alerting-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Alertmanager Deduplication Fingerprint Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Alertmanager deduplication fingerprint testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Alertmanager Deduplication Fingerprint Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/alerting-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Alertmanager deduplication fingerprint testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/alerting-testing/SKILL.md"
+          },
+          {
+            "scenario": "alert label fingerprint",
+            "controlledSetup": "Change only the condition represented by \"alert label fingerprint\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Alertmanager deduplication fingerprint testing.",
+            "failureSignal": "The observed result differs from the approved alert label fingerprint contract.",
+            "evidenceSource": "seed-skills/test-observability/SKILL.md"
+          },
+          {
+            "scenario": "group_wait notification",
+            "controlledSetup": "Change only the condition represented by \"group_wait notification\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Alertmanager deduplication fingerprint testing.",
+            "failureSignal": "The observed result differs from the approved group_wait notification contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Alertmanager deduplication fingerprint testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/alerting-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Alertmanager deduplication fingerprint testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/test-observability/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/alerting-testing/SKILL.md",
+          "seed-skills/test-observability/SKILL.md",
+          "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts",
+          "https://prometheus.io/docs/alerting/latest/alertmanager/",
+          "https://prometheus.io/docs/alerting/latest/configuration/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Alertmanager deduplication fingerprint testing",
+        "steps": [
+          "Read seed-skills/alerting-testing/SKILL.md and seed-skills/test-observability/SKILL.md and packages/web/src/app/blog/posts/observability-driven-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Alertmanager deduplication fingerprint testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for alert label fingerprint, group_wait notification, repeat_interval dedupe, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Alertmanager deduplication fingerprint testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/alerting-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Alertmanager deduplication fingerprint testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/test-observability/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/alerting-testing/SKILL.md",
+        "seed-skills/test-observability/SKILL.md",
+        "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/observability-driven-testing-guide",
+        "/blog/trace-based-testing-opentelemetry-2026",
+        "/blog/shift-right-testing-observability-guide-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "observability-driven-testing-guide",
+        "trace-based-testing-opentelemetry-2026",
+        "shift-right-testing-observability-guide-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://prometheus.io/docs/alerting/latest/alertmanager/",
+        "https://prometheus.io/docs/alerting/latest/configuration/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify label changes group, split, and repeat notifications as intended?",
+        "What should a alert label fingerprint fixture record?",
+        "Which failure proves group_wait notification is broken?",
+        "How do teams isolate repeat_interval dedupe?",
+        "Which assertion is strongest for Alertmanager deduplication fingerprint testing checklist?",
+        "How should CI report Alertmanager deduplication fingerprint testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/observability-driven-testing-guide, then open /skills and add the Alertmanager deduplication fingerprint testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-077",
+      "batch": 108,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "android-workmanager-retry-backoff-testing",
+      "primaryKeyword": "Android WorkManager retry backoff testing",
+      "title": "Android Workmanager Retry Backoff Testing",
+      "description": "Android WorkManager retry backoff testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify retry policies, constraints, and attempt counts across persistent work?",
+      "intentBoundary": "Owns WorkManager retry scheduling, not general offline queue replay.",
+      "secondaryKeywords": [
+        "run attempt count",
+        "backoff delay policy",
+        "constraint change retry",
+        "Android WorkManager retry backoff testing checklist",
+        "Android WorkManager retry backoff testing CI strategy",
+        "Android WorkManager retry backoff testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Android WorkManager retry backoff testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify retry policies, constraints, and attempt counts across persistent work?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build run attempt count?",
+          "question": true,
+          "secondaryKeyword": "run attempt count",
+          "coverage": "Create an isolated fixture for run attempt count. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks backoff delay policy?",
+          "question": true,
+          "secondaryKeyword": "backoff delay policy",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for backoff delay policy. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/espresso-android/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Constraint change retry fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "constraint change retry",
+          "coverage": "Turn constraint change retry into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Android WorkManager retry backoff testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Android WorkManager retry backoff testing checklist",
+          "coverage": "Build the oracle for Android WorkManager retry backoff testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Android WorkManager retry backoff testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Android WorkManager retry backoff testing CI strategy",
+          "coverage": "Package Android WorkManager retry backoff testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/espresso-android/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Android Workmanager Retry Backoff Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Android WorkManager retry backoff testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Android Workmanager Retry Backoff Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/espresso-android/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android WorkManager retry backoff testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/espresso-android/SKILL.md"
+          },
+          {
+            "scenario": "run attempt count",
+            "controlledSetup": "Change only the condition represented by \"run attempt count\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android WorkManager retry backoff testing.",
+            "failureSignal": "The observed result differs from the approved run attempt count contract.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "backoff delay policy",
+            "controlledSetup": "Change only the condition represented by \"backoff delay policy\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android WorkManager retry backoff testing.",
+            "failureSignal": "The observed result differs from the approved backoff delay policy contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android WorkManager retry backoff testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/espresso-android/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android WorkManager retry backoff testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/espresso-android/SKILL.md",
+          "seed-skills/appium-mobile/SKILL.md",
+          "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+          "https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work",
+          "https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Android WorkManager retry backoff testing",
+        "steps": [
+          "Read seed-skills/espresso-android/SKILL.md and seed-skills/appium-mobile/SKILL.md and packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Android WorkManager retry backoff testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for run attempt count, backoff delay policy, constraint change retry, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Android WorkManager retry backoff testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/espresso-android/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Android WorkManager retry backoff testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/appium-mobile/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/espresso-android/SKILL.md",
+        "seed-skills/appium-mobile/SKILL.md",
+        "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/mobile-testing-automation-guide",
+        "/blog/appium-mobile-testing-complete-guide",
+        "/blog/mobile-device-farm-testing-strategy-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-testing-automation-guide",
+        "appium-mobile-testing-complete-guide",
+        "mobile-device-farm-testing-strategy-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work",
+        "https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify retry policies, constraints, and attempt counts across persistent work?",
+        "What should a run attempt count fixture record?",
+        "Which failure proves backoff delay policy is broken?",
+        "How do teams isolate constraint change retry?",
+        "Which assertion is strongest for Android WorkManager retry backoff testing checklist?",
+        "How should CI report Android WorkManager retry backoff testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-testing-automation-guide, then open /skills and add the Android WorkManager retry backoff testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-065",
+      "batch": 108,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "api-excessive-data-exposure-testing",
+      "primaryKeyword": "API excessive data exposure testing",
+      "title": "API Excessive Data Exposure Testing",
+      "description": "API excessive data exposure testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams detect sensitive fields returned before client-side filtering or field masks?",
+      "intentBoundary": "Owns unauthorized response data exposure, not documented partial-response masks.",
+      "secondaryKeywords": [
+        "sensitive JSON field leak",
+        "server-side response filtering",
+        "hidden PII property",
+        "API excessive data exposure testing checklist",
+        "API excessive data exposure testing CI strategy",
+        "API excessive data exposure testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does API excessive data exposure testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams detect sensitive fields returned before client-side filtering or field masks?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build sensitive JSON field leak?",
+          "question": true,
+          "secondaryKeyword": "sensitive JSON field leak",
+          "coverage": "Create an isolated fixture for sensitive JSON field leak. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks server-side response filtering?",
+          "question": true,
+          "secondaryKeyword": "server-side response filtering",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for server-side response filtering. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/api-security-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Hidden PII property fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "hidden PII property",
+          "coverage": "Turn hidden PII property into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should API excessive data exposure testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "API excessive data exposure testing checklist",
+          "coverage": "Build the oracle for API excessive data exposure testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "API excessive data exposure testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "API excessive data exposure testing CI strategy",
+          "coverage": "Package API excessive data exposure testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/api-security-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "API Excessive Data Exposure Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement API excessive data exposure testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/api-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "API Excessive Data Exposure Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/api-security-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API excessive data exposure testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/api-security-testing/SKILL.md"
+          },
+          {
+            "scenario": "sensitive JSON field leak",
+            "controlledSetup": "Change only the condition represented by \"sensitive JSON field leak\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API excessive data exposure testing.",
+            "failureSignal": "The observed result differs from the approved sensitive JSON field leak contract.",
+            "evidenceSource": "seed-skills/authorization-testing/SKILL.md"
+          },
+          {
+            "scenario": "server-side response filtering",
+            "controlledSetup": "Change only the condition represented by \"server-side response filtering\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API excessive data exposure testing.",
+            "failureSignal": "The observed result differs from the approved server-side response filtering contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API excessive data exposure testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/api-security-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by API excessive data exposure testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/authorization-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/api-security-testing/SKILL.md",
+          "seed-skills/authorization-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+          "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+          "https://owasp.org/www-project-application-security-verification-standard/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run API excessive data exposure testing",
+        "steps": [
+          "Read seed-skills/api-security-testing/SKILL.md and seed-skills/authorization-testing/SKILL.md and packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for API excessive data exposure testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for sensitive JSON field leak, server-side response filtering, hidden PII property, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the API excessive data exposure testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/api-security-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated API excessive data exposure testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/authorization-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/api-security-testing/SKILL.md",
+        "seed-skills/authorization-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/dast-vs-sast-vs-sca-qa-guide-2026",
+        "/blog/security-testing-ai-generated-code",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "api-security-testing-checklist-2026",
+        "dast-vs-sast-vs-sca-qa-guide-2026",
+        "security-testing-ai-generated-code",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://owasp.org/API-Security/editions/2023/en/0x11-t10/",
+        "https://owasp.org/www-project-application-security-verification-standard/"
+      ],
+      "faqQuestions": [
+        "How can QA teams detect sensitive fields returned before client-side filtering or field masks?",
+        "What should a sensitive JSON field leak fixture record?",
+        "Which failure proves server-side response filtering is broken?",
+        "How do teams isolate hidden PII property?",
+        "Which assertion is strongest for API excessive data exposure testing checklist?",
+        "How should CI report API excessive data exposure testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-security-testing-checklist-2026, then open /skills and add the API excessive data exposure testing checks to the next QA run."
+    }
+  ]
+}

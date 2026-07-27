@@ -1,0 +1,1162 @@
+{
+  "batch": 117,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-056",
+      "batch": 117,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "oauth-pkce-verifier-downgrade-testing",
+      "primaryKeyword": "OAuth PKCE verifier downgrade testing",
+      "title": "Oauth Pkce Verifier Downgrade Testing",
+      "description": "OAuth PKCE verifier downgrade testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify public clients cannot omit PKCE or downgrade from S256 safely?",
+      "intentBoundary": "Owns PKCE downgrade resistance, not the complete authorization-code flow.",
+      "secondaryKeywords": [
+        "plain challenge rejection",
+        "missing code_verifier",
+        "S256 enforcement",
+        "OAuth PKCE verifier downgrade testing checklist",
+        "OAuth PKCE verifier downgrade testing CI strategy",
+        "OAuth PKCE verifier downgrade testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does OAuth PKCE verifier downgrade testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify public clients cannot omit PKCE or downgrade from S256 safely?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/oauth-security-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build plain challenge rejection?",
+          "question": true,
+          "secondaryKeyword": "plain challenge rejection",
+          "coverage": "Create an isolated fixture for plain challenge rejection. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks missing code_verifier?",
+          "question": true,
+          "secondaryKeyword": "missing code_verifier",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for missing code_verifier. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/oauth-security-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "S256 enforcement fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "S256 enforcement",
+          "coverage": "Turn S256 enforcement into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/oauth-security-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should OAuth PKCE verifier downgrade testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "OAuth PKCE verifier downgrade testing checklist",
+          "coverage": "Build the oracle for OAuth PKCE verifier downgrade testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "OAuth PKCE verifier downgrade testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "OAuth PKCE verifier downgrade testing CI strategy",
+          "coverage": "Package OAuth PKCE verifier downgrade testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/oauth-security-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Oauth Pkce Verifier Downgrade Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/oauth-security-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement OAuth PKCE verifier downgrade testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/oauth-security-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/oauth-security-testing/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Oauth Pkce Verifier Downgrade Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/oauth-security-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OAuth PKCE verifier downgrade testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/oauth-security-testing/SKILL.md"
+          },
+          {
+            "scenario": "plain challenge rejection",
+            "controlledSetup": "Change only the condition represented by \"plain challenge rejection\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OAuth PKCE verifier downgrade testing.",
+            "failureSignal": "The observed result differs from the approved plain challenge rejection contract.",
+            "evidenceSource": "seed-skills/authentication-testing/SKILL.md"
+          },
+          {
+            "scenario": "missing code_verifier",
+            "controlledSetup": "Change only the condition represented by \"missing code_verifier\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OAuth PKCE verifier downgrade testing.",
+            "failureSignal": "The observed result differs from the approved missing code_verifier contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OAuth PKCE verifier downgrade testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/oauth-security-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OAuth PKCE verifier downgrade testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/authentication-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/oauth-security-testing/SKILL.md",
+          "seed-skills/authentication-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+          "https://www.rfc-editor.org/rfc/rfc7636.html",
+          "https://www.rfc-editor.org/rfc/rfc9700.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run OAuth PKCE verifier downgrade testing",
+        "steps": [
+          "Read seed-skills/oauth-security-testing/SKILL.md and seed-skills/authentication-testing/SKILL.md and packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for OAuth PKCE verifier downgrade testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for plain challenge rejection, missing code_verifier, S256 enforcement, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the OAuth PKCE verifier downgrade testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/oauth-security-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated OAuth PKCE verifier downgrade testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/authentication-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/oauth-security-testing/SKILL.md",
+        "seed-skills/authentication-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/dast-vs-sast-vs-sca-qa-guide-2026",
+        "/blog/security-testing-ai-generated-code",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "api-security-testing-checklist-2026",
+        "dast-vs-sast-vs-sca-qa-guide-2026",
+        "security-testing-ai-generated-code",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc7636.html",
+        "https://www.rfc-editor.org/rfc/rfc9700.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify public clients cannot omit PKCE or downgrade from S256 safely?",
+        "What should a plain challenge rejection fixture record?",
+        "Which failure proves missing code_verifier is broken?",
+        "How do teams isolate S256 enforcement?",
+        "Which assertion is strongest for OAuth PKCE verifier downgrade testing checklist?",
+        "How should CI report OAuth PKCE verifier downgrade testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-security-testing-checklist-2026, then open /skills and add the OAuth PKCE verifier downgrade testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-006",
+      "batch": 117,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "openapi-parameter-serialization-testing",
+      "primaryKeyword": "OpenAPI parameter serialization testing",
+      "title": "Openapi Parameter Serialization Testing",
+      "description": "OpenAPI parameter serialization testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams exercise style and explode combinations for query, path, header, and cookie parameters?",
+      "intentBoundary": "Owns OpenAPI serialization keywords, not ordinary URL encoding or repeated query parameters.",
+      "secondaryKeywords": [
+        "style explode matrix",
+        "deepObject query serialization",
+        "path parameter encoding",
+        "OpenAPI parameter serialization testing checklist",
+        "OpenAPI parameter serialization testing CI strategy",
+        "OpenAPI parameter serialization testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does OpenAPI parameter serialization testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams exercise style and explode combinations for query, path, header, and cookie parameters?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build style explode matrix?",
+          "question": true,
+          "secondaryKeyword": "style explode matrix",
+          "coverage": "Create an isolated fixture for style explode matrix. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "What breaks deepObject query serialization?",
+          "question": true,
+          "secondaryKeyword": "deepObject query serialization",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for deepObject query serialization. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+            "seed-skills/openapi-validation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Path parameter encoding fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "path parameter encoding",
+          "coverage": "Turn path parameter encoding into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should OpenAPI parameter serialization testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "OpenAPI parameter serialization testing checklist",
+          "coverage": "Build the oracle for OpenAPI parameter serialization testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "OpenAPI parameter serialization testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "OpenAPI parameter serialization testing CI strategy",
+          "coverage": "Package OpenAPI parameter serialization testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+            "seed-skills/openapi-validation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Openapi Parameter Serialization Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement OpenAPI parameter serialization testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/api-schema-evolution/SKILL.md",
+            "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/openapi-validation/SKILL.md",
+            "seed-skills/api-schema-evolution/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Openapi Parameter Serialization Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/openapi-validation/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI parameter serialization testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/openapi-validation/SKILL.md"
+          },
+          {
+            "scenario": "style explode matrix",
+            "controlledSetup": "Change only the condition represented by \"style explode matrix\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI parameter serialization testing.",
+            "failureSignal": "The observed result differs from the approved style explode matrix contract.",
+            "evidenceSource": "seed-skills/api-schema-evolution/SKILL.md"
+          },
+          {
+            "scenario": "deepObject query serialization",
+            "controlledSetup": "Change only the condition represented by \"deepObject query serialization\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI parameter serialization testing.",
+            "failureSignal": "The observed result differs from the approved deepObject query serialization contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI parameter serialization testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/openapi-validation/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenAPI parameter serialization testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/api-schema-evolution/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/openapi-validation/SKILL.md",
+          "seed-skills/api-schema-evolution/SKILL.md",
+          "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts",
+          "https://spec.openapis.org/oas/v3.1.1.html",
+          "https://json-schema.org/draft/2020-12/json-schema-validation"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run OpenAPI parameter serialization testing",
+        "steps": [
+          "Read seed-skills/openapi-validation/SKILL.md and seed-skills/api-schema-evolution/SKILL.md and packages/web/src/app/blog/posts/api-contract-testing-microservices.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for OpenAPI parameter serialization testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for style explode matrix, deepObject query serialization, path parameter encoding, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the OpenAPI parameter serialization testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/openapi-validation/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated OpenAPI parameter serialization testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/api-schema-evolution/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/openapi-validation/SKILL.md",
+        "seed-skills/api-schema-evolution/SKILL.md",
+        "packages/web/src/app/blog/posts/api-contract-testing-microservices.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/api-testing",
+        "/blog/api-testing-complete-guide",
+        "/blog/api-contract-testing-microservices",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "api-testing-complete-guide",
+        "api-contract-testing-microservices",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://spec.openapis.org/oas/v3.1.1.html",
+        "https://json-schema.org/draft/2020-12/json-schema-validation"
+      ],
+      "faqQuestions": [
+        "How can QA teams exercise style and explode combinations for query, path, header, and cookie parameters?",
+        "What should a style explode matrix fixture record?",
+        "Which failure proves deepObject query serialization is broken?",
+        "How do teams isolate path parameter encoding?",
+        "Which assertion is strongest for OpenAPI parameter serialization testing checklist?",
+        "How should CI report OpenAPI parameter serialization testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-testing-complete-guide, then open /skills and add the OpenAPI parameter serialization testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-096",
+      "batch": 117,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "pdf-tagged-heading-structure-testing",
+      "primaryKeyword": "PDF tagged heading structure testing",
+      "title": "Pdf Tagged Heading Structure Testing",
+      "description": "PDF tagged heading structure testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify PDF heading tags form one logical hierarchy for assistive technology?",
+      "intentBoundary": "Owns tagged heading semantics, not visual font sizes or HTML headings.",
+      "secondaryKeywords": [
+        "PDF H1 hierarchy",
+        "tag tree heading level",
+        "screen reader document outline",
+        "PDF tagged heading structure testing checklist",
+        "PDF tagged heading structure testing CI strategy",
+        "PDF tagged heading structure testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does PDF tagged heading structure testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify PDF heading tags form one logical hierarchy for assistive technology?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build PDF H1 hierarchy?",
+          "question": true,
+          "secondaryKeyword": "PDF H1 hierarchy",
+          "coverage": "Create an isolated fixture for PDF H1 hierarchy. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/pdf-generation-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks tag tree heading level?",
+          "question": true,
+          "secondaryKeyword": "tag tree heading level",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for tag tree heading level. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts",
+            "seed-skills/accessibility-manual-audit/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Screen reader document outline fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "screen reader document outline",
+          "coverage": "Turn screen reader document outline into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should PDF tagged heading structure testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "PDF tagged heading structure testing checklist",
+          "coverage": "Build the oracle for PDF tagged heading structure testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/pdf-generation-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "PDF tagged heading structure testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "PDF tagged heading structure testing CI strategy",
+          "coverage": "Package PDF tagged heading structure testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts",
+            "seed-skills/accessibility-manual-audit/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Pdf Tagged Heading Structure Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement PDF tagged heading structure testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/pdf-generation-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Pdf Tagged Heading Structure Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/accessibility-manual-audit/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF tagged heading structure testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/accessibility-manual-audit/SKILL.md"
+          },
+          {
+            "scenario": "PDF H1 hierarchy",
+            "controlledSetup": "Change only the condition represented by \"PDF H1 hierarchy\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF tagged heading structure testing.",
+            "failureSignal": "The observed result differs from the approved PDF H1 hierarchy contract.",
+            "evidenceSource": "seed-skills/pdf-generation-testing/SKILL.md"
+          },
+          {
+            "scenario": "tag tree heading level",
+            "controlledSetup": "Change only the condition represented by \"tag tree heading level\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF tagged heading structure testing.",
+            "failureSignal": "The observed result differs from the approved tag tree heading level contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF tagged heading structure testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/accessibility-manual-audit/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF tagged heading structure testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/pdf-generation-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/accessibility-manual-audit/SKILL.md",
+          "seed-skills/pdf-generation-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts",
+          "https://www.w3.org/WAI/WCAG22/Techniques/",
+          "https://www.w3.org/TR/WCAG22/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run PDF tagged heading structure testing",
+        "steps": [
+          "Read seed-skills/accessibility-manual-audit/SKILL.md and seed-skills/pdf-generation-testing/SKILL.md and packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for PDF tagged heading structure testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for PDF H1 hierarchy, tag tree heading level, screen reader document outline, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the PDF tagged heading structure testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/accessibility-manual-audit/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated PDF tagged heading structure testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/pdf-generation-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/accessibility-manual-audit/SKILL.md",
+        "seed-skills/pdf-generation-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/accessibility-testing",
+        "/blog/mobile-accessibility-testing-guide",
+        "/blog/accessibility-testing-automation-guide",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-accessibility-testing-guide",
+        "accessibility-testing-automation-guide",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://www.w3.org/WAI/WCAG22/Techniques/",
+        "https://www.w3.org/TR/WCAG22/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify PDF heading tags form one logical hierarchy for assistive technology?",
+        "What should a PDF H1 hierarchy fixture record?",
+        "Which failure proves tag tree heading level is broken?",
+        "How do teams isolate screen reader document outline?",
+        "Which assertion is strongest for PDF tagged heading structure testing checklist?",
+        "How should CI report PDF tagged heading structure testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-accessibility-testing-guide, then open /skills and add the PDF tagged heading structure testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-144",
+      "batch": 117,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "opentelemetry-metric-temporality-testing",
+      "primaryKeyword": "OpenTelemetry metric temporality testing",
+      "title": "Opentelemetry Metric Temporality Testing",
+      "description": "OpenTelemetry metric temporality testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify delta and cumulative exporters preserve correct reset semantics?",
+      "intentBoundary": "Owns metric temporality conversion, not Prometheus counter alert logic.",
+      "secondaryKeywords": [
+        "delta cumulative conversion",
+        "start time reset",
+        "metric exporter temporality",
+        "OpenTelemetry metric temporality testing checklist",
+        "OpenTelemetry metric temporality testing CI strategy",
+        "OpenTelemetry metric temporality testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does OpenTelemetry metric temporality testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify delta and cumulative exporters preserve correct reset semantics?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build delta cumulative conversion?",
+          "question": true,
+          "secondaryKeyword": "delta cumulative conversion",
+          "coverage": "Create an isolated fixture for delta cumulative conversion. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/distributed-tracing-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks start time reset?",
+          "question": true,
+          "secondaryKeyword": "start time reset",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for start time reset. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts",
+            "seed-skills/opentelemetry-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Metric exporter temporality fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "metric exporter temporality",
+          "coverage": "Turn metric exporter temporality into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should OpenTelemetry metric temporality testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "OpenTelemetry metric temporality testing checklist",
+          "coverage": "Build the oracle for OpenTelemetry metric temporality testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/distributed-tracing-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "OpenTelemetry metric temporality testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "OpenTelemetry metric temporality testing CI strategy",
+          "coverage": "Package OpenTelemetry metric temporality testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts",
+            "seed-skills/opentelemetry-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Opentelemetry Metric Temporality Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement OpenTelemetry metric temporality testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/distributed-tracing-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Opentelemetry Metric Temporality Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/opentelemetry-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry metric temporality testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/opentelemetry-testing/SKILL.md"
+          },
+          {
+            "scenario": "delta cumulative conversion",
+            "controlledSetup": "Change only the condition represented by \"delta cumulative conversion\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry metric temporality testing.",
+            "failureSignal": "The observed result differs from the approved delta cumulative conversion contract.",
+            "evidenceSource": "seed-skills/distributed-tracing-testing/SKILL.md"
+          },
+          {
+            "scenario": "start time reset",
+            "controlledSetup": "Change only the condition represented by \"start time reset\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry metric temporality testing.",
+            "failureSignal": "The observed result differs from the approved start time reset contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry metric temporality testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/opentelemetry-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry metric temporality testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/distributed-tracing-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/opentelemetry-testing/SKILL.md",
+          "seed-skills/distributed-tracing-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts",
+          "https://opentelemetry.io/docs/specs/otel/metrics/",
+          "https://opentelemetry.io/docs/specs/otel/logs/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run OpenTelemetry metric temporality testing",
+        "steps": [
+          "Read seed-skills/opentelemetry-testing/SKILL.md and seed-skills/distributed-tracing-testing/SKILL.md and packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for OpenTelemetry metric temporality testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for delta cumulative conversion, start time reset, metric exporter temporality, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the OpenTelemetry metric temporality testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/opentelemetry-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated OpenTelemetry metric temporality testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/distributed-tracing-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/opentelemetry-testing/SKILL.md",
+        "seed-skills/distributed-tracing-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/observability-driven-testing-guide",
+        "/blog/trace-based-testing-opentelemetry-2026",
+        "/blog/shift-right-testing-observability-guide-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "observability-driven-testing-guide",
+        "trace-based-testing-opentelemetry-2026",
+        "shift-right-testing-observability-guide-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://opentelemetry.io/docs/specs/otel/metrics/",
+        "https://opentelemetry.io/docs/specs/otel/logs/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify delta and cumulative exporters preserve correct reset semantics?",
+        "What should a delta cumulative conversion fixture record?",
+        "Which failure proves start time reset is broken?",
+        "How do teams isolate metric exporter temporality?",
+        "Which assertion is strongest for OpenTelemetry metric temporality testing checklist?",
+        "How should CI report OpenTelemetry metric temporality testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/observability-driven-testing-guide, then open /skills and add the OpenTelemetry metric temporality testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-106",
+      "batch": 117,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "postgresql-serializable-retry-testing",
+      "primaryKeyword": "PostgreSQL serializable retry testing",
+      "title": "Postgresql Serializable Retry Testing",
+      "description": "PostgreSQL serializable retry testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify serialization failures retry the whole transaction without duplicate effects?",
+      "intentBoundary": "Owns SQLSTATE 40001 recovery, not generic API retries or deadlock handling.",
+      "secondaryKeywords": [
+        "serialization_failure retry",
+        "transaction replay safety",
+        "serializable anomaly test",
+        "PostgreSQL serializable retry testing checklist",
+        "PostgreSQL serializable retry testing CI strategy",
+        "PostgreSQL serializable retry testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does PostgreSQL serializable retry testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify serialization failures retry the whole transaction without duplicate effects?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/database-migration-testing/SKILL.md",
+            "seed-skills/data-integrity-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build serialization_failure retry?",
+          "question": true,
+          "secondaryKeyword": "serialization_failure retry",
+          "coverage": "Create an isolated fixture for serialization_failure retry. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/data-integrity-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/database-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks transaction replay safety?",
+          "question": true,
+          "secondaryKeyword": "transaction replay safety",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for transaction replay safety. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/database-testing-automation-guide.ts",
+            "seed-skills/database-migration-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Serializable anomaly test fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "serializable anomaly test",
+          "coverage": "Turn serializable anomaly test into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/database-migration-testing/SKILL.md",
+            "seed-skills/data-integrity-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should PostgreSQL serializable retry testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "PostgreSQL serializable retry testing checklist",
+          "coverage": "Build the oracle for PostgreSQL serializable retry testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/data-integrity-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/database-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "PostgreSQL serializable retry testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "PostgreSQL serializable retry testing CI strategy",
+          "coverage": "Package PostgreSQL serializable retry testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/database-testing-automation-guide.ts",
+            "seed-skills/database-migration-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Postgresql Serializable Retry Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/database-migration-testing/SKILL.md",
+            "seed-skills/data-integrity-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement PostgreSQL serializable retry testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/database-migration-testing/SKILL.md",
+            "seed-skills/data-integrity-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/database-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/data-integrity-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/database-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/database-migration-testing/SKILL.md",
+            "seed-skills/data-integrity-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Postgresql Serializable Retry Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/database-migration-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PostgreSQL serializable retry testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/database-migration-testing/SKILL.md"
+          },
+          {
+            "scenario": "serialization_failure retry",
+            "controlledSetup": "Change only the condition represented by \"serialization_failure retry\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PostgreSQL serializable retry testing.",
+            "failureSignal": "The observed result differs from the approved serialization_failure retry contract.",
+            "evidenceSource": "seed-skills/data-integrity-testing/SKILL.md"
+          },
+          {
+            "scenario": "transaction replay safety",
+            "controlledSetup": "Change only the condition represented by \"transaction replay safety\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PostgreSQL serializable retry testing.",
+            "failureSignal": "The observed result differs from the approved transaction replay safety contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/database-testing-automation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PostgreSQL serializable retry testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/database-migration-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PostgreSQL serializable retry testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/data-integrity-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/database-migration-testing/SKILL.md",
+          "seed-skills/data-integrity-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/database-testing-automation-guide.ts",
+          "https://www.postgresql.org/docs/current/transaction-iso.html",
+          "https://www.postgresql.org/docs/current/runtime-config-locks.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run PostgreSQL serializable retry testing",
+        "steps": [
+          "Read seed-skills/database-migration-testing/SKILL.md and seed-skills/data-integrity-testing/SKILL.md and packages/web/src/app/blog/posts/database-testing-automation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for PostgreSQL serializable retry testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for serialization_failure retry, transaction replay safety, serializable anomaly test, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the PostgreSQL serializable retry testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/database-migration-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated PostgreSQL serializable retry testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/data-integrity-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/database-migration-testing/SKILL.md",
+        "seed-skills/data-integrity-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/database-testing-automation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/database-testing-automation-guide",
+        "/blog/data-contract-testing-guide-2026",
+        "/blog/event-driven-architecture-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "database-testing-automation-guide",
+        "data-contract-testing-guide-2026",
+        "event-driven-architecture-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://www.postgresql.org/docs/current/transaction-iso.html",
+        "https://www.postgresql.org/docs/current/runtime-config-locks.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify serialization failures retry the whole transaction without duplicate effects?",
+        "What should a serialization_failure retry fixture record?",
+        "Which failure proves transaction replay safety is broken?",
+        "How do teams isolate serializable anomaly test?",
+        "Which assertion is strongest for PostgreSQL serializable retry testing checklist?",
+        "How should CI report PostgreSQL serializable retry testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/database-testing-automation-guide, then open /skills and add the PostgreSQL serializable retry testing checks to the next QA run."
+    }
+  ]
+}

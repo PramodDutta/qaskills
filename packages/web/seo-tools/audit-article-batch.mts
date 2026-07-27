@@ -4,7 +4,6 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import qualityModule from '../src/app/blog/posts/article-factory-quality';
-import registry from '../src/app/blog/posts/index';
 import seoClusterArticleModule from '../src/app/blog/posts/seo-cluster-article';
 import blogCanonicalModule from '../src/lib/blog-canonical';
 import faqModule from '../src/lib/extract-faqs';
@@ -42,6 +41,12 @@ const DEFAULT_INVENTORY_PATH = path.resolve(
 const DEFAULT_SELECTED_PATH = path.resolve(
   REPO_ROOT,
   'docs/seo/article-factory-250-2026-07-25/selected.json',
+);
+const EXPECTED_DATES = new Set(
+  (process.env.ARTICLE_FACTORY_DATES ?? process.env.ARTICLE_FACTORY_DATE ?? '2026-07-25')
+    .split(',')
+    .map((value) => value.trim())
+    .filter(Boolean),
 );
 const bannedPhrases = [
   'delve',
@@ -214,13 +219,17 @@ function getStaticRoutes(): Set<string> {
   return routes;
 }
 
-function isKnownInternalRoute(route: string, staticRoutes: Set<string>): boolean {
+function isKnownInternalRoute(
+  route: string,
+  staticRoutes: Set<string>,
+  knownBlogSlugs: Set<string>,
+): boolean {
   if (staticRoutes.has(route)) return true;
   if (verifiedDynamicRoutes.has(route)) return true;
   if (!route.startsWith('/blog/')) return false;
 
   const slug = route.slice('/blog/'.length);
-  return Boolean(registry.posts[slug]) && getCanonicalBlogSlug(slug) === slug;
+  return knownBlogSlugs.has(slug) && getCanonicalBlogSlug(slug) === slug;
 }
 
 function extractEvidencePath(value: string): string {
@@ -305,28 +314,33 @@ function auditPost(
   candidate: SelectedCandidate,
   batchSlugs: Set<string>,
   staticRoutes: Set<string>,
+  knownBlogSlugs: Set<string>,
 ): AuditRow {
   const failures: string[] = [];
   const complete = `${post.title}\n${post.description}\n${post.category}\n${post.imageAlt ?? ''}\n${(post.keywords ?? []).join('\n')}\n${post.content}`;
   const policyText = getPolicyText(post);
+  const contentWithoutCode = post.content.replace(/```[\s\S]*?```/g, ' ');
   const opening = post.content.trim().split(/\n\s*\n/, 1)[0];
   const words = countProseWords(post.content);
   const wcWords = getWcWords(post.content);
   const keywordDensity = getKeywordDensity(post.content, post.primaryKeyword ?? '');
   const averageSentenceWords = getAverageSentenceWords(post.content);
   const fleschReadingEase = getFleschReadingEase(post.content);
-  const h2Headings = Array.from(post.content.matchAll(/^##(?!#)\s+(.+)$/gm), (match) =>
+  const h2Headings = Array.from(contentWithoutCode.matchAll(/^##(?!#)\s+(.+)$/gm), (match) =>
     match[1].trim(),
   );
-  const searchableHeadings = Array.from(post.content.matchAll(/^#{2,3}\s+(.+)$/gm), (match) =>
-    normalizeArticleText(match[1]),
+  const searchableHeadings = Array.from(
+    contentWithoutCode.matchAll(/^#{2,3}\s+(.+)$/gm),
+    (match) => normalizeArticleText(match[1]),
   );
-  const faqItems = extractFAQs(post.content, 9);
+  const faqItems = extractFAQs(contentWithoutCode, 9);
   const internalLinks = extractInternalLinks(post.content);
   const externalLinks = extractExternalLinks(post.content);
   const conclusionHeading = h2Headings.at(-1);
-  const conclusionStart = conclusionHeading ? post.content.indexOf(`## ${conclusionHeading}`) : -1;
-  const conclusion = conclusionStart >= 0 ? post.content.slice(conclusionStart) : '';
+  const conclusionStart = conclusionHeading
+    ? contentWithoutCode.indexOf(`## ${conclusionHeading}`)
+    : -1;
+  const conclusion = conclusionStart >= 0 ? contentWithoutCode.slice(conclusionStart) : '';
 
   if (words < 3_000 || words > 4_000) failures.push(`words:${words}`);
   if (wcWords !== words) failures.push(`wc-mismatch:${wcWords}:${words}`);
@@ -365,7 +379,7 @@ function auditPost(
   ) {
     failures.push('meta-missing-keyword');
   }
-  if (post.date !== '2026-07-25' || post.updated !== '2026-07-25') {
+  if (!EXPECTED_DATES.has(post.date) || !post.updated || !EXPECTED_DATES.has(post.updated)) {
     failures.push('incorrect-date');
   }
   if (
@@ -387,7 +401,7 @@ function auditPost(
     failures.push('related-slugs');
   }
   for (const relatedSlug of post.relatedSlugs ?? []) {
-    if (!batchSlugs.has(relatedSlug) && !registry.posts[relatedSlug]) {
+    if (!batchSlugs.has(relatedSlug) && !knownBlogSlugs.has(relatedSlug)) {
       failures.push(`missing-related:${relatedSlug}`);
     }
   }
@@ -437,8 +451,8 @@ function auditPost(
     failures.push('conclusion-not-final');
   }
   for (const questionHeading of questionHeadings) {
-    const questionStart = post.content.indexOf(`## ${questionHeading}`);
-    const immediateAnswer = post.content
+    const questionStart = contentWithoutCode.indexOf(`## ${questionHeading}`);
+    const immediateAnswer = contentWithoutCode
       .slice(questionStart + questionHeading.length + 3)
       .trimStart()
       .split(/\n\s*\n/, 1)[0];
@@ -470,7 +484,9 @@ function auditPost(
   if (!internalLinks.includes('/skills')) failures.push('missing-skills-link');
   if (extractInternalLinks(conclusion).length === 0) failures.push('missing-conclusion-cta');
   for (const route of internalLinks) {
-    if (!isKnownInternalRoute(route, staticRoutes)) failures.push(`missing-route:${route}`);
+    if (!isKnownInternalRoute(route, staticRoutes, knownBlogSlugs)) {
+      failures.push(`missing-route:${route}`);
+    }
   }
   if (externalLinks.length < (post.sources?.length ?? 0)) failures.push('missing-external-links');
   for (const paragraph of extractReadableParagraphs(post.content)) {
@@ -577,43 +593,68 @@ const manifestModule = (await import(
 const batchPosts = extractBatchPosts(manifestModule, expectedCount);
 const batchSlugs = new Set(batchPosts.map(({ slug }) => slug));
 const inventoryPath = process.env.ARTICLE_FACTORY_INVENTORY ?? DEFAULT_INVENTORY_PATH;
+const selectedPath = process.env.ARTICLE_FACTORY_SELECTED ?? DEFAULT_SELECTED_PATH;
 if (!fs.existsSync(inventoryPath)) throw new Error(`Missing baseline inventory: ${inventoryPath}`);
-if (!fs.existsSync(DEFAULT_SELECTED_PATH)) {
-  throw new Error(`Missing selected candidate queue: ${DEFAULT_SELECTED_PATH}`);
+if (!fs.existsSync(selectedPath)) {
+  throw new Error(`Missing selected candidate queue: ${selectedPath}`);
 }
 const inventory = JSON.parse(fs.readFileSync(inventoryPath, 'utf8')) as {
   items: InventoryItem[];
 };
-const selectedReport = JSON.parse(fs.readFileSync(DEFAULT_SELECTED_PATH, 'utf8')) as {
+const selectedReport = JSON.parse(fs.readFileSync(selectedPath, 'utf8')) as {
   selected: SelectedCandidate[];
 };
 const candidatesBySlug = new Map(
   selectedReport.selected.map((candidate) => [candidate.slug, candidate]),
 );
+const knownBlogSlugs = new Set([
+  ...inventory.items.filter(({ kind }) => kind === 'article').map(({ slug }) => slug),
+  ...selectedReport.selected.map(({ slug }) => slug),
+  ...batchSlugs,
+]);
 for (const { slug } of batchPosts) {
   if (!candidatesBySlug.has(slug)) throw new Error(`${slug} is not in the approved topic queue.`);
 }
 const staticRoutes = getStaticRoutes();
 const collisionFailures = getCollisionFailures(batchPosts, inventory.items);
 const rows = batchPosts.map((item) => {
-  const row = auditPost(item, candidatesBySlug.get(item.slug)!, batchSlugs, staticRoutes);
+  const row = auditPost(
+    item,
+    candidatesBySlug.get(item.slug)!,
+    batchSlugs,
+    staticRoutes,
+    knownBlogSlugs,
+  );
   row.failures.push(...(collisionFailures.get(item.slug) ?? []));
   row.failures = [...new Set(row.failures)];
   return row;
 });
 const failedRows = rows.filter(({ failures }) => failures.length > 0);
 
-console.log(
-  JSON.stringify(
-    {
+const result = {
+  manifestPath,
+  expectedCount,
+  articles: rows.length,
+  failed: failedRows.length,
+  rows,
+};
+const output = `${JSON.stringify(result, null, 2)}\n`;
+if (process.env.ARTICLE_FACTORY_SCORECARDS) {
+  const scorecardPath = path.resolve(process.env.ARTICLE_FACTORY_SCORECARDS);
+  fs.mkdirSync(path.dirname(scorecardPath), { recursive: true });
+  fs.writeFileSync(scorecardPath, output);
+}
+if (process.env.ARTICLE_FACTORY_QUIET === '1') {
+  console.log(
+    JSON.stringify({
       manifestPath,
       expectedCount,
       articles: rows.length,
       failed: failedRows.length,
-      rows,
-    },
-    null,
-    2,
-  ),
-);
+      scorecards: process.env.ARTICLE_FACTORY_SCORECARDS ?? null,
+    }),
+  );
+} else {
+  console.log(output.trimEnd());
+}
 if (failedRows.length > 0) process.exitCode = 1;

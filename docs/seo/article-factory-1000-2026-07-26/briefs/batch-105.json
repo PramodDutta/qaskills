@@ -1,0 +1,1162 @@
+{
+  "batch": 105,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-119",
+      "batch": 105,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "kafka-tombstone-compaction-testing",
+      "primaryKeyword": "Kafka tombstone compaction testing",
+      "title": "Kafka Tombstone Compaction Testing",
+      "description": "Kafka tombstone compaction testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify deleted keys disappear after retention without resurrecting stale values?",
+      "intentBoundary": "Owns compacted-topic tombstones, not database soft deletes or event retention generally.",
+      "secondaryKeywords": [
+        "null value tombstone",
+        "delete retention interval",
+        "compaction resurrection bug",
+        "Kafka tombstone compaction testing checklist",
+        "Kafka tombstone compaction testing CI strategy",
+        "Kafka tombstone compaction testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Kafka tombstone compaction testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify deleted keys disappear after retention without resurrecting stale values?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build null value tombstone?",
+          "question": true,
+          "secondaryKeyword": "null value tombstone",
+          "coverage": "Create an isolated fixture for null value tombstone. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks delete retention interval?",
+          "question": true,
+          "secondaryKeyword": "delete retention interval",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for delete retention interval. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts",
+            "seed-skills/kafka-event-driven-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Compaction resurrection bug fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "compaction resurrection bug",
+          "coverage": "Turn compaction resurrection bug into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Kafka tombstone compaction testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Kafka tombstone compaction testing checklist",
+          "coverage": "Build the oracle for Kafka tombstone compaction testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Kafka tombstone compaction testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Kafka tombstone compaction testing CI strategy",
+          "coverage": "Package Kafka tombstone compaction testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts",
+            "seed-skills/kafka-event-driven-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Kafka Tombstone Compaction Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Kafka tombstone compaction testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Kafka Tombstone Compaction Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/kafka-event-driven-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka tombstone compaction testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/kafka-event-driven-testing/SKILL.md"
+          },
+          {
+            "scenario": "null value tombstone",
+            "controlledSetup": "Change only the condition represented by \"null value tombstone\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka tombstone compaction testing.",
+            "failureSignal": "The observed result differs from the approved null value tombstone contract.",
+            "evidenceSource": "seed-skills/data-pipeline-testing/SKILL.md"
+          },
+          {
+            "scenario": "delete retention interval",
+            "controlledSetup": "Change only the condition represented by \"delete retention interval\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka tombstone compaction testing.",
+            "failureSignal": "The observed result differs from the approved delete retention interval contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka tombstone compaction testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/kafka-event-driven-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka tombstone compaction testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/data-pipeline-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/kafka-event-driven-testing/SKILL.md",
+          "seed-skills/data-pipeline-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts",
+          "https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html",
+          "https://kafka.apache.org/documentation/#compaction"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Kafka tombstone compaction testing",
+        "steps": [
+          "Read seed-skills/kafka-event-driven-testing/SKILL.md and seed-skills/data-pipeline-testing/SKILL.md and packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Kafka tombstone compaction testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for null value tombstone, delete retention interval, compaction resurrection bug, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Kafka tombstone compaction testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/kafka-event-driven-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Kafka tombstone compaction testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/data-pipeline-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/kafka-event-driven-testing/SKILL.md",
+        "seed-skills/data-pipeline-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/database-testing-automation-guide",
+        "/blog/data-contract-testing-guide-2026",
+        "/blog/event-driven-architecture-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "database-testing-automation-guide",
+        "data-contract-testing-guide-2026",
+        "event-driven-architecture-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html",
+        "https://kafka.apache.org/documentation/#compaction"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify deleted keys disappear after retention without resurrecting stale values?",
+        "What should a null value tombstone fixture record?",
+        "Which failure proves delete retention interval is broken?",
+        "How do teams isolate compaction resurrection bug?",
+        "Which assertion is strongest for Kafka tombstone compaction testing checklist?",
+        "How should CI report Kafka tombstone compaction testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/database-testing-automation-guide, then open /skills and add the Kafka tombstone compaction testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-041",
+      "batch": 105,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "jmeter-backend-listener-backpressure-testing",
+      "primaryKeyword": "JMeter backend listener backpressure testing",
+      "title": "Jmeter Backend Listener Backpressure Testing",
+      "description": "JMeter backend listener backpressure testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How can QA teams detect when metrics export queues distort JMeter timing or lose samples?",
+      "intentBoundary": "Owns backend-listener pressure, not dashboard visualization setup.",
+      "secondaryKeywords": [
+        "metrics sender queue",
+        "InfluxDB listener lag",
+        "sample export loss",
+        "JMeter backend listener backpressure testing checklist",
+        "JMeter backend listener backpressure testing CI strategy",
+        "JMeter backend listener backpressure testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does JMeter backend listener backpressure testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams detect when metrics export queues distort JMeter timing or lose samples?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build metrics sender queue?",
+          "question": true,
+          "secondaryKeyword": "metrics sender queue",
+          "coverage": "Create an isolated fixture for metrics sender queue. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks InfluxDB listener lag?",
+          "question": true,
+          "secondaryKeyword": "InfluxDB listener lag",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for InfluxDB listener lag. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts",
+            "seed-skills/jmeter-load/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Sample export loss fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "sample export loss",
+          "coverage": "Turn sample export loss into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should JMeter backend listener backpressure testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "JMeter backend listener backpressure testing checklist",
+          "coverage": "Build the oracle for JMeter backend listener backpressure testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts"
+          ]
+        },
+        {
+          "heading": "JMeter backend listener backpressure testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "JMeter backend listener backpressure testing CI strategy",
+          "coverage": "Package JMeter backend listener backpressure testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts",
+            "seed-skills/jmeter-load/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Jmeter Backend Listener Backpressure Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement JMeter backend listener backpressure testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Jmeter Backend Listener Backpressure Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/jmeter-load/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JMeter backend listener backpressure testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/jmeter-load/SKILL.md"
+          },
+          {
+            "scenario": "metrics sender queue",
+            "controlledSetup": "Change only the condition represented by \"metrics sender queue\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JMeter backend listener backpressure testing.",
+            "failureSignal": "The observed result differs from the approved metrics sender queue contract.",
+            "evidenceSource": "seed-skills/performance-test-scenario-generator/SKILL.md"
+          },
+          {
+            "scenario": "InfluxDB listener lag",
+            "controlledSetup": "Change only the condition represented by \"InfluxDB listener lag\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JMeter backend listener backpressure testing.",
+            "failureSignal": "The observed result differs from the approved InfluxDB listener lag contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JMeter backend listener backpressure testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/jmeter-load/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JMeter backend listener backpressure testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/performance-test-scenario-generator/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/jmeter-load/SKILL.md",
+          "seed-skills/performance-test-scenario-generator/SKILL.md",
+          "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts",
+          "https://jmeter.apache.org/usermanual/component_reference.html",
+          "https://jmeter.apache.org/usermanual/best-practices.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run JMeter backend listener backpressure testing",
+        "steps": [
+          "Read seed-skills/jmeter-load/SKILL.md and seed-skills/performance-test-scenario-generator/SKILL.md and packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for JMeter backend listener backpressure testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for metrics sender queue, InfluxDB listener lag, sample export loss, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the JMeter backend listener backpressure testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/jmeter-load/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated JMeter backend listener backpressure testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/performance-test-scenario-generator/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/jmeter-load/SKILL.md",
+        "seed-skills/performance-test-scenario-generator/SKILL.md",
+        "packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/performance-testing",
+        "/blog/load-testing-beginners-guide",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "load-testing-beginners-guide",
+        "chaos-engineering-resilience-testing",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://jmeter.apache.org/usermanual/component_reference.html",
+        "https://jmeter.apache.org/usermanual/best-practices.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams detect when metrics export queues distort JMeter timing or lose samples?",
+        "What should a metrics sender queue fixture record?",
+        "Which failure proves InfluxDB listener lag is broken?",
+        "How do teams isolate sample export loss?",
+        "Which assertion is strongest for JMeter backend listener backpressure testing checklist?",
+        "How should CI report JMeter backend listener backpressure testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/load-testing-beginners-guide, then open /skills and add the JMeter backend listener backpressure testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-118",
+      "batch": 105,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "kafka-transitive-schema-compatibility-testing",
+      "primaryKeyword": "Kafka transitive schema compatibility testing",
+      "title": "Kafka Transitive Schema Compatibility Testing",
+      "description": "Kafka transitive schema compatibility testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify new schemas remain compatible with every retained historical version?",
+      "intentBoundary": "Owns transitive registry modes, not pairwise schema checks or event semantics broadly.",
+      "secondaryKeywords": [
+        "BACKWARD_TRANSITIVE validation",
+        "historical schema reader",
+        "registry compatibility mode",
+        "Kafka transitive schema compatibility testing checklist",
+        "Kafka transitive schema compatibility testing CI strategy",
+        "Kafka transitive schema compatibility testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Kafka transitive schema compatibility testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify new schemas remain compatible with every retained historical version?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build BACKWARD_TRANSITIVE validation?",
+          "question": true,
+          "secondaryKeyword": "BACKWARD_TRANSITIVE validation",
+          "coverage": "Create an isolated fixture for BACKWARD_TRANSITIVE validation. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks historical schema reader?",
+          "question": true,
+          "secondaryKeyword": "historical schema reader",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for historical schema reader. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts",
+            "seed-skills/kafka-event-driven-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Registry compatibility mode fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "registry compatibility mode",
+          "coverage": "Turn registry compatibility mode into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Kafka transitive schema compatibility testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Kafka transitive schema compatibility testing checklist",
+          "coverage": "Build the oracle for Kafka transitive schema compatibility testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Kafka transitive schema compatibility testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Kafka transitive schema compatibility testing CI strategy",
+          "coverage": "Package Kafka transitive schema compatibility testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts",
+            "seed-skills/kafka-event-driven-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Kafka Transitive Schema Compatibility Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Kafka transitive schema compatibility testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Kafka Transitive Schema Compatibility Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/kafka-event-driven-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka transitive schema compatibility testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/kafka-event-driven-testing/SKILL.md"
+          },
+          {
+            "scenario": "BACKWARD_TRANSITIVE validation",
+            "controlledSetup": "Change only the condition represented by \"BACKWARD_TRANSITIVE validation\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka transitive schema compatibility testing.",
+            "failureSignal": "The observed result differs from the approved BACKWARD_TRANSITIVE validation contract.",
+            "evidenceSource": "seed-skills/data-pipeline-testing/SKILL.md"
+          },
+          {
+            "scenario": "historical schema reader",
+            "controlledSetup": "Change only the condition represented by \"historical schema reader\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka transitive schema compatibility testing.",
+            "failureSignal": "The observed result differs from the approved historical schema reader contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka transitive schema compatibility testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/kafka-event-driven-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka transitive schema compatibility testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/data-pipeline-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/kafka-event-driven-testing/SKILL.md",
+          "seed-skills/data-pipeline-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts",
+          "https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html",
+          "https://kafka.apache.org/documentation/#compaction"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Kafka transitive schema compatibility testing",
+        "steps": [
+          "Read seed-skills/kafka-event-driven-testing/SKILL.md and seed-skills/data-pipeline-testing/SKILL.md and packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Kafka transitive schema compatibility testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for BACKWARD_TRANSITIVE validation, historical schema reader, registry compatibility mode, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Kafka transitive schema compatibility testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/kafka-event-driven-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Kafka transitive schema compatibility testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/data-pipeline-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/kafka-event-driven-testing/SKILL.md",
+        "seed-skills/data-pipeline-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/database-testing-automation-guide",
+        "/blog/data-contract-testing-guide-2026",
+        "/blog/event-driven-architecture-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "database-testing-automation-guide",
+        "data-contract-testing-guide-2026",
+        "event-driven-architecture-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html",
+        "https://kafka.apache.org/documentation/#compaction"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify new schemas remain compatible with every retained historical version?",
+        "What should a BACKWARD_TRANSITIVE validation fixture record?",
+        "Which failure proves historical schema reader is broken?",
+        "How do teams isolate registry compatibility mode?",
+        "Which assertion is strongest for Kafka transitive schema compatibility testing checklist?",
+        "How should CI report Kafka transitive schema compatibility testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/database-testing-automation-guide, then open /skills and add the Kafka transitive schema compatibility testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-103",
+      "batch": 105,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "accessible-authentication-cognitive-testing",
+      "primaryKeyword": "accessible authentication cognitive testing",
+      "title": "Accessible Authentication Cognitive Testing",
+      "description": "accessible authentication cognitive testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify login avoids memory and transcription barriers or offers alternatives?",
+      "intentBoundary": "Owns WCAG accessible-authentication criteria, not OAuth protocol security.",
+      "secondaryKeywords": [
+        "cognitive function test",
+        "password manager support",
+        "copy paste verification code",
+        "accessible authentication cognitive testing checklist",
+        "accessible authentication cognitive testing CI strategy",
+        "accessible authentication cognitive testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does accessible authentication cognitive testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify login avoids memory and transcription barriers or offers alternatives?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build cognitive function test?",
+          "question": true,
+          "secondaryKeyword": "cognitive function test",
+          "coverage": "Create an isolated fixture for cognitive function test. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks password manager support?",
+          "question": true,
+          "secondaryKeyword": "password manager support",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for password manager support. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts",
+            "seed-skills/mobile-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Copy paste verification code fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "copy paste verification code",
+          "coverage": "Turn copy paste verification code into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should accessible authentication cognitive testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "accessible authentication cognitive testing checklist",
+          "coverage": "Build the oracle for accessible authentication cognitive testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Accessible authentication cognitive testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "accessible authentication cognitive testing CI strategy",
+          "coverage": "Package accessible authentication cognitive testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts",
+            "seed-skills/mobile-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Accessible Authentication Cognitive Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement accessible authentication cognitive testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Accessible Authentication Cognitive Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/mobile-accessibility-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by accessible authentication cognitive testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/mobile-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "cognitive function test",
+            "controlledSetup": "Change only the condition represented by \"cognitive function test\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by accessible authentication cognitive testing.",
+            "failureSignal": "The observed result differs from the approved cognitive function test contract.",
+            "evidenceSource": "seed-skills/wcag-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "password manager support",
+            "controlledSetup": "Change only the condition represented by \"password manager support\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by accessible authentication cognitive testing.",
+            "failureSignal": "The observed result differs from the approved password manager support contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by accessible authentication cognitive testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/mobile-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by accessible authentication cognitive testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/wcag-accessibility-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/mobile-accessibility-testing/SKILL.md",
+          "seed-skills/wcag-accessibility-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts",
+          "https://www.w3.org/TR/WCAG22/",
+          "https://www.w3.org/WAI/standards-guidelines/mobile/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run accessible authentication cognitive testing",
+        "steps": [
+          "Read seed-skills/mobile-accessibility-testing/SKILL.md and seed-skills/wcag-accessibility-testing/SKILL.md and packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for accessible authentication cognitive testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for cognitive function test, password manager support, copy paste verification code, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the accessible authentication cognitive testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/mobile-accessibility-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated accessible authentication cognitive testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/wcag-accessibility-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/mobile-accessibility-testing/SKILL.md",
+        "seed-skills/wcag-accessibility-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/accessibility-testing",
+        "/blog/mobile-accessibility-testing-guide",
+        "/blog/accessibility-testing-automation-guide",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-accessibility-testing-guide",
+        "accessibility-testing-automation-guide",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://www.w3.org/TR/WCAG22/",
+        "https://www.w3.org/WAI/standards-guidelines/mobile/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify login avoids memory and transcription barriers or offers alternatives?",
+        "What should a cognitive function test fixture record?",
+        "Which failure proves password manager support is broken?",
+        "How do teams isolate copy paste verification code?",
+        "Which assertion is strongest for accessible authentication cognitive testing checklist?",
+        "How should CI report accessible authentication cognitive testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-accessibility-testing-guide, then open /skills and add the accessible authentication cognitive testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-079",
+      "batch": 105,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "android-foreground-service-timeout-testing",
+      "primaryKeyword": "Android foreground service timeout testing",
+      "title": "Android Foreground Service Timeout Testing",
+      "description": "Android foreground service timeout testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify long-running foreground services stop and report timeout conditions safely?",
+      "intentBoundary": "Owns Android foreground-service limits, not generic background task retries.",
+      "secondaryKeywords": [
+        "foreground service type",
+        "timeout callback handling",
+        "service stop deadline",
+        "Android foreground service timeout testing checklist",
+        "Android foreground service timeout testing CI strategy",
+        "Android foreground service timeout testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Android foreground service timeout testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify long-running foreground services stop and report timeout conditions safely?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build foreground service type?",
+          "question": true,
+          "secondaryKeyword": "foreground service type",
+          "coverage": "Create an isolated fixture for foreground service type. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks timeout callback handling?",
+          "question": true,
+          "secondaryKeyword": "timeout callback handling",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for timeout callback handling. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/espresso-android/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Service stop deadline fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "service stop deadline",
+          "coverage": "Turn service stop deadline into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Android foreground service timeout testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Android foreground service timeout testing checklist",
+          "coverage": "Build the oracle for Android foreground service timeout testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Android foreground service timeout testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Android foreground service timeout testing CI strategy",
+          "coverage": "Package Android foreground service timeout testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/espresso-android/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Android Foreground Service Timeout Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Android foreground service timeout testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Android Foreground Service Timeout Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/espresso-android/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android foreground service timeout testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/espresso-android/SKILL.md"
+          },
+          {
+            "scenario": "foreground service type",
+            "controlledSetup": "Change only the condition represented by \"foreground service type\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android foreground service timeout testing.",
+            "failureSignal": "The observed result differs from the approved foreground service type contract.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "timeout callback handling",
+            "controlledSetup": "Change only the condition represented by \"timeout callback handling\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android foreground service timeout testing.",
+            "failureSignal": "The observed result differs from the approved timeout callback handling contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android foreground service timeout testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/espresso-android/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android foreground service timeout testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/espresso-android/SKILL.md",
+          "seed-skills/appium-mobile/SKILL.md",
+          "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+          "https://developer.android.com/develop/background-work/services/fgs",
+          "https://developer.android.com/develop/background-work/services/fgs/changes"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Android foreground service timeout testing",
+        "steps": [
+          "Read seed-skills/espresso-android/SKILL.md and seed-skills/appium-mobile/SKILL.md and packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Android foreground service timeout testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for foreground service type, timeout callback handling, service stop deadline, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Android foreground service timeout testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/espresso-android/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Android foreground service timeout testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/appium-mobile/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/espresso-android/SKILL.md",
+        "seed-skills/appium-mobile/SKILL.md",
+        "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/mobile-testing-automation-guide",
+        "/blog/appium-mobile-testing-complete-guide",
+        "/blog/mobile-device-farm-testing-strategy-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-testing-automation-guide",
+        "appium-mobile-testing-complete-guide",
+        "mobile-device-farm-testing-strategy-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://developer.android.com/develop/background-work/services/fgs",
+        "https://developer.android.com/develop/background-work/services/fgs/changes"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify long-running foreground services stop and report timeout conditions safely?",
+        "What should a foreground service type fixture record?",
+        "Which failure proves timeout callback handling is broken?",
+        "How do teams isolate service stop deadline?",
+        "Which assertion is strongest for Android foreground service timeout testing checklist?",
+        "How should CI report Android foreground service timeout testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-testing-automation-guide, then open /skills and add the Android foreground service timeout testing checks to the next QA run."
+    }
+  ]
+}

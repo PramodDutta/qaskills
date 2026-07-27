@@ -1,0 +1,1160 @@
+{
+  "batch": 118,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-146",
+      "batch": 118,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "prometheus-counter-reset-alert-testing",
+      "primaryKeyword": "Prometheus counter reset alert testing",
+      "title": "Prometheus Counter Reset Alert Testing",
+      "description": "Prometheus counter reset alert testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify restart resets do not create false rates or hide real failures?",
+      "intentBoundary": "Owns counter reset behavior in alert expressions, not application restart testing.",
+      "secondaryKeywords": [
+        "rate after counter reset",
+        "false alert spike",
+        "process restart metric",
+        "Prometheus counter reset alert testing checklist",
+        "Prometheus counter reset alert testing CI strategy",
+        "Prometheus counter reset alert testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Prometheus counter reset alert testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify restart resets do not create false rates or hide real failures?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build rate after counter reset?",
+          "question": true,
+          "secondaryKeyword": "rate after counter reset",
+          "coverage": "Create an isolated fixture for rate after counter reset. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks false alert spike?",
+          "question": true,
+          "secondaryKeyword": "false alert spike",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for false alert spike. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts",
+            "seed-skills/alerting-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Process restart metric fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "process restart metric",
+          "coverage": "Turn process restart metric into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Prometheus counter reset alert testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Prometheus counter reset alert testing checklist",
+          "coverage": "Build the oracle for Prometheus counter reset alert testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Prometheus counter reset alert testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Prometheus counter reset alert testing CI strategy",
+          "coverage": "Package Prometheus counter reset alert testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts",
+            "seed-skills/alerting-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Prometheus Counter Reset Alert Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Prometheus counter reset alert testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Prometheus Counter Reset Alert Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/alerting-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Prometheus counter reset alert testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/alerting-testing/SKILL.md"
+          },
+          {
+            "scenario": "rate after counter reset",
+            "controlledSetup": "Change only the condition represented by \"rate after counter reset\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Prometheus counter reset alert testing.",
+            "failureSignal": "The observed result differs from the approved rate after counter reset contract.",
+            "evidenceSource": "seed-skills/test-observability/SKILL.md"
+          },
+          {
+            "scenario": "false alert spike",
+            "controlledSetup": "Change only the condition represented by \"false alert spike\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Prometheus counter reset alert testing.",
+            "failureSignal": "The observed result differs from the approved false alert spike contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Prometheus counter reset alert testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/alerting-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Prometheus counter reset alert testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/test-observability/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/alerting-testing/SKILL.md",
+          "seed-skills/test-observability/SKILL.md",
+          "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts",
+          "https://prometheus.io/docs/practices/instrumentation/",
+          "https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Prometheus counter reset alert testing",
+        "steps": [
+          "Read seed-skills/alerting-testing/SKILL.md and seed-skills/test-observability/SKILL.md and packages/web/src/app/blog/posts/observability-driven-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Prometheus counter reset alert testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for rate after counter reset, false alert spike, process restart metric, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Prometheus counter reset alert testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/alerting-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Prometheus counter reset alert testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/test-observability/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/alerting-testing/SKILL.md",
+        "seed-skills/test-observability/SKILL.md",
+        "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/observability-driven-testing-guide",
+        "/blog/trace-based-testing-opentelemetry-2026",
+        "/blog/shift-right-testing-observability-guide-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "observability-driven-testing-guide",
+        "trace-based-testing-opentelemetry-2026",
+        "shift-right-testing-observability-guide-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://prometheus.io/docs/practices/instrumentation/",
+        "https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify restart resets do not create false rates or hide real failures?",
+        "What should a rate after counter reset fixture record?",
+        "Which failure proves false alert spike is broken?",
+        "How do teams isolate process restart metric?",
+        "Which assertion is strongest for Prometheus counter reset alert testing checklist?",
+        "How should CI report Prometheus counter reset alert testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/observability-driven-testing-guide, then open /skills and add the Prometheus counter reset alert testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-142",
+      "batch": 118,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "opentelemetry-span-link-causality-testing",
+      "primaryKeyword": "OpenTelemetry span link causality testing",
+      "title": "Opentelemetry Span Link Causality Testing",
+      "description": "OpenTelemetry span link causality testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify asynchronous work links to every causal parent without false hierarchy?",
+      "intentBoundary": "Owns span links for fan-in and queues, not ordinary parent-child nesting.",
+      "secondaryKeywords": [
+        "consumer span link",
+        "batch causal parents",
+        "linked trace validation",
+        "OpenTelemetry span link causality testing checklist",
+        "OpenTelemetry span link causality testing CI strategy",
+        "OpenTelemetry span link causality testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does OpenTelemetry span link causality testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify asynchronous work links to every causal parent without false hierarchy?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build consumer span link?",
+          "question": true,
+          "secondaryKeyword": "consumer span link",
+          "coverage": "Create an isolated fixture for consumer span link. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/distributed-tracing-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks batch causal parents?",
+          "question": true,
+          "secondaryKeyword": "batch causal parents",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for batch causal parents. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts",
+            "seed-skills/opentelemetry-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Linked trace validation fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "linked trace validation",
+          "coverage": "Turn linked trace validation into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should OpenTelemetry span link causality testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "OpenTelemetry span link causality testing checklist",
+          "coverage": "Build the oracle for OpenTelemetry span link causality testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/distributed-tracing-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "OpenTelemetry span link causality testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "OpenTelemetry span link causality testing CI strategy",
+          "coverage": "Package OpenTelemetry span link causality testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts",
+            "seed-skills/opentelemetry-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Opentelemetry Span Link Causality Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement OpenTelemetry span link causality testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/distributed-tracing-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Opentelemetry Span Link Causality Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/opentelemetry-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry span link causality testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/opentelemetry-testing/SKILL.md"
+          },
+          {
+            "scenario": "consumer span link",
+            "controlledSetup": "Change only the condition represented by \"consumer span link\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry span link causality testing.",
+            "failureSignal": "The observed result differs from the approved consumer span link contract.",
+            "evidenceSource": "seed-skills/distributed-tracing-testing/SKILL.md"
+          },
+          {
+            "scenario": "batch causal parents",
+            "controlledSetup": "Change only the condition represented by \"batch causal parents\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry span link causality testing.",
+            "failureSignal": "The observed result differs from the approved batch causal parents contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry span link causality testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/opentelemetry-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry span link causality testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/distributed-tracing-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/opentelemetry-testing/SKILL.md",
+          "seed-skills/distributed-tracing-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts",
+          "https://opentelemetry.io/docs/specs/otel/trace/",
+          "https://www.w3.org/TR/trace-context/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run OpenTelemetry span link causality testing",
+        "steps": [
+          "Read seed-skills/opentelemetry-testing/SKILL.md and seed-skills/distributed-tracing-testing/SKILL.md and packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for OpenTelemetry span link causality testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for consumer span link, batch causal parents, linked trace validation, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the OpenTelemetry span link causality testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/opentelemetry-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated OpenTelemetry span link causality testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/distributed-tracing-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/opentelemetry-testing/SKILL.md",
+        "seed-skills/distributed-tracing-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/observability-driven-testing-guide",
+        "/blog/trace-based-testing-opentelemetry-2026",
+        "/blog/shift-right-testing-observability-guide-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "observability-driven-testing-guide",
+        "trace-based-testing-opentelemetry-2026",
+        "shift-right-testing-observability-guide-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://opentelemetry.io/docs/specs/otel/trace/",
+        "https://www.w3.org/TR/trace-context/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify asynchronous work links to every causal parent without false hierarchy?",
+        "What should a consumer span link fixture record?",
+        "Which failure proves batch causal parents is broken?",
+        "How do teams isolate linked trace validation?",
+        "Which assertion is strongest for OpenTelemetry span link causality testing checklist?",
+        "How should CI report OpenTelemetry span link causality testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/observability-driven-testing-guide, then open /skills and add the OpenTelemetry span link causality testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-191",
+      "batch": 118,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "soc2-change-approval-evidence-testing",
+      "primaryKeyword": "SOC 2 change approval evidence testing",
+      "title": "Soc 2 Change Approval Evidence Testing",
+      "description": "SOC 2 change approval evidence testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify production changes retain reviewer, test, deployment, and exception evidence?",
+      "intentBoundary": "Owns change-management evidence completeness, not CI environment approval mechanics alone.",
+      "secondaryKeywords": [
+        "deployment approval record",
+        "change exception evidence",
+        "control audit trail",
+        "SOC 2 change approval evidence testing checklist",
+        "SOC 2 change approval evidence testing CI strategy",
+        "SOC 2 change approval evidence testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does SOC 2 change approval evidence testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify production changes retain reviewer, test, deployment, and exception evidence?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/soc2-compliance-testing/SKILL.md",
+            "seed-skills/compliance-as-code/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build deployment approval record?",
+          "question": true,
+          "secondaryKeyword": "deployment approval record",
+          "coverage": "Create an isolated fixture for deployment approval record. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/compliance-as-code/SKILL.md",
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks change exception evidence?",
+          "question": true,
+          "secondaryKeyword": "change exception evidence",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for change exception evidence. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts",
+            "seed-skills/soc2-compliance-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Control audit trail fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "control audit trail",
+          "coverage": "Turn control audit trail into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/soc2-compliance-testing/SKILL.md",
+            "seed-skills/compliance-as-code/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should SOC 2 change approval evidence testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "SOC 2 change approval evidence testing checklist",
+          "coverage": "Build the oracle for SOC 2 change approval evidence testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/compliance-as-code/SKILL.md",
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "SOC 2 change approval evidence testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "SOC 2 change approval evidence testing CI strategy",
+          "coverage": "Package SOC 2 change approval evidence testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts",
+            "seed-skills/soc2-compliance-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Soc 2 Change Approval Evidence Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/soc2-compliance-testing/SKILL.md",
+            "seed-skills/compliance-as-code/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement SOC 2 change approval evidence testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/soc2-compliance-testing/SKILL.md",
+            "seed-skills/compliance-as-code/SKILL.md",
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/compliance-as-code/SKILL.md",
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/soc2-compliance-testing/SKILL.md",
+            "seed-skills/compliance-as-code/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Soc 2 Change Approval Evidence Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/soc2-compliance-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by SOC 2 change approval evidence testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/soc2-compliance-testing/SKILL.md"
+          },
+          {
+            "scenario": "deployment approval record",
+            "controlledSetup": "Change only the condition represented by \"deployment approval record\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by SOC 2 change approval evidence testing.",
+            "failureSignal": "The observed result differs from the approved deployment approval record contract.",
+            "evidenceSource": "seed-skills/compliance-as-code/SKILL.md"
+          },
+          {
+            "scenario": "change exception evidence",
+            "controlledSetup": "Change only the condition represented by \"change exception evidence\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by SOC 2 change approval evidence testing.",
+            "failureSignal": "The observed result differs from the approved change exception evidence contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by SOC 2 change approval evidence testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/soc2-compliance-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by SOC 2 change approval evidence testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/compliance-as-code/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/soc2-compliance-testing/SKILL.md",
+          "seed-skills/compliance-as-code/SKILL.md",
+          "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts",
+          "https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services",
+          "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run SOC 2 change approval evidence testing",
+        "steps": [
+          "Read seed-skills/soc2-compliance-testing/SKILL.md and seed-skills/compliance-as-code/SKILL.md and packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for SOC 2 change approval evidence testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for deployment approval record, change exception evidence, control audit trail, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the SOC 2 change approval evidence testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/soc2-compliance-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated SOC 2 change approval evidence testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/compliance-as-code/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/soc2-compliance-testing/SKILL.md",
+        "seed-skills/compliance-as-code/SKILL.md",
+        "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/fintech-qa-compliance-testing-guide",
+        "/blog/healthcare-qa-compliance-testing-guide",
+        "/blog/european-accessibility-act-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "fintech-qa-compliance-testing-guide",
+        "healthcare-qa-compliance-testing-guide",
+        "european-accessibility-act-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services",
+        "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify production changes retain reviewer, test, deployment, and exception evidence?",
+        "What should a deployment approval record fixture record?",
+        "Which failure proves change exception evidence is broken?",
+        "How do teams isolate control audit trail?",
+        "Which assertion is strongest for SOC 2 change approval evidence testing checklist?",
+        "How should CI report SOC 2 change approval evidence testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/fintech-qa-compliance-testing-guide, then open /skills and add the SOC 2 change approval evidence testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-075",
+      "batch": 118,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "account-lockout-race-condition-testing",
+      "primaryKeyword": "account lockout race condition testing",
+      "title": "Account Lockout Race Condition Testing",
+      "description": "account lockout race condition testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify concurrent failed logins cannot bypass thresholds or over-lock accounts?",
+      "intentBoundary": "Owns atomic lockout counters, not rate limiting across unrelated API routes.",
+      "secondaryKeywords": [
+        "parallel login failures",
+        "atomic failed-attempt counter",
+        "lockout threshold boundary",
+        "account lockout race condition testing checklist",
+        "account lockout race condition testing CI strategy",
+        "account lockout race condition testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does account lockout race condition testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify concurrent failed logins cannot bypass thresholds or over-lock accounts?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/owasp-security/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build parallel login failures?",
+          "question": true,
+          "secondaryKeyword": "parallel login failures",
+          "coverage": "Create an isolated fixture for parallel login failures. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks atomic failed-attempt counter?",
+          "question": true,
+          "secondaryKeyword": "atomic failed-attempt counter",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for atomic failed-attempt counter. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Lockout threshold boundary fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "lockout threshold boundary",
+          "coverage": "Turn lockout threshold boundary into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/owasp-security/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should account lockout race condition testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "account lockout race condition testing checklist",
+          "coverage": "Build the oracle for account lockout race condition testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Account lockout race condition testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "account lockout race condition testing CI strategy",
+          "coverage": "Package account lockout race condition testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Account Lockout Race Condition Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/owasp-security/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement account lockout race condition testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/owasp-security/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/owasp-security/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Account Lockout Race Condition Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/owasp-security/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by account lockout race condition testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/owasp-security/SKILL.md"
+          },
+          {
+            "scenario": "parallel login failures",
+            "controlledSetup": "Change only the condition represented by \"parallel login failures\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by account lockout race condition testing.",
+            "failureSignal": "The observed result differs from the approved parallel login failures contract.",
+            "evidenceSource": "seed-skills/authentication-testing/SKILL.md"
+          },
+          {
+            "scenario": "atomic failed-attempt counter",
+            "controlledSetup": "Change only the condition represented by \"atomic failed-attempt counter\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by account lockout race condition testing.",
+            "failureSignal": "The observed result differs from the approved atomic failed-attempt counter contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by account lockout race condition testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/owasp-security/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by account lockout race condition testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/authentication-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/owasp-security/SKILL.md",
+          "seed-skills/authentication-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+          "https://owasp.org/www-project-application-security-verification-standard/",
+          "https://owasp.org/www-project-web-security-testing-guide/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run account lockout race condition testing",
+        "steps": [
+          "Read seed-skills/owasp-security/SKILL.md and seed-skills/authentication-testing/SKILL.md and packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for account lockout race condition testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for parallel login failures, atomic failed-attempt counter, lockout threshold boundary, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the account lockout race condition testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/owasp-security/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated account lockout race condition testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/authentication-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/owasp-security/SKILL.md",
+        "seed-skills/authentication-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/dast-vs-sast-vs-sca-qa-guide-2026",
+        "/blog/security-testing-ai-generated-code",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "api-security-testing-checklist-2026",
+        "dast-vs-sast-vs-sca-qa-guide-2026",
+        "security-testing-ai-generated-code",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://owasp.org/www-project-application-security-verification-standard/",
+        "https://owasp.org/www-project-web-security-testing-guide/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify concurrent failed logins cannot bypass thresholds or over-lock accounts?",
+        "What should a parallel login failures fixture record?",
+        "Which failure proves atomic failed-attempt counter is broken?",
+        "How do teams isolate lockout threshold boundary?",
+        "Which assertion is strongest for account lockout race condition testing checklist?",
+        "How should CI report account lockout race condition testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-security-testing-checklist-2026, then open /skills and add the account lockout race condition testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-074",
+      "batch": 118,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "password-reset-token-single-use-testing",
+      "primaryKeyword": "password reset token single use testing",
+      "title": "Password Reset Token Single Use Testing",
+      "description": "password reset token single use testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify reset tokens expire, bind to intent, and fail after the first use?",
+      "intentBoundary": "Owns reset-token lifecycle, not general session logout or MFA recovery.",
+      "secondaryKeywords": [
+        "concurrent reset token use",
+        "reset token expiry",
+        "password change invalidation",
+        "password reset token single use testing checklist",
+        "password reset token single use testing CI strategy",
+        "password reset token single use testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does password reset token single use testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify reset tokens expire, bind to intent, and fail after the first use?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/owasp-security/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build concurrent reset token use?",
+          "question": true,
+          "secondaryKeyword": "concurrent reset token use",
+          "coverage": "Create an isolated fixture for concurrent reset token use. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks reset token expiry?",
+          "question": true,
+          "secondaryKeyword": "reset token expiry",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for reset token expiry. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Password change invalidation fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "password change invalidation",
+          "coverage": "Turn password change invalidation into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/owasp-security/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should password reset token single use testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "password reset token single use testing checklist",
+          "coverage": "Build the oracle for password reset token single use testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Password reset token single use testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "password reset token single use testing CI strategy",
+          "coverage": "Package password reset token single use testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Password Reset Token Single Use Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/owasp-security/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement password reset token single use testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/owasp-security/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/authentication-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/owasp-security/SKILL.md",
+            "seed-skills/authentication-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Password Reset Token Single Use Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/owasp-security/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by password reset token single use testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/owasp-security/SKILL.md"
+          },
+          {
+            "scenario": "concurrent reset token use",
+            "controlledSetup": "Change only the condition represented by \"concurrent reset token use\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by password reset token single use testing.",
+            "failureSignal": "The observed result differs from the approved concurrent reset token use contract.",
+            "evidenceSource": "seed-skills/authentication-testing/SKILL.md"
+          },
+          {
+            "scenario": "reset token expiry",
+            "controlledSetup": "Change only the condition represented by \"reset token expiry\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by password reset token single use testing.",
+            "failureSignal": "The observed result differs from the approved reset token expiry contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by password reset token single use testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/owasp-security/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by password reset token single use testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/authentication-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/owasp-security/SKILL.md",
+          "seed-skills/authentication-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+          "https://owasp.org/www-project-application-security-verification-standard/",
+          "https://owasp.org/www-project-web-security-testing-guide/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run password reset token single use testing",
+        "steps": [
+          "Read seed-skills/owasp-security/SKILL.md and seed-skills/authentication-testing/SKILL.md and packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for password reset token single use testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for concurrent reset token use, reset token expiry, password change invalidation, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the password reset token single use testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/owasp-security/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated password reset token single use testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/authentication-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/owasp-security/SKILL.md",
+        "seed-skills/authentication-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/dast-vs-sast-vs-sca-qa-guide-2026",
+        "/blog/security-testing-ai-generated-code",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "api-security-testing-checklist-2026",
+        "dast-vs-sast-vs-sca-qa-guide-2026",
+        "security-testing-ai-generated-code",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://owasp.org/www-project-application-security-verification-standard/",
+        "https://owasp.org/www-project-web-security-testing-guide/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify reset tokens expire, bind to intent, and fail after the first use?",
+        "What should a concurrent reset token use fixture record?",
+        "Which failure proves reset token expiry is broken?",
+        "How do teams isolate password change invalidation?",
+        "Which assertion is strongest for password reset token single use testing checklist?",
+        "How should CI report password reset token single use testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-security-testing-checklist-2026, then open /skills and add the password reset token single use testing checks to the next QA run."
+    }
+  ]
+}
