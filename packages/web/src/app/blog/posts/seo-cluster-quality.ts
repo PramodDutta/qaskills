@@ -5,9 +5,7 @@ const MARKDOWN_LINK_PATTERN = /\[([^\]]+)]\([^)]+\)/g;
 const BLOG_LINK_PATTERN = /\]\(\/blog\/([a-z0-9]+(?:-[a-z0-9]+)*)(?:[?#][^)]*)?\)/g;
 
 export function getFaqCount(content: string): number {
-  const faqStart = content.search(
-    /^##\s+.*(?:Frequently asked questions|\bFAQ\b).*$/im,
-  );
+  const faqStart = content.search(/^##\s+.*(?:Frequently asked questions|\bFAQ\b).*$/im);
   if (faqStart < 0) return 0;
 
   const faqSection = content.slice(faqStart);
@@ -22,7 +20,8 @@ export function getIntroductionWords(content: string, limit = 100): string {
 }
 
 export function extractBlogSlugs(content: string): string[] {
-  return Array.from(content.matchAll(BLOG_LINK_PATTERN), (match) => match[1]);
+  const withoutCode = content.replace(CODE_FENCE_PATTERN, ' ');
+  return Array.from(withoutCode.matchAll(BLOG_LINK_PATTERN), (match) => match[1]);
 }
 
 export function normalizeArticleForSimilarity(content: string): string {
@@ -30,6 +29,7 @@ export function normalizeArticleForSimilarity(content: string): string {
     .replace(CODE_FENCE_PATTERN, ' ')
     .replace(MARKDOWN_LINK_PATTERN, '$1')
     .split('\n')
+    .filter((line) => !/^\s*\|?\s*:?-{3,}/.test(line))
     .filter((line) => !/^[-*]\s+.*(?:\/skills|QA skills catalog)/i.test(line.trim()))
     .join(' ')
     .replace(/https?:\/\/\S+/g, ' ')
@@ -81,19 +81,50 @@ export function findHighestShingleOverlap(
     slug: article.slug,
     shingles: createWordShingles(article.post.content, size),
   }));
-  let highest: ShingleOverlapResult | null = null;
+  const postings = new Map<string, number[]>();
+  for (let articleIndex = 0; articleIndex < indexed.length; articleIndex += 1) {
+    for (const shingle of indexed[articleIndex].shingles) {
+      const articleIndexes = postings.get(shingle);
+      if (articleIndexes) articleIndexes.push(articleIndex);
+      else postings.set(shingle, [articleIndex]);
+    }
+  }
 
-  for (let leftIndex = 0; leftIndex < indexed.length - 1; leftIndex += 1) {
-    for (let rightIndex = leftIndex + 1; rightIndex < indexed.length; rightIndex += 1) {
-      const left = indexed[leftIndex];
-      const right = indexed[rightIndex];
-      const containment = calculateShingleContainment(left.shingles, right.shingles);
-
-      if (!highest || containment > highest.containment) {
-        highest = { leftSlug: left.slug, rightSlug: right.slug, containment };
+  const overlapCounts = new Map<number, number>();
+  for (const articleIndexes of postings.values()) {
+    for (let leftPosition = 0; leftPosition < articleIndexes.length - 1; leftPosition += 1) {
+      const leftIndex = articleIndexes[leftPosition];
+      for (
+        let rightPosition = leftPosition + 1;
+        rightPosition < articleIndexes.length;
+        rightPosition += 1
+      ) {
+        const rightIndex = articleIndexes[rightPosition];
+        const pairKey = leftIndex * indexed.length + rightIndex;
+        overlapCounts.set(pairKey, (overlapCounts.get(pairKey) ?? 0) + 1);
       }
     }
   }
 
-  return highest;
+  let highest: ShingleOverlapResult | null = null;
+  for (const [pairKey, overlap] of overlapCounts) {
+    const leftIndex = Math.floor(pairKey / indexed.length);
+    const rightIndex = pairKey % indexed.length;
+    const left = indexed[leftIndex];
+    const right = indexed[rightIndex];
+    const denominator = Math.min(left.shingles.size, right.shingles.size);
+    const containment = denominator === 0 ? 0 : overlap / denominator;
+
+    if (!highest || containment > highest.containment) {
+      highest = { leftSlug: left.slug, rightSlug: right.slug, containment };
+    }
+  }
+
+  return (
+    highest ?? {
+      leftSlug: indexed[0].slug,
+      rightSlug: indexed[1].slug,
+      containment: 0,
+    }
+  );
 }

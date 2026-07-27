@@ -1,0 +1,1160 @@
+{
+  "batch": 119,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-148",
+      "batch": 119,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "alertmanager-inhibition-dependency-testing",
+      "primaryKeyword": "Alertmanager inhibition dependency testing",
+      "title": "Alertmanager Inhibition Dependency Testing",
+      "description": "Alertmanager inhibition dependency testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify root-cause alerts suppress only intended dependent alerts?",
+      "intentBoundary": "Owns inhibition matching and recovery, not generic alert threshold tuning.",
+      "secondaryKeywords": [
+        "source target matcher",
+        "inhibited alert visibility",
+        "root cause recovery",
+        "Alertmanager inhibition dependency testing checklist",
+        "Alertmanager inhibition dependency testing CI strategy",
+        "Alertmanager inhibition dependency testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Alertmanager inhibition dependency testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify root-cause alerts suppress only intended dependent alerts?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build source target matcher?",
+          "question": true,
+          "secondaryKeyword": "source target matcher",
+          "coverage": "Create an isolated fixture for source target matcher. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks inhibited alert visibility?",
+          "question": true,
+          "secondaryKeyword": "inhibited alert visibility",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for inhibited alert visibility. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts",
+            "seed-skills/alerting-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Root cause recovery fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "root cause recovery",
+          "coverage": "Turn root cause recovery into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Alertmanager inhibition dependency testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Alertmanager inhibition dependency testing checklist",
+          "coverage": "Build the oracle for Alertmanager inhibition dependency testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Alertmanager inhibition dependency testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Alertmanager inhibition dependency testing CI strategy",
+          "coverage": "Package Alertmanager inhibition dependency testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts",
+            "seed-skills/alerting-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Alertmanager Inhibition Dependency Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Alertmanager inhibition dependency testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Alertmanager Inhibition Dependency Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/alerting-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Alertmanager inhibition dependency testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/alerting-testing/SKILL.md"
+          },
+          {
+            "scenario": "source target matcher",
+            "controlledSetup": "Change only the condition represented by \"source target matcher\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Alertmanager inhibition dependency testing.",
+            "failureSignal": "The observed result differs from the approved source target matcher contract.",
+            "evidenceSource": "seed-skills/test-observability/SKILL.md"
+          },
+          {
+            "scenario": "inhibited alert visibility",
+            "controlledSetup": "Change only the condition represented by \"inhibited alert visibility\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Alertmanager inhibition dependency testing.",
+            "failureSignal": "The observed result differs from the approved inhibited alert visibility contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Alertmanager inhibition dependency testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/alerting-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Alertmanager inhibition dependency testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/test-observability/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/alerting-testing/SKILL.md",
+          "seed-skills/test-observability/SKILL.md",
+          "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts",
+          "https://prometheus.io/docs/alerting/latest/alertmanager/",
+          "https://prometheus.io/docs/alerting/latest/configuration/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Alertmanager inhibition dependency testing",
+        "steps": [
+          "Read seed-skills/alerting-testing/SKILL.md and seed-skills/test-observability/SKILL.md and packages/web/src/app/blog/posts/observability-driven-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Alertmanager inhibition dependency testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for source target matcher, inhibited alert visibility, root cause recovery, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Alertmanager inhibition dependency testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/alerting-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Alertmanager inhibition dependency testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/test-observability/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/alerting-testing/SKILL.md",
+        "seed-skills/test-observability/SKILL.md",
+        "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/observability-driven-testing-guide",
+        "/blog/trace-based-testing-opentelemetry-2026",
+        "/blog/shift-right-testing-observability-guide-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "observability-driven-testing-guide",
+        "trace-based-testing-opentelemetry-2026",
+        "shift-right-testing-observability-guide-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://prometheus.io/docs/alerting/latest/alertmanager/",
+        "https://prometheus.io/docs/alerting/latest/configuration/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify root-cause alerts suppress only intended dependent alerts?",
+        "What should a source target matcher fixture record?",
+        "Which failure proves inhibited alert visibility is broken?",
+        "How do teams isolate root cause recovery?",
+        "Which assertion is strongest for Alertmanager inhibition dependency testing checklist?",
+        "How should CI report Alertmanager inhibition dependency testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/observability-driven-testing-guide, then open /skills and add the Alertmanager inhibition dependency testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-078",
+      "batch": 119,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "android-app-links-verification-testing",
+      "primaryKeyword": "Android App Links verification testing",
+      "title": "Android App Links Verification Testing",
+      "description": "Android App Links verification testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify verified domains open the app while invalid associations fall back safely?",
+      "intentBoundary": "Owns Android domain verification, not deep-link cold-start navigation.",
+      "secondaryKeywords": [
+        "assetlinks.json failure",
+        "verified domain state",
+        "App Links fallback",
+        "Android App Links verification testing checklist",
+        "Android App Links verification testing CI strategy",
+        "Android App Links verification testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Android App Links verification testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify verified domains open the app while invalid associations fall back safely?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build assetlinks.json failure?",
+          "question": true,
+          "secondaryKeyword": "assetlinks.json failure",
+          "coverage": "Create an isolated fixture for assetlinks.json failure. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks verified domain state?",
+          "question": true,
+          "secondaryKeyword": "verified domain state",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for verified domain state. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/espresso-android/SKILL.md"
+          ]
+        },
+        {
+          "heading": "App Links fallback fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "App Links fallback",
+          "coverage": "Turn App Links fallback into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Android App Links verification testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Android App Links verification testing checklist",
+          "coverage": "Build the oracle for Android App Links verification testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Android App Links verification testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Android App Links verification testing CI strategy",
+          "coverage": "Package Android App Links verification testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/espresso-android/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Android App Links Verification Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Android App Links verification testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Android App Links Verification Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/espresso-android/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android App Links verification testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/espresso-android/SKILL.md"
+          },
+          {
+            "scenario": "assetlinks.json failure",
+            "controlledSetup": "Change only the condition represented by \"assetlinks.json failure\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android App Links verification testing.",
+            "failureSignal": "The observed result differs from the approved assetlinks.json failure contract.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "verified domain state",
+            "controlledSetup": "Change only the condition represented by \"verified domain state\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android App Links verification testing.",
+            "failureSignal": "The observed result differs from the approved verified domain state contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android App Links verification testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/espresso-android/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android App Links verification testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/espresso-android/SKILL.md",
+          "seed-skills/appium-mobile/SKILL.md",
+          "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+          "https://developer.android.com/training/app-links/verify-android-applinks",
+          "https://developer.android.com/training/app-links/deep-linking"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Android App Links verification testing",
+        "steps": [
+          "Read seed-skills/espresso-android/SKILL.md and seed-skills/appium-mobile/SKILL.md and packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Android App Links verification testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for assetlinks.json failure, verified domain state, App Links fallback, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Android App Links verification testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/espresso-android/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Android App Links verification testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/appium-mobile/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/espresso-android/SKILL.md",
+        "seed-skills/appium-mobile/SKILL.md",
+        "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/mobile-testing-automation-guide",
+        "/blog/appium-mobile-testing-complete-guide",
+        "/blog/mobile-device-farm-testing-strategy-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-testing-automation-guide",
+        "appium-mobile-testing-complete-guide",
+        "mobile-device-farm-testing-strategy-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://developer.android.com/training/app-links/verify-android-applinks",
+        "https://developer.android.com/training/app-links/deep-linking"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify verified domains open the app while invalid associations fall back safely?",
+        "What should a assetlinks.json failure fixture record?",
+        "Which failure proves verified domain state is broken?",
+        "How do teams isolate App Links fallback?",
+        "Which assertion is strongest for Android App Links verification testing checklist?",
+        "How should CI report Android App Links verification testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-testing-automation-guide, then open /skills and add the Android App Links verification testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-082",
+      "batch": 119,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "android-predictive-back-gesture-testing",
+      "primaryKeyword": "Android predictive back gesture testing",
+      "title": "Android Predictive Back Gesture Testing",
+      "description": "Android predictive back gesture testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify preview, cancellation, and committed back navigation preserve app state?",
+      "intentBoundary": "Owns predictive back lifecycle, not ordinary tap or swipe gestures.",
+      "secondaryKeywords": [
+        "back preview animation",
+        "cancelled back gesture",
+        "OnBackInvoked state",
+        "Android predictive back gesture testing checklist",
+        "Android predictive back gesture testing CI strategy",
+        "Android predictive back gesture testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Android predictive back gesture testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify preview, cancellation, and committed back navigation preserve app state?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build back preview animation?",
+          "question": true,
+          "secondaryKeyword": "back preview animation",
+          "coverage": "Create an isolated fixture for back preview animation. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks cancelled back gesture?",
+          "question": true,
+          "secondaryKeyword": "cancelled back gesture",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for cancelled back gesture. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/espresso-android/SKILL.md"
+          ]
+        },
+        {
+          "heading": "OnBackInvoked state fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "OnBackInvoked state",
+          "coverage": "Turn OnBackInvoked state into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Android predictive back gesture testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Android predictive back gesture testing checklist",
+          "coverage": "Build the oracle for Android predictive back gesture testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Android predictive back gesture testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Android predictive back gesture testing CI strategy",
+          "coverage": "Package Android predictive back gesture testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/espresso-android/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Android Predictive Back Gesture Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Android predictive back gesture testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Android Predictive Back Gesture Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/espresso-android/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android predictive back gesture testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/espresso-android/SKILL.md"
+          },
+          {
+            "scenario": "back preview animation",
+            "controlledSetup": "Change only the condition represented by \"back preview animation\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android predictive back gesture testing.",
+            "failureSignal": "The observed result differs from the approved back preview animation contract.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "cancelled back gesture",
+            "controlledSetup": "Change only the condition represented by \"cancelled back gesture\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android predictive back gesture testing.",
+            "failureSignal": "The observed result differs from the approved cancelled back gesture contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android predictive back gesture testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/espresso-android/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android predictive back gesture testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/espresso-android/SKILL.md",
+          "seed-skills/appium-mobile/SKILL.md",
+          "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+          "https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture",
+          "https://developer.android.com/guide/navigation/custom-back"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Android predictive back gesture testing",
+        "steps": [
+          "Read seed-skills/espresso-android/SKILL.md and seed-skills/appium-mobile/SKILL.md and packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Android predictive back gesture testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for back preview animation, cancelled back gesture, OnBackInvoked state, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Android predictive back gesture testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/espresso-android/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Android predictive back gesture testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/appium-mobile/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/espresso-android/SKILL.md",
+        "seed-skills/appium-mobile/SKILL.md",
+        "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/mobile-testing-automation-guide",
+        "/blog/appium-mobile-testing-complete-guide",
+        "/blog/mobile-device-farm-testing-strategy-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-testing-automation-guide",
+        "appium-mobile-testing-complete-guide",
+        "mobile-device-farm-testing-strategy-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture",
+        "https://developer.android.com/guide/navigation/custom-back"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify preview, cancellation, and committed back navigation preserve app state?",
+        "What should a back preview animation fixture record?",
+        "Which failure proves cancelled back gesture is broken?",
+        "How do teams isolate OnBackInvoked state?",
+        "Which assertion is strongest for Android predictive back gesture testing checklist?",
+        "How should CI report Android predictive back gesture testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-testing-automation-guide, then open /skills and add the Android predictive back gesture testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-080",
+      "batch": 119,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "android-scoped-storage-migration-testing",
+      "primaryKeyword": "Android scoped storage migration testing",
+      "title": "Android Scoped Storage Migration Testing",
+      "description": "Android scoped storage migration testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify app data remains accessible while legacy storage permissions are removed?",
+      "intentBoundary": "Owns Android storage-model migration, not database schema migration.",
+      "secondaryKeywords": [
+        "legacy external storage",
+        "media permission migration",
+        "app-specific file access",
+        "Android scoped storage migration testing checklist",
+        "Android scoped storage migration testing CI strategy",
+        "Android scoped storage migration testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Android scoped storage migration testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify app data remains accessible while legacy storage permissions are removed?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build legacy external storage?",
+          "question": true,
+          "secondaryKeyword": "legacy external storage",
+          "coverage": "Create an isolated fixture for legacy external storage. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks media permission migration?",
+          "question": true,
+          "secondaryKeyword": "media permission migration",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for media permission migration. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/espresso-android/SKILL.md"
+          ]
+        },
+        {
+          "heading": "App-specific file access fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "app-specific file access",
+          "coverage": "Turn app-specific file access into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Android scoped storage migration testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Android scoped storage migration testing checklist",
+          "coverage": "Build the oracle for Android scoped storage migration testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Android scoped storage migration testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Android scoped storage migration testing CI strategy",
+          "coverage": "Package Android scoped storage migration testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+            "seed-skills/espresso-android/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Android Scoped Storage Migration Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Android scoped storage migration testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/espresso-android/SKILL.md",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Android Scoped Storage Migration Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/espresso-android/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android scoped storage migration testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/espresso-android/SKILL.md"
+          },
+          {
+            "scenario": "legacy external storage",
+            "controlledSetup": "Change only the condition represented by \"legacy external storage\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android scoped storage migration testing.",
+            "failureSignal": "The observed result differs from the approved legacy external storage contract.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "media permission migration",
+            "controlledSetup": "Change only the condition represented by \"media permission migration\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android scoped storage migration testing.",
+            "failureSignal": "The observed result differs from the approved media permission migration contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android scoped storage migration testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/espresso-android/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android scoped storage migration testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/espresso-android/SKILL.md",
+          "seed-skills/appium-mobile/SKILL.md",
+          "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts",
+          "https://developer.android.com/about/versions/11/privacy/storage",
+          "https://developer.android.com/training/data-storage"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Android scoped storage migration testing",
+        "steps": [
+          "Read seed-skills/espresso-android/SKILL.md and seed-skills/appium-mobile/SKILL.md and packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Android scoped storage migration testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for legacy external storage, media permission migration, app-specific file access, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Android scoped storage migration testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/espresso-android/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Android scoped storage migration testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/appium-mobile/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/espresso-android/SKILL.md",
+        "seed-skills/appium-mobile/SKILL.md",
+        "packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/mobile-testing-automation-guide",
+        "/blog/appium-mobile-testing-complete-guide",
+        "/blog/mobile-device-farm-testing-strategy-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-testing-automation-guide",
+        "appium-mobile-testing-complete-guide",
+        "mobile-device-farm-testing-strategy-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://developer.android.com/about/versions/11/privacy/storage",
+        "https://developer.android.com/training/data-storage"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify app data remains accessible while legacy storage permissions are removed?",
+        "What should a legacy external storage fixture record?",
+        "Which failure proves media permission migration is broken?",
+        "How do teams isolate app-specific file access?",
+        "Which assertion is strongest for Android scoped storage migration testing checklist?",
+        "How should CI report Android scoped storage migration testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-testing-automation-guide, then open /skills and add the Android scoped storage migration testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-188",
+      "batch": 119,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "pci-card-data-retention-testing",
+      "primaryKeyword": "PCI card data retention testing",
+      "title": "Pci Card Data Retention Testing",
+      "description": "PCI card data retention testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify stored account data expires and is unrecoverable after policy deadlines?",
+      "intentBoundary": "Owns payment-data retention controls, not test-data cleanup generally.",
+      "secondaryKeywords": [
+        "PAN retention expiry",
+        "card data purge",
+        "backup retention evidence",
+        "PCI card data retention testing checklist",
+        "PCI card data retention testing CI strategy",
+        "PCI card data retention testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does PCI card data retention testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify stored account data expires and is unrecoverable after policy deadlines?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/pci-dss-testing/SKILL.md",
+            "seed-skills/secure-test-data-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build PAN retention expiry?",
+          "question": true,
+          "secondaryKeyword": "PAN retention expiry",
+          "coverage": "Create an isolated fixture for PAN retention expiry. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/secure-test-data-engineer/SKILL.md",
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks card data purge?",
+          "question": true,
+          "secondaryKeyword": "card data purge",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for card data purge. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts",
+            "seed-skills/pci-dss-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Backup retention evidence fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "backup retention evidence",
+          "coverage": "Turn backup retention evidence into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/pci-dss-testing/SKILL.md",
+            "seed-skills/secure-test-data-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should PCI card data retention testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "PCI card data retention testing checklist",
+          "coverage": "Build the oracle for PCI card data retention testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/secure-test-data-engineer/SKILL.md",
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "PCI card data retention testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "PCI card data retention testing CI strategy",
+          "coverage": "Package PCI card data retention testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts",
+            "seed-skills/pci-dss-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Pci Card Data Retention Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/pci-dss-testing/SKILL.md",
+            "seed-skills/secure-test-data-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement PCI card data retention testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/pci-dss-testing/SKILL.md",
+            "seed-skills/secure-test-data-engineer/SKILL.md",
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/secure-test-data-engineer/SKILL.md",
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/pci-dss-testing/SKILL.md",
+            "seed-skills/secure-test-data-engineer/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Pci Card Data Retention Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/pci-dss-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PCI card data retention testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/pci-dss-testing/SKILL.md"
+          },
+          {
+            "scenario": "PAN retention expiry",
+            "controlledSetup": "Change only the condition represented by \"PAN retention expiry\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PCI card data retention testing.",
+            "failureSignal": "The observed result differs from the approved PAN retention expiry contract.",
+            "evidenceSource": "seed-skills/secure-test-data-engineer/SKILL.md"
+          },
+          {
+            "scenario": "card data purge",
+            "controlledSetup": "Change only the condition represented by \"card data purge\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PCI card data retention testing.",
+            "failureSignal": "The observed result differs from the approved card data purge contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PCI card data retention testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/pci-dss-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PCI card data retention testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/secure-test-data-engineer/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/pci-dss-testing/SKILL.md",
+          "seed-skills/secure-test-data-engineer/SKILL.md",
+          "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts",
+          "https://www.pcisecuritystandards.org/document_library/",
+          "https://www.pcisecuritystandards.org/standards/pci-dss/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run PCI card data retention testing",
+        "steps": [
+          "Read seed-skills/pci-dss-testing/SKILL.md and seed-skills/secure-test-data-engineer/SKILL.md and packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for PCI card data retention testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for PAN retention expiry, card data purge, backup retention evidence, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the PCI card data retention testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/pci-dss-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated PCI card data retention testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/secure-test-data-engineer/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/pci-dss-testing/SKILL.md",
+        "seed-skills/secure-test-data-engineer/SKILL.md",
+        "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/fintech-qa-compliance-testing-guide",
+        "/blog/healthcare-qa-compliance-testing-guide",
+        "/blog/european-accessibility-act-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "fintech-qa-compliance-testing-guide",
+        "healthcare-qa-compliance-testing-guide",
+        "european-accessibility-act-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://www.pcisecuritystandards.org/document_library/",
+        "https://www.pcisecuritystandards.org/standards/pci-dss/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify stored account data expires and is unrecoverable after policy deadlines?",
+        "What should a PAN retention expiry fixture record?",
+        "Which failure proves card data purge is broken?",
+        "How do teams isolate backup retention evidence?",
+        "Which assertion is strongest for PCI card data retention testing checklist?",
+        "How should CI report PCI card data retention testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/fintech-qa-compliance-testing-guide, then open /skills and add the PCI card data retention testing checks to the next QA run."
+    }
+  ]
+}

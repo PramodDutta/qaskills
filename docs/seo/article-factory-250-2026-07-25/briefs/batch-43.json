@@ -1,0 +1,1085 @@
+{
+  "batch": 43,
+  "briefs": [
+    {
+      "batch": 43,
+      "batchPosition": 1,
+      "domain": "ai-llm-rag",
+      "slug": "deepeval-threshold-boundary-testing",
+      "primaryKeyword": "DeepEval threshold boundary testing",
+      "title": "DeepEval threshold boundary testing",
+      "description": "DeepEval threshold boundary testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you write deterministic boundary cases for DeepEval scores just below, equal to, and just above a configured threshold?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you write deterministic boundary cases for DeepEval scores just below, equal to, and just above a configured threshold?\" State the observable success condition, not a general introduction: Scores immediately below, exactly equal to, and immediately above a threshold follow the documented comparator and stable rounding policy.",
+      "intentBoundary": "The broad pytest guide uses thresholds but does not own an exact boundary matrix for equality, rounding, and floating point behavior.",
+      "secondaryKeywords": [
+        "how to deepeval threshold boundary testing",
+        "deepeval threshold boundary testing example",
+        "DeepEval exact threshold behavior",
+        "LLM metric boundary matrix",
+        "floating point eval threshold"
+      ],
+      "outline": [
+        {
+          "heading": "What must DeepEval threshold boundary testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you write deterministic boundary cases for DeepEval scores just below, equal to, and just above a configured threshold?\" in 40 to 60 words. Define the observable contract as: Scores immediately below, exactly equal to, and immediately above a threshold follow the documented comparator and stable rounding policy. Keep the scope inside this intent boundary: The broad pytest guide uses thresholds but does not own an exact boundary matrix for equality, rounding, and floating point behavior.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md:72-95 applies explicit thresholds to relevancy, faithfulness, and GEval.",
+            "seed-skills/ai-system-quality-engineer/SKILL.md:92-103 aggregates repeated scores around a threshold into pass rates."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md:72-95 applies explicit thresholds to relevancy, faithfulness, and GEval.",
+            "seed-skills/ai-system-quality-engineer/SKILL.md:92-103 aggregates repeated scores around a threshold into pass rates."
+          ]
+        },
+        {
+          "heading": "How to deepeval threshold boundary testing?",
+          "secondaryKeyword": "how to deepeval threshold boundary testing",
+          "coverage": "Build the primary positive fixture with this harness: Parameterize deterministic fake metric scores with decimal and floating-point boundaries, then assert raw score, display value, and pass state. The decisive success oracle is: Scores immediately below, exactly equal to, and immediately above a threshold follow the documented comparator and stable rounding policy.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Deepeval threshold boundary testing example: scenario and assertion matrix",
+          "secondaryKeyword": "deepeval threshold boundary testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose DeepEval exact threshold behavior?",
+          "secondaryKeyword": "DeepEval exact threshold behavior",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: Equality behaves differently across metrics, floating-point representation flips a result, or report rounding disagrees with the raw decision. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should LLM metric boundary matrix run in CI?",
+          "secondaryKeyword": "LLM metric boundary matrix",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify floating point eval threshold?",
+          "secondaryKeyword": "floating point eval threshold",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: Equality behaves differently across metrics, floating-point representation flips a result, or report rounding disagrees with the raw decision.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use Python and pytest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/deepeval-pytest-llm-testing-guide before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "DeepEval threshold boundary testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Scores immediately below, exactly equal to, and immediately above a threshold follow the documented comparator and stable rounding policy.",
+          "Boundary case for deepeval threshold boundary testing example with an exact pass or fail oracle",
+          "Negative case: Equality behaves differently across metrics, floating-point representation flips a result, or report rounding disagrees with the raw decision.",
+          "Repeated and concurrent execution for LLM metric boundary matrix",
+          "CI evidence and ownership for floating point eval threshold"
+        ],
+        "sources": [
+          "seed-skills/deepeval-llm-evaluation/SKILL.md",
+          "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "https://deepeval.com/docs/evaluation-test-cases",
+          "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+          "https://docs.pytest.org/en/stable/how-to/parametrize.html"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement DeepEval threshold boundary testing in six steps",
+        "steps": [
+          "Read seed-skills/deepeval-llm-evaluation/SKILL.md:72-95 and seed-skills/ai-system-quality-engineer/SKILL.md:92-103, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to deepeval threshold boundary testing and deepeval threshold boundary testing example without calling production services or mutating shared state.",
+          "Build the harness: Parameterize deterministic fake metric scores with decimal and floating-point boundaries, then assert raw score, display value, and pass state.",
+          "Run the expected path and assert: Scores immediately below, exactly equal to, and immediately above a threshold follow the documented comparator and stable rounding policy.",
+          "Inject boundary and failure cases and assert: Equality behaves differently across metrics, floating-point representation flips a result, or report rounding disagrees with the raw decision.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to deepeval threshold boundary testing positive contract",
+          "repositoryPath": "seed-skills/deepeval-llm-evaluation/SKILL.md",
+          "repositoryLines": "72-95",
+          "exactEvidence": "applies explicit thresholds to relevancy, faithfulness, and GEval.",
+          "plannedSnippet": "Python and pytest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Scores immediately below, exactly equal to, and immediately above a threshold follow the documented comparator and stable rounding policy.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "DeepEval exact threshold behavior negative contract",
+          "repositoryPath": "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "repositoryLines": "92-103",
+          "exactEvidence": "aggregates repeated scores around a threshold into pass rates.",
+          "plannedSnippet": "Python and pytest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: Equality behaves differently across metrics, floating-point representation flips a result, or report rounding disagrees with the raw decision.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md",
+        "seed-skills/ai-system-quality-engineer/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates",
+        "/blog/deepeval-metrics-complete-guide-2026"
+      ],
+      "relatedSlugs": [
+        "deepeval-pytest-llm-testing-guide",
+        "testing-llm-applications-guide",
+        "llm-evaluation-ci-cd-quality-gates",
+        "deepeval-metrics-complete-guide-2026"
+      ],
+      "sources": [
+        "https://deepeval.com/docs/evaluation-test-cases",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+        "https://docs.pytest.org/en/stable/how-to/parametrize.html"
+      ],
+      "faqQuestions": [
+        "How do you write deterministic boundary cases for DeepEval scores just below, equal to, and just above a configured threshold?",
+        "What fixture best tests how to deepeval threshold boundary testing?",
+        "Which failure signal proves deepeval threshold boundary testing example?",
+        "How should CI report DeepEval exact threshold behavior?",
+        "When should LLM metric boundary matrix block a release?",
+        "How can teams keep floating point eval threshold repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/deepeval-pytest-llm-testing-guide before implementing this regression gate."
+    },
+    {
+      "batch": 43,
+      "batchPosition": 2,
+      "domain": "ai-llm-rag",
+      "slug": "llm-retry-cost-double-counting-testing",
+      "primaryKeyword": "LLM retry cost double counting testing",
+      "title": "LLM retry cost double counting testing",
+      "description": "LLM retry cost double counting testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you reconcile logical requests, provider attempts, retries, cached calls, and successful outcomes so LLM observability does not double-count cost?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you reconcile logical requests, provider attempts, retries, cached calls, and successful outcomes so LLM observability does not double-count cost?\" State the observable success condition, not a general introduction: One logical request links to each provider attempt, attempt costs sum once, cache hits follow policy, and cost per successful task reconciles.",
+      "intentBoundary": "The existing budget guide enforces totals. This candidate owns attempt-level correlation and deduplication in observability data.",
+      "secondaryKeywords": [
+        "how to llm retry cost double counting testing",
+        "llm retry cost double counting testing example",
+        "Langfuse retry cost attribution",
+        "LLM attempt versus request cost",
+        "deduplicate token usage retries"
+      ],
+      "outline": [
+        {
+          "heading": "What must LLM retry cost double counting testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you reconcile logical requests, provider attempts, retries, cached calls, and successful outcomes so LLM observability does not double-count cost?\" in 40 to 60 words. Define the observable contract as: One logical request links to each provider attempt, attempt costs sum once, cache hits follow policy, and cost per successful task reconciles. Keep the scope inside this intent boundary: The existing budget guide enforces totals. This candidate owns attempt-level correlation and deduplication in observability data.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md:21-25 treats cost and latency per trace as quality metrics.",
+            "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts:868-876 separates retry cost from cost per successful task."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md:21-25 treats cost and latency per trace as quality metrics.",
+            "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts:868-876 separates retry cost from cost per successful task."
+          ]
+        },
+        {
+          "heading": "How to llm retry cost double counting testing?",
+          "secondaryKeyword": "how to llm retry cost double counting testing",
+          "coverage": "Build the primary positive fixture with this harness: Create synthetic Langfuse-style traces with request and attempt IDs, retries, failures, and cache hits, then reconcile expected totals. The decisive success oracle is: One logical request links to each provider attempt, attempt costs sum once, cache hits follow policy, and cost per successful task reconciles.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts"
+          ]
+        },
+        {
+          "heading": "Llm retry cost double counting testing example: scenario and assertion matrix",
+          "secondaryKeyword": "llm retry cost double counting testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts"
+          ]
+        },
+        {
+          "heading": "What failures expose Langfuse retry cost attribution?",
+          "secondaryKeyword": "Langfuse retry cost attribution",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: Retries count as separate user requests and again inside the parent total, or cached and failed attempts disappear from attribution. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts"
+          ]
+        },
+        {
+          "heading": "How should LLM attempt versus request cost run in CI?",
+          "secondaryKeyword": "LLM attempt versus request cost",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts"
+          ]
+        },
+        {
+          "heading": "Which assertions verify deduplicate token usage retries?",
+          "secondaryKeyword": "deduplicate token usage retries",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: Retries count as separate user requests and again inside the parent total, or cached and failed attempts disappear from attribution.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/langfuse-llm-observability-guide-2026 before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "LLM retry cost double counting testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: One logical request links to each provider attempt, attempt costs sum once, cache hits follow policy, and cost per successful task reconciles.",
+          "Boundary case for llm retry cost double counting testing example with an exact pass or fail oracle",
+          "Negative case: Retries count as separate user requests and again inside the parent total, or cached and failed attempts disappear from attribution.",
+          "Repeated and concurrent execution for LLM attempt versus request cost",
+          "CI evidence and ownership for deduplicate token usage retries"
+        ],
+        "sources": [
+          "seed-skills/langfuse-llm-observability/SKILL.md",
+          "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts",
+          "https://langfuse.com/docs/metrics/overview",
+          "https://langfuse.com/docs/api-and-data-platform/features/observations-api",
+          "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement LLM retry cost double counting testing in six steps",
+        "steps": [
+          "Read seed-skills/langfuse-llm-observability/SKILL.md:21-25 and packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts:868-876, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to llm retry cost double counting testing and llm retry cost double counting testing example without calling production services or mutating shared state.",
+          "Build the harness: Create synthetic Langfuse-style traces with request and attempt IDs, retries, failures, and cache hits, then reconcile expected totals.",
+          "Run the expected path and assert: One logical request links to each provider attempt, attempt costs sum once, cache hits follow policy, and cost per successful task reconciles.",
+          "Inject boundary and failure cases and assert: Retries count as separate user requests and again inside the parent total, or cached and failed attempts disappear from attribution.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to llm retry cost double counting testing positive contract",
+          "repositoryPath": "seed-skills/langfuse-llm-observability/SKILL.md",
+          "repositoryLines": "21-25",
+          "exactEvidence": "treats cost and latency per trace as quality metrics.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: One logical request links to each provider attempt, attempt costs sum once, cache hits follow policy, and cost per successful task reconciles.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "Langfuse retry cost attribution negative contract",
+          "repositoryPath": "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts",
+          "repositoryLines": "868-876",
+          "exactEvidence": "separates retry cost from cost per successful task.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: Retries count as separate user requests and again inside the parent total, or cached and failed attempts disappear from attribution.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/langfuse-llm-observability/SKILL.md",
+        "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/langfuse-llm-observability-guide-2026",
+        "/blog/langfuse-trace-quality-testing-guide",
+        "/blog/llm-observability-vs-evaluation-2026",
+        "/blog/llm-cost-budget-ci-guide"
+      ],
+      "relatedSlugs": [
+        "langfuse-llm-observability-guide-2026",
+        "langfuse-trace-quality-testing-guide",
+        "llm-observability-vs-evaluation-2026",
+        "llm-cost-budget-ci-guide"
+      ],
+      "sources": [
+        "https://langfuse.com/docs/metrics/overview",
+        "https://langfuse.com/docs/api-and-data-platform/features/observations-api",
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/"
+      ],
+      "faqQuestions": [
+        "How do you reconcile logical requests, provider attempts, retries, cached calls, and successful outcomes so LLM observability does not double-count cost?",
+        "What fixture best tests how to llm retry cost double counting testing?",
+        "Which failure signal proves llm retry cost double counting testing example?",
+        "How should CI report Langfuse retry cost attribution?",
+        "When should LLM attempt versus request cost block a release?",
+        "How can teams keep deduplicate token usage retries repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/langfuse-llm-observability-guide-2026 before implementing this regression gate."
+    },
+    {
+      "batch": 43,
+      "batchPosition": 3,
+      "domain": "ai-llm-rag",
+      "slug": "promptfoo-environment-isolation-testing",
+      "primaryKeyword": "Promptfoo environment isolation testing",
+      "title": "Promptfoo environment isolation testing",
+      "description": "Promptfoo environment isolation testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you prove Promptfoo development, CI, and red-team runs use isolated credentials, endpoints, cache paths, and configuration precedence?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you prove Promptfoo development, CI, and red-team runs use isolated credentials, endpoints, cache paths, and configuration precedence?\" State the observable success condition, not a general introduction: Development, CI, and red-team runs resolve only their intended credentials, endpoints, cache paths, and configuration precedence.",
+      "intentBoundary": "The CLI tutorial runs one environment. This candidate owns cross-environment isolation and precedence tests that prevent production-target mistakes.",
+      "secondaryKeywords": [
+        "how to promptfoo environment isolation testing",
+        "promptfoo environment isolation testing example",
+        "Promptfoo env variable precedence",
+        "isolate Promptfoo CI credentials",
+        "Promptfoo staging endpoint test"
+      ],
+      "outline": [
+        {
+          "heading": "What must Promptfoo environment isolation testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you prove Promptfoo development, CI, and red-team runs use isolated credentials, endpoints, cache paths, and configuration precedence?\" in 40 to 60 words. Define the observable contract as: Development, CI, and red-team runs resolve only their intended credentials, endpoints, cache paths, and configuration precedence. Keep the scope inside this intent boundary: The CLI tutorial runs one environment. This candidate owns cross-environment isolation and precedence tests that prevent production-target mistakes.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md:27-33 loads provider credentials from environment variables.",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md:124-133 separates pull-request and nightly red-team configurations."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md:27-33 loads provider credentials from environment variables.",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md:124-133 separates pull-request and nightly red-team configurations."
+          ]
+        },
+        {
+          "heading": "How to promptfoo environment isolation testing?",
+          "secondaryKeyword": "how to promptfoo environment isolation testing",
+          "coverage": "Build the primary positive fixture with this harness: Spawn isolated Promptfoo runs with explicit environment maps, temporary homes, separate cache directories, and endpoint capture servers. The decisive success oracle is: Development, CI, and red-team runs resolve only their intended credentials, endpoints, cache paths, and configuration precedence.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Promptfoo environment isolation testing example: scenario and assertion matrix",
+          "secondaryKeyword": "promptfoo environment isolation testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose Promptfoo env variable precedence?",
+          "secondaryKeyword": "Promptfoo env variable precedence",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A CI run inherits a developer or production secret, targets the wrong endpoint, shares a cache, or lets one config override another unexpectedly. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should isolate Promptfoo CI credentials run in CI?",
+          "secondaryKeyword": "isolate Promptfoo CI credentials",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify Promptfoo staging endpoint test?",
+          "secondaryKeyword": "Promptfoo staging endpoint test",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A CI run inherits a developer or production secret, targets the wrong endpoint, shares a cache, or lets one config override another unexpectedly.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use Promptfoo YAML plus TypeScript or shell assertions and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/promptfoo-complete-guide-2026 before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Promptfoo environment isolation testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Development, CI, and red-team runs resolve only their intended credentials, endpoints, cache paths, and configuration precedence.",
+          "Boundary case for promptfoo environment isolation testing example with an exact pass or fail oracle",
+          "Negative case: A CI run inherits a developer or production secret, targets the wrong endpoint, shares a cache, or lets one config override another unexpectedly.",
+          "Repeated and concurrent execution for isolate Promptfoo CI credentials",
+          "CI evidence and ownership for Promptfoo staging endpoint test"
+        ],
+        "sources": [
+          "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "seed-skills/prompt-testing/SKILL.md",
+          "https://www.promptfoo.dev/docs/configuration/guide/",
+          "https://www.promptfoo.dev/docs/red-team/configuration/",
+          "https://www.promptfoo.dev/docs/red-team/troubleshooting/data-handling/"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Promptfoo environment isolation testing in six steps",
+        "steps": [
+          "Read seed-skills/promptfoo-llm-red-teaming/SKILL.md:27-33 and seed-skills/promptfoo-llm-red-teaming/SKILL.md:124-133, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to promptfoo environment isolation testing and promptfoo environment isolation testing example without calling production services or mutating shared state.",
+          "Build the harness: Spawn isolated Promptfoo runs with explicit environment maps, temporary homes, separate cache directories, and endpoint capture servers.",
+          "Run the expected path and assert: Development, CI, and red-team runs resolve only their intended credentials, endpoints, cache paths, and configuration precedence.",
+          "Inject boundary and failure cases and assert: A CI run inherits a developer or production secret, targets the wrong endpoint, shares a cache, or lets one config override another unexpectedly.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to promptfoo environment isolation testing positive contract",
+          "repositoryPath": "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "repositoryLines": "27-33",
+          "exactEvidence": "loads provider credentials from environment variables.",
+          "plannedSnippet": "Promptfoo YAML plus TypeScript or shell assertions example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Development, CI, and red-team runs resolve only their intended credentials, endpoints, cache paths, and configuration precedence.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "Promptfoo env variable precedence negative contract",
+          "repositoryPath": "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "repositoryLines": "124-133",
+          "exactEvidence": "separates pull-request and nightly red-team configurations.",
+          "plannedSnippet": "Promptfoo YAML plus TypeScript or shell assertions failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A CI run inherits a developer or production secret, targets the wrong endpoint, shares a cache, or lets one config override another unexpectedly.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+        "seed-skills/prompt-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026",
+        "/blog/promptfoo-cli-tutorial-2026"
+      ],
+      "relatedSlugs": [
+        "promptfoo-complete-guide-2026",
+        "promptfoo-red-teaming-llm-applications",
+        "prompt-injection-testing-guide-2026",
+        "promptfoo-cli-tutorial-2026"
+      ],
+      "sources": [
+        "https://www.promptfoo.dev/docs/configuration/guide/",
+        "https://www.promptfoo.dev/docs/red-team/configuration/",
+        "https://www.promptfoo.dev/docs/red-team/troubleshooting/data-handling/"
+      ],
+      "faqQuestions": [
+        "How do you prove Promptfoo development, CI, and red-team runs use isolated credentials, endpoints, cache paths, and configuration precedence?",
+        "What fixture best tests how to promptfoo environment isolation testing?",
+        "Which failure signal proves promptfoo environment isolation testing example?",
+        "How should CI report Promptfoo env variable precedence?",
+        "When should isolate Promptfoo CI credentials block a release?",
+        "How can teams keep Promptfoo staging endpoint test repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/promptfoo-complete-guide-2026 before implementing this regression gate."
+    },
+    {
+      "batch": 43,
+      "batchPosition": 4,
+      "domain": "ai-llm-rag",
+      "slug": "rag-document-version-precedence-testing",
+      "primaryKeyword": "RAG document version precedence testing",
+      "title": "RAG document version precedence testing",
+      "description": "RAG document version precedence testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you prove a RAG system prefers the current document version when old and new policy chunks coexist during an index rollout?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you prove a RAG system prefers the current document version when old and new policy chunks coexist during an index rollout?\" State the observable success condition, not a general introduction: When old and current chunks coexist, retrieval selects the current approved version and citations identify that version explicitly.",
+      "intentBoundary": "The tombstone article covers deleted sources. This candidate owns precedence while multiple valid versions temporarily coexist.",
+      "secondaryKeywords": [
+        "how to rag document version precedence testing",
+        "rag document version precedence testing example",
+        "RAG stale policy version test",
+        "vector index version precedence",
+        "RAG current document selection"
+      ],
+      "outline": [
+        {
+          "heading": "What must RAG document version precedence testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you prove a RAG system prefers the current document version when old and new policy chunks coexist during an index rollout?\" in 40 to 60 words. Define the observable contract as: When old and current chunks coexist, retrieval selects the current approved version and citations identify that version explicitly. Keep the scope inside this intent boundary: The tombstone article covers deleted sources. This candidate owns precedence while multiple valid versions temporarily coexist.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md:21-27 identifies index rebuilds and retriever versions as silent regression sources.",
+            "seed-skills/rag-regression-testing/SKILL.md:138-148 tags every report with prompt, retriever, and judge versions."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md:21-27 identifies index rebuilds and retriever versions as silent regression sources.",
+            "seed-skills/rag-regression-testing/SKILL.md:138-148 tags every report with prompt, retriever, and judge versions."
+          ]
+        },
+        {
+          "heading": "How to rag document version precedence testing?",
+          "secondaryKeyword": "how to rag document version precedence testing",
+          "coverage": "Build the primary positive fixture with this harness: Index two controlled versions under one source identity with effective dates and status metadata, then run queries during each rollout state. The decisive success oracle is: When old and current chunks coexist, retrieval selects the current approved version and citations identify that version explicitly.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Rag document version precedence testing example: scenario and assertion matrix",
+          "secondaryKeyword": "rag document version precedence testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose RAG stale policy version test?",
+          "secondaryKeyword": "RAG stale policy version test",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A stale policy chunk outranks the current document, mixed versions support one answer, or metadata filters ignore precedence. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should vector index version precedence run in CI?",
+          "secondaryKeyword": "vector index version precedence",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify RAG current document selection?",
+          "secondaryKeyword": "RAG current document selection",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A stale policy chunk outranks the current document, mixed versions support one answer, or metadata filters ignore precedence.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use Python and pytest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/ragas-rag-evaluation-metrics-complete-guide before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "RAG document version precedence testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: When old and current chunks coexist, retrieval selects the current approved version and citations identify that version explicitly.",
+          "Boundary case for rag document version precedence testing example with an exact pass or fail oracle",
+          "Negative case: A stale policy chunk outranks the current document, mixed versions support one answer, or metadata filters ignore precedence.",
+          "Repeated and concurrent execution for vector index version precedence",
+          "CI evidence and ownership for RAG current document selection"
+        ],
+        "sources": [
+          "seed-skills/rag-regression-testing/SKILL.md",
+          "seed-skills/rag-evaluation-metrics/SKILL.md",
+          "https://platform.openai.com/docs/guides/retrieval",
+          "https://docs.ragas.io/en/latest/references/evaluate/",
+          "https://www.w3.org/TR/prov-o/"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement RAG document version precedence testing in six steps",
+        "steps": [
+          "Read seed-skills/rag-regression-testing/SKILL.md:21-27 and seed-skills/rag-regression-testing/SKILL.md:138-148, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to rag document version precedence testing and rag document version precedence testing example without calling production services or mutating shared state.",
+          "Build the harness: Index two controlled versions under one source identity with effective dates and status metadata, then run queries during each rollout state.",
+          "Run the expected path and assert: When old and current chunks coexist, retrieval selects the current approved version and citations identify that version explicitly.",
+          "Inject boundary and failure cases and assert: A stale policy chunk outranks the current document, mixed versions support one answer, or metadata filters ignore precedence.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to rag document version precedence testing positive contract",
+          "repositoryPath": "seed-skills/rag-regression-testing/SKILL.md",
+          "repositoryLines": "21-27",
+          "exactEvidence": "identifies index rebuilds and retriever versions as silent regression sources.",
+          "plannedSnippet": "Python and pytest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: When old and current chunks coexist, retrieval selects the current approved version and citations identify that version explicitly.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "RAG stale policy version test negative contract",
+          "repositoryPath": "seed-skills/rag-regression-testing/SKILL.md",
+          "repositoryLines": "138-148",
+          "exactEvidence": "tags every report with prompt, retriever, and judge versions.",
+          "plannedSnippet": "Python and pytest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A stale policy chunk outranks the current document, mixed versions support one answer, or metadata filters ignore precedence.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/rag-regression-testing/SKILL.md",
+        "seed-skills/rag-evaluation-metrics/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026",
+        "/blog/testing-rag-deleted-document-tombstones"
+      ],
+      "relatedSlugs": [
+        "ragas-rag-evaluation-metrics-complete-guide",
+        "rag-regression-testing-guide-2026",
+        "rag-retrieval-testing-best-practices-2026",
+        "testing-rag-deleted-document-tombstones"
+      ],
+      "sources": [
+        "https://platform.openai.com/docs/guides/retrieval",
+        "https://docs.ragas.io/en/latest/references/evaluate/",
+        "https://www.w3.org/TR/prov-o/"
+      ],
+      "faqQuestions": [
+        "How do you prove a RAG system prefers the current document version when old and new policy chunks coexist during an index rollout?",
+        "What fixture best tests how to rag document version precedence testing?",
+        "Which failure signal proves rag document version precedence testing example?",
+        "How should CI report RAG stale policy version test?",
+        "When should vector index version precedence block a release?",
+        "How can teams keep RAG current document selection repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/ragas-rag-evaluation-metrics-complete-guide before implementing this regression gate."
+    },
+    {
+      "batch": 43,
+      "batchPosition": 5,
+      "domain": "ai-llm-rag",
+      "slug": "ragas-evaluator-timeout-recovery",
+      "primaryKeyword": "Ragas evaluator timeout recovery",
+      "title": "Ragas evaluator timeout recovery",
+      "description": "Ragas evaluator timeout recovery: use repo evidence, focused fixtures, code examples, and CI checks to expose contract failures before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you simulate Ragas evaluator timeouts and verify bounded retries, preserved sample IDs, partial reports, and a nonzero CI result?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you simulate Ragas evaluator timeouts and verify bounded retries, preserved sample IDs, partial reports, and a nonzero CI result?\" State the observable success condition, not a general introduction: Timeout recovery uses bounded retries, preserves sample IDs, records partial evidence, uploads diagnostics, and returns a nonzero CI result when incomplete.",
+      "intentBoundary": "The existing CI page assumes the evaluator completes. This candidate owns provider timeout injection, bounded recovery, and partial-result integrity.",
+      "secondaryKeywords": [
+        "how to ragas evaluator timeout recovery",
+        "ragas evaluator timeout recovery example",
+        "Ragas RunConfig timeout test",
+        "Ragas evaluator retry limit",
+        "LLM metric timeout recovery"
+      ],
+      "outline": [
+        {
+          "heading": "What must Ragas evaluator timeout recovery prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you simulate Ragas evaluator timeouts and verify bounded retries, preserved sample IDs, partial reports, and a nonzero CI result?\" in 40 to 60 words. Define the observable contract as: Timeout recovery uses bounded retries, preserves sample IDs, records partial evidence, uploads diagnostics, and returns a nonzero CI result when incomplete. Keep the scope inside this intent boundary: The existing CI page assumes the evaluator completes. This candidate owns provider timeout injection, bounded recovery, and partial-result integrity.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md:252-281 gives the RAG evaluation job a bounded workflow timeout and uploads its report.",
+            "seed-skills/rag-regression-testing/SKILL.md:173-203 requires deterministic gate failures when evaluation evidence is incomplete."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md:252-281 gives the RAG evaluation job a bounded workflow timeout and uploads its report.",
+            "seed-skills/rag-regression-testing/SKILL.md:173-203 requires deterministic gate failures when evaluation evidence is incomplete."
+          ]
+        },
+        {
+          "heading": "How to ragas evaluator timeout recovery?",
+          "secondaryKeyword": "how to ragas evaluator timeout recovery",
+          "coverage": "Build the primary positive fixture with this harness: Inject deterministic timeouts for selected sample IDs through a fake evaluator and controlled RunConfig, then inspect attempts and reports. The decisive success oracle is: Timeout recovery uses bounded retries, preserves sample IDs, records partial evidence, uploads diagnostics, and returns a nonzero CI result when incomplete.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Ragas evaluator timeout recovery example: scenario and assertion matrix",
+          "secondaryKeyword": "ragas evaluator timeout recovery example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose Ragas RunConfig timeout test?",
+          "secondaryKeyword": "Ragas RunConfig timeout test",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: The evaluator hangs, retries forever, drops or duplicates samples, or reports an incomplete run as a passing aggregate. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Ragas evaluator retry limit run in CI?",
+          "secondaryKeyword": "Ragas evaluator retry limit",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify LLM metric timeout recovery?",
+          "secondaryKeyword": "LLM metric timeout recovery",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: The evaluator hangs, retries forever, drops or duplicates samples, or reports an incomplete run as a passing aggregate.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use Python and pytest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/ragas-rag-evaluation-metrics-complete-guide before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/rag-regression-testing/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Ragas evaluator timeout recovery: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Timeout recovery uses bounded retries, preserves sample IDs, records partial evidence, uploads diagnostics, and returns a nonzero CI result when incomplete.",
+          "Boundary case for ragas evaluator timeout recovery example with an exact pass or fail oracle",
+          "Negative case: The evaluator hangs, retries forever, drops or duplicates samples, or reports an incomplete run as a passing aggregate.",
+          "Repeated and concurrent execution for Ragas evaluator retry limit",
+          "CI evidence and ownership for LLM metric timeout recovery"
+        ],
+        "sources": [
+          "seed-skills/rag-regression-testing/SKILL.md",
+          "seed-skills/rag-evaluation-metrics/SKILL.md",
+          "https://docs.ragas.io/en/stable/howtos/customizations/run_config/",
+          "https://docs.ragas.io/en/latest/references/evaluate/",
+          "https://www.rfc-editor.org/info/rfc9110"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Ragas evaluator timeout recovery in six steps",
+        "steps": [
+          "Read seed-skills/rag-regression-testing/SKILL.md:252-281 and seed-skills/rag-regression-testing/SKILL.md:173-203, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to ragas evaluator timeout recovery and ragas evaluator timeout recovery example without calling production services or mutating shared state.",
+          "Build the harness: Inject deterministic timeouts for selected sample IDs through a fake evaluator and controlled RunConfig, then inspect attempts and reports.",
+          "Run the expected path and assert: Timeout recovery uses bounded retries, preserves sample IDs, records partial evidence, uploads diagnostics, and returns a nonzero CI result when incomplete.",
+          "Inject boundary and failure cases and assert: The evaluator hangs, retries forever, drops or duplicates samples, or reports an incomplete run as a passing aggregate.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to ragas evaluator timeout recovery positive contract",
+          "repositoryPath": "seed-skills/rag-regression-testing/SKILL.md",
+          "repositoryLines": "252-281",
+          "exactEvidence": "gives the RAG evaluation job a bounded workflow timeout and uploads its report.",
+          "plannedSnippet": "Python and pytest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Timeout recovery uses bounded retries, preserves sample IDs, records partial evidence, uploads diagnostics, and returns a nonzero CI result when incomplete.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "Ragas RunConfig timeout test negative contract",
+          "repositoryPath": "seed-skills/rag-regression-testing/SKILL.md",
+          "repositoryLines": "173-203",
+          "exactEvidence": "requires deterministic gate failures when evaluation evidence is incomplete.",
+          "plannedSnippet": "Python and pytest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: The evaluator hangs, retries forever, drops or duplicates samples, or reports an incomplete run as a passing aggregate.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/rag-regression-testing/SKILL.md",
+        "seed-skills/rag-evaluation-metrics/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026",
+        "/blog/rag-regression-testing-cicd-2026"
+      ],
+      "relatedSlugs": [
+        "ragas-rag-evaluation-metrics-complete-guide",
+        "rag-regression-testing-guide-2026",
+        "rag-retrieval-testing-best-practices-2026",
+        "rag-regression-testing-cicd-2026"
+      ],
+      "sources": [
+        "https://docs.ragas.io/en/stable/howtos/customizations/run_config/",
+        "https://docs.ragas.io/en/latest/references/evaluate/",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "faqQuestions": [
+        "How do you simulate Ragas evaluator timeouts and verify bounded retries, preserved sample IDs, partial reports, and a nonzero CI result?",
+        "What fixture best tests how to ragas evaluator timeout recovery?",
+        "Which failure signal proves ragas evaluator timeout recovery example?",
+        "How should CI report Ragas RunConfig timeout test?",
+        "When should Ragas evaluator retry limit block a release?",
+        "How can teams keep LLM metric timeout recovery repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/ragas-rag-evaluation-metrics-complete-guide before implementing this regression gate."
+    }
+  ]
+}

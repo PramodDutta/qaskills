@@ -1,0 +1,884 @@
+{
+  "batch": 30,
+  "briefs": [
+    {
+      "batch": 30,
+      "domain": "mcp-agents",
+      "slug": "mcp-missing-skill-error-mapping",
+      "primaryKeyword": "MCP missing skill error mapping",
+      "title": "MCP missing skill error mapping",
+      "description": "MCP missing skill error mapping guide with repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams shipping MCP servers.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should get_skill, get_skill_content, and install_skill translate a 404 skill response into a stable MCP tool error?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states All three slug tools must translate the web API 404 into a stable MCP error result with useful status and body detail. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "MCP get skill 404",
+        "install missing skill error",
+        "MCP HTTP status mapping",
+        "skill not found tool result",
+        "MCP error text stability"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP missing skill error mapping prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How should get_skill, get_skill_content, and install_skill translate a 404 skill response into a stable MCP tool error?\" in 40 to 60 words, define the observable contract, and state this article's boundary: All three slug tools must translate the web API 404 into a stable MCP error result with useful status and body detail.",
+          "evidence": ["packages/web/src/app/api/skills/[id]/route.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            "packages/web/src/app/api/skills/[id]/route.ts: missing metadata returns 404 with Skill not found",
+            "packages/mcp/src/index.ts: fetchWithTimeout includes status and response body, then each tool returns errorResult"
+          ]
+        },
+        {
+          "heading": "How should QA teams test MCP get skill 404?",
+          "secondaryKeyword": "MCP get skill 404",
+          "coverage": "Build the primary fixture and oracle around this behavior: get_skill, get_skill_content, and install_skill return isError without crashing or writing a file. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": ["packages/web/src/app/api/skills/[id]/route.ts"]
+        },
+        {
+          "heading": "Test matrix for install missing skill error",
+          "secondaryKeyword": "install missing skill error",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": ["packages/web/src/app/api/skills/[id]/route.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "What failures expose MCP HTTP status mapping?",
+          "secondaryKeyword": "MCP HTTP status mapping",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: One tool formats 404 differently, loses Skill not found, or creates an install directory before failure. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": ["packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "CI coverage for skill not found tool result",
+          "secondaryKeyword": "skill not found tool result",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": ["packages/web/src/app/api/skills/[id]/route.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "How should MCP error text stability be asserted?",
+          "secondaryKeyword": "MCP error text stability",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": ["packages/web/src/app/api/skills/[id]/route.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Return the same 404 fixture to each tool and compare its error text and side effects.",
+          "evidence": ["packages/web/src/app/api/skills/[id]/route.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": ["packages/web/src/app/api/skills/[id]/route.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": ["packages/web/src/app/api/skills/[id]/route.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": ["packages/web/src/app/api/skills/[id]/route.ts", "packages/mcp/src/index.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Missing-skill behavior across metadata, content, and install tools",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "MCP get skill 404: one positive row, one boundary or negative row, and its exact oracle",
+          "install missing skill error: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP HTTP status mapping: one positive row, one boundary or negative row, and its exact oracle",
+          "skill not found tool result: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP error text stability: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          "packages/web/src/app/api/skills/[id]/route.ts",
+          "packages/mcp/src/index.ts",
+          "packages/mcp/package.json",
+          "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+          "https://developer.mozilla.org/en-US/docs/Web/API/Response",
+          "https://www.jsonrpc.org/specification"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP missing skill error mapping in six steps",
+        "steps": [
+          "Read packages/web/src/app/api/skills/[id]/route.ts and record the production contract without changing it.",
+          "Create isolated fixtures for MCP get skill 404 and install missing skill error.",
+          "Build the harness: Return the same 404 fixture to each tool and compare its error text and side effects.",
+          "Execute the expected path and assert: get_skill, get_skill_content, and install_skill return isError without crashing or writing a file.",
+          "Inject boundary and failure cases and assert: One tool formats 404 differently, loses Skill not found, or creates an install directory before failure.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "MCP get skill 404 positive contract",
+          "repositoryPath": "packages/web/src/app/api/skills/[id]/route.ts",
+          "exactEvidence": "missing metadata returns 404 with Skill not found",
+          "plannedSnippet": "Vitest route integration test with controlled request, dependency, and response fixtures",
+          "testGoal": "Prove the expected path: get_skill, get_skill_content, and install_skill return isError without crashing or writing a file.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "MCP HTTP status mapping negative contract",
+          "repositoryPath": "packages/mcp/src/index.ts",
+          "exactEvidence": "fetchWithTimeout includes status and response body, then each tool returns errorResult",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Force and diagnose the rejected path: One tool formats 404 differently, loses Skill not found, or creates an install directory before failure.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/route.ts",
+        "packages/mcp/src/index.ts",
+        "packages/mcp/package.json"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/testing-agent-plan-recovery-after-tool-failure",
+        "/blog",
+        "/getting-started"
+      ],
+      "relatedSlugs": [
+        "mcp-server-contract-testing-guide",
+        "testing-agent-plan-recovery-after-tool-failure",
+        "qaskills-mcp-server-guide",
+        "mcp-server-testing-guide-2026"
+      ],
+      "sources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Response",
+        "https://www.jsonrpc.org/specification"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 1
+    },
+    {
+      "batch": 30,
+      "domain": "mcp-agents",
+      "slug": "mcp-install-directory-precedence-tests",
+      "primaryKeyword": "MCP install directory precedence tests",
+      "title": "MCP install directory precedence tests",
+      "description": "MCP install directory precedence tests with repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams shipping MCP servers.",
+      "intent": "how-to",
+      "coreQuestion": "How can tests prove install_skill chooses .claude/skills when .claude exists and otherwise falls back to .agents/skills?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states Without an explicit target, .claude/skills wins when .claude exists; otherwise installation uses .agents/skills. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "Claude skills directory precedence",
+        "agents skills fallback test",
+        "MCP default install path",
+        "project agent directory detection",
+        "install_skill path matrix"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP install directory precedence tests prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can tests prove install_skill chooses .claude/skills when .claude exists and otherwise falls back to .agents/skills?\" in 40 to 60 words, define the observable contract, and state this article's boundary: Without an explicit target, .claude/skills wins when .claude exists; otherwise installation uses .agents/skills.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/shared/src/constants/agents.ts"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            "packages/mcp/src/index.ts: installSkill checks .claude and selects .claude/skills before .agents/skills",
+            "packages/shared/src/constants/agents.ts: agent definitions document project skill directories"
+          ]
+        },
+        {
+          "heading": "How should QA teams test Claude skills directory precedence?",
+          "secondaryKeyword": "Claude skills directory precedence",
+          "coverage": "Build the primary fixture and oracle around this behavior: The two directory fixtures resolve to the documented project-local SKILL.md paths. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": ["packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Test matrix for agents skills fallback test",
+          "secondaryKeyword": "agents skills fallback test",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/shared/src/constants/agents.ts"]
+        },
+        {
+          "heading": "What failures expose MCP default install path?",
+          "secondaryKeyword": "MCP default install path",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: Both directories, missing directories, relative cwd, or repeat runs select an unexpected location. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": ["packages/shared/src/constants/agents.ts"]
+        },
+        {
+          "heading": "CI coverage for project agent directory detection",
+          "secondaryKeyword": "project agent directory detection",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/shared/src/constants/agents.ts"]
+        },
+        {
+          "heading": "How should install_skill path matrix be asserted?",
+          "secondaryKeyword": "install_skill path matrix",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/shared/src/constants/agents.ts"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Build a temporary directory matrix and capture the final writeFile path.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/shared/src/constants/agents.ts"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/shared/src/constants/agents.ts"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/shared/src/constants/agents.ts"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/shared/src/constants/agents.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Project directory state and expected default install target",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "Claude skills directory precedence: one positive row, one boundary or negative row, and its exact oracle",
+          "agents skills fallback test: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP default install path: one positive row, one boundary or negative row, and its exact oracle",
+          "project agent directory detection: one positive row, one boundary or negative row, and its exact oracle",
+          "install_skill path matrix: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          "packages/mcp/src/index.ts",
+          "packages/shared/src/constants/agents.ts",
+          "packages/mcp/package.json",
+          "https://nodejs.org/api/fs.html",
+          "https://nodejs.org/api/path.html",
+          "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP install directory precedence tests in six steps",
+        "steps": [
+          "Read packages/mcp/src/index.ts and record the production contract without changing it.",
+          "Create isolated fixtures for Claude skills directory precedence and agents skills fallback test.",
+          "Build the harness: Build a temporary directory matrix and capture the final writeFile path.",
+          "Execute the expected path and assert: The two directory fixtures resolve to the documented project-local SKILL.md paths.",
+          "Inject boundary and failure cases and assert: Both directories, missing directories, relative cwd, or repeat runs select an unexpected location.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "Claude skills directory precedence positive contract",
+          "repositoryPath": "packages/mcp/src/index.ts",
+          "exactEvidence": "installSkill checks .claude and selects .claude/skills before .agents/skills",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Prove the expected path: The two directory fixtures resolve to the documented project-local SKILL.md paths.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "MCP default install path negative contract",
+          "repositoryPath": "packages/shared/src/constants/agents.ts",
+          "exactEvidence": "agent definitions document project skill directories",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Force and diagnose the rejected path: Both directories, missing directories, relative cwd, or repeat runs select an unexpected location.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "packages/mcp/src/index.ts",
+        "packages/shared/src/constants/agents.ts",
+        "packages/mcp/package.json"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/getting-started",
+        "/agents",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/qaskills-add-custom-directory-ci",
+        "/skills",
+        "/blog"
+      ],
+      "relatedSlugs": [
+        "qaskills-mcp-server-guide",
+        "qaskills-add-custom-directory-ci",
+        "mcp-server-contract-testing-guide",
+        "mcp-server-testing-guide-2026"
+      ],
+      "sources": [
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/path.html",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 2
+    },
+    {
+      "batch": 30,
+      "domain": "mcp-agents",
+      "slug": "mcp-initialization-ordering-contract-tests",
+      "primaryKeyword": "MCP initialization ordering contract tests",
+      "title": "MCP initialization ordering contract tests",
+      "description": "MCP initialization ordering contract tests explained through repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams.",
+      "intent": "how-to",
+      "coreQuestion": "How can contract tests prove initialize is first, initialized follows the response, and tools are unavailable before the handshake completes?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states initialize is the first protocol operation, initialized follows its response, and tools remain unavailable before completion. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "MCP initialize first request",
+        "initialized notification order",
+        "tools before initialization",
+        "MCP handshake state machine",
+        "protocol lifecycle negative tests"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP initialization ordering contract tests prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can contract tests prove initialize is first, initialized follows the response, and tools are unavailable before the handshake completes?\" in 40 to 60 words, define the observable contract, and state this article's boundary: initialize is the first protocol operation, initialized follows its response, and tools remain unavailable before completion.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            "packages/mcp/src/index.ts: McpServer is created before server.connect starts the stdio lifecycle",
+            "docs/product/MCP-SERVER-PLAN-2026-07.md: live smoke test begins with initialize before tools/list"
+          ]
+        },
+        {
+          "heading": "How should QA teams test MCP initialize first request?",
+          "secondaryKeyword": "MCP initialize first request",
+          "coverage": "Build the primary fixture and oracle around this behavior: The lifecycle state machine accepts the required order and then exposes tools/list. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": ["packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Test matrix for initialized notification order",
+          "secondaryKeyword": "initialized notification order",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "What failures expose tools before initialization?",
+          "secondaryKeyword": "tools before initialization",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: Pre-initialize tools, duplicate initialize, early initialized, or skipped notification is accepted. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": ["docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "CI coverage for MCP handshake state machine",
+          "secondaryKeyword": "MCP handshake state machine",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "How should protocol lifecycle negative tests be asserted?",
+          "secondaryKeyword": "protocol lifecycle negative tests",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Drive raw stdio messages through valid and invalid lifecycle sequences.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": ["packages/mcp/src/index.ts", "docs/product/MCP-SERVER-PLAN-2026-07.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "MCP lifecycle state, allowed message, and expected response",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "MCP initialize first request: one positive row, one boundary or negative row, and its exact oracle",
+          "initialized notification order: one positive row, one boundary or negative row, and its exact oracle",
+          "tools before initialization: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP handshake state machine: one positive row, one boundary or negative row, and its exact oracle",
+          "protocol lifecycle negative tests: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          "packages/mcp/src/index.ts",
+          "docs/product/MCP-SERVER-PLAN-2026-07.md",
+          "packages/mcp/package.json",
+          "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+          "https://www.jsonrpc.org/specification",
+          "https://ts.sdk.modelcontextprotocol.io/"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP initialization ordering contract tests in six steps",
+        "steps": [
+          "Read packages/mcp/src/index.ts and record the production contract without changing it.",
+          "Create isolated fixtures for MCP initialize first request and initialized notification order.",
+          "Build the harness: Drive raw stdio messages through valid and invalid lifecycle sequences.",
+          "Execute the expected path and assert: The lifecycle state machine accepts the required order and then exposes tools/list.",
+          "Inject boundary and failure cases and assert: Pre-initialize tools, duplicate initialize, early initialized, or skipped notification is accepted.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "MCP initialize first request positive contract",
+          "repositoryPath": "packages/mcp/src/index.ts",
+          "exactEvidence": "McpServer is created before server.connect starts the stdio lifecycle",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Prove the expected path: The lifecycle state machine accepts the required order and then exposes tools/list.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "Tools before initialization negative contract",
+          "repositoryPath": "docs/product/MCP-SERVER-PLAN-2026-07.md",
+          "exactEvidence": "live smoke test begins with initialize before tools/list",
+          "plannedSnippet": "Node subprocess smoke test implementing the acceptance sequence recorded in the repository plan",
+          "testGoal": "Force and diagnose the rejected path: Pre-initialize tools, duplicate initialize, early initialized, or skipped notification is accepted.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "packages/mcp/src/index.ts",
+        "docs/product/MCP-SERVER-PLAN-2026-07.md",
+        "packages/mcp/package.json"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/test-an-mcp-server-guide-2026",
+        "/skills",
+        "/blog",
+        "/getting-started"
+      ],
+      "relatedSlugs": [
+        "mcp-server-contract-testing-guide",
+        "mcp-inspector-tutorial-2026",
+        "test-an-mcp-server-guide-2026",
+        "qaskills-mcp-server-guide"
+      ],
+      "sources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+        "https://www.jsonrpc.org/specification",
+        "https://ts.sdk.modelcontextprotocol.io/"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 3
+    },
+    {
+      "batch": 30,
+      "domain": "mcp-agents",
+      "slug": "mcp-protocol-version-negotiation-tests",
+      "primaryKeyword": "MCP protocol version negotiation tests",
+      "title": "MCP protocol version negotiation tests",
+      "description": "MCP protocol version negotiation tests with repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams shipping MCP servers.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should clients test supported, older, newer, and incompatible MCP protocol versions during initialization?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states Initialization must negotiate a supported revision and produce defined behavior for older, newer, and incompatible versions. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "unsupported MCP protocol version",
+        "MCP initialize version mismatch",
+        "client server version compatibility",
+        "protocol downgrade test",
+        "MCP version fallback behavior"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP protocol version negotiation tests prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How should clients test supported, older, newer, and incompatible MCP protocol versions during initialization?\" in 40 to 60 words, define the observable contract, and state this article's boundary: Initialization must negotiate a supported revision and produce defined behavior for older, newer, and incompatible versions.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/package.json"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            "packages/mcp/src/index.ts: McpServer delegates protocol negotiation to @modelcontextprotocol/sdk",
+            "packages/mcp/package.json: the deployed server pins an MCP SDK version that controls supported revisions"
+          ]
+        },
+        {
+          "heading": "How should QA teams test unsupported MCP protocol version?",
+          "secondaryKeyword": "unsupported MCP protocol version",
+          "coverage": "Build the primary fixture and oracle around this behavior: Supported client revisions select an agreed protocol version and continue to initialized. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": ["packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Test matrix for MCP initialize version mismatch",
+          "secondaryKeyword": "MCP initialize version mismatch",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/package.json"]
+        },
+        {
+          "heading": "What failures expose client server version compatibility?",
+          "secondaryKeyword": "client server version compatibility",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: An incompatible version silently proceeds, chooses an undocumented fallback, or reports an unstable error. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": ["packages/mcp/package.json"]
+        },
+        {
+          "heading": "CI coverage for protocol downgrade test",
+          "secondaryKeyword": "protocol downgrade test",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/package.json"]
+        },
+        {
+          "heading": "How should MCP version fallback behavior be asserted?",
+          "secondaryKeyword": "MCP version fallback behavior",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/package.json"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Run an initialization matrix against the pinned SDK with controlled client protocolVersion values.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/package.json"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/package.json"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/package.json"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/package.json"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Requested protocol revision and expected negotiation outcome",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "unsupported MCP protocol version: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP initialize version mismatch: one positive row, one boundary or negative row, and its exact oracle",
+          "client server version compatibility: one positive row, one boundary or negative row, and its exact oracle",
+          "protocol downgrade test: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP version fallback behavior: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          "packages/mcp/src/index.ts",
+          "packages/mcp/package.json",
+          "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+          "https://modelcontextprotocol.io/specification/2025-11-25/schema",
+          "https://github.com/modelcontextprotocol/typescript-sdk/tree/v1.x"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP protocol version negotiation tests in six steps",
+        "steps": [
+          "Read packages/mcp/src/index.ts and record the production contract without changing it.",
+          "Create isolated fixtures for unsupported MCP protocol version and MCP initialize version mismatch.",
+          "Build the harness: Run an initialization matrix against the pinned SDK with controlled client protocolVersion values.",
+          "Execute the expected path and assert: Supported client revisions select an agreed protocol version and continue to initialized.",
+          "Inject boundary and failure cases and assert: An incompatible version silently proceeds, chooses an undocumented fallback, or reports an unstable error.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "Unsupported MCP protocol version positive contract",
+          "repositoryPath": "packages/mcp/src/index.ts",
+          "exactEvidence": "McpServer delegates protocol negotiation to @modelcontextprotocol/sdk",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Prove the expected path: Supported client revisions select an agreed protocol version and continue to initialized.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "Client server version compatibility negative contract",
+          "repositoryPath": "packages/mcp/package.json",
+          "exactEvidence": "the deployed server pins an MCP SDK version that controls supported revisions",
+          "plannedSnippet": "TypeScript metadata contract test that parses committed JSON and compares exact fields",
+          "testGoal": "Force and diagnose the rejected path: An incompatible version silently proceeds, chooses an undocumented fallback, or reports an unstable error.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": ["packages/mcp/src/index.ts", "packages/mcp/package.json"],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-testing-guide-2026",
+        "/blog/mcp-official-conformance-suite-server-guide-2026",
+        "/blog/mcp-package-registry-version-drift-tests",
+        "/skills",
+        "/blog",
+        "/getting-started"
+      ],
+      "relatedSlugs": [
+        "mcp-server-testing-guide-2026",
+        "mcp-official-conformance-suite-server-guide-2026",
+        "mcp-package-registry-version-drift-tests",
+        "qaskills-mcp-server-guide"
+      ],
+      "sources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+        "https://modelcontextprotocol.io/specification/2025-11-25/schema",
+        "https://github.com/modelcontextprotocol/typescript-sdk/tree/v1.x"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 4
+    },
+    {
+      "batch": 30,
+      "domain": "mcp-agents",
+      "slug": "mcp-capability-negotiation-contract-tests",
+      "primaryKeyword": "MCP capability negotiation contract tests",
+      "title": "MCP capability negotiation contract tests",
+      "description": "MCP capability negotiation contract tests with repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams shipping MCP servers.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify that an MCP server advertises only implemented capabilities and rejects operations that were not negotiated?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states The server advertises implemented tool capability only and rejects operations for resources or prompts that were not negotiated. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "MCP tools capability test",
+        "unadvertised capability rejection",
+        "MCP prompts capability absence",
+        "MCP resources capability absence",
+        "capability negotiation matrix"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP capability negotiation contract tests prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can QA teams verify that an MCP server advertises only implemented capabilities and rejects operations that were not negotiated?\" in 40 to 60 words, define the observable contract, and state this article's boundary: The server advertises implemented tool capability only and rejects operations for resources or prompts that were not negotiated.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            "packages/mcp/src/index.ts: McpServer registers tools but no prompts or resources",
+            "packages/mcp/src/index.ts: six registerTool calls define the actual server surface"
+          ]
+        },
+        {
+          "heading": "How should QA teams test MCP tools capability test?",
+          "secondaryKeyword": "MCP tools capability test",
+          "coverage": "Build the primary fixture and oracle around this behavior: Initialize capabilities match the six registered tool handlers and tools/list succeeds. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": ["packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Test matrix for unadvertised capability rejection",
+          "secondaryKeyword": "unadvertised capability rejection",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "What failures expose MCP prompts capability absence?",
+          "secondaryKeyword": "MCP prompts capability absence",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: The server advertises absent resources or prompts, or accepts an unadvertised operation. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": ["packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "CI coverage for MCP resources capability absence",
+          "secondaryKeyword": "MCP resources capability absence",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "How should capability negotiation matrix be asserted?",
+          "secondaryKeyword": "capability negotiation matrix",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Capture initialize output, enumerate registered tools, and send negative resource and prompt requests.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Advertised MCP capability compared with implemented operation",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "MCP tools capability test: one positive row, one boundary or negative row, and its exact oracle",
+          "unadvertised capability rejection: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP prompts capability absence: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP resources capability absence: one positive row, one boundary or negative row, and its exact oracle",
+          "capability negotiation matrix: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          "packages/mcp/src/index.ts",
+          "packages/mcp/package.json",
+          "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+          "https://modelcontextprotocol.io/specification/2025-11-25/server/index",
+          "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP capability negotiation contract tests in six steps",
+        "steps": [
+          "Read packages/mcp/src/index.ts and record the production contract without changing it.",
+          "Create isolated fixtures for MCP tools capability test and unadvertised capability rejection.",
+          "Build the harness: Capture initialize output, enumerate registered tools, and send negative resource and prompt requests.",
+          "Execute the expected path and assert: Initialize capabilities match the six registered tool handlers and tools/list succeeds.",
+          "Inject boundary and failure cases and assert: The server advertises absent resources or prompts, or accepts an unadvertised operation.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "MCP tools capability test positive contract",
+          "repositoryPath": "packages/mcp/src/index.ts",
+          "exactEvidence": "McpServer registers tools but no prompts or resources",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Prove the expected path: Initialize capabilities match the six registered tool handlers and tools/list succeeds.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "MCP prompts capability absence negative contract",
+          "repositoryPath": "packages/mcp/src/index.ts",
+          "exactEvidence": "six registerTool calls define the actual server surface",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Force and diagnose the rejected path: The server advertises absent resources or prompts, or accepts an unadvertised operation.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": ["packages/mcp/src/index.ts", "packages/mcp/package.json"],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/mcp-server-testing-guide-2026",
+        "/skills",
+        "/blog",
+        "/getting-started"
+      ],
+      "relatedSlugs": [
+        "mcp-server-contract-testing-guide",
+        "mcp-inspector-tutorial-2026",
+        "mcp-server-testing-guide-2026",
+        "qaskills-mcp-server-guide"
+      ],
+      "sources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/index",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 5
+    }
+  ]
+}

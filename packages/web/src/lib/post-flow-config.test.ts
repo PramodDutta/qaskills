@@ -10,7 +10,8 @@ describe('post-flow configuration', () => {
     const rootPackage = JSON.parse(readFileSync(resolve(repositoryRoot, 'package.json'), 'utf8'));
     const script = rootPackage.scripts['test:post-flow'] as string;
 
-    expect(script).toContain('QASKILLS_DISABLE_AUTH=1 corepack pnpm build');
+    expect(script).toContain('--filter @qaskills/web audit:article-factory-1000');
+    expect(script).toContain('QASKILLS_DISABLE_AUTH=1 corepack pnpm -r --sort build');
     expect(script).toContain('--filter @qaskills/web test:unit');
     expect(script).toContain('--filter @qaskills/web test:e2e');
   });

@@ -1,0 +1,2478 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-25T00:00:00.000Z",
+  "scope": "Neon/Postgres/Drizzle schema and queries, Typesense search and filtering, Upstash Redis caching, leaderboard ranking, installs, reviews, categories, ZIP artifacts, checksums, ETags, and download APIs",
+  "inputs": {
+    "worktree": "/tmp/qaskills-seo-factory-20260725",
+    "inventory": "/tmp/qaskills-seo-final-inventory-20260725.json",
+    "registry": "packages/web/src/app/blog/posts/index.ts",
+    "inventoryItems": 1528,
+    "registeredPosts": 1491,
+    "staticRoutes": 37,
+    "registryAgreementVerified": true
+  },
+  "collisionMethod": {
+    "slug": "Reject exact, containing, or contained slugs against inventory and this candidate set.",
+    "title": "Reject more than 60 percent non-stopword token overlap with an existing title, H1, or another candidate.",
+    "primaryKeyword": "Reject an exact primary keyword already owned by inventory or another candidate.",
+    "intent": "Reject when an existing page or another candidate answers the same core question, even if wording differs.",
+    "closestOwnerMeaning": "The nearest existing route by subject. A survivor remains distinct because its exact question targets a narrower behavior or failure mode."
+  },
+  "counts": {
+    "survivors": 60,
+    "rejections": 15,
+    "totalEvaluated": 75
+  },
+  "validation": {
+    "completedAt": "2026-07-25T05:24:33Z",
+    "inventorySlugCollisions": 0,
+    "inventoryTitleCollisions": 0,
+    "inventoryPrimaryKeywordCollisions": 0,
+    "selfCollisions": 0,
+    "missingInternalRoutes": 0,
+    "invalidRepoEvidenceReferences": 0,
+    "repoEvidenceReferencesChecked": 123,
+    "uniqueAuthoritativeSourcesChecked": 55,
+    "authoritativeSourcesPassed": 55,
+    "minimumCandidateScore": 35,
+    "maximumTitleLength": 44
+  },
+  "survivors": [
+    {
+      "id": "data-01",
+      "primaryKeyword": "Drizzle deterministic pagination testing",
+      "slug": "drizzle-deterministic-pagination-testing",
+      "title": "Test Deterministic Drizzle Pagination",
+      "intent": "how-to",
+      "exactQuestion": "How do you test that Drizzle offset pagination never duplicates or drops skills when primary sort values tie?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:304-340 explains the non-unique sort risk and adds descending skill ID as a unique tiebreaker.",
+        "packages/web/src/db/schema/skills.ts:5 and 21-27 define the UUID ID and non-unique ranking columns used by pagination."
+      ],
+      "secondaryKeywords": [
+        "Drizzle offset pagination test",
+        "Postgres stable sort tiebreaker",
+        "duplicate rows between pages",
+        "pagination missing row regression",
+        "SQL order by unique ID"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/database-testing-automation-guide",
+        "/blog/testing-postgresql-jsonb-multiselect-filters-drizzle"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/queries-limit.html",
+        "https://orm.drizzle.team/docs/select",
+        "https://www.postgresql.org/docs/current/queries-order.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "The owner is a broad database automation guide. This candidate owns deterministic offset pagination under tied sort values."
+      }
+    },
+    {
+      "id": "data-02",
+      "primaryKeyword": "Postgres pagination count consistency",
+      "slug": "postgres-pagination-count-consistency",
+      "title": "Test Postgres Count Pagination Drift",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you detect inconsistent total counts when the page query and count query run in parallel during concurrent writes?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:328-343 runs the page and count queries with Promise.all and calculates totalPages from a separate result.",
+        "packages/web/src/db/schema/skills.ts:26-27 provides timestamps that can drive concurrent insertion fixtures."
+      ],
+      "secondaryKeywords": [
+        "parallel count query race",
+        "pagination total mismatch test",
+        "Postgres snapshot consistency API",
+        "Drizzle count and rows query",
+        "concurrent insert pagination drift"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/database-testing-automation-guide",
+        "/blog/postgres-migration-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/transaction-iso.html",
+        "https://orm.drizzle.team/docs/transactions",
+        "https://www.postgresql.org/docs/current/functions-aggregate.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "No inventory page owns consistency between separately executed page and count queries."
+      }
+    },
+    {
+      "id": "data-03",
+      "primaryKeyword": "Postgres ILIKE wildcard escaping",
+      "slug": "postgres-ilike-wildcard-escaping",
+      "title": "Test ILIKE Wildcard Search Safely",
+      "intent": "how-to",
+      "exactQuestion": "How should QA test percent, underscore, backslash, and Unicode input in a Drizzle ILIKE substring search?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:256-263 interpolates the raw query between percent wildcards for name and description ILIKE predicates.",
+        "packages/web/src/db/schema/skills.ts:6-8 defines the text columns searched by the endpoint."
+      ],
+      "secondaryKeywords": [
+        "escape percent in ILIKE",
+        "Postgres underscore wildcard test",
+        "Drizzle substring search edge cases",
+        "Unicode case insensitive search",
+        "ILIKE backslash escape testing"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/functions-matching.html",
+        "https://orm.drizzle.team/docs/operators",
+        "https://www.postgresql.org/docs/current/collation.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "The exact intent is wildcard semantics and escaping in the repository's ILIKE query, not general database testing."
+      }
+    },
+    {
+      "id": "data-04",
+      "primaryKeyword": "skill API pagination boundary testing",
+      "slug": "skill-api-pagination-boundary-testing",
+      "title": "Test Skill API Pagination Bounds",
+      "intent": "how-to",
+      "exactQuestion": "Which boundary and malformed query tests prove the skill API keeps page and limit values within its intended range?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:237-243 parses page and clamps limit between 1 and 100 before calculating offset.",
+        "packages/web/src/app/api/skills/route.ts:342-365 returns total, page, and totalPages as the public pagination contract."
+      ],
+      "secondaryKeywords": [
+        "Next.js query parameter boundary tests",
+        "API limit maximum 100 test",
+        "negative page number handling",
+        "NaN pagination parameter test",
+        "pagination offset overflow test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide"
+      ],
+      "authoritativeSources": [
+        "https://nextjs.org/docs/app/api-reference/functions/next-request",
+        "https://www.postgresql.org/docs/current/queries-limit.html",
+        "https://orm.drizzle.team/docs/select"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/skills",
+        "decision": "survive",
+        "reason": "The static route presents results but does not answer API boundary behavior for malformed page and limit values."
+      }
+    },
+    {
+      "id": "data-05",
+      "primaryKeyword": "Drizzle sort alias contract testing",
+      "slug": "drizzle-sort-alias-contract-testing",
+      "title": "Test Drizzle Sort Alias Contracts",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove every public sort alias maps to the expected Drizzle order and unknown values use trending?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 8,
+        "coverageAbility": 8,
+        "total": 35
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:309-326 maps newest, quality, highest_quality, popular, most_installed, and trending aliases.",
+        "packages/web/src/db/schema/skills.ts:21-26 defines each sort field used by the switch."
+      ],
+      "secondaryKeywords": [
+        "API sort parameter contract",
+        "Drizzle order by mapping test",
+        "unknown sort fallback testing",
+        "popular alias regression test",
+        "highest quality sort API"
+      ],
+      "internalRoutes": ["/skills", "/leaderboard", "/blog/database-testing-automation-guide"],
+      "authoritativeSources": [
+        "https://orm.drizzle.team/docs/select",
+        "https://www.postgresql.org/docs/current/queries-order.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/leaderboard",
+        "decision": "survive",
+        "reason": "This candidate tests the skill-list sort alias API, not leaderboard cache or rank calculation."
+      }
+    },
+    {
+      "id": "data-06",
+      "primaryKeyword": "Postgres duplicate slug race testing",
+      "slug": "postgres-duplicate-slug-race-testing",
+      "title": "Test Duplicate Slug Publish Races",
+      "intent": "how-to",
+      "exactQuestion": "How do you test two concurrent skill publishes that both pass the precheck but compete for the same unique slug?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:89-110 performs a read-before-write duplicate slug check and returns 409 when it finds a row.",
+        "packages/web/src/db/schema/skills.ts:7 enforces slug uniqueness at the database layer."
+      ],
+      "secondaryKeywords": [
+        "unique slug concurrency test",
+        "read before write race condition",
+        "Drizzle unique constraint conflict",
+        "concurrent publish API test",
+        "Postgres duplicate key response"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/ddl-constraints.html",
+        "https://orm.drizzle.team/docs/indexes-constraints",
+        "https://www.postgresql.org/docs/current/transaction-iso.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "No current page owns the time-of-check to time-of-use race between slug lookup and insert."
+      }
+    },
+    {
+      "id": "data-07",
+      "primaryKeyword": "skill quality score boundary testing",
+      "slug": "skill-quality-score-boundary-testing",
+      "title": "Test Skill Quality Score Boundaries",
+      "intent": "how-to",
+      "exactQuestion": "How do you test every threshold and combination in the repository's deterministic skill quality score calculation?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:31-51 awards fixed points for description length, full description, taxonomies, agents, GitHub URL, and version.",
+        "packages/web/src/app/api/skills/route.ts:112-120 calculates the score before insert."
+      ],
+      "secondaryKeywords": [
+        "quality score threshold test",
+        "description length boundary QA",
+        "skill metadata scoring matrix",
+        "deterministic score unit tests",
+        "quality score combination coverage"
+      ],
+      "internalRoutes": ["/skills", "/leaderboard", "/blog/database-testing-automation-guide"],
+      "authoritativeSources": [
+        "https://vitest.dev/guide/",
+        "https://martinfowler.com/articles/practical-test-pyramid.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/leaderboard",
+        "decision": "survive",
+        "reason": "Leaderboard pages display quality scores but do not explain or test the repository's scoring thresholds."
+      }
+    },
+    {
+      "id": "data-08",
+      "primaryKeyword": "skill publish partial failure testing",
+      "slug": "skill-publish-partial-failure-testing",
+      "title": "Test Partial Skill Publish Failures",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test consistency when the skill insert succeeds but the author's published-skill counter update fails?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:124-144 inserts and returns the skill before later side effects.",
+        "packages/web/src/app/api/skills/route.ts:146-155 catches counter update failures as non-critical without a transaction."
+      ],
+      "secondaryKeywords": [
+        "partial database write testing",
+        "skill counter consistency test",
+        "Drizzle transaction failure test",
+        "noncritical side effect failure",
+        "publish API consistency recovery"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide"
+      ],
+      "authoritativeSources": [
+        "https://orm.drizzle.team/docs/transactions",
+        "https://www.postgresql.org/docs/current/tutorial-transactions.html",
+        "https://www.postgresql.org/docs/current/transaction-iso.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "The candidate targets one concrete cross-table partial failure after publish, not general transaction testing."
+      }
+    },
+    {
+      "id": "data-09",
+      "primaryKeyword": "Postgres cascade delete relation testing",
+      "slug": "postgres-cascade-delete-relation-testing",
+      "title": "Test Postgres Cascade Delete Relations",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove deleting a skill removes its junction rows, installs, reviews, and pack items without leaving orphans?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/db/schema/relations.ts:6-18 cascades skill-category junction rows.",
+        "packages/web/src/db/schema/relations.ts:21-82 cascades agent compatibility, installs, reviews, and skill pack items."
+      ],
+      "secondaryKeywords": [
+        "Drizzle onDelete cascade test",
+        "Postgres orphan row prevention",
+        "foreign key cascade integration test",
+        "skill deletion data integrity",
+        "cascade delete multiple relations"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/database-testing-automation-guide",
+        "/blog/postgres-migration-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/ddl-constraints.html",
+        "https://orm.drizzle.team/docs/relations",
+        "https://orm.drizzle.team/docs/indexes-constraints"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "The existing guide mentions integrity broadly. This intent owns the exact multi-relation cascade contract in the QASkills schema."
+      }
+    },
+    {
+      "id": "data-10",
+      "primaryKeyword": "Drizzle composite key duplicate testing",
+      "slug": "drizzle-composite-key-duplicate-testing",
+      "title": "Test Drizzle Composite Key Duplicates",
+      "intent": "how-to",
+      "exactQuestion": "How do you test that composite primary keys prevent duplicate category assignments and duplicate skills inside packs?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 8,
+        "coverageAbility": 8,
+        "total": 35
+      },
+      "repoEvidence": [
+        "packages/web/src/db/schema/relations.ts:6-18 defines a composite primary key for skill and category.",
+        "packages/web/src/db/schema/relations.ts:70-83 defines a composite primary key for pack and skill."
+      ],
+      "secondaryKeywords": [
+        "Drizzle composite primary key test",
+        "duplicate junction row prevention",
+        "Postgres many to many uniqueness",
+        "skill pack duplicate item test",
+        "category assignment constraint test"
+      ],
+      "internalRoutes": ["/skills", "/categories", "/blog/database-testing-automation-guide"],
+      "authoritativeSources": [
+        "https://orm.drizzle.team/docs/indexes-constraints",
+        "https://www.postgresql.org/docs/current/ddl-constraints.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "No inventory page targets duplicate prevention by these two composite junction keys."
+      }
+    },
+    {
+      "id": "data-11",
+      "primaryKeyword": "skill detail UUID slug parity",
+      "slug": "skill-detail-uuid-slug-parity",
+      "title": "Test UUID and Slug Lookup Parity",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove the skill detail endpoint returns the same resource and fields when addressed by UUID or slug?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/route.ts:6-21 dispatches UUID-shaped identifiers to ID lookup and all others to slug lookup.",
+        "packages/web/src/app/api/skills/[id]/route.ts:27-50 serializes the detail response shared by both lookup paths."
+      ],
+      "secondaryKeywords": [
+        "Next.js dynamic route UUID test",
+        "slug and ID response parity",
+        "Drizzle conditional lookup test",
+        "skill detail API contract",
+        "UUID regex routing edge cases"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide"
+      ],
+      "authoritativeSources": [
+        "https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes",
+        "https://orm.drizzle.team/docs/operators",
+        "https://www.postgresql.org/docs/current/datatype-uuid.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/skills",
+        "decision": "survive",
+        "reason": "The skills directory does not answer parity and dispatch testing for the two detail API identifiers."
+      }
+    },
+    {
+      "id": "search-01",
+      "primaryKeyword": "Typesense missing API key fallback",
+      "slug": "typesense-missing-api-key-fallback",
+      "title": "Test Typesense Without an API Key",
+      "intent": "troubleshooting",
+      "exactQuestion": "What should QA assert when Typesense is not configured and searchSkills returns an empty result instead of querying a search node?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/typesense/client.ts:5-7 returns null when TYPESENSE_API_KEY is absent.",
+        "packages/web/src/lib/typesense/search.ts:4-10 converts a missing client into an empty paginated result."
+      ],
+      "secondaryKeywords": [
+        "Typesense disabled fallback test",
+        "missing search API key behavior",
+        "empty search result contract",
+        "Next.js search configuration test",
+        "Typesense optional dependency testing"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/testing-typesense-multiselect-facet-filter-queries"
+      ],
+      "authoritativeSources": [
+        "https://typesense.org/docs/latest/api/api-keys.html",
+        "https://typesense.org/docs/latest/api/search.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-typesense-multiselect-facet-filter-queries",
+        "decision": "survive",
+        "reason": "The owner covers facet filters. This candidate owns configuration absence and the empty fallback contract."
+      }
+    },
+    {
+      "id": "search-02",
+      "primaryKeyword": "Typesense connection timeout testing",
+      "slug": "typesense-connection-timeout-testing",
+      "title": "Test Typesense Connection Timeouts",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test the five-second Typesense connection timeout and distinguish timeout failures from an unconfigured client?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/typesense/client.ts:8-18 creates one node with a five-second connection timeout.",
+        "packages/web/src/lib/typesense/search.ts:42-50 awaits the remote search without a local catch or fallback for configured-client failures."
+      ],
+      "secondaryKeywords": [
+        "Typesense timeout error test",
+        "search node unavailable testing",
+        "Typesense client retry behavior",
+        "five second connection timeout",
+        "configured search outage test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/testing-typesense-multiselect-facet-filter-queries"
+      ],
+      "authoritativeSources": [
+        "https://typesense.org/docs/latest/api/search.html",
+        "https://github.com/typesense/typesense-js"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-typesense-multiselect-facet-filter-queries",
+        "decision": "survive",
+        "reason": "Connection timeout handling is operational failure intent, separate from filter correctness."
+      }
+    },
+    {
+      "id": "search-03",
+      "primaryKeyword": "Typesense filter value escaping tests",
+      "slug": "typesense-filter-value-escaping-tests",
+      "title": "Test Typesense Filter Value Escaping",
+      "intent": "how-to",
+      "exactQuestion": "How do you test commas, brackets, backticks, spaces, and operators in values interpolated into Typesense filter_by strings?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/typesense/search.ts:12-30 joins raw array values into Typesense filter expressions.",
+        "packages/web/src/lib/typesense/search.ts:42-50 sends the assembled string as filter_by."
+      ],
+      "secondaryKeywords": [
+        "Typesense special character filter",
+        "escape commas in filter_by",
+        "Typesense backtick literal test",
+        "search filter injection testing",
+        "array facet value escaping"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/testing-typesense-multiselect-facet-filter-queries"
+      ],
+      "authoritativeSources": [
+        "https://typesense.org/docs/latest/api/search.html",
+        "https://owasp.org/www-project-web-security-testing-guide/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-typesense-multiselect-facet-filter-queries",
+        "decision": "survive",
+        "reason": "The existing article owns multiselect boolean semantics. This candidate owns literal escaping and malformed filter expressions."
+      }
+    },
+    {
+      "id": "search-04",
+      "primaryKeyword": "Typesense Postgres sort parity testing",
+      "slug": "typesense-postgres-sort-parity-testing",
+      "title": "Test Typesense and Postgres Sort Parity",
+      "intent": "how-to",
+      "exactQuestion": "How do you detect sort drift when Typesense treats trending as installCount while the database API uses weeklyInstalls?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/typesense/search.ts:32-37 maps trending and most_installed to installCount.",
+        "packages/web/src/app/api/skills/route.ts:318-325 maps most_installed to installCount but trending to weeklyInstalls."
+      ],
+      "secondaryKeywords": [
+        "search database ranking drift",
+        "Typesense trending sort mismatch",
+        "weekly installs search parity",
+        "dual backend contract testing",
+        "Postgres Typesense result order"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/leaderboard",
+        "/blog/testing-typesense-multiselect-facet-filter-queries"
+      ],
+      "authoritativeSources": [
+        "https://typesense.org/docs/latest/api/search.html",
+        "https://www.postgresql.org/docs/current/queries-order.html",
+        "https://orm.drizzle.team/docs/select"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "decision": "survive",
+        "reason": "This candidate compares two search backends and their trending definitions, not leaderboard cache isolation."
+      }
+    },
+    {
+      "id": "search-05",
+      "primaryKeyword": "Typesense timestamp mapping contract tests",
+      "slug": "typesense-timestamp-mapping-contract-tests",
+      "title": "Test Typesense Timestamp Mapping",
+      "intent": "how-to",
+      "exactQuestion": "How do you test that an int64 Typesense createdAt field becomes the ISO date string expected by SkillSummary consumers?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/typesense/client.ts:37-43 defines createdAt as int64.",
+        "packages/web/src/lib/typesense/search.ts:52-70 casts createdAt or created_at as a string and falls back to the Unix epoch."
+      ],
+      "secondaryKeywords": [
+        "Typesense int64 date conversion",
+        "search document timestamp contract",
+        "createdAt epoch fallback test",
+        "Typesense camel snake date fields",
+        "SkillSummary date mapping test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/leaderboard",
+        "/blog/testing-typesense-multiselect-facet-filter-queries"
+      ],
+      "authoritativeSources": [
+        "https://typesense.org/docs/latest/api/collections.html",
+        "https://typesense.org/docs/latest/api/search.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-typesense-multiselect-facet-filter-queries",
+        "decision": "survive",
+        "reason": "This is a response type and date normalization contract, not a facet query topic."
+      }
+    },
+    {
+      "id": "search-06",
+      "primaryKeyword": "Typesense missing facet response testing",
+      "slug": "typesense-missing-facet-response-testing",
+      "title": "Test Missing Typesense Facet Responses",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you prove search result normalization returns stable empty facet arrays when facet_counts or one requested field is missing?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/typesense/search.ts:73-84 always returns five named facet arrays.",
+        "packages/web/src/lib/typesense/search.ts:88-94 maps missing facet_counts or missing fields to empty arrays."
+      ],
+      "secondaryKeywords": [
+        "missing facet_counts contract",
+        "Typesense empty facets test",
+        "partial facet response normalization",
+        "facet field not returned testing",
+        "search UI stable facet shape"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/blog/testing-typesense-multiselect-facet-filter-queries"
+      ],
+      "authoritativeSources": [
+        "https://typesense.org/docs/latest/api/search.html",
+        "https://typesense.org/docs/latest/api/collections.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-typesense-multiselect-facet-filter-queries",
+        "decision": "survive",
+        "reason": "The existing owner tests outgoing filter logic. This candidate tests degraded incoming facet response shape."
+      }
+    },
+    {
+      "id": "search-07",
+      "primaryKeyword": "Typesense collection schema drift testing",
+      "slug": "typesense-collection-schema-drift-testing",
+      "title": "Test Typesense Collection Schema Drift",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you catch field type, facet flag, and default sorting drift between the declared skills schema and indexed documents?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/typesense/client.ts:23-44 declares the skills collection fields, facet flags, types, and default sorting field.",
+        "packages/web/src/lib/typesense/search.ts:42-70 assumes those fields exist with specific runtime types."
+      ],
+      "secondaryKeywords": [
+        "Typesense schema contract test",
+        "facet flag drift detection",
+        "search document type mismatch",
+        "Typesense default sort schema",
+        "collection migration regression test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/blog/testing-typesense-multiselect-facet-filter-queries"
+      ],
+      "authoritativeSources": [
+        "https://typesense.org/docs/latest/api/collections.html",
+        "https://typesense.org/docs/latest/api/documents.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-typesense-multiselect-facet-filter-queries",
+        "decision": "survive",
+        "reason": "Schema migration and document type compatibility are distinct from multiselect filter behavior."
+      }
+    },
+    {
+      "id": "search-08",
+      "primaryKeyword": "Typesense query field coverage testing",
+      "slug": "typesense-query-field-coverage-testing",
+      "title": "Test Typesense Query Field Coverage",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove name, description, and author are searchable while slug and taxonomy fields remain filter-only?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/typesense/search.ts:42-49 sets query_by to name, description, and author, then facets taxonomy fields.",
+        "packages/web/src/lib/typesense/client.ts:28-41 declares searchable and faceted document fields."
+      ],
+      "secondaryKeywords": [
+        "Typesense query_by contract test",
+        "search author field testing",
+        "slug not searchable regression",
+        "searchable versus faceted fields",
+        "Typesense field coverage matrix"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/blog/testing-typesense-multiselect-facet-filter-queries"
+      ],
+      "authoritativeSources": [
+        "https://typesense.org/docs/latest/api/search.html",
+        "https://typesense.org/docs/latest/guide/ranking-and-relevance.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/skills",
+        "decision": "survive",
+        "reason": "The directory exposes search but does not document or test which indexed fields participate in text matching."
+      }
+    },
+    {
+      "id": "search-09",
+      "primaryKeyword": "Typesense publish index freshness testing",
+      "slug": "typesense-publish-index-freshness-testing",
+      "title": "Test Typesense Index Freshness After Publish",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test whether a newly published Postgres skill becomes searchable when the publish route contains no visible Typesense indexing step?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:124-144 inserts the new skill in Postgres.",
+        "packages/web/src/app/api/skills/route.ts:146-227 performs counter and email side effects but no Typesense document write, while packages/web/src/lib/typesense/search.ts:42 reads the separate index."
+      ],
+      "secondaryKeywords": [
+        "Postgres Typesense sync test",
+        "new skill missing from search",
+        "search index freshness SLA",
+        "publish indexing integration test",
+        "database search eventual consistency"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/testing-typesense-multiselect-facet-filter-queries"
+      ],
+      "authoritativeSources": [
+        "https://typesense.org/docs/latest/api/documents.html",
+        "https://typesense.org/docs/latest/api/search.html",
+        "https://www.postgresql.org/docs/current/mvcc-intro.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-typesense-multiselect-facet-filter-queries",
+        "decision": "survive",
+        "reason": "This candidate owns cross-system freshness after writes, not query filter correctness."
+      }
+    },
+    {
+      "id": "cache-01",
+      "primaryKeyword": "Redis cache aside hit miss testing",
+      "slug": "redis-cache-aside-hit-miss-testing",
+      "title": "Test Redis Cache-Aside Hits and Misses",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove cacheGetOrSet skips the fetcher on a hit and calls then stores it exactly once on a miss?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/cache.ts:48-58 implements read, null miss detection, fetch, and write in cache-aside order.",
+        "packages/web/src/lib/cache.ts:17-35 provides the read and expiring write wrappers used by cacheGetOrSet."
+      ],
+      "secondaryKeywords": [
+        "cacheGetOrSet unit test",
+        "Redis cache hit fetcher spy",
+        "cache miss write through test",
+        "Upstash cache aside pattern",
+        "fetcher call count cache test"
+      ],
+      "internalRoutes": ["/blog/redis-cache-testing-guide", "/leaderboard", "/categories"],
+      "authoritativeSources": [
+        "https://upstash.com/docs/redis/sdks/ts/getstarted",
+        "https://upstash.com/docs/redis/sdks/ts/commands/string/set"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/redis-cache-testing-guide",
+        "decision": "survive",
+        "reason": "The broad Redis guide does not own this repository helper's exact hit, miss, fetcher, and write call contract."
+      }
+    },
+    {
+      "id": "cache-02",
+      "primaryKeyword": "Redis cache stampede concurrency testing",
+      "slug": "redis-cache-stampede-concurrency-testing",
+      "title": "Test Redis Cache Stampede Concurrency",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you reproduce and measure duplicate fetcher calls when concurrent cacheGetOrSet requests miss the same key?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/cache.ts:48-58 has no in-flight promise coalescing or distributed lock between miss and fetch.",
+        "packages/web/src/app/api/leaderboard/route.ts:12-75 and packages/web/src/app/api/categories/route.ts:9-26 call the helper around database reads."
+      ],
+      "secondaryKeywords": [
+        "cache stampede integration test",
+        "duplicate fetcher on Redis miss",
+        "cache dogpile prevention test",
+        "concurrent cacheGetOrSet calls",
+        "Redis single flight testing"
+      ],
+      "internalRoutes": ["/blog/redis-cache-testing-guide", "/leaderboard", "/categories"],
+      "authoritativeSources": [
+        "https://upstash.com/docs/redis/sdks/ts/commands/string/set",
+        "https://redis.io/docs/latest/develop/use/patterns/distributed-locks/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/redis-cache-testing-guide",
+        "decision": "survive",
+        "reason": "Cache stampede behavior under concurrent misses is a distinct operational failure intent."
+      }
+    },
+    {
+      "id": "cache-03",
+      "primaryKeyword": "Upstash Redis read outage testing",
+      "slug": "upstash-redis-read-outage-testing",
+      "title": "Test Upstash Redis Read Outages",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you verify a Redis read exception becomes a cache miss and the endpoint still fetches fresh database data?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/cache.ts:17-25 catches every cache read error and returns null.",
+        "packages/web/src/lib/cache.ts:53-57 treats null as a miss and executes the source fetcher."
+      ],
+      "secondaryKeywords": [
+        "Upstash outage fallback test",
+        "Redis GET error cache miss",
+        "cache read failure graceful degradation",
+        "database fallback during Redis outage",
+        "fault injection Upstash test"
+      ],
+      "internalRoutes": ["/blog/redis-cache-testing-guide", "/leaderboard", "/categories"],
+      "authoritativeSources": [
+        "https://upstash.com/docs/redis/sdks/ts/troubleshooting",
+        "https://upstash.com/docs/redis/sdks/ts/developing"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/redis-cache-testing-guide",
+        "decision": "survive",
+        "reason": "This targets endpoint continuity after a caught read exception, not general Redis testing."
+      }
+    },
+    {
+      "id": "cache-04",
+      "primaryKeyword": "Upstash cache write failure testing",
+      "slug": "upstash-cache-write-failure-testing",
+      "title": "Test Nonfatal Upstash Cache Writes",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you prove a failed Redis SET does not replace or reject the fresh value returned by cacheGetOrSet?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/cache.ts:28-35 catches cacheSet failures without rethrowing.",
+        "packages/web/src/lib/cache.ts:55-57 awaits cacheSet and then returns the fresh source value."
+      ],
+      "secondaryKeywords": [
+        "Redis SET failure fallback",
+        "nonfatal cache write test",
+        "cache write exception handling",
+        "Upstash degraded write behavior",
+        "fresh response despite cache error"
+      ],
+      "internalRoutes": ["/blog/redis-cache-testing-guide", "/leaderboard", "/categories"],
+      "authoritativeSources": [
+        "https://upstash.com/docs/redis/sdks/ts/commands/string/set",
+        "https://upstash.com/docs/redis/sdks/ts/troubleshooting"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/redis-cache-testing-guide",
+        "decision": "survive",
+        "reason": "Write failure behavior has different assertions from read outage fallback and remains a separate searcher need."
+      }
+    },
+    {
+      "id": "cache-05",
+      "primaryKeyword": "Redis cache TTL contract testing",
+      "slug": "redis-cache-ttl-contract-testing",
+      "title": "Test Redis Cache TTL Contracts",
+      "intent": "how-to",
+      "exactQuestion": "How do you test the helper's 300-second default TTL plus the leaderboard and category endpoint overrides?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/cache.ts:28-32 sends ttlSeconds through the Upstash SET ex option and defaults it to 300.",
+        "packages/web/src/app/api/leaderboard/route.ts:75 uses 300 seconds while packages/web/src/app/api/categories/route.ts:26 uses 3600 seconds."
+      ],
+      "secondaryKeywords": [
+        "Upstash SET EX test",
+        "cache TTL default regression",
+        "leaderboard five minute cache",
+        "category one hour cache",
+        "Redis expiration contract test"
+      ],
+      "internalRoutes": ["/blog/redis-cache-testing-guide", "/leaderboard", "/categories"],
+      "authoritativeSources": [
+        "https://upstash.com/docs/redis/sdks/ts/commands/string/set",
+        "https://upstash.com/docs/redis/sdks/ts/commands/overview"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/redis-cache-testing-guide",
+        "decision": "survive",
+        "reason": "The primary intent is repository-specific TTL configuration drift across three call sites."
+      }
+    },
+    {
+      "id": "cache-06",
+      "primaryKeyword": "Upstash partial environment configuration testing",
+      "slug": "upstash-partial-environment-configuration-testing",
+      "title": "Test Partial Upstash Configuration",
+      "intent": "troubleshooting",
+      "exactQuestion": "What should happen when only the Upstash URL or only the token exists in the runtime environment?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/cache.ts:5-14 requires both UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN before constructing Redis.",
+        "packages/web/src/lib/cache.ts:17-42 turns an absent client into null reads and no-op writes or deletes."
+      ],
+      "secondaryKeywords": [
+        "missing Upstash token test",
+        "missing Redis URL behavior",
+        "partial environment variable matrix",
+        "Redis client not initialized test",
+        "Next.js cache configuration QA"
+      ],
+      "internalRoutes": ["/blog/redis-cache-testing-guide", "/leaderboard", "/categories"],
+      "authoritativeSources": [
+        "https://upstash.com/docs/redis/sdks/ts/getstarted",
+        "https://nextjs.org/docs/app/guides/environment-variables"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/redis-cache-testing-guide",
+        "decision": "survive",
+        "reason": "This candidate owns the four-case environment matrix, not Redis command behavior."
+      }
+    },
+    {
+      "id": "cache-07",
+      "primaryKeyword": "Redis cached null ambiguity testing",
+      "slug": "redis-cached-null-ambiguity-testing",
+      "title": "Test Cached Null Ambiguity in Redis",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test a cache helper that uses null for both a missing key and a legitimately cached null value?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/cache.ts:17-25 returns T or null from Redis and also maps every read error to null.",
+        "packages/web/src/lib/cache.ts:53-54 treats only non-null values as cache hits."
+      ],
+      "secondaryKeywords": [
+        "Redis null cache miss test",
+        "negative caching sentinel value",
+        "cacheGetOrSet nullable data",
+        "cached null versus missing key",
+        "TypeScript generic cache ambiguity"
+      ],
+      "internalRoutes": ["/blog/redis-cache-testing-guide", "/leaderboard", "/categories"],
+      "authoritativeSources": [
+        "https://upstash.com/docs/redis/sdks/ts/commands/overview",
+        "https://upstash.com/docs/redis/sdks/ts/commands/generic/exists"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/redis-cache-testing-guide",
+        "decision": "survive",
+        "reason": "Negative caching and null sentinel ambiguity are not owned by the existing broad cache guide."
+      }
+    },
+    {
+      "id": "cache-08",
+      "primaryKeyword": "category cache invalidation testing",
+      "slug": "category-cache-invalidation-testing",
+      "title": "Test Category Cache Invalidation",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you prove category changes become visible when the GET route caches categories:all for one hour and no mutation invalidation is visible?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/categories/route.ts:9-26 caches the grouped response under categories:all for 3600 seconds.",
+        "packages/web/src/lib/cache.ts:38-45 exposes cacheDel, but the category route has no invalidation call."
+      ],
+      "secondaryKeywords": [
+        "stale category cache test",
+        "categories all Redis invalidation",
+        "one hour cache freshness",
+        "category mutation cache purge",
+        "Upstash stale taxonomy testing"
+      ],
+      "internalRoutes": ["/categories", "/blog/redis-cache-testing-guide", "/skills"],
+      "authoritativeSources": [
+        "https://upstash.com/docs/redis/sdks/ts/commands/overview",
+        "https://upstash.com/docs/redis/sdks/ts/commands/string/set"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/redis-cache-testing-guide",
+        "decision": "survive",
+        "reason": "The exact owner is category taxonomy freshness after writes, not generic cache behavior."
+      }
+    },
+    {
+      "id": "cache-09",
+      "primaryKeyword": "install leaderboard cache staleness testing",
+      "slug": "install-ranking-cache-staleness-testing",
+      "title": "Test Leaderboard Staleness After Installs",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you measure the period in which install counters update in Postgres but cached leaderboard ranks remain unchanged?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/telemetry/install/route.ts:58-65 increments installCount and weeklyInstalls.",
+        "packages/web/src/app/api/leaderboard/route.ts:12-75 caches each leaderboard response for 300 seconds without install-triggered invalidation."
+      ],
+      "secondaryKeywords": [
+        "leaderboard stale after install",
+        "Redis rank freshness test",
+        "install count cache invalidation",
+        "five minute ranking delay",
+        "telemetry leaderboard consistency"
+      ],
+      "internalRoutes": [
+        "/leaderboard",
+        "/blog/redis-cache-testing-guide",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "authoritativeSources": [
+        "https://upstash.com/docs/redis/sdks/ts/commands/overview",
+        "https://www.postgresql.org/docs/current/transaction-iso.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "decision": "survive",
+        "reason": "The existing owner separates cache keys by filter. This candidate measures write-to-read freshness after install telemetry."
+      }
+    },
+    {
+      "id": "leaderboard-01",
+      "primaryKeyword": "leaderboard hot score formula testing",
+      "slug": "hot-skill-rank-formula-testing",
+      "title": "Test the Leaderboard Hot Score Formula",
+      "intent": "how-to",
+      "exactQuestion": "How do you verify the leaderboard's 70 percent install and 30 percent quality weighted ordering at ties and boundaries?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/leaderboard/route.ts:38-44 orders hot results by installCount times 0.7 plus qualityScore times 0.3.",
+        "packages/web/src/db/schema/skills.ts:21-23 defines the two integer inputs to the SQL expression."
+      ],
+      "secondaryKeywords": [
+        "weighted ranking formula test",
+        "SQL hot score ordering",
+        "install quality leaderboard weight",
+        "leaderboard score boundary fixtures",
+        "ranking formula tie test"
+      ],
+      "internalRoutes": [
+        "/leaderboard",
+        "/skills",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/queries-order.html",
+        "https://orm.drizzle.team/docs/sql"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "decision": "survive",
+        "reason": "The owner tests filter cache isolation. This candidate owns arithmetic correctness and weighted ordering."
+      }
+    },
+    {
+      "id": "leaderboard-02",
+      "primaryKeyword": "leaderboard deterministic tie breaker testing",
+      "slug": "deterministic-skill-rank-tie-breaker-testing",
+      "title": "Test Deterministic Leaderboard Ties",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you detect unstable all-time or hot rankings when equal scores have no unique secondary sort key?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/leaderboard/route.ts:38-44 and 53-59 order hot and all-time rows by one non-unique expression.",
+        "packages/web/src/app/api/skills/route.ts:304-340 documents and fixes the same instability for paginated skill lists with an ID tiebreaker."
+      ],
+      "secondaryKeywords": [
+        "leaderboard equal score ordering",
+        "Postgres non deterministic ties",
+        "stable rank tiebreaker test",
+        "hot leaderboard tie regression",
+        "all time ranking repeatability"
+      ],
+      "internalRoutes": [
+        "/leaderboard",
+        "/skills",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/queries-order.html",
+        "https://www.postgresql.org/docs/current/queries-limit.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "decision": "survive",
+        "reason": "Tie determinism is a SQL ordering contract independent of cache key correctness."
+      }
+    },
+    {
+      "id": "leaderboard-03",
+      "primaryKeyword": "trending leaderboard recency tie testing",
+      "slug": "trending-recency-tie-testing",
+      "title": "Test Recency for Equal Weekly Installs",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove newer skills win weekly-install ties and identify residual ties when createdAt is also equal?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/leaderboard/route.ts:31-36 sorts trending rows by weeklyInstalls and then createdAt.",
+        "packages/web/src/db/schema/skills.ts:23 and 26 define the weekly count and creation timestamp."
+      ],
+      "secondaryKeywords": [
+        "weekly installs recency tiebreaker",
+        "trending rank same count test",
+        "createdAt secondary sort QA",
+        "new skill trending order",
+        "leaderboard residual tie test"
+      ],
+      "internalRoutes": [
+        "/leaderboard",
+        "/skills",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/queries-order.html",
+        "https://orm.drizzle.team/docs/select"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "decision": "survive",
+        "reason": "The exact intent is recency as a secondary ranking key, not cached filter separation."
+      }
+    },
+    {
+      "id": "leaderboard-04",
+      "primaryKeyword": "leaderboard top fifty boundary testing",
+      "slug": "top-fifty-ranking-boundary-testing",
+      "title": "Test the Leaderboard Top 50 Boundary",
+      "intent": "how-to",
+      "exactQuestion": "How do you test inclusion, exclusion, and tie behavior at positions 50 and 51 for every leaderboard filter?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/leaderboard/route.ts:31-60 applies limit 50 in all four ranking branches.",
+        "packages/web/src/app/api/leaderboard/route.ts:63-74 assigns ranks after truncation."
+      ],
+      "secondaryKeywords": [
+        "top 50 ranking cutoff test",
+        "leaderboard position 51 exclusion",
+        "SQL limit tie boundary",
+        "ranking cutoff fixture design",
+        "leaderboard maximum rows contract"
+      ],
+      "internalRoutes": [
+        "/leaderboard",
+        "/skills",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/queries-limit.html",
+        "https://www.postgresql.org/docs/current/queries-order.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/leaderboard",
+        "decision": "survive",
+        "reason": "The live page shows rankings but does not own QA at the fixed 50-row cutoff."
+      }
+    },
+    {
+      "id": "leaderboard-05",
+      "primaryKeyword": "leaderboard unknown filter contract testing",
+      "slug": "unknown-rank-filter-contract-testing",
+      "title": "Test Unknown Leaderboard Filters",
+      "intent": "how-to",
+      "exactQuestion": "What should QA assert when filter contains an unsupported value that falls through to all-time sorting but remains in the response and cache key?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/leaderboard/route.ts:9-12 uses any filter string in the cache key.",
+        "packages/web/src/app/api/leaderboard/route.ts:53-74 defaults unknown values to all-time ordering but returns the original filter string."
+      ],
+      "secondaryKeywords": [
+        "unsupported leaderboard filter test",
+        "ranking API default branch",
+        "unbounded cache key input",
+        "filter response mismatch testing",
+        "leaderboard query validation"
+      ],
+      "internalRoutes": [
+        "/leaderboard",
+        "/categories/api-testing",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "authoritativeSources": [
+        "https://nextjs.org/docs/app/api-reference/functions/next-request",
+        "https://owasp.org/www-project-api-security/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "decision": "survive",
+        "reason": "This candidate owns unsupported input normalization and response semantics, not valid-filter cache isolation."
+      }
+    },
+    {
+      "id": "leaderboard-06",
+      "primaryKeyword": "leaderboard rank serialization testing",
+      "slug": "rank-serialization-contract-testing",
+      "title": "Test Leaderboard Rank Serialization",
+      "intent": "how-to",
+      "exactQuestion": "How do you verify ranks are contiguous, one-based, aligned with array order, and accompanied by ISO createdAt and updatedAt values?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 8,
+        "coverageAbility": 8,
+        "total": 35
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/leaderboard/route.ts:63-70 maps zero-based indexes to rank i plus one and serializes createdAt.",
+        "packages/web/src/app/api/leaderboard/route.ts:72-74 returns filter and an ISO updatedAt timestamp."
+      ],
+      "secondaryKeywords": [
+        "one based leaderboard ranks",
+        "ranking response schema test",
+        "contiguous rank assertion",
+        "leaderboard ISO timestamp contract",
+        "rank array order validation"
+      ],
+      "internalRoutes": [
+        "/leaderboard",
+        "/skills",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc8259",
+        "https://tc39.es/ecma262/multipage/numbers-and-dates.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/leaderboard",
+        "decision": "survive",
+        "reason": "This intent concerns the JSON response contract after ranking, not how ranks are calculated or cached."
+      }
+    },
+    {
+      "id": "install-01",
+      "primaryKeyword": "install telemetry payload compatibility testing",
+      "slug": "install-telemetry-payload-compatibility-testing",
+      "title": "Test Install Telemetry Payload Compatibility",
+      "intent": "how-to",
+      "exactQuestion": "How do you test current, legacy, and upcoming CLI install payloads against one normalization contract?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/telemetry-normalize.ts:1-10 documents three payload generations using display names, UUIDs, and slugs.",
+        "packages/web/src/lib/telemetry-normalize.test.ts:15-58 already provides fixtures for current, legacy, precedence, remove, and update behavior."
+      ],
+      "secondaryKeywords": [
+        "CLI telemetry backward compatibility",
+        "legacy install payload tests",
+        "skillSlug telemetry contract",
+        "install action normalization test",
+        "telemetry version compatibility matrix"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://vitest.dev/guide/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "decision": "survive",
+        "reason": "The owner explains disabling client telemetry. This candidate tests server compatibility across historical payload shapes."
+      }
+    },
+    {
+      "id": "install-02",
+      "primaryKeyword": "install telemetry reference resolution testing",
+      "slug": "install-telemetry-reference-resolution-testing",
+      "title": "Test Install Reference Resolution Order",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove install telemetry resolves canonical UUIDs directly, then tries exact slug, then exact display name?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/telemetry/install/route.ts:24-44 implements UUID, slug, then display-name resolution.",
+        "packages/web/src/lib/telemetry-normalize.ts:32-48 identifies the reference and marks canonical UUID shapes."
+      ],
+      "secondaryKeywords": [
+        "telemetry UUID slug name lookup",
+        "skill reference fallback test",
+        "install resolution precedence",
+        "exact slug telemetry query",
+        "display name install lookup"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/datatype-uuid.html",
+        "https://orm.drizzle.team/docs/operators"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "decision": "survive",
+        "reason": "Reference resolution order is a server data-integrity topic, not client privacy configuration."
+      }
+    },
+    {
+      "id": "install-03",
+      "primaryKeyword": "install telemetry action mapping testing",
+      "slug": "install-telemetry-action-mapping-testing",
+      "title": "Test Install Telemetry Action Mapping",
+      "intent": "how-to",
+      "exactQuestion": "How do you test install, remove, update, unknown, and conflicting action fields without inflating install counters?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/lib/telemetry-normalize.ts:38-43 defaults to add and maps remove or update from action and legacy installType.",
+        "packages/web/src/app/api/telemetry/install/route.ts:58-66 increments counters only when normalized installType is add."
+      ],
+      "secondaryKeywords": [
+        "install remove update telemetry test",
+        "unknown action defaults add",
+        "legacy installType precedence",
+        "counter inflation action mapping",
+        "telemetry conflicting fields test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/leaderboard",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://vitest.dev/guide/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "decision": "survive",
+        "reason": "This candidate owns event semantics and counter effects for each action value."
+      }
+    },
+    {
+      "id": "install-04",
+      "primaryKeyword": "install counter concurrency testing",
+      "slug": "install-counter-concurrency-testing",
+      "title": "Test Concurrent Install Counter Updates",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove simultaneous install events increment installCount and weeklyInstalls without lost updates?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/telemetry/install/route.ts:58-65 increments both counters with SQL column plus one expressions.",
+        "packages/web/src/db/schema/skills.ts:22-23 stores both counters as non-null integers."
+      ],
+      "secondaryKeywords": [
+        "Postgres atomic increment test",
+        "lost update install counter",
+        "Drizzle concurrent update testing",
+        "weekly installs race condition",
+        "telemetry counter load test"
+      ],
+      "internalRoutes": ["/leaderboard", "/skills", "/blog/database-testing-automation-guide"],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/mvcc.html",
+        "https://www.postgresql.org/docs/current/transaction-iso.html",
+        "https://orm.drizzle.team/docs/update"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "The exact search intent is atomic counter increments under simultaneous telemetry requests."
+      }
+    },
+    {
+      "id": "install-05",
+      "primaryKeyword": "install telemetry transaction consistency testing",
+      "slug": "install-telemetry-transaction-consistency-testing",
+      "title": "Test Install Telemetry Partial Writes",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you detect an install event row written successfully when the following skill counter update fails outside a transaction?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/telemetry/install/route.ts:51-56 inserts the install event first.",
+        "packages/web/src/app/api/telemetry/install/route.ts:58-71 performs a separate counter update and converts any later error into success."
+      ],
+      "secondaryKeywords": [
+        "telemetry event counter mismatch",
+        "partial install write test",
+        "Drizzle multi statement transaction",
+        "install audit row consistency",
+        "counter update failure recovery"
+      ],
+      "internalRoutes": ["/leaderboard", "/skills", "/blog/database-testing-automation-guide"],
+      "authoritativeSources": [
+        "https://orm.drizzle.team/docs/transactions",
+        "https://www.postgresql.org/docs/current/tutorial-transactions.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "This owns consistency between the installs audit table and denormalized counters after a mid-flow failure."
+      }
+    },
+    {
+      "id": "install-06",
+      "primaryKeyword": "install telemetry replay protection testing",
+      "slug": "install-telemetry-replay-protection-testing",
+      "title": "Test Install Telemetry Replay Protection",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you prove retries or replayed install requests do not create duplicate events and inflate counters when no idempotency key is stored?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/db/schema/relations.ts:32-41 gives installs a random ID but no event idempotency key or uniqueness constraint.",
+        "packages/web/src/app/api/telemetry/install/route.ts:51-65 inserts and increments on every normalized add request."
+      ],
+      "secondaryKeywords": [
+        "duplicate install event prevention",
+        "telemetry idempotency key test",
+        "retry counter inflation QA",
+        "replayed POST request testing",
+        "install event deduplication"
+      ],
+      "internalRoutes": ["/leaderboard", "/skills", "/blog/database-testing-automation-guide"],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://owasp.org/www-project-api-security/",
+        "https://www.postgresql.org/docs/current/ddl-constraints.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "Replay safety and idempotency are not covered by the general database guide or telemetry opt-out article."
+      }
+    },
+    {
+      "id": "install-07",
+      "primaryKeyword": "unknown skill telemetry response testing",
+      "slug": "unknown-skill-telemetry-response-testing",
+      "title": "Test Unknown Skill Telemetry Responses",
+      "intent": "how-to",
+      "exactQuestion": "How do you test that unknown, local, or GitHub skill references return success without inserting an install row?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/telemetry/install/route.ts:29-44 attempts slug and name resolution.",
+        "packages/web/src/app/api/telemetry/install/route.ts:46-49 returns success when no database skill resolves."
+      ],
+      "secondaryKeywords": [
+        "unknown skill install event test",
+        "local skill telemetry behavior",
+        "GitHub install telemetry no-op",
+        "unresolved telemetry reference",
+        "success without insert contract"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://nextjs.org/docs/app/building-your-application/routing/route-handlers"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "decision": "survive",
+        "reason": "This is the server response and persistence contract for unresolved skill references."
+      }
+    },
+    {
+      "id": "install-08",
+      "primaryKeyword": "install telemetry country header testing",
+      "slug": "install-telemetry-country-header-testing",
+      "title": "Test Install Country Header Persistence",
+      "intent": "how-to",
+      "exactQuestion": "How do you test cf-ipcountry extraction, missing-header defaults, unusual values, and persistence in install rows?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 8,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/telemetry/install/route.ts:51-56 reads cf-ipcountry and stores an empty string when absent.",
+        "packages/web/src/db/schema/relations.ts:32-40 stores country as text with an empty default."
+      ],
+      "secondaryKeywords": [
+        "cf-ipcountry header test",
+        "install country default value",
+        "edge geolocation header persistence",
+        "telemetry country validation",
+        "missing country header QA"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track"
+      ],
+      "authoritativeSources": [
+        "https://developers.cloudflare.com/fundamentals/reference/http-request-headers/",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "decision": "survive",
+        "reason": "The candidate targets one server-side edge header and storage contract, not telemetry consent controls."
+      }
+    },
+    {
+      "id": "review-01",
+      "primaryKeyword": "review rating boundary validation testing",
+      "slug": "review-rating-boundary-validation-testing",
+      "title": "Test Review Rating Boundaries",
+      "intent": "how-to",
+      "exactQuestion": "How do you test missing, null, fractional, string, zero, one, five, and six ratings against the review API?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/reviews/route.ts:104-127 requires rating and accepts only integers from one through five.",
+        "packages/web/src/db/schema/relations.ts:43-55 stores rating as a non-null integer without a database check constraint."
+      ],
+      "secondaryKeywords": [
+        "review API rating validation",
+        "integer rating boundary test",
+        "one to five rating QA",
+        "fractional review rating rejection",
+        "missing rating response test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://www.postgresql.org/docs/current/ddl-constraints.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "No current page owns the review endpoint's exact one-through-five input partition."
+      }
+    },
+    {
+      "id": "review-02",
+      "primaryKeyword": "duplicate review concurrency testing",
+      "slug": "duplicate-review-concurrency-testing",
+      "title": "Test Concurrent Duplicate Reviews",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test two concurrent review submissions that both pass the application duplicate check when the schema has no composite unique constraint?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/reviews/route.ts:168-191 checks then inserts one review per user and skill.",
+        "packages/web/src/db/schema/relations.ts:43-56 defines no unique key across review skillId and userId."
+      ],
+      "secondaryKeywords": [
+        "one review per user race",
+        "duplicate review POST test",
+        "composite unique review constraint",
+        "concurrent API submission QA",
+        "review check then insert race"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/ddl-constraints.html",
+        "https://www.postgresql.org/docs/current/transaction-iso.html",
+        "https://orm.drizzle.team/docs/indexes-constraints"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "This candidate owns a concrete check-then-insert race and missing composite uniqueness guarantee."
+      }
+    },
+    {
+      "id": "review-03",
+      "primaryKeyword": "review average rounding contract testing",
+      "slug": "review-average-rounding-contract-testing",
+      "title": "Test Review Average Rounding",
+      "intent": "how-to",
+      "exactQuestion": "How do you test Postgres average values and JavaScript conversion are rounded to exactly one decimal without binary surprises?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/reviews/route.ts:37-49 computes avg and count, converts the average through Number, toFixed(1), and parseFloat.",
+        "packages/web/src/db/schema/relations.ts:51 stores each source rating as an integer."
+      ],
+      "secondaryKeywords": [
+        "Postgres AVG rounding test",
+        "review average one decimal",
+        "JavaScript toFixed API contract",
+        "rating aggregate precision QA",
+        "empty average fallback test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/functions-aggregate.html",
+        "https://tc39.es/ecma262/multipage/numbers-and-dates.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "Aggregate precision and one-decimal serialization are a standalone response contract."
+      }
+    },
+    {
+      "id": "review-04",
+      "primaryKeyword": "review list aggregate consistency testing",
+      "slug": "review-list-aggregate-consistency-testing",
+      "title": "Test Review List and Aggregate Consistency",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you detect a review list and its total or average describing different snapshots when they come from separate queries?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/reviews/route.ts:18-35 fetches ordered review rows.",
+        "packages/web/src/app/api/reviews/route.ts:37-67 separately fetches aggregate statistics and combines both results."
+      ],
+      "secondaryKeywords": [
+        "review count list mismatch",
+        "aggregate snapshot consistency test",
+        "concurrent review GET race",
+        "Postgres separate query consistency",
+        "average rating stale response"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/transaction-iso.html",
+        "https://orm.drizzle.team/docs/transactions"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "The exact intent is snapshot agreement between review rows and two aggregate fields."
+      }
+    },
+    {
+      "id": "review-05",
+      "primaryKeyword": "review comment length validation testing",
+      "slug": "review-comment-length-validation-testing",
+      "title": "Test Review Comment Length Limits",
+      "intent": "how-to",
+      "exactQuestion": "How do you test the 1,000-character review limit with empty text, whitespace, emoji, surrogate pairs, and boundary values?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/reviews/route.ts:129-135 rejects comments whose JavaScript length exceeds 1000.",
+        "packages/web/src/app/api/reviews/route.ts:182-190 converts a missing or empty comment to an empty string for persistence."
+      ],
+      "secondaryKeywords": [
+        "1000 character comment test",
+        "emoji string length API",
+        "review whitespace validation",
+        "Unicode boundary value testing",
+        "comment limit off by one"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide"
+      ],
+      "authoritativeSources": [
+        "https://tc39.es/ecma262/multipage/text-processing.html",
+        "https://www.rfc-editor.org/info/rfc8259"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/skills",
+        "decision": "survive",
+        "reason": "The skill page hosts reviews but does not answer Unicode-aware boundary testing for comment length."
+      }
+    },
+    {
+      "id": "review-06",
+      "primaryKeyword": "review API pagination load testing",
+      "slug": "review-api-pagination-load-testing",
+      "title": "Load Test an Unpaginated Review API",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test latency, payload size, and client rendering when the review GET endpoint returns every matching row without a limit?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/reviews/route.ts:20-35 selects all reviews for a skill and applies no limit or cursor.",
+        "packages/web/src/components/skills/review-section.tsx:328-330 maps the full returned review array into the page."
+      ],
+      "secondaryKeywords": [
+        "unpaginated review endpoint load test",
+        "large review response performance",
+        "API payload growth testing",
+        "review list rendering benchmark",
+        "database query without limit QA"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/queries-limit.html",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/database-testing-automation-guide",
+        "decision": "survive",
+        "reason": "The search intent is scalability of one unbounded review endpoint and its UI consumer."
+      }
+    },
+    {
+      "id": "review-07",
+      "primaryKeyword": "empty review statistics contract testing",
+      "slug": "empty-review-statistics-contract-testing",
+      "title": "Test Empty Review Statistics",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove a skill with no reviews returns an empty list, averageRating zero, and totalReviews zero?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 8,
+        "coverageAbility": 8,
+        "total": 35
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/reviews/route.ts:46-49 maps a null average and zero count to numeric zeros.",
+        "packages/web/src/app/api/reviews/route.ts:51-67 returns reviews, averageRating, and totalReviews together."
+      ],
+      "secondaryKeywords": [
+        "no reviews API response",
+        "null AVG fallback test",
+        "empty review list contract",
+        "zero total reviews assertion",
+        "first review state testing"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/functions-aggregate.html",
+        "https://www.rfc-editor.org/info/rfc8259"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/skills",
+        "decision": "survive",
+        "reason": "The candidate owns the explicit zero-state JSON contract before a skill receives its first review."
+      }
+    },
+    {
+      "id": "category-01",
+      "primaryKeyword": "category response grouping contract testing",
+      "slug": "category-response-grouping-contract-testing",
+      "title": "Test Category Response Grouping",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove every category lands in the correct testingType, framework, language, or domain array and empty groups remain present?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/categories/route.ts:12-25 initializes four arrays and pushes each recognized row by its type.",
+        "packages/web/src/db/schema/categories.ts:3-10 stores category slug, metadata, and an unrestricted text type."
+      ],
+      "secondaryKeywords": [
+        "category API group shape test",
+        "empty taxonomy group contract",
+        "testingType framework language domain",
+        "category grouping integration test",
+        "stable category response keys"
+      ],
+      "internalRoutes": ["/categories", "/skills", "/blog/database-testing-automation-guide"],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc8259",
+        "https://nextjs.org/docs/app/building-your-application/routing/route-handlers"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/categories",
+        "decision": "survive",
+        "reason": "The page presents categories. This candidate tests the API grouping invariant behind that presentation."
+      }
+    },
+    {
+      "id": "category-02",
+      "primaryKeyword": "unknown category type handling testing",
+      "slug": "unknown-category-type-handling-testing",
+      "title": "Test Unknown Category Type Handling",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you detect category rows silently omitted because their unrestricted type does not match one of four response groups?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/db/schema/categories.ts:8 stores type as unrestricted text.",
+        "packages/web/src/app/api/categories/route.ts:12-23 pushes a row only when grouped[row.type] already exists."
+      ],
+      "secondaryKeywords": [
+        "invalid category type test",
+        "silent taxonomy row omission",
+        "category enum constraint testing",
+        "unknown grouping key QA",
+        "database API completeness check"
+      ],
+      "internalRoutes": ["/categories", "/skills", "/blog/database-testing-automation-guide"],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/ddl-constraints.html",
+        "https://orm.drizzle.team/docs/column-types/pg"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/categories",
+        "decision": "survive",
+        "reason": "This candidate owns invalid stored type handling and silent response omission."
+      }
+    },
+    {
+      "id": "category-03",
+      "primaryKeyword": "category response ordering testing",
+      "slug": "category-response-ordering-testing",
+      "title": "Test Deterministic Category Ordering",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test stable category array ordering when the database query has no ORDER BY clause?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/categories/route.ts:9-10 selects all category rows without ordering.",
+        "packages/web/src/app/api/categories/route.ts:19-23 preserves the database result order inside each group."
+      ],
+      "secondaryKeywords": [
+        "Postgres unordered category results",
+        "stable taxonomy order test",
+        "category API flaky ordering",
+        "missing ORDER BY regression",
+        "deterministic category arrays"
+      ],
+      "internalRoutes": ["/categories", "/skills", "/blog/database-testing-automation-guide"],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/queries-order.html",
+        "https://orm.drizzle.team/docs/select"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/categories",
+        "decision": "survive",
+        "reason": "Ordering repeatability is separate from category grouping and unknown-type handling."
+      }
+    },
+    {
+      "id": "artifact-01",
+      "primaryKeyword": "artifact version mismatch response testing",
+      "slug": "artifact-version-mismatch-response-testing",
+      "title": "Test Artifact Version Mismatch Responses",
+      "intent": "how-to",
+      "exactQuestion": "How do you test missing, matching, empty, encoded, and unavailable version query values on the skill artifact endpoint?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:40-52 compares a requested version with the current version and returns 404 plus currentVersion on mismatch.",
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:72-75 returns artifact version and caching headers on success."
+      ],
+      "secondaryKeywords": [
+        "skill ZIP version query test",
+        "artifact unavailable version 404",
+        "download currentVersion response",
+        "semver query parameter testing",
+        "matching artifact version contract"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/testing-versioned-zip-artifact-sha256-etag"
+      ],
+      "authoritativeSources": ["https://www.rfc-editor.org/info/rfc9110", "https://semver.org/"],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "decision": "survive",
+        "reason": "The existing owner targets checksum and ETag integrity. This candidate owns version negotiation and unavailable-version errors."
+      }
+    },
+    {
+      "id": "artifact-02",
+      "primaryKeyword": "ZIP artifact entry layout testing",
+      "slug": "zip-artifact-entry-layout-testing",
+      "title": "Test ZIP Artifact Entry Layout",
+      "intent": "how-to",
+      "exactQuestion": "How do you inspect a downloaded ZIP and prove it contains exactly slug/SKILL.md at the expected archive root?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:54-62 adds one slug/SKILL.md entry and generates a DEFLATE level 9 buffer.",
+        "packages/web/src/lib/skill-markdown.ts:25-59 constructs the entry content."
+      ],
+      "secondaryKeywords": [
+        "JSZip archive structure test",
+        "SKILL.md ZIP root path",
+        "downloaded skill package inspection",
+        "ZIP entry count assertion",
+        "artifact folder layout contract"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "/blog/testing-http-range-requests-file-download"
+      ],
+      "authoritativeSources": [
+        "https://stuk.github.io/jszip/documentation/api_jszip/generate_async.html",
+        "https://agentskills.io/specification"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "decision": "survive",
+        "reason": "Archive path and entry-count conformance are distinct from byte checksum verification."
+      }
+    },
+    {
+      "id": "artifact-03",
+      "primaryKeyword": "download Content-Disposition filename testing",
+      "slug": "download-content-disposition-filename-testing",
+      "title": "Test Artifact Download Filenames",
+      "intent": "how-to",
+      "exactQuestion": "How do you test that Content-Disposition produces a safe slug-version.zip filename across unusual stored slugs and versions?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:66-76 emits an attachment filename built from row.slug and currentVersion.",
+        "packages/web/src/db/schema/skills.ts:7 and 10 stores both filename inputs as text."
+      ],
+      "secondaryKeywords": [
+        "Content-Disposition attachment test",
+        "ZIP filename header QA",
+        "download filename injection test",
+        "slug version artifact filename",
+        "quoted filename response header"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "/blog/testing-http-range-requests-file-download"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc6266",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Disposition"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-http-range-requests-file-download",
+        "decision": "survive",
+        "reason": "That owner targets range semantics. This candidate owns attachment filename construction and header safety."
+      }
+    },
+    {
+      "id": "artifact-04",
+      "primaryKeyword": "artifact Content-Length byte testing",
+      "slug": "artifact-content-length-byte-testing",
+      "title": "Test ZIP Artifact Content-Length",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove Content-Length equals the exact compressed byte count for ASCII, Unicode, and large SKILL.md content?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:58-64 generates a Node buffer and hashes its bytes.",
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:66-72 sends the Uint8Array with Content-Length set from buffer.length."
+      ],
+      "secondaryKeywords": [
+        "ZIP response byte length test",
+        "Content-Length compressed buffer",
+        "Unicode artifact size assertion",
+        "download truncation detection",
+        "binary response header testing"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "/blog/testing-http-range-requests-file-download"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Length",
+        "https://nodejs.org/api/buffer.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "decision": "survive",
+        "reason": "Byte-count transport correctness differs from validating the SHA-256 digest and ETag value."
+      }
+    },
+    {
+      "id": "artifact-05",
+      "primaryKeyword": "artifact Cache-Control contract testing",
+      "slug": "artifact-cache-control-contract-testing",
+      "title": "Test Artifact Cache-Control Contracts",
+      "intent": "how-to",
+      "exactQuestion": "How do you test public max-age 300 behavior when an artifact URL may change bytes as the current skill version or content changes?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:72-75 emits version, ETag, and public max-age 300 headers.",
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:43-52 supports an optional current-version query but no immutable historical storage."
+      ],
+      "secondaryKeywords": [
+        "ZIP download cache policy test",
+        "public max age 300 QA",
+        "artifact freshness cache headers",
+        "versioned download caching test",
+        "ETag Cache-Control interaction"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "/blog/testing-etag-if-match-concurrency-control"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9111",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "decision": "survive",
+        "reason": "The existing owner verifies validators. This candidate owns cache freshness policy and mutability assumptions."
+      }
+    },
+    {
+      "id": "artifact-06",
+      "primaryKeyword": "skill content fallback outage testing",
+      "slug": "skill-content-fallback-outage-testing",
+      "title": "Test Skill Content Fallback During Outages",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you prove playwright-cli content remains downloadable on a database miss or exception while other skills retain 404 or 500 semantics?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/content/route.ts:17-20 limits local fallback content to playwright-cli.",
+        "packages/web/src/app/api/skills/[id]/content/route.ts:31-51 applies fallback on both an empty query result and a caught database failure."
+      ],
+      "secondaryKeywords": [
+        "playwright-cli content fallback test",
+        "database outage skill download",
+        "content API fallback matrix",
+        "404 versus 500 download test",
+        "local seed markdown availability"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/playwright-cli-install-quickstart-2026",
+        "/categories/api-testing"
+      ],
+      "authoritativeSources": [
+        "https://nextjs.org/docs/app/building-your-application/routing/route-handlers",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/skills/Pramod/playwright-cli",
+        "decision": "survive",
+        "reason": "The skill page owns the product content. This candidate owns the outage fallback decision table for its raw download API."
+      }
+    },
+    {
+      "id": "artifact-07",
+      "primaryKeyword": "artifact content endpoint parity testing",
+      "slug": "artifact-content-endpoint-parity-testing",
+      "title": "Test Artifact and Content Endpoint Parity",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove SKILL.md inside the ZIP is byte-for-byte equivalent to the raw content endpoint for the same database row?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:54-62 calls buildSkillMarkdown before adding the ZIP entry.",
+        "packages/web/src/app/api/skills/[id]/content/route.ts:46-47 calls the same buildSkillMarkdown helper for raw markdown."
+      ],
+      "secondaryKeywords": [
+        "ZIP raw markdown parity test",
+        "SKILL.md byte equality assertion",
+        "artifact content contract testing",
+        "two download endpoints consistency",
+        "shared markdown builder regression"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "/categories/api-testing"
+      ],
+      "authoritativeSources": [
+        "https://stuk.github.io/jszip/documentation/api_jszip/load_async.html",
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://agentskills.io/specification"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "decision": "survive",
+        "reason": "Cross-endpoint content equivalence is separate from ZIP digest integrity."
+      }
+    }
+  ],
+  "rejections": [
+    {
+      "primaryKeyword": "Next.js DATABASE_URL build testing",
+      "proposedSlug": "nextjs-database-url-build-testing",
+      "reason": "Exact primary keyword and intent already owned.",
+      "closestOwner": "/blog/testing-lazy-neon-database-initialization-nextjs-build"
+    },
+    {
+      "primaryKeyword": "Typesense facet filter testing",
+      "proposedSlug": "typesense-facet-filter-testing",
+      "reason": "Exact primary keyword and multiselect filter intent already owned.",
+      "closestOwner": "/blog/testing-typesense-multiselect-facet-filter-queries"
+    },
+    {
+      "primaryKeyword": "PostgreSQL JSONB filter testing",
+      "proposedSlug": "postgresql-jsonb-filter-testing",
+      "reason": "Exact primary keyword and JSONB multiselect intent already owned.",
+      "closestOwner": "/blog/testing-postgresql-jsonb-multiselect-filters-drizzle"
+    },
+    {
+      "primaryKeyword": "leaderboard cache consistency testing",
+      "proposedSlug": "leaderboard-cache-consistency-testing",
+      "reason": "Exact primary keyword and filter-isolation intent already owned.",
+      "closestOwner": "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+    },
+    {
+      "primaryKeyword": "ZIP artifact checksum testing",
+      "proposedSlug": "zip-artifact-checksum-testing",
+      "reason": "Exact primary keyword and SHA-256 plus ETag verification intent already owned.",
+      "closestOwner": "/blog/testing-versioned-zip-artifact-sha256-etag"
+    },
+    {
+      "primaryKeyword": "Redis cache testing guide",
+      "proposedSlug": "redis-cache-testing-guide-2026",
+      "reason": "Slug, title, and broad cache-testing intent collide with the current guide.",
+      "closestOwner": "/blog/redis-cache-testing-guide"
+    },
+    {
+      "primaryKeyword": "Postgres migration testing guide",
+      "proposedSlug": "postgres-migration-testing-guide-2026",
+      "reason": "Broad schema migration intent is already answered.",
+      "closestOwner": "/blog/postgres-migration-testing-guide"
+    },
+    {
+      "primaryKeyword": "ETag If-Match concurrency testing",
+      "proposedSlug": "etag-if-match-concurrency-testing",
+      "reason": "Primary intent is already covered by the existing conditional update article.",
+      "closestOwner": "/blog/testing-etag-if-match-concurrency-control"
+    },
+    {
+      "primaryKeyword": "HTTP range download testing",
+      "proposedSlug": "http-range-download-testing",
+      "reason": "Range request and partial download intent is already owned.",
+      "closestOwner": "/blog/testing-http-range-requests-file-download"
+    },
+    {
+      "primaryKeyword": "Typesense multiselect filter escaping",
+      "proposedSlug": "typesense-multiselect-filter-escaping",
+      "reason": "Rejected as self-cannibalization. Escaping is retained under the broader special-character failure intent.",
+      "closestOwner": "candidate search-03"
+    },
+    {
+      "primaryKeyword": "Upstash Redis outage testing",
+      "proposedSlug": "upstash-redis-outage-testing",
+      "reason": "Rejected as too broad and self-cannibalizing. Read outage and write failure behaviors are separate survivors.",
+      "closestOwner": "candidates cache-03 and cache-04"
+    },
+    {
+      "primaryKeyword": "leaderboard ranking API testing",
+      "proposedSlug": "leaderboard-ranking-api-testing",
+      "reason": "Rejected as too broad. Formula, ties, cutoff, filters, recency, and serialization have distinct approved intents.",
+      "closestOwner": "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+    },
+    {
+      "primaryKeyword": "skill review API testing",
+      "proposedSlug": "skill-review-api-testing",
+      "reason": "Rejected as too broad and likely to cannibalize the seven approved review failure-mode topics.",
+      "closestOwner": "/skills"
+    },
+    {
+      "primaryKeyword": "skill artifact API testing",
+      "proposedSlug": "skill-artifact-api-testing",
+      "reason": "Rejected as too broad and colliding with the existing checksum article plus the approved artifact contracts.",
+      "closestOwner": "/blog/testing-versioned-zip-artifact-sha256-etag"
+    },
+    {
+      "primaryKeyword": "Drizzle Postgres database testing",
+      "proposedSlug": "drizzle-postgres-database-testing",
+      "reason": "Broad intent already belongs to the database testing guide and would cannibalize the approved query and schema topics.",
+      "closestOwner": "/blog/database-testing-automation-guide"
+    }
+  ]
+}

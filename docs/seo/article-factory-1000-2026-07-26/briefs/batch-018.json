@@ -1,0 +1,1165 @@
+{
+  "batch": 18,
+  "briefs": [
+    {
+      "sourceTopicId": "cli-sdk-030",
+      "batch": 18,
+      "batchPosition": 1,
+      "domain": "cli-sdk",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-list-missing-directory-handling",
+      "primaryKeyword": "QASkills list missing directory handling",
+      "title": "Qaskills List Missing Directory Handling",
+      "description": "QASkills list missing directory handling: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "troubleshooting",
+      "coreQuestion": "What does qaskills list report when a detected agent's skills directory does not exist or cannot be read?",
+      "intentBoundary": "Parent directory read failure in list, not the DetectedAgent.exists field or malformed child folders.",
+      "secondaryKeywords": [
+        "qaskills list directory not found",
+        "unreadable agent skills folder",
+        "missing skillsDir output",
+        "CLI readdir failure handling",
+        "empty agent installation directory",
+        "agent list filesystem error"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills list missing directory handling verify?",
+          "question": true,
+          "coverage": "Answer \"What does qaskills list report when a detected agent's skills directory does not exist or cannot be read?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts",
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "How do you build qaskills list directory not found?",
+          "question": true,
+          "secondaryKeyword": "qaskills list directory not found",
+          "coverage": "Create an isolated fixture for qaskills list directory not found. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "What breaks unreadable agent skills folder?",
+          "question": true,
+          "secondaryKeyword": "unreadable agent skills folder",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for unreadable agent skills folder. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "Missing skillsDir output fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "missing skillsDir output",
+          "coverage": "Turn missing skillsDir output into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts",
+            "packages/cli/src/commands/list.ts"
+          ]
+        },
+        {
+          "heading": "How should CLI readdir failure handling be asserted?",
+          "question": true,
+          "secondaryKeyword": "CLI readdir failure handling",
+          "coverage": "Build the oracle for CLI readdir failure handling from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts",
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "Empty agent installation directory in CI",
+          "question": false,
+          "secondaryKeyword": "empty agent installation directory",
+          "coverage": "Package empty agent installation directory as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills List Missing Directory Handling comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts",
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills list missing directory handling?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts",
+            "packages/cli/src/lib/agent-detector.ts",
+            "packages/cli/src/lib/agent-detector.ts",
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts",
+            "packages/cli/src/lib/agent-detector.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills List Missing Directory Handling scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/commands/list.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills list missing directory handling.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/commands/list.ts"
+          },
+          {
+            "scenario": "qaskills list directory not found",
+            "controlledSetup": "Change only the condition represented by \"qaskills list directory not found\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills list missing directory handling.",
+            "failureSignal": "The observed result differs from the approved qaskills list directory not found contract.",
+            "evidenceSource": "packages/cli/src/lib/agent-detector.ts"
+          },
+          {
+            "scenario": "unreadable agent skills folder",
+            "controlledSetup": "Change only the condition represented by \"unreadable agent skills folder\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills list missing directory handling.",
+            "failureSignal": "The observed result differs from the approved unreadable agent skills folder contract.",
+            "evidenceSource": "packages/cli/src/lib/agent-detector.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills list missing directory handling.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/cli/src/lib/agent-detector.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills list missing directory handling.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/cli/src/commands/list.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/commands/list.ts",
+          "packages/cli/src/lib/agent-detector.ts",
+          "packages/cli/src/lib/agent-detector.ts",
+          "packages/cli/src/lib/agent-detector.ts",
+          "https://nodejs.org/api/fs.html",
+          "https://nodejs.org/api/errors.html",
+          "https://vitest.dev/guide/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills list missing directory handling",
+        "steps": [
+          "Read packages/cli/src/commands/list.ts and packages/cli/src/lib/agent-detector.ts and packages/cli/src/lib/agent-detector.ts and packages/cli/src/lib/agent-detector.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills list missing directory handling with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for qaskills list directory not found, unreadable agent skills folder, missing skillsDir output, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills list missing directory handling baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/commands/list.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills list missing directory handling fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/agent-detector.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/commands/list.ts",
+        "packages/cli/src/lib/agent-detector.ts",
+        "packages/cli/src/lib/agent-detector.ts",
+        "packages/cli/src/lib/agent-detector.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/agents",
+        "/getting-started",
+        "/blog/how-to-install-skills-claude-code",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide",
+        "/blog/how-to-write-high-quality-qa-skills"
+      ],
+      "relatedSlugs": [
+        "how-to-install-skills-claude-code",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide",
+        "how-to-write-high-quality-qa-skills"
+      ],
+      "sources": [
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/errors.html",
+        "https://vitest.dev/guide/"
+      ],
+      "faqQuestions": [
+        "What does qaskills list report when a detected agent's skills directory does not exist or cannot be read?",
+        "What should a qaskills list directory not found fixture record?",
+        "Which failure proves unreadable agent skills folder is broken?",
+        "How do teams isolate missing skillsDir output?",
+        "Which assertion is strongest for CLI readdir failure handling?",
+        "How should CI report empty agent installation directory failures?"
+      ],
+      "cta": "Read /blog/how-to-install-skills-claude-code, then open /skills and add the QASkills list missing directory handling checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-mcp-059",
+      "batch": 18,
+      "batchPosition": 2,
+      "domain": "cli-sdk-mcp",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-extraction-staging-race-testing",
+      "primaryKeyword": "QASkills extraction staging race testing",
+      "title": "Qaskills Extraction Staging Race Testing",
+      "description": "QASkills extraction staging race testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams test QASkills extraction staging race testing, including parallel staging directories and wipe-copy ordering?",
+      "intentBoundary": "Covers parallel staging directories and wipe-copy ordering. Excludes fixed skill temp directory collisions.",
+      "secondaryKeywords": [
+        "how to test extraction staging race",
+        "extraction staging race test cases",
+        "extraction staging race edge cases",
+        "extraction staging race CI validation",
+        "extraction staging race failure diagnostics",
+        "extraction staging race regression coverage"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills extraction staging race testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams test QASkills extraction staging race testing, including parallel staging directories and wipe-copy ordering?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How do you build how to test extraction staging race?",
+          "question": true,
+          "secondaryKeyword": "how to test extraction staging race",
+          "coverage": "Create an isolated fixture for how to test extraction staging race. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "What breaks extraction staging race test cases?",
+          "question": true,
+          "secondaryKeyword": "extraction staging race test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for extraction staging race test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.test.ts"
+          ]
+        },
+        {
+          "heading": "Extraction staging race edge cases fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "extraction staging race edge cases",
+          "coverage": "Turn extraction staging race edge cases into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.test.ts",
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How should extraction staging race CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "extraction staging race CI validation",
+          "coverage": "Build the oracle for extraction staging race CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Extraction staging race failure diagnostics in CI",
+          "question": false,
+          "secondaryKeyword": "extraction staging race failure diagnostics",
+          "coverage": "Package extraction staging race failure diagnostics as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Extraction Staging Race Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills extraction staging race testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.test.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Extraction Staging Race Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/lib/installer.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills extraction staging race testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "how to test extraction staging race",
+            "controlledSetup": "Change only the condition represented by \"how to test extraction staging race\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills extraction staging race testing.",
+            "failureSignal": "The observed result differs from the approved how to test extraction staging race contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "extraction staging race test cases",
+            "controlledSetup": "Change only the condition represented by \"extraction staging race test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills extraction staging race testing.",
+            "failureSignal": "The observed result differs from the approved extraction staging race test cases contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills extraction staging race testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.test.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills extraction staging race testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.test.ts",
+          "https://agentskills.io/specification",
+          "https://nodejs.org/api/fs.html",
+          "https://nodejs.org/api/child_process.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills extraction staging race testing",
+        "steps": [
+          "Read packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.test.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills extraction staging race testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for how to test extraction staging race, extraction staging race test cases, extraction staging race edge cases, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills extraction staging race testing baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/installer.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills extraction staging race testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/installer.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.test.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "/blog/qaskills-cli-extract-skill-package-github",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-download-fallback-github-content-metadata",
+        "qaskills-cli-extract-skill-package-github",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide"
+      ],
+      "sources": [
+        "https://agentskills.io/specification",
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/child_process.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams test QASkills extraction staging race testing, including parallel staging directories and wipe-copy ordering?",
+        "What should a how to test extraction staging race fixture record?",
+        "Which failure proves extraction staging race test cases is broken?",
+        "How do teams isolate extraction staging race edge cases?",
+        "Which assertion is strongest for extraction staging race CI validation?",
+        "How should CI report extraction staging race failure diagnostics failures?"
+      ],
+      "cta": "Read /blog/qaskills-cli-download-fallback-github-content-metadata, then open /skills and add the QASkills extraction staging race testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-mcp-058",
+      "batch": 18,
+      "batchPosition": 3,
+      "domain": "cli-sdk-mcp",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-extraction-symlink-escape-testing",
+      "primaryKeyword": "QASkills extraction symlink escape testing",
+      "title": "Qaskills Extraction Symlink Escape Testing",
+      "description": "QASkills extraction symlink escape testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should QA teams diagnose QASkills extraction symlink escape testing, including links from companion folders to content outside skillRoot?",
+      "intentBoundary": "Covers links from companion folders to content outside skillRoot. Excludes final destination traversal by skill name.",
+      "secondaryKeywords": [
+        "how to test extraction symlink escape",
+        "extraction symlink escape test cases",
+        "extraction symlink escape edge cases",
+        "extraction symlink escape CI validation",
+        "extraction symlink escape failure diagnostics",
+        "extraction symlink escape regression coverage"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills extraction symlink escape testing verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams diagnose QASkills extraction symlink escape testing, including links from companion folders to content outside skillRoot?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How do you build how to test extraction symlink escape?",
+          "question": true,
+          "secondaryKeyword": "how to test extraction symlink escape",
+          "coverage": "Create an isolated fixture for how to test extraction symlink escape. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "What breaks extraction symlink escape test cases?",
+          "question": true,
+          "secondaryKeyword": "extraction symlink escape test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for extraction symlink escape test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.test.ts"
+          ]
+        },
+        {
+          "heading": "Extraction symlink escape edge cases fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "extraction symlink escape edge cases",
+          "coverage": "Turn extraction symlink escape edge cases into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.test.ts",
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How should extraction symlink escape CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "extraction symlink escape CI validation",
+          "coverage": "Build the oracle for extraction symlink escape CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Extraction symlink escape failure diagnostics in CI",
+          "question": false,
+          "secondaryKeyword": "extraction symlink escape failure diagnostics",
+          "coverage": "Package extraction symlink escape failure diagnostics as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Extraction Symlink Escape Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills extraction symlink escape testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.test.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Extraction Symlink Escape Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/lib/installer.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills extraction symlink escape testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "how to test extraction symlink escape",
+            "controlledSetup": "Change only the condition represented by \"how to test extraction symlink escape\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills extraction symlink escape testing.",
+            "failureSignal": "The observed result differs from the approved how to test extraction symlink escape contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "extraction symlink escape test cases",
+            "controlledSetup": "Change only the condition represented by \"extraction symlink escape test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills extraction symlink escape testing.",
+            "failureSignal": "The observed result differs from the approved extraction symlink escape test cases contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills extraction symlink escape testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.test.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills extraction symlink escape testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.test.ts",
+          "https://agentskills.io/specification",
+          "https://nodejs.org/api/fs.html",
+          "https://nodejs.org/api/child_process.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills extraction symlink escape testing",
+        "steps": [
+          "Read packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.test.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills extraction symlink escape testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for how to test extraction symlink escape, extraction symlink escape test cases, extraction symlink escape edge cases, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills extraction symlink escape testing baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/installer.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills extraction symlink escape testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/installer.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.test.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "/blog/qaskills-cli-extract-skill-package-github",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-download-fallback-github-content-metadata",
+        "qaskills-cli-extract-skill-package-github",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide"
+      ],
+      "sources": [
+        "https://agentskills.io/specification",
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/child_process.html"
+      ],
+      "faqQuestions": [
+        "How should QA teams diagnose QASkills extraction symlink escape testing, including links from companion folders to content outside skillRoot?",
+        "What should a how to test extraction symlink escape fixture record?",
+        "Which failure proves extraction symlink escape test cases is broken?",
+        "How do teams isolate extraction symlink escape edge cases?",
+        "Which assertion is strongest for extraction symlink escape CI validation?",
+        "How should CI report extraction symlink escape failure diagnostics failures?"
+      ],
+      "cta": "Read /blog/qaskills-cli-download-fallback-github-content-metadata, then open /skills and add the QASkills extraction symlink escape testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "mcp-agents-8",
+      "batch": 18,
+      "batchPosition": 4,
+      "domain": "mcp-agents",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "mcp-pre-initialization-request-rejection",
+      "primaryKeyword": "MCP pre-initialization request rejection",
+      "title": "MCP Pre-initialization Request Rejection",
+      "description": "MCP pre-initialization request rejection: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "troubleshooting",
+      "coreQuestion": "What should happen when a client sends tools/list or tools/call before MCP initialization finishes, and how can that behavior be tested?",
+      "intentBoundary": "The Inspector tutorial exercises valid calls after startup. This candidate deliberately violates lifecycle order and asserts protocol errors.",
+      "secondaryKeywords": [
+        "tools list before initialize",
+        "tools call before initialized",
+        "MCP invalid lifecycle state",
+        "pre-handshake request error",
+        "MCP client ordering bug"
+      ],
+      "outline": [
+        {
+          "heading": "What does MCP pre-initialization request rejection verify?",
+          "question": true,
+          "coverage": "Answer \"What should happen when a client sends tools/list or tools/call before MCP initialization finishes, and how can that behavior be tested?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "docs/product/MCP-SERVER-PLAN-2026-07.md"
+          ]
+        },
+        {
+          "heading": "How do you build tools list before initialize?",
+          "question": true,
+          "secondaryKeyword": "tools list before initialize",
+          "coverage": "Create an isolated fixture for tools list before initialize. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "docs/product/MCP-SERVER-PLAN-2026-07.md",
+            "packages/mcp/src/index.ts"
+          ]
+        },
+        {
+          "heading": "What breaks tools call before initialized?",
+          "question": true,
+          "secondaryKeyword": "tools call before initialized",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for tools call before initialized. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "docs/product/MCP-SERVER-PLAN-2026-07.md"
+          ]
+        },
+        {
+          "heading": "MCP invalid lifecycle state fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "MCP invalid lifecycle state",
+          "coverage": "Turn MCP invalid lifecycle state into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "docs/product/MCP-SERVER-PLAN-2026-07.md",
+            "packages/mcp/src/index.ts"
+          ]
+        },
+        {
+          "heading": "How should pre-handshake request error be asserted?",
+          "question": true,
+          "secondaryKeyword": "pre-handshake request error",
+          "coverage": "Build the oracle for pre-handshake request error from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "docs/product/MCP-SERVER-PLAN-2026-07.md"
+          ]
+        },
+        {
+          "heading": "MCP client ordering bug in CI",
+          "question": false,
+          "secondaryKeyword": "MCP client ordering bug",
+          "coverage": "Package MCP client ordering bug as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "docs/product/MCP-SERVER-PLAN-2026-07.md",
+            "packages/mcp/src/index.ts"
+          ]
+        },
+        {
+          "heading": "MCP Pre-initialization Request Rejection comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "docs/product/MCP-SERVER-PLAN-2026-07.md"
+          ]
+        },
+        {
+          "heading": "How do you implement MCP pre-initialization request rejection?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "docs/product/MCP-SERVER-PLAN-2026-07.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "docs/product/MCP-SERVER-PLAN-2026-07.md",
+            "packages/mcp/src/index.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "docs/product/MCP-SERVER-PLAN-2026-07.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "MCP Pre-initialization Request Rejection scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/mcp/src/index.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by MCP pre-initialization request rejection.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/mcp/src/index.ts"
+          },
+          {
+            "scenario": "tools list before initialize",
+            "controlledSetup": "Change only the condition represented by \"tools list before initialize\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by MCP pre-initialization request rejection.",
+            "failureSignal": "The observed result differs from the approved tools list before initialize contract.",
+            "evidenceSource": "docs/product/MCP-SERVER-PLAN-2026-07.md"
+          },
+          {
+            "scenario": "tools call before initialized",
+            "controlledSetup": "Change only the condition represented by \"tools call before initialized\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by MCP pre-initialization request rejection.",
+            "failureSignal": "The observed result differs from the approved tools call before initialized contract.",
+            "evidenceSource": "packages/mcp/src/index.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by MCP pre-initialization request rejection.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "docs/product/MCP-SERVER-PLAN-2026-07.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by MCP pre-initialization request rejection.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/mcp/src/index.ts"
+          }
+        ],
+        "sources": [
+          "packages/mcp/src/index.ts",
+          "docs/product/MCP-SERVER-PLAN-2026-07.md",
+          "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+          "https://www.jsonrpc.org/specification"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run MCP pre-initialization request rejection",
+        "steps": [
+          "Read packages/mcp/src/index.ts and docs/product/MCP-SERVER-PLAN-2026-07.md and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for MCP pre-initialization request rejection with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for tools list before initialize, tools call before initialized, MCP invalid lifecycle state, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the MCP pre-initialization request rejection baseline",
+          "language": "typescript",
+          "path": "packages/mcp/src/index.ts",
+          "focus": "Adapt the repository workflow into an isolated MCP pre-initialization request rejection fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "docs/product/MCP-SERVER-PLAN-2026-07.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/mcp/src/index.ts",
+        "docs/product/MCP-SERVER-PLAN-2026-07.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/mcp",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/test-an-mcp-server-guide-2026",
+        "/blog/mcp-for-qa-engineers-guide"
+      ],
+      "relatedSlugs": [
+        "mcp-inspector-tutorial-2026",
+        "mcp-server-contract-testing-guide",
+        "test-an-mcp-server-guide-2026",
+        "mcp-for-qa-engineers-guide"
+      ],
+      "sources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+        "https://www.jsonrpc.org/specification"
+      ],
+      "faqQuestions": [
+        "What should happen when a client sends tools/list or tools/call before MCP initialization finishes, and how can that behavior be tested?",
+        "What should a tools list before initialize fixture record?",
+        "Which failure proves tools call before initialized is broken?",
+        "How do teams isolate MCP invalid lifecycle state?",
+        "Which assertion is strongest for pre-handshake request error?",
+        "How should CI report MCP client ordering bug failures?"
+      ],
+      "cta": "Read /blog/mcp-inspector-tutorial-2026, then open /skills and add the MCP pre-initialization request rejection checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-mcp-168",
+      "batch": 18,
+      "batchPosition": 5,
+      "domain": "cli-sdk-mcp",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-frozen-lockfile-release-parity",
+      "primaryKeyword": "QASkills frozen lockfile release parity",
+      "title": "Qaskills Frozen Lockfile Release Parity",
+      "description": "QASkills frozen lockfile release parity: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should QA teams diagnose QASkills frozen lockfile release parity, including CI frozen installs versus release no-frozen installs?",
+      "intentBoundary": "Covers CI frozen installs versus release no-frozen installs. Excludes runtime dependency versions.",
+      "secondaryKeywords": [
+        "how to test frozen lockfile release parity",
+        "frozen lockfile release parity test cases",
+        "frozen lockfile release parity edge cases",
+        "frozen lockfile release parity CI validation",
+        "frozen lockfile release parity failure diagnostics",
+        "frozen lockfile release parity regression coverage"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills frozen lockfile release parity verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams diagnose QASkills frozen lockfile release parity, including CI frozen installs versus release no-frozen installs?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/package.json",
+            "packages/cli/tsup.config.ts"
+          ]
+        },
+        {
+          "heading": "How do you build how to test frozen lockfile release parity?",
+          "question": true,
+          "secondaryKeyword": "how to test frozen lockfile release parity",
+          "coverage": "Create an isolated fixture for how to test frozen lockfile release parity. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/tsup.config.ts",
+            ".github/workflows/cli-publish.yml"
+          ]
+        },
+        {
+          "heading": "What breaks frozen lockfile release parity test cases?",
+          "question": true,
+          "secondaryKeyword": "frozen lockfile release parity test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for frozen lockfile release parity test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            ".github/workflows/cli-publish.yml",
+            "packages/cli/e2e/e2e.mjs"
+          ]
+        },
+        {
+          "heading": "Frozen lockfile release parity edge cases fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "frozen lockfile release parity edge cases",
+          "coverage": "Turn frozen lockfile release parity edge cases into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/cli/e2e/e2e.mjs",
+            "packages/cli/package.json"
+          ]
+        },
+        {
+          "heading": "How should frozen lockfile release parity CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "frozen lockfile release parity CI validation",
+          "coverage": "Build the oracle for frozen lockfile release parity CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/cli/package.json",
+            "packages/cli/tsup.config.ts"
+          ]
+        },
+        {
+          "heading": "Frozen lockfile release parity failure diagnostics in CI",
+          "question": false,
+          "secondaryKeyword": "frozen lockfile release parity failure diagnostics",
+          "coverage": "Package frozen lockfile release parity failure diagnostics as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/tsup.config.ts",
+            ".github/workflows/cli-publish.yml"
+          ]
+        },
+        {
+          "heading": "Qaskills Frozen Lockfile Release Parity comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/package.json",
+            "packages/cli/tsup.config.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills frozen lockfile release parity?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/package.json",
+            "packages/cli/tsup.config.ts",
+            ".github/workflows/cli-publish.yml",
+            "packages/cli/e2e/e2e.mjs"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/tsup.config.ts",
+            ".github/workflows/cli-publish.yml"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/package.json",
+            "packages/cli/tsup.config.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Frozen Lockfile Release Parity scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/package.json.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills frozen lockfile release parity.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/package.json"
+          },
+          {
+            "scenario": "how to test frozen lockfile release parity",
+            "controlledSetup": "Change only the condition represented by \"how to test frozen lockfile release parity\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills frozen lockfile release parity.",
+            "failureSignal": "The observed result differs from the approved how to test frozen lockfile release parity contract.",
+            "evidenceSource": "packages/cli/tsup.config.ts"
+          },
+          {
+            "scenario": "frozen lockfile release parity test cases",
+            "controlledSetup": "Change only the condition represented by \"frozen lockfile release parity test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills frozen lockfile release parity.",
+            "failureSignal": "The observed result differs from the approved frozen lockfile release parity test cases contract.",
+            "evidenceSource": ".github/workflows/cli-publish.yml"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills frozen lockfile release parity.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/cli/e2e/e2e.mjs"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills frozen lockfile release parity.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/cli/package.json"
+          }
+        ],
+        "sources": [
+          "packages/cli/package.json",
+          "packages/cli/tsup.config.ts",
+          ".github/workflows/cli-publish.yml",
+          "packages/cli/e2e/e2e.mjs",
+          "https://docs.npmjs.com/files/package.json/",
+          "https://docs.github.com/en/actions/tutorials/publish-packages/publish-nodejs-packages",
+          "https://pnpm.io/continuous-integration"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills frozen lockfile release parity",
+        "steps": [
+          "Read packages/cli/package.json and packages/cli/tsup.config.ts and .github/workflows/cli-publish.yml and packages/cli/e2e/e2e.mjs and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills frozen lockfile release parity with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for how to test frozen lockfile release parity, frozen lockfile release parity test cases, frozen lockfile release parity edge cases, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills frozen lockfile release parity baseline",
+          "language": "typescript",
+          "path": "packages/cli/package.json",
+          "focus": "Adapt the repository workflow into an isolated QASkills frozen lockfile release parity fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/tsup.config.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/package.json",
+        "packages/cli/tsup.config.ts",
+        ".github/workflows/cli-publish.yml",
+        "packages/cli/e2e/e2e.mjs"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/how-to-publish",
+        "/blog/qaskills-cli-npm-binary-testing",
+        "/blog/mcp-package-registry-version-drift-tests",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-npm-binary-testing",
+        "mcp-package-registry-version-drift-tests",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide"
+      ],
+      "sources": [
+        "https://docs.npmjs.com/files/package.json/",
+        "https://docs.github.com/en/actions/tutorials/publish-packages/publish-nodejs-packages",
+        "https://pnpm.io/continuous-integration"
+      ],
+      "faqQuestions": [
+        "How should QA teams diagnose QASkills frozen lockfile release parity, including CI frozen installs versus release no-frozen installs?",
+        "What should a how to test frozen lockfile release parity fixture record?",
+        "Which failure proves frozen lockfile release parity test cases is broken?",
+        "How do teams isolate frozen lockfile release parity edge cases?",
+        "Which assertion is strongest for frozen lockfile release parity CI validation?",
+        "How should CI report frozen lockfile release parity failure diagnostics failures?"
+      ],
+      "cta": "Read /blog/qaskills-cli-npm-binary-testing, then open /skills and add the QASkills frozen lockfile release parity checks to the next QA run."
+    }
+  ]
+}

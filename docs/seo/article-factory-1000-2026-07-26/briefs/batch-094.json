@@ -1,0 +1,1170 @@
+{
+  "batch": 94,
+  "briefs": [
+    {
+      "sourceTopicId": "ai-llm-rag-045",
+      "batch": 94,
+      "batchPosition": 1,
+      "domain": "ai-llm-rag",
+      "campaignCluster": "ai-llm-rag",
+      "slug": "ragas-evaluation-callback-isolation",
+      "primaryKeyword": "Ragas evaluation callback isolation",
+      "title": "Ragas Evaluation Callback Isolation",
+      "description": "Ragas evaluation callback isolation: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How should QA teams test ragas evaluation callback isolation so callbacks receive the correct sample and metric context under parallel evaluation without shared mutation?",
+      "intentBoundary": "Evaluation callback context only, not observability trace propagation.",
+      "secondaryKeywords": [
+        "Ragas evaluation callback isolation test cases",
+        "how to test ragas evaluation callback isolation",
+        "Ragas evaluation callback isolation regression checks",
+        "Ragas evaluation callback isolation CI validation",
+        "Ragas evaluation callback isolation failure diagnosis",
+        "Ragas evaluation callback isolation QA checklist"
+      ],
+      "outline": [
+        {
+          "heading": "What does Ragas evaluation callback isolation verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams test ragas evaluation callback isolation so callbacks receive the correct sample and metric context under parallel evaluation without shared mutation?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/ragas-rag-evaluation/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build Ragas evaluation callback isolation test cases?",
+          "question": true,
+          "secondaryKeyword": "Ragas evaluation callback isolation test cases",
+          "coverage": "Create an isolated fixture for Ragas evaluation callback isolation test cases. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks how to test ragas evaluation callback isolation?",
+          "question": true,
+          "secondaryKeyword": "how to test ragas evaluation callback isolation",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for how to test ragas evaluation callback isolation. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts",
+            "seed-skills/ragas-rag-evaluation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Ragas evaluation callback isolation regression checks fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "Ragas evaluation callback isolation regression checks",
+          "coverage": "Turn Ragas evaluation callback isolation regression checks into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/ragas-rag-evaluation/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Ragas evaluation callback isolation CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "Ragas evaluation callback isolation CI validation",
+          "coverage": "Build the oracle for Ragas evaluation callback isolation CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Ragas evaluation callback isolation failure diagnosis in CI",
+          "question": false,
+          "secondaryKeyword": "Ragas evaluation callback isolation failure diagnosis",
+          "coverage": "Package Ragas evaluation callback isolation failure diagnosis as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts",
+            "seed-skills/ragas-rag-evaluation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Ragas Evaluation Callback Isolation comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/ragas-rag-evaluation/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Ragas evaluation callback isolation?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/ragas-rag-evaluation/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/ragas-rag-evaluation/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Ragas Evaluation Callback Isolation scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/ragas-rag-evaluation/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Ragas evaluation callback isolation.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/ragas-rag-evaluation/SKILL.md"
+          },
+          {
+            "scenario": "Ragas evaluation callback isolation test cases",
+            "controlledSetup": "Change only the condition represented by \"Ragas evaluation callback isolation test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Ragas evaluation callback isolation.",
+            "failureSignal": "The observed result differs from the approved Ragas evaluation callback isolation test cases contract.",
+            "evidenceSource": "seed-skills/rag-evaluation-metrics/SKILL.md"
+          },
+          {
+            "scenario": "how to test ragas evaluation callback isolation",
+            "controlledSetup": "Change only the condition represented by \"how to test ragas evaluation callback isolation\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Ragas evaluation callback isolation.",
+            "failureSignal": "The observed result differs from the approved how to test ragas evaluation callback isolation contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Ragas evaluation callback isolation.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/ragas-rag-evaluation/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Ragas evaluation callback isolation.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/rag-evaluation-metrics/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/ragas-rag-evaluation/SKILL.md",
+          "seed-skills/rag-evaluation-metrics/SKILL.md",
+          "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts",
+          "https://docs.ragas.io/en/stable/getstarted/evals/",
+          "https://docs.ragas.io/en/latest/references/evaluate/",
+          "https://docs.ragas.io/en/stable/concepts/test_data_generation/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Ragas evaluation callback isolation",
+        "steps": [
+          "Read seed-skills/ragas-rag-evaluation/SKILL.md and seed-skills/rag-evaluation-metrics/SKILL.md and packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Ragas evaluation callback isolation with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for Ragas evaluation callback isolation test cases, how to test ragas evaluation callback isolation, Ragas evaluation callback isolation regression checks, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Ragas evaluation callback isolation baseline",
+          "language": "typescript",
+          "path": "seed-skills/ragas-rag-evaluation/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Ragas evaluation callback isolation fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/rag-evaluation-metrics/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/ragas-rag-evaluation/SKILL.md",
+        "seed-skills/rag-evaluation-metrics/SKILL.md",
+        "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/ragas-rag-evaluation-guide",
+        "/blog/ragas-context-precision-recall-faithfulness-guide",
+        "/blog/rag-testing-complete-guide-2026",
+        "/blog/testing-llm-applications-guide"
+      ],
+      "relatedSlugs": [
+        "ragas-rag-evaluation-guide",
+        "ragas-context-precision-recall-faithfulness-guide",
+        "rag-testing-complete-guide-2026",
+        "testing-llm-applications-guide"
+      ],
+      "sources": [
+        "https://docs.ragas.io/en/stable/getstarted/evals/",
+        "https://docs.ragas.io/en/latest/references/evaluate/",
+        "https://docs.ragas.io/en/stable/concepts/test_data_generation/"
+      ],
+      "faqQuestions": [
+        "How should QA teams test ragas evaluation callback isolation so callbacks receive the correct sample and metric context under parallel evaluation without shared mutation?",
+        "What should a Ragas evaluation callback isolation test cases fixture record?",
+        "Which failure proves how to test ragas evaluation callback isolation is broken?",
+        "How do teams isolate Ragas evaluation callback isolation regression checks?",
+        "Which assertion is strongest for Ragas evaluation callback isolation CI validation?",
+        "How should CI report Ragas evaluation callback isolation failure diagnosis failures?"
+      ],
+      "cta": "Read /blog/ragas-rag-evaluation-guide, then open /skills and add the Ragas evaluation callback isolation checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "ai-llm-rag-042",
+      "batch": 94,
+      "batchPosition": 2,
+      "domain": "ai-llm-rag",
+      "campaignCluster": "ai-llm-rag",
+      "slug": "ragas-token-usage-parser-testing",
+      "primaryKeyword": "Ragas token usage parser testing",
+      "title": "Ragas Token Usage Parser Testing",
+      "description": "Ragas token usage parser testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How should QA teams test ragas token usage parser so provider-specific usage records normalize into complete, nonnegative, attributable token totals?",
+      "intentBoundary": "Ragas token-usage parsing only, not LLM trace reconciliation or cost budgets.",
+      "secondaryKeywords": [
+        "Ragas token usage parser test cases",
+        "how to test ragas token usage parser",
+        "Ragas token usage parser regression checks",
+        "Ragas token usage parser CI validation",
+        "Ragas token usage parser failure diagnosis",
+        "Ragas token usage parser QA checklist"
+      ],
+      "outline": [
+        {
+          "heading": "What does Ragas token usage parser testing verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams test ragas token usage parser so provider-specific usage records normalize into complete, nonnegative, attributable token totals?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/ragas-rag-evaluation/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build Ragas token usage parser test cases?",
+          "question": true,
+          "secondaryKeyword": "Ragas token usage parser test cases",
+          "coverage": "Create an isolated fixture for Ragas token usage parser test cases. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks how to test ragas token usage parser?",
+          "question": true,
+          "secondaryKeyword": "how to test ragas token usage parser",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for how to test ragas token usage parser. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts",
+            "seed-skills/ragas-rag-evaluation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Ragas token usage parser regression checks fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "Ragas token usage parser regression checks",
+          "coverage": "Turn Ragas token usage parser regression checks into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/ragas-rag-evaluation/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Ragas token usage parser CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "Ragas token usage parser CI validation",
+          "coverage": "Build the oracle for Ragas token usage parser CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Ragas token usage parser failure diagnosis in CI",
+          "question": false,
+          "secondaryKeyword": "Ragas token usage parser failure diagnosis",
+          "coverage": "Package Ragas token usage parser failure diagnosis as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts",
+            "seed-skills/ragas-rag-evaluation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Ragas Token Usage Parser Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/ragas-rag-evaluation/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Ragas token usage parser testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/ragas-rag-evaluation/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/rag-evaluation-metrics/SKILL.md",
+            "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/ragas-rag-evaluation/SKILL.md",
+            "seed-skills/rag-evaluation-metrics/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Ragas Token Usage Parser Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/ragas-rag-evaluation/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Ragas token usage parser testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/ragas-rag-evaluation/SKILL.md"
+          },
+          {
+            "scenario": "Ragas token usage parser test cases",
+            "controlledSetup": "Change only the condition represented by \"Ragas token usage parser test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Ragas token usage parser testing.",
+            "failureSignal": "The observed result differs from the approved Ragas token usage parser test cases contract.",
+            "evidenceSource": "seed-skills/rag-evaluation-metrics/SKILL.md"
+          },
+          {
+            "scenario": "how to test ragas token usage parser",
+            "controlledSetup": "Change only the condition represented by \"how to test ragas token usage parser\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Ragas token usage parser testing.",
+            "failureSignal": "The observed result differs from the approved how to test ragas token usage parser contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Ragas token usage parser testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/ragas-rag-evaluation/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Ragas token usage parser testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/rag-evaluation-metrics/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/ragas-rag-evaluation/SKILL.md",
+          "seed-skills/rag-evaluation-metrics/SKILL.md",
+          "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts",
+          "https://docs.ragas.io/en/stable/getstarted/evals/",
+          "https://docs.ragas.io/en/latest/references/evaluate/",
+          "https://docs.ragas.io/en/stable/concepts/test_data_generation/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Ragas token usage parser testing",
+        "steps": [
+          "Read seed-skills/ragas-rag-evaluation/SKILL.md and seed-skills/rag-evaluation-metrics/SKILL.md and packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Ragas token usage parser testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for Ragas token usage parser test cases, how to test ragas token usage parser, Ragas token usage parser regression checks, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Ragas token usage parser testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/ragas-rag-evaluation/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Ragas token usage parser testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/rag-evaluation-metrics/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/ragas-rag-evaluation/SKILL.md",
+        "seed-skills/rag-evaluation-metrics/SKILL.md",
+        "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/ragas-rag-evaluation-guide",
+        "/blog/ragas-context-precision-recall-faithfulness-guide",
+        "/blog/rag-testing-complete-guide-2026",
+        "/blog/testing-llm-applications-guide"
+      ],
+      "relatedSlugs": [
+        "ragas-rag-evaluation-guide",
+        "ragas-context-precision-recall-faithfulness-guide",
+        "rag-testing-complete-guide-2026",
+        "testing-llm-applications-guide"
+      ],
+      "sources": [
+        "https://docs.ragas.io/en/stable/getstarted/evals/",
+        "https://docs.ragas.io/en/latest/references/evaluate/",
+        "https://docs.ragas.io/en/stable/concepts/test_data_generation/"
+      ],
+      "faqQuestions": [
+        "How should QA teams test ragas token usage parser so provider-specific usage records normalize into complete, nonnegative, attributable token totals?",
+        "What should a Ragas token usage parser test cases fixture record?",
+        "Which failure proves how to test ragas token usage parser is broken?",
+        "How do teams isolate Ragas token usage parser regression checks?",
+        "Which assertion is strongest for Ragas token usage parser CI validation?",
+        "How should CI report Ragas token usage parser failure diagnosis failures?"
+      ],
+      "cta": "Read /blog/ragas-rag-evaluation-guide, then open /skills and add the Ragas token usage parser testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "ai-llm-rag-114",
+      "batch": 94,
+      "batchPosition": 3,
+      "domain": "ai-llm-rag",
+      "campaignCluster": "ai-llm-rag",
+      "slug": "red-team-attack-deduplication-testing",
+      "primaryKeyword": "red team attack deduplication testing",
+      "title": "Red Team Attack Deduplication Testing",
+      "description": "red team attack deduplication testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How should QA teams test red team attack deduplication so semantic duplicates are grouped without erasing distinct strategies, contexts, or expected controls?",
+      "intentBoundary": "Red-team corpus deduplication only, not general eval dataset duplicates.",
+      "secondaryKeywords": [
+        "red team attack deduplication test cases",
+        "how to test red team attack deduplication",
+        "red team attack deduplication regression checks",
+        "red team attack deduplication CI validation",
+        "red team attack deduplication failure diagnosis",
+        "red team attack deduplication QA checklist"
+      ],
+      "outline": [
+        {
+          "heading": "What does red team attack deduplication testing verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams test red team attack deduplication so semantic duplicates are grouped without erasing distinct strategies, contexts, or expected controls?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build red team attack deduplication test cases?",
+          "question": true,
+          "secondaryKeyword": "red team attack deduplication test cases",
+          "coverage": "Create an isolated fixture for red team attack deduplication test cases. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "packages/web/src/app/blog/posts/llm-guardrails-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks how to test red team attack deduplication?",
+          "question": true,
+          "secondaryKeyword": "how to test red team attack deduplication",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for how to test red team attack deduplication. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/llm-guardrails-testing-guide-2026.ts",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Red team attack deduplication regression checks fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "red team attack deduplication regression checks",
+          "coverage": "Turn red team attack deduplication regression checks into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should red team attack deduplication CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "red team attack deduplication CI validation",
+          "coverage": "Build the oracle for red team attack deduplication CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "packages/web/src/app/blog/posts/llm-guardrails-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Red team attack deduplication failure diagnosis in CI",
+          "question": false,
+          "secondaryKeyword": "red team attack deduplication failure diagnosis",
+          "coverage": "Package red team attack deduplication failure diagnosis as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/llm-guardrails-testing-guide-2026.ts",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Red Team Attack Deduplication Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement red team attack deduplication testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "packages/web/src/app/blog/posts/llm-guardrails-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "packages/web/src/app/blog/posts/llm-guardrails-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Red Team Attack Deduplication Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/promptfoo-llm-red-teaming/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by red team attack deduplication testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          },
+          {
+            "scenario": "red team attack deduplication test cases",
+            "controlledSetup": "Change only the condition represented by \"red team attack deduplication test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by red team attack deduplication testing.",
+            "failureSignal": "The observed result differs from the approved red team attack deduplication test cases contract.",
+            "evidenceSource": "seed-skills/ai-system-quality-engineer/SKILL.md"
+          },
+          {
+            "scenario": "how to test red team attack deduplication",
+            "controlledSetup": "Change only the condition represented by \"how to test red team attack deduplication\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by red team attack deduplication testing.",
+            "failureSignal": "The observed result differs from the approved how to test red team attack deduplication contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/llm-guardrails-testing-guide-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by red team attack deduplication testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by red team attack deduplication testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/ai-system-quality-engineer/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "packages/web/src/app/blog/posts/llm-guardrails-testing-guide-2026.ts",
+          "https://www.promptfoo.dev/docs/red-team/configuration/",
+          "https://www.promptfoo.dev/docs/red-team/troubleshooting/best-practices/",
+          "https://www.nist.gov/itl/ai-risk-management-framework"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run red team attack deduplication testing",
+        "steps": [
+          "Read seed-skills/promptfoo-llm-red-teaming/SKILL.md and seed-skills/ai-system-quality-engineer/SKILL.md and packages/web/src/app/blog/posts/llm-guardrails-testing-guide-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for red team attack deduplication testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for red team attack deduplication test cases, how to test red team attack deduplication, red team attack deduplication regression checks, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the red team attack deduplication testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated red team attack deduplication testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+        "seed-skills/ai-system-quality-engineer/SKILL.md",
+        "packages/web/src/app/blog/posts/llm-guardrails-testing-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/llm-guardrails-testing-guide-2026",
+        "/blog/domain-specific-ai-red-team-playbook-guide",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/testing-llm-applications-guide"
+      ],
+      "relatedSlugs": [
+        "llm-guardrails-testing-guide-2026",
+        "domain-specific-ai-red-team-playbook-guide",
+        "promptfoo-complete-guide-2026",
+        "testing-llm-applications-guide"
+      ],
+      "sources": [
+        "https://www.promptfoo.dev/docs/red-team/configuration/",
+        "https://www.promptfoo.dev/docs/red-team/troubleshooting/best-practices/",
+        "https://www.nist.gov/itl/ai-risk-management-framework"
+      ],
+      "faqQuestions": [
+        "How should QA teams test red team attack deduplication so semantic duplicates are grouped without erasing distinct strategies, contexts, or expected controls?",
+        "What should a red team attack deduplication test cases fixture record?",
+        "Which failure proves how to test red team attack deduplication is broken?",
+        "How do teams isolate red team attack deduplication regression checks?",
+        "Which assertion is strongest for red team attack deduplication CI validation?",
+        "How should CI report red team attack deduplication failure diagnosis failures?"
+      ],
+      "cta": "Read /blog/llm-guardrails-testing-guide-2026, then open /skills and add the red team attack deduplication testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "ai-llm-rag-162",
+      "batch": 94,
+      "batchPosition": 4,
+      "domain": "ai-llm-rag",
+      "campaignCluster": "ai-llm-rag",
+      "slug": "vision-llm-crop-sensitivity-testing",
+      "primaryKeyword": "vision LLM crop sensitivity testing",
+      "title": "Vision LLM Crop Sensitivity Testing",
+      "description": "vision LLM crop sensitivity testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How should QA teams test vision llm crop sensitivity so removing irrelevant borders preserves answers while cropping decisive evidence triggers uncertainty?",
+      "intentBoundary": "Controlled crop metamorphism only, not image-resolution degradation.",
+      "secondaryKeywords": [
+        "vision LLM crop sensitivity test cases",
+        "how to test vision llm crop sensitivity",
+        "vision LLM crop sensitivity regression checks",
+        "vision LLM crop sensitivity CI validation",
+        "vision LLM crop sensitivity failure diagnosis",
+        "vision LLM crop sensitivity QA checklist"
+      ],
+      "outline": [
+        {
+          "heading": "What does vision LLM crop sensitivity testing verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams test vision llm crop sensitivity so removing irrelevant borders preserves answers while cropping decisive evidence triggers uncertainty?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/ai-model-testing/SKILL.md",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build vision LLM crop sensitivity test cases?",
+          "question": true,
+          "secondaryKeyword": "vision LLM crop sensitivity test cases",
+          "coverage": "Create an isolated fixture for vision LLM crop sensitivity test cases. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts"
+          ]
+        },
+        {
+          "heading": "What breaks how to test vision llm crop sensitivity?",
+          "question": true,
+          "secondaryKeyword": "how to test vision llm crop sensitivity",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for how to test vision llm crop sensitivity. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts",
+            "seed-skills/ai-model-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Vision LLM crop sensitivity regression checks fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "vision LLM crop sensitivity regression checks",
+          "coverage": "Turn vision LLM crop sensitivity regression checks into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/ai-model-testing/SKILL.md",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should vision LLM crop sensitivity CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "vision LLM crop sensitivity CI validation",
+          "coverage": "Build the oracle for vision LLM crop sensitivity CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts"
+          ]
+        },
+        {
+          "heading": "Vision LLM crop sensitivity failure diagnosis in CI",
+          "question": false,
+          "secondaryKeyword": "vision LLM crop sensitivity failure diagnosis",
+          "coverage": "Package vision LLM crop sensitivity failure diagnosis as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts",
+            "seed-skills/ai-model-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Vision LLM Crop Sensitivity Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/ai-model-testing/SKILL.md",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement vision LLM crop sensitivity testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/ai-model-testing/SKILL.md",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/ai-model-testing/SKILL.md",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Vision LLM Crop Sensitivity Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/ai-model-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by vision LLM crop sensitivity testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/ai-model-testing/SKILL.md"
+          },
+          {
+            "scenario": "vision LLM crop sensitivity test cases",
+            "controlledSetup": "Change only the condition represented by \"vision LLM crop sensitivity test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by vision LLM crop sensitivity testing.",
+            "failureSignal": "The observed result differs from the approved vision LLM crop sensitivity test cases contract.",
+            "evidenceSource": "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          },
+          {
+            "scenario": "how to test vision llm crop sensitivity",
+            "controlledSetup": "Change only the condition represented by \"how to test vision llm crop sensitivity\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by vision LLM crop sensitivity testing.",
+            "failureSignal": "The observed result differs from the approved how to test vision llm crop sensitivity contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by vision LLM crop sensitivity testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/ai-model-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by vision LLM crop sensitivity testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/ai-model-testing/SKILL.md",
+          "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts",
+          "https://platform.openai.com/docs/guides/images-vision",
+          "https://deepeval.com/docs/evaluation-multiturn-test-cases",
+          "https://www.promptfoo.dev/docs/guides/multimodal-red-team/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run vision LLM crop sensitivity testing",
+        "steps": [
+          "Read seed-skills/ai-model-testing/SKILL.md and seed-skills/promptfoo-llm-red-teaming/SKILL.md and packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for vision LLM crop sensitivity testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for vision LLM crop sensitivity test cases, how to test vision llm crop sensitivity, vision LLM crop sensitivity regression checks, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the vision LLM crop sensitivity testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/ai-model-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated vision LLM crop sensitivity testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/ai-model-testing/SKILL.md",
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+        "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/testing-llm-applications-guide",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/deepeval-conversational-multiturn-metrics-guide",
+        "/blog/ai-agent-eval-testing-guide"
+      ],
+      "relatedSlugs": [
+        "testing-llm-applications-guide",
+        "promptfoo-complete-guide-2026",
+        "deepeval-conversational-multiturn-metrics-guide",
+        "ai-agent-eval-testing-guide"
+      ],
+      "sources": [
+        "https://platform.openai.com/docs/guides/images-vision",
+        "https://deepeval.com/docs/evaluation-multiturn-test-cases",
+        "https://www.promptfoo.dev/docs/guides/multimodal-red-team/"
+      ],
+      "faqQuestions": [
+        "How should QA teams test vision llm crop sensitivity so removing irrelevant borders preserves answers while cropping decisive evidence triggers uncertainty?",
+        "What should a vision LLM crop sensitivity test cases fixture record?",
+        "Which failure proves how to test vision llm crop sensitivity is broken?",
+        "How do teams isolate vision LLM crop sensitivity regression checks?",
+        "Which assertion is strongest for vision LLM crop sensitivity CI validation?",
+        "How should CI report vision LLM crop sensitivity failure diagnosis failures?"
+      ],
+      "cta": "Read /blog/testing-llm-applications-guide, then open /skills and add the vision LLM crop sensitivity testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "ai-llm-rag-165",
+      "batch": 94,
+      "batchPosition": 5,
+      "domain": "ai-llm-rag",
+      "campaignCluster": "ai-llm-rag",
+      "slug": "vision-llm-ocr-fidelity-testing",
+      "primaryKeyword": "vision LLM OCR fidelity testing",
+      "title": "Vision LLM Ocr Fidelity Testing",
+      "description": "vision LLM OCR fidelity testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How should QA teams test vision llm ocr fidelity so small text, columns, tables, punctuation, and confusable characters match the image evidence?",
+      "intentBoundary": "Transcription fidelity from images only, not OCR-origin prompt injection.",
+      "secondaryKeywords": [
+        "vision LLM OCR fidelity test cases",
+        "how to test vision llm ocr fidelity",
+        "vision LLM OCR fidelity regression checks",
+        "vision LLM OCR fidelity CI validation",
+        "vision LLM OCR fidelity failure diagnosis",
+        "vision LLM OCR fidelity QA checklist"
+      ],
+      "outline": [
+        {
+          "heading": "What does vision LLM OCR fidelity testing verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams test vision llm ocr fidelity so small text, columns, tables, punctuation, and confusable characters match the image evidence?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/ai-model-testing/SKILL.md",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build vision LLM OCR fidelity test cases?",
+          "question": true,
+          "secondaryKeyword": "vision LLM OCR fidelity test cases",
+          "coverage": "Create an isolated fixture for vision LLM OCR fidelity test cases. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts"
+          ]
+        },
+        {
+          "heading": "What breaks how to test vision llm ocr fidelity?",
+          "question": true,
+          "secondaryKeyword": "how to test vision llm ocr fidelity",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for how to test vision llm ocr fidelity. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts",
+            "seed-skills/ai-model-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Vision LLM OCR fidelity regression checks fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "vision LLM OCR fidelity regression checks",
+          "coverage": "Turn vision LLM OCR fidelity regression checks into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/ai-model-testing/SKILL.md",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should vision LLM OCR fidelity CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "vision LLM OCR fidelity CI validation",
+          "coverage": "Build the oracle for vision LLM OCR fidelity CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts"
+          ]
+        },
+        {
+          "heading": "Vision LLM OCR fidelity failure diagnosis in CI",
+          "question": false,
+          "secondaryKeyword": "vision LLM OCR fidelity failure diagnosis",
+          "coverage": "Package vision LLM OCR fidelity failure diagnosis as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts",
+            "seed-skills/ai-model-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Vision LLM Ocr Fidelity Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/ai-model-testing/SKILL.md",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement vision LLM OCR fidelity testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/ai-model-testing/SKILL.md",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+            "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/ai-model-testing/SKILL.md",
+            "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Vision LLM Ocr Fidelity Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/ai-model-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by vision LLM OCR fidelity testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/ai-model-testing/SKILL.md"
+          },
+          {
+            "scenario": "vision LLM OCR fidelity test cases",
+            "controlledSetup": "Change only the condition represented by \"vision LLM OCR fidelity test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by vision LLM OCR fidelity testing.",
+            "failureSignal": "The observed result differs from the approved vision LLM OCR fidelity test cases contract.",
+            "evidenceSource": "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          },
+          {
+            "scenario": "how to test vision llm ocr fidelity",
+            "controlledSetup": "Change only the condition represented by \"how to test vision llm ocr fidelity\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by vision LLM OCR fidelity testing.",
+            "failureSignal": "The observed result differs from the approved how to test vision llm ocr fidelity contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by vision LLM OCR fidelity testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/ai-model-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by vision LLM OCR fidelity testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/promptfoo-llm-red-teaming/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/ai-model-testing/SKILL.md",
+          "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts",
+          "https://platform.openai.com/docs/guides/images-vision",
+          "https://deepeval.com/docs/evaluation-multiturn-test-cases",
+          "https://www.promptfoo.dev/docs/guides/multimodal-red-team/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run vision LLM OCR fidelity testing",
+        "steps": [
+          "Read seed-skills/ai-model-testing/SKILL.md and seed-skills/promptfoo-llm-red-teaming/SKILL.md and packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for vision LLM OCR fidelity testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for vision LLM OCR fidelity test cases, how to test vision llm ocr fidelity, vision LLM OCR fidelity regression checks, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the vision LLM OCR fidelity testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/ai-model-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated vision LLM OCR fidelity testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/ai-model-testing/SKILL.md",
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+        "packages/web/src/app/blog/posts/promptfoo-red-teaming-llm-applications.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/testing-llm-applications-guide",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/deepeval-conversational-multiturn-metrics-guide",
+        "/blog/ai-agent-eval-testing-guide"
+      ],
+      "relatedSlugs": [
+        "testing-llm-applications-guide",
+        "promptfoo-complete-guide-2026",
+        "deepeval-conversational-multiturn-metrics-guide",
+        "ai-agent-eval-testing-guide"
+      ],
+      "sources": [
+        "https://platform.openai.com/docs/guides/images-vision",
+        "https://deepeval.com/docs/evaluation-multiturn-test-cases",
+        "https://www.promptfoo.dev/docs/guides/multimodal-red-team/"
+      ],
+      "faqQuestions": [
+        "How should QA teams test vision llm ocr fidelity so small text, columns, tables, punctuation, and confusable characters match the image evidence?",
+        "What should a vision LLM OCR fidelity test cases fixture record?",
+        "Which failure proves how to test vision llm ocr fidelity is broken?",
+        "How do teams isolate vision LLM OCR fidelity regression checks?",
+        "Which assertion is strongest for vision LLM OCR fidelity CI validation?",
+        "How should CI report vision LLM OCR fidelity failure diagnosis failures?"
+      ],
+      "cta": "Read /blog/testing-llm-applications-guide, then open /skills and add the vision LLM OCR fidelity testing checks to the next QA run."
+    }
+  ]
+}

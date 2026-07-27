@@ -1,0 +1,2778 @@
+{
+  "metadata": {
+    "generatedAt": "2026-07-25",
+    "worktree": "/tmp/qaskills-seo-factory-20260725",
+    "domain": "MCP servers, clients, tools, protocol schemas, package registry, QA agent integrations, search and install behavior, transports, schema drift, normalization, and contract testing",
+    "inventoryPath": "/tmp/qaskills-seo-final-inventory-20260725.json",
+    "inventoryArticlesBeforeRun": 1491,
+    "inventoryStaticRoutes": 37,
+    "registryPath": "packages/web/src/app/blog/posts/index.ts",
+    "candidateCount": 65,
+    "rejectionCount": 18,
+    "validation": {
+      "status": "pass",
+      "existingArticlesChecked": 1491,
+      "staticRoutesChecked": 37,
+      "automatedCollisionViolations": 0,
+      "missingInternalRoutes": 0,
+      "selfCollisions": 0
+    },
+    "sourceVerification": {
+      "checkedAt": "2026-07-25",
+      "uniqueHttpsSources": 31,
+      "reachableSources": 31
+    },
+    "scoringScale": "Each score is 0 to 10. Total is the sum of relevance, specificity, intentFit, and coverageAbility.",
+    "collisionPolicy": "Reject exact or containing slugs, title or H1 token overlap above 60 percent after stopword removal, duplicate primary keyword intent, broad-guide overlap, and self-cannibalization.",
+    "sourcePolicy": "Only official protocol, SDK, runtime, standards, registry, npm, GitHub, OWASP, and MITRE documentation is used.",
+    "repoAreasRead": [
+      "packages/mcp/src/index.ts",
+      "packages/mcp/package.json",
+      "packages/mcp/server.json",
+      "packages/mcp/README.md",
+      "packages/mcp/tsup.config.ts",
+      "packages/mcp/tsconfig.json",
+      ".github/workflows/mcp-publish.yml",
+      "docs/product/MCP-SERVER-PLAN-2026-07.md",
+      "packages/web/src/app/api/skills/route.ts",
+      "packages/web/src/app/api/skills/[id]/route.ts",
+      "packages/web/src/app/api/skills/[id]/content/route.ts",
+      "packages/web/src/app/api/categories/route.ts",
+      "packages/web/src/app/api/leaderboard/route.ts",
+      "packages/web/src/app/api/telemetry/install/route.ts",
+      "packages/web/src/lib/telemetry-normalize.ts",
+      "packages/shared/src/constants/agents.ts"
+    ]
+  },
+  "survivors": [
+    {
+      "primaryKeyword": "MCP stdio stdout contamination testing",
+      "slug": "mcp-stdio-stdout-contamination-testing",
+      "title": "MCP Stdio Stdout Contamination Tests",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can a QA engineer prove that an MCP stdio server writes only valid protocol messages to stdout while sending diagnostics to stderr?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: main connects StdioServerTransport and the fatal path uses console.error",
+        "docs/product/MCP-SERVER-PLAN-2026-07.md: acceptance bar forbids console.log on the stdout protocol channel"
+      ],
+      "secondaryKeywords": [
+        "MCP stdout protocol corruption",
+        "stdio server console log test",
+        "MCP stderr diagnostics",
+        "JSON-RPC stdout validation",
+        "MCP process output capture"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-testing-guide-2026",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/mcp-official-conformance-suite-server-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+        "https://www.jsonrpc.org/specification",
+        "https://ts.sdk.modelcontextprotocol.io/"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-server-testing-guide-2026",
+        "whyDistinct": "The existing page is a broad server guide. This topic is solely a byte-level stdout and stderr contamination oracle for stdio subprocesses."
+      }
+    },
+    {
+      "primaryKeyword": "MCP stdio newline framing tests",
+      "slug": "mcp-stdio-newline-framing-tests",
+      "title": "MCP Stdio Newline Framing Tests",
+      "intent": "how-to",
+      "exactQuestion": "How should tests detect missing delimiters, embedded newlines, split writes, and multiple JSON-RPC messages in an MCP stdio stream?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: the server uses StdioServerTransport",
+        "packages/mcp/tsup.config.ts: the executable bundle is launched as a Node CLI"
+      ],
+      "secondaryKeywords": [
+        "newline delimited JSON-RPC tests",
+        "MCP message boundary testing",
+        "stdio split chunk parser",
+        "embedded newline protocol failure",
+        "multiple MCP messages stdout"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/test-an-mcp-server-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+        "https://www.jsonrpc.org/specification"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-inspector-tutorial-2026",
+        "whyDistinct": "The Inspector article covers tools/list and tools/call automation. This candidate tests transport framing before tool semantics are involved."
+      }
+    },
+    {
+      "primaryKeyword": "MCP stdio UTF-8 interoperability tests",
+      "slug": "mcp-stdio-utf8-interoperability-tests",
+      "title": "Unicode Stdio Checks for MCP",
+      "intent": "how-to",
+      "exactQuestion": "How can MCP client and server tests verify UTF-8 correctness for non-ASCII tool arguments, skill names, markdown, and error text?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: textResult and jsonTextResult return arbitrary API text through stdio",
+        "packages/mcp/src/index.ts: installSkill writes downloaded SKILL.md content with utf8 encoding"
+      ],
+      "secondaryKeywords": [
+        "MCP Unicode tool argument test",
+        "JSON-RPC UTF-8 encoding",
+        "non-ASCII SKILL.md install",
+        "stdio emoji response testing",
+        "MCP invalid byte sequence"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/qaskills-mcp-server-guide"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+        "https://www.jsonrpc.org/specification",
+        "https://nodejs.org/api/fs.html"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-server-contract-testing-guide",
+        "whyDistinct": "The contract guide focuses tool schemas and errors. This candidate focuses character encoding across transport, API text, and filesystem boundaries."
+      }
+    },
+    {
+      "primaryKeyword": "MCP stdio graceful shutdown testing",
+      "slug": "mcp-stdio-graceful-shutdown-testing",
+      "title": "MCP Stdio Graceful Shutdown Testing",
+      "intent": "troubleshooting",
+      "exactQuestion": "How should a test harness verify EOF handling, bounded process exit, SIGTERM fallback, and cleanup for an MCP stdio server?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: main connects one StdioServerTransport and exits with status 1 on fatal startup errors",
+        "packages/mcp/package.json: qaskills-mcp is an executable stdio process"
+      ],
+      "secondaryKeywords": [
+        "MCP EOF shutdown test",
+        "stdio server SIGTERM testing",
+        "MCP subprocess exit timeout",
+        "MCP transport cleanup",
+        "orphan MCP process detection"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-testing-guide-2026",
+        "/blog/mcp-official-conformance-suite-server-guide-2026",
+        "/blog/mcp-conformance-github-actions-baseline-2026"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+        "https://nodejs.org/api/process.html"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-official-conformance-suite-server-guide-2026",
+        "whyDistinct": "The conformance page explains the official suite. This topic builds a dedicated process-lifecycle oracle around EOF and operating-system signals."
+      }
+    },
+    {
+      "primaryKeyword": "MCP initialization ordering contract tests",
+      "slug": "mcp-initialization-ordering-contract-tests",
+      "title": "Initialize Handshake Order in MCP",
+      "intent": "how-to",
+      "exactQuestion": "How can contract tests prove initialize is first, initialized follows the response, and tools are unavailable before the handshake completes?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: McpServer is created before server.connect starts the stdio lifecycle",
+        "docs/product/MCP-SERVER-PLAN-2026-07.md: live smoke test begins with initialize before tools/list"
+      ],
+      "secondaryKeywords": [
+        "MCP initialize first request",
+        "initialized notification order",
+        "tools before initialization",
+        "MCP handshake state machine",
+        "protocol lifecycle negative tests"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/test-an-mcp-server-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+        "https://www.jsonrpc.org/specification",
+        "https://ts.sdk.modelcontextprotocol.io/"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-server-contract-testing-guide",
+        "whyDistinct": "The existing contract page targets tool schemas and errors. This candidate targets connection state and legal message ordering."
+      }
+    },
+    {
+      "primaryKeyword": "MCP protocol version negotiation tests",
+      "slug": "mcp-protocol-version-negotiation-tests",
+      "title": "MCP Revision Compatibility Matrix",
+      "intent": "troubleshooting",
+      "exactQuestion": "How should clients test supported, older, newer, and incompatible MCP protocol versions during initialization?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: McpServer delegates protocol negotiation to @modelcontextprotocol/sdk",
+        "packages/mcp/package.json: the deployed server pins an MCP SDK version that controls supported revisions"
+      ],
+      "secondaryKeywords": [
+        "unsupported MCP protocol version",
+        "MCP initialize version mismatch",
+        "client server version compatibility",
+        "protocol downgrade test",
+        "MCP version fallback behavior"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-testing-guide-2026",
+        "/blog/mcp-official-conformance-suite-server-guide-2026",
+        "/blog/mcp-package-registry-version-drift-tests"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+        "https://modelcontextprotocol.io/specification/2025-11-25/schema",
+        "https://github.com/modelcontextprotocol/typescript-sdk/tree/v1.x"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-package-registry-version-drift-tests",
+        "whyDistinct": "The existing post compares package and manifest release versions. This candidate tests runtime protocol revision negotiation between a client and server."
+      }
+    },
+    {
+      "primaryKeyword": "MCP capability negotiation contract tests",
+      "slug": "mcp-capability-negotiation-contract-tests",
+      "title": "Negotiated MCP Capability Contracts",
+      "intent": "how-to",
+      "exactQuestion": "How can QA teams verify that an MCP server advertises only implemented capabilities and rejects operations that were not negotiated?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: McpServer registers tools but no prompts or resources",
+        "packages/mcp/src/index.ts: six registerTool calls define the actual server surface"
+      ],
+      "secondaryKeywords": [
+        "MCP tools capability test",
+        "unadvertised capability rejection",
+        "MCP prompts capability absence",
+        "MCP resources capability absence",
+        "capability negotiation matrix"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/mcp-server-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/index",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-server-testing-guide-2026",
+        "whyDistinct": "The broad guide mentions capabilities. This candidate defines a negative and positive matrix that compares advertised capabilities with registered primitives."
+      }
+    },
+    {
+      "primaryKeyword": "MCP pre-initialization request rejection",
+      "slug": "mcp-pre-initialization-request-rejection",
+      "title": "Reject MCP Calls Before Startup",
+      "intent": "troubleshooting",
+      "exactQuestion": "What should happen when a client sends tools/list or tools/call before MCP initialization finishes, and how can that behavior be tested?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: server.connect hands lifecycle enforcement to the MCP SDK",
+        "docs/product/MCP-SERVER-PLAN-2026-07.md: accepted smoke sequence is initialize, tools/list, then tool execution"
+      ],
+      "secondaryKeywords": [
+        "tools list before initialize",
+        "tools call before initialized",
+        "MCP invalid lifecycle state",
+        "pre-handshake request error",
+        "MCP client ordering bug"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/test-an-mcp-server-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+        "https://www.jsonrpc.org/specification"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-inspector-tutorial-2026",
+        "whyDistinct": "The Inspector tutorial exercises valid calls after startup. This candidate deliberately violates lifecycle order and asserts protocol errors."
+      }
+    },
+    {
+      "primaryKeyword": "MCP malformed JSON-RPC message testing",
+      "slug": "mcp-malformed-json-rpc-message-testing",
+      "title": "Fuzz Invalid JSON-RPC for MCP",
+      "intent": "how-to",
+      "exactQuestion": "How can an MCP transport harness test invalid JSON, wrong JSON-RPC versions, missing methods, bad params, and malformed identifiers?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: all tool traffic passes through StdioServerTransport and McpServer",
+        "packages/mcp/src/index.ts: Zod schemas validate tool arguments after JSON-RPC parsing"
+      ],
+      "secondaryKeywords": [
+        "MCP parse error test",
+        "invalid JSON-RPC version",
+        "missing MCP method",
+        "malformed tool params",
+        "JSON-RPC invalid request code"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/mcp-official-conformance-suite-server-guide-2026",
+        "/blog/mcp-inspector-tutorial-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.jsonrpc.org/specification",
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+        "https://modelcontextprotocol.io/specification/2025-11-25/schema"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-server-contract-testing-guide",
+        "whyDistinct": "The existing page validates tool-level inputs. This candidate tests malformed base-protocol envelopes before a tool handler runs."
+      }
+    },
+    {
+      "primaryKeyword": "MCP request ID correlation tests",
+      "slug": "mcp-request-id-correlation-tests",
+      "title": "MCP Request ID Correlation Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can concurrent MCP tests prove every JSON-RPC response retains the correct request ID when tool calls finish out of order?",
+      "scores": {
+        "relevance": 8,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 35
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: six asynchronous tool handlers can issue fetches and complete independently",
+        "packages/mcp/src/index.ts: search, metadata, content, categories, and leaderboard calls share one stdio server"
+      ],
+      "secondaryKeywords": [
+        "JSON-RPC response correlation",
+        "concurrent MCP request IDs",
+        "out of order tool responses",
+        "duplicate JSON-RPC ID test",
+        "MCP async response matching"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-testing-guide-2026",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/agent-tool-use-regression-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.jsonrpc.org/specification",
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+        "https://ts.sdk.modelcontextprotocol.io/"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/agent-tool-use-regression-testing-guide-2026",
+        "whyDistinct": "The agent article evaluates model-selected calls and side effects. This candidate verifies transport-level response correlation under concurrency."
+      }
+    },
+    {
+      "primaryKeyword": "MCP tools list regression testing",
+      "slug": "mcp-tools-list-regression-testing",
+      "title": "MCP Tools List Regression Testing",
+      "intent": "how-to",
+      "exactQuestion": "How can a release test snapshot tools/list so missing, renamed, duplicated, or accidentally added tools block an MCP deployment?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: exactly six tools are registered",
+        "packages/mcp/README.md: the public tool table documents the same six names"
+      ],
+      "secondaryKeywords": [
+        "MCP tools list snapshot",
+        "missing MCP tool regression",
+        "duplicate MCP tool name",
+        "MCP tool inventory CI",
+        "tools list release gate"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/mcp-conformance-github-actions-baseline-2026",
+        "/blog/mcp-server-contract-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://ts.sdk.modelcontextprotocol.io/",
+        "https://www.jsonrpc.org/specification"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-inspector-tutorial-2026",
+        "whyDistinct": "The existing tutorial teaches Inspector commands. This candidate designs a release invariant around the complete QASkills tool inventory."
+      }
+    },
+    {
+      "primaryKeyword": "MCP tool name stability testing",
+      "slug": "mcp-tool-name-stability-testing",
+      "title": "MCP Tool Name Stability Tests",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can MCP maintainers detect breaking tool renames, case changes, invalid characters, and client prompt references before release?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 8,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: public identifiers include search_skills, get_skill, get_skill_content, install_skill, list_categories, and get_leaderboard",
+        "packages/mcp/README.md: client-facing documentation repeats each identifier"
+      ],
+      "secondaryKeywords": [
+        "MCP breaking tool rename",
+        "case sensitive tool names",
+        "MCP tool identifier regex",
+        "client prompt tool reference",
+        "tool alias migration test"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/qaskills-mcp-server-guide"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://json-schema.org/draft/2020-12/json-schema-core"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-server-contract-testing-guide",
+        "whyDistinct": "That page tests schema fields and invalid arguments. This topic treats tool identifiers as a versioned public API."
+      }
+    },
+    {
+      "primaryKeyword": "MCP tool description snapshot testing",
+      "slug": "mcp-tool-description-snapshot-testing",
+      "title": "MCP Tool Description Snapshot Tests",
+      "intent": "how-to",
+      "exactQuestion": "How should QA teams test MCP tool titles, descriptions, and server instructions for accidental semantic drift that changes model selection?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: every registerTool call defines a title and description",
+        "packages/mcp/src/index.ts: McpServer includes cross-tool instructions for search, inspection, and installation"
+      ],
+      "secondaryKeywords": [
+        "MCP description drift test",
+        "tool title snapshot",
+        "server instructions regression",
+        "LLM tool selection metadata",
+        "MCP description approval diff"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/testing-agent-tool-selection-with-distractor-tools",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/agent-tool-use-regression-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://github.com/modelcontextprotocol/typescript-sdk"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/testing-agent-tool-selection-with-distractor-tools",
+        "whyDistinct": "The existing article evaluates an agent against competing tools. This candidate controls server-owned metadata changes before running model evals."
+      }
+    },
+    {
+      "primaryKeyword": "MCP tool annotation truthfulness tests",
+      "slug": "mcp-tool-annotation-truthfulness-tests",
+      "title": "MCP Tool Annotation Truthfulness Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can tests verify that readOnlyHint, destructiveHint, and idempotentHint match a tool's actual API and filesystem side effects?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: five tools use readOnlyHint true while install_skill declares write and idempotency annotations",
+        "packages/mcp/src/index.ts: installSkill creates directories, writes SKILL.md, and emits telemetry"
+      ],
+      "secondaryKeywords": [
+        "MCP readOnlyHint verification",
+        "MCP idempotentHint test",
+        "destructiveHint contract",
+        "tool side effect classification",
+        "untrusted MCP annotations"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/mcp-tool-poisoning-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://github.com/modelcontextprotocol/typescript-sdk"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/agent-tool-use-regression-testing-guide-2026",
+        "whyDistinct": "The agent regression guide checks calls and side effects. This candidate specifically audits MCP annotation claims against implementation behavior."
+      }
+    },
+    {
+      "primaryKeyword": "MCP Zod input boundary testing",
+      "slug": "mcp-zod-input-boundary-testing",
+      "title": "MCP Zod Input Boundary Testing",
+      "intent": "how-to",
+      "exactQuestion": "How can parameterized tests cover required strings, optional filters, enum values, defaults, and numeric limits in MCP Zod schemas?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: tool inputSchema definitions use z.string, z.enum, z.number, optional, default, min, and max",
+        "packages/mcp/package.json: Zod is a direct runtime dependency"
+      ],
+      "secondaryKeywords": [
+        "MCP Zod schema tests",
+        "tool argument boundary matrix",
+        "MCP enum validation",
+        "Zod default value test",
+        "invalid MCP tool arguments"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/tool-schema-contract-testing-guide",
+        "/blog/testing-llm-json-schema-enum-compliance"
+      ],
+      "authoritativeSources": [
+        "https://zod.dev/api",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://json-schema.org/draft/2020-12/json-schema-core"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-server-contract-testing-guide",
+        "whyDistinct": "The existing guide surveys MCP schema contracts. This candidate is a concrete Zod boundary matrix tied to all six QASkills tools."
+      }
+    },
+    {
+      "primaryKeyword": "MCP optional argument default testing",
+      "slug": "mcp-optional-argument-default-testing",
+      "title": "MCP Optional Argument Default Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can tests distinguish omitted, undefined, empty, null, and explicit values when MCP tool schemas apply defaults?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: search_skills defaults limit to 10 and install_skill defaults agent to claude-code",
+        "packages/mcp/src/index.ts: buildUrl omits undefined and empty-string query values"
+      ],
+      "secondaryKeywords": [
+        "MCP omitted argument test",
+        "Zod optional versus default",
+        "null MCP parameter behavior",
+        "default limit contract",
+        "default agent argument"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "/blog/qaskills-mcp-server-guide"
+      ],
+      "authoritativeSources": [
+        "https://zod.dev/api",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://json-schema.org/draft/2020-12/json-schema-core"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "whyDistinct": "The existing article compares tool and API schema defaults. This candidate tests runtime omission semantics across search and install tools."
+      }
+    },
+    {
+      "primaryKeyword": "MCP zero parameter schema testing",
+      "slug": "mcp-zero-parameter-schema-testing",
+      "title": "MCP Zero-Parameter Schema Tests",
+      "intent": "how-to",
+      "exactQuestion": "How should list_categories and other no-argument MCP tools represent empty input schemas and reject unexpected properties?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: list_categories registers inputSchema as an empty object",
+        "packages/mcp/src/index.ts: the handler accepts no destructured arguments"
+      ],
+      "secondaryKeywords": [
+        "MCP empty input schema",
+        "no argument tool test",
+        "additionalProperties false MCP",
+        "empty object tools call",
+        "unexpected tool parameter"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/tool-schema-contract-testing-guide",
+        "/blog/mcp-inspector-tutorial-2026"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://json-schema.org/draft/2020-12/json-schema-core",
+        "https://zod.dev/api"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/tool-schema-contract-testing-guide",
+        "whyDistinct": "The generic tool-schema page covers broad contracts. This candidate focuses the ambiguous empty-schema behavior of a real zero-parameter MCP tool."
+      }
+    },
+    {
+      "primaryKeyword": "MCP unknown tool rejection testing",
+      "slug": "mcp-unknown-tool-rejection-testing",
+      "title": "MCP Unknown Tool Rejection Tests",
+      "intent": "troubleshooting",
+      "exactQuestion": "What protocol error should an MCP server return for missing, misspelled, case-changed, or removed tool names?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: only six exact tool identifiers are registered",
+        "packages/mcp/README.md: supported names are documented as a closed list"
+      ],
+      "secondaryKeywords": [
+        "MCP method not found",
+        "misspelled tool name test",
+        "removed MCP tool behavior",
+        "case changed tool call",
+        "unknown tools call error"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/mcp-official-conformance-suite-server-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://www.jsonrpc.org/specification"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-server-contract-testing-guide",
+        "whyDistinct": "The existing guide discusses invalid inputs to known tools. This topic isolates unknown tool identifiers and migration behavior."
+      }
+    },
+    {
+      "primaryKeyword": "MCP tool error envelope testing",
+      "slug": "mcp-tool-error-envelope-testing",
+      "title": "MCP Tool Error Envelope Testing",
+      "intent": "how-to",
+      "exactQuestion": "How can QA tests verify that handler failures return text content plus isError without crashing the MCP transport?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: errorResult returns a text content item and isError true",
+        "packages/mcp/src/index.ts: every registered tool catches errors and returns errorResult"
+      ],
+      "secondaryKeywords": [
+        "MCP isError contract",
+        "tool execution error content",
+        "MCP handler exception test",
+        "tool error versus protocol error",
+        "MCP transport survives failure"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/testing-agent-plan-recovery-after-tool-failure",
+        "/blog/agent-tool-use-regression-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://modelcontextprotocol.io/specification/2025-11-25/schema",
+        "https://github.com/modelcontextprotocol/typescript-sdk/tree/v1.x"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/testing-agent-plan-recovery-after-tool-failure",
+        "whyDistinct": "The agent article tests replanning after a failure. This candidate verifies the server-side CallToolResult error envelope before agent behavior."
+      }
+    },
+    {
+      "primaryKeyword": "MCP text result serialization testing",
+      "slug": "mcp-text-result-serialization-testing",
+      "title": "MCP Text Result Serialization Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can tests verify plain text, pretty JSON, embedded newlines, and special characters inside MCP text content results?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: textResult wraps one text content item",
+        "packages/mcp/src/index.ts: jsonTextResult pretty prints values with JSON.stringify"
+      ],
+      "secondaryKeywords": [
+        "MCP text content test",
+        "JSON text tool result",
+        "MCP pretty JSON output",
+        "special character serialization",
+        "CallToolResult content array"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-search-response-normalization-contract-tests",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/mcp-inspector-tutorial-2026"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://www.jsonrpc.org/specification"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-search-response-normalization-contract-tests",
+        "whyDistinct": "The existing post projects search fields and defaults. This candidate verifies the final MCP content-item serialization shared by every tool."
+      }
+    },
+    {
+      "primaryKeyword": "MCP search query encoding tests",
+      "slug": "mcp-search-query-encoding-tests",
+      "title": "MCP Search Query Encoding Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can MCP search tests verify spaces, Unicode, reserved characters, plus signs, ampersands, and percent encoding in the q parameter?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: buildUrl constructs URLSearchParams and maps query to q",
+        "packages/web/src/app/api/skills/route.ts: GET reads q and performs case-insensitive name and description matching"
+      ],
+      "secondaryKeywords": [
+        "MCP URLSearchParams test",
+        "Unicode skill search query",
+        "ampersand query encoding",
+        "plus sign search parameter",
+        "percent encoded MCP search"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "/blog/qaskills-mcp-server-guide"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/url.html",
+        "https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "whyDistinct": "The existing post compares filter names and enum values. This candidate tests character-preserving URL serialization for free-text searches."
+      }
+    },
+    {
+      "primaryKeyword": "MCP optional query omission testing",
+      "slug": "mcp-optional-query-omission-testing",
+      "title": "MCP Optional Query Omission Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can tests prove undefined and empty optional MCP search inputs are omitted instead of becoming literal query-string values?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: buildUrl skips values equal to undefined or the empty string",
+        "packages/mcp/src/index.ts: search_skills exposes five optional string filters and one optional sort"
+      ],
+      "secondaryKeywords": [
+        "undefined query parameter test",
+        "empty MCP filter omission",
+        "literal undefined URL bug",
+        "optional search parameter contract",
+        "MCP clean query string"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "/blog/mcp-search-response-normalization-contract-tests"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/url.html",
+        "https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams",
+        "https://zod.dev/api"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "whyDistinct": "The existing article covers schema parity. This topic verifies the concrete omission semantics of URL construction after validation."
+      }
+    },
+    {
+      "primaryKeyword": "MCP multi-filter composition testing",
+      "slug": "mcp-multi-filter-composition-testing",
+      "title": "MCP Multi-Filter Composition Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can QA teams verify that query, testing type, framework, language, agent, sort, and limit reach the search API together without overwriting each other?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: search_skills maps seven independent inputs into one getJson call",
+        "packages/web/src/app/api/skills/route.ts: GET composes text and JSONB filter conditions before sorting"
+      ],
+      "secondaryKeywords": [
+        "MCP combined search filters",
+        "testing type framework query",
+        "agent language filter test",
+        "MCP filter interaction matrix",
+        "search parameter overwrite bug"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "/blog/testing-postgresql-jsonb-multiselect-filters-drizzle"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://nodejs.org/api/url.html",
+        "https://zod.dev/api"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "whyDistinct": "The prior article checks static schema parity. This candidate exercises behavioral interactions among all accepted filters in one request."
+      }
+    },
+    {
+      "primaryKeyword": "MCP search limit boundary testing",
+      "slug": "mcp-search-limit-boundary-testing",
+      "title": "MCP Search Limit Boundary Tests",
+      "intent": "troubleshooting",
+      "exactQuestion": "How should tests cover omitted, minimum, maximum, zero, negative, fractional, string, and oversized values for MCP search limits?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: search_skills sets limit min 1, max 50, and default 10",
+        "packages/web/src/app/api/skills/route.ts: the backing API independently clamps limit between 1 and 100"
+      ],
+      "secondaryKeywords": [
+        "MCP limit min max test",
+        "search limit default ten",
+        "oversized MCP result limit",
+        "fractional tool argument",
+        "Zod number boundary table"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "/blog/mcp-server-contract-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://zod.dev/api",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://json-schema.org/draft/2020-12/json-schema-core"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "whyDistinct": "The prior article notes limit parity. This topic is a full executable boundary and coercion matrix for the public tool."
+      }
+    },
+    {
+      "primaryKeyword": "MCP search fallback behavior testing",
+      "slug": "mcp-search-fallback-behavior-testing",
+      "title": "MCP Search Fallback Behavior Tests",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can tests distinguish a legitimate zero-result MCP search from the backing API's database-failure fallback that also returns an empty list?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts: the catch path returns skills empty, total zero, and pagination instead of a 5xx response",
+        "packages/mcp/src/index.ts: search_skills normalizes any successful JSON response and cannot infer the fallback cause"
+      ],
+      "secondaryKeywords": [
+        "MCP empty result ambiguity",
+        "search API silent fallback",
+        "database outage search contract",
+        "zero results versus failure",
+        "MCP degraded mode test"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/mcp-search-response-normalization-contract-tests",
+        "/blog/mcp-server-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Response",
+        "https://github.com/modelcontextprotocol/typescript-sdk/tree/v1.x"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-search-response-normalization-contract-tests",
+        "whyDistinct": "The existing article checks projection and missing fields. This candidate tests observability and oracle design for two semantically different empty responses."
+      }
+    },
+    {
+      "primaryKeyword": "MCP skill slug encoding tests",
+      "slug": "mcp-skill-slug-encoding-tests",
+      "title": "MCP Skill Slug Encoding Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can tests verify that get_skill, get_skill_content, and install_skill safely encode slashes, spaces, percent signs, and Unicode in skill identifiers?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: all three slug-based tools call encodeURIComponent before building endpoint paths",
+        "packages/web/src/app/api/skills/[id]/route.ts: the dynamic route resolves the decoded id as UUID or slug"
+      ],
+      "secondaryKeywords": [
+        "encodeURIComponent MCP slug",
+        "skill identifier slash test",
+        "percent sign slug encoding",
+        "Unicode skill slug request",
+        "MCP path segment safety"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-server-contract-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/url.html",
+        "https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-mcp-server-guide",
+        "whyDistinct": "The product guide demonstrates normal slug calls. This candidate builds adversarial path-segment tests across all slug-consuming tools."
+      }
+    },
+    {
+      "primaryKeyword": "MCP skill metadata redaction testing",
+      "slug": "mcp-skill-metadata-redaction-testing",
+      "title": "MCP Skill Metadata Redaction Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can tests prove get_skill removes fullDescription while preserving every safe metadata field and leaving the upstream object unchanged?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: omitFullDescription destructures the field and returns the remaining metadata",
+        "packages/web/src/app/api/skills/[id]/route.ts: the backing API includes fullDescription plus public metadata"
+      ],
+      "secondaryKeywords": [
+        "MCP fullDescription removal",
+        "skill metadata field allowlist",
+        "MCP response data minimization",
+        "metadata redaction mutation test",
+        "get_skill privacy contract"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/mcp-search-response-normalization-contract-tests",
+        "/blog/qaskills-mcp-server-guide"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://json-schema.org/draft/2020-12/json-schema-core"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-search-response-normalization-contract-tests",
+        "whyDistinct": "The existing article covers search result projection. This candidate audits metadata redaction in get_skill against the richer detail endpoint."
+      }
+    },
+    {
+      "primaryKeyword": "MCP missing skill error mapping",
+      "slug": "mcp-missing-skill-error-mapping",
+      "title": "MCP Missing Skill Error Mapping",
+      "intent": "troubleshooting",
+      "exactQuestion": "How should get_skill, get_skill_content, and install_skill translate a 404 skill response into a stable MCP tool error?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/route.ts: missing metadata returns 404 with Skill not found",
+        "packages/mcp/src/index.ts: fetchWithTimeout includes status and response body, then each tool returns errorResult"
+      ],
+      "secondaryKeywords": [
+        "MCP get skill 404",
+        "install missing skill error",
+        "MCP HTTP status mapping",
+        "skill not found tool result",
+        "MCP error text stability"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/testing-agent-plan-recovery-after-tool-failure"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Response",
+        "https://www.jsonrpc.org/specification"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-server-contract-testing-guide",
+        "whyDistinct": "The existing page surveys error types. This candidate follows one 404 through three QASkills tools and checks stable detail preservation."
+      }
+    },
+    {
+      "primaryKeyword": "MCP skill content fidelity testing",
+      "slug": "mcp-skill-content-fidelity-testing",
+      "title": "Verify Exact SKILL.md Through MCP",
+      "intent": "how-to",
+      "exactQuestion": "How can an end-to-end test prove get_skill_content returns the exact SKILL.md frontmatter and markdown body produced by the content API?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: get_skill_content returns response.text without JSON conversion",
+        "packages/web/src/app/api/skills/[id]/content/route.ts: buildSkillMarkdown reconstructs YAML frontmatter and body with a markdown content type"
+      ],
+      "secondaryKeywords": [
+        "MCP SKILL.md exact bytes",
+        "YAML frontmatter fidelity",
+        "markdown body preservation",
+        "get_skill_content integration test",
+        "skill content checksum test"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://nodejs.org/api/fs.html",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Response"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "whyDistinct": "The existing article tests parser serialization. This candidate verifies the remote API and MCP text transport preserve the resulting document end to end."
+      }
+    },
+    {
+      "primaryKeyword": "MCP large skill content handling",
+      "slug": "mcp-large-skill-content-handling",
+      "title": "Stress Large MCP Skill Payloads",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can QA teams test memory, truncation, latency, and complete writes when MCP returns and installs unusually large SKILL.md documents?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: getText buffers an entire response and installSkill passes the full string to writeFile",
+        "packages/web/src/app/api/skills/[id]/content/route.ts: content responses return reconstructed markdown without pagination"
+      ],
+      "secondaryKeywords": [
+        "large MCP text result",
+        "SKILL.md truncation test",
+        "MCP memory usage test",
+        "large skill install timeout",
+        "complete markdown write assertion"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-api-timeout-abortcontroller-testing"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Response",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-api-timeout-abortcontroller-testing",
+        "whyDistinct": "The timeout article covers request deadlines and cancellation. This candidate focuses payload completeness, buffering, memory, and filesystem fidelity under size pressure."
+      }
+    },
+    {
+      "primaryKeyword": "MCP install directory precedence tests",
+      "slug": "mcp-install-directory-precedence-tests",
+      "title": "MCP Install Directory Precedence Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can tests prove install_skill chooses .claude/skills when .claude exists and otherwise falls back to .agents/skills?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: installSkill checks .claude and selects .claude/skills before .agents/skills",
+        "packages/shared/src/constants/agents.ts: agent definitions document project skill directories"
+      ],
+      "secondaryKeywords": [
+        "Claude skills directory precedence",
+        "agents skills fallback test",
+        "MCP default install path",
+        "project agent directory detection",
+        "install_skill path matrix"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/getting-started",
+        "/agents",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/qaskills-add-custom-directory-ci"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/path.html",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-add-custom-directory-ci",
+        "whyDistinct": "The existing article covers the CLI --dir option. This candidate tests MCP-specific implicit directory selection when targetDir is absent."
+      }
+    },
+    {
+      "primaryKeyword": "MCP explicit target path testing",
+      "slug": "mcp-explicit-target-path-testing",
+      "title": "MCP Explicit Target Path Tests",
+      "intent": "how-to",
+      "exactQuestion": "How should install_skill tests cover relative, nested, dotted, absolute, and nonexistent targetDir values against the current working directory?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: targetDir overrides agent detection and path.resolve combines cwd, target, and slug",
+        "packages/mcp/src/index.ts: mkdir recursively creates the resolved skill directory"
+      ],
+      "secondaryKeywords": [
+        "MCP targetDir test",
+        "relative skill install path",
+        "absolute MCP install directory",
+        "nested target directory",
+        "current working directory install"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/getting-started",
+        "/blog/qaskills-add-custom-directory-ci",
+        "/blog/qaskills-mcp-server-guide"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/path.html",
+        "https://nodejs.org/api/fs.html",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-add-custom-directory-ci",
+        "whyDistinct": "The CLI article targets qaskills add --dir in CI. This candidate covers the MCP tool's targetDir resolution and filesystem side effects."
+      }
+    },
+    {
+      "primaryKeyword": "MCP install path traversal testing",
+      "slug": "mcp-install-path-traversal-testing",
+      "title": "MCP Install Path Traversal Tests",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can security tests prove a malicious MCP skill slug or targetDir cannot escape the intended project skills directory?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: path.resolve combines caller-controlled targetDir and slug before writing",
+        "packages/mcp/src/index.ts: the slug schema accepts any string and installSkill writes SKILL.md at the resolved path"
+      ],
+      "secondaryKeywords": [
+        "MCP directory traversal test",
+        "malicious skill slug path",
+        "targetDir escape prevention",
+        "MCP filesystem sandbox test",
+        "install_skill path security"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-tool-poisoning-testing-guide-2026",
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/qaskills-mcp-server-guide"
+      ],
+      "authoritativeSources": [
+        "https://owasp.org/www-community/attacks/Path_Traversal",
+        "https://cwe.mitre.org/data/definitions/22.html",
+        "https://nodejs.org/api/path.html"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-tool-poisoning-testing-guide-2026",
+        "whyDistinct": "Tool poisoning concerns deceptive metadata and instructions. This candidate tests concrete local path escape through install_skill inputs."
+      }
+    },
+    {
+      "primaryKeyword": "MCP install slug validation tests",
+      "slug": "mcp-install-slug-validation-tests",
+      "title": "MCP Install Slug Validation Tests",
+      "intent": "how-to",
+      "exactQuestion": "Which empty, dot-segment, separator, control-character, reserved-name, and overlong slugs should install_skill reject before network or filesystem access?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: install_skill currently declares slug as an unconstrained z.string",
+        "packages/web/src/app/api/skills/route.ts: published skill slugs use a narrower generated character set"
+      ],
+      "secondaryKeywords": [
+        "MCP empty slug validation",
+        "dot segment skill slug",
+        "control character slug test",
+        "Windows reserved filename skill",
+        "overlong MCP identifier"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/agent-skill-security-review-checklist"
+      ],
+      "authoritativeSources": [
+        "https://zod.dev/api",
+        "https://nodejs.org/api/path.html",
+        "https://cwe.mitre.org/data/definitions/22.html"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/agent-skill-security-review-checklist",
+        "whyDistinct": "The existing checklist reviews skill provenance and command safety. This candidate defines the MCP install tool's accepted slug grammar before network or filesystem side effects."
+      }
+    },
+    {
+      "primaryKeyword": "MCP UTF-8 skill installation tests",
+      "slug": "mcp-utf8-skill-installation-tests",
+      "title": "MCP UTF-8 Skill Installation Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can install tests prove that Unicode YAML, multilingual markdown, emoji, and final newlines survive API download and UTF-8 file writing?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: installSkill writes response text using utf8",
+        "packages/web/src/app/api/skills/[id]/content/route.ts: markdown responses declare charset=utf-8"
+      ],
+      "secondaryKeywords": [
+        "Unicode SKILL.md write test",
+        "multilingual skill installation",
+        "emoji frontmatter preservation",
+        "UTF-8 byte equality assertion",
+        "markdown final newline test"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Response"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "whyDistinct": "The existing article tests parser round trips. This topic validates downloaded Unicode document bytes at the final MCP filesystem destination."
+      }
+    },
+    {
+      "primaryKeyword": "MCP idempotent reinstall behavior testing",
+      "slug": "mcp-idempotent-reinstall-behavior-testing",
+      "title": "MCP Idempotent Reinstall Tests",
+      "intent": "how-to",
+      "exactQuestion": "Does repeating install_skill converge on one correct SKILL.md, and how should tests handle unchanged, updated, and locally modified files?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: install_skill declares idempotentHint true",
+        "packages/mcp/src/index.ts: writeFile overwrites the same SKILL.md path on repeated calls"
+      ],
+      "secondaryKeywords": [
+        "MCP reinstall same skill",
+        "idempotentHint verification",
+        "SKILL.md overwrite behavior",
+        "local modification reinstall",
+        "repeat install convergence"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-server-contract-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://nodejs.org/api/fs.html",
+        "https://github.com/modelcontextprotocol/typescript-sdk"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-mcp-server-guide",
+        "whyDistinct": "The product guide demonstrates installation once. This candidate deeply tests repeated writes, local modifications, updates, and convergence."
+      }
+    },
+    {
+      "primaryKeyword": "MCP install permission failure testing",
+      "slug": "mcp-install-permission-failure-testing",
+      "title": "Inject Filesystem Denials in MCP",
+      "intent": "troubleshooting",
+      "exactQuestion": "How should install_skill report read-only directories, denied mkdir calls, denied writes, and platform-specific filesystem errors?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: installSkill awaits mkdir and writeFile inside the tool handler",
+        "packages/mcp/src/index.ts: caught filesystem exceptions become errorResult values"
+      ],
+      "secondaryKeywords": [
+        "MCP EACCES install error",
+        "read-only skills directory",
+        "mkdir permission denied test",
+        "SKILL.md write failure",
+        "cross-platform filesystem errors"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/getting-started",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-server-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/process.html",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-server-testing-guide-2026",
+        "whyDistinct": "The broad server guide surveys error handling. This topic builds realistic filesystem permission fault injection and platform-aware assertions."
+      }
+    },
+    {
+      "primaryKeyword": "MCP partial install failure testing",
+      "slug": "mcp-partial-install-failure-testing",
+      "title": "Detect Partial MCP Skill Writes",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can tests detect empty directories, truncated files, or stale content when an MCP skill installation fails between download, mkdir, write, and telemetry?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: installSkill performs download, directory creation, direct write, then telemetry in sequence",
+        "packages/mcp/src/index.ts: writeFile is not wrapped in an atomic temporary-file rename flow"
+      ],
+      "secondaryKeywords": [
+        "atomic SKILL.md installation",
+        "truncated skill file test",
+        "orphan install directory",
+        "MCP write crash recovery",
+        "download before write failure"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-server-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/path.html",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-mcp-server-guide",
+        "whyDistinct": "The existing guide covers the successful install path. This candidate audits intermediate filesystem states across every failed installation boundary."
+      }
+    },
+    {
+      "primaryKeyword": "MCP install telemetry payload testing",
+      "slug": "mcp-install-telemetry-payload-testing",
+      "title": "MCP Install Telemetry Payload Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can contract tests verify skillSlug, agentType, installType, action, agents, and mcp-prefixed version fields in install telemetry?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: trackInstall posts a six-field payload to /api/telemetry/install",
+        "packages/web/src/lib/telemetry-normalize.ts: normalizeInstallEvent accepts current and legacy payload shapes"
+      ],
+      "secondaryKeywords": [
+        "MCP telemetry schema contract",
+        "mcp version telemetry tag",
+        "install agentType payload",
+        "skillSlug telemetry normalization",
+        "anonymous install event test"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "/blog/qaskills-mcp-server-guide"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://nodejs.org/api/globals.html#fetch",
+        "https://json-schema.org/draft/2020-12/json-schema-core"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "whyDistinct": "The existing post tests CLI privacy switches. This candidate verifies the MCP install event's exact cross-version payload contract."
+      }
+    },
+    {
+      "primaryKeyword": "MCP telemetry privacy control testing",
+      "slug": "mcp-telemetry-privacy-control-testing",
+      "title": "MCP Telemetry Privacy Control Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can tests prove DO_NOT_TRACK and QASKILLS_TELEMETRY suppress MCP install events without blocking the local installation?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: shouldTrackTelemetry checks both environment variables",
+        "packages/mcp/src/index.ts: trackInstall returns before fetch while installSkill has already written the local file"
+      ],
+      "secondaryKeywords": [
+        "DO_NOT_TRACK MCP server",
+        "QASKILLS_TELEMETRY zero",
+        "MCP install privacy test",
+        "telemetry opt-out precedence",
+        "offline skill installation"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "/blog/qaskills-mcp-server-guide",
+        "/getting-started"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/process.html",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://github.com/modelcontextprotocol/typescript-sdk"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "whyDistinct": "The existing article explicitly targets the CLI. This candidate covers MCP process environment propagation and install continuity."
+      }
+    },
+    {
+      "primaryKeyword": "MCP API base URL override testing",
+      "slug": "mcp-api-base-url-override-testing",
+      "title": "MCP API Base URL Override Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can tests verify that QASKILLS_API_URL redirects every MCP tool to a mock, staging, or local API without leaking calls to production?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: BASE reads QASKILLS_API_URL once at process startup and defaults to https://qaskills.sh",
+        "packages/mcp/README.md: QASKILLS_API_URL is the documented API override"
+      ],
+      "secondaryKeywords": [
+        "QASKILLS_API_URL test",
+        "MCP local API mock",
+        "MCP staging endpoint",
+        "prevent production API calls",
+        "MCP process environment setup"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-server-testing-guide-2026",
+        "/getting-started"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/process.html",
+        "https://nodejs.org/api/url.html",
+        "https://github.com/modelcontextprotocol/typescript-sdk"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-mcp-server-guide",
+        "whyDistinct": "The existing guide documents setup. This candidate builds hermetic tests that prove all six tools honor one process-level API override."
+      }
+    },
+    {
+      "primaryKeyword": "MCP API trailing slash normalization",
+      "slug": "mcp-api-trailing-slash-normalization",
+      "title": "MCP API Trailing Slash Tests",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can tests prove API base URLs with zero, one, or repeated trailing slashes produce the intended endpoint paths?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: BASE removes one trailing slash with replace before new URL is used",
+        "packages/mcp/src/index.ts: buildUrl combines absolute API pathnames with BASE"
+      ],
+      "secondaryKeywords": [
+        "MCP double slash URL bug",
+        "API base trailing slash",
+        "new URL path resolution test",
+        "QASKILLS_API_URL normalization",
+        "MCP endpoint construction"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "/blog/mcp-api-timeout-abortcontroller-testing"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/url.html",
+        "https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "whyDistinct": "The existing article tests query parameter contracts. This candidate focuses base-path resolution before any query parameters are added."
+      }
+    },
+    {
+      "primaryKeyword": "MCP user agent header testing",
+      "slug": "mcp-user-agent-header-testing",
+      "title": "MCP User-Agent Header Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can tests verify every QASkills MCP API call carries the expected package name and runtime version in User-Agent?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: fetchWithTimeout sets User-Agent to @qaskills/mcp plus VERSION",
+        "packages/mcp/src/index.ts: VERSION is loaded from package.json as the single runtime source"
+      ],
+      "secondaryKeywords": [
+        "MCP HTTP header contract",
+        "qaskills mcp version header",
+        "User-Agent release test",
+        "MCP API client identification",
+        "custom header preservation"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-package-registry-version-drift-tests",
+        "/blog/mcp-server-contract-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/globals.html#fetch",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Response",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-package-registry-version-drift-tests",
+        "whyDistinct": "The existing article compares versions across release artifacts and mentions the header. This candidate tests HTTP header behavior on every request and override path."
+      }
+    },
+    {
+      "primaryKeyword": "MCP conditional content type testing",
+      "slug": "mcp-conditional-content-type-testing",
+      "title": "MCP Conditional Content-Type Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can tests prove JSON Content-Type is added for telemetry POST bodies but not unnecessarily added to read-only GET requests?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: fetchWithTimeout adds application/json only when init.body exists",
+        "packages/mcp/src/index.ts: trackInstall sends a body while getJson and getText do not"
+      ],
+      "secondaryKeywords": [
+        "MCP request Content-Type header",
+        "JSON telemetry POST header",
+        "GET request header test",
+        "fetch body header behavior",
+        "custom Content-Type override"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "/blog/mcp-server-contract-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/globals.html#fetch",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Response",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-server-contract-testing-guide",
+        "whyDistinct": "The server contract article focuses MCP tool inputs and outputs. This candidate targets the downstream HTTP client header policy."
+      }
+    },
+    {
+      "primaryKeyword": "MCP HTTP error detail testing",
+      "slug": "mcp-http-error-detail-testing",
+      "title": "MCP HTTP Error Detail Tests",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can tests verify non-2xx MCP API failures preserve status, URL, response body, and statusText fallback without exposing malformed output?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: fetchWithTimeout reads response.text and falls back to response.statusText",
+        "packages/mcp/src/index.ts: the thrown message includes HTTP status, request URL, and detail"
+      ],
+      "secondaryKeywords": [
+        "MCP non-2xx response test",
+        "HTTP statusText fallback",
+        "API error body preservation",
+        "MCP error URL diagnostics",
+        "empty HTTP error response"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/mcp-server-testing-guide-2026",
+        "/blog/mcp-api-timeout-abortcontroller-testing"
+      ],
+      "authoritativeSources": [
+        "https://developer.mozilla.org/en-US/docs/Web/API/Response",
+        "https://nodejs.org/api/globals.html#fetch",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-api-timeout-abortcontroller-testing",
+        "whyDistinct": "The existing post focuses deadlines, aborts, and network failures. This candidate focuses completed HTTP responses with non-success statuses and diagnostic detail."
+      }
+    },
+    {
+      "primaryKeyword": "MCP malformed JSON response testing",
+      "slug": "mcp-malformed-json-response-testing",
+      "title": "Handle Invalid API JSON in MCP",
+      "intent": "troubleshooting",
+      "exactQuestion": "How should MCP tools behave when a successful API response contains HTML, truncated JSON, wrong content, or syntactically valid but unexpected JSON?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: getJson calls response.json and casts the result without runtime response validation",
+        "packages/mcp/src/index.ts: each JSON-backed tool catches parsing errors and returns errorResult"
+      ],
+      "secondaryKeywords": [
+        "MCP response JSON parse error",
+        "HTML API response test",
+        "truncated JSON tool result",
+        "wrong JSON shape MCP",
+        "runtime response schema validation"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-search-response-normalization-contract-tests",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/tool-schema-contract-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://developer.mozilla.org/en-US/docs/Web/API/Response",
+        "https://json-schema.org/draft/2020-12/json-schema-core",
+        "https://zod.dev/api"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-search-response-normalization-contract-tests",
+        "whyDistinct": "The existing article handles missing fields in parseable JSON. This candidate covers parse failures and runtime validation of wholly unexpected response types."
+      }
+    },
+    {
+      "primaryKeyword": "MCP leaderboard truncation contract testing",
+      "slug": "mcp-leaderboard-truncation-contract-testing",
+      "title": "MCP Leaderboard Truncation Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can tests prove get_leaderboard preserves API order and metadata while returning exactly the requested bounded number of skills?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: get_leaderboard slices response.skills to the requested limit",
+        "packages/web/src/app/api/leaderboard/route.ts: the API ranks up to 50 skills and adds rank, filter, and timestamps"
+      ],
+      "secondaryKeywords": [
+        "MCP leaderboard limit test",
+        "leaderboard order preservation",
+        "missing skills array fallback",
+        "MCP top skills contract",
+        "leaderboard metadata retention"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/leaderboard",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://zod.dev/api",
+        "https://json-schema.org/draft/2020-12/json-schema-core"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "whyDistinct": "The existing post tests server-side ranking and cache isolation. This candidate verifies MCP client-side truncation and response preservation."
+      }
+    },
+    {
+      "primaryKeyword": "MCP category grouping contract testing",
+      "slug": "mcp-category-grouping-contract-testing",
+      "title": "MCP Category Grouping Contract Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can list_categories tests verify testingType, framework, language, and domain groups, unknown types, empty groups, and cache-backed responses?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: list_categories forwards /api/categories as a JSON text result",
+        "packages/web/src/app/api/categories/route.ts: GET initializes four groups, filters unknown row types, and caches for 3600 seconds"
+      ],
+      "secondaryKeywords": [
+        "MCP list categories test",
+        "category group schema contract",
+        "unknown category type behavior",
+        "empty category group test",
+        "MCP categories cache response"
+      ],
+      "internalRoutes": ["/mcp", "/categories", "/skills", "/blog/qaskills-mcp-server-guide"],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://json-schema.org/draft/2020-12/json-schema-core",
+        "https://github.com/modelcontextprotocol/typescript-sdk/tree/v1.x"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-mcp-server-guide",
+        "whyDistinct": "The guide lists the tool. This candidate defines a full integration contract for grouping, omissions, empty data, and cached output."
+      }
+    },
+    {
+      "primaryKeyword": "MCP server manifest schema testing",
+      "slug": "mcp-server-manifest-schema-testing",
+      "title": "MCP Server Manifest Schema Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can CI validate server.json against the official schema and report precise failures for required fields, package metadata, and transport configuration?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/server.json: declares the official 2025-12-11 server schema",
+        ".github/workflows/mcp-publish.yml: mcp-publisher consumes server.json during registry publication"
+      ],
+      "secondaryKeywords": [
+        "server.json validation CI",
+        "MCP registry schema error",
+        "official server schema test",
+        "MCP manifest required fields",
+        "mcp-publisher validation failure"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-registry-qa-teams-guide-2026",
+        "/blog/mcp-package-registry-version-drift-tests",
+        "/blog/qaskills-mcp-server-guide"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/registry/quickstart",
+        "https://registry.modelcontextprotocol.io/docs",
+        "https://github.com/modelcontextprotocol/registry"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-package-registry-version-drift-tests",
+        "whyDistinct": "The existing article compares version values. This candidate validates the complete manifest against the official JSON schema."
+      }
+    },
+    {
+      "primaryKeyword": "MCP registry namespace casing tests",
+      "slug": "mcp-registry-namespace-casing-tests",
+      "title": "MCP Registry Namespace Casing Tests",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can a publish gate catch GitHub owner casing mismatches between the MCP namespace, repository identity, and authenticated publisher?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/package.json: mcpName uses io.github.PramodDutta/qaskills",
+        "docs/product/MCP-SERVER-PLAN-2026-07.md: execution log records a registry rejection caused by incorrect GitHub username casing"
+      ],
+      "secondaryKeywords": [
+        "MCP GitHub namespace case",
+        "mcpName owner mismatch",
+        "registry publisher identity test",
+        "GitHub username casing failure",
+        "MCP namespace validation"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-registry-qa-teams-guide-2026",
+        "/blog/mcp-package-registry-version-drift-tests",
+        "/blog/qaskills-mcp-server-guide"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/registry/quickstart",
+        "https://github.com/modelcontextprotocol/registry"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-package-registry-version-drift-tests",
+        "whyDistinct": "The prior article targets numeric version drift. This candidate targets case-sensitive publisher namespace ownership."
+      }
+    },
+    {
+      "primaryKeyword": "MCP registry package identity testing",
+      "slug": "mcp-registry-package-identity-testing",
+      "title": "MCP Registry Package Identity Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can CI prove mcpName, server.json name, npm identifier, repository directory, and runtime server name describe the intended package?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/package.json: defines name, mcpName, repository URL, and repository directory",
+        "packages/mcp/server.json: repeats namespace, repository, npm identifier, and package metadata"
+      ],
+      "secondaryKeywords": [
+        "mcpName server name parity",
+        "registry npm identifier test",
+        "MCP repository metadata contract",
+        "package identity drift",
+        "runtime server name test"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-registry-qa-teams-guide-2026",
+        "/blog/mcp-package-registry-version-drift-tests",
+        "/blog/qaskills-mcp-server-guide"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/registry/quickstart",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/",
+        "https://registry.modelcontextprotocol.io/docs"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-package-registry-version-drift-tests",
+        "whyDistinct": "Version parity is one release field. This candidate verifies stable identities and ownership coordinates across package, registry, repository, and runtime."
+      }
+    },
+    {
+      "primaryKeyword": "MCP registry transport metadata testing",
+      "slug": "mcp-registry-transport-metadata-testing",
+      "title": "MCP Registry Transport Metadata Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can tests prove the registry declares stdio and that the published package actually launches a stdio transport rather than remote HTTP?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/server.json: package transport type is stdio",
+        "packages/mcp/src/index.ts: main constructs StdioServerTransport"
+      ],
+      "secondaryKeywords": [
+        "MCP stdio manifest test",
+        "registry transport drift",
+        "server.json transport type",
+        "runtime transport parity",
+        "MCP package launch contract"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-registry-qa-teams-guide-2026",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-package-registry-version-drift-tests"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/registry/quickstart",
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+        "https://github.com/modelcontextprotocol/typescript-sdk"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-package-registry-version-drift-tests",
+        "whyDistinct": "The existing article tests version metadata. This topic checks declared transport against the executable implementation."
+      }
+    },
+    {
+      "primaryKeyword": "MCP registry environment schema testing",
+      "slug": "mcp-registry-environment-schema-testing",
+      "title": "MCP Registry Environment Schema Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can CI verify QASKILLS_API_URL is accurately declared as optional, non-secret, string configuration and stays aligned with runtime behavior?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/server.json: environmentVariables declares QASKILLS_API_URL with required, format, and secret metadata",
+        "packages/mcp/src/index.ts: BASE consumes QASKILLS_API_URL and provides a public default"
+      ],
+      "secondaryKeywords": [
+        "MCP environmentVariables contract",
+        "server.json secret flag",
+        "optional MCP environment variable",
+        "registry config runtime parity",
+        "QASKILLS_API_URL manifest"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-registry-qa-teams-guide-2026",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-package-registry-version-drift-tests"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/registry/quickstart",
+        "https://registry.modelcontextprotocol.io/docs",
+        "https://nodejs.org/api/process.html"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-package-registry-version-drift-tests",
+        "whyDistinct": "The version article does not audit environment-variable names, required flags, secret classification, or runtime consumption."
+      }
+    },
+    {
+      "primaryKeyword": "MCP npm files allowlist testing",
+      "slug": "mcp-npm-files-allowlist-testing",
+      "title": "MCP npm Files Allowlist Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can npm pack tests prove the MCP tarball includes dist and README while excluding source, local configuration, secrets, and workspace files?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/package.json: files allowlists dist and README.md",
+        ".github/workflows/mcp-publish.yml: pnpm publishes the package after building"
+      ],
+      "secondaryKeywords": [
+        "npm pack MCP test",
+        "package tarball allowlist",
+        "exclude source from npm",
+        "MCP secret leak check",
+        "published dist presence"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-package-registry-version-drift-tests",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-registry-qa-teams-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/",
+        "https://docs.npmjs.com/cli/v11/commands/npm-pack/",
+        "https://modelcontextprotocol.io/registry/quickstart"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-package-registry-version-drift-tests",
+        "whyDistinct": "The prior article checks release version consistency. This candidate inspects the actual npm tarball file boundary and secret exposure risk."
+      }
+    },
+    {
+      "primaryKeyword": "MCP binary entrypoint smoke testing",
+      "slug": "mcp-binary-entrypoint-smoke-testing",
+      "title": "MCP Binary Entrypoint Smoke Tests",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can release tests verify qaskills-mcp resolves from the npm bin field, has a Node shebang, starts, handshakes, and exits predictably?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/package.json: bin maps qaskills-mcp to dist/index.js",
+        "packages/mcp/tsup.config.ts: the CJS bundle receives a node shebang banner"
+      ],
+      "secondaryKeywords": [
+        "npm bin MCP smoke test",
+        "Node shebang verification",
+        "qaskills-mcp executable test",
+        "MCP dist entrypoint",
+        "package binary permission test"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/mcp-registry-qa-teams-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/",
+        "https://nodejs.org/api/packages.html",
+        "https://docs.npmjs.com/cli/v11/commands/npx/"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-mcp-server-guide",
+        "whyDistinct": "The product guide provides the launch command. This candidate validates executable packaging, process startup, and handshake as release gates."
+      }
+    },
+    {
+      "primaryKeyword": "MCP Node engine compatibility testing",
+      "slug": "mcp-node-engine-compatibility-testing",
+      "title": "MCP Node Engine Compatibility Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can CI prove the MCP package runs on its declared minimum Node version and does not silently depend on newer fetch, URL, or filesystem behavior?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/package.json: engines requires Node 20 or newer",
+        ".github/workflows/mcp-publish.yml: setup-node builds and publishes with Node 20"
+      ],
+      "secondaryKeywords": [
+        "MCP Node 20 smoke test",
+        "npm engines compatibility",
+        "Node fetch runtime test",
+        "minimum Node version CI",
+        "MCP runtime version matrix"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-package-registry-version-drift-tests",
+        "/getting-started"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/packages.html",
+        "https://nodejs.org/api/globals.html#fetch",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-package-registry-version-drift-tests",
+        "whyDistinct": "The version-drift post concerns release numbers. This candidate tests runtime API compatibility at the declared Node engine floor."
+      }
+    },
+    {
+      "primaryKeyword": "MCP workspace dependency isolation testing",
+      "slug": "mcp-workspace-dependency-isolation-testing",
+      "title": "MCP Workspace Dependency Isolation Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can a packed-package test prove the MCP server runs outside the monorepo without undeclared @qaskills workspace dependencies?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/package.json: runtime dependencies are limited to the MCP SDK and Zod",
+        "docs/product/MCP-SERVER-PLAN-2026-07.md: standalone package isolation is an explicit design choice"
+      ],
+      "secondaryKeywords": [
+        "MCP packed package isolation",
+        "undeclared workspace dependency test",
+        "npm tarball standalone smoke",
+        "monorepo dependency leak",
+        "qaskills MCP clean install"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-registry-qa-teams-guide-2026",
+        "/getting-started"
+      ],
+      "authoritativeSources": [
+        "https://docs.npmjs.com/cli/v11/commands/npm-pack/",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/",
+        "https://nodejs.org/api/packages.html"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-mcp-server-guide",
+        "whyDistinct": "The guide shows consumer setup. This candidate proves the published artifact is not accidentally coupled to monorepo-only modules."
+      }
+    },
+    {
+      "primaryKeyword": "MCP cold npx startup testing",
+      "slug": "mcp-cold-npx-startup-testing",
+      "title": "MCP Cold npx Startup Tests",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can CI test first-run npx download, package resolution, stdio startup, initialization, and tools/list from an empty npm cache?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/README.md: clients launch the server with npx -y @qaskills/mcp",
+        "docs/product/MCP-SERVER-PLAN-2026-07.md: cold npx verification is part of the shipped acceptance record"
+      ],
+      "secondaryKeywords": [
+        "npx MCP first run test",
+        "empty npm cache smoke test",
+        "MCP package download startup",
+        "npx initialization timeout",
+        "cold tools list verification"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/getting-started"
+      ],
+      "authoritativeSources": [
+        "https://docs.npmjs.com/cli/v11/commands/npx/",
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-mcp-server-guide",
+        "whyDistinct": "The guide gives the npx command. This candidate creates a cache-isolated release test for package acquisition and protocol readiness."
+      }
+    },
+    {
+      "primaryKeyword": "MCP npm publish idempotency testing",
+      "slug": "mcp-npm-publish-idempotency-testing",
+      "title": "MCP npm Publish Idempotency Tests",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can a release workflow safely rerun when an MCP package version already exists on npm but registry publication still needs to proceed?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        ".github/workflows/mcp-publish.yml: npm view checks the exact version and skips npm publish when it already exists",
+        ".github/workflows/mcp-publish.yml: registry publication runs after the conditional npm step"
+      ],
+      "secondaryKeywords": [
+        "rerun MCP publish workflow",
+        "npm version already exists",
+        "idempotent package release",
+        "registry publish retry",
+        "MCP release partial failure"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-registry-qa-teams-guide-2026",
+        "/blog/mcp-package-registry-version-drift-tests",
+        "/blog/qaskills-mcp-server-guide"
+      ],
+      "authoritativeSources": [
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/",
+        "https://modelcontextprotocol.io/registry/quickstart",
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-package-registry-version-drift-tests",
+        "whyDistinct": "The version article detects inconsistent values. This candidate tests safe workflow retries after one distribution system has already accepted a release."
+      }
+    },
+    {
+      "primaryKeyword": "MCP registry OIDC publishing tests",
+      "slug": "mcp-registry-oidc-publishing-tests",
+      "title": "MCP Registry OIDC Publishing Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can QA teams validate GitHub Actions permissions, identity-token availability, publisher login, and registry submission without exposing long-lived credentials?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        ".github/workflows/mcp-publish.yml: the job grants id-token write and runs mcp-publisher login github-oidc",
+        ".github/workflows/mcp-publish.yml: publisher installation and registry submission are separate observable steps"
+      ],
+      "secondaryKeywords": [
+        "mcp-publisher GitHub OIDC",
+        "registry id-token permission",
+        "keyless MCP publishing",
+        "OIDC login failure test",
+        "MCP supply chain release"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-registry-qa-teams-guide-2026",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-package-registry-version-drift-tests"
+      ],
+      "authoritativeSources": [
+        "https://docs.github.com/en/actions/concepts/security/openid-connect",
+        "https://modelcontextprotocol.io/registry/quickstart",
+        "https://github.com/modelcontextprotocol/registry"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-registry-qa-teams-guide-2026",
+        "whyDistinct": "The registry guide explains discovery and selection. This candidate tests the publisher authentication and CI permission chain."
+      }
+    },
+    {
+      "primaryKeyword": "MCP Claude Cursor parity testing",
+      "slug": "mcp-claude-cursor-parity-testing",
+      "title": "MCP Claude and Cursor Parity Tests",
+      "intent": "comparison",
+      "exactQuestion": "How can one QA matrix prove Claude Code and Cursor launch the same QASkills MCP package, discover the same six tools, and receive equivalent results?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: server instructions name Claude Code and Cursor as supported MCP clients",
+        "packages/mcp/README.md: one generic stdio configuration and one Claude Code command launch the same package"
+      ],
+      "secondaryKeywords": [
+        "Claude Code Cursor MCP comparison",
+        "MCP tools list client parity",
+        "cross-client tool result test",
+        "QASkills MCP client matrix",
+        "stdio config parity"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/agents/claude-code",
+        "/agents/cursor",
+        "/blog/qaskills-mcp-server-guide",
+        "/agents"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://github.com/modelcontextprotocol/typescript-sdk"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-mcp-server-guide",
+        "whyDistinct": "The guide describes compatible clients. This candidate defines a cross-client parity suite with identical discovery and result assertions."
+      }
+    },
+    {
+      "primaryKeyword": "MCP client working directory isolation",
+      "slug": "mcp-client-working-directory-isolation",
+      "title": "MCP Client Working Directory Tests",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can tests prove installations from two MCP client workspaces resolve against each subprocess working directory and never cross project boundaries?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: installSkill reads process.cwd and resolves target paths from it",
+        "packages/mcp/src/index.ts: each MCP server process performs local filesystem writes"
+      ],
+      "secondaryKeywords": [
+        "MCP subprocess cwd test",
+        "cross-project skill install leak",
+        "client workspace isolation",
+        "parallel MCP project test",
+        "install_skill cwd boundary"
+      ],
+      "internalRoutes": ["/mcp", "/agents", "/getting-started", "/blog/qaskills-mcp-server-guide"],
+      "authoritativeSources": [
+        "https://nodejs.org/api/process.html",
+        "https://nodejs.org/api/path.html",
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-mcp-server-guide",
+        "whyDistinct": "The guide explains installation. This candidate tests process isolation when multiple client projects invoke the same local-write tool."
+      }
+    },
+    {
+      "primaryKeyword": "MCP client environment propagation testing",
+      "slug": "mcp-client-environment-propagation-testing",
+      "title": "MCP Client Environment Propagation Tests",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can QA tests verify each MCP client passes API override and telemetry privacy variables into the spawned QASkills server process?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: QASKILLS_API_URL, DO_NOT_TRACK, and QASKILLS_TELEMETRY are process environment inputs",
+        "packages/mcp/server.json: QASKILLS_API_URL is exposed as registry configuration metadata"
+      ],
+      "secondaryKeywords": [
+        "MCP client env variables",
+        "spawned server environment test",
+        "Claude MCP env config",
+        "Cursor MCP env config",
+        "telemetry variable propagation"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/agents/claude-code",
+        "/agents/cursor",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/process.html",
+        "https://modelcontextprotocol.io/registry/quickstart",
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "whyDistinct": "The existing article validates variables inside the CLI. This candidate tests client configuration and subprocess environment propagation into MCP."
+      }
+    },
+    {
+      "primaryKeyword": "MCP subprocess launch smoke testing",
+      "slug": "mcp-subprocess-launch-smoke-testing",
+      "title": "MCP Subprocess Launch Smoke Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can an integration harness spawn the MCP binary, capture stderr, perform initialize and tools/list, then terminate it without hanging?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: main starts a stdio server and reports fatal errors on stderr",
+        "docs/product/MCP-SERVER-PLAN-2026-07.md: the acceptance bar specifies a live initialize, tools/list, search, and install smoke flow"
+      ],
+      "secondaryKeywords": [
+        "spawn MCP server test",
+        "stdio handshake smoke test",
+        "capture MCP stderr",
+        "MCP process hang detection",
+        "tools list subprocess test"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/blog/mcp-conformance-github-actions-baseline-2026",
+        "/blog/qaskills-mcp-server-guide"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+        "https://nodejs.org/api/process.html"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/mcp-inspector-tutorial-2026",
+        "whyDistinct": "The Inspector page uses an external testing CLI. This candidate builds a direct subprocess harness suitable for package release tests."
+      }
+    },
+    {
+      "primaryKeyword": "MCP agent install discovery testing",
+      "slug": "mcp-agent-install-discovery-testing",
+      "title": "MCP Agent Install Discovery Tests",
+      "intent": "how-to",
+      "exactQuestion": "How can end-to-end tests prove a skill written by install_skill becomes discoverable after the target agent reloads its project skill directory?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/mcp/src/index.ts: installSkill returns a reload instruction after writing SKILL.md",
+        "packages/shared/src/constants/agents.ts: supported agents define distinct config and skills directory conventions"
+      ],
+      "secondaryKeywords": [
+        "agent reload skill discovery",
+        "MCP installed skill not found",
+        "Claude project skill discovery",
+        "Cursor project skill discovery",
+        "SKILL.md post-install smoke test"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/agents",
+        "/getting-started",
+        "/blog/how-to-install-skills-claude-code",
+        "/blog/how-to-install-skills-cursor"
+      ],
+      "authoritativeSources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://nodejs.org/api/fs.html",
+        "https://github.com/modelcontextprotocol/typescript-sdk"
+      ],
+      "collisionAudit": {
+        "nearestExisting": "/blog/how-to-install-skills-claude-code",
+        "whyDistinct": "The existing article is a human installation tutorial. This candidate automates the post-write agent discovery and reload acceptance flow."
+      }
+    }
+  ],
+  "rejections": [
+    {
+      "primaryKeyword": "MCP API timeout testing",
+      "slug": "mcp-api-timeout-testing",
+      "collisionType": "primary keyword and intent",
+      "reason": "Exact topic already exists, including AbortController deadlines, cancellation, cleanup, HTTP errors, and network failures.",
+      "collidingRoute": "/blog/mcp-api-timeout-abortcontroller-testing",
+      "collidingTitle": "MCP API Timeout Testing"
+    },
+    {
+      "primaryKeyword": "MCP search filter schema drift",
+      "slug": "mcp-search-filter-schema-drift",
+      "collisionType": "primary keyword",
+      "reason": "Exact search schema parity intent already exists.",
+      "collidingRoute": "/blog/mcp-search-filter-schema-drift-contract-tests",
+      "collidingTitle": "MCP Search Filter Schema Drift"
+    },
+    {
+      "primaryKeyword": "MCP search response normalization",
+      "slug": "mcp-search-response-normalization",
+      "collisionType": "primary keyword",
+      "reason": "Exact response projection, defaults, order, and JSON text intent already exists.",
+      "collidingRoute": "/blog/mcp-search-response-normalization-contract-tests",
+      "collidingTitle": "MCP Search Response Normalization"
+    },
+    {
+      "primaryKeyword": "MCP package version drift testing",
+      "slug": "mcp-package-version-drift-testing",
+      "collisionType": "primary keyword",
+      "reason": "Exact package.json, server.json, runtime identity, and publish artifact version parity topic already exists.",
+      "collidingRoute": "/blog/mcp-package-registry-version-drift-tests",
+      "collidingTitle": "MCP Package Version Drift Testing"
+    },
+    {
+      "primaryKeyword": "MCP server testing complete guide",
+      "slug": "mcp-server-testing-complete-guide",
+      "collisionType": "intent cannibalization",
+      "reason": "A broad protocol, tools, and security testing guide already answers the same searcher need.",
+      "collidingRoute": "/blog/mcp-server-testing-guide-2026",
+      "collidingTitle": "MCP Server Testing Complete Guide for Protocol, Tools, and Security"
+    },
+    {
+      "primaryKeyword": "MCP tool schema contract testing",
+      "slug": "mcp-tool-schema-contract-testing",
+      "collisionType": "primary keyword and intent",
+      "reason": "The existing article already covers schemas, defaults, invalid inputs, and error types.",
+      "collidingRoute": "/blog/mcp-server-contract-testing-guide",
+      "collidingTitle": "Test MCP Tool Schemas, Defaults, Invalid Inputs, and Error Types"
+    },
+    {
+      "primaryKeyword": "MCP Inspector automated tool testing",
+      "slug": "mcp-inspector-automated-tool-testing",
+      "collisionType": "intent cannibalization",
+      "reason": "The existing tutorial already automates tools/list and tools/call with MCP Inspector CLI.",
+      "collidingRoute": "/blog/mcp-inspector-tutorial-2026",
+      "collidingTitle": "Use MCP Inspector CLI to Automate tools/list and tools/call Tests"
+    },
+    {
+      "primaryKeyword": "MCP official conformance suite testing",
+      "slug": "mcp-official-conformance-suite-testing",
+      "collisionType": "intent cannibalization",
+      "reason": "The official conformance suite server workflow already has a dedicated article.",
+      "collidingRoute": "/blog/mcp-official-conformance-suite-server-guide-2026",
+      "collidingTitle": "Run the Official MCP Conformance Suite Against Your Server"
+    },
+    {
+      "primaryKeyword": "MCP conformance tests GitHub Actions",
+      "slug": "mcp-conformance-tests-github-actions",
+      "collisionType": "primary keyword and intent",
+      "reason": "A CI baseline article already covers MCP conformance tests in GitHub Actions.",
+      "collidingRoute": "/blog/mcp-conformance-github-actions-baseline-2026",
+      "collidingTitle": "Add MCP Conformance Tests to GitHub Actions with Failure Baselines"
+    },
+    {
+      "primaryKeyword": "MCP tool poisoning security testing",
+      "slug": "mcp-tool-poisoning-security-testing",
+      "collisionType": "primary keyword and intent",
+      "reason": "A dedicated MCP tool poisoning testing and defense guide already exists.",
+      "collidingRoute": "/blog/mcp-tool-poisoning-testing-guide-2026",
+      "collidingTitle": "MCP Tool Poisoning: How to Test and Defend Your MCP Server (2026)"
+    },
+    {
+      "primaryKeyword": "QASkills MCP server guide",
+      "slug": "qaskills-mcp-server-guide",
+      "collisionType": "exact slug",
+      "reason": "The product, installation, and tool overview page already targets this exact query.",
+      "collidingRoute": "/blog/qaskills-mcp-server-guide",
+      "collidingTitle": "What Is the QASkills MCP Server? Install QA Skills From Any AI Agent"
+    },
+    {
+      "primaryKeyword": "create MCP server QA tools",
+      "slug": "create-mcp-server-qa-tools",
+      "collisionType": "intent cannibalization",
+      "reason": "A full build tutorial already answers how to create an MCP server for QA testing tools.",
+      "collidingRoute": "/blog/how-to-create-mcp-server-for-qa-testing-tools",
+      "collidingTitle": "How to Create an MCP Server for QA Testing Tools"
+    },
+    {
+      "primaryKeyword": "MCP registry guide QA teams",
+      "slug": "mcp-registry-guide-qa-teams",
+      "collisionType": "intent cannibalization",
+      "reason": "The registry discovery and installation intent is already covered for QA teams.",
+      "collidingRoute": "/blog/mcp-registry-qa-teams-guide-2026",
+      "collidingTitle": "MCP Registry for QA Teams: What to Install in 2026"
+    },
+    {
+      "primaryKeyword": "Promptfoo MCP security testing",
+      "slug": "promptfoo-mcp-security-testing",
+      "collisionType": "primary keyword and intent",
+      "reason": "A dedicated Promptfoo MCP provider red-team article already exists.",
+      "collidingRoute": "/blog/promptfoo-mcp-provider-security-testing-2026",
+      "collidingTitle": "Test and Red-Team an MCP Server with Promptfoo's MCP Provider"
+    },
+    {
+      "primaryKeyword": "MCP agent tool retry testing",
+      "slug": "mcp-agent-tool-retry-testing",
+      "collisionType": "intent cannibalization",
+      "reason": "The agent retry article already covers transient failures, bounded backoff, idempotency, and terminal outcomes.",
+      "collidingRoute": "/blog/testing-agent-tool-call-retry-behavior",
+      "collidingTitle": "Testing Agent Tool-Call Retry Behavior"
+    },
+    {
+      "primaryKeyword": "MCP search sort mapping tests",
+      "slug": "mcp-search-sort-mapping-tests",
+      "collisionType": "intent cannibalization",
+      "reason": "Sort enum and API mapping drift is already a central section of the existing MCP search schema article.",
+      "collidingRoute": "/blog/mcp-search-filter-schema-drift-contract-tests",
+      "collidingTitle": "MCP Search Filter Schema Drift"
+    },
+    {
+      "primaryKeyword": "MCP search field projection tests",
+      "slug": "mcp-search-field-projection-tests",
+      "collisionType": "intent cannibalization",
+      "reason": "The existing normalization article already tests projected fields, private data omission, and output compatibility.",
+      "collidingRoute": "/blog/mcp-search-response-normalization-contract-tests",
+      "collidingTitle": "MCP Search Response Normalization"
+    },
+    {
+      "primaryKeyword": "MCP AbortController cancellation tests",
+      "slug": "mcp-abortcontroller-cancellation-tests",
+      "collisionType": "intent cannibalization",
+      "reason": "AbortController cancellation, deadlines, and timer cleanup are already covered in the MCP API timeout article.",
+      "collidingRoute": "/blog/mcp-api-timeout-abortcontroller-testing",
+      "collidingTitle": "MCP API Timeout Testing"
+    }
+  ]
+}

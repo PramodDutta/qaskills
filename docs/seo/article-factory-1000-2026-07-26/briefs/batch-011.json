@@ -1,0 +1,1185 @@
+{
+  "batch": 11,
+  "briefs": [
+    {
+      "sourceTopicId": "cli-sdk-mcp-150",
+      "batch": 11,
+      "batchPosition": 1,
+      "domain": "cli-sdk-mcp",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-telemetry-insert-counter-consistency",
+      "primaryKeyword": "QASkills telemetry insert counter consistency",
+      "title": "Qaskills Telemetry Insert Counter Consistency",
+      "description": "QASkills telemetry insert counter consistency: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should QA teams diagnose QASkills telemetry insert counter consistency, including an inserted event followed by a failed counter update?",
+      "intentBoundary": "Covers an inserted event followed by a failed counter update. Excludes concurrent replay protection.",
+      "secondaryKeywords": [
+        "how to test telemetry insert counter consistency",
+        "telemetry insert counter consistency test cases",
+        "telemetry insert counter consistency edge cases",
+        "telemetry insert counter consistency CI validation",
+        "telemetry insert counter consistency failure diagnostics",
+        "telemetry insert counter consistency regression coverage"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills telemetry insert counter consistency verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams diagnose QASkills telemetry insert counter consistency, including an inserted event followed by a failed counter update?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "How do you build how to test telemetry insert counter consistency?",
+          "question": true,
+          "secondaryKeyword": "how to test telemetry insert counter consistency",
+          "coverage": "Create an isolated fixture for how to test telemetry insert counter consistency. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts",
+            "packages/mcp/src/index.ts"
+          ]
+        },
+        {
+          "heading": "What breaks telemetry insert counter consistency test cases?",
+          "question": true,
+          "secondaryKeyword": "telemetry insert counter consistency test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for telemetry insert counter consistency test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "packages/web/src/lib/telemetry-normalize.ts"
+          ]
+        },
+        {
+          "heading": "Telemetry insert counter consistency edge cases fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "telemetry insert counter consistency edge cases",
+          "coverage": "Turn telemetry insert counter consistency edge cases into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/web/src/lib/telemetry-normalize.ts",
+            "packages/web/src/app/api/telemetry/install/route.ts"
+          ]
+        },
+        {
+          "heading": "How should telemetry insert counter consistency CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "telemetry insert counter consistency CI validation",
+          "coverage": "Build the oracle for telemetry insert counter consistency CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/web/src/app/api/telemetry/install/route.ts",
+            "packages/cli/src/lib/telemetry.ts"
+          ]
+        },
+        {
+          "heading": "Telemetry insert counter consistency failure diagnostics in CI",
+          "question": false,
+          "secondaryKeyword": "telemetry insert counter consistency failure diagnostics",
+          "coverage": "Package telemetry insert counter consistency failure diagnostics as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Telemetry Insert Counter Consistency comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills telemetry insert counter consistency?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts",
+            "packages/mcp/src/index.ts",
+            "packages/web/src/lib/telemetry-normalize.ts",
+            "packages/web/src/app/api/telemetry/install/route.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts",
+            "packages/mcp/src/index.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Telemetry Insert Counter Consistency scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/lib/telemetry.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry insert counter consistency.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/lib/telemetry.ts"
+          },
+          {
+            "scenario": "how to test telemetry insert counter consistency",
+            "controlledSetup": "Change only the condition represented by \"how to test telemetry insert counter consistency\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry insert counter consistency.",
+            "failureSignal": "The observed result differs from the approved how to test telemetry insert counter consistency contract.",
+            "evidenceSource": "packages/cli/src/lib/api-client.ts"
+          },
+          {
+            "scenario": "telemetry insert counter consistency test cases",
+            "controlledSetup": "Change only the condition represented by \"telemetry insert counter consistency test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry insert counter consistency.",
+            "failureSignal": "The observed result differs from the approved telemetry insert counter consistency test cases contract.",
+            "evidenceSource": "packages/mcp/src/index.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry insert counter consistency.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/web/src/lib/telemetry-normalize.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry insert counter consistency.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/web/src/app/api/telemetry/install/route.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/lib/telemetry.ts",
+          "packages/cli/src/lib/api-client.ts",
+          "packages/mcp/src/index.ts",
+          "packages/web/src/lib/telemetry-normalize.ts",
+          "packages/web/src/app/api/telemetry/install/route.ts",
+          "https://nodejs.org/api/environment_variables.html",
+          "https://nodejs.org/api/globals.html#fetch",
+          "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/DNT"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills telemetry insert counter consistency",
+        "steps": [
+          "Read packages/cli/src/lib/telemetry.ts and packages/cli/src/lib/api-client.ts and packages/mcp/src/index.ts and packages/web/src/lib/telemetry-normalize.ts and packages/web/src/app/api/telemetry/install/route.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills telemetry insert counter consistency with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for how to test telemetry insert counter consistency, telemetry insert counter consistency test cases, telemetry insert counter consistency edge cases, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills telemetry insert counter consistency baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/telemetry.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills telemetry insert counter consistency fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/api-client.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/telemetry.ts",
+        "packages/cli/src/lib/api-client.ts",
+        "packages/mcp/src/index.ts",
+        "packages/web/src/lib/telemetry-normalize.ts",
+        "packages/web/src/app/api/telemetry/install/route.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/privacy",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "/blog/install-telemetry-compatibility-tests",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-disable-telemetry-do-not-track",
+        "install-telemetry-compatibility-tests",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide"
+      ],
+      "sources": [
+        "https://nodejs.org/api/environment_variables.html",
+        "https://nodejs.org/api/globals.html#fetch",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/DNT"
+      ],
+      "faqQuestions": [
+        "How should QA teams diagnose QASkills telemetry insert counter consistency, including an inserted event followed by a failed counter update?",
+        "What should a how to test telemetry insert counter consistency fixture record?",
+        "Which failure proves telemetry insert counter consistency test cases is broken?",
+        "How do teams isolate telemetry insert counter consistency edge cases?",
+        "Which assertion is strongest for telemetry insert counter consistency CI validation?",
+        "How should CI report telemetry insert counter consistency failure diagnostics failures?"
+      ],
+      "cta": "Read /blog/qaskills-cli-disable-telemetry-do-not-track, then open /skills and add the QASkills telemetry insert counter consistency checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-mcp-141",
+      "batch": 11,
+      "batchPosition": 2,
+      "domain": "cli-sdk-mcp",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-telemetry-process-shutdown-delivery",
+      "primaryKeyword": "QASkills telemetry process shutdown delivery",
+      "title": "Qaskills Telemetry Process Shutdown Delivery",
+      "description": "QASkills telemetry process shutdown delivery: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should QA teams diagnose QASkills telemetry process shutdown delivery, including fire-and-forget requests surviving or being lost at command exit?",
+      "intentBoundary": "Covers fire-and-forget requests surviving or being lost at command exit. Excludes whether users can opt out.",
+      "secondaryKeywords": [
+        "how to test telemetry process shutdown delivery",
+        "telemetry process shutdown delivery test cases",
+        "telemetry process shutdown delivery edge cases",
+        "telemetry process shutdown delivery CI validation",
+        "telemetry process shutdown delivery failure diagnostics",
+        "telemetry process shutdown delivery regression coverage"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills telemetry process shutdown delivery verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA teams diagnose QASkills telemetry process shutdown delivery, including fire-and-forget requests surviving or being lost at command exit?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "How do you build how to test telemetry process shutdown delivery?",
+          "question": true,
+          "secondaryKeyword": "how to test telemetry process shutdown delivery",
+          "coverage": "Create an isolated fixture for how to test telemetry process shutdown delivery. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts",
+            "packages/mcp/src/index.ts"
+          ]
+        },
+        {
+          "heading": "What breaks telemetry process shutdown delivery test cases?",
+          "question": true,
+          "secondaryKeyword": "telemetry process shutdown delivery test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for telemetry process shutdown delivery test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "packages/web/src/lib/telemetry-normalize.ts"
+          ]
+        },
+        {
+          "heading": "Telemetry process shutdown delivery edge cases fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "telemetry process shutdown delivery edge cases",
+          "coverage": "Turn telemetry process shutdown delivery edge cases into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/web/src/lib/telemetry-normalize.ts",
+            "packages/web/src/app/api/telemetry/install/route.ts"
+          ]
+        },
+        {
+          "heading": "How should telemetry process shutdown delivery CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "telemetry process shutdown delivery CI validation",
+          "coverage": "Build the oracle for telemetry process shutdown delivery CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/web/src/app/api/telemetry/install/route.ts",
+            "packages/cli/src/lib/telemetry.ts"
+          ]
+        },
+        {
+          "heading": "Telemetry process shutdown delivery failure diagnostics in CI",
+          "question": false,
+          "secondaryKeyword": "telemetry process shutdown delivery failure diagnostics",
+          "coverage": "Package telemetry process shutdown delivery failure diagnostics as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Telemetry Process Shutdown Delivery comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills telemetry process shutdown delivery?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts",
+            "packages/mcp/src/index.ts",
+            "packages/web/src/lib/telemetry-normalize.ts",
+            "packages/web/src/app/api/telemetry/install/route.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts",
+            "packages/mcp/src/index.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Telemetry Process Shutdown Delivery scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/lib/telemetry.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry process shutdown delivery.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/lib/telemetry.ts"
+          },
+          {
+            "scenario": "how to test telemetry process shutdown delivery",
+            "controlledSetup": "Change only the condition represented by \"how to test telemetry process shutdown delivery\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry process shutdown delivery.",
+            "failureSignal": "The observed result differs from the approved how to test telemetry process shutdown delivery contract.",
+            "evidenceSource": "packages/cli/src/lib/api-client.ts"
+          },
+          {
+            "scenario": "telemetry process shutdown delivery test cases",
+            "controlledSetup": "Change only the condition represented by \"telemetry process shutdown delivery test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry process shutdown delivery.",
+            "failureSignal": "The observed result differs from the approved telemetry process shutdown delivery test cases contract.",
+            "evidenceSource": "packages/mcp/src/index.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry process shutdown delivery.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/web/src/lib/telemetry-normalize.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry process shutdown delivery.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/web/src/app/api/telemetry/install/route.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/lib/telemetry.ts",
+          "packages/cli/src/lib/api-client.ts",
+          "packages/mcp/src/index.ts",
+          "packages/web/src/lib/telemetry-normalize.ts",
+          "packages/web/src/app/api/telemetry/install/route.ts",
+          "https://nodejs.org/api/environment_variables.html",
+          "https://nodejs.org/api/globals.html#fetch",
+          "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/DNT"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills telemetry process shutdown delivery",
+        "steps": [
+          "Read packages/cli/src/lib/telemetry.ts and packages/cli/src/lib/api-client.ts and packages/mcp/src/index.ts and packages/web/src/lib/telemetry-normalize.ts and packages/web/src/app/api/telemetry/install/route.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills telemetry process shutdown delivery with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for how to test telemetry process shutdown delivery, telemetry process shutdown delivery test cases, telemetry process shutdown delivery edge cases, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills telemetry process shutdown delivery baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/telemetry.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills telemetry process shutdown delivery fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/api-client.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/telemetry.ts",
+        "packages/cli/src/lib/api-client.ts",
+        "packages/mcp/src/index.ts",
+        "packages/web/src/lib/telemetry-normalize.ts",
+        "packages/web/src/app/api/telemetry/install/route.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/privacy",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "/blog/install-telemetry-compatibility-tests",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-disable-telemetry-do-not-track",
+        "install-telemetry-compatibility-tests",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide"
+      ],
+      "sources": [
+        "https://nodejs.org/api/environment_variables.html",
+        "https://nodejs.org/api/globals.html#fetch",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/DNT"
+      ],
+      "faqQuestions": [
+        "How should QA teams diagnose QASkills telemetry process shutdown delivery, including fire-and-forget requests surviving or being lost at command exit?",
+        "What should a how to test telemetry process shutdown delivery fixture record?",
+        "Which failure proves telemetry process shutdown delivery test cases is broken?",
+        "How do teams isolate telemetry process shutdown delivery edge cases?",
+        "Which assertion is strongest for telemetry process shutdown delivery CI validation?",
+        "How should CI report telemetry process shutdown delivery failure diagnostics failures?"
+      ],
+      "cta": "Read /blog/qaskills-cli-disable-telemetry-do-not-track, then open /skills and add the QASkills telemetry process shutdown delivery checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-mcp-049",
+      "batch": 11,
+      "batchPosition": 3,
+      "domain": "cli-sdk-mcp",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-atomic-skill-replacement-testing",
+      "primaryKeyword": "QASkills atomic skill replacement testing",
+      "title": "Qaskills Atomic Skill Replacement Testing",
+      "description": "QASkills atomic skill replacement testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams test QASkills atomic skill replacement testing, including readers observing replacement while files are copied?",
+      "intentBoundary": "Covers readers observing replacement while files are copied. Excludes registry version history.",
+      "secondaryKeywords": [
+        "how to test atomic skill replacement",
+        "atomic skill replacement test cases",
+        "atomic skill replacement edge cases",
+        "atomic skill replacement CI validation",
+        "atomic skill replacement failure diagnostics",
+        "atomic skill replacement regression coverage"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills atomic skill replacement testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams test QASkills atomic skill replacement testing, including readers observing replacement while files are copied?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How do you build how to test atomic skill replacement?",
+          "question": true,
+          "secondaryKeyword": "how to test atomic skill replacement",
+          "coverage": "Create an isolated fixture for how to test atomic skill replacement. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "What breaks atomic skill replacement test cases?",
+          "question": true,
+          "secondaryKeyword": "atomic skill replacement test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for atomic skill replacement test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.test.ts"
+          ]
+        },
+        {
+          "heading": "Atomic skill replacement edge cases fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "atomic skill replacement edge cases",
+          "coverage": "Turn atomic skill replacement edge cases into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.test.ts",
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How should atomic skill replacement CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "atomic skill replacement CI validation",
+          "coverage": "Build the oracle for atomic skill replacement CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Atomic skill replacement failure diagnostics in CI",
+          "question": false,
+          "secondaryKeyword": "atomic skill replacement failure diagnostics",
+          "coverage": "Package atomic skill replacement failure diagnostics as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Atomic Skill Replacement Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills atomic skill replacement testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.test.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Atomic Skill Replacement Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/lib/installer.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills atomic skill replacement testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "how to test atomic skill replacement",
+            "controlledSetup": "Change only the condition represented by \"how to test atomic skill replacement\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills atomic skill replacement testing.",
+            "failureSignal": "The observed result differs from the approved how to test atomic skill replacement contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "atomic skill replacement test cases",
+            "controlledSetup": "Change only the condition represented by \"atomic skill replacement test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills atomic skill replacement testing.",
+            "failureSignal": "The observed result differs from the approved atomic skill replacement test cases contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills atomic skill replacement testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.test.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills atomic skill replacement testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.test.ts",
+          "https://agentskills.io/specification",
+          "https://nodejs.org/api/fs.html",
+          "https://nodejs.org/api/child_process.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills atomic skill replacement testing",
+        "steps": [
+          "Read packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.test.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills atomic skill replacement testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for how to test atomic skill replacement, atomic skill replacement test cases, atomic skill replacement edge cases, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills atomic skill replacement testing baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/installer.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills atomic skill replacement testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/installer.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.test.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "/blog/qaskills-cli-extract-skill-package-github",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-download-fallback-github-content-metadata",
+        "qaskills-cli-extract-skill-package-github",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide"
+      ],
+      "sources": [
+        "https://agentskills.io/specification",
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/child_process.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams test QASkills atomic skill replacement testing, including readers observing replacement while files are copied?",
+        "What should a how to test atomic skill replacement fixture record?",
+        "Which failure proves atomic skill replacement test cases is broken?",
+        "How do teams isolate atomic skill replacement edge cases?",
+        "Which assertion is strongest for atomic skill replacement CI validation?",
+        "How should CI report atomic skill replacement failure diagnostics failures?"
+      ],
+      "cta": "Read /blog/qaskills-cli-download-fallback-github-content-metadata, then open /skills and add the QASkills atomic skill replacement testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-mcp-145",
+      "batch": 11,
+      "batchPosition": 4,
+      "domain": "cli-sdk-mcp",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-telemetry-retry-policy-testing",
+      "primaryKeyword": "QASkills telemetry retry policy testing",
+      "title": "Qaskills Telemetry Retry Policy Testing",
+      "description": "QASkills telemetry retry policy testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams test QASkills telemetry retry policy testing, including the no-retry client policy and duplicate-risk tradeoffs?",
+      "intentBoundary": "Covers the no-retry client policy and duplicate-risk tradeoffs. Excludes server replay protection.",
+      "secondaryKeywords": [
+        "how to test telemetry retry policy",
+        "telemetry retry policy test cases",
+        "telemetry retry policy edge cases",
+        "telemetry retry policy CI validation",
+        "telemetry retry policy failure diagnostics",
+        "telemetry retry policy regression coverage"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills telemetry retry policy testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams test QASkills telemetry retry policy testing, including the no-retry client policy and duplicate-risk tradeoffs?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "How do you build how to test telemetry retry policy?",
+          "question": true,
+          "secondaryKeyword": "how to test telemetry retry policy",
+          "coverage": "Create an isolated fixture for how to test telemetry retry policy. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts",
+            "packages/mcp/src/index.ts"
+          ]
+        },
+        {
+          "heading": "What breaks telemetry retry policy test cases?",
+          "question": true,
+          "secondaryKeyword": "telemetry retry policy test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for telemetry retry policy test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/mcp/src/index.ts",
+            "packages/web/src/lib/telemetry-normalize.ts"
+          ]
+        },
+        {
+          "heading": "Telemetry retry policy edge cases fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "telemetry retry policy edge cases",
+          "coverage": "Turn telemetry retry policy edge cases into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/web/src/lib/telemetry-normalize.ts",
+            "packages/web/src/app/api/telemetry/install/route.ts"
+          ]
+        },
+        {
+          "heading": "How should telemetry retry policy CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "telemetry retry policy CI validation",
+          "coverage": "Build the oracle for telemetry retry policy CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/web/src/app/api/telemetry/install/route.ts",
+            "packages/cli/src/lib/telemetry.ts"
+          ]
+        },
+        {
+          "heading": "Telemetry retry policy failure diagnostics in CI",
+          "question": false,
+          "secondaryKeyword": "telemetry retry policy failure diagnostics",
+          "coverage": "Package telemetry retry policy failure diagnostics as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Telemetry Retry Policy Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills telemetry retry policy testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts",
+            "packages/mcp/src/index.ts",
+            "packages/web/src/lib/telemetry-normalize.ts",
+            "packages/web/src/app/api/telemetry/install/route.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts",
+            "packages/mcp/src/index.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/lib/telemetry.ts",
+            "packages/cli/src/lib/api-client.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Telemetry Retry Policy Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/lib/telemetry.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry retry policy testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/lib/telemetry.ts"
+          },
+          {
+            "scenario": "how to test telemetry retry policy",
+            "controlledSetup": "Change only the condition represented by \"how to test telemetry retry policy\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry retry policy testing.",
+            "failureSignal": "The observed result differs from the approved how to test telemetry retry policy contract.",
+            "evidenceSource": "packages/cli/src/lib/api-client.ts"
+          },
+          {
+            "scenario": "telemetry retry policy test cases",
+            "controlledSetup": "Change only the condition represented by \"telemetry retry policy test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry retry policy testing.",
+            "failureSignal": "The observed result differs from the approved telemetry retry policy test cases contract.",
+            "evidenceSource": "packages/mcp/src/index.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry retry policy testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/web/src/lib/telemetry-normalize.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills telemetry retry policy testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/web/src/app/api/telemetry/install/route.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/lib/telemetry.ts",
+          "packages/cli/src/lib/api-client.ts",
+          "packages/mcp/src/index.ts",
+          "packages/web/src/lib/telemetry-normalize.ts",
+          "packages/web/src/app/api/telemetry/install/route.ts",
+          "https://nodejs.org/api/environment_variables.html",
+          "https://nodejs.org/api/globals.html#fetch",
+          "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/DNT"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills telemetry retry policy testing",
+        "steps": [
+          "Read packages/cli/src/lib/telemetry.ts and packages/cli/src/lib/api-client.ts and packages/mcp/src/index.ts and packages/web/src/lib/telemetry-normalize.ts and packages/web/src/app/api/telemetry/install/route.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills telemetry retry policy testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for how to test telemetry retry policy, telemetry retry policy test cases, telemetry retry policy edge cases, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills telemetry retry policy testing baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/telemetry.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills telemetry retry policy testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/api-client.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/telemetry.ts",
+        "packages/cli/src/lib/api-client.ts",
+        "packages/mcp/src/index.ts",
+        "packages/web/src/lib/telemetry-normalize.ts",
+        "packages/web/src/app/api/telemetry/install/route.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/privacy",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "/blog/install-telemetry-compatibility-tests",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-disable-telemetry-do-not-track",
+        "install-telemetry-compatibility-tests",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide"
+      ],
+      "sources": [
+        "https://nodejs.org/api/environment_variables.html",
+        "https://nodejs.org/api/globals.html#fetch",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/DNT"
+      ],
+      "faqQuestions": [
+        "How can QA teams test QASkills telemetry retry policy testing, including the no-retry client policy and duplicate-risk tradeoffs?",
+        "What should a how to test telemetry retry policy fixture record?",
+        "Which failure proves telemetry retry policy test cases is broken?",
+        "How do teams isolate telemetry retry policy edge cases?",
+        "Which assertion is strongest for telemetry retry policy CI validation?",
+        "How should CI report telemetry retry policy failure diagnostics failures?"
+      ],
+      "cta": "Read /blog/qaskills-cli-disable-telemetry-do-not-track, then open /skills and add the QASkills telemetry retry policy testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "cli-sdk-mcp-053",
+      "batch": 11,
+      "batchPosition": 5,
+      "domain": "cli-sdk-mcp",
+      "campaignCluster": "cli-sdk-mcp",
+      "slug": "qaskills-binary-asset-fidelity-testing",
+      "primaryKeyword": "QASkills binary asset fidelity testing",
+      "title": "Qaskills Binary Asset Fidelity Testing",
+      "description": "QASkills binary asset fidelity testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams test QASkills binary asset fidelity testing, including byte-for-byte assets copied through staging and destination delivery?",
+      "intentBoundary": "Covers byte-for-byte assets copied through staging and destination delivery. Excludes ZIP artifact checksums.",
+      "secondaryKeywords": [
+        "how to test binary asset fidelity",
+        "binary asset fidelity test cases",
+        "binary asset fidelity edge cases",
+        "binary asset fidelity CI validation",
+        "binary asset fidelity failure diagnostics",
+        "binary asset fidelity regression coverage"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills binary asset fidelity testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams test QASkills binary asset fidelity testing, including byte-for-byte assets copied through staging and destination delivery?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How do you build how to test binary asset fidelity?",
+          "question": true,
+          "secondaryKeyword": "how to test binary asset fidelity",
+          "coverage": "Create an isolated fixture for how to test binary asset fidelity. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "What breaks binary asset fidelity test cases?",
+          "question": true,
+          "secondaryKeyword": "binary asset fidelity test cases",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for binary asset fidelity test cases. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.test.ts"
+          ]
+        },
+        {
+          "heading": "Binary asset fidelity edge cases fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "binary asset fidelity edge cases",
+          "coverage": "Turn binary asset fidelity edge cases into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.test.ts",
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How should binary asset fidelity CI validation be asserted?",
+          "question": true,
+          "secondaryKeyword": "binary asset fidelity CI validation",
+          "coverage": "Build the oracle for binary asset fidelity CI validation from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Binary asset fidelity failure diagnostics in CI",
+          "question": false,
+          "secondaryKeyword": "binary asset fidelity failure diagnostics",
+          "coverage": "Package binary asset fidelity failure diagnostics as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Qaskills Binary Asset Fidelity Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "How do you implement QASkills binary asset fidelity testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.ts",
+            "packages/cli/src/lib/installer.test.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Qaskills Binary Asset Fidelity Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by packages/cli/src/lib/installer.ts.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills binary asset fidelity testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "how to test binary asset fidelity",
+            "controlledSetup": "Change only the condition represented by \"how to test binary asset fidelity\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills binary asset fidelity testing.",
+            "failureSignal": "The observed result differs from the approved how to test binary asset fidelity contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "binary asset fidelity test cases",
+            "controlledSetup": "Change only the condition represented by \"binary asset fidelity test cases\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills binary asset fidelity testing.",
+            "failureSignal": "The observed result differs from the approved binary asset fidelity test cases contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills binary asset fidelity testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "packages/cli/src/lib/installer.test.ts"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by QASkills binary asset fidelity testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "packages/cli/src/lib/installer.ts"
+          }
+        ],
+        "sources": [
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.ts",
+          "packages/cli/src/lib/installer.test.ts",
+          "https://agentskills.io/specification",
+          "https://nodejs.org/api/fs.html",
+          "https://nodejs.org/api/child_process.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run QASkills binary asset fidelity testing",
+        "steps": [
+          "Read packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.ts and packages/cli/src/lib/installer.test.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for QASkills binary asset fidelity testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for how to test binary asset fidelity, binary asset fidelity test cases, binary asset fidelity edge cases, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the QASkills binary asset fidelity testing baseline",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/installer.ts",
+          "focus": "Adapt the repository workflow into an isolated QASkills binary asset fidelity testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "packages/cli/src/lib/installer.ts",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.ts",
+        "packages/cli/src/lib/installer.test.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "/blog/qaskills-cli-extract-skill-package-github",
+        "/blog/mcp-for-qa-engineers-guide",
+        "/blog/mcp-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-download-fallback-github-content-metadata",
+        "qaskills-cli-extract-skill-package-github",
+        "mcp-for-qa-engineers-guide",
+        "mcp-testing-automation-guide"
+      ],
+      "sources": [
+        "https://agentskills.io/specification",
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/child_process.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams test QASkills binary asset fidelity testing, including byte-for-byte assets copied through staging and destination delivery?",
+        "What should a how to test binary asset fidelity fixture record?",
+        "Which failure proves binary asset fidelity test cases is broken?",
+        "How do teams isolate binary asset fidelity edge cases?",
+        "Which assertion is strongest for binary asset fidelity CI validation?",
+        "How should CI report binary asset fidelity failure diagnostics failures?"
+      ],
+      "cta": "Read /blog/qaskills-cli-download-fallback-github-content-metadata, then open /skills and add the QASkills binary asset fidelity testing checks to the next QA run."
+    }
+  ]
+}

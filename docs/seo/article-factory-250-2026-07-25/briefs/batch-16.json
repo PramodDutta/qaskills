@@ -1,0 +1,746 @@
+{
+  "batch": 16,
+  "briefs": [
+    {
+      "batch": 16,
+      "batchPosition": 1,
+      "domain": "data-search-cache",
+      "sourceTopicId": "search-08",
+      "slug": "typesense-query-field-coverage-testing",
+      "primaryKeyword": "Typesense query field coverage testing",
+      "title": "Typesense query field coverage testing",
+      "description": "Use Typesense query field coverage testing to prove name, description, and author are searchable while taxonomy and slug remain filter fields.",
+      "intent": "how-to",
+      "coreQuestion": "How do you prove name, description, and author are searchable while slug and taxonomy fields remain filter-only?",
+      "secondaryKeywords": [
+        "Typesense query_by contract test",
+        "search author field testing",
+        "slug not searchable regression",
+        "searchable versus faceted fields",
+        "Typesense field coverage matrix"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Typesense Query Field Coverage Testing Prove?",
+          "question": true,
+          "coverage": "Define searchable fields from query_by and separate them from fields used only for filtering, faceting, sorting, or result mapping."
+        },
+        {
+          "heading": "How Do You Build a Typesense query_by Contract Test?",
+          "question": true,
+          "secondaryKeyword": "Typesense query_by contract test",
+          "coverage": "Index unique tokens in name, description, author, slug, and taxonomy fields, then query each token with production parameters."
+        },
+        {
+          "heading": "What Does Search Author Field Testing Verify?",
+          "question": true,
+          "secondaryKeyword": "search author field testing",
+          "coverage": "Prove an author-only token finds the document and remains compatible with author facet filtering."
+        },
+        {
+          "heading": "Slug Not Searchable Regression Cases",
+          "question": false,
+          "secondaryKeyword": "slug not searchable regression",
+          "coverage": "Assert a token present only in slug does not match unless it is also present in one of the three query_by fields."
+        },
+        {
+          "heading": "How Do Searchable Versus Faceted Fields Differ?",
+          "question": true,
+          "secondaryKeyword": "searchable versus faceted fields",
+          "coverage": "Map query_by, filter_by, and facet_by behavior and test taxonomy arrays through filters rather than free-text assumptions."
+        },
+        {
+          "heading": "Typesense Field Coverage Matrix",
+          "question": false,
+          "secondaryKeyword": "Typesense field coverage matrix",
+          "coverage": "Cover each collection field and label its query, filter, facet, sort, and response roles."
+        },
+        {
+          "heading": "Field Token, Query Parameters, and Expected Hits",
+          "question": false,
+          "coverage": "Present one unique token per field with expected found counts and facet output."
+        },
+        {
+          "heading": "How Do You Run the Field Coverage Procedure?",
+          "question": true,
+          "coverage": "Create a disposable collection, index controlled documents, execute production search options, and assert positive and negative cases."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about query_by, facets, slug discovery, author search, array fields, wildcard queries, and relevance."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the field-role contract and point to search-focused QA skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Typesense skill field coverage map",
+        "columns": [
+          "Field",
+          "query_by",
+          "filter_by",
+          "facet_by",
+          "sort_by",
+          "Expected token match"
+        ],
+        "rows": [
+          "name",
+          "description",
+          "author",
+          "slug",
+          "taxonomy arrays",
+          "qualityScore and installCount",
+          "createdAt"
+        ],
+        "sources": [
+          "packages/web/src/lib/typesense/search.ts",
+          "packages/web/src/lib/typesense/client.ts",
+          "https://typesense.org/docs/latest/api/search.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to verify Typesense field coverage",
+        "steps": [
+          "Create documents with a distinct token in each candidate field.",
+          "Run searchSkills with one token at a time.",
+          "Assert name, description, and author tokens return the intended document.",
+          "Assert slug-only and taxonomy-only tokens do not match free-text search.",
+          "Apply taxonomy filters and verify those same fields work as facets.",
+          "Snapshot the production query_by and facet_by parameter strings."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Capture production query and facet fields",
+          "language": "typescript",
+          "path": "packages/web/src/lib/typesense/search.ts",
+          "focus": "Assert query_by and facet_by include exactly the intended fields."
+        },
+        {
+          "title": "Index one-token-per-field documents",
+          "language": "typescript",
+          "path": "packages/web/src/lib/typesense/client.ts",
+          "focus": "Build fixtures that conform to skillsSchema and isolate every field role."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/lib/typesense/search.ts",
+        "packages/web/src/lib/typesense/client.ts",
+        "packages/shared/src/types/skill.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/categories/api-testing",
+        "/blog/testing-typesense-multiselect-facet-filter-queries",
+        "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "/blog/mcp-search-response-normalization-contract-tests",
+        "/blog/database-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "testing-typesense-multiselect-facet-filter-queries",
+        "mcp-search-filter-schema-drift-contract-tests",
+        "mcp-search-response-normalization-contract-tests",
+        "database-testing-automation-guide"
+      ],
+      "sources": [
+        "https://typesense.org/docs/latest/api/search.html",
+        "https://typesense.org/docs/latest/guide/ranking-and-relevance.html"
+      ],
+      "cta": "Browse search testing skills at /skills and apply the field coverage matrix to your index."
+    },
+    {
+      "batch": 16,
+      "batchPosition": 2,
+      "domain": "data-search-cache",
+      "sourceTopicId": "search-02",
+      "slug": "typesense-connection-timeout-testing",
+      "primaryKeyword": "Typesense connection timeout testing",
+      "title": "Typesense connection timeout testing",
+      "description": "Use Typesense connection timeout testing to verify the five-second client limit and distinguish search outages from an unconfigured service.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you test the five-second Typesense connection timeout and distinguish timeout failures from an unconfigured client?",
+      "secondaryKeywords": [
+        "Typesense timeout error test",
+        "search node unavailable testing",
+        "Typesense client retry behavior",
+        "five second connection timeout",
+        "configured search outage test"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Typesense Connection Timeout Testing Distinguish?",
+          "question": true,
+          "coverage": "Separate missing configuration, refused connection, stalled connection, remote error, and successful slow response outcomes."
+        },
+        {
+          "heading": "How Do You Write a Typesense Timeout Error Test?",
+          "question": true,
+          "secondaryKeyword": "Typesense timeout error test",
+          "coverage": "Point the client at a controlled server that accepts but delays a response and measure rejection near the configured limit with tolerance."
+        },
+        {
+          "heading": "What Does Search Node Unavailable Testing Cover?",
+          "question": true,
+          "secondaryKeyword": "search node unavailable testing",
+          "coverage": "Compare DNS failure, connection refusal, stalled socket, and server error without assuming they share one exception shape."
+        },
+        {
+          "heading": "Typesense Client Retry Behavior",
+          "question": false,
+          "secondaryKeyword": "Typesense client retry behavior",
+          "coverage": "Observe the installed client behavior using one configured node and avoid claims about retries not proven by the source or official client."
+        },
+        {
+          "heading": "How Do You Assert the Five Second Connection Timeout?",
+          "question": true,
+          "secondaryKeyword": "five second connection timeout",
+          "coverage": "Use monotonic timing, bounded tolerance, and fake or local delayed transport so CI scheduling does not create fragile exact-time assertions."
+        },
+        {
+          "heading": "Configured Search Outage Test Versus No Configuration",
+          "question": false,
+          "secondaryKeyword": "configured search outage test",
+          "coverage": "Assert getTypesenseClient returns null without an API key, while a configured remote failure rejects from searchSkills because no local catch exists."
+        },
+        {
+          "heading": "Configuration and Failure Outcome Matrix",
+          "question": false,
+          "coverage": "Present client state, network behavior, elapsed range, searchSkills result or error, and endpoint impact."
+        },
+        {
+          "heading": "How Do You Run a Deterministic Timeout Procedure?",
+          "question": true,
+          "coverage": "Reset the singleton, isolate environment variables, use a delayed test server, call searchSkills, and assert time plus error handling."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about connection versus request timeouts, retries, singleton reset, missing API keys, CI tolerance, and fallback behavior."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "State the two distinct service states and direct readers to search reliability skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Typesense client state and outage matrix",
+        "columns": [
+          "API key",
+          "Node behavior",
+          "Client returned",
+          "Expected elapsed time",
+          "searchSkills outcome",
+          "Assertion"
+        ],
+        "rows": [
+          "missing configuration",
+          "healthy node",
+          "connection refused",
+          "stalled response",
+          "server error",
+          "response before timeout"
+        ],
+        "sources": [
+          "packages/web/src/lib/typesense/client.ts",
+          "packages/web/src/lib/typesense/search.ts",
+          "https://typesense.org/docs/latest/api/search.html",
+          "https://github.com/typesense/typesense-js"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to test the Typesense timeout",
+        "steps": [
+          "Save and isolate all Typesense environment variables.",
+          "Verify a missing API key returns the empty unconfigured result.",
+          "Start a local HTTP server that accepts the request but delays its response.",
+          "Configure the singleton to use that server and call searchSkills.",
+          "Measure elapsed time with a monotonic clock and assert a bounded timeout window.",
+          "Restore environment state and close the delayed server."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Configure a five-second Typesense client",
+          "language": "typescript",
+          "path": "packages/web/src/lib/typesense/client.ts",
+          "focus": "Exercise singleton creation, missing-key behavior, one-node configuration, and connectionTimeoutSeconds."
+        },
+        {
+          "title": "Observe configured and unconfigured search outcomes",
+          "language": "typescript",
+          "path": "packages/web/src/lib/typesense/search.ts",
+          "focus": "Assert empty fallback only for a null client and rejection for a configured remote failure."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/lib/typesense/client.ts",
+        "packages/web/src/lib/typesense/search.ts",
+        "packages/web/src/app/api/skills/route.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/categories/api-testing",
+        "/blog/testing-typesense-multiselect-facet-filter-queries",
+        "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "/blog/mcp-search-response-normalization-contract-tests",
+        "/blog/database-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "testing-typesense-multiselect-facet-filter-queries",
+        "mcp-search-filter-schema-drift-contract-tests",
+        "mcp-search-response-normalization-contract-tests",
+        "database-testing-automation-guide"
+      ],
+      "sources": [
+        "https://typesense.org/docs/latest/api/search.html",
+        "https://github.com/typesense/typesense-js"
+      ],
+      "cta": "Browse search reliability skills at /skills and add a controlled timeout server to your tests."
+    },
+    {
+      "batch": 16,
+      "batchPosition": 3,
+      "domain": "data-search-cache",
+      "sourceTopicId": "leaderboard-04",
+      "slug": "top-fifty-ranking-boundary-testing",
+      "primaryKeyword": "leaderboard top fifty boundary testing",
+      "title": "leaderboard top fifty boundary testing",
+      "description": "Use leaderboard top fifty boundary testing to verify inclusion, exclusion, ranking, and tie behavior at positions 50 and 51 for every filter.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test inclusion, exclusion, and tie behavior at positions 50 and 51 for every leaderboard filter?",
+      "secondaryKeywords": [
+        "top 50 ranking cutoff test",
+        "leaderboard position 51 exclusion",
+        "SQL limit tie boundary",
+        "ranking cutoff fixture design",
+        "leaderboard maximum rows contract"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Leaderboard Top Fifty Boundary Testing Prove?",
+          "question": true,
+          "coverage": "Define the 50-row contract for all, trending, hot, and new, plus rank assignment after truncation."
+        },
+        {
+          "heading": "How Do You Build a Top 50 Ranking Cutoff Test?",
+          "question": true,
+          "secondaryKeyword": "top 50 ranking cutoff test",
+          "coverage": "Seed at least 52 controlled skills and assign sortable values that make positions 49 through 52 unambiguous."
+        },
+        {
+          "heading": "What Proves Leaderboard Position 51 Exclusion?",
+          "question": true,
+          "secondaryKeyword": "leaderboard position 51 exclusion",
+          "coverage": "Assert the expected boundary ID is absent, the list has exactly 50 rows, and returned ranks end at 50."
+        },
+        {
+          "heading": "SQL Limit Tie Boundary Cases",
+          "question": false,
+          "secondaryKeyword": "SQL limit tie boundary",
+          "coverage": "Place equal primary sort values across positions 50 and 51 to expose missing or incomplete tiebreakers in each filter."
+        },
+        {
+          "heading": "How Does Ranking Cutoff Fixture Design Work?",
+          "question": true,
+          "secondaryKeyword": "ranking cutoff fixture design",
+          "coverage": "Control installCount, weeklyInstalls, qualityScore, createdAt, and the hot formula independently while retaining deterministic IDs."
+        },
+        {
+          "heading": "Leaderboard Maximum Rows Contract",
+          "question": false,
+          "secondaryKeyword": "leaderboard maximum rows contract",
+          "coverage": "Test fewer than, exactly, and more than 50 available rows and verify no client parameter changes the hard route limit."
+        },
+        {
+          "heading": "Filter, Boundary Values, and Expected IDs",
+          "question": false,
+          "coverage": "Present a table for all four filters with sort formula, boundary fixture, included ID, excluded ID, and residual tie risk."
+        },
+        {
+          "heading": "How Do You Run the Top-50 Procedure?",
+          "question": true,
+          "coverage": "Seed, clear each cache key, request each filter, and assert length, rank sequence, position 50, and exclusion of position 51."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about SQL LIMIT, ties, rank gaps, cache keys, hot scoring, fewer rows, and pagination alternatives."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the boundary contract and point readers to leaderboard automation skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Leaderboard filter boundary matrix",
+        "columns": [
+          "Filter",
+          "Primary order",
+          "Secondary order",
+          "Expected rank 50",
+          "Expected excluded ID",
+          "Tie risk"
+        ],
+        "rows": ["all", "trending", "hot", "new"],
+        "sources": [
+          "packages/web/src/app/api/leaderboard/route.ts",
+          "packages/web/src/db/schema/skills.ts",
+          "https://www.postgresql.org/docs/current/queries-limit.html",
+          "https://www.postgresql.org/docs/current/queries-order.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to verify the top-50 boundary",
+        "steps": [
+          "Seed 52 skills with controlled values for every ranking field.",
+          "Compute expected order for one filter in the test fixture.",
+          "Clear that filter's leaderboard cache key.",
+          "Request the filter and assert exactly 50 rows and ranks one through 50.",
+          "Assert the expected boundary ID is last and position 51 is absent.",
+          "Repeat the calculation and assertions for all, trending, hot, and new."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Exercise every limit-50 branch",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/leaderboard/route.ts",
+          "focus": "Verify each filter truncates before rank assignment and preserves its sorting contract."
+        },
+        {
+          "title": "Seed controlled ranking values",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/skills.ts",
+          "focus": "Create 52 rows with explicit install, weekly, quality, and timestamp values."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/leaderboard/route.ts",
+        "packages/web/src/db/schema/skills.ts",
+        "packages/web/src/lib/cache.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/leaderboard",
+        "/categories/api-testing",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "/blog/database-testing-automation-guide",
+        "/blog/api-testing-complete-guide",
+        "/blog/redis-cache-testing-guide"
+      ],
+      "relatedSlugs": [
+        "testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "database-testing-automation-guide",
+        "api-testing-complete-guide",
+        "redis-cache-testing-guide"
+      ],
+      "sources": [
+        "https://www.postgresql.org/docs/current/queries-limit.html",
+        "https://www.postgresql.org/docs/current/queries-order.html"
+      ],
+      "cta": "Open /leaderboard and use testing skills from /skills to automate every cutoff branch."
+    },
+    {
+      "batch": 16,
+      "batchPosition": 4,
+      "domain": "data-search-cache",
+      "sourceTopicId": "category-01",
+      "slug": "category-response-grouping-contract-testing",
+      "primaryKeyword": "category response grouping contract testing",
+      "title": "category response grouping contract testing",
+      "description": "Use category response grouping contract testing to verify four stable arrays, correct row placement, and explicit empty groups in every response.",
+      "intent": "how-to",
+      "coreQuestion": "How do you prove every category lands in the correct testingType, framework, language, or domain array and empty groups remain present?",
+      "secondaryKeywords": [
+        "category API group shape test",
+        "empty taxonomy group contract",
+        "testingType framework language domain",
+        "category grouping integration test",
+        "stable category response keys"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Category Response Grouping Contract Testing Prove?",
+          "question": true,
+          "coverage": "Define four always-present array keys, recognized type-to-key mapping, row preservation, and no cross-group duplication."
+        },
+        {
+          "heading": "How Do You Write a Category API Group Shape Test?",
+          "question": true,
+          "secondaryKeyword": "category API group shape test",
+          "coverage": "Validate the top-level JSON keys and array types before checking row-level content."
+        },
+        {
+          "heading": "What Is the Empty Taxonomy Group Contract?",
+          "question": true,
+          "secondaryKeyword": "empty taxonomy group contract",
+          "coverage": "Seed no rows for one or more recognized types and prove their keys remain present with empty arrays."
+        },
+        {
+          "heading": "TestingType Framework Language Domain Mapping",
+          "question": false,
+          "secondaryKeyword": "testingType framework language domain",
+          "coverage": "Map each stored type exactly to its response key and verify names, slugs, metadata, and IDs remain unchanged."
+        },
+        {
+          "heading": "How Do You Build a Category Grouping Integration Test?",
+          "question": true,
+          "secondaryKeyword": "category grouping integration test",
+          "coverage": "Use a real database fixture and cache reset so selection, grouping, serialization, and response behavior are tested together."
+        },
+        {
+          "heading": "Stable Category Response Keys",
+          "question": false,
+          "secondaryKeyword": "stable category response keys",
+          "coverage": "Assert exact key presence independent of row counts while avoiding brittle assumptions about array order not promised by the query."
+        },
+        {
+          "heading": "Stored Type and Response Group Matrix",
+          "question": false,
+          "coverage": "Present the four valid values, destination keys, empty-group behavior, and representative row assertions."
+        },
+        {
+          "heading": "How Do You Run the Grouping Procedure?",
+          "question": true,
+          "coverage": "Seed one row per recognized type, clear cache, request categories, assert shape and membership, then rerun with an empty group."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about empty arrays, key naming, row order, cache reset, unsupported types, and schema validation."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the stable response contract and link to the categories and skills pages."
+        }
+      ],
+      "tablePlan": {
+        "title": "Category type to response group contract",
+        "columns": [
+          "Stored type",
+          "Response key",
+          "Array always present",
+          "Representative fields",
+          "Empty behavior",
+          "Negative assertion"
+        ],
+        "rows": ["testingType", "framework", "language", "domain"],
+        "sources": [
+          "packages/web/src/app/api/categories/route.ts",
+          "packages/web/src/db/schema/categories.ts",
+          "https://www.rfc-editor.org/info/rfc8259"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to verify category response grouping",
+        "steps": [
+          "Seed one uniquely identifiable row for each recognized category type.",
+          "Delete the categories:all cache key.",
+          "Call GET and assert the exact four top-level array keys.",
+          "Assert every seeded ID appears once in its expected group only.",
+          "Delete all rows for one type and clear cache again.",
+          "Assert the corresponding key remains present as an empty array."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Assert four initialized response groups",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/categories/route.ts",
+          "focus": "Verify group keys, row placement, empty arrays, and cached response serialization."
+        },
+        {
+          "title": "Seed one row per stored category type",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/categories.ts",
+          "focus": "Create deterministic fixtures with unique IDs, slugs, and type values."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/categories/route.ts",
+        "packages/web/src/db/schema/categories.ts",
+        "packages/web/src/lib/cache.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide",
+        "/blog/api-testing-complete-guide",
+        "/blog/testing-postgresql-jsonb-multiselect-filters-drizzle",
+        "/blog/redis-cache-testing-guide"
+      ],
+      "relatedSlugs": [
+        "database-testing-automation-guide",
+        "api-testing-complete-guide",
+        "testing-postgresql-jsonb-multiselect-filters-drizzle",
+        "redis-cache-testing-guide"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/info/rfc8259",
+        "https://nextjs.org/docs/app/building-your-application/routing/route-handlers"
+      ],
+      "cta": "Open /categories, browse related QA skills at /skills, and automate the four-group contract."
+    },
+    {
+      "batch": 16,
+      "batchPosition": 5,
+      "domain": "data-search-cache",
+      "sourceTopicId": "data-05",
+      "slug": "drizzle-sort-alias-contract-testing",
+      "primaryKeyword": "Drizzle sort alias contract testing",
+      "title": "Drizzle sort alias contract testing",
+      "description": "Use Drizzle sort alias contract testing to prove each public sort value selects the expected column and unknown values fall back to trending.",
+      "intent": "how-to",
+      "coreQuestion": "How do you prove every public sort alias maps to the expected Drizzle order and unknown values use trending?",
+      "secondaryKeywords": [
+        "API sort parameter contract",
+        "Drizzle order by mapping test",
+        "unknown sort fallback testing",
+        "popular alias regression test",
+        "highest quality sort API"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Drizzle Sort Alias Contract Testing Prove?",
+          "question": true,
+          "coverage": "Define the accepted sort strings, shared aliases, descending columns, deterministic ID tiebreaker, and trending fallback."
+        },
+        {
+          "heading": "How Do You Test the API Sort Parameter Contract?",
+          "question": true,
+          "secondaryKeyword": "API sort parameter contract",
+          "coverage": "Issue requests for newest, quality, highest_quality, popular, most_installed, trending, missing, and unknown values."
+        },
+        {
+          "heading": "What Is a Drizzle Order By Mapping Test?",
+          "question": true,
+          "secondaryKeyword": "Drizzle order by mapping test",
+          "coverage": "Use fixtures whose createdAt, qualityScore, installCount, and weeklyInstalls produce visibly different orders."
+        },
+        {
+          "heading": "Unknown Sort Fallback Testing",
+          "question": false,
+          "secondaryKeyword": "unknown sort fallback testing",
+          "coverage": "Assert unrecognized and case-variant values select weeklyInstalls descending, then ID descending for ties."
+        },
+        {
+          "heading": "How Do You Build a Popular Alias Regression Test?",
+          "question": true,
+          "secondaryKeyword": "popular alias regression test",
+          "coverage": "Prove popular and most_installed return the same ordered IDs for a stable fixture."
+        },
+        {
+          "heading": "Highest Quality Sort API Aliases",
+          "question": false,
+          "secondaryKeyword": "highest quality sort API",
+          "coverage": "Compare quality and highest_quality and verify both use qualityScore rather than install metrics."
+        },
+        {
+          "heading": "Sort Value, Column, Alias, and Fallback Matrix",
+          "question": false,
+          "coverage": "Present every public input with expected primary order, equivalent alias, tie key, and response example."
+        },
+        {
+          "heading": "How Do You Run the Sort Contract Procedure?",
+          "question": true,
+          "coverage": "Seed conflicting metric orders, call each alias, assert ID sequences, and include missing plus unknown controls."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about descending order, aliases, unknown values, tie handling, pagination, case sensitivity, and defaults."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the public-to-database mapping and point to the sortable skills directory."
+        }
+      ],
+      "tablePlan": {
+        "title": "Skills API sort alias contract",
+        "columns": [
+          "sort input",
+          "Primary column",
+          "Direction",
+          "Equivalent alias",
+          "Tie column",
+          "Fallback"
+        ],
+        "rows": [
+          "newest",
+          "quality",
+          "highest_quality",
+          "popular",
+          "most_installed",
+          "trending",
+          "missing or unknown"
+        ],
+        "sources": [
+          "packages/web/src/app/api/skills/route.ts",
+          "packages/web/src/db/schema/skills.ts",
+          "https://orm.drizzle.team/docs/select",
+          "https://www.postgresql.org/docs/current/queries-order.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to verify sort aliases",
+        "steps": [
+          "Seed skills whose four sortable fields each imply a different order.",
+          "Request every documented sort value with a fixed page and limit.",
+          "Assert the returned ID sequence for each primary column.",
+          "Compare popular with most_installed and quality with highest_quality.",
+          "Request a missing and an unknown sort value.",
+          "Assert both fallback cases match the trending order and ID tiebreaker."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Table-test the route sort switch",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/skills/route.ts",
+          "focus": "Exercise every alias, default branch, descending order, and unique ID tiebreaker."
+        },
+        {
+          "title": "Seed contradictory sort metrics",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/skills.ts",
+          "focus": "Create rows that expose any accidental mapping to the wrong field."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts",
+        "packages/web/src/db/schema/skills.ts",
+        "packages/shared/src/schemas/skill-schema.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/leaderboard",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide",
+        "/blog/postgres-migration-testing-guide",
+        "/blog/testing-postgresql-jsonb-multiselect-filters-drizzle",
+        "/blog/testing-lazy-neon-database-initialization-nextjs-build"
+      ],
+      "relatedSlugs": [
+        "database-testing-automation-guide",
+        "postgres-migration-testing-guide",
+        "testing-postgresql-jsonb-multiselect-filters-drizzle",
+        "testing-lazy-neon-database-initialization-nextjs-build"
+      ],
+      "sources": [
+        "https://orm.drizzle.team/docs/select",
+        "https://www.postgresql.org/docs/current/queries-order.html"
+      ],
+      "cta": "Open /skills, exercise every sort alias, and use the related QA skills to keep the contract stable."
+    }
+  ]
+}

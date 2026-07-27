@@ -1,0 +1,1553 @@
+{
+  "metadata": {
+    "generatedAt": "2026-07-27T03:35:37.213Z",
+    "campaignCluster": "ai-llm-rag",
+    "auditType": "independent-intent-and-publication-depth",
+    "workingDirectory": "/private/tmp/qaskills-seo-factory-20260727",
+    "inputs": {
+      "selected": "docs/seo/article-factory-1000-2026-07-26/selected.json",
+      "inventory": "docs/seo/article-factory-250-2026-07-25/inventory.json",
+      "writerContract": "docs/seo/article-factory-1000-2026-07-26/writer-contract.md",
+      "briefBatches": {
+        "first": "docs/seo/article-factory-1000-2026-07-26/briefs/batch-076.json",
+        "last": "docs/seo/article-factory-1000-2026-07-26/briefs/batch-100.json",
+        "count": 25
+      }
+    },
+    "contractChecksApplied": {
+      "bodyWords": "3,000 to 4,000",
+      "outline": "approximately 10 H2 sections with question-led sections",
+      "codeExamples": "at least 2 repository-backed examples",
+      "faqQuestions": "5 to 8",
+      "internalLinks": "9 to 20 placements with at least 5 unique routes and 4 related posts",
+      "sourceRule": "technical claims must be traceable to repository evidence or approved authoritative sources",
+      "securityRule": "defensive scope only; no invented privacy, authorization, or offensive behavior",
+      "contractFileRead": false
+    },
+    "decisionMethod": [
+      "Compared every target with the complete baseline inventory and all selected campaign topics.",
+      "Reviewed the target intent boundary, exact question, secondary keywords, repository evidence, routes, authoritative sources, and generated brief.",
+      "Rejected matching searcher intent even when the proposed slug or wording differed.",
+      "Rejected product-specific or security-sensitive pages when the selected evidence did not support the central contract.",
+      "Rejected topics that could not sustain 3,000 honest words without repetition, padding, or unsupported claims.",
+      "Checked every recommended reserve against inventory, all retained selected topics, and the other replacements."
+    ]
+  },
+  "counts": {
+    "inventoryItemsCompared": 1778,
+    "allSelectedTopicsCompared": 750,
+    "campaignSelectedTargets": 125,
+    "campaignReservePool": 163,
+    "reviews": 125,
+    "passed": 107,
+    "rejected": 18,
+    "inventoryIntentCollisions": 6,
+    "selectedIntentCollisions": 1,
+    "evidenceSourceOrSafetyRejects": 11,
+    "replacements": 18
+  },
+  "reviews": [
+    {
+      "slug": "agent-delegated-task-timeout-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Timeout behavior for delegated agent work only, not tool-call cancellation.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, agentic-testing/SKILL.md, posts/multi-agent-system-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, genai.owasp.org align with agent trajectories, delegation, memory state, handoffs, and deterministic outcome checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "agent-tool-argument-injection-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Safe argument boundary validation only, not shell, SQL, or SSRF exploit instruction.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (llm-security-testing/SKILL.md, promptfoo-llm-red-teaming/SKILL.md, posts/prompt-injection-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from genai.owasp.org, www.nist.gov, www.promptfoo.dev align with defensive prompt-injection fixtures, trust boundaries, synthetic canaries, and safe assertions. Keep examples inert and defensive, with no deployable bypass or exfiltration instructions."
+    },
+    {
+      "slug": "agent-tool-timeout-compensation-testing",
+      "decision": "reject",
+      "reason": "Reject for intent cannibalization. The existing final-state verification article already teaches the exact timeout-after-commit ambiguity, direct state reads before retry, idempotent recovery, stale-read handling, and duplicate-side-effect prevention. Calling this compensation does not create a different searcher outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "agent-final-state-verification-testing",
+        "route": "/blog/agent-final-state-verification-testing",
+        "title": "Agent final state verification testing",
+        "intentOverlap": "Both pages answer how an agent should verify an uncertain write after a timeout and avoid repeating the side effect."
+      },
+      "coverageAssessment": "The subject can support 3,000 words, but not as a distinct page. Most of the planned fixture matrix, reconciliation workflow, retry rules, and CI assertions would restate the existing article rather than add a separate publication boundary.",
+      "evidenceAssessment": "The agent-eval and system-quality skills provide generic tool postcondition checks, while the cited tool-use regression article does not implement timeout compensation. The strongest concrete repository evidence is already used by the colliding final-state article."
+    },
+    {
+      "slug": "deepeval-skipped-case-accounting-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Test-run case accounting only, not smoke-versus-nightly partitioning.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (deepeval-llm-evaluation/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/deepeval-pytest-llm-testing-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from deepeval.com align with DeepEval test cases, metrics, pytest integration, execution flags, and result accounting. Use only the current DeepEval APIs covered by the approved URLs and repository examples."
+    },
+    {
+      "slug": "eval-dataset-annotation-disagreement-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Human label disagreement only, not model-grader versus human disagreement.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-agent-eval/SKILL.md, openai-evals-trace-grading/SKILL.md, posts/golden-dataset-llm-evaluation-guide.ts, article-factory-250-2026-07-25/inventory.json), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, deepeval.com, huggingface.co align with eval case construction, labels, identifiers, splits, review states, and regression workflows. Treat governance steps as QA recommendations unless a cited platform contract defines them."
+    },
+    {
+      "slug": "llm-fallback-model-equivalence-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Contract equivalence of a configured fallback model only, not model comparison rankings.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (prompt-testing/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/testing-llm-applications-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, www.rfc-editor.org, opentelemetry.io align with LLM request contracts, batching, retries, fallback behavior, rate limits, and failure accounting. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-generation-span-naming-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Generation span names and standard attributes only, not telemetry cardinality budgets.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (langfuse-llm-observability/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/langfuse-trace-quality-testing-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from opentelemetry.io, langfuse.com align with trace and span attributes, token telemetry, export behavior, and production feedback loops. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-judge-prompt-injection-resistance",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Defensive judge isolation with inert fixtures only, not general application prompt injection.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, openai-evals-trace-grading/SKILL.md, posts/llm-judge-calibration-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, arxiv.org, deepeval.com align with grader calibration, score behavior, rubric design, disagreement analysis, and eval fixtures. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-numeric-claim-consistency-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Arithmetic consistency of answer claims only, not general factuality scoring.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (prompt-testing/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/hallucination-detection-pipeline-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from deepeval.com, docs.ragas.io, platform.openai.com align with claim extraction, deterministic checks, factuality fixtures, and failure classification. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "multimodal-image-order-sensitivity",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Ordering of multiple image inputs only, not RAG context order.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-model-testing/SKILL.md, promptfoo-llm-red-teaming/SKILL.md, posts/promptfoo-red-teaming-llm-applications.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, deepeval.com, www.promptfoo.dev align with image-oriented test matrices, metamorphic fixtures, multimodal assertions, and red-team boundaries. Use synthetic media and calibrated project thresholds, not invented benchmark claims."
+    },
+    {
+      "slug": "openai-grader-disagreement-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Disagreement among graders in one OpenAI eval only, not broad ensemble design.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (openai-evals-trace-grading/SKILL.md, ai-agent-eval/SKILL.md, posts/openai-evals-trace-grading-complete-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com align with OpenAI eval data, graders, trace grading, run lifecycle, and result handling. Keep endpoint and grader behavior tied to the approved OpenAI documentation and avoid undocumented guarantees."
+    },
+    {
+      "slug": "promptfoo-extension-hook-cleanup-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Extension hook lifecycle only, not custom assertion exception handling.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (promptfoo-llm-red-teaming/SKILL.md, prompt-testing/SKILL.md, posts/promptfoo-complete-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.promptfoo.dev align with Promptfoo configuration, scenario variables, hooks, state isolation, and assertion workflows. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "ragas-experiment-reproducibility-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Ragas experiment provenance only, not general model non-determinism or cache behavior.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ragas-rag-evaluation/SKILL.md, rag-evaluation-metrics/SKILL.md, posts/ragas-rag-evaluation-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from docs.ragas.io align with Ragas datasets, metrics, callbacks, executors, token parsing, and evaluation results. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "red-team-waiver-expiration-testing",
+      "decision": "reject",
+      "reason": "Reject for intent cannibalization. The existing release waiver ownership guide already defines named ownership, explicit risk acceptance, expiry, evidence, audit checks, follow-up, and fail-closed behavior. Limiting the finding source to red-team scans does not change the waiver lifecycle searcher needs.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "release-waiver-ownership-acceptance-contract",
+        "route": "/blog/release-waiver-ownership-acceptance-contract",
+        "title": "Release Waiver Ownership Guide",
+        "intentOverlap": "Both pages define how temporary release exceptions are owned, accepted, expired, audited, and blocked when invalid."
+      },
+      "coverageAssessment": "A 3,000-word article would be possible only by repeating the published waiver contract and substituting red-team examples. That is topical variation, not independent publication depth.",
+      "evidenceAssessment": "The red-team and system-quality skills support findings and gates, but the concrete waiver contract is already captured by the colliding inventory article. No red-team-specific mechanism creates a separate evidence base."
+    },
+    {
+      "slug": "voice-agent-recording-consent-testing",
+      "decision": "reject",
+      "reason": "Reject for unsupported and privacy-sensitive scope. The selected evidence covers voice quality, latency, realtime transport, and WebRTC, but it does not define a recording-consent state machine, revocation semantics, retention policy, replay controls, or jurisdiction-neutral compliance contract.",
+      "nearestCollision": null,
+      "coverageAssessment": "The topic could reach 3,000 words only by inventing product policy or drifting into legal and privacy guidance. The narrow synthetic-session boundary does not supply the missing consent states, audit events, retention rules, and authoritative privacy requirements.",
+      "evidenceAssessment": "Weak and mismatched. The voice skill, prompt-testing skill, and time-to-first-token article do not implement consent enforcement. OpenAI audio and realtime documentation plus the WebRTC specification describe media transport, not recording consent or legal obligations."
+    },
+    {
+      "slug": "agent-dynamic-tool-availability-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Runtime changes to the available tool set only, not schema evolution for one stable tool.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/agent-tool-use-regression-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, genai.owasp.org align with tool selection, argument validation, result contracts, recovery, and postcondition checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "ai-gate-comparator-version-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Version identity of quality-gate decision logic only, not baseline or artifact retention.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-release-guardian/SKILL.md, posts/article-factory-250-publication.test.ts, e2e/article-factory-250-2026-07-25.e2e.ts, product/REGRESSION-GAPS-2026-07.md), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.nist.gov, platform.openai.com, docs.github.com align with quality-gate verdicts, evidence, ownership, rollback signals, and CI enforcement. Describe team-owned gate contracts and do not imply that article publication tests implement model rollout infrastructure."
+    },
+    {
+      "slug": "ai-release-slice-ownership-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Ownership metadata and routing only, not dataset slice balance.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-release-guardian/SKILL.md, posts/article-factory-250-publication.test.ts, e2e/article-factory-250-2026-07-25.e2e.ts, product/REGRESSION-GAPS-2026-07.md), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.nist.gov, platform.openai.com, docs.github.com align with quality-gate verdicts, evidence, ownership, rollback signals, and CI enforcement. Describe team-owned gate contracts and do not imply that article publication tests implement model rollout infrastructure."
+    },
+    {
+      "slug": "deepeval-conversational-turn-order-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"ConversationalTestCase turn sequencing only, not broad multi-turn quality metrics.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (deepeval-llm-evaluation/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/deepeval-pytest-llm-testing-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from deepeval.com align with DeepEval test cases, metrics, pytest integration, execution flags, and result accounting. Use only the current DeepEval APIs covered by the approved URLs and repository examples."
+    },
+    {
+      "slug": "deepeval-metric-initialization-failure-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Metric construction and preflight only, not runtime evaluator timeouts or score direction.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (deepeval-llm-evaluation/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/deepeval-pytest-llm-testing-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from deepeval.com align with DeepEval test cases, metrics, pytest integration, execution flags, and result accounting. Use only the current DeepEval APIs covered by the approved URLs and repository examples."
+    },
+    {
+      "slug": "eval-dataset-provenance-manifest-testing",
+      "decision": "reject",
+      "reason": "Reject for unsupported licensing and provenance claims. The selected sources explain eval datasets and loading, but they do not define the proposed manifest fields for licenses, transformation lineage, reviewer identity, consent, or permitted usage.",
+      "nearestCollision": null,
+      "coverageAssessment": "A trustworthy 3,000-word provenance guide needs an adopted schema, legal usage boundaries, lineage implementation, and validation code. The current evidence would force the article to invent a standard or make unsupported licensing recommendations.",
+      "evidenceAssessment": "Insufficient. Repository files cover benchmark creation and JSONL dataset format, not a provenance manifest implementation. The approved OpenAI, DeepEval, and Hugging Face pages do not establish the proposed governance contract."
+    },
+    {
+      "slug": "grader-score-distribution-collapse",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Loss of score discrimination only, not model-output distribution drift.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, openai-evals-trace-grading/SKILL.md, posts/llm-judge-calibration-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, arxiv.org, deepeval.com align with grader calibration, score behavior, rubric design, disagreement analysis, and eval fixtures. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "guardrail-overrefusal-slice-testing",
+      "decision": "reject",
+      "reason": "Reject for intent cannibalization. The existing guardrail false-positive article already covers safe-request datasets, slice-level overrefusal, macro and traffic-weighted reporting, threshold tuning, confidence intervals, and per-slice release gates.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "testing-guardrail-false-positive-rate",
+        "route": "/blog/testing-guardrail-false-positive-rate",
+        "title": "Testing an LLM Guardrail’s False-Positive Rate",
+        "intentOverlap": "Slice-specific overrefusal is the false-positive analysis workflow already covered by the existing page."
+      },
+      "coverageAssessment": "There is enough material for a long article, but the honest 3,000-word treatment is already published. A second page would repeat dataset design, slice selection, false-positive measurement, threshold tradeoffs, and release gating.",
+      "evidenceAssessment": "The red-team skill and guardrail guide support the subject, but they do not establish a new workflow beyond the existing article. The evidence is adequate for the old intent, not for a distinct new page."
+    },
+    {
+      "slug": "llm-batch-partial-failure-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Batch API item accounting only, not agent batch actions.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (prompt-testing/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/testing-llm-applications-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, www.rfc-editor.org, opentelemetry.io align with LLM request contracts, batching, retries, fallback behavior, rate limits, and failure accounting. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-code-symbol-hallucination-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Existence of technical symbols only, not compilation or broad AI-generated code review.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (prompt-testing/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/hallucination-detection-pipeline-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from deepeval.com, docs.ragas.io, platform.openai.com align with claim extraction, deterministic checks, factuality fixtures, and failure classification. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-discriminated-union-output-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Discriminated union branch selection only, not generic schema conformance.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (llm-output-testing/SKILL.md, prompt-testing/SKILL.md, posts/testing-llm-structured-output-json-schema-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from json-schema.org, platform.openai.com, www.promptfoo.dev align with structured-output schemas, parsers, negative fixtures, and boundary assertions. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-judge-reference-leakage-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Reference-answer leakage paths only, not eval dataset label leakage.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, openai-evals-trace-grading/SKILL.md, posts/llm-judge-calibration-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, arxiv.org, deepeval.com align with grader calibration, score behavior, rubric design, disagreement analysis, and eval fixtures. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-language-quality-drift-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Cross-release language quality drift only, not multilingual safety or RAG retrieval.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-model-testing/SKILL.md, rag-regression-testing/SKILL.md, posts/llm-non-determinism-flaky-eval-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.nist.gov, platform.openai.com align with baseline comparison, release slices, distribution checks, and drift triage. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-latency-distribution-drift-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Release-over-release latency distributions only, not one-request SLA tests.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-model-testing/SKILL.md, rag-regression-testing/SKILL.md, posts/llm-non-determinism-flaky-eval-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.nist.gov, platform.openai.com align with baseline comparison, release slices, distribution checks, and drift triage. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-orphan-tool-span-detection",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Missing parentage for tool spans only, not stale or truncated tool results.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (langfuse-llm-observability/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/langfuse-trace-quality-testing-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from opentelemetry.io, langfuse.com align with trace and span attributes, token telemetry, export behavior, and production feedback loops. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-provider-failover-provenance",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Failover provenance and attribution only, not fallback quality equivalence.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (prompt-testing/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/testing-llm-applications-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, www.rfc-editor.org, opentelemetry.io align with LLM request contracts, batching, retries, fallback behavior, rate limits, and failure accounting. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-refusal-schema-branch-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Schema handling of refusals only, not safety policy quality or guardrail recall.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (llm-output-testing/SKILL.md, prompt-testing/SKILL.md, posts/testing-llm-structured-output-json-schema-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from json-schema.org, platform.openai.com, www.promptfoo.dev align with structured-output schemas, parsers, negative fixtures, and boundary assertions. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-self-contradiction-detection-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Self-contradiction within generated answers only, not contradictory retrieved documents.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (prompt-testing/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/hallucination-detection-pipeline-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from deepeval.com, docs.ragas.io, platform.openai.com align with claim extraction, deterministic checks, factuality fixtures, and failure classification. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-trace-export-retry-idempotency",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Telemetry exporter retry idempotency only, not application request retries.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (langfuse-llm-observability/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/langfuse-trace-quality-testing-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from opentelemetry.io, langfuse.com align with trace and span attributes, token telemetry, export behavior, and production feedback loops. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "multi-agent-duplicate-work-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Duplicate work across agents only, not duplicate side effects from one tool retry.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, agentic-testing/SKILL.md, posts/multi-agent-system-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, genai.owasp.org align with agent trajectories, delegation, memory state, handoffs, and deterministic outcome checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "multi-agent-role-boundary-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Role and authority boundaries among agents only, not user-level permission testing.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, agentic-testing/SKILL.md, posts/multi-agent-system-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, genai.owasp.org align with agent trajectories, delegation, memory state, handoffs, and deterministic outcome checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "openai-eval-cancellation-accounting",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Hosted eval-run cancellation accounting only, not local suite timeouts.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (openai-evals-trace-grading/SKILL.md, ai-agent-eval/SKILL.md, posts/openai-evals-trace-grading-complete-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com align with OpenAI eval data, graders, trace grading, run lifecycle, and result handling. Keep endpoint and grader behavior tied to the approved OpenAI documentation and avoid undocumented guarantees."
+    },
+    {
+      "slug": "openai-eval-data-source-filtering",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Eval data-source filter behavior only, not dataset slice balance itself.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (openai-evals-trace-grading/SKILL.md, ai-agent-eval/SKILL.md, posts/openai-evals-trace-grading-complete-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com align with OpenAI eval data, graders, trace grading, run lifecycle, and result handling. Keep endpoint and grader behavior tied to the approved OpenAI documentation and avoid undocumented guarantees."
+    },
+    {
+      "slug": "prompt-injection-metadata-field-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Metadata-field trust boundaries only, not retrieved body-content injection.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (llm-security-testing/SKILL.md, promptfoo-llm-red-teaming/SKILL.md, posts/prompt-injection-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from genai.owasp.org, www.nist.gov, www.promptfoo.dev align with defensive prompt-injection fixtures, trust boundaries, synthetic canaries, and safe assertions. Keep examples inert and defensive, with no deployable bypass or exfiltration instructions."
+    },
+    {
+      "slug": "promptfoo-scenario-variable-precedence",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Scenario variable merge precedence only, not environment credential isolation.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (promptfoo-llm-red-teaming/SKILL.md, prompt-testing/SKILL.md, posts/promptfoo-complete-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.promptfoo.dev align with Promptfoo configuration, scenario variables, hooks, state isolation, and assertion workflows. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "rag-citation-rank-bias-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Citation selection bias by retrieval rank only, not context order sensitivity broadly.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (rag-evaluation-metrics/SKILL.md, prompt-testing/SKILL.md, posts/generated-seo-batch-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, docs.ragas.io, deepeval.com align with RAG grounding, citation completeness, evidence synthesis, and conversational fixtures. Present application-owned thresholds as examples, not universal RAG standards."
+    },
+    {
+      "slug": "rag-follow-up-grounding-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Conversational follow-up grounding only, not general multi-turn memory or query rewriting.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (rag-evaluation-metrics/SKILL.md, prompt-testing/SKILL.md, posts/generated-seo-batch-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, docs.ragas.io, deepeval.com align with RAG grounding, citation completeness, evidence synthesis, and conversational fixtures. Present application-owned thresholds as examples, not universal RAG standards."
+    },
+    {
+      "slug": "rag-multi-query-result-deduplication",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Result merging after multi-query retrieval only, not query-rewrite intent preservation.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (rag-regression-testing/SKILL.md, rag-evaluation-metrics/SKILL.md, posts/generated-seo-batch-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, docs.ragas.io, www.elastic.co align with retrieval metrics, query fixtures, result identity, ranking, and regression reports. Do not infer datastore consistency or authorization semantics that the evidence does not define."
+    },
+    {
+      "slug": "rag-retrieval-pagination-stability",
+      "decision": "reject",
+      "reason": "Reject for unsupported implementation semantics. The selected evidence does not define a vector-search cursor, stable snapshot, tie-break ordering, mutation behavior between pages, or pagination API whose contract can be tested.",
+      "nearestCollision": null,
+      "coverageAssessment": "Without a concrete pagination protocol, 3,000 words would be generic API pagination material attached to RAG. Honest depth requires documented cursor and consistency guarantees plus a reproducible retrieval implementation.",
+      "evidenceAssessment": "Weak and mismatched. The RAG skills and generated retrieval article cover metrics and regression reporting. The selected retrieval, Ragas metric, and Elasticsearch rank-eval sources do not establish retrieval pagination behavior."
+    },
+    {
+      "slug": "ragas-executor-cancellation-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Ragas executor cancellation only, not generic async tool-call cancellation.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ragas-rag-evaluation/SKILL.md, rag-evaluation-metrics/SKILL.md, posts/ragas-rag-evaluation-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from docs.ragas.io align with Ragas datasets, metrics, callbacks, executors, token parsing, and evaluation results. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "red-team-remediation-replay-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Post-remediation replay of confirmed findings only, not generative scan reproducibility.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (promptfoo-llm-red-teaming/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/llm-guardrails-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.promptfoo.dev, www.nist.gov align with guardrail policies, safe and adversarial fixtures, finding workflows, and release checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "vision-llm-chart-label-grounding",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Grounding claims to chart labels only, not broad chart question answering.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-model-testing/SKILL.md, promptfoo-llm-red-teaming/SKILL.md, posts/promptfoo-red-teaming-llm-applications.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, deepeval.com, www.promptfoo.dev align with image-oriented test matrices, metamorphic fixtures, multimodal assertions, and red-team boundaries. Use synthetic media and calibrated project thresholds, not invented benchmark claims."
+    },
+    {
+      "slug": "voice-agent-interruption-recovery-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Transport and playback interruption recovery only, not user barge-in semantics.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (voice-assistant-testing/SKILL.md, prompt-testing/SKILL.md, posts/testing-llm-time-to-first-token-sla.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, www.w3.org align with voice test matrices, realtime events, latency measures, turn behavior, and synthetic audio conditions. Stay within technical realtime and audio behavior; avoid hardware certification, consent, or legal claims."
+    },
+    {
+      "slug": "voice-agent-turn-detection-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Voice activity and turn boundaries only, not transcript accuracy.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (voice-assistant-testing/SKILL.md, prompt-testing/SKILL.md, posts/testing-llm-time-to-first-token-sla.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, www.w3.org align with voice test matrices, realtime events, latency measures, turn behavior, and synthetic audio conditions. Stay within technical realtime and audio behavior; avoid hardware certification, consent, or legal claims."
+    },
+    {
+      "slug": "agent-data-exfiltration-url-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Defensive outbound URL inspection using synthetic canaries only, not exfiltration techniques.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (llm-security-testing/SKILL.md, promptfoo-llm-red-teaming/SKILL.md, posts/prompt-injection-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from genai.owasp.org, www.nist.gov, www.promptfoo.dev align with defensive prompt-injection fixtures, trust boundaries, synthetic canaries, and safe assertions. Keep examples inert and defensive, with no deployable bypass or exfiltration instructions."
+    },
+    {
+      "slug": "agent-memory-deletion-verification",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Deletion propagation for one user memory only, not cross-user leakage.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, agentic-testing/SKILL.md, posts/multi-agent-system-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, genai.owasp.org align with agent trajectories, delegation, memory state, handoffs, and deterministic outcome checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "agent-memory-expiration-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Time-to-live behavior for agent memory only, not stale external tool results.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, agentic-testing/SKILL.md, posts/multi-agent-system-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, genai.owasp.org align with agent trajectories, delegation, memory state, handoffs, and deterministic outcome checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "agent-tool-authentication-refresh-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Credential refresh during tool use only, not authorization-policy testing.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/agent-tool-use-regression-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, genai.owasp.org align with tool selection, argument validation, result contracts, recovery, and postcondition checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "agent-tool-result-type-confusion",
+      "decision": "reject",
+      "reason": "Reject for selected-batch cannibalization. The retained unexpected-tool-response topic already covers null, partial, extra, incompatible, and malformed result shapes plus typed validation and controlled recovery. Result-type confusion is the same failure family and searcher task.",
+      "nearestCollision": {
+        "scope": "selected",
+        "slug": "agent-unexpected-tool-response-testing",
+        "route": null,
+        "title": "Test Unexpected Agent Tool Responses",
+        "intentOverlap": "Both pages test an agent receiving a tool result whose runtime shape violates the expected contract."
+      },
+      "coverageAssessment": "A detailed article is feasible, but two 3,000-word pages would reuse the same malformed-result fixtures, schema checks, recovery branches, and assertions. Keep the broader unexpected-response page and fold type confusion into it.",
+      "evidenceAssessment": "The agent-eval and system-quality skills support tool-result validation, but the same three evidence paths and source family back the retained selected page. The evidence does not justify two separate intents."
+    },
+    {
+      "slug": "ai-model-promotion-evidence-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Evidence completeness for model promotion only, not choosing which model is best.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-release-guardian/SKILL.md, posts/article-factory-250-publication.test.ts, e2e/article-factory-250-2026-07-25.e2e.ts, product/REGRESSION-GAPS-2026-07.md), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.nist.gov, platform.openai.com, docs.github.com align with quality-gate verdicts, evidence, ownership, rollback signals, and CI enforcement. Describe team-owned gate contracts and do not imply that article publication tests implement model rollout infrastructure."
+    },
+    {
+      "slug": "ai-quality-gate-missing-data-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Fail-closed handling of absent gate evidence only, not NaN metric values.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-release-guardian/SKILL.md, posts/article-factory-250-publication.test.ts, e2e/article-factory-250-2026-07-25.e2e.ts, product/REGRESSION-GAPS-2026-07.md), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.nist.gov, platform.openai.com, docs.github.com align with quality-gate verdicts, evidence, ownership, rollback signals, and CI enforcement. Describe team-owned gate contracts and do not imply that article publication tests implement model rollout infrastructure."
+    },
+    {
+      "slug": "ai-quality-waiver-expiration-testing",
+      "decision": "reject",
+      "reason": "Reject for intent cannibalization. The existing release waiver ownership guide already answers the complete quality-gate waiver workflow, including owner, acceptance, expiry, evidence, auditability, and strict no-go defaults. Adding an AI label does not create a distinct contract.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "release-waiver-ownership-acceptance-contract",
+        "route": "/blog/release-waiver-ownership-acceptance-contract",
+        "title": "Release Waiver Ownership Guide",
+        "intentOverlap": "Both pages govern temporary quality-gate exceptions and their expiry, ownership, evidence, and enforcement."
+      },
+      "coverageAssessment": "The planned release-gate examples can enrich the existing article, but cannot honestly support another 3,000-word page without repeating its governance model and audit checklist.",
+      "evidenceAssessment": "AI Release Guardian supports gate verdicts and waiver handling, while the publication tests demonstrate generic gates. The unique waiver semantics are already documented by the inventory collision."
+    },
+    {
+      "slug": "deepeval-synthesizer-evolution-testing",
+      "decision": "reject",
+      "reason": "Reject for source and evidence mismatch. The proposed page depends on specific DeepEval Synthesizer evolution behavior, but the approved source bundle only covers test cases, datasets, and evaluation flags. The repository evidence does not exercise Synthesizer evolution APIs.",
+      "nearestCollision": null,
+      "coverageAssessment": "Without the exact Synthesizer configuration, evolution operators, expected transformations, and version-specific behavior, a 3,000-word article would become a generic synthetic-data essay or invent API details.",
+      "evidenceAssessment": "Insufficient. The DeepEval skill and pytest article show evaluation tests, not Synthesizer evolution. The selected official URLs omit DeepEval Synthesizer and evolution documentation, so the central technical claims are not traceable."
+    },
+    {
+      "slug": "deepeval-trace-span-nesting-testing",
+      "decision": "reject",
+      "reason": "Reject for source and evidence mismatch. The topic requires DeepEval component tracing and span hierarchy contracts, but neither the repository evidence nor the selected DeepEval test-case, dataset, and flags documentation defines those tracing APIs.",
+      "nearestCollision": null,
+      "coverageAssessment": "Generic parent-child trace testing has depth, but the proposed DeepEval-specific page cannot reach 3,000 honest words without exact component-span semantics, instrumentation examples, and supported hierarchy rules.",
+      "evidenceAssessment": "Insufficient. The selected files cover DeepEval tests and general quality checks, not component tracing. The authoritative source set lacks DeepEval tracing documentation, making the product-specific title unsupported."
+    },
+    {
+      "slug": "eval-dataset-hard-case-retention",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Retention of reviewed hard cases only, not hard-negative retrieval design.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-agent-eval/SKILL.md, openai-evals-trace-grading/SKILL.md, posts/golden-dataset-llm-evaluation-guide.ts, article-factory-250-2026-07-25/inventory.json), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, deepeval.com, huggingface.co align with eval case construction, labels, identifiers, splits, review states, and regression workflows. Treat governance steps as QA recommendations unless a cited platform contract defines them."
+    },
+    {
+      "slug": "eval-dataset-label-leakage-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Label and reference leakage into model-visible fields only, not train-test overlap.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-agent-eval/SKILL.md, openai-evals-trace-grading/SKILL.md, posts/golden-dataset-llm-evaluation-guide.ts, article-factory-250-2026-07-25/inventory.json), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, deepeval.com, huggingface.co align with eval case construction, labels, identifiers, splits, review states, and regression workflows. Treat governance steps as QA recommendations unless a cited platform contract defines them."
+    },
+    {
+      "slug": "eval-dataset-pii-scanning-testing",
+      "decision": "reject",
+      "reason": "Reject for unsupported privacy-sensitive claims. The evidence supports eval dataset construction and loading, but not a PII taxonomy, detector behavior, false-positive policy, redaction standard, consent basis, or secure review workflow.",
+      "nearestCollision": null,
+      "coverageAssessment": "An honest 3,000-word article needs a declared data-classification policy, supported scanner, threat model, and privacy authority. The current brief would otherwise provide generic scanning advice or imply compliance that the sources do not establish.",
+      "evidenceAssessment": "Weak and mismatched. OpenAI evals, DeepEval datasets, and Hugging Face loading documentation explain dataset mechanics, not PII discovery or privacy compliance. No selected repository path implements a scanner or redaction contract."
+    },
+    {
+      "slug": "guardrail-fail-open-outage-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Guardrail dependency outage behavior only, not model-provider fallback.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (promptfoo-llm-red-teaming/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/llm-guardrails-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.promptfoo.dev, www.nist.gov align with guardrail policies, safe and adversarial fixtures, finding workflows, and release checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "guardrail-policy-version-regression-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Behavioral regression across guardrail policy versions only, not prompt rollback.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (promptfoo-llm-red-teaming/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/llm-guardrails-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.promptfoo.dev, www.nist.gov align with guardrail policies, safe and adversarial fixtures, finding workflows, and release checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-answer-completeness-omission-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Omitted required content only, not answer relevance or retrieval recall.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (prompt-testing/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/hallucination-detection-pipeline-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from deepeval.com, docs.ragas.io, platform.openai.com align with claim extraction, deterministic checks, factuality fixtures, and failure classification. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-cached-token-telemetry-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Cached-token observability fields only, not full token reconciliation across providers.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (langfuse-llm-observability/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/langfuse-trace-quality-testing-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from opentelemetry.io, langfuse.com align with trace and span attributes, token telemetry, export behavior, and production feedback loops. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-context-utilization-drift-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Release drift in evidence use by context position only, not one-time needle benchmarks.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-model-testing/SKILL.md, rag-regression-testing/SKILL.md, posts/llm-non-determinism-flaky-eval-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.nist.gov, platform.openai.com align with baseline comparison, release slices, distribution checks, and drift triage. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-cost-currency-normalization-testing",
+      "decision": "reject",
+      "reason": "Reject for source mismatch. OpenTelemetry GenAI attributes and Langfuse observability support usage and cost telemetry, but the selected sources do not define exchange-rate selection, currency conversion timing, rounding, or canonical monetary units.",
+      "nearestCollision": null,
+      "coverageAssessment": "A 3,000-word treatment would require a real pricing and foreign-exchange contract. Without one, the article would invent conversion rules or present arbitrary financial examples as platform behavior.",
+      "evidenceAssessment": "Insufficient for the primary keyword. The repository paths support traces, token usage, and monitoring views, but not currency normalization. The official source bundle supplies no authoritative exchange-rate or money representation semantics."
+    },
+    {
+      "slug": "llm-date-time-format-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Machine-readable date-time fields only, not factual recency or knowledge-cutoff testing.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (llm-output-testing/SKILL.md, prompt-testing/SKILL.md, posts/testing-llm-structured-output-json-schema-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from json-schema.org, platform.openai.com, www.promptfoo.dev align with structured-output schemas, parsers, negative fixtures, and boundary assertions. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-judge-rubric-ambiguity-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Ambiguous rubric language only, not mutation testing or score consistency generally.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, openai-evals-trace-grading/SKILL.md, posts/llm-judge-calibration-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, arxiv.org, deepeval.com align with grader calibration, score behavior, rubric design, disagreement analysis, and eval fixtures. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-judge-score-scale-anchoring",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Anchoring rubric scale points only, not pass-threshold calibration.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, openai-evals-trace-grading/SKILL.md, posts/llm-judge-calibration-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, arxiv.org, deepeval.com align with grader calibration, score behavior, rubric design, disagreement analysis, and eval fixtures. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-nested-array-cardinality-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Nested collection size contracts only, not broad token limits or output truncation.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (llm-output-testing/SKILL.md, prompt-testing/SKILL.md, posts/testing-llm-structured-output-json-schema-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from json-schema.org, platform.openai.com, www.promptfoo.dev align with structured-output schemas, parsers, negative fixtures, and boundary assertions. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-rate-limit-queue-fairness",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Fair scheduling behind an application rate limiter only, not retry recovery.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (prompt-testing/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/testing-llm-applications-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, www.rfc-editor.org, opentelemetry.io align with LLM request contracts, batching, retries, fallback behavior, rate limits, and failure accounting. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-retry-jitter-boundary-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Backoff timing mathematics only, not Promptfoo or DeepEval case accounting.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (prompt-testing/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/testing-llm-applications-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, www.rfc-editor.org, opentelemetry.io align with LLM request contracts, batching, retries, fallback behavior, rate limits, and failure accounting. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-stop-sequence-drift-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Release drift in stop-sequence behavior only, not general response-length or format drift.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-model-testing/SKILL.md, rag-regression-testing/SKILL.md, posts/llm-non-determinism-flaky-eval-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.nist.gov, platform.openai.com align with baseline comparison, release slices, distribution checks, and drift triage. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-streaming-json-assembly-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Incremental JSON assembly only, not general streaming chunk order or span lifecycle.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (llm-output-testing/SKILL.md, prompt-testing/SKILL.md, posts/testing-llm-structured-output-json-schema-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from json-schema.org, platform.openai.com, www.promptfoo.dev align with structured-output schemas, parsers, negative fixtures, and boundary assertions. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-tool-choice-distribution-drift",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Population-level tool-choice drift only, not individual tool-selection accuracy.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-model-testing/SKILL.md, rag-regression-testing/SKILL.md, posts/llm-non-determinism-flaky-eval-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.nist.gov, platform.openai.com align with baseline comparison, release slices, distribution checks, and drift triage. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "llm-unit-conversion-hallucination-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Unit-conversion factuality only, not free-form mathematical reasoning benchmarks.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (prompt-testing/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/hallucination-detection-pipeline-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from deepeval.com, docs.ragas.io, platform.openai.com align with claim extraction, deterministic checks, factuality fixtures, and failure classification. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "openai-eval-item-schema-validation",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Eval item_schema preflight only, not general structured LLM output validation.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (openai-evals-trace-grading/SKILL.md, ai-agent-eval/SKILL.md, posts/openai-evals-trace-grading-complete-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com align with OpenAI eval data, graders, trace grading, run lifecycle, and result handling. Keep endpoint and grader behavior tied to the approved OpenAI documentation and avoid undocumented guarantees."
+    },
+    {
+      "slug": "openai-eval-result-pagination-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Eval result pagination and collection only, not grader result interpretation.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (openai-evals-trace-grading/SKILL.md, ai-agent-eval/SKILL.md, posts/openai-evals-trace-grading-complete-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com align with OpenAI eval data, graders, trace grading, run lifecycle, and result handling. Keep endpoint and grader behavior tied to the approved OpenAI documentation and avoid undocumented guarantees."
+    },
+    {
+      "slug": "openai-python-grader-sandbox-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Defensive Python-grader execution contracts only, with no sandbox escape or exploit instructions.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (openai-evals-trace-grading/SKILL.md, ai-agent-eval/SKILL.md, posts/openai-evals-trace-grading-complete-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com align with OpenAI eval data, graders, trace grading, run lifecycle, and result handling. Keep endpoint and grader behavior tied to the approved OpenAI documentation and avoid undocumented guarantees."
+    },
+    {
+      "slug": "prompt-injection-html-comment-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"HTML comment and hidden-node fixtures only, not broad web prompt injection.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (llm-security-testing/SKILL.md, promptfoo-llm-red-teaming/SKILL.md, posts/prompt-injection-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from genai.owasp.org, www.nist.gov, www.promptfoo.dev align with defensive prompt-injection fixtures, trust boundaries, synthetic canaries, and safe assertions. Keep examples inert and defensive, with no deployable bypass or exfiltration instructions."
+    },
+    {
+      "slug": "promptfoo-chat-thread-isolation-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Promptfoo chat-thread state isolation only, not general multi-agent memory leakage.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (promptfoo-llm-red-teaming/SKILL.md, prompt-testing/SKILL.md, posts/promptfoo-complete-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.promptfoo.dev align with Promptfoo configuration, scenario variables, hooks, state isolation, and assertion workflows. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "promptfoo-defaulttest-override-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"defaultTest merge and override behavior only, not general assertion aggregation.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (promptfoo-llm-red-teaming/SKILL.md, prompt-testing/SKILL.md, posts/promptfoo-complete-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.promptfoo.dev align with Promptfoo configuration, scenario variables, hooks, state isolation, and assertion workflows. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "promptfoo-eval-tag-provenance-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Eval run tags and provenance only, not report secret redaction or cache identity.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (promptfoo-llm-red-teaming/SKILL.md, prompt-testing/SKILL.md, posts/promptfoo-complete-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.promptfoo.dev align with Promptfoo configuration, scenario variables, hooks, state isolation, and assertion workflows. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "rag-acl-filtering-after-reranking",
+      "decision": "reject",
+      "reason": "Reject for unsupported security-critical scope. Retrieval guides and ranking metrics do not define where this application enforces authorization, whether ACLs must run before or after reranking, or how denied documents are prevented from entering model context.",
+      "nearestCollision": null,
+      "coverageAssessment": "The topic has theoretical depth, but a 3,000-word security article requires an actual authorization model, tenant boundary, filter implementation, negative fixtures, and fail-closed contract. Those cannot be inferred safely from generic RAG evaluation material.",
+      "evidenceAssessment": "Insufficient. The RAG skills cover regression metrics and retrieval reporting, while the selected OpenAI, Ragas, and Elasticsearch sources cover retrieval or ranking evaluation. None is evidence for the proposed ACL enforcement sequence."
+    },
+    {
+      "slug": "rag-corpus-freshness-watermark-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Searchable corpus freshness evidence only, not document-version precedence.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (rag-regression-testing/SKILL.md, rag-evaluation-metrics/SKILL.md, posts/generated-seo-batch-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, docs.ragas.io, www.elastic.co align with retrieval metrics, query fixtures, result identity, ranking, and regression reports. Do not infer datastore consistency or authorization semantics that the evidence does not define."
+    },
+    {
+      "slug": "rag-multi-source-synthesis-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Synthesis of compatible multi-source evidence only, not contradictory-evidence resolution.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (rag-evaluation-metrics/SKILL.md, prompt-testing/SKILL.md, posts/generated-seo-batch-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, docs.ragas.io, deepeval.com align with RAG grounding, citation completeness, evidence synthesis, and conversational fixtures. Present application-owned thresholds as examples, not universal RAG standards."
+    },
+    {
+      "slug": "rag-parent-child-retrieval-integrity",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Parent-child retriever linkage only, not generic chunk identifiers or document precedence.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (rag-regression-testing/SKILL.md, rag-evaluation-metrics/SKILL.md, posts/generated-seo-batch-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, docs.ragas.io, www.elastic.co align with retrieval metrics, query fixtures, result identity, ranking, and regression reports. Do not infer datastore consistency or authorization semantics that the evidence does not define."
+    },
+    {
+      "slug": "rag-uncited-claim-detection-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Claim-level citation completeness only, not whether existing citations support their claims.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (rag-evaluation-metrics/SKILL.md, prompt-testing/SKILL.md, posts/generated-seo-batch-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, docs.ragas.io, deepeval.com align with RAG grounding, citation completeness, evidence synthesis, and conversational fixtures. Present application-owned thresholds as examples, not universal RAG standards."
+    },
+    {
+      "slug": "ragas-evaluation-callback-isolation",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Evaluation callback context only, not observability trace propagation.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ragas-rag-evaluation/SKILL.md, rag-evaluation-metrics/SKILL.md, posts/ragas-rag-evaluation-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from docs.ragas.io align with Ragas datasets, metrics, callbacks, executors, token parsing, and evaluation results. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "ragas-token-usage-parser-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Ragas token-usage parsing only, not LLM trace reconciliation or cost budgets.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ragas-rag-evaluation/SKILL.md, rag-evaluation-metrics/SKILL.md, posts/ragas-rag-evaluation-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from docs.ragas.io align with Ragas datasets, metrics, callbacks, executors, token parsing, and evaluation results. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "red-team-attack-deduplication-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Red-team corpus deduplication only, not general eval dataset duplicates.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (promptfoo-llm-red-teaming/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/llm-guardrails-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.promptfoo.dev, www.nist.gov align with guardrail policies, safe and adversarial fixtures, finding workflows, and release checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "vision-llm-crop-sensitivity-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Controlled crop metamorphism only, not image-resolution degradation.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-model-testing/SKILL.md, promptfoo-llm-red-teaming/SKILL.md, posts/promptfoo-red-teaming-llm-applications.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, deepeval.com, www.promptfoo.dev align with image-oriented test matrices, metamorphic fixtures, multimodal assertions, and red-team boundaries. Use synthetic media and calibrated project thresholds, not invented benchmark claims."
+    },
+    {
+      "slug": "vision-llm-ocr-fidelity-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Transcription fidelity from images only, not OCR-origin prompt injection.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-model-testing/SKILL.md, promptfoo-llm-red-teaming/SKILL.md, posts/promptfoo-red-teaming-llm-applications.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, deepeval.com, www.promptfoo.dev align with image-oriented test matrices, metamorphic fixtures, multimodal assertions, and red-team boundaries. Use synthetic media and calibrated project thresholds, not invented benchmark claims."
+    },
+    {
+      "slug": "voice-agent-background-noise-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Environmental noise resilience only, not microphone hardware certification.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (voice-assistant-testing/SKILL.md, prompt-testing/SKILL.md, posts/testing-llm-time-to-first-token-sla.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, www.w3.org align with voice test matrices, realtime events, latency measures, turn behavior, and synthetic audio conditions. Stay within technical realtime and audio behavior; avoid hardware certification, consent, or legal claims."
+    },
+    {
+      "slug": "voice-agent-barge-in-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"User barge-in during synthesized speech only, not generic turn detection.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (voice-assistant-testing/SKILL.md, prompt-testing/SKILL.md, posts/testing-llm-time-to-first-token-sla.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, www.w3.org align with voice test matrices, realtime events, latency measures, turn behavior, and synthetic audio conditions. Stay within technical realtime and audio behavior; avoid hardware certification, consent, or legal claims."
+    },
+    {
+      "slug": "voice-agent-silence-timeout-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Silence timeout behavior only, not general request timeout budgets.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (voice-assistant-testing/SKILL.md, prompt-testing/SKILL.md, posts/testing-llm-time-to-first-token-sla.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, www.w3.org align with voice test matrices, realtime events, latency measures, turn behavior, and synthetic audio conditions. Stay within technical realtime and audio behavior; avoid hardware certification, consent, or legal claims."
+    },
+    {
+      "slug": "agent-checkpoint-resume-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Durable checkpoint resume semantics only, not deterministic trace replay for grading.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, agentic-testing/SKILL.md, posts/multi-agent-system-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, genai.owasp.org align with agent trajectories, delegation, memory state, handoffs, and deterministic outcome checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "agent-handoff-loop-detection-testing",
+      "decision": "reject",
+      "reason": "Reject for intent cannibalization. The existing agent infinite-loop article already covers repeated action and state fingerprints, no-progress cycles, step and time budgets, late completion, planner loops, and deterministic replay. Handoff cycles are one fixture class inside that workflow.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "testing-agent-infinite-loop-detection",
+        "route": "/blog/testing-agent-infinite-loop-detection",
+        "title": "Testing AI-Agent Infinite-Loop Detection",
+        "intentOverlap": "Both pages detect repeated agent states without useful progress and enforce deterministic stop budgets."
+      },
+      "coverageAssessment": "Handoff-specific examples are useful, but they do not provide independent 3,000-word depth. The detector, fingerprints, budgets, assertions, and observability sections would repeat the existing loop-detection page.",
+      "evidenceAssessment": "The multi-agent skills can supply handoff fixtures, but the governing loop-detection mechanism is already fully evidenced and published in the nearest inventory article."
+    },
+    {
+      "slug": "agent-idempotency-key-propagation-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Idempotency key lifecycle only, not generic duplicate-work detection.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/agent-tool-use-regression-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, genai.owasp.org align with tool selection, argument validation, result contracts, recovery, and postcondition checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "agent-memory-conflict-resolution-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Conflicting stored memories only, not contradictory RAG evidence.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, agentic-testing/SKILL.md, posts/multi-agent-system-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, genai.owasp.org align with agent trajectories, delegation, memory state, handoffs, and deterministic outcome checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "agent-partial-batch-action-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Partial success within one batch tool call only, not general multi-agent task aggregation.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/agent-tool-use-regression-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, genai.owasp.org align with tool selection, argument validation, result contracts, recovery, and postcondition checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "agent-plan-revision-audit-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Auditability of plan changes only, not recovery after a tool failure.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, agentic-testing/SKILL.md, posts/multi-agent-system-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, genai.owasp.org align with agent trajectories, delegation, memory state, handoffs, and deterministic outcome checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "agent-read-after-write-verification",
+      "decision": "reject",
+      "reason": "Reject for direct intent cannibalization. The existing final-state verification page explicitly requires direct post-write reads, distinguishes accepted responses from durable state, tests stale reads and timeout-after-commit, and verifies idempotent no-op behavior.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "agent-final-state-verification-testing",
+        "route": "/blog/agent-final-state-verification-testing",
+        "title": "Agent final state verification testing",
+        "intentOverlap": "Read-after-write verification is a central technique and searcher outcome of the existing final-state article."
+      },
+      "coverageAssessment": "The proposed boundary describes a narrower subsection, not a new intent. Expanding it to 3,000 words would duplicate the existing read, reconcile, retry, evidence, and CI workflow.",
+      "evidenceAssessment": "The selected agent skills support postcondition checks, but the concrete read-after-write scenarios already appear in the colliding repository article. There is no independent evidence set for a second page."
+    },
+    {
+      "slug": "agent-required-tool-choice-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Explicit required tool-choice mode only, not general tool-selection accuracy or argument validation.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/agent-tool-use-regression-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, genai.owasp.org align with tool selection, argument validation, result contracts, recovery, and postcondition checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "agent-unexpected-tool-response-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Unexpected result-shape handling only, not truncation, provenance, or prompt injection.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/agent-tool-use-regression-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, genai.owasp.org align with tool selection, argument validation, result contracts, recovery, and postcondition checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "ai-canary-shadow-evaluation-testing",
+      "decision": "reject",
+      "reason": "Reject for evidence and source mismatch. The repository has release gates and article publication checks, but no shadow-traffic capture, production request mirroring, side-effect suppression, treatment isolation, sampling, or canary comparison implementation.",
+      "nearestCollision": null,
+      "coverageAssessment": "A safe 3,000-word shadow-evaluation guide requires an explicit traffic architecture, privacy controls, no-write guarantees, attribution model, and rollout contract. Generic eval and CI sources cannot supply those details honestly.",
+      "evidenceAssessment": "Insufficient. AI Release Guardian supports quality verdicts, while the cited tests validate blog routes and schema. NIST AI RMF, OpenAI evals, and GitHub Actions do not document this application’s shadow-traffic mechanism."
+    },
+    {
+      "slug": "ai-eval-failure-classification-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Failure-origin classification only, not flaky-case quarantine or model non-determinism.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-release-guardian/SKILL.md, posts/article-factory-250-publication.test.ts, e2e/article-factory-250-2026-07-25.e2e.ts, product/REGRESSION-GAPS-2026-07.md), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.nist.gov, platform.openai.com, docs.github.com align with quality-gate verdicts, evidence, ownership, rollback signals, and CI enforcement. Describe team-owned gate contracts and do not imply that article publication tests implement model rollout infrastructure."
+    },
+    {
+      "slug": "ai-post-release-regression-replay",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Production-failure replay into release suites only, not offline versus online eval strategy.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-release-guardian/SKILL.md, posts/article-factory-250-publication.test.ts, e2e/article-factory-250-2026-07-25.e2e.ts, product/REGRESSION-GAPS-2026-07.md), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.nist.gov, platform.openai.com, docs.github.com align with quality-gate verdicts, evidence, ownership, rollback signals, and CI enforcement. Describe team-owned gate contracts and do not imply that article publication tests implement model rollout infrastructure."
+    },
+    {
+      "slug": "ai-release-baseline-approval-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Approval control for changing AI eval baselines only, not dataset versioning broadly.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-release-guardian/SKILL.md, posts/article-factory-250-publication.test.ts, e2e/article-factory-250-2026-07-25.e2e.ts, product/REGRESSION-GAPS-2026-07.md), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.nist.gov, platform.openai.com, docs.github.com align with quality-gate verdicts, evidence, ownership, rollback signals, and CI enforcement. Describe team-owned gate contracts and do not imply that article publication tests implement model rollout infrastructure."
+    },
+    {
+      "slug": "ai-release-rollback-trigger-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Automation of predefined rollback triggers only, not designing business thresholds.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-release-guardian/SKILL.md, posts/article-factory-250-publication.test.ts, e2e/article-factory-250-2026-07-25.e2e.ts, product/REGRESSION-GAPS-2026-07.md), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.nist.gov, platform.openai.com, docs.github.com align with quality-gate verdicts, evidence, ownership, rollback signals, and CI enforcement. Describe team-owned gate contracts and do not imply that article publication tests implement model rollout infrastructure."
+    },
+    {
+      "slug": "deepeval-async-metric-concurrency-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Metric-level async concurrency only, not parallel provider backoff behavior.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (deepeval-llm-evaluation/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/deepeval-pytest-llm-testing-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from deepeval.com align with DeepEval test cases, metrics, pytest integration, execution flags, and result accounting. Use only the current DeepEval APIs covered by the approved URLs and repository examples."
+    },
+    {
+      "slug": "deepeval-custom-model-adapter-testing",
+      "decision": "reject",
+      "reason": "Reject for source and evidence mismatch. A DeepEvalBaseLLM adapter article needs the current abstract methods, sync and async behavior, model loading, error propagation, and return contracts, but the selected sources do not include custom-model integration documentation.",
+      "nearestCollision": null,
+      "coverageAssessment": "Adapter contract testing can support 3,000 words only with exact API signatures and runnable implementations. The current brief would have to infer version-specific DeepEval behavior from unrelated test-case and dataset pages.",
+      "evidenceAssessment": "Insufficient. The DeepEval skill and pytest guide do not implement a custom model adapter. The approved source list omits the authoritative custom-model adapter page, so core examples and claims are untraceable."
+    },
+    {
+      "slug": "deepeval-golden-promotion-workflow-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Golden-to-regression promotion only, not dataset key mapping or broad versioning.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (deepeval-llm-evaluation/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/deepeval-pytest-llm-testing-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from deepeval.com align with DeepEval test cases, metrics, pytest integration, execution flags, and result accounting. Use only the current DeepEval APIs covered by the approved URLs and repository examples."
+    },
+    {
+      "slug": "deepeval-multimodal-test-case-validation",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"MLLMImage test-case construction only, not multimodal metric scoring.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (deepeval-llm-evaluation/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/deepeval-pytest-llm-testing-guide.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from deepeval.com align with DeepEval test cases, metrics, pytest integration, execution flags, and result accounting. Use only the current DeepEval APIs covered by the approved URLs and repository examples."
+    },
+    {
+      "slug": "deepeval-verbose-log-redaction-testing",
+      "decision": "reject",
+      "reason": "Reject for unsupported security behavior. DeepEval documents verbose diagnostic output, but the selected evidence and sources do not provide a DeepEval redaction hook, field policy, masking guarantee, or verified secret-scrubbing implementation.",
+      "nearestCollision": null,
+      "coverageAssessment": "A 3,000-word security guide requires a real redaction boundary, supported interception point, secret taxonomy, and negative tests. Otherwise it would suggest controls that may not exist in DeepEval.",
+      "evidenceAssessment": "Weak and mismatched. The selected files support running metrics and enabling diagnostics, not sanitizing their output. The official URLs establish verbosity, not a redaction contract."
+    },
+    {
+      "slug": "eval-dataset-ambiguous-case-quarantine",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Ambiguous-case lifecycle only, not flaky evaluator quarantine.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-agent-eval/SKILL.md, openai-evals-trace-grading/SKILL.md, posts/golden-dataset-llm-evaluation-guide.ts, article-factory-250-2026-07-25/inventory.json), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, deepeval.com, huggingface.co align with eval case construction, labels, identifiers, splits, review states, and regression workflows. Treat governance steps as QA recommendations unless a cited platform contract defines them."
+    },
+    {
+      "slug": "eval-dataset-case-id-stability",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Stable identity of eval cases only, not RAG chunk identifiers.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-agent-eval/SKILL.md, openai-evals-trace-grading/SKILL.md, posts/golden-dataset-llm-evaluation-guide.ts, article-factory-250-2026-07-25/inventory.json), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, deepeval.com, huggingface.co align with eval case construction, labels, identifiers, splits, review states, and regression workflows. Treat governance steps as QA recommendations unless a cited platform contract defines them."
+    },
+    {
+      "slug": "eval-dataset-slice-balance-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Coverage distribution across declared slices only, not label taxonomy evolution.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-agent-eval/SKILL.md, openai-evals-trace-grading/SKILL.md, posts/golden-dataset-llm-evaluation-guide.ts, article-factory-250-2026-07-25/inventory.json), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, deepeval.com, huggingface.co align with eval case construction, labels, identifiers, splits, review states, and regression workflows. Treat governance steps as QA recommendations unless a cited platform contract defines them."
+    },
+    {
+      "slug": "eval-dataset-temporal-split-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Time-based dataset partition integrity only, not model knowledge-cutoff behavior.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-agent-eval/SKILL.md, openai-evals-trace-grading/SKILL.md, posts/golden-dataset-llm-evaluation-guide.ts, article-factory-250-2026-07-25/inventory.json), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, deepeval.com, huggingface.co align with eval case construction, labels, identifiers, splits, review states, and regression workflows. Treat governance steps as QA recommendations unless a cited platform contract defines them."
+    },
+    {
+      "slug": "eval-dataset-train-test-overlap",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Cross-split contamination only, not duplicates within the evaluation dataset.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 4 target evidence paths resolve (ai-agent-eval/SKILL.md, openai-evals-trace-grading/SKILL.md, posts/golden-dataset-llm-evaluation-guide.ts, article-factory-250-2026-07-25/inventory.json), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, deepeval.com, huggingface.co align with eval case construction, labels, identifiers, splits, review states, and regression workflows. Treat governance steps as QA recommendations unless a cited platform contract defines them."
+    },
+    {
+      "slug": "grader-human-disagreement-triage",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Operational triage of grader-human conflicts only, not initial judge calibration.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (ai-agent-eval/SKILL.md, openai-evals-trace-grading/SKILL.md, posts/llm-judge-calibration-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from platform.openai.com, arxiv.org, deepeval.com align with grader calibration, score behavior, rubric design, disagreement analysis, and eval fixtures. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "guardrail-disagreement-adjudication-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Decision handling when guardrails disagree only, not grader ensemble disagreement.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (promptfoo-llm-red-teaming/SKILL.md, ai-system-quality-engineer/SKILL.md, posts/llm-guardrails-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from www.promptfoo.dev, www.nist.gov align with guardrail policies, safe and adversarial fixtures, finding workflows, and release checks. Do not invent thresholds, benchmarks, or platform guarantees beyond the cited evidence."
+    },
+    {
+      "slug": "indirect-prompt-injection-pdf-testing",
+      "decision": "pass",
+      "reason": "Pass. The boundary, \"Defensive PDF fixture handling only, with no real exploit payloads or bypass instructions.\", isolates a concrete QA searcher task. Adjacent inventory and selected pages may share the product family, but none combines this failure mode, object under test, and expected outcome.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word article. The generated brief provides 10 H2 sections, 2 repository-backed code examples, a comparison table, a numbered procedure, 6 FAQ questions, and 6 secondary keywords. It can develop fixtures, edge cases, assertions, CI use, diagnostics, and operational boundaries without broadening the primary intent.",
+      "evidenceAssessment": "Adequate. All 3 target evidence paths resolve (llm-security-testing/SKILL.md, promptfoo-llm-red-teaming/SKILL.md, posts/prompt-injection-testing-guide-2026.ts), and the brief contains 6 verified canonical routes plus 4 related articles. Its 3 approved HTTPS sources from genai.owasp.org, www.nist.gov, www.promptfoo.dev align with defensive prompt-injection fixtures, trust boundaries, synthetic canaries, and safe assertions. Keep examples inert and defensive, with no deployable bypass or exfiltration instructions."
+    }
+  ],
+  "replacements": [
+    {
+      "rejectedSlug": "agent-tool-timeout-compensation-testing",
+      "recommendedReserveSlug": "llm-hedged-request-cancellation-testing",
+      "whyDistinct": "Tests cancellation and late-response suppression between deliberately hedged LLM requests. It does not cover an ambiguous committed tool mutation, and it has no intent collision with inventory, the 107 retained targets, or the other replacements.",
+      "reserveCluster": "reliability",
+      "primaryKeyword": "LLM hedged request cancellation testing",
+      "evidencePaths": [
+        "seed-skills/prompt-testing/SKILL.md",
+        "seed-skills/ai-system-quality-engineer/SKILL.md",
+        "packages/web/src/app/blog/posts/testing-llm-applications-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/testing-llm-applications-guide",
+        "/blog/testing-llm-time-to-first-token-sla",
+        "/blog/llm-non-determinism-flaky-eval-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/rate-limits",
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/"
+      ]
+    },
+    {
+      "rejectedSlug": "guardrail-overrefusal-slice-testing",
+      "recommendedReserveSlug": "red-team-severity-normalization-testing",
+      "whyDistinct": "Normalizes finding severity across red-team results rather than measuring safe-request false positives. Its decision workflow and artifacts are distinct from the inventory and retained selected pages.",
+      "reserveCluster": "red-team-guardrails",
+      "primaryKeyword": "red team severity normalization testing",
+      "evidencePaths": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+        "seed-skills/ai-system-quality-engineer/SKILL.md",
+        "packages/web/src/app/blog/posts/llm-guardrails-testing-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/llm-guardrails-testing-guide-2026",
+        "/blog/domain-specific-ai-red-team-playbook-guide",
+        "/blog/promptfoo-complete-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/red-team/configuration/",
+        "https://www.promptfoo.dev/docs/red-team/troubleshooting/best-practices/",
+        "https://www.nist.gov/itl/ai-risk-management-framework"
+      ]
+    },
+    {
+      "rejectedSlug": "red-team-waiver-expiration-testing",
+      "recommendedReserveSlug": "red-team-plugin-coverage-mapping",
+      "whyDistinct": "Maps attack categories to configured red-team plugins and coverage gaps, with no waiver lifecycle. Formal and intent checks found no collision in inventory or the retained campaign.",
+      "reserveCluster": "red-team-guardrails",
+      "primaryKeyword": "red team plugin coverage mapping",
+      "evidencePaths": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+        "seed-skills/ai-system-quality-engineer/SKILL.md",
+        "packages/web/src/app/blog/posts/llm-guardrails-testing-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/llm-guardrails-testing-guide-2026",
+        "/blog/domain-specific-ai-red-team-playbook-guide",
+        "/blog/promptfoo-complete-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/red-team/configuration/",
+        "https://www.promptfoo.dev/docs/red-team/troubleshooting/best-practices/",
+        "https://www.nist.gov/itl/ai-risk-management-framework"
+      ]
+    },
+    {
+      "rejectedSlug": "voice-agent-recording-consent-testing",
+      "recommendedReserveSlug": "voice-agent-partial-transcript-revision",
+      "whyDistinct": "Tests ordering and correction of partial speech transcripts using technical realtime events. It avoids unsupported consent, retention, and legal claims and is distinct from the retained voice topics.",
+      "reserveCluster": "voice",
+      "primaryKeyword": "voice agent partial transcript revision",
+      "evidencePaths": [
+        "seed-skills/voice-assistant-testing/SKILL.md",
+        "seed-skills/prompt-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/testing-llm-time-to-first-token-sla.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/testing-llm-applications-guide",
+        "/blog/testing-llm-time-to-first-token-sla",
+        "/blog/testing-llm-streaming-chunk-order"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/audio",
+        "https://platform.openai.com/docs/guides/realtime",
+        "https://www.w3.org/TR/webrtc/"
+      ]
+    },
+    {
+      "rejectedSlug": "agent-tool-result-type-confusion",
+      "recommendedReserveSlug": "llm-additional-properties-rejection-testing",
+      "whyDistinct": "Validates JSON Schema rejection of undeclared LLM output keys before downstream use. It is an output-contract topic, not agent recovery from an unexpected tool result.",
+      "reserveCluster": "llm-output-contracts",
+      "primaryKeyword": "LLM additional properties rejection testing",
+      "evidencePaths": [
+        "seed-skills/llm-output-testing/SKILL.md",
+        "seed-skills/prompt-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/testing-llm-structured-output-json-schema-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/testing-llm-applications-guide",
+        "/blog/testing-llm-structured-output-json-schema-guide",
+        "/blog/promptfoo-custom-javascript-assertion-example"
+      ],
+      "authoritativeSources": [
+        "https://json-schema.org/draft/2020-12/json-schema-core",
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://www.promptfoo.dev/docs/configuration/expected-outputs/"
+      ]
+    },
+    {
+      "rejectedSlug": "ai-quality-waiver-expiration-testing",
+      "recommendedReserveSlug": "llm-schema-version-compatibility-testing",
+      "whyDistinct": "Tests compatibility across explicit structured-output schema versions. It contains no release waiver governance and passed inventory and selected-corpus collision checks.",
+      "reserveCluster": "llm-output-contracts",
+      "primaryKeyword": "LLM schema version compatibility testing",
+      "evidencePaths": [
+        "seed-skills/llm-output-testing/SKILL.md",
+        "seed-skills/prompt-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/testing-llm-structured-output-json-schema-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/testing-llm-applications-guide",
+        "/blog/testing-llm-structured-output-json-schema-guide",
+        "/blog/promptfoo-custom-javascript-assertion-example"
+      ],
+      "authoritativeSources": [
+        "https://json-schema.org/draft/2020-12/json-schema-core",
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://www.promptfoo.dev/docs/configuration/expected-outputs/"
+      ]
+    },
+    {
+      "rejectedSlug": "deepeval-synthesizer-evolution-testing",
+      "recommendedReserveSlug": "ragas-testset-persona-coverage",
+      "whyDistinct": "Measures declared persona coverage in Ragas-generated test sets using supported dataset concepts. It does not claim DeepEval Synthesizer evolution behavior.",
+      "reserveCluster": "ragas",
+      "primaryKeyword": "Ragas testset persona coverage",
+      "evidencePaths": [
+        "seed-skills/ragas-rag-evaluation/SKILL.md",
+        "seed-skills/rag-evaluation-metrics/SKILL.md",
+        "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-guide",
+        "/blog/ragas-context-precision-recall-faithfulness-guide",
+        "/blog/rag-testing-complete-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://docs.ragas.io/en/stable/getstarted/evals/",
+        "https://docs.ragas.io/en/latest/references/evaluate/",
+        "https://docs.ragas.io/en/stable/concepts/test_data_generation/"
+      ]
+    },
+    {
+      "rejectedSlug": "deepeval-trace-span-nesting-testing",
+      "recommendedReserveSlug": "llm-evaluator-span-separation-testing",
+      "whyDistinct": "Tests separation of evaluator telemetry from generation telemetry through standard tracing concepts. It avoids unsupported DeepEval-specific component hierarchy claims.",
+      "reserveCluster": "observability",
+      "primaryKeyword": "LLM evaluator span separation testing",
+      "evidencePaths": [
+        "seed-skills/langfuse-llm-observability/SKILL.md",
+        "seed-skills/ai-system-quality-engineer/SKILL.md",
+        "packages/web/src/app/blog/posts/langfuse-trace-quality-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/llm-observability-traces-guide-2026",
+        "/blog/langfuse-trace-quality-testing-guide",
+        "/blog/agent-trajectory-evaluation-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/",
+        "https://opentelemetry.io/docs/concepts/signals/traces/",
+        "https://langfuse.com/docs/observability/overview"
+      ]
+    },
+    {
+      "rejectedSlug": "llm-cost-currency-normalization-testing",
+      "recommendedReserveSlug": "llm-finish-reason-telemetry-testing",
+      "whyDistinct": "Validates documented finish-reason capture and normalization rather than inventing exchange-rate behavior. No retained page targets this telemetry field contract.",
+      "reserveCluster": "observability",
+      "primaryKeyword": "LLM finish reason telemetry testing",
+      "evidencePaths": [
+        "seed-skills/langfuse-llm-observability/SKILL.md",
+        "seed-skills/ai-system-quality-engineer/SKILL.md",
+        "packages/web/src/app/blog/posts/langfuse-trace-quality-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/llm-observability-traces-guide-2026",
+        "/blog/langfuse-trace-quality-testing-guide",
+        "/blog/agent-trajectory-evaluation-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/",
+        "https://opentelemetry.io/docs/concepts/signals/traces/",
+        "https://langfuse.com/docs/observability/overview"
+      ]
+    },
+    {
+      "rejectedSlug": "eval-dataset-pii-scanning-testing",
+      "recommendedReserveSlug": "system-prompt-canary-leak-testing",
+      "whyDistinct": "Uses synthetic canaries to test whether a system prompt appears in outputs. It avoids classifying real personal data and has a bounded defensive security intent.",
+      "reserveCluster": "safety-prompt-injection",
+      "primaryKeyword": "system prompt canary leak testing",
+      "evidencePaths": [
+        "seed-skills/llm-security-testing/SKILL.md",
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+        "packages/web/src/app/blog/posts/prompt-injection-testing-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/prompt-injection-testing-guide-2026",
+        "/blog/llm-guardrails-testing-guide-2026",
+        "/blog/domain-specific-ai-red-team-playbook-guide"
+      ],
+      "authoritativeSources": [
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://www.nist.gov/publications/adversarial-machine-learning-taxonomy-and-terminology-attacks-and-mitigations",
+        "https://www.promptfoo.dev/docs/red-team/configuration/"
+      ]
+    },
+    {
+      "rejectedSlug": "rag-acl-filtering-after-reranking",
+      "recommendedReserveSlug": "rag-synonym-recall-slice-testing",
+      "whyDistinct": "Measures retrieval recall across synonymous query slices, not authorization enforcement. It is supported by RAG evaluation evidence without making security architecture claims.",
+      "reserveCluster": "rag-retrieval",
+      "primaryKeyword": "RAG synonym recall slice testing",
+      "evidencePaths": [
+        "seed-skills/rag-regression-testing/SKILL.md",
+        "seed-skills/rag-evaluation-metrics/SKILL.md",
+        "packages/web/src/app/blog/posts/generated-seo-batch-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/rag-testing-complete-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026",
+        "/blog/ragas-context-precision-recall-faithfulness-guide"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/retrieval",
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/",
+        "https://www.elastic.co/guide/en/elasticsearch/reference/current/search-rank-eval.html"
+      ]
+    },
+    {
+      "rejectedSlug": "rag-retrieval-pagination-stability",
+      "recommendedReserveSlug": "rag-embedding-dimension-mismatch-testing",
+      "whyDistinct": "Tests a deterministic vector shape contract at ingestion and query time. It does not depend on undocumented cursor or snapshot semantics.",
+      "reserveCluster": "rag-retrieval",
+      "primaryKeyword": "RAG embedding dimension mismatch testing",
+      "evidencePaths": [
+        "seed-skills/rag-regression-testing/SKILL.md",
+        "seed-skills/rag-evaluation-metrics/SKILL.md",
+        "packages/web/src/app/blog/posts/generated-seo-batch-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/rag-testing-complete-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026",
+        "/blog/ragas-context-precision-recall-faithfulness-guide"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/retrieval",
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/",
+        "https://www.elastic.co/guide/en/elasticsearch/reference/current/search-rank-eval.html"
+      ]
+    },
+    {
+      "rejectedSlug": "agent-handoff-loop-detection-testing",
+      "recommendedReserveSlug": "llm-nullable-field-contract-testing",
+      "whyDistinct": "Validates nullable versus required structured-output fields. It has no agent-loop intent and passed slug, title, keyword, and manual intent checks.",
+      "reserveCluster": "llm-output-contracts",
+      "primaryKeyword": "LLM nullable field contract testing",
+      "evidencePaths": [
+        "seed-skills/llm-output-testing/SKILL.md",
+        "seed-skills/prompt-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/testing-llm-structured-output-json-schema-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/testing-llm-applications-guide",
+        "/blog/testing-llm-structured-output-json-schema-guide",
+        "/blog/promptfoo-custom-javascript-assertion-example"
+      ],
+      "authoritativeSources": [
+        "https://json-schema.org/draft/2020-12/json-schema-core",
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://www.promptfoo.dev/docs/configuration/expected-outputs/"
+      ]
+    },
+    {
+      "rejectedSlug": "agent-read-after-write-verification",
+      "recommendedReserveSlug": "promptfoo-csv-metadata-parsing-testing",
+      "whyDistinct": "Tests Promptfoo CSV metadata parsing and fixture mapping, not durable agent state. The reserve has separate evidence, sources, and searcher intent.",
+      "reserveCluster": "promptfoo-prompt-testing",
+      "primaryKeyword": "Promptfoo CSV metadata parsing testing",
+      "evidencePaths": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+        "seed-skills/prompt-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/promptfoo-complete-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-custom-javascript-assertion-example",
+        "/blog/llm-evaluation-ci-cd-quality-gates"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/configuration/reference/",
+        "https://www.promptfoo.dev/docs/configuration/test-cases/",
+        "https://www.promptfoo.dev/docs/configuration/expected-outputs/"
+      ]
+    },
+    {
+      "rejectedSlug": "ai-canary-shadow-evaluation-testing",
+      "recommendedReserveSlug": "llm-provider-health-routing-testing",
+      "whyDistinct": "Tests application routing decisions from provider health signals, without claiming production request mirroring or shadow-evaluation infrastructure.",
+      "reserveCluster": "reliability",
+      "primaryKeyword": "LLM provider health routing testing",
+      "evidencePaths": [
+        "seed-skills/prompt-testing/SKILL.md",
+        "seed-skills/ai-system-quality-engineer/SKILL.md",
+        "packages/web/src/app/blog/posts/testing-llm-applications-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/testing-llm-applications-guide",
+        "/blog/testing-llm-time-to-first-token-sla",
+        "/blog/llm-non-determinism-flaky-eval-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/rate-limits",
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/"
+      ]
+    },
+    {
+      "rejectedSlug": "deepeval-custom-model-adapter-testing",
+      "recommendedReserveSlug": "ragas-batch-result-ordering-testing",
+      "whyDistinct": "Checks stable association and ordering of Ragas batch evaluation results. It relies on Ragas evaluation behavior rather than an unsupported DeepEval adapter contract.",
+      "reserveCluster": "ragas",
+      "primaryKeyword": "Ragas batch result ordering testing",
+      "evidencePaths": [
+        "seed-skills/ragas-rag-evaluation/SKILL.md",
+        "seed-skills/rag-evaluation-metrics/SKILL.md",
+        "packages/web/src/app/blog/posts/ragas-rag-evaluation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-guide",
+        "/blog/ragas-context-precision-recall-faithfulness-guide",
+        "/blog/rag-testing-complete-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://docs.ragas.io/en/stable/getstarted/evals/",
+        "https://docs.ragas.io/en/latest/references/evaluate/",
+        "https://docs.ragas.io/en/stable/concepts/test_data_generation/"
+      ]
+    },
+    {
+      "rejectedSlug": "deepeval-verbose-log-redaction-testing",
+      "recommendedReserveSlug": "promptfoo-derived-metric-formula-testing",
+      "whyDistinct": "Tests documented Promptfoo derived-metric formulas and aggregation inputs. It makes no claim that DeepEval supplies a log-redaction mechanism.",
+      "reserveCluster": "promptfoo-prompt-testing",
+      "primaryKeyword": "Promptfoo derived metric formula testing",
+      "evidencePaths": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+        "seed-skills/prompt-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/promptfoo-complete-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-custom-javascript-assertion-example",
+        "/blog/llm-evaluation-ci-cd-quality-gates"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/configuration/reference/",
+        "https://www.promptfoo.dev/docs/configuration/test-cases/",
+        "https://www.promptfoo.dev/docs/configuration/expected-outputs/"
+      ]
+    },
+    {
+      "rejectedSlug": "eval-dataset-provenance-manifest-testing",
+      "recommendedReserveSlug": "promptfoo-repeat-aggregation-testing",
+      "whyDistinct": "Tests result aggregation across repeated Promptfoo evaluations. It avoids licensing and provenance schemas and passed all campaign collision checks.",
+      "reserveCluster": "promptfoo-prompt-testing",
+      "primaryKeyword": "Promptfoo repeat aggregation testing",
+      "evidencePaths": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md",
+        "seed-skills/prompt-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/promptfoo-complete-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-custom-javascript-assertion-example",
+        "/blog/llm-evaluation-ci-cd-quality-gates"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/configuration/reference/",
+        "https://www.promptfoo.dev/docs/configuration/test-cases/",
+        "https://www.promptfoo.dev/docs/configuration/expected-outputs/"
+      ]
+    }
+  ],
+  "validation": {
+    "selectedTargetCount": 125,
+    "generatedBriefCount": 125,
+    "everyTargetHasBrief": true,
+    "everyTargetEvidencePathExists": true,
+    "everyBriefMeetsStructuralDepthFloor": true,
+    "reviewSlugsUnique": true,
+    "reviewSetMatchesCampaignSelected": true,
+    "decisionsRestrictedToPassOrReject": true,
+    "oneReplacementPerReject": true,
+    "replacementSlugsUnique": true,
+    "everyReplacementIsSameCampaignReserve": true,
+    "everyReplacementEvidencePathExists": true,
+    "everyReplacementSourceIsHttps": true,
+    "replacementFormalCollisionCount": 0,
+    "replacementComparisonScope": {
+      "inventoryItems": 1778,
+      "retainedSelectedTopics": 732,
+      "peerReplacements": 17,
+      "rules": [
+        "slug equality or containment",
+        "title token overlap above 60%",
+        "primary keyword equality",
+        "manual searcher-intent review"
+      ]
+    },
+    "everyTargetInternalRouteVerified": true,
+    "everyTargetSourceIsHttps": true,
+    "everyTargetHasTwoToFourSources": true,
+    "everyReplacementIsUnusedCurrentReserve": true,
+    "everyReplacementInternalRouteVerified": true,
+    "everyReplacementHasTwoToFourSources": true,
+    "currentReservePoolCountMatches": true,
+    "reviewCountsMatchRequiredSplit": true,
+    "summary": {
+      "inventoryItemsCompared": 1778,
+      "selectedTargets": 125,
+      "passed": 107,
+      "rejected": 18,
+      "replacements": 18,
+      "currentClusterReserves": 163,
+      "formalReplacementCollisions": 0
+    }
+  }
+}

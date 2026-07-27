@@ -1,0 +1,983 @@
+{
+  "batch": 12,
+  "briefs": [
+    {
+      "batch": 12,
+      "domain": "web-auth-email",
+      "slug": "preference-fetch-failure-ui-tests",
+      "primaryKeyword": "preference fetch failure ui tests",
+      "title": "Preference fetch failure ui tests",
+      "description": "preference fetch failure ui tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you test loading completion and retained defaults when the preference page receives an error or rejected fetch?",
+      "secondaryKeywords": [
+        "react fetch error state test",
+        "preference page loading test",
+        "failed settings request ui",
+        "default state after fetch error",
+        "nextjs client fetch testing"
+      ],
+      "outline": [
+        {
+          "heading": "Preference fetch failure ui tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test loading completion and retained defaults when the preference page receives an error or rejected fetch?\" in 40 to 60 words, define the contract as the preference page must finish loading and retain safe defaults when GET returns an error or the fetch promise rejects, and state the observable pass criteria.",
+          "keyword": "preference fetch failure ui tests",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:fetchPreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:GET"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/app/dashboard/preferences/page.tsx:fetchPreferences; packages/web/src/app/api/user/preferences/route.ts:GET. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:fetchPreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:GET"
+          ]
+        },
+        {
+          "heading": "React fetch error state test: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for react fetch error state test. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "react fetch error state test",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:fetchPreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:GET"
+          ]
+        },
+        {
+          "heading": "Preference page loading test: Test Matrix",
+          "purpose": "Compare fetch outcome, response status, parsed data, loading state, displayed defaults, error signal, and retry or navigation behavior. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "preference page loading test",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:fetchPreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:GET"
+          ]
+        },
+        {
+          "heading": "How Should Failed settings request ui Be Exercised?",
+          "purpose": "Build the harness for failed settings request ui, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "failed settings request ui",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:fetchPreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:GET"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Default state after fetch error Procedure",
+          "purpose": "Present the numbered procedure for default state after fetch error: Render the authenticated preference page with deterministic initial defaults. Control GET outcomes for success, non-OK, rejection, and malformed data. Wait for loading completion and assert switch values, disabled states, and visible feedback. Navigate away and back to detect stale state or unhandled promise warnings.",
+          "keyword": "default state after fetch error",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:fetchPreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:GET"
+          ]
+        },
+        {
+          "heading": "Nextjs client fetch testing: Assertions and Diagnostics",
+          "purpose": "Cover nextjs client fetch testing with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "nextjs client fetch testing",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:fetchPreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:GET"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "Retained defaults can look like a successful load, so the test must also assert loading completion and the intended error signal. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:fetchPreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:GET"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test loading completion and retained defaults when the preference page receives an error or rejected fetch?\" plus question variants based on react fetch error state test, preference page loading test, failed settings request ui, default state after fetch error, nextjs client fetch testing.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:fetchPreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:GET"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Exercise GET failures on the preference page and keep loading plus default-state assertions in the browser post-flow.",
+          "keyword": "preference fetch failure ui tests",
+          "evidence": ["packages/web/src/app/dashboard/preferences/page.tsx"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Preference fetch failure ui tests test matrix",
+        "purpose": "Compare fetch outcome, response status, parsed data, loading state, displayed defaults, error signal, and retry or navigation behavior.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "successful preference response",
+          "401 or 404 response",
+          "500 response",
+          "network rejection",
+          "malformed success payload"
+        ],
+        "sourcePaths": [
+          "packages/web/src/app/dashboard/preferences/page.tsx:fetchPreferences",
+          "packages/web/src/app/api/user/preferences/route.ts:GET"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Default state after fetch error Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Render the authenticated preference page with deterministic initial defaults."
+          },
+          {
+            "number": 2,
+            "action": "Control GET outcomes for success, non-OK, rejection, and malformed data."
+          },
+          {
+            "number": 3,
+            "action": "Wait for loading completion and assert switch values, disabled states, and visible feedback."
+          },
+          {
+            "number": 4,
+            "action": "Navigate away and back to detect stale state or unhandled promise warnings."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/app/dashboard/preferences/page.tsx",
+          "symbols": "fetchPreferences",
+          "plannedSnippet": "Show component or Playwright tests around fetchPreferences and its loading-finalization path.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/app/api/user/preferences/route.ts",
+          "symbols": "GET",
+          "plannedSnippet": "Show route controls for representative GET success and error responses.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/dashboard/preferences/page.tsx:fetchPreferences",
+        "packages/web/src/app/api/user/preferences/route.ts:GET"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/dashboard/preferences",
+        "/blog/react-nextjs-testing-complete-guide",
+        "/blog/error-handling-testing-patterns",
+        "/blog/authentication-authorization-testing-guide"
+      ],
+      "relatedSlugs": [
+        "react-nextjs-testing-complete-guide",
+        "error-handling-testing-patterns",
+        "authentication-authorization-testing-guide",
+        "testing-missed-clerk-webhook-user-recovery"
+      ],
+      "sources": [
+        "https://react.dev/reference/react/useEffect",
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware"
+      ],
+      "cta": {
+        "route": "/dashboard/preferences",
+        "anchorText": "Open dashboard preferences",
+        "action": "Exercise GET failures on the preference page and keep loading plus default-state assertions in the browser post-flow."
+      },
+      "batchPosition": 1
+    },
+    {
+      "batch": 12,
+      "domain": "web-auth-email",
+      "slug": "skill-detail-uuid-slug-tests",
+      "primaryKeyword": "skill detail uuid slug tests",
+      "title": "Skill detail uuid slug tests",
+      "description": "skill detail uuid slug tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test UUID detection, slug fallback, not-found responses, and database errors on the skill detail API?",
+      "secondaryKeywords": [
+        "skill api uuid lookup",
+        "skill slug fallback test",
+        "dynamic route parameter testing",
+        "skill detail 404 response",
+        "uuid regex api branch"
+      ],
+      "outline": [
+        {
+          "heading": "Skill detail uuid slug tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test UUID detection, slug fallback, not-found responses, and database errors on the skill detail API?\" in 40 to 60 words, define the contract as skill detail endpoints must detect UUID route parameters, fall back to slug lookup, return not found consistently, and preserve documented database-error behavior, and state the observable pass criteria.",
+          "keyword": "skill detail uuid slug tests",
+          "evidence": [
+            "packages/web/src/app/api/skills/[id]/route.ts:UUID_REGEX and GET",
+            "packages/web/src/app/api/skills/[id]/content/route.ts:UUID_REGEX and fallbackContent"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/app/api/skills/[id]/route.ts:UUID_REGEX and GET; packages/web/src/app/api/skills/[id]/content/route.ts:UUID_REGEX and fallbackContent. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/skills/[id]/route.ts:UUID_REGEX and GET",
+            "packages/web/src/app/api/skills/[id]/content/route.ts:UUID_REGEX and fallbackContent"
+          ]
+        },
+        {
+          "heading": "Skill api uuid lookup: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for skill api uuid lookup. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "skill api uuid lookup",
+          "evidence": [
+            "packages/web/src/app/api/skills/[id]/route.ts:UUID_REGEX and GET",
+            "packages/web/src/app/api/skills/[id]/content/route.ts:UUID_REGEX and fallbackContent"
+          ]
+        },
+        {
+          "heading": "Skill slug fallback test: Test Matrix",
+          "purpose": "Compare route parameter, UUID regex result, lookup predicate, content fallback, status, response type, and database failure response. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "skill slug fallback test",
+          "evidence": [
+            "packages/web/src/app/api/skills/[id]/route.ts:UUID_REGEX and GET",
+            "packages/web/src/app/api/skills/[id]/content/route.ts:UUID_REGEX and fallbackContent"
+          ]
+        },
+        {
+          "heading": "How Should Dynamic route parameter testing Be Exercised?",
+          "purpose": "Build the harness for dynamic route parameter testing, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "dynamic route parameter testing",
+          "evidence": [
+            "packages/web/src/app/api/skills/[id]/route.ts:UUID_REGEX and GET",
+            "packages/web/src/app/api/skills/[id]/content/route.ts:UUID_REGEX and fallbackContent"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Skill detail 404 response Procedure",
+          "purpose": "Present the numbered procedure for skill detail 404 response: Create shared parameters for UUID, slug, UUID-shaped missing value, and unknown slug. Invoke both detail and content routes while capturing the selected database predicate. Assert not-found and database-error contracts plus content fallback behavior. Run the CLI content fallback against the same slug fixture as a consumer check.",
+          "keyword": "skill detail 404 response",
+          "evidence": [
+            "packages/web/src/app/api/skills/[id]/route.ts:UUID_REGEX and GET",
+            "packages/web/src/app/api/skills/[id]/content/route.ts:UUID_REGEX and fallbackContent"
+          ]
+        },
+        {
+          "heading": "Uuid regex api branch: Assertions and Diagnostics",
+          "purpose": "Cover uuid regex api branch with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "uuid regex api branch",
+          "evidence": [
+            "packages/web/src/app/api/skills/[id]/route.ts:UUID_REGEX and GET",
+            "packages/web/src/app/api/skills/[id]/content/route.ts:UUID_REGEX and fallbackContent"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "A UUID-shaped slug follows the UUID branch by design; fixtures must make that ambiguity explicit instead of assuming slug fallback. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/skills/[id]/route.ts:UUID_REGEX and GET",
+            "packages/web/src/app/api/skills/[id]/content/route.ts:UUID_REGEX and fallbackContent"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test UUID detection, slug fallback, not-found responses, and database errors on the skill detail API?\" plus question variants based on skill api uuid lookup, skill slug fallback test, dynamic route parameter testing, skill detail 404 response, uuid regex api branch.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/api/skills/[id]/route.ts:UUID_REGEX and GET",
+            "packages/web/src/app/api/skills/[id]/content/route.ts:UUID_REGEX and fallbackContent"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Select a catalog skill and add UUID, slug, missing, and database-error cases to both detail endpoints.",
+          "keyword": "skill detail uuid slug tests",
+          "evidence": ["packages/web/src/app/api/skills/[id]/route.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Skill detail uuid slug tests test matrix",
+        "purpose": "Compare route parameter, UUID regex result, lookup predicate, content fallback, status, response type, and database failure response.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "valid stored UUID",
+          "valid slug",
+          "UUID-shaped value with no row",
+          "unknown slug",
+          "database rejection on JSON and content endpoints"
+        ],
+        "sourcePaths": [
+          "packages/web/src/app/api/skills/[id]/route.ts:UUID_REGEX and GET",
+          "packages/web/src/app/api/skills/[id]/content/route.ts:UUID_REGEX and fallbackContent"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Skill detail 404 response Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Create shared parameters for UUID, slug, UUID-shaped missing value, and unknown slug."
+          },
+          {
+            "number": 2,
+            "action": "Invoke both detail and content routes while capturing the selected database predicate."
+          },
+          {
+            "number": 3,
+            "action": "Assert not-found and database-error contracts plus content fallback behavior."
+          },
+          {
+            "number": 4,
+            "action": "Run the CLI content fallback against the same slug fixture as a consumer check."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/app/api/skills/[id]/route.ts",
+          "symbols": "UUID_REGEX and GET",
+          "plannedSnippet": "Show parameterized GET tests around UUID_REGEX and lookup selection in the detail route.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/app/api/skills/[id]/content/route.ts",
+          "symbols": "UUID_REGEX and fallbackContent",
+          "plannedSnippet": "Show matching tests for the content route, including fallbackContent and response content type.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/route.ts:UUID_REGEX and GET",
+        "packages/web/src/app/api/skills/[id]/content/route.ts:UUID_REGEX and fallbackContent"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-download-fallback-github-content-metadata",
+        "testing-versioned-zip-artifact-sha256-etag",
+        "api-testing-best-practices-guide",
+        "skill-md-format-guide"
+      ],
+      "sources": [
+        "https://nextjs.org/docs/app/getting-started/layouts-and-pages",
+        "https://www.rfc-editor.org/info/rfc9562"
+      ],
+      "cta": {
+        "route": "/skills",
+        "anchorText": "Browse verified QA skills",
+        "action": "Select a catalog skill and add UUID, slug, missing, and database-error cases to both detail endpoints."
+      },
+      "batchPosition": 2
+    },
+    {
+      "batch": 12,
+      "domain": "web-auth-email",
+      "slug": "preference-save-status-lifecycle-tests",
+      "primaryKeyword": "preference save status lifecycle tests",
+      "title": "Preference save status lifecycle tests",
+      "description": "preference save status lifecycle tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test disabled saving, success and error messages, and five-second message cleanup around a preference PATCH?",
+      "secondaryKeywords": [
+        "saving button disabled test",
+        "success message fake timer",
+        "preference save error ui",
+        "react async status testing",
+        "notification message cleanup test"
+      ],
+      "outline": [
+        {
+          "heading": "Preference save status lifecycle tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test disabled saving, success and error messages, and five-second message cleanup around a preference PATCH?\" in 40 to 60 words, define the contract as preference saving must disable duplicate submissions, show success or error status, and clear the message after five seconds, and state the observable pass criteria.",
+          "keyword": "preference save status lifecycle tests",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:savePreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/app/dashboard/preferences/page.tsx:savePreferences; packages/web/src/app/api/user/preferences/route.ts:PATCH. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:savePreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH"
+          ]
+        },
+        {
+          "heading": "Saving button disabled test: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for saving button disabled test. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "saving button disabled test",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:savePreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH"
+          ]
+        },
+        {
+          "heading": "Success message fake timer: Test Matrix",
+          "purpose": "Compare PATCH outcome, saving flag, button disabled state, status type, message text, timer state, and cleanup after five seconds. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "success message fake timer",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:savePreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH"
+          ]
+        },
+        {
+          "heading": "How Should Preference save error ui Be Exercised?",
+          "purpose": "Build the harness for preference save error ui, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "preference save error ui",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:savePreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH"
+          ]
+        },
+        {
+          "heading": "Step-by-Step React async status testing Procedure",
+          "purpose": "Present the numbered procedure for react async status testing: Render preferences with a controlled PATCH promise and fake timers. Click save twice while the first request remains pending and assert one request. Resolve success and failure outcomes, then assert button and status transitions. Advance timers across the five-second boundary and verify cleanup plus unmount safety.",
+          "keyword": "react async status testing",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:savePreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH"
+          ]
+        },
+        {
+          "heading": "Notification message cleanup test: Assertions and Diagnostics",
+          "purpose": "Cover notification message cleanup test with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "notification message cleanup test",
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:savePreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "Timer assertions need controlled time, while request timing needs a deferred promise; using only one mechanism leaves a race untested. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:savePreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test disabled saving, success and error messages, and five-second message cleanup around a preference PATCH?\" plus question variants based on saving button disabled test, success message fake timer, preference save error ui, react async status testing, notification message cleanup test.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/app/dashboard/preferences/page.tsx:savePreferences",
+            "packages/web/src/app/api/user/preferences/route.ts:PATCH"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Run duplicate-click, success, failure, and five-second cleanup cases before changing save feedback.",
+          "keyword": "preference save status lifecycle tests",
+          "evidence": ["packages/web/src/app/dashboard/preferences/page.tsx"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Preference save status lifecycle tests test matrix",
+        "purpose": "Compare PATCH outcome, saving flag, button disabled state, status type, message text, timer state, and cleanup after five seconds.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "successful save",
+          "non-OK API response",
+          "network rejection",
+          "second click while saving",
+          "message state at 4,999 and 5,000 milliseconds"
+        ],
+        "sourcePaths": [
+          "packages/web/src/app/dashboard/preferences/page.tsx:savePreferences",
+          "packages/web/src/app/api/user/preferences/route.ts:PATCH"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step React async status testing Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Render preferences with a controlled PATCH promise and fake timers."
+          },
+          {
+            "number": 2,
+            "action": "Click save twice while the first request remains pending and assert one request."
+          },
+          {
+            "number": 3,
+            "action": "Resolve success and failure outcomes, then assert button and status transitions."
+          },
+          {
+            "number": 4,
+            "action": "Advance timers across the five-second boundary and verify cleanup plus unmount safety."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/app/dashboard/preferences/page.tsx",
+          "symbols": "savePreferences",
+          "plannedSnippet": "Show a component test around savePreferences with a deferred fetch and fake timers.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/app/api/user/preferences/route.ts",
+          "symbols": "PATCH",
+          "plannedSnippet": "Show a route-backed browser control that confirms the PATCH response drives visible status.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/dashboard/preferences/page.tsx:savePreferences",
+        "packages/web/src/app/api/user/preferences/route.ts:PATCH"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/dashboard/preferences",
+        "/blog/react-nextjs-testing-complete-guide",
+        "/blog/error-handling-testing-patterns",
+        "/blog/authentication-authorization-testing-guide"
+      ],
+      "relatedSlugs": [
+        "react-nextjs-testing-complete-guide",
+        "error-handling-testing-patterns",
+        "authentication-authorization-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://react.dev/reference/react/useState",
+        "https://vitest.dev/guide/mocking/timers"
+      ],
+      "cta": {
+        "route": "/dashboard/preferences",
+        "anchorText": "Open dashboard preferences",
+        "action": "Run duplicate-click, success, failure, and five-second cleanup cases before changing save feedback."
+      },
+      "batchPosition": 3
+    },
+    {
+      "batch": 12,
+      "domain": "web-auth-email",
+      "slug": "react-email-utm-link-tests",
+      "primaryKeyword": "react email utm link tests",
+      "title": "React email utm link tests",
+      "description": "react email utm link tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you render QASkills email templates and verify source, medium, campaign, and per-rank UTM parameters on every CTA?",
+      "secondaryKeywords": [
+        "react email link testing",
+        "email utm campaign assertions",
+        "weekly digest utm content",
+        "skill alert tracking links",
+        "render email template tests"
+      ],
+      "outline": [
+        {
+          "heading": "React email utm link tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you render QASkills email templates and verify source, medium, campaign, and per-rank UTM parameters on every CTA?\" in 40 to 60 words, define the contract as welcome, new-skill, and weekly-digest templates must preserve source, medium, campaign, and item-specific UTM parameters on every tracked CTA, and state the observable pass criteria.",
+          "keyword": "react email utm link tests",
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:utmParams",
+            "packages/web/src/emails/new-skill-alert.tsx:utmParams"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/emails/welcome.tsx:utmParams; packages/web/src/emails/new-skill-alert.tsx:utmParams; packages/web/src/emails/weekly-digest.tsx:utmParams. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:utmParams",
+            "packages/web/src/emails/new-skill-alert.tsx:utmParams",
+            "packages/web/src/emails/weekly-digest.tsx:utmParams"
+          ]
+        },
+        {
+          "heading": "React email link testing: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for react email link testing. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "react email link testing",
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:utmParams",
+            "packages/web/src/emails/new-skill-alert.tsx:utmParams"
+          ]
+        },
+        {
+          "heading": "Email utm campaign assertions: Test Matrix",
+          "purpose": "Compare template, CTA label, base route, utm_source, utm_medium, utm_campaign, utm_content, and untracked utility links. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "email utm campaign assertions",
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:utmParams",
+            "packages/web/src/emails/new-skill-alert.tsx:utmParams",
+            "packages/web/src/emails/weekly-digest.tsx:utmParams"
+          ]
+        },
+        {
+          "heading": "How Should Weekly digest utm content Be Exercised?",
+          "purpose": "Build the harness for weekly digest utm content, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "weekly digest utm content",
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:utmParams",
+            "packages/web/src/emails/new-skill-alert.tsx:utmParams"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Skill alert tracking links Procedure",
+          "purpose": "Present the numbered procedure for skill alert tracking links: Render each email template with deterministic URLs and ranked skills. Extract all anchors and parse each href with the URL API. Assert campaign fields by template and rank-specific utm_content for digest items. Flag missing, duplicated, or unexpected tracking on utility links.",
+          "keyword": "skill alert tracking links",
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:utmParams",
+            "packages/web/src/emails/new-skill-alert.tsx:utmParams",
+            "packages/web/src/emails/weekly-digest.tsx:utmParams"
+          ]
+        },
+        {
+          "heading": "Render email template tests: Assertions and Diagnostics",
+          "purpose": "Cover render email template tests with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "render email template tests",
+          "evidence": [
+            "packages/web/src/emails/new-skill-alert.tsx:utmParams",
+            "packages/web/src/emails/weekly-digest.tsx:utmParams"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "Tests should compare exact query keys without depending on parameter order, and should distinguish conversion CTAs from privacy utility links. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:utmParams",
+            "packages/web/src/emails/new-skill-alert.tsx:utmParams",
+            "packages/web/src/emails/weekly-digest.tsx:utmParams"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you render QASkills email templates and verify source, medium, campaign, and per-rank UTM parameters on every CTA?\" plus question variants based on react email link testing, email utm campaign assertions, weekly digest utm content, skill alert tracking links, render email template tests.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/emails/welcome.tsx:utmParams",
+            "packages/web/src/emails/new-skill-alert.tsx:utmParams"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Render all three templates and add URL-parsed UTM assertions before changing email campaigns.",
+          "keyword": "react email utm link tests",
+          "evidence": ["packages/web/src/emails/welcome.tsx"]
+        }
+      ],
+      "tablePlan": {
+        "title": "React email utm link tests test matrix",
+        "purpose": "Compare template, CTA label, base route, utm_source, utm_medium, utm_campaign, utm_content, and untracked utility links.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "welcome primary CTA",
+          "new-skill alert CTA",
+          "weekly digest item at rank one",
+          "weekly digest item at a later rank",
+          "preference or unsubscribe utility link"
+        ],
+        "sourcePaths": [
+          "packages/web/src/emails/welcome.tsx:utmParams",
+          "packages/web/src/emails/new-skill-alert.tsx:utmParams",
+          "packages/web/src/emails/weekly-digest.tsx:utmParams"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Skill alert tracking links Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Render each email template with deterministic URLs and ranked skills."
+          },
+          {
+            "number": 2,
+            "action": "Extract all anchors and parse each href with the URL API."
+          },
+          {
+            "number": 3,
+            "action": "Assert campaign fields by template and rank-specific utm_content for digest items."
+          },
+          {
+            "number": 4,
+            "action": "Flag missing, duplicated, or unexpected tracking on utility links."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/emails/welcome.tsx",
+          "symbols": "utmParams",
+          "plannedSnippet": "Show a reusable React Email render helper that parses welcome and new-skill CTA query parameters.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/src/emails/new-skill-alert.tsx",
+          "symbols": "utmParams",
+          "plannedSnippet": "Show parameterized weekly-digest assertions for per-rank utm_content values.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/emails/welcome.tsx:utmParams",
+        "packages/web/src/emails/new-skill-alert.tsx:utmParams",
+        "packages/web/src/emails/weekly-digest.tsx:utmParams"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/dashboard/preferences",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled",
+        "/blog/testing-lazy-resend-initialization-nextjs-build",
+        "/blog/react-nextjs-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "testing-batch-email-partial-failures-promise-allsettled",
+        "testing-lazy-resend-initialization-nextjs-build",
+        "react-nextjs-testing-complete-guide",
+        "test-reporting-allure-dashboards-guide"
+      ],
+      "sources": ["https://react.email/docs/components/link", "https://react.email/components"],
+      "cta": {
+        "route": "/getting-started",
+        "anchorText": "Open getting-started",
+        "action": "Render all three templates and add URL-parsed UTM assertions before changing email campaigns."
+      },
+      "batchPosition": 4
+    },
+    {
+      "batch": 12,
+      "domain": "web-auth-email",
+      "slug": "clerk-protected-route-matrix-tests",
+      "primaryKeyword": "clerk protected route matrix tests",
+      "title": "Clerk protected route matrix tests",
+      "description": "clerk protected route matrix tests: build a code-backed QA plan with verified QASkills paths, test matrices, assertions, and focused regression checks.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test that Clerk protects every intended dashboard and API route without blocking public QASkills routes?",
+      "secondaryKeywords": [
+        "clerk route matcher test cases",
+        "nextjs protected route matrix",
+        "test auth protect middleware",
+        "dashboard route authorization tests",
+        "api subtree protection tests"
+      ],
+      "outline": [
+        {
+          "heading": "Clerk protected route matrix tests: What Must the Suite Prove?",
+          "purpose": "Answer \"How do you test that Clerk protects every intended dashboard and API route without blocking public QASkills routes?\" in 40 to 60 words, define the contract as Clerk middleware must protect the intended dashboard and mutation API subtrees without blocking public catalog, content, and webhook routes, and state the observable pass criteria.",
+          "keyword": "clerk protected route matrix tests",
+          "evidence": [
+            "packages/web/src/middleware.ts:isProtectedRoute,authenticatedMiddleware",
+            "packages/web/e2e/post-flow.e2e.ts:protected and public browser flows"
+          ]
+        },
+        {
+          "heading": "Which QASkills Code Paths Own This Contract?",
+          "purpose": "Trace request, helper, schema, component, and persistence ownership only through packages/web/src/middleware.ts:isProtectedRoute,authenticatedMiddleware; packages/web/e2e/post-flow.e2e.ts:protected and public browser flows. Separate code-backed behavior from source-backed recommendations.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/middleware.ts:isProtectedRoute,authenticatedMiddleware",
+            "packages/web/e2e/post-flow.e2e.ts:protected and public browser flows"
+          ]
+        },
+        {
+          "heading": "Clerk route matcher test cases: Baseline Cases",
+          "purpose": "Explain the normal path and compatibility boundaries for clerk route matcher test cases. Convert repository branches into named fixtures with complete observable outputs.",
+          "keyword": "clerk route matcher test cases",
+          "evidence": [
+            "packages/web/src/middleware.ts:isProtectedRoute,authenticatedMiddleware",
+            "packages/web/e2e/post-flow.e2e.ts:protected and public browser flows"
+          ]
+        },
+        {
+          "heading": "Nextjs protected route matrix: Test Matrix",
+          "purpose": "Compare route, method, expected visibility, matcher result, auth state, redirect or status, and authenticated destination. Include the planned table, explain every row, and cite the repository source for each expected result.",
+          "keyword": "nextjs protected route matrix",
+          "evidence": [
+            "packages/web/src/middleware.ts:isProtectedRoute,authenticatedMiddleware",
+            "packages/web/e2e/post-flow.e2e.ts:protected and public browser flows"
+          ]
+        },
+        {
+          "heading": "How Should Test auth protect middleware Be Exercised?",
+          "purpose": "Build the harness for test auth protect middleware, identify which dependencies require real integration versus controlled doubles, and state the assertions that prevent false positives.",
+          "keyword": "test auth protect middleware",
+          "evidence": [
+            "packages/web/src/middleware.ts:isProtectedRoute,authenticatedMiddleware",
+            "packages/web/e2e/post-flow.e2e.ts:protected and public browser flows"
+          ]
+        },
+        {
+          "heading": "Step-by-Step Dashboard route authorization tests Procedure",
+          "purpose": "Present the numbered procedure for dashboard route authorization tests: Derive route families from isProtectedRoute and the filesystem route inventory. Generate signed-out and signed-in requests for every public and protected family. Assert redirects or denial for protected routes and direct access for public routes. Keep representative browser cases in post-flow.e2e.ts and route-level cases near middleware.",
+          "keyword": "dashboard route authorization tests",
+          "evidence": [
+            "packages/web/src/middleware.ts:isProtectedRoute,authenticatedMiddleware",
+            "packages/web/e2e/post-flow.e2e.ts:protected and public browser flows"
+          ]
+        },
+        {
+          "heading": "Api subtree protection tests: Assertions and Diagnostics",
+          "purpose": "Cover api subtree protection tests with status, state, side-effect, call-count, and visible-output assertions. Explain the failure signal a CI report must retain.",
+          "keyword": "api subtree protection tests",
+          "evidence": [
+            "packages/web/src/middleware.ts:isProtectedRoute,authenticatedMiddleware",
+            "packages/web/e2e/post-flow.e2e.ts:protected and public browser flows"
+          ]
+        },
+        {
+          "heading": "What Regressions and Boundaries Prevent False Confidence?",
+          "purpose": "A matcher unit test cannot prove Clerk redirect behavior, while browser-only coverage can miss unlisted API subtrees; use both layers. List nearby concerns owned by related articles and define the post-change cases that remain in scope.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/middleware.ts:isProtectedRoute,authenticatedMiddleware",
+            "packages/web/e2e/post-flow.e2e.ts:protected and public browser flows"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "purpose": "Answer five to eight questions in 40 to 60 words each. Cover \"How do you test that Clerk protects every intended dashboard and API route without blocking public QASkills routes?\" plus question variants based on clerk route matcher test cases, nextjs protected route matrix, test auth protect middleware, dashboard route authorization tests, api subtree protection tests.",
+          "keyword": null,
+          "evidence": [
+            "packages/web/src/middleware.ts:isProtectedRoute,authenticatedMiddleware",
+            "packages/web/e2e/post-flow.e2e.ts:protected and public browser flows"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "purpose": "Summarize the verified contract without introducing new claims, then use this CTA: Run the complete public and protected route matrix before editing Clerk middleware rules.",
+          "keyword": "clerk protected route matrix tests",
+          "evidence": ["packages/web/src/middleware.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Clerk protected route matrix tests test matrix",
+        "purpose": "Compare route, method, expected visibility, matcher result, auth state, redirect or status, and authenticated destination.",
+        "columns": [
+          "Scenario",
+          "Controlled input or state",
+          "Repository branch",
+          "Expected response or UI",
+          "Expected side effect",
+          "Regression signal"
+        ],
+        "rows": [
+          "public skills and blog pages",
+          "dashboard pages",
+          "skill creation API",
+          "reviews and preference APIs",
+          "public webhook and read-only catalog endpoints"
+        ],
+        "sourcePaths": [
+          "packages/web/src/middleware.ts:isProtectedRoute,authenticatedMiddleware",
+          "packages/web/e2e/post-flow.e2e.ts:protected and public browser flows"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Step-by-Step Dashboard route authorization tests Procedure",
+        "steps": [
+          {
+            "number": 1,
+            "action": "Derive route families from isProtectedRoute and the filesystem route inventory."
+          },
+          {
+            "number": 2,
+            "action": "Generate signed-out and signed-in requests for every public and protected family."
+          },
+          {
+            "number": 3,
+            "action": "Assert redirects or denial for protected routes and direct access for public routes."
+          },
+          {
+            "number": 4,
+            "action": "Keep representative browser cases in post-flow.e2e.ts and route-level cases near middleware."
+          }
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Primary contract test",
+          "sourcePath": "packages/web/src/middleware.ts",
+          "symbols": "isProtectedRoute,authenticatedMiddleware",
+          "plannedSnippet": "Show table-driven tests for isProtectedRoute and authenticatedMiddleware across route families.",
+          "requiredAssertions": "Assert the complete input-to-output contract, branch selection, status, and side-effect count."
+        },
+        {
+          "title": "Cross-layer regression test",
+          "sourcePath": "packages/web/e2e/post-flow.e2e.ts",
+          "symbols": "protected and public browser flows",
+          "plannedSnippet": "Show Playwright requests from post-flow.e2e.ts that prove public access and protected redirects in a real browser.",
+          "requiredAssertions": "Assert the consumer or persistence layer observes the same contract without bypassing the behavior under test."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/middleware.ts:isProtectedRoute,authenticatedMiddleware",
+        "packages/web/e2e/post-flow.e2e.ts:protected and public browser flows"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/dashboard/preferences",
+        "/how-to-publish",
+        "/blog/authentication-authorization-testing-guide",
+        "/blog/testing-missed-clerk-webhook-user-recovery",
+        "/blog/testing-clerk-user-created-webhook-idempotency"
+      ],
+      "relatedSlugs": [
+        "authentication-authorization-testing-guide",
+        "testing-missed-clerk-webhook-user-recovery",
+        "testing-clerk-user-created-webhook-idempotency",
+        "api-security-testing-checklist-2026"
+      ],
+      "sources": [
+        "https://clerk.com/docs/reference/nextjs/clerk-middleware",
+        "https://clerk.com/docs/reference/nextjs/app-router/auth"
+      ],
+      "cta": {
+        "route": "/getting-started",
+        "anchorText": "Open getting-started",
+        "action": "Run the complete public and protected route matrix before editing Clerk middleware rules."
+      },
+      "batchPosition": 5
+    }
+  ]
+}

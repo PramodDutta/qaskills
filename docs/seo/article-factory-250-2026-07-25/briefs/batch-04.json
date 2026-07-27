@@ -1,0 +1,1145 @@
+{
+  "batch": 4,
+  "briefs": [
+    {
+      "id": "cli-sdk-040",
+      "batch": 4,
+      "batchPosition": 1,
+      "domain": "cli-sdk",
+      "slug": "qaskills-cli-repeated-query-parameters",
+      "primaryKeyword": "QASkills CLI repeated query parameters",
+      "title": "QASkills CLI repeated query parameters",
+      "description": "QASkills CLI repeated query parameters: use repo paths, tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "how-to",
+      "coreQuestion": "How does the QASkills CLI serialize several values for testingTypes, frameworks, languages, domains, and agents into one request URL?",
+      "intentBoundary": "Low-level multi-value URL serialization for all API filters, not the search command's two public flags.",
+      "secondaryKeywords": [
+        "URLSearchParams append arrays",
+        "repeated filter query keys",
+        "qaskills array parameter serialization",
+        "multi value skill search",
+        "query parameter order testing",
+        "searchSkills URL contract"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills CLI repeated query parameters guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How does the QASkills CLI serialize several values for testingTypes, frameworks, languages, domains, and agents into one request URL?\" in 40 to 60 words, define the observable contract, and state the boundary: Low-level multi-value URL serialization for all API filters, not the search command's two public flags.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#buildUrl",
+            "packages/cli/src/lib/api-client.ts#searchSkills"
+          ]
+        },
+        {
+          "heading": "How does URLSearchParams append arrays work?",
+          "secondaryKeyword": "URLSearchParams append arrays",
+          "coverage": "Walk through the production branch at packages/cli/src/lib/api-client.ts#buildUrl, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/cli/src/lib/api-client.ts#buildUrl"]
+        },
+        {
+          "heading": "Which cases define repeated filter query keys?",
+          "secondaryKeyword": "repeated filter query keys",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise searchSkills; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#searchSkills",
+            "packages/shared/src/types/skill.ts#SkillSearchParams"
+          ]
+        },
+        {
+          "heading": "qaskills array parameter serialization and the current QASkills contract",
+          "secondaryKeyword": "qaskills array parameter serialization",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/shared/src/types/skill.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/shared/src/types/skill.ts#SkillSearchParams"]
+        },
+        {
+          "heading": "How do you test multi value skill search?",
+          "secondaryKeyword": "multi value skill search",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#buildUrl",
+            "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+          ]
+        },
+        {
+          "heading": "query parameter order testing failure and edge-case matrix",
+          "secondaryKeyword": "query parameter order testing",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#searchSkills",
+            "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+          ]
+        },
+        {
+          "heading": "How should searchSkills URL contract run in CI?",
+          "secondaryKeyword": "searchSkills URL contract",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#buildUrl",
+            "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+          ]
+        },
+        {
+          "heading": "Implementation checklist for QASkills CLI repeated query parameters",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /skills, /categories, /agents.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#buildUrl",
+            "packages/cli/src/lib/api-client.ts#searchSkills",
+            "packages/shared/src/types/skill.ts#SkillSearchParams"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#buildUrl",
+            "packages/cli/src/lib/api-client.ts#searchSkills"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Follow /getting-started with a mock API, then confirm the same request contract against the public catalog at /skills.",
+          "repoEvidence": ["packages/cli/src/lib/api-client.ts#buildUrl"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills CLI repeated query parameters scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "URLSearchParams append arrays",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at buildUrl completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/cli/src/lib/api-client.ts#buildUrl"
+          },
+          {
+            "scenario": "repeated filter query keys",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at searchSkills selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/cli/src/lib/api-client.ts#searchSkills"
+          },
+          {
+            "scenario": "multi value skill search",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/shared/src/types/skill.ts#SkillSearchParams"
+          },
+          {
+            "scenario": "searchSkills URL contract",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+          }
+        ],
+        "source": [
+          "packages/cli/src/lib/api-client.ts#buildUrl",
+          "packages/cli/src/lib/api-client.ts#searchSkills",
+          "packages/shared/src/types/skill.ts#SkillSearchParams",
+          "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/cli/src/lib/api-client.ts at buildUrl and record the exact inputs, defaults, side effects, and output for \"URLSearchParams append arrays\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"repeated filter query keys\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to searchSkills, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"multi value skill search\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"searchSkills URL contract\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace buildUrl in the current implementation",
+          "repoPath": "packages/cli/src/lib/api-client.ts",
+          "symbol": "buildUrl",
+          "plan": "Quote the current buildUrl branch and annotate how it implements \"URLSearchParams append arrays\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for searchSkills",
+          "repoPath": "packages/cli/src/lib/api-client.ts",
+          "symbol": "searchSkills",
+          "plan": "Use the real searchSkills contract to create an executable test for \"repeated filter query keys\", then assert the related \"qaskills array parameter serialization\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for SkillSearchParams",
+          "repoPath": "packages/shared/src/types/skill.ts",
+          "symbol": "SkillSearchParams",
+          "plan": "Use the real SkillSearchParams contract to create an executable test for \"qaskills array parameter serialization\", then assert the related \"multi value skill search\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/api-client.ts#buildUrl",
+        "packages/cli/src/lib/api-client.ts#searchSkills",
+        "packages/shared/src/types/skill.ts#SkillSearchParams",
+        "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/agents",
+        "/blog/testing-typesense-multiselect-facet-filter-queries",
+        "/blog",
+        "/getting-started",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "testing-typesense-multiselect-facet-filter-queries",
+        "error-handling-testing-patterns",
+        "test-environment-management-guide",
+        "mcp-api-timeout-abortcontroller-testing"
+      ],
+      "sources": [
+        "https://nodejs.org/api/url.html#class-urlsearchparams",
+        "https://url.spec.whatwg.org/",
+        "https://www.rfc-editor.org/info/rfc3986"
+      ],
+      "faqQuestions": [
+        "What does URLSearchParams append arrays verify in QASkills?",
+        "When should a team test repeated filter query keys?",
+        "How can a fixture isolate qaskills array parameter serialization?",
+        "Which assertion proves multi value skill search?",
+        "What failure cases belong in query parameter order testing tests?",
+        "How should CI run searchSkills URL contract checks?"
+      ],
+      "cta": "Follow /getting-started with a mock API, then confirm the same request contract against the public catalog at /skills."
+    },
+    {
+      "id": "cli-sdk-027",
+      "batch": 4,
+      "batchPosition": 2,
+      "domain": "cli-sdk",
+      "slug": "qaskills-info-missing-skill-handling",
+      "primaryKeyword": "QASkills info missing skill handling",
+      "title": "QASkills info missing skill handling",
+      "description": "QASkills info missing skill handling: use repo paths, tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "What should qaskills info print when a skill is missing or the detail request fails, and should that command set a failure status?",
+      "intentBoundary": "Failure UX and process status for info, not path encoding or successful field formatting.",
+      "secondaryKeywords": [
+        "qaskills info not found",
+        "missing skill CLI error",
+        "skill detail request failure",
+        "qaskills info exit code",
+        "CLI catch block testing",
+        "search suggestion error output"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills info missing skill handling guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"What should qaskills info print when a skill is missing or the detail request fails, and should that command set a failure status?\" in 40 to 60 words, define the observable contract, and state the boundary: Failure UX and process status for info, not path encoding or successful field formatting.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts#infoCommand",
+            "packages/cli/src/lib/api-client.ts#getSkill"
+          ]
+        },
+        {
+          "heading": "How does qaskills info not found work?",
+          "secondaryKeyword": "qaskills info not found",
+          "coverage": "Walk through the production branch at packages/cli/src/commands/info.ts#infoCommand, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/cli/src/commands/info.ts#infoCommand"]
+        },
+        {
+          "heading": "Which cases define missing skill CLI error?",
+          "secondaryKeyword": "missing skill CLI error",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise getSkill; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#getSkill",
+            "packages/cli/src/lib/api-client.ts#request"
+          ]
+        },
+        {
+          "heading": "skill detail request failure and the current QASkills contract",
+          "secondaryKeyword": "skill detail request failure",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/cli/src/lib/api-client.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/cli/src/lib/api-client.ts#request"]
+        },
+        {
+          "heading": "How do you test qaskills info exit code?",
+          "secondaryKeyword": "qaskills info exit code",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts#infoCommand",
+            "packages/cli/e2e/e2e.mjs#run"
+          ]
+        },
+        {
+          "heading": "CLI catch block testing failure and edge-case matrix",
+          "secondaryKeyword": "CLI catch block testing",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#getSkill",
+            "packages/cli/e2e/e2e.mjs#run"
+          ]
+        },
+        {
+          "heading": "How should search suggestion error output run in CI?",
+          "secondaryKeyword": "search suggestion error output",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts#infoCommand",
+            "packages/cli/e2e/e2e.mjs#run"
+          ]
+        },
+        {
+          "heading": "Implementation checklist for QASkills info missing skill handling",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /skills, /getting-started, /faq.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts#infoCommand",
+            "packages/cli/src/lib/api-client.ts#getSkill",
+            "packages/cli/src/lib/api-client.ts#request"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": [
+            "packages/cli/src/commands/info.ts#infoCommand",
+            "packages/cli/src/lib/api-client.ts#getSkill"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Use /getting-started to run the command, then compare its behavior with the current catalog on /skills.",
+          "repoEvidence": ["packages/cli/src/commands/info.ts#infoCommand"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills info missing skill handling scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "qaskills info not found",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at infoCommand completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/cli/src/commands/info.ts#infoCommand"
+          },
+          {
+            "scenario": "missing skill CLI error",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at getSkill selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/cli/src/lib/api-client.ts#getSkill"
+          },
+          {
+            "scenario": "qaskills info exit code",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/cli/src/lib/api-client.ts#request"
+          },
+          {
+            "scenario": "search suggestion error output",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/cli/e2e/e2e.mjs#run"
+          }
+        ],
+        "source": [
+          "packages/cli/src/commands/info.ts#infoCommand",
+          "packages/cli/src/lib/api-client.ts#getSkill",
+          "packages/cli/src/lib/api-client.ts#request",
+          "packages/cli/e2e/e2e.mjs#run"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/cli/src/commands/info.ts at infoCommand and record the exact inputs, defaults, side effects, and output for \"qaskills info not found\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"missing skill CLI error\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to getSkill, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"qaskills info exit code\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"search suggestion error output\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace infoCommand in the current implementation",
+          "repoPath": "packages/cli/src/commands/info.ts",
+          "symbol": "infoCommand",
+          "plan": "Quote the current infoCommand branch and annotate how it implements \"qaskills info not found\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for getSkill",
+          "repoPath": "packages/cli/src/lib/api-client.ts",
+          "symbol": "getSkill",
+          "plan": "Use the real getSkill contract to create an executable test for \"missing skill CLI error\", then assert the related \"skill detail request failure\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for request",
+          "repoPath": "packages/cli/src/lib/api-client.ts",
+          "symbol": "request",
+          "plan": "Use the real request contract to create an executable test for \"skill detail request failure\", then assert the related \"qaskills info exit code\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/commands/info.ts#infoCommand",
+        "packages/cli/src/lib/api-client.ts#getSkill",
+        "packages/cli/src/lib/api-client.ts#request",
+        "packages/cli/e2e/e2e.mjs#run"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/getting-started",
+        "/faq",
+        "/blog/error-handling-testing-patterns",
+        "/blog",
+        "/categories"
+      ],
+      "relatedSlugs": [
+        "error-handling-testing-patterns",
+        "skill-md-format-guide",
+        "qaskills-add-custom-directory-ci",
+        "typescript-testing-patterns-guide"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://github.com/bombshell-dev/clack",
+        "https://github.com/tj/commander.js"
+      ],
+      "faqQuestions": [
+        "What does qaskills info not found verify in QASkills?",
+        "When should a team test missing skill CLI error?",
+        "How can a fixture isolate skill detail request failure?",
+        "Which assertion proves qaskills info exit code?",
+        "What failure cases belong in CLI catch block testing tests?",
+        "How should CI run search suggestion error output checks?"
+      ],
+      "cta": "Use /getting-started to run the command, then compare its behavior with the current catalog on /skills."
+    },
+    {
+      "id": "cli-sdk-012",
+      "batch": 4,
+      "batchPosition": 3,
+      "domain": "cli-sdk",
+      "slug": "qaskills-playwright-project-detection",
+      "primaryKeyword": "QASkills Playwright project detection",
+      "title": "QASkills Playwright project detection",
+      "description": "QASkills Playwright project detection: use repo paths, tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "how-to",
+      "coreQuestion": "How does QASkills detect Playwright from configuration files or package dependencies, and which evidence wins first?",
+      "intentBoundary": "Playwright project classification only, not Playwright test authoring or CLI skill installation.",
+      "secondaryKeywords": [
+        "detect playwright config",
+        "playwright package dependency detection",
+        "qaskills framework detector",
+        "playwright.config.mjs detection",
+        "playwright project evidence",
+        "test playwright auto detection"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills Playwright project detection guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How does QASkills detect Playwright from configuration files or package dependencies, and which evidence wins first?\" in 40 to 60 words, define the observable contract, and state the boundary: Playwright project classification only, not Playwright test authoring or CLI skill installation.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#detectPlaywright",
+            "packages/cli/src/lib/framework-detector.ts#detectFrameworks"
+          ]
+        },
+        {
+          "heading": "How does detect playwright config work?",
+          "secondaryKeyword": "detect playwright config",
+          "coverage": "Walk through the production branch at packages/cli/src/lib/framework-detector.ts#detectPlaywright, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/cli/src/lib/framework-detector.ts#detectPlaywright"]
+        },
+        {
+          "heading": "Which cases define playwright package dependency detection?",
+          "secondaryKeyword": "playwright package dependency detection",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise detectFrameworks; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+            "packages/cli/src/lib/framework-detector.ts#hasDep"
+          ]
+        },
+        {
+          "heading": "qaskills framework detector and the current QASkills contract",
+          "secondaryKeyword": "qaskills framework detector",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/cli/src/lib/framework-detector.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/cli/src/lib/framework-detector.ts#hasDep"]
+        },
+        {
+          "heading": "How do you test playwright.config.mjs detection?",
+          "secondaryKeyword": "playwright.config.mjs detection",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#detectPlaywright",
+            "packages/cli/src/lib/framework-detector.ts#readJsonSafe"
+          ]
+        },
+        {
+          "heading": "playwright project evidence failure and edge-case matrix",
+          "secondaryKeyword": "playwright project evidence",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+            "packages/cli/src/lib/framework-detector.ts#readJsonSafe"
+          ]
+        },
+        {
+          "heading": "How should test playwright auto detection run in CI?",
+          "secondaryKeyword": "test playwright auto detection",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#detectPlaywright",
+            "packages/cli/src/lib/framework-detector.ts#readJsonSafe"
+          ]
+        },
+        {
+          "heading": "Implementation checklist for QASkills Playwright project detection",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /categories/e2e-testing, /skills, /blog/playwright-e2e-complete-guide.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#detectPlaywright",
+            "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+            "packages/cli/src/lib/framework-detector.ts#hasDep"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#detectPlaywright",
+            "packages/cli/src/lib/framework-detector.ts#detectFrameworks"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Browse /categories for the detected framework, then select a matching package from /skills and run the fixture matrix.",
+          "repoEvidence": ["packages/cli/src/lib/framework-detector.ts#detectPlaywright"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills Playwright project detection scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "detect playwright config",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at detectPlaywright completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/cli/src/lib/framework-detector.ts#detectPlaywright"
+          },
+          {
+            "scenario": "playwright package dependency detection",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at detectFrameworks selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/cli/src/lib/framework-detector.ts#detectFrameworks"
+          },
+          {
+            "scenario": "playwright.config.mjs detection",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/cli/src/lib/framework-detector.ts#hasDep"
+          },
+          {
+            "scenario": "test playwright auto detection",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/cli/src/lib/framework-detector.ts#readJsonSafe"
+          }
+        ],
+        "source": [
+          "packages/cli/src/lib/framework-detector.ts#detectPlaywright",
+          "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+          "packages/cli/src/lib/framework-detector.ts#hasDep",
+          "packages/cli/src/lib/framework-detector.ts#readJsonSafe"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/cli/src/lib/framework-detector.ts at detectPlaywright and record the exact inputs, defaults, side effects, and output for \"detect playwright config\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"playwright package dependency detection\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to detectFrameworks, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"playwright.config.mjs detection\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"test playwright auto detection\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace detectPlaywright in the current implementation",
+          "repoPath": "packages/cli/src/lib/framework-detector.ts",
+          "symbol": "detectPlaywright",
+          "plan": "Quote the current detectPlaywright branch and annotate how it implements \"detect playwright config\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for detectFrameworks",
+          "repoPath": "packages/cli/src/lib/framework-detector.ts",
+          "symbol": "detectFrameworks",
+          "plan": "Use the real detectFrameworks contract to create an executable test for \"playwright package dependency detection\", then assert the related \"qaskills framework detector\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for hasDep",
+          "repoPath": "packages/cli/src/lib/framework-detector.ts",
+          "symbol": "hasDep",
+          "plan": "Use the real hasDep contract to create an executable test for \"qaskills framework detector\", then assert the related \"playwright.config.mjs detection\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/framework-detector.ts#detectPlaywright",
+        "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+        "packages/cli/src/lib/framework-detector.ts#hasDep",
+        "packages/cli/src/lib/framework-detector.ts#readJsonSafe"
+      ],
+      "internalRoutes": [
+        "/categories/e2e-testing",
+        "/skills",
+        "/blog/playwright-e2e-complete-guide",
+        "/blog/playwright-cli-install-quickstart-2026",
+        "/blog",
+        "/getting-started",
+        "/faq",
+        "/categories"
+      ],
+      "relatedSlugs": [
+        "playwright-e2e-complete-guide",
+        "playwright-cli-install-quickstart-2026",
+        "test-automation-framework-architecture",
+        "hybrid-automation-framework-guide"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/test-configuration",
+        "https://nodejs.org/api/fs.html",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json"
+      ],
+      "faqQuestions": [
+        "What does detect playwright config verify in QASkills?",
+        "When should a team test playwright package dependency detection?",
+        "How can a fixture isolate qaskills framework detector?",
+        "Which assertion proves playwright.config.mjs detection?",
+        "What failure cases belong in playwright project evidence tests?",
+        "How should CI run test playwright auto detection checks?"
+      ],
+      "cta": "Browse /categories for the detected framework, then select a matching package from /skills and run the fixture matrix."
+    },
+    {
+      "id": "cli-sdk-003",
+      "batch": 4,
+      "batchPosition": 4,
+      "domain": "cli-sdk",
+      "slug": "qaskills-multi-agent-install-failure",
+      "primaryKeyword": "QASkills multi agent install failure",
+      "title": "QASkills multi agent install failure",
+      "description": "QASkills multi agent install failure: use repo paths, tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "What happens when QASkills installs to several agents and one filesystem copy fails partway through the loop?",
+      "intentBoundary": "Failure consistency across several destinations, not source download fallback or one custom directory.",
+      "secondaryKeywords": [
+        "partial agent skill install",
+        "multi agent install rollback",
+        "qaskills copy failure",
+        "agent install consistency test",
+        "skill installation transaction",
+        "recover failed agent install"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills multi agent install failure guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"What happens when QASkills installs to several agents and one filesystem copy fails partway through the loop?\" in 40 to 60 words, define the observable contract, and state the boundary: Failure consistency across several destinations, not source download fallback or one custom directory.",
+          "repoEvidence": [
+            "packages/cli/src/commands/add.ts#addCommand",
+            "packages/cli/src/lib/installer.ts#installToAgent"
+          ]
+        },
+        {
+          "heading": "How does partial agent skill install work?",
+          "secondaryKeyword": "partial agent skill install",
+          "coverage": "Walk through the production branch at packages/cli/src/commands/add.ts#addCommand, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/cli/src/commands/add.ts#addCommand"]
+        },
+        {
+          "heading": "Which cases define multi agent install rollback?",
+          "secondaryKeyword": "multi agent install rollback",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise installToAgent; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts#installToAgent",
+            "packages/cli/src/lib/installer.ts#copyDir"
+          ]
+        },
+        {
+          "heading": "qaskills copy failure and the current QASkills contract",
+          "secondaryKeyword": "qaskills copy failure",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/cli/src/lib/installer.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/cli/src/lib/installer.ts#copyDir"]
+        },
+        {
+          "heading": "How do you test agent install consistency test?",
+          "secondaryKeyword": "agent install consistency test",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": [
+            "packages/cli/src/commands/add.ts#addCommand",
+            "packages/cli/src/commands/update.ts#updateCommand"
+          ]
+        },
+        {
+          "heading": "skill installation transaction failure and edge-case matrix",
+          "secondaryKeyword": "skill installation transaction",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": [
+            "packages/cli/src/lib/installer.ts#installToAgent",
+            "packages/cli/src/commands/update.ts#updateCommand"
+          ]
+        },
+        {
+          "heading": "How should recover failed agent install run in CI?",
+          "secondaryKeyword": "recover failed agent install",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": [
+            "packages/cli/src/commands/add.ts#addCommand",
+            "packages/cli/src/commands/update.ts#updateCommand"
+          ]
+        },
+        {
+          "heading": "Implementation checklist for QASkills multi agent install failure",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /agents, /skills, /blog/how-to-install-skills-claude-code.",
+          "repoEvidence": [
+            "packages/cli/src/commands/add.ts#addCommand",
+            "packages/cli/src/lib/installer.ts#installToAgent",
+            "packages/cli/src/lib/installer.ts#copyDir"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": [
+            "packages/cli/src/commands/add.ts#addCommand",
+            "packages/cli/src/lib/installer.ts#installToAgent"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Follow /getting-started, then browse /skills and run the local installation checks against a disposable directory.",
+          "repoEvidence": ["packages/cli/src/commands/add.ts#addCommand"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills multi agent install failure scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "partial agent skill install",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at addCommand completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/cli/src/commands/add.ts#addCommand"
+          },
+          {
+            "scenario": "multi agent install rollback",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at installToAgent selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/cli/src/lib/installer.ts#installToAgent"
+          },
+          {
+            "scenario": "agent install consistency test",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/cli/src/lib/installer.ts#copyDir"
+          },
+          {
+            "scenario": "recover failed agent install",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/cli/src/commands/update.ts#updateCommand"
+          }
+        ],
+        "source": [
+          "packages/cli/src/commands/add.ts#addCommand",
+          "packages/cli/src/lib/installer.ts#installToAgent",
+          "packages/cli/src/lib/installer.ts#copyDir",
+          "packages/cli/src/commands/update.ts#updateCommand"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/cli/src/commands/add.ts at addCommand and record the exact inputs, defaults, side effects, and output for \"partial agent skill install\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"multi agent install rollback\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to installToAgent, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"agent install consistency test\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"recover failed agent install\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace addCommand in the current implementation",
+          "repoPath": "packages/cli/src/commands/add.ts",
+          "symbol": "addCommand",
+          "plan": "Quote the current addCommand branch and annotate how it implements \"partial agent skill install\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for installToAgent",
+          "repoPath": "packages/cli/src/lib/installer.ts",
+          "symbol": "installToAgent",
+          "plan": "Use the real installToAgent contract to create an executable test for \"multi agent install rollback\", then assert the related \"qaskills copy failure\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for copyDir",
+          "repoPath": "packages/cli/src/lib/installer.ts",
+          "symbol": "copyDir",
+          "plan": "Use the real copyDir contract to create an executable test for \"qaskills copy failure\", then assert the related \"agent install consistency test\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/commands/add.ts#addCommand",
+        "packages/cli/src/lib/installer.ts#installToAgent",
+        "packages/cli/src/lib/installer.ts#copyDir",
+        "packages/cli/src/commands/update.ts#updateCommand"
+      ],
+      "internalRoutes": [
+        "/agents",
+        "/skills",
+        "/blog/how-to-install-skills-claude-code",
+        "/blog/how-to-install-skills-cursor",
+        "/blog",
+        "/getting-started",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "how-to-install-skills-claude-code",
+        "how-to-install-skills-cursor",
+        "skill-md-format-guide",
+        "qaskills-add-custom-directory-ci"
+      ],
+      "sources": [
+        "https://nodejs.org/api/fs.html",
+        "https://vitest.dev/guide/",
+        "https://github.com/tj/commander.js"
+      ],
+      "faqQuestions": [
+        "What does partial agent skill install verify in QASkills?",
+        "When should a team test multi agent install rollback?",
+        "How can a fixture isolate qaskills copy failure?",
+        "Which assertion proves agent install consistency test?",
+        "What failure cases belong in skill installation transaction tests?",
+        "How should CI run recover failed agent install checks?"
+      ],
+      "cta": "Follow /getting-started, then browse /skills and run the local installation checks against a disposable directory."
+    },
+    {
+      "id": "cli-sdk-056",
+      "batch": 4,
+      "batchPosition": 5,
+      "domain": "cli-sdk",
+      "slug": "qaskills-sdk-dual-module-exports",
+      "primaryKeyword": "QASkills SDK dual module exports",
+      "title": "QASkills SDK dual module exports",
+      "description": "QASkills SDK dual module exports: use real repo paths, focused tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "how-to",
+      "coreQuestion": "How can consumers and CI verify that @qaskills/sdk loads through both require and import using the declared exports map?",
+      "intentBoundary": "Runtime module loading for the SDK, not TypeScript declarations or CLI CommonJS bundling.",
+      "secondaryKeywords": [
+        "QASkills SDK CommonJS import",
+        "QASkills SDK ESM import",
+        "package exports map test",
+        "dual module package smoke test",
+        "require import compatibility",
+        "tsup cjs esm output"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills SDK dual module exports guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can consumers and CI verify that @qaskills/sdk loads through both require and import using the declared exports map?\" in 40 to 60 words, define the observable contract, and state the boundary: Runtime module loading for the SDK, not TypeScript declarations or CLI CommonJS bundling.",
+          "repoEvidence": [
+            "packages/sdk/package.json#exports",
+            "packages/sdk/tsup.config.ts#format"
+          ]
+        },
+        {
+          "heading": "How does QASkills SDK CommonJS import work?",
+          "secondaryKeyword": "QASkills SDK CommonJS import",
+          "coverage": "Walk through the production branch at packages/sdk/package.json#exports, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/sdk/package.json#exports"]
+        },
+        {
+          "heading": "Which cases define QASkills SDK ESM import?",
+          "secondaryKeyword": "QASkills SDK ESM import",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise format; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/sdk/tsup.config.ts#format",
+            "packages/sdk/src/index.ts#default"
+          ]
+        },
+        {
+          "heading": "package exports map test and the current QASkills contract",
+          "secondaryKeyword": "package exports map test",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/sdk/src/index.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/sdk/src/index.ts#default"]
+        },
+        {
+          "heading": "How do you test dual module package smoke test?",
+          "secondaryKeyword": "dual module package smoke test",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": [
+            "packages/sdk/package.json#exports",
+            "packages/sdk/src/index.ts#createClient"
+          ]
+        },
+        {
+          "heading": "require import compatibility failure and edge-case matrix",
+          "secondaryKeyword": "require import compatibility",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": [
+            "packages/sdk/tsup.config.ts#format",
+            "packages/sdk/src/index.ts#createClient"
+          ]
+        },
+        {
+          "heading": "How should tsup cjs esm output run in CI?",
+          "secondaryKeyword": "tsup cjs esm output",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": [
+            "packages/sdk/package.json#exports",
+            "packages/sdk/src/index.ts#createClient"
+          ]
+        },
+        {
+          "heading": "Implementation checklist for QASkills SDK dual module exports",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /skills, /categories, /leaderboard.",
+          "repoEvidence": [
+            "packages/sdk/package.json#exports",
+            "packages/sdk/tsup.config.ts#format",
+            "packages/sdk/src/index.ts#default"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": [
+            "packages/sdk/package.json#exports",
+            "packages/sdk/tsup.config.ts#format"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Review /getting-started, run the package gate, and use /skills as the live catalog contract before publishing.",
+          "repoEvidence": ["packages/sdk/package.json#exports"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills SDK dual module exports scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "QASkills SDK CommonJS import",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at exports completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/sdk/package.json#exports"
+          },
+          {
+            "scenario": "QASkills SDK ESM import",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at format selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/sdk/tsup.config.ts#format"
+          },
+          {
+            "scenario": "dual module package smoke test",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/sdk/src/index.ts#default"
+          },
+          {
+            "scenario": "tsup cjs esm output",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/sdk/src/index.ts#createClient"
+          }
+        ],
+        "source": [
+          "packages/sdk/package.json#exports",
+          "packages/sdk/tsup.config.ts#format",
+          "packages/sdk/src/index.ts#default",
+          "packages/sdk/src/index.ts#createClient"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/sdk/package.json at exports and record the exact inputs, defaults, side effects, and output for \"QASkills SDK CommonJS import\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"QASkills SDK ESM import\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to format, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"dual module package smoke test\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"tsup cjs esm output\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace exports in the current implementation",
+          "repoPath": "packages/sdk/package.json",
+          "symbol": "exports",
+          "plan": "Quote the current exports branch and annotate how it implements \"QASkills SDK CommonJS import\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for format",
+          "repoPath": "packages/sdk/tsup.config.ts",
+          "symbol": "format",
+          "plan": "Use the real format contract to create an executable test for \"QASkills SDK ESM import\", then assert the related \"package exports map test\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for default",
+          "repoPath": "packages/sdk/src/index.ts",
+          "symbol": "default",
+          "plan": "Use the real default contract to create an executable test for \"package exports map test\", then assert the related \"dual module package smoke test\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/sdk/package.json#exports",
+        "packages/sdk/tsup.config.ts#format",
+        "packages/sdk/src/index.ts#default",
+        "packages/sdk/src/index.ts#createClient"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/leaderboard",
+        "/blog/typescript-testing-patterns-guide",
+        "/blog",
+        "/getting-started",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "typescript-testing-patterns-guide",
+        "github-actions-testing-ci-cd-guide",
+        "how-to-publish-ai-agent-skill-directory",
+        "ai-qa-skills-directory-2026"
+      ],
+      "sources": [
+        "https://nodejs.org/api/packages.html",
+        "https://nodejs.org/api/esm.html",
+        "https://www.typescriptlang.org/docs/handbook/modules/reference.html"
+      ],
+      "faqQuestions": [
+        "What does QASkills SDK CommonJS import verify in QASkills?",
+        "When should a team test QASkills SDK ESM import?",
+        "How can a fixture isolate package exports map test?",
+        "Which assertion proves dual module package smoke test?",
+        "What failure cases belong in require import compatibility tests?",
+        "How should CI run tsup cjs esm output checks?"
+      ],
+      "cta": "Review /getting-started, run the package gate, and use /skills as the live catalog contract before publishing."
+    }
+  ]
+}

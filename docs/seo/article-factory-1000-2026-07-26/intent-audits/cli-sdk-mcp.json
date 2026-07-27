@@ -1,0 +1,1728 @@
+{
+  "metadata": {
+    "auditType": "independent intent and publication-depth audit",
+    "campaignCluster": "cli-sdk-mcp",
+    "generatedAt": "2026-07-27T03:33:30Z",
+    "selectedPath": "docs/seo/article-factory-1000-2026-07-26/selected.json",
+    "selectedSha256": "636adab537165d18bc291ba35922bea976a02eebd21d54a031f7def5c2eb31a7",
+    "inventoryPath": "docs/seo/article-factory-250-2026-07-25/inventory.json",
+    "inventorySha256": "79a4e70aaa7daf9a0235997439569f482ac8c2a6876410fca7e8d0beb7f05a15",
+    "writerContractPath": "docs/seo/article-factory-1000-2026-07-26/writer-contract.md",
+    "writerContractSha256": "798ff01f14277c9dbd7b34eb294e611c1bfe9b0e268205b950f5cc3c8325d2ff",
+    "decisionStandard": "Reject same-intent pages, unsupported claims, unsafe guidance, source or route mismatches, and topics that cannot honestly sustain the mandatory 3,000 to 4,000 words.",
+    "replacementStandard": "Same campaignCluster, existing evidence paths, verified canonical internal routes, HTTPS official sources, no exact slug or primary-keyword collision, normalized title and keyword overlap below 0.80, and manual intent separation from inventory and all remaining selected topics."
+  },
+  "counts": {
+    "allSelectedTopicsRead": 750,
+    "cliSdkMcpSelectedReviewed": 125,
+    "baselineInventoryItemsRead": 1778,
+    "campaignReservePool": 228,
+    "pass": 40,
+    "reject": 85,
+    "rejectionReasonCounts": {
+      "sameSearcherIntent": 47,
+      "unsupportedVendorBehavior": 12,
+      "evidenceOrSourceMismatch": 10,
+      "insufficientDepth": 9,
+      "unsupportedClaims": 6,
+      "securityUnderSourced": 1
+    },
+    "replacements": 85,
+    "uniqueReviewSlugs": 125,
+    "uniqueReplacementSlugs": 85,
+    "targetEvidenceReferencesChecked": 446,
+    "targetInternalRoutesChecked": 501,
+    "targetAuthoritativeSourcesReviewed": 374,
+    "targetUniqueAuthoritativeSources": 43,
+    "targetAuthoritativeSourceHosts": 21,
+    "replacementEvidenceReferencesChecked": 306,
+    "replacementInternalRoutesChecked": 340,
+    "replacementAuthoritativeSourcesReviewed": 251,
+    "replacementUniqueAuthoritativeSources": 49,
+    "replacementAuthoritativeSourceHosts": 25,
+    "targetMissingEvidencePaths": 0,
+    "targetMissingInternalRoutes": 0,
+    "targetNonHttpsSources": 0,
+    "targetInvalidSourceUrls": 0,
+    "replacementInvalidSourceUrls": 0,
+    "replacementExactSlugCollisions": 0,
+    "replacementExactPrimaryKeywordCollisions": 0,
+    "replacementHighTitleOrKeywordOverlapCollisions": 0
+  },
+  "replacementValidation": {
+    "comparedAgainstInventoryItems": 1778,
+    "comparedAgainstRemainingSelectedTopics": 665,
+    "comparedAgainstOtherReplacements": 84,
+    "normalizedOverlapRejectThreshold": 0.8,
+    "maximumObservedNormalizedOverlap": 0.75,
+    "maximumObservedOverlapAgainstAllRemainingSelectedTopics": 0.6667,
+    "manualIntentReview": "pass",
+    "pathRouteAndSourceValidation": "pass",
+    "sourceSyntaxValidation": "pass",
+    "authoritativeHostReview": "pass"
+  },
+  "reviews": [
+    {
+      "slug": "mcp-agent-install-discovery-testing",
+      "decision": "reject",
+      "reason": "Reject for unsupported claims. The repository writes SKILL.md and prints reload guidance, but it contains no target-agent reload or discovery harness that could prove post-reload discoverability",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth because the central promised behavior is not implemented or observable in the cited repository. A long article would have to invent a harness or product contract.",
+      "evidenceAssessment": "Weak. The 2 paths resolve, but they stop before the behavior promised by the title and answer-first question."
+    },
+    {
+      "slug": "mcp-binary-entrypoint-smoke-testing",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. The product guide provides the launch command. This candidate validates executable packaging, process startup, and handshake as release gates. The nearest page is /blog/mcp-subprocess-launch-smoke-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-subprocess-launch-smoke-testing",
+        "route": "/blog/mcp-subprocess-launch-smoke-testing",
+        "title": "MCP subprocess launch smoke testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-subprocess-launch-smoke-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-idempotent-reinstall-behavior-testing",
+      "decision": "pass",
+      "reason": "Pass. The product guide demonstrates installation once. This candidate deeply tests repeated writes, local modifications, updates, and convergence. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: protocol calls, negative cases, filesystem or process behavior, assertions, and CI gates are all inside the approved intent. The brief supplies 5 secondary queries and 2 repository evidence references.",
+      "evidenceAssessment": "Strong. All 1 repository paths resolve (packages/mcp/src/index.ts), every internal route is present in the inventory, and the approved HTTPS sources span modelcontextprotocol.io, nodejs.org, github.com. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "mcp-install-path-traversal-testing",
+      "decision": "pass",
+      "reason": "Pass. Tool poisoning concerns deceptive metadata and instructions. This candidate tests concrete local path escape through install_skill inputs. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: protocol calls, negative cases, filesystem or process behavior, assertions, and CI gates are all inside the approved intent. The brief supplies 5 secondary queries and 2 repository evidence references.",
+      "evidenceAssessment": "Strong. All 1 repository paths resolve (packages/mcp/src/index.ts), every internal route is present in the inventory, and the approved HTTPS sources span owasp.org, cwe.mitre.org, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "mcp-multi-filter-composition-testing",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. The prior article checks static schema parity. This candidate exercises behavioral interactions among all accepted filters in one request. The nearest page is /blog/mcp-search-filter-schema-drift-contract-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-search-filter-schema-drift-contract-tests",
+        "route": "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "title": "MCP Search Filter Schema Drift"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-search-filter-schema-drift-contract-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-zod-input-boundary-testing",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. The existing guide surveys MCP schema contracts. This candidate is a concrete Zod boundary matrix tied to all six QASkills tools. The nearest page is /blog/mcp-server-contract-testing-guide, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-server-contract-testing-guide",
+        "route": "/blog/mcp-server-contract-testing-guide",
+        "title": "Test MCP Tool Schemas, Defaults, Invalid Inputs, and Error Types"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-server-contract-testing-guide.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-api-base-url-override-testing",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. The existing guide documents setup. This candidate builds hermetic tests that prove all six tools honor one process-level API override. The nearest page is /blog/mcp-client-environment-propagation-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-client-environment-propagation-testing",
+        "route": "/blog/mcp-client-environment-propagation-testing",
+        "title": "MCP client environment propagation testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-client-environment-propagation-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-explicit-target-path-testing",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. The CLI article targets qaskills add --dir in CI. This candidate covers the MCP tool's targetDir resolution and filesystem side effects. The nearest page is /blog/mcp-install-directory-precedence-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-install-directory-precedence-tests",
+        "route": "/blog/mcp-install-directory-precedence-tests",
+        "title": "MCP install directory precedence tests"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-install-directory-precedence-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 1 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-install-slug-validation-tests",
+      "decision": "pass",
+      "reason": "Pass. The existing checklist reviews skill provenance and command safety. This candidate defines the MCP install tool's accepted slug grammar before network or filesystem side effects. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: protocol calls, negative cases, filesystem or process behavior, assertions, and CI gates are all inside the approved intent. The brief supplies 5 secondary queries and 2 repository evidence references.",
+      "evidenceAssessment": "Strong. All 2 repository paths resolve (packages/mcp/src/index.ts, packages/web/src/app/api/skills/route.ts), every internal route is present in the inventory, and the approved HTTPS sources span zod.dev, nodejs.org, cwe.mitre.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "mcp-registry-environment-schema-testing",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. The version article does not audit environment-variable names, required flags, secret classification, or runtime consumption. The nearest page is /blog/mcp-server-manifest-schema-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-server-manifest-schema-testing",
+        "route": "/blog/mcp-server-manifest-schema-testing",
+        "title": "MCP server manifest schema testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-server-manifest-schema-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-registry-namespace-casing-tests",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. The prior article targets numeric version drift. This candidate targets case-sensitive publisher namespace ownership. The nearest page is /blog/mcp-registry-package-identity-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-registry-package-identity-testing",
+        "route": "/blog/mcp-registry-package-identity-testing",
+        "title": "MCP registry package identity testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-registry-package-identity-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-registry-transport-metadata-testing",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. The existing article tests version metadata. This topic checks declared transport against the executable implementation. The nearest page is /blog/mcp-server-manifest-schema-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-server-manifest-schema-testing",
+        "route": "/blog/mcp-server-manifest-schema-testing",
+        "title": "MCP server manifest schema testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-server-manifest-schema-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-search-limit-boundary-testing",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. The prior article notes limit parity. This topic is a full executable boundary and coercion matrix for the public tool. The nearest page is /blog/mcp-search-filter-schema-drift-contract-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-search-filter-schema-drift-contract-tests",
+        "route": "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "title": "MCP Search Filter Schema Drift"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-search-filter-schema-drift-contract-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-search-query-encoding-tests",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. The existing post compares filter names and enum values. This candidate tests character-preserving URL serialization for free-text searches. The nearest page is /blog/mcp-search-filter-schema-drift-contract-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-search-filter-schema-drift-contract-tests",
+        "route": "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "title": "MCP Search Filter Schema Drift"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-search-filter-schema-drift-contract-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-tool-error-envelope-testing",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. The agent article tests replanning after a failure. This candidate verifies the server-side CallToolResult error envelope before agent behavior. The nearest page is /blog/mcp-server-contract-testing-guide, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-server-contract-testing-guide",
+        "route": "/blog/mcp-server-contract-testing-guide",
+        "title": "Test MCP Tool Schemas, Defaults, Invalid Inputs, and Error Types"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-server-contract-testing-guide.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 1 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-tools-list-regression-testing",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. The existing tutorial teaches Inspector commands. This candidate designs a release invariant around the complete QASkills tool inventory. The nearest page is /blog/mcp-inspector-tutorial-2026, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-inspector-tutorial-2026",
+        "route": "/blog/mcp-inspector-tutorial-2026",
+        "title": "Use MCP Inspector CLI to Automate tools/list and tools/call Tests"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-inspector-tutorial-2026.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-publish-validation-error-paths",
+      "decision": "pass",
+      "reason": "Pass. Formatting schema failures in the CLI, not parser round trips, missing files, or web publisher validation. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: command setup, boundary cases, filesystem or API effects, diagnostics, and exit behavior are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 4 repository paths resolve (packages/cli/src/commands/publish.ts, packages/shared/src/schemas/skill-schema.ts, packages/shared/src/parsers/skill-parser.ts, packages/shared/src/types/skill.ts), every internal route is present in the inventory, and the approved HTTPS sources span zod.dev, yaml.org, agentskills.io. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "mcp-api-redirect-handling-tests",
+      "decision": "reject",
+      "reason": "Reject for evidence or source mismatch. The evidence names the generic fetch wrapper, but neither the evidence hints nor the approved sources establish redirect mode, redirect limits, or final-URL assertions",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient under the writer contract. The outline could be expanded, but the approved evidence and citations cannot substantiate the required sections without importing unapproved material.",
+      "evidenceAssessment": "Weak. The paths resolve, but the named symbols or approved sources (modelcontextprotocol.io, github.com) do not trace the principal claim closely enough for the mandatory citation gate."
+    },
+    {
+      "slug": "mcp-claude-marker-path-detection",
+      "decision": "pass",
+      "reason": "Pass. Covers any .claude filesystem entry selecting .claude/skills. Excludes Claude-versus-Cursor parity. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: runtime branches, positive and negative fixtures, response assertions, and regression gates are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 2 repository paths resolve (packages/mcp/src/index.ts, packages/mcp/README.md), every internal route is present in the inventory, and the approved HTTPS sources span modelcontextprotocol.io, github.com. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "mcp-environment-import-timing-tests",
+      "decision": "reject",
+      "reason": "Reject for publication depth. The entire intent is the single module-scope BASE assignment and its import-time capture behavior",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The bounded behavior is one field, expression, or branch, so 8 to 12 H2 sections and two substantive code examples would require generic padding.",
+      "evidenceAssessment": "Narrow. The 1 paths resolve, but they converge on one small implementation branch rather than multiple independently supportable article sections."
+    },
+    {
+      "slug": "mcp-existing-skill-overwrite-testing",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers reinstall replacement of an existing SKILL.md. Excludes directory idempotency annotations. The nearest page is /blog/mcp-idempotent-reinstall-behavior-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "selected",
+        "slug": "mcp-idempotent-reinstall-behavior-testing",
+        "route": "/blog/mcp-idempotent-reinstall-behavior-testing",
+        "title": "MCP Idempotent Reinstall Tests"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-idempotent-reinstall-behavior-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-fallback-agents-path-testing",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers default .agents/skills selection without a .claude marker. Excludes the global universal directory. The nearest page is /blog/mcp-install-directory-precedence-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-install-directory-precedence-tests",
+        "route": "/blog/mcp-install-directory-precedence-tests",
+        "title": "MCP install directory precedence tests"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-install-directory-precedence-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-get-content-mime-handling",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers text conversion when upstream Content-Type is unexpected. Excludes byte fidelity of valid markdown. The nearest page is /blog/mcp-skill-content-fidelity-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-skill-content-fidelity-testing",
+        "route": "/blog/mcp-skill-content-fidelity-testing",
+        "title": "MCP skill content fidelity testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-skill-content-fidelity-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-get-skill-passthrough-fields",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers unknown metadata retained after fullDescription removal. Excludes the redaction of fullDescription itself. The nearest page is /blog/mcp-skill-metadata-redaction-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-skill-metadata-redaction-testing",
+        "route": "/blog/mcp-skill-metadata-redaction-testing",
+        "title": "MCP skill metadata redaction testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-skill-metadata-redaction-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-install-event-after-persistence",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers file completion before fire-and-forget event delivery. Excludes telemetry payload field values. The nearest page is /blog/qaskills-cross-command-event-sequencing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "selected",
+        "slug": "qaskills-cross-command-event-sequencing",
+        "route": "/blog/qaskills-cross-command-event-sequencing",
+        "title": "QASkills cross-command event sequencing | QASkills.sh"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-cross-command-event-sequencing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-leaderboard-timestamp-passthrough",
+      "decision": "reject",
+      "reason": "Reject for publication depth. The proposed contract is limited to retaining updatedAt and filter fields in one pass-through object",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The bounded behavior is one field, expression, or branch, so 8 to 12 H2 sections and two substantive code examples would require generic padding.",
+      "evidenceAssessment": "Narrow. The 3 paths resolve, but they converge on one small implementation branch rather than multiple independently supportable article sections."
+    },
+    {
+      "slug": "mcp-leaderboard-upstream-rank-stability",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers upstream rank ordering surviving local slicing. Excludes the requested limit boundary. The nearest page is /blog/mcp-leaderboard-truncation-contract-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-leaderboard-truncation-contract-testing",
+        "route": "/blog/mcp-leaderboard-truncation-contract-testing",
+        "title": "MCP leaderboard truncation contract testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-leaderboard-truncation-contract-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 3 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-nontext-content-response-handling",
+      "decision": "reject",
+      "reason": "Reject for unsupported claims. The backing route explicitly emits text markdown and getText decodes Response text; no binary content contract or invalid-byte fixture exists in the cited repository evidence",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth because the central promised behavior is not implemented or observable in the cited repository. A long article would have to invent a harness or product contract.",
+      "evidenceAssessment": "Weak. The 2 paths resolve, but they stop before the behavior promised by the title and answer-first question."
+    },
+    {
+      "slug": "mcp-parent-directory-creation-testing",
+      "decision": "reject",
+      "reason": "Reject for publication depth. The proposed behavior reduces to one mkdir call with recursive true and does not expose enough independent decisions for a long-form article",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The bounded behavior is one field, expression, or branch, so 8 to 12 H2 sections and two substantive code examples would require generic padding.",
+      "evidenceAssessment": "Narrow. The 2 paths resolve, but they converge on one small implementation branch rather than multiple independently supportable article sections."
+    },
+    {
+      "slug": "mcp-search-missing-array-defaults",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers successful API bodies without a skills array. Excludes malformed JSON failures. The nearest page is /blog/mcp-search-response-normalization-contract-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-search-response-normalization-contract-tests",
+        "route": "/blog/mcp-search-response-normalization-contract-tests",
+        "title": "MCP Search Response Normalization"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-search-response-normalization-contract-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-search-parameter-name-parity",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers tool arguments mapped to the route singular query names. Excludes Zod input boundaries. The nearest page is /blog/mcp-search-filter-schema-drift-contract-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-search-filter-schema-drift-contract-tests",
+        "route": "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "title": "MCP Search Filter Schema Drift"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-search-filter-schema-drift-contract-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-search-sort-alias-parity",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers quality and popular tool values accepted by the web route. Excludes leaderboard filters. The nearest page is /blog/mcp-search-filter-schema-drift-contract-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-search-filter-schema-drift-contract-tests",
+        "route": "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "title": "MCP Search Filter Schema Drift"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-search-filter-schema-drift-contract-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-search-total-type-validation",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers untrusted total values passed through normalized output. Excludes result-field allowlisting. The nearest page is /blog/mcp-search-response-normalization-contract-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-search-response-normalization-contract-tests",
+        "route": "/blog/mcp-search-response-normalization-contract-tests",
+        "title": "MCP Search Response Normalization"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-search-response-normalization-contract-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-server-instruction-discovery-tests",
+      "decision": "pass",
+      "reason": "Pass. Covers server-level instructions visible during initialization. Excludes per-tool description snapshots. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: runtime branches, positive and negative fixtures, response assertions, and regression gates are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 1 repository paths resolve (packages/mcp/src/index.ts), every internal route is present in the inventory, and the approved HTTPS sources span modelcontextprotocol.io, github.com. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "mcp-serverinfo-version-provenance",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers package.json version reflected in serverInfo and User-Agent. Excludes registry manifest version drift. The nearest page is /blog/mcp-package-registry-version-drift-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-package-registry-version-drift-tests",
+        "route": "/blog/mcp-package-registry-version-drift-tests",
+        "title": "MCP Package Version Drift Testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-package-registry-version-drift-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 1 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-single-text-block-results",
+      "decision": "reject",
+      "reason": "Reject for publication depth. All current handlers share one tiny textResult shape, so the strict boundary cannot support eight independent sections without generic MCP padding",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The bounded behavior is one field, expression, or branch, so 8 to 12 H2 sections and two substantive code examples would require generic padding.",
+      "evidenceAssessment": "Narrow. The 1 paths resolve, but they converge on one small implementation branch rather than multiple independently supportable article sections."
+    },
+    {
+      "slug": "mcp-telemetry-rejection-independence",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers failed background event requests after a successful write. Excludes privacy opt-out behavior. The nearest page is /blog/qaskills-cross-command-event-sequencing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "selected",
+        "slug": "qaskills-cross-command-event-sequencing",
+        "route": "/blog/qaskills-cross-command-event-sequencing",
+        "title": "QASkills cross-command event sequencing | QASkills.sh"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-cross-command-event-sequencing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "mcp-timeout-url-diagnostic-safety",
+      "decision": "reject",
+      "reason": "Reject for unsafe under-sourcing. The code places complete URLs and query values in timeout errors, but the approved sources do not provide log-redaction or sensitive-URL guidance. Publishing remediation without an authoritative redaction source would risk normalizing sensitive query data in diagnostics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient for safe publication. The risk can be demonstrated, but a 3,000-word remediation guide would need approved redaction, logging, and sensitive-data authorities that are absent from the brief.",
+      "evidenceAssessment": "Incomplete for security publication. The code path resolves and exposes the diagnostic, but modelcontextprotocol.io, github.com does not provide a redaction standard or sensitive-URL handling policy."
+    },
+    {
+      "slug": "mcp-unknown-error-stringification-tests",
+      "decision": "reject",
+      "reason": "Reject for publication depth. The intent is one two-branch helper that chooses Error.message or String(error)",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The bounded behavior is one field, expression, or branch, so 8 to 12 H2 sections and two substantive code examples would require generic padding.",
+      "evidenceAssessment": "Narrow. The 1 paths resolve, but they converge on one small implementation branch rather than multiple independently supportable article sections."
+    },
+    {
+      "slug": "qaskills-add-cancellation-exit-semantics",
+      "decision": "pass",
+      "reason": "Pass. Covers multiselect cancellation, output, and process termination. Excludes remove confirmation cancellation. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: command states, terminal behavior, side effects, failure branches, and process assertions are all inside the approved intent. The brief supplies 6 secondary queries and 3 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (packages/cli/src/commands/add.ts, packages/cli/src/lib/installer.ts, packages/cli/src/lib/telemetry.ts), every internal route is present in the inventory, and the approved HTTPS sources span github.com, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-add-failure-exit-code",
+      "decision": "pass",
+      "reason": "Pass. Covers caught install failures setting process.exitCode without abrupt exit. Excludes HTTP helper error formatting. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: command states, terminal behavior, side effects, failure branches, and process assertions are all inside the approved intent. The brief supplies 6 secondary queries and 3 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (packages/cli/src/commands/add.ts, packages/cli/src/lib/installer.ts, packages/cli/src/lib/telemetry.ts), every internal route is present in the inventory, and the approved HTTPS sources span github.com, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-add-spinner-lifecycle-testing",
+      "decision": "pass",
+      "reason": "Pass. Covers spinner stop behavior across detection, resolution, download, and install faults. Excludes terminal color snapshots. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: command states, terminal behavior, side effects, failure branches, and process assertions are all inside the approved intent. The brief supplies 6 secondary queries and 3 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (packages/cli/src/commands/add.ts, packages/cli/src/lib/installer.ts, packages/cli/src/lib/telemetry.ts), every internal route is present in the inventory, and the approved HTTPS sources span github.com, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-add-telemetry-after-writes",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers telemetry beginning only after every destination write succeeds. Excludes server-side counter ordering. The nearest page is /blog/qaskills-cross-command-event-sequencing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "selected",
+        "slug": "qaskills-cross-command-event-sequencing",
+        "route": "/blog/qaskills-cross-command-event-sequencing",
+        "title": "QASkills cross-command event sequencing | QASkills.sh"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-cross-command-event-sequencing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 3 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-agent-registry-change-detection",
+      "decision": "pass",
+      "reason": "Pass. Covers reviewable snapshots for ids, names, paths, methods, and sites. Excludes tool-list snapshots in MCP. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: catalog invariants, path-resolution matrices, filesystem states, diagnostics, and change gates are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (packages/shared/src/constants/agents.ts, packages/cli/src/lib/agent-detector.ts, packages/cli/src/lib/installer.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-agent-website-url-validation",
+      "decision": "reject",
+      "reason": "Reject for evidence or source mismatch. The catalog contains website strings, but the source set lacks URL validation, HTTP health-check, redirect, and vendor-provenance authorities needed by the promised audit",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient under the writer contract. The outline could be expanded, but the approved evidence and citations cannot substantiate the required sections without importing unapproved material.",
+      "evidenceAssessment": "Weak. The paths resolve, but the named symbols or approved sources (agentskills.io, nodejs.org) do not trace the principal claim closely enough for the mandatory citation gate."
+    },
+    {
+      "slug": "qaskills-aide-editor-directory-install",
+      "decision": "reject",
+      "reason": "Reject for unsupported vendor behavior. QASkills declares the destination in its internal catalog, but no approved vendor source proves that the named agent discovers or supports that directory.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The repository can document its own catalog row and copy operation, but not a complete vendor integration, discovery lifecycle, compatibility matrix, or troubleshooting guide.",
+      "evidenceAssessment": "Weak for the public claim. Internal constants declare a destination, but the approved sources (agentskills.io, nodejs.org) do not include vendor documentation confirming that destination or discovery behavior."
+    },
+    {
+      "slug": "qaskills-amazon-q-folder-setup",
+      "decision": "reject",
+      "reason": "Reject for unsupported vendor behavior. QASkills declares the destination in its internal catalog, but no approved vendor source proves that the named agent discovers or supports that directory.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The repository can document its own catalog row and copy operation, but not a complete vendor integration, discovery lifecycle, compatibility matrix, or troubleshooting guide.",
+      "evidenceAssessment": "Weak for the public claim. Internal constants declare a destination, but the approved sources (agentskills.io, nodejs.org) do not include vendor documentation confirming that destination or discovery behavior."
+    },
+    {
+      "slug": "qaskills-amp-rule-directory-deployment",
+      "decision": "reject",
+      "reason": "Reject for unsupported vendor behavior. QASkills declares the destination in its internal catalog, but no approved vendor source proves that the named agent discovers or supports that directory.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The repository can document its own catalog row and copy operation, but not a complete vendor integration, discovery lifecycle, compatibility matrix, or troubleshooting guide.",
+      "evidenceAssessment": "Weak for the public claim. Internal constants declare a destination, but the approved sources (agentskills.io, nodejs.org) do not include vendor documentation confirming that destination or discovery behavior."
+    },
+    {
+      "slug": "qaskills-api-client-contract-matrix",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Its cross-client scope would also absorb existing CLI, SDK, MCP, and route-specific contract pages rather than answer one bounded search need The nearest page is /blog/mcp-search-filter-schema-drift-contract-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-search-filter-schema-drift-contract-tests",
+        "route": "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "title": "MCP Search Filter Schema Drift"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-search-filter-schema-drift-contract-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 4 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-api-page-size-naming-drift",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers pageSize versus limit across CLI, SDK, MCP, and web. Excludes pagination ranking stability. The nearest page is /blog/qaskills-sdk-list-pagination-query, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "qaskills-sdk-list-pagination-query",
+        "route": "/blog/qaskills-sdk-list-pagination-query",
+        "title": "QASkills SDK list pagination query"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-sdk-list-pagination-query.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 4 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-api-query-vocabulary-drift",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers plural shared fields versus singular web query names across clients. Excludes one specific MCP filter schema. The nearest page is /blog/mcp-search-filter-schema-drift-contract-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-search-filter-schema-drift-contract-tests",
+        "route": "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "title": "MCP Search Filter Schema Drift"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-search-filter-schema-drift-contract-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 4 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-api-sort-enum-drift",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers shared, MCP, and web sort aliases under one contract matrix. Excludes sort algorithm correctness. The nearest page is /blog/mcp-search-filter-schema-drift-contract-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-search-filter-schema-drift-contract-tests",
+        "route": "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "title": "MCP Search Filter Schema Drift"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-search-filter-schema-drift-contract-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 4 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-atomic-skill-replacement-testing",
+      "decision": "pass",
+      "reason": "Pass. Covers readers observing replacement while files are copied. Excludes registry version history. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: source fixtures, filesystem state matrices, failure injection, cleanup assertions, and CI coverage are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 2 repository paths resolve (packages/cli/src/lib/installer.ts, packages/cli/src/lib/installer.test.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-augment-code-rules-setup",
+      "decision": "reject",
+      "reason": "Reject for unsupported vendor behavior. QASkills declares the destination in its internal catalog, but no approved vendor source proves that the named agent discovers or supports that directory.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The repository can document its own catalog row and copy operation, but not a complete vendor integration, discovery lifecycle, compatibility matrix, or troubleshooting guide.",
+      "evidenceAssessment": "Weak for the public claim. Internal constants declare a destination, but the approved sources (agentskills.io, nodejs.org) do not include vendor documentation confirming that destination or discovery behavior."
+    },
+    {
+      "slug": "qaskills-binary-asset-fidelity-testing",
+      "decision": "pass",
+      "reason": "Pass. Covers byte-for-byte assets copied through staging and destination delivery. Excludes ZIP artifact checksums. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: source fixtures, filesystem state matrices, failure injection, cleanup assertions, and CI coverage are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 2 repository paths resolve (packages/cli/src/lib/installer.ts, packages/cli/src/lib/installer.test.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-bolt-rules-directory-setup",
+      "decision": "reject",
+      "reason": "Reject for unsupported vendor behavior. QASkills declares the destination in its internal catalog, but no approved vendor source proves that the named agent discovers or supports that directory.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The repository can document its own catalog row and copy operation, but not a complete vendor integration, discovery lifecycle, compatibility matrix, or troubleshooting guide.",
+      "evidenceAssessment": "Weak for the public claim. Internal constants declare a destination, but the approved sources (agentskills.io, nodejs.org) do not include vendor documentation confirming that destination or discovery behavior."
+    },
+    {
+      "slug": "qaskills-broken-config-symlink-detection",
+      "decision": "pass",
+      "reason": "Pass. Covers dangling config links and false-negative discovery. Excludes skill-package symlinks during copying. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: catalog invariants, path-resolution matrices, filesystem states, diagnostics, and change gates are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (packages/shared/src/constants/agents.ts, packages/cli/src/lib/agent-detector.ts, packages/cli/src/lib/installer.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-built-artifact-preflight",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers failing clearly when dist/index.js is absent before E2E. Excludes npm bin mapping tests. The nearest page is /blog/qaskills-cli-npm-binary-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "qaskills-cli-npm-binary-testing",
+        "route": "/blog/qaskills-cli-npm-binary-testing",
+        "title": "QASkills CLI npm binary testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-cli-npm-binary-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-category-client-shape-parity",
+      "decision": "reject",
+      "reason": "Reject for publication depth. The brief isolates one grouped category response shape while its evidence and sources are generic client-contract material",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The bounded behavior is one field, expression, or branch, so 8 to 12 H2 sections and two substantive code examples would require generic padding.",
+      "evidenceAssessment": "Narrow. The 4 paths resolve, but they converge on one small implementation branch rather than multiple independently supportable article sections."
+    },
+    {
+      "slug": "qaskills-cli-ci-path-filters",
+      "decision": "pass",
+      "reason": "Pass. Change-based CI trigger coverage, not build task order or npm release tags. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: workflow triggers, changed-path matrices, build dependencies, failure modes, and CI assertions are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (.github/workflows/cli-ci.yml, packages/cli/package.json, packages/shared/package.json), every internal route is present in the inventory, and the approved HTTPS sources span docs.github.com, pnpm.io. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-cli-duplicate-publish-protection",
+      "decision": "reject",
+      "reason": "Reject for unsupported claims. The CLI publish workflow performs an unconditional pnpm publish and has no npm-view or already-published-version guard; that behavior exists only in the MCP workflow",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth because the central promised behavior is not implemented or observable in the cited repository. A long article would have to invent a harness or product contract.",
+      "evidenceAssessment": "Weak. The 4 paths resolve, but they stop before the behavior promised by the title and answer-first question."
+    },
+    {
+      "slug": "qaskills-cli-packed-shebang-header",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers tsup banner placement in the packed executable. Excludes npm bin mapping itself. The nearest page is /blog/qaskills-cli-npm-binary-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "qaskills-cli-npm-binary-testing",
+        "route": "/blog/qaskills-cli-npm-binary-testing",
+        "title": "QASkills CLI npm binary testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-cli-npm-binary-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 4 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-cli-version-source-parity",
+      "decision": "reject",
+      "reason": "Reject for evidence or source mismatch. The question promises shared CLI_VERSION alignment, but the approved evidence omits the shared version declaration and the CLI entrypoint that emits --version",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient under the writer contract. The outline could be expanded, but the approved evidence and citations cannot substantiate the required sections without importing unapproved material.",
+      "evidenceAssessment": "Weak. The paths resolve, but the named symbols or approved sources (docs.npmjs.com, docs.github.com, pnpm.io) do not trace the principal claim closely enough for the mandatory citation gate."
+    },
+    {
+      "slug": "qaskills-cody-rule-placement",
+      "decision": "reject",
+      "reason": "Reject for unsupported vendor behavior. QASkills declares the destination in its internal catalog, but no approved vendor source proves that the named agent discovers or supports that directory.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The repository can document its own catalog row and copy operation, but not a complete vendor integration, discovery lifecycle, compatibility matrix, or troubleshooting guide.",
+      "evidenceAssessment": "Weak for the public claim. Internal constants declare a destination, but the approved sources (agentskills.io, nodejs.org) do not include vendor documentation confirming that destination or discovery behavior."
+    },
+    {
+      "slug": "qaskills-concurrent-download-isolation-tests",
+      "decision": "pass",
+      "reason": "Pass. Covers parallel downloads for the same skill name and shared temp state. Excludes multi-agent destination failures. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: source fixtures, filesystem state matrices, failure injection, cleanup assertions, and CI coverage are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 2 repository paths resolve (packages/cli/src/lib/installer.ts, packages/cli/src/lib/installer.test.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-config-path-type-validation",
+      "decision": "pass",
+      "reason": "Pass. Covers file-versus-directory marker semantics for configDir. Excludes configFile fallback. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: catalog invariants, path-resolution matrices, filesystem states, diagnostics, and change gates are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (packages/shared/src/constants/agents.ts, packages/cli/src/lib/agent-detector.ts, packages/cli/src/lib/installer.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-content-mime-client-parity",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. The CLI evidence points at the JSON API client rather than the installer content fetch, so the proposed CLI-versus-MCP parity claim is also incompletely sourced The nearest page is /blog/mcp-skill-content-fidelity-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-skill-content-fidelity-testing",
+        "route": "/blog/mcp-skill-content-fidelity-testing",
+        "title": "MCP skill content fidelity testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-skill-content-fidelity-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 4 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-continue-config-directory",
+      "decision": "reject",
+      "reason": "Reject for unsupported vendor behavior. QASkills declares the destination in its internal catalog, but no approved vendor source proves that the named agent discovers or supports that directory.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The repository can document its own catalog row and copy operation, but not a complete vendor integration, discovery lifecycle, compatibility matrix, or troubleshooting guide.",
+      "evidenceAssessment": "Weak for the public claim. Internal constants declare a destination, but the approved sources (agentskills.io, nodejs.org) do not include vendor documentation confirming that destination or discovery behavior."
+    },
+    {
+      "slug": "qaskills-created-skill-response-wrapper",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers SDK create return type versus POST route response wrapper. Excludes request validation. The nearest page is /blog/qaskills-sdk-create-request-contract, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "qaskills-sdk-create-request-contract",
+        "route": "/blog/qaskills-sdk-create-request-contract",
+        "title": "QASkills SDK create request contract"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-sdk-create-request-contract.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 4 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-cross-command-event-sequencing",
+      "decision": "pass",
+      "reason": "Pass. Covers add, remove, update, and MCP completion relative to event dispatch. Excludes database counter action mapping. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: client ordering, payload dispatch, failure isolation, server normalization, and persistence checks are all inside the approved intent. The brief supplies 6 secondary queries and 5 repository evidence references.",
+      "evidenceAssessment": "Strong. All 5 repository paths resolve (packages/cli/src/lib/telemetry.ts, packages/cli/src/lib/api-client.ts, packages/mcp/src/index.ts, packages/web/src/lib/telemetry-normalize.ts, packages/web/src/app/api/telemetry/install/route.ts), every internal route is present in the inventory, and the approved HTTPS sources span nodejs.org, developer.mozilla.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-custom-root-detection",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers projectDir overrides and fixture-root isolation. Excludes global home discovery. The nearest page is /blog/qaskills-global-project-agent-detection, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "qaskills-global-project-agent-detection",
+        "route": "/blog/qaskills-global-project-agent-detection",
+        "title": "QASkills global project agent detection"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-global-project-agent-detection.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 3 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-destination-file-conflict-testing",
+      "decision": "pass",
+      "reason": "Pass. Covers a file occupying the expected skill directory path. Excludes read-only parent permissions. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: source fixtures, filesystem state matrices, failure injection, cleanup assertions, and CI coverage are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 2 repository paths resolve (packages/cli/src/lib/installer.ts, packages/cli/src/lib/installer.test.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-destination-stale-file-cleanup",
+      "decision": "pass",
+      "reason": "Pass. Covers files left from an older installed version at the final destination. Excludes temporary download cleanup. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: source fixtures, filesystem state matrices, failure injection, cleanup assertions, and CI coverage are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 2 repository paths resolve (packages/cli/src/lib/installer.ts, packages/cli/src/lib/installer.test.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-detail-identifier-resolution-matrix",
+      "decision": "pass",
+      "reason": "Pass. Covers detail, content, and artifact routes choosing id versus slug. Excludes client path encoding. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: client and route contracts, drift matrices, failure cases, type assertions, and CI enforcement are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 4 repository paths resolve (packages/cli/src/lib/api-client.ts, packages/sdk/src/index.ts, packages/mcp/src/index.ts, packages/web/src/app/api/skills/route.ts), every internal route is present in the inventory, and the approved HTTPS sources span www.typescriptlang.org, json-schema.org, semver.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-detected-path-write-parity",
+      "decision": "pass",
+      "reason": "Pass. Covers parity between DetectedAgent.skillsDir and the path used for writes. Excludes custom --dir behavior. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: catalog invariants, path-resolution matrices, filesystem states, diagnostics, and change gates are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (packages/shared/src/constants/agents.ts, packages/cli/src/lib/agent-detector.ts, packages/cli/src/lib/installer.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-devin-instruction-delivery",
+      "decision": "reject",
+      "reason": "Reject for unsupported vendor behavior. QASkills declares the destination in its internal catalog, but no approved vendor source proves that the named agent discovers or supports that directory.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The repository can document its own catalog row and copy operation, but not a complete vendor integration, discovery lifecycle, compatibility matrix, or troubleshooting guide.",
+      "evidenceAssessment": "Weak for the public claim. Internal constants declare a destination, but the approved sources (agentskills.io, nodejs.org) do not include vendor documentation confirming that destination or discovery behavior."
+    },
+    {
+      "slug": "qaskills-double-config-deployment",
+      "decision": "reject",
+      "reason": "Reject for unsupported vendor behavior. QASkills declares the destination in its internal catalog, but no approved vendor source proves that the named agent discovers or supports that directory.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The repository can document its own catalog row and copy operation, but not a complete vendor integration, discovery lifecycle, compatibility matrix, or troubleshooting guide.",
+      "evidenceAssessment": "Weak for the public claim. Internal constants declare a destination, but the approved sources (agentskills.io, nodejs.org) do not include vendor documentation confirming that destination or discovery behavior."
+    },
+    {
+      "slug": "qaskills-duplicate-universal-destinations",
+      "decision": "reject",
+      "reason": "Reject for unsupported claims. The detector appends exactly one universal target and the cited catalog has no demonstrated marker combination that creates a duplicate universal destination",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth because the central promised behavior is not implemented or observable in the cited repository. A long article would have to invent a harness or product contract.",
+      "evidenceAssessment": "Weak. The 3 paths resolve, but they stop before the behavior promised by the title and answer-first question."
+    },
+    {
+      "slug": "qaskills-e2e-command-timeout-policy",
+      "decision": "reject",
+      "reason": "Reject for evidence or source mismatch. The repository proves a 120-second execFileSync timeout, but the approved TypeScript declaration, JSON Schema, and SemVer sources do not support subprocess timeout behavior",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient under the writer contract. The outline could be expanded, but the approved evidence and citations cannot substantiate the required sections without importing unapproved material.",
+      "evidenceAssessment": "Weak. The paths resolve, but the named symbols or approved sources (www.typescriptlang.org, json-schema.org, semver.org) do not trace the principal claim closely enough for the mandatory citation gate."
+    },
+    {
+      "slug": "qaskills-e2e-failure-summary-contract",
+      "decision": "reject",
+      "reason": "Reject for evidence or source mismatch. The E2E script proves failure aggregation, but none of the approved external sources addresses test-runner summaries, process status, or failure reporting",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient under the writer contract. The outline could be expanded, but the approved evidence and citations cannot substantiate the required sections without importing unapproved material.",
+      "evidenceAssessment": "Weak. The paths resolve, but the named symbols or approved sources (www.typescriptlang.org, json-schema.org, semver.org) do not trace the principal claim closely enough for the mandatory citation gate."
+    },
+    {
+      "slug": "qaskills-e2e-sample-reproducibility",
+      "decision": "reject",
+      "reason": "Reject for evidence or source mismatch. The random comparator and logged sample are visible in code, but the approved sources are unrelated to random sampling, reproducibility, and deterministic replay",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient under the writer contract. The outline could be expanded, but the approved evidence and citations cannot substantiate the required sections without importing unapproved material.",
+      "evidenceAssessment": "Weak. The paths resolve, but the named symbols or approved sources (www.typescriptlang.org, json-schema.org, semver.org) do not trace the principal claim closely enough for the mandatory citation gate."
+    },
+    {
+      "slug": "qaskills-e2e-workspace-disposal",
+      "decision": "reject",
+      "reason": "Reject for evidence or source mismatch. The temporary-directory cleanup paths are code-backed, but the approved source set does not cover filesystem disposal or failure-safe test fixtures",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient under the writer contract. The outline could be expanded, but the approved evidence and citations cannot substantiate the required sections without importing unapproved material.",
+      "evidenceAssessment": "Weak. The paths resolve, but the named symbols or approved sources (www.typescriptlang.org, json-schema.org, semver.org) do not trace the principal claim closely enough for the mandatory citation gate."
+    },
+    {
+      "slug": "qaskills-equal-depth-skill-selection",
+      "decision": "pass",
+      "reason": "Pass. Covers determinism when several SKILL.md files have equal depth. Excludes root-versus-deeper selection already documented. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: source fixtures, filesystem state matrices, failure injection, cleanup assertions, and CI coverage are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 2 repository paths resolve (packages/cli/src/lib/installer.ts, packages/cli/src/lib/installer.test.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-error-status-mapping-parity",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. The proposed cross-client article would restate existing package-specific HTTP error pages and broaden beyond one stable contract The nearest page is /blog/qaskills-cli-http-error-bodies, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "qaskills-cli-http-error-bodies",
+        "route": "/blog/qaskills-cli-http-error-bodies",
+        "title": "QASkills CLI HTTP error bodies"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-cli-http-error-bodies.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 4 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-executable-bit-copy-testing",
+      "decision": "pass",
+      "reason": "Pass. Covers script mode preservation for companion scripts. Excludes npm binary shebang packaging. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: source fixtures, filesystem state matrices, failure injection, cleanup assertions, and CI coverage are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 2 repository paths resolve (packages/cli/src/lib/installer.ts, packages/cli/src/lib/installer.test.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-executable-file-mode-packaging",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers tarball executable permissions for both bins. Excludes companion script copy modes. The nearest page is /blog/qaskills-cli-npm-binary-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "qaskills-cli-npm-binary-testing",
+        "route": "/blog/qaskills-cli-npm-binary-testing",
+        "title": "QASkills CLI npm binary testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-cli-npm-binary-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 4 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-extraction-staging-race-testing",
+      "decision": "pass",
+      "reason": "Pass. Covers parallel staging directories and wipe-copy ordering. Excludes fixed skill temp directory collisions. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: source fixtures, filesystem state matrices, failure injection, cleanup assertions, and CI coverage are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 2 repository paths resolve (packages/cli/src/lib/installer.ts, packages/cli/src/lib/installer.test.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-extraction-symlink-escape-testing",
+      "decision": "pass",
+      "reason": "Pass. Covers links from companion folders to content outside skillRoot. Excludes final destination traversal by skill name. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: source fixtures, filesystem state matrices, failure injection, cleanup assertions, and CI coverage are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 2 repository paths resolve (packages/cli/src/lib/installer.ts, packages/cli/src/lib/installer.test.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-fallback-success-semantics",
+      "decision": "reject",
+      "reason": "Reject for unsupported claims. The phrase web empty-success fallbacks is not tied to a named route or concrete response in the approved evidence, so the claimed contract cannot be traced precisely",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth because the central promised behavior is not implemented or observable in the cited repository. A long article would have to invent a harness or product contract.",
+      "evidenceAssessment": "Weak. The 4 paths resolve, but they stop before the behavior promised by the title and answer-first question."
+    },
+    {
+      "slug": "qaskills-frozen-lockfile-release-parity",
+      "decision": "pass",
+      "reason": "Pass. Covers CI frozen installs versus release no-frozen installs. Excludes runtime dependency versions. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: artifact construction, release workflow gates, negative cases, inspection commands, and consumer tests are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 4 repository paths resolve (packages/cli/package.json, packages/cli/tsup.config.ts, .github/workflows/cli-publish.yml, packages/cli/e2e/e2e.mjs), every internal route is present in the inventory, and the approved HTTPS sources span docs.npmjs.com, docs.github.com, pnpm.io. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-full-github-url-classification",
+      "decision": "pass",
+      "reason": "Pass. Covers https GitHub URLs versus owner/repo shorthand. Excludes Git clone fallback after registry resolution. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: source fixtures, filesystem state matrices, failure injection, cleanup assertions, and CI coverage are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 2 repository paths resolve (packages/cli/src/lib/installer.ts, packages/cli/src/lib/installer.test.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-gemini-assist-rules-setup",
+      "decision": "reject",
+      "reason": "Reject for unsupported vendor behavior. QASkills declares the destination in its internal catalog, but no approved vendor source proves that the named agent discovers or supports that directory.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The repository can document its own catalog row and copy operation, but not a complete vendor integration, discovery lifecycle, compatibility matrix, or troubleshooting guide.",
+      "evidenceAssessment": "Weak for the public claim. Internal constants declare a destination, but the approved sources (agentskills.io, nodejs.org) do not include vendor documentation confirming that destination or discovery behavior."
+    },
+    {
+      "slug": "qaskills-global-config-file-fallback",
+      "decision": "pass",
+      "reason": "Pass. Covers global agents whose config file exists without configDir. Excludes project config-file fallback already covered. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: catalog invariants, path-resolution matrices, filesystem states, diagnostics, and change gates are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (packages/shared/src/constants/agents.ts, packages/cli/src/lib/agent-detector.ts, packages/cli/src/lib/installer.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-hidden-file-copy-testing",
+      "decision": "pass",
+      "reason": "Pass. Covers dotfiles other than .git in local and extracted packages. Excludes npm package files allowlists. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: source fixtures, filesystem state matrices, failure injection, cleanup assertions, and CI coverage are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 2 repository paths resolve (packages/cli/src/lib/installer.ts, packages/cli/src/lib/installer.test.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-home-expansion-edge-cases",
+      "decision": "pass",
+      "reason": "Pass. Covers exact home expansion for tilde-prefixed catalog paths. Excludes Windows drive-path source classification. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: catalog invariants, path-resolution matrices, filesystem states, diagnostics, and change gates are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (packages/shared/src/constants/agents.ts, packages/cli/src/lib/agent-detector.ts, packages/cli/src/lib/installer.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-info-empty-metadata-arrays",
+      "decision": "reject",
+      "reason": "Reject for publication depth. The intent is limited to three array fallbacks and their terminal formatting in one short command",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The bounded behavior is one field, expression, or branch, so 8 to 12 H2 sections and two substantive code examples would require generic padding.",
+      "evidenceAssessment": "Narrow. The 3 paths resolve, but they converge on one small implementation branch rather than multiple independently supportable article sections."
+    },
+    {
+      "slug": "qaskills-info-slug-encoding-tests",
+      "decision": "pass",
+      "reason": "Pass. CLI getSkill path-segment encoding, not SDK path behavior or not-found messaging. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: command setup, boundary cases, filesystem or API effects, diagnostics, and exit behavior are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (packages/cli/src/commands/info.ts, packages/cli/src/lib/api-client.ts, packages/shared/src/types/skill.ts), every internal route is present in the inventory, and the approved HTTPS sources span url.spec.whatwg.org, developer.mozilla.org, www.rfc-editor.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-info-version-fallback-output",
+      "decision": "reject",
+      "reason": "Reject for publication depth. The proposed contract is the single expression skill.version || 1.0.0 and cannot sustain the writer contract without padding",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The bounded behavior is one field, expression, or branch, so 8 to 12 H2 sections and two substantive code examples would require generic padding.",
+      "evidenceAssessment": "Narrow. The 3 paths resolve, but they converge on one small implementation branch rather than multiple independently supportable article sections."
+    },
+    {
+      "slug": "qaskills-init-existing-file-overwrite",
+      "decision": "pass",
+      "reason": "Pass. Covers pre-existing SKILL.md replacement and data-loss guards. Excludes destination skill version replacement. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: command states, terminal behavior, side effects, failure branches, and process assertions are all inside the approved intent. The brief supplies 6 secondary queries and 3 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (packages/cli/src/commands/init.ts, packages/shared/src/parsers/skill-parser.ts, packages/shared/src/schemas/skill-schema.ts), every internal route is present in the inventory, and the approved HTTPS sources span github.com, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-init-output-path-testing",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers cwd-bound SKILL.md output and isolated fixtures. Excludes MCP targetDir resolution. The nearest page is /blog/qaskills-init-non-interactive-ci, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "qaskills-init-non-interactive-ci",
+        "route": "/blog/qaskills-init-non-interactive-ci",
+        "title": "qaskills init in CI"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-init-non-interactive-ci.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 3 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-init-validation-error-aggregation",
+      "decision": "pass",
+      "reason": "Pass. Covers multiple invalid vocabulary flags and diagnostic completeness. Excludes publish frontmatter validation. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: command states, terminal behavior, side effects, failure branches, and process assertions are all inside the approved intent. The brief supplies 6 secondary queries and 3 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (packages/cli/src/commands/init.ts, packages/shared/src/parsers/skill-parser.ts, packages/shared/src/schemas/skill-schema.ts), every internal route is present in the inventory, and the approved HTTPS sources span github.com, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-interactive-prompt-tty-detection",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers stdin and stdout TTY combinations that select prompt mode. Excludes noninteractive init flags. The nearest page is /blog/qaskills-init-non-interactive-ci, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "qaskills-init-non-interactive-ci",
+        "route": "/blog/qaskills-init-non-interactive-ci",
+        "title": "qaskills init in CI"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-init-non-interactive-ci.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 3 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-invalid-init-side-effects",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers bad vocabulary values producing no SKILL.md. Excludes validation message aggregation. The nearest page is /blog/qaskills-init-non-interactive-ci, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "qaskills-init-non-interactive-ci",
+        "route": "/blog/qaskills-init-non-interactive-ci",
+        "title": "qaskills init in CI"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-init-non-interactive-ci.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-jetbrains-ai-folder-setup",
+      "decision": "reject",
+      "reason": "Reject for unsupported vendor behavior. QASkills declares the destination in its internal catalog, but no approved vendor source proves that the named agent discovers or supports that directory.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The repository can document its own catalog row and copy operation, but not a complete vendor integration, discovery lifecycle, compatibility matrix, or troubleshooting guide.",
+      "evidenceAssessment": "Weak for the public claim. Internal constants declare a destination, but the approved sources (agentskills.io, nodejs.org) do not include vendor documentation confirming that destination or discovery behavior."
+    },
+    {
+      "slug": "qaskills-leaderboard-envelope-drift",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers SDK, MCP, and route expectations for skills and updatedAt. Excludes top-N truncation. The nearest page is /blog/mcp-leaderboard-truncation-contract-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-leaderboard-truncation-contract-testing",
+        "route": "/blog/mcp-leaderboard-truncation-contract-testing",
+        "title": "MCP leaderboard truncation contract testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-leaderboard-truncation-contract-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 4 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-list-agents-early-return",
+      "decision": "reject",
+      "reason": "Reject for publication depth. The article boundary is one early-return branch after detection, with no independent data model or workflow beyond output formatting",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The bounded behavior is one field, expression, or branch, so 8 to 12 H2 sections and two substantive code examples would require generic padding.",
+      "evidenceAssessment": "Narrow. The 3 paths resolve, but they converge on one small implementation branch rather than multiple independently supportable article sections."
+    },
+    {
+      "slug": "qaskills-list-nested-skill-exclusion",
+      "decision": "pass",
+      "reason": "Pass. Covers SKILL.md files deeper than one child directory not being listed. Excludes GitHub extraction depth. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: command states, terminal behavior, side effects, failure branches, and process assertions are all inside the approved intent. The brief supplies 6 secondary queries and 3 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (packages/cli/src/commands/list.ts, packages/cli/src/lib/agent-detector.ts, packages/shared/src/parsers/skill-parser.ts), every internal route is present in the inventory, and the approved HTTPS sources span github.com, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-live-registry-gate-isolation",
+      "decision": "reject",
+      "reason": "Reject for evidence or source mismatch. The live-versus-hermetic gate question is useful, but the approved sources concern declarations, JSON Schema, and SemVer rather than network-test isolation",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient under the writer contract. The outline could be expanded, but the approved evidence and citations cannot substantiate the required sections without importing unapproved material.",
+      "evidenceAssessment": "Weak. The paths resolve, but the named symbols or approved sources (www.typescriptlang.org, json-schema.org, semver.org) do not trace the principal claim closely enough for the mandatory citation gate."
+    },
+    {
+      "slug": "qaskills-long-path-install-testing",
+      "decision": "pass",
+      "reason": "Pass. Covers deep target paths and platform path limits. Excludes UNC source classification. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: source fixtures, filesystem state matrices, failure injection, cleanup assertions, and CI coverage are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 2 repository paths resolve (packages/cli/src/lib/installer.ts, packages/cli/src/lib/installer.test.ts), every internal route is present in the inventory, and the approved HTTPS sources span agentskills.io, nodejs.org. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-lovable-marker-deployment",
+      "decision": "reject",
+      "reason": "Reject for unsupported vendor behavior. QASkills declares the destination in its internal catalog, but no approved vendor source proves that the named agent discovers or supports that directory.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. The repository can document its own catalog row and copy operation, but not a complete vendor integration, discovery lifecycle, compatibility matrix, or troubleshooting guide.",
+      "evidenceAssessment": "Weak for the public claim. Internal constants declare a destination, but the approved sources (agentskills.io, nodejs.org) do not include vendor documentation confirming that destination or discovery behavior."
+    },
+    {
+      "slug": "qaskills-manual-release-dispatch-parity",
+      "decision": "pass",
+      "reason": "Pass. Covers workflow_dispatch releases enforcing the same gates as tag releases. Excludes ordinary pull-request CI. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: artifact construction, release workflow gates, negative cases, inspection commands, and consumer tests are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 4 repository paths resolve (packages/cli/package.json, packages/cli/tsup.config.ts, .github/workflows/cli-publish.yml, packages/cli/e2e/e2e.mjs), every internal route is present in the inventory, and the approved HTTPS sources span docs.npmjs.com, docs.github.com, pnpm.io. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-mcp-launcher-shebang-bytes",
+      "decision": "reject",
+      "reason": "Reject for evidence or source mismatch. Every approved repository reference points to the CLI package, CLI tsup config, CLI publish workflow, or CLI E2E gate rather than the MCP launcher",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient under the writer contract. The outline could be expanded, but the approved evidence and citations cannot substantiate the required sections without importing unapproved material.",
+      "evidenceAssessment": "Weak. The paths resolve, but the named symbols or approved sources (docs.npmjs.com, docs.github.com, pnpm.io) do not trace the principal claim closely enough for the mandatory citation gate."
+    },
+    {
+      "slug": "qaskills-mcp-manifest-launch-arguments",
+      "decision": "reject",
+      "reason": "Reject for unsupported claims. server.json declares the npm identifier and stdio transport but contains no launch-arguments field to compare with a published binary",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth because the central promised behavior is not implemented or observable in the cited repository. A long article would have to invent a harness or product contract.",
+      "evidenceAssessment": "Weak. The 4 paths resolve, but they stop before the behavior promised by the title and answer-first question."
+    },
+    {
+      "slug": "qaskills-mcp-publish-skip-verification",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers npm view checks and correct handling of registry failures. Excludes CLI duplicate publishing. The nearest page is /blog/mcp-npm-publish-idempotency-testing, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-npm-publish-idempotency-testing",
+        "route": "/blog/mcp-npm-publish-idempotency-testing",
+        "title": "MCP npm publish idempotency testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-npm-publish-idempotency-testing.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 4 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-mcp-publisher-binary-pinning",
+      "decision": "pass",
+      "reason": "Pass. Covers latest-release downloads making registry publication non-reproducible. Excludes npm dependency lockfiles. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: artifact construction, release workflow gates, negative cases, inspection commands, and consumer tests are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 4 repository paths resolve (packages/mcp/package.json, packages/mcp/server.json, packages/mcp/tsup.config.ts, .github/workflows/mcp-publish.yml), every internal route is present in the inventory, and the approved HTTPS sources span docs.npmjs.com, docs.github.com, pnpm.io. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-mcp-publisher-checksum-verification",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Both topics audit the same latest-release download step and the same supply-chain control decision The nearest page is /blog/qaskills-mcp-publisher-binary-pinning, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "selected",
+        "slug": "qaskills-mcp-publisher-binary-pinning",
+        "route": "/blog/qaskills-mcp-publisher-binary-pinning",
+        "title": "QASkills MCP publisher binary pinning | QASkills.sh"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-mcp-publisher-binary-pinning.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 4 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-mcp-tag-version-parity",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers mcp-v tags matching package and manifest versions. Excludes duplicate npm publish skips. The nearest page is /blog/mcp-package-registry-version-drift-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "mcp-package-registry-version-drift-tests",
+        "route": "/blog/mcp-package-registry-version-drift-tests",
+        "title": "MCP Package Version Drift Testing"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/mcp-package-registry-version-drift-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 4 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-nested-skill-depth-boundary",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers the depth-four traversal cutoff and fixture matrices. Excludes unbounded repository searching. The nearest page is /blog/qaskills-cli-extract-skill-package-github, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "qaskills-cli-extract-skill-package-github",
+        "route": "/blog/qaskills-cli-extract-skill-package-github",
+        "title": "Extract SKILL.md Packages from GitHub"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-cli-extract-skill-package-github.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 2 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-none-framework-serialization",
+      "decision": "reject",
+      "reason": "Reject for evidence or source mismatch. The none sentinel and omitted frameworks block are implemented in init.ts, but the approved evidence cites add.ts, installer.ts, and telemetry.ts instead",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient under the writer contract. The outline could be expanded, but the approved evidence and citations cannot substantiate the required sections without importing unapproved material.",
+      "evidenceAssessment": "Weak. The paths resolve, but the named symbols or approved sources (github.com, nodejs.org) do not trace the principal claim closely enough for the mandatory citation gate."
+    },
+    {
+      "slug": "qaskills-npm-token-permission-audit",
+      "decision": "pass",
+      "reason": "Pass. Covers NODE_AUTH_TOKEN use alongside id-token permissions. Excludes application API bearer tokens. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: artifact construction, release workflow gates, negative cases, inspection commands, and consumer tests are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 4 repository paths resolve (packages/cli/package.json, packages/cli/tsup.config.ts, .github/workflows/cli-publish.yml, packages/cli/e2e/e2e.mjs), every internal route is present in the inventory, and the approved HTTPS sources span docs.npmjs.com, docs.github.com, pnpm.io. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-override-directory-agent-collision",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers multiple selected agents writing one override target. Excludes ordinary single-agent custom directories. The nearest page is /blog/qaskills-multi-agent-install-failure, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "qaskills-multi-agent-install-failure",
+        "route": "/blog/qaskills-multi-agent-install-failure",
+        "title": "QASkills multi agent install failure"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-multi-agent-install-failure.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 3 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-package-readme-inclusion",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers README presence and package-specific usage after npm pack. Excludes blog documentation. The nearest page is /blog/qaskills-package-tarball-smoke-tests, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "selected",
+        "slug": "qaskills-package-tarball-smoke-tests",
+        "route": "/blog/qaskills-package-tarball-smoke-tests",
+        "title": "QASkills package tarball smoke tests | QASkills.sh"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-package-tarball-smoke-tests.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 4 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-package-tarball-smoke-tests",
+      "decision": "pass",
+      "reason": "Pass. Covers npm pack installation from clean consumer projects. Excludes workspace-direct binary tests. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: artifact construction, release workflow gates, negative cases, inspection commands, and consumer tests are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 4 repository paths resolve (packages/cli/package.json, packages/cli/tsup.config.ts, .github/workflows/cli-publish.yml, packages/cli/e2e/e2e.mjs), every internal route is present in the inventory, and the approved HTTPS sources span docs.npmjs.com, docs.github.com, pnpm.io. The cited code directly exposes the behavior named by the topic."
+    },
+    {
+      "slug": "qaskills-partial-init-flag-defaults",
+      "decision": "reject",
+      "reason": "Reject for same searcher intent. Covers one supplied flag forcing noninteractive defaults for every other field. Excludes fully flag-driven CI scaffolding. The nearest page is /blog/qaskills-init-non-interactive-ci, and a distinct slug does not create a distinct reader outcome.",
+      "nearestCollision": {
+        "scope": "inventory",
+        "slug": "qaskills-init-non-interactive-ci",
+        "route": "/blog/qaskills-init-non-interactive-ci",
+        "title": "qaskills init in CI"
+      },
+      "coverageAssessment": "Not independently sufficient. Reaching 3,000 words would require repeating the setup, matrices, and conclusions already owned by /blog/qaskills-init-non-interactive-ci.",
+      "evidenceAssessment": "Mechanically valid but not independently probative. The 3 paths resolve, yet they expose a subset of the same contract already covered by the nearest page."
+    },
+    {
+      "slug": "qaskills-partial-update-failure-testing",
+      "decision": "pass",
+      "reason": "Pass. Failure consistency during update, separate from add-command partial installation and successful update mechanics. Manual comparison against the 1,778-page inventory and all 749 peer selections found no page answering the same bounded search need.",
+      "nearestCollision": null,
+      "coverageAssessment": "Sufficient for an honest 3,000-word treatment: command setup, boundary cases, filesystem or API effects, diagnostics, and exit behavior are all inside the approved intent. The brief supplies 6 secondary queries and 4 repository evidence references.",
+      "evidenceAssessment": "Strong. All 3 repository paths resolve (packages/cli/src/commands/update.ts, packages/cli/src/lib/installer.ts, packages/cli/src/lib/telemetry.ts), every internal route is present in the inventory, and the approved HTTPS sources span nodejs.org, vitest.dev, github.com. The cited code directly exposes the behavior named by the topic."
+    }
+  ],
+  "replacements": [
+    {
+      "rejectedSlug": "mcp-agent-install-discovery-testing",
+      "recommendedReserveSlug": "qaskills-passwithnotests-release-risk",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills passWithNoTests release risk, including green CLI and SDK test commands when no tests are collected? Its boundary is: Covers green CLI and SDK test commands when no tests are collected. Excludes actual E2E publish-gate coverage. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-binary-entrypoint-smoke-testing",
+      "recommendedReserveSlug": "qaskills-permission-denied-agent-detection",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills permission denied agent detection, including permission errors that probeExists currently treats as absence? Its boundary is: Covers permission errors that probeExists currently treats as absence. Excludes missing directory behavior. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-multi-filter-composition-testing",
+      "recommendedReserveSlug": "qaskills-project-cwd-path-isolation",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills project cwd path isolation, including relative agent destinations under changing working directories? Its boundary is: Covers relative agent destinations under changing working directories. Excludes MCP client cwd isolation. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-zod-input-boundary-testing",
+      "recommendedReserveSlug": "qaskills-read-only-install-destination",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills read only install destination, including permission failures while creating and copying a skill? Its boundary is: Covers permission failures while creating and copying a skill. Excludes agent detection permission errors. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-api-base-url-override-testing",
+      "recommendedReserveSlug": "qaskills-recursive-copy-error-recovery",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills recursive copy error recovery, including mid-tree read or copy failures and resulting partial destinations? Its boundary is: Covers mid-tree read or copy failures and resulting partial destinations. Excludes multi-agent loop failures. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-explicit-target-path-testing",
+      "recommendedReserveSlug": "qaskills-registry-response-shape-compatibility",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills registry response shape compatibility, including skills versus data arrays in live gate discovery? Its boundary is: Covers skills versus data arrays in live gate discovery. Excludes SDK response envelopes. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-registry-environment-schema-testing",
+      "recommendedReserveSlug": "qaskills-release-provenance-attestation",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills release provenance attestation, including provenance evidence for GitHub Actions package publication? Its boundary is: Covers provenance evidence for GitHub Actions package publication. Excludes MCP server runtime identity. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-registry-namespace-casing-tests",
+      "recommendedReserveSlug": "qaskills-removal-event-completion-gate",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills removal event completion gate, including event emission only after all requested deletions complete? Its boundary is: Covers event emission only after all requested deletions complete. Excludes install telemetry sequencing. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-registry-transport-metadata-testing",
+      "recommendedReserveSlug": "qaskills-remove-cancellation-filesystem-safety",
+      "whyDistinct": "The reserve owns this bounded question: How can a command test prove that declining or cancelling qaskills remove leaves every agent skill directory unchanged? Its boundary is: User cancellation before deletion, not missing targets or targeting an undetected agent. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-search-limit-boundary-testing",
+      "recommendedReserveSlug": "qaskills-reserved-filename-install-testing",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills reserved filename install testing, including platform-reserved skill names and destination diagnostics? Its boundary is: Covers platform-reserved skill names and destination diagnostics. Excludes generic slug validation. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-search-query-encoding-tests",
+      "recommendedReserveSlug": "qaskills-sdk-authorization-override-order",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills SDK authorization override order, including caller headers competing with configured apiKey authorization? Its boundary is: Covers caller headers competing with configured apiKey authorization. Excludes token acquisition. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-tool-error-envelope-testing",
+      "recommendedReserveSlug": "qaskills-sdk-base-path-preservation",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills SDK base path preservation, including API gateways mounted below an origin path? Its boundary is: Covers API gateways mounted below an origin path. Excludes CLI environment endpoint overrides. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-tools-list-regression-testing",
+      "recommendedReserveSlug": "qaskills-sdk-category-response-typing",
+      "whyDistinct": "The reserve owns this bounded question: How should the QASkills SDK validate the grouped testingTypes, frameworks, languages, and domains returned by categories.list? Its boundary is: Grouped categories response shape, not skill-list facets or search filter serialization. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-api-redirect-handling-tests",
+      "recommendedReserveSlug": "qaskills-sdk-concurrent-header-isolation",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills SDK concurrent header isolation, including parallel requests from differently configured clients? Its boundary is: Covers parallel requests from differently configured clients. Excludes transport retry policy. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-environment-import-timing-tests",
+      "recommendedReserveSlug": "qaskills-sdk-credential-isolation-tests",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills SDK credential isolation tests, including independent apiKey state across client instances? Its boundary is: Covers independent apiKey state across client instances. Excludes global CLI environment state. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-existing-skill-overwrite-testing",
+      "recommendedReserveSlug": "qaskills-sdk-default-type-resolution",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills SDK default type resolution, including default export declarations under package exports? Its boundary is: Covers default export declarations under package exports. Excludes runtime response typing. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-fallback-agents-path-testing",
+      "recommendedReserveSlug": "qaskills-sdk-dependency-externalization-tests",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills SDK dependency externalization tests, including whether private shared imports remain in built SDK output? Its boundary is: Covers whether private shared imports remain in built SDK output. Excludes CJS versus ESM runtime parity. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-get-content-mime-handling",
+      "recommendedReserveSlug": "qaskills-sdk-error-status-preservation",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills SDK error status preservation, including retaining HTTP status for programmatic branching? Its boundary is: Covers retaining HTTP status for programmatic branching. Excludes server error content wording. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-get-skill-passthrough-fields",
+      "recommendedReserveSlug": "qaskills-sdk-exports-condition-order",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills SDK exports condition order, including import, require, and types conditions across Node and TypeScript? Its boundary is: Covers import, require, and types conditions across Node and TypeScript. Excludes factory export behavior. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-install-event-after-persistence",
+      "recommendedReserveSlug": "qaskills-sdk-filter-serialization-parity",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills SDK filter serialization parity, including typed filters omitted by skills.list query construction? Its boundary is: Covers typed filters omitted by skills.list query construction. Excludes CLI search public flags. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-leaderboard-timestamp-passthrough",
+      "recommendedReserveSlug": "qaskills-sdk-headers-object-compatibility",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills SDK Headers object compatibility, including RequestInit Headers instances versus plain record spreading? Its boundary is: Covers RequestInit Headers instances versus plain record spreading. Excludes ordinary record headers. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-leaderboard-upstream-rank-stability",
+      "recommendedReserveSlug": "qaskills-sdk-malformed-success-json",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills SDK malformed success JSON, including 2xx responses whose body cannot be parsed as JSON? Its boundary is: Covers 2xx responses whose body cannot be parsed as JSON. Excludes non-2xx error parsing. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-nontext-content-response-handling",
+      "recommendedReserveSlug": "qaskills-sdk-network-error-propagation",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills SDK network error propagation, including fetch rejection identity and actionable caller handling? Its boundary is: Covers fetch rejection identity and actionable caller handling. Excludes non-JSON HTTP error bodies. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-parent-directory-creation-testing",
+      "recommendedReserveSlug": "qaskills-sdk-no-content-responses",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills SDK no content responses, including 204 and empty-body behavior in the generic JSON request helper? Its boundary is: Covers 204 and empty-body behavior in the generic JSON request helper. Excludes successful JSON payloads. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-search-missing-array-defaults",
+      "recommendedReserveSlug": "qaskills-sdk-review-submission-contract",
+      "whyDistinct": "The reserve owns this bounded question: What request and response contract does QASkillsClient.reviews.submit use for review data and the returned review ID? Its boundary is: Review submission endpoint only, not skill creation, leaderboard reads, or UI review rendering. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-search-parameter-name-parity",
+      "recommendedReserveSlug": "qaskills-sdk-runtime-response-validation",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills SDK runtime response validation, including TypeScript-only result trust versus runtime schema checks? Its boundary is: Covers TypeScript-only result trust versus runtime schema checks. Excludes frontmatter Zod validation. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-search-sort-alias-parity",
+      "recommendedReserveSlug": "qaskills-sdk-skill-path-encoding",
+      "whyDistinct": "The reserve owns this bounded question: How should QASkillsClient.skills.get encode an ID or slug containing reserved characters before placing it in an API path? Its boundary is: SDK skills.get path behavior, separate from the CLI info encoding contract. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-search-total-type-validation",
+      "recommendedReserveSlug": "qaskills-sdk-trailing-slash-joining",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills SDK trailing slash joining, including double-slash requests from a slash-terminated baseUrl? Its boundary is: Covers double-slash requests from a slash-terminated baseUrl. Excludes choosing a custom base URL. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-serverinfo-version-provenance",
+      "recommendedReserveSlug": "qaskills-sdk-unicode-query-encoding",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills SDK Unicode query encoding, including URLSearchParams handling for non-ASCII search terms? Its boundary is: Covers URLSearchParams handling for non-ASCII search terms. Excludes path-segment slug encoding. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-single-text-block-results",
+      "recommendedReserveSlug": "qaskills-sdk-workspace-dependency-packaging",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills SDK workspace dependency packaging, including workspace protocol metadata in a public SDK package? Its boundary is: Covers workspace protocol metadata in a public SDK package. Excludes CLI bundling shared code. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-telemetry-rejection-independence",
+      "recommendedReserveSlug": "qaskills-search-limit-validation",
+      "whyDistinct": "The reserve owns this bounded question: What should qaskills search do with zero, negative, decimal, nonnumeric, or oversized --limit values before calling the API? Its boundary is: Validation of the numeric --limit boundary, not search filters, pagination in the SDK, or empty results. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-timeout-url-diagnostic-safety",
+      "recommendedReserveSlug": "qaskills-search-prompt-cancellation",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills search prompt cancellation, including optional-query prompt cancellation before API activity? Its boundary is: Covers optional-query prompt cancellation before API activity. Excludes successful empty search results. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "mcp-unknown-error-stringification-tests",
+      "recommendedReserveSlug": "qaskills-skills-path-overlap-detection",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills skills path overlap detection, including two agents resolving to one skills destination? Its boundary is: Covers two agents resolving to one skills destination. Excludes duplicate skill counting inside one agent. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-add-telemetry-after-writes",
+      "recommendedReserveSlug": "qaskills-skillsummary-field-parity",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills SkillSummary field parity, including shared summary fields versus list and leaderboard JSON? Its boundary is: Covers shared summary fields versus list and leaderboard JSON. Excludes full skill detail metadata. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-agent-website-url-validation",
+      "recommendedReserveSlug": "qaskills-slash-slug-source-ambiguity",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills slash slug source ambiguity, including registry identifiers containing slash-like namespaces? Its boundary is: Covers registry identifiers containing slash-like namespaces. Excludes ordinary unscoped registry slugs. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-aide-editor-directory-install",
+      "recommendedReserveSlug": "qaskills-source-prefix-precedence-tests",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills source prefix precedence tests, including the ordered local, GitHub shorthand, and registry classifier? Its boundary is: Covers the ordered local, GitHub shorthand, and registry classifier. Excludes download fallback after classification. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-amazon-q-folder-setup",
+      "recommendedReserveSlug": "qaskills-staging-directory-leak-testing",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills staging directory leak testing, including cleanup after copy or removal failures in extraction staging? Its boundary is: Covers cleanup after copy or removal failures in extraction staging. Excludes normal completed extraction. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-amp-rule-directory-deployment",
+      "recommendedReserveSlug": "qaskills-symbolic-link-copy-fidelity",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills symbolic link copy fidelity, including symbolic links encountered by recursive copyDir? Its boundary is: Covers symbolic links encountered by recursive copyDir. Excludes agents declared with symlink installMethod. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-api-client-contract-matrix",
+      "recommendedReserveSlug": "qaskills-symlink-install-method-testing",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills symlink install method testing, including acceptance tests for agents declared with symlink delivery? Its boundary is: Covers acceptance tests for agents declared with symlink delivery. Excludes symlinks inside downloaded packages. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-api-page-size-naming-drift",
+      "recommendedReserveSlug": "qaskills-telemetry-agent-attribution-fidelity",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills telemetry agent attribution fidelity, including multi-agent arrays reduced to one stored agentType? Its boundary is: Covers multi-agent arrays reduced to one stored agentType. Excludes agent selection itself. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-api-query-vocabulary-drift",
+      "recommendedReserveSlug": "qaskills-telemetry-insert-counter-consistency",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills telemetry insert counter consistency, including an inserted event followed by a failed counter update? Its boundary is: Covers an inserted event followed by a failed counter update. Excludes concurrent replay protection. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-api-sort-enum-drift",
+      "recommendedReserveSlug": "qaskills-telemetry-process-shutdown-delivery",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills telemetry process shutdown delivery, including fire-and-forget requests surviving or being lost at command exit? Its boundary is: Covers fire-and-forget requests surviving or being lost at command exit. Excludes whether users can opt out. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-augment-code-rules-setup",
+      "recommendedReserveSlug": "qaskills-telemetry-retry-policy-testing",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills telemetry retry policy testing, including the no-retry client policy and duplicate-risk tradeoffs? Its boundary is: Covers the no-retry client policy and duplicate-risk tradeoffs. Excludes server replay protection. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-bolt-rules-directory-setup",
+      "recommendedReserveSlug": "qaskills-tilde-username-path-handling",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills tilde username path handling, including unsupported ~user syntax and safe diagnostics? Its boundary is: Covers unsupported ~user syntax and safe diagnostics. Excludes ordinary current-user home expansion. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-built-artifact-preflight",
+      "recommendedReserveSlug": "qaskills-unc-path-source-classification",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills UNC path source classification, including UNC and network-share inputs at source resolution? Its boundary is: Covers UNC and network-share inputs at source resolution. Excludes long local path limits. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-category-client-shape-parity",
+      "recommendedReserveSlug": "qaskills-unknown-template-fallback",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test QASkills unknown template fallback, including unsupported template names falling back to generic content and defaults? Its boundary is: Covers unsupported template names falling back to generic content and defaults. Excludes invalid framework identifiers. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-cli-duplicate-publish-protection",
+      "recommendedReserveSlug": "qaskills-windows-drive-path-classification",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills Windows drive path classification, including drive-letter inputs at the local-versus-registry classifier? Its boundary is: Covers drive-letter inputs at the local-versus-registry classifier. Excludes ordinary POSIX local paths. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-cli-packed-shebang-header",
+      "recommendedReserveSlug": "qaskills-zero-byte-skill-detection",
+      "whyDistinct": "The reserve owns this bounded question: How should QA teams diagnose QASkills zero byte SKILL detection, including empty SKILL.md acceptance after successful delivery? Its boundary is: Covers empty SKILL.md acceptance after successful delivery. Excludes directories with no files. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-cli-version-source-parity",
+      "recommendedReserveSlug": "qaskills-selenium-project-detection",
+      "whyDistinct": "The reserve owns this bounded question: How does QASkills detect Selenium across JavaScript, Java, and Python dependency files without executing project code? Its boundary is: Cross-language project evidence only, not Selenium setup, Grid, or framework comparison. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-cody-rule-placement",
+      "recommendedReserveSlug": "qaskills-update-one-skill-agents",
+      "whyDistinct": "The reserve owns this bounded question: How does qaskills update <skill> redownload one package and reinstall it across every detected agent? Its boundary is: Successful named update workflow, not update-all behavior, source fallback, or partial failure. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-content-mime-client-parity",
+      "recommendedReserveSlug": "mcp-large-skill-content-handling",
+      "whyDistinct": "The reserve owns this bounded question: How can QA teams test memory, truncation, latency, and complete writes when MCP returns and installs unusually large SKILL.md documents? Its boundary is: The timeout article covers request deadlines and cancellation. This candidate focuses payload completeness, buffering, memory, and filesystem fidelity under size pressure. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-continue-config-directory",
+      "recommendedReserveSlug": "mcp-stdio-graceful-shutdown-testing",
+      "whyDistinct": "The reserve owns this bounded question: How should a test harness verify EOF handling, bounded process exit, SIGTERM fallback, and cleanup for an MCP stdio server? Its boundary is: The conformance page explains the official suite. This topic builds a dedicated process-lifecycle oracle around EOF and operating-system signals. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-created-skill-response-wrapper",
+      "recommendedReserveSlug": "mcp-stdio-newline-framing-tests",
+      "whyDistinct": "The reserve owns this bounded question: How should tests detect missing delimiters, embedded newlines, split writes, and multiple JSON-RPC messages in an MCP stdio stream? Its boundary is: The Inspector article covers tools/list and tools/call automation. This candidate tests transport framing before tool semantics are involved. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-custom-root-detection",
+      "recommendedReserveSlug": "qaskills-jest-project-detection",
+      "whyDistinct": "The reserve owns this bounded question: How does QASkills detect Jest from config files, the package.json jest field, or dependency declarations? Its boundary is: Jest project identification only, not Jest unit-test patterns or Jest versus Vitest selection. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-devin-instruction-delivery",
+      "recommendedReserveSlug": "qaskills-pytest-project-detection",
+      "whyDistinct": "The reserve owns this bounded question: How does QASkills identify Pytest projects from pytest.ini, conftest.py, pyproject.toml, and setup.cfg? Its boundary is: Filesystem identification of Pytest projects, not writing tests or comparing Python frameworks. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-double-config-deployment",
+      "recommendedReserveSlug": "qaskills-typescript-declaration-publishing",
+      "whyDistinct": "The reserve owns this bounded question: How should package tests verify that QASkills CLI and SDK declaration files are generated, referenced, and included in published tarballs? Its boundary is: Static type artifact delivery, not runtime CJS or ESM resolution. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-duplicate-universal-destinations",
+      "recommendedReserveSlug": "mcp-api-trailing-slash-normalization",
+      "whyDistinct": "The reserve owns this bounded question: How can tests prove API base URLs with zero, one, or repeated trailing slashes produce the intended endpoint paths? Its boundary is: The existing article tests query parameter contracts. This candidate focuses base-path resolution before any query parameters are added. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-e2e-command-timeout-policy",
+      "recommendedReserveSlug": "mcp-conditional-content-type-testing",
+      "whyDistinct": "The reserve owns this bounded question: How can tests prove JSON Content-Type is added for telemetry POST bodies but not unnecessarily added to read-only GET requests? Its boundary is: The server contract article focuses MCP tool inputs and outputs. This candidate targets the downstream HTTP client header policy. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-e2e-failure-summary-contract",
+      "recommendedReserveSlug": "mcp-unknown-tool-rejection-testing",
+      "whyDistinct": "The reserve owns this bounded question: What protocol error should an MCP server return for missing, misspelled, case-changed, or removed tool names? Its boundary is: The existing guide discusses invalid inputs to known tools. This topic isolates unknown tool identifiers and migration behavior. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-e2e-sample-reproducibility",
+      "recommendedReserveSlug": "mcp-utf8-skill-installation-tests",
+      "whyDistinct": "The reserve owns this bounded question: How can install tests prove that Unicode YAML, multilingual markdown, emoji, and final newlines survive API download and UTF-8 file writing? Its boundary is: The existing article tests parser round trips. This topic validates downloaded Unicode document bytes at the final MCP filesystem destination. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-e2e-workspace-disposal",
+      "recommendedReserveSlug": "qaskills-agent-config-file-detection",
+      "whyDistinct": "The reserve owns this bounded question: How can you test that QASkills detects a project agent from its config file when its config directory does not exist? Its boundary is: The configFile fallback branch for project agents only, not scope classification or skills-directory status. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-error-status-mapping-parity",
+      "recommendedReserveSlug": "qaskills-empty-search-result-behavior",
+      "whyDistinct": "The reserve owns this bounded question: What output and exit behavior should qaskills search produce when the API succeeds but returns zero skills? Its boundary is: Successful zero-result UX, not network failure, filter construction, or result-count truncation. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-executable-file-mode-packaging",
+      "recommendedReserveSlug": "qaskills-list-missing-directory-handling",
+      "whyDistinct": "The reserve owns this bounded question: What does qaskills list report when a detected agent's skills directory does not exist or cannot be read? Its boundary is: Parent directory read failure in list, not the DetectedAgent.exists field or malformed child folders. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-fallback-success-semantics",
+      "recommendedReserveSlug": "mcp-pre-initialization-request-rejection",
+      "whyDistinct": "The reserve owns this bounded question: What should happen when a client sends tools/list or tools/call before MCP initialization finishes, and how can that behavior be tested? Its boundary is: The Inspector tutorial exercises valid calls after startup. This candidate deliberately violates lifecycle order and asserts protocol errors. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-gemini-assist-rules-setup",
+      "recommendedReserveSlug": "mcp-stdio-utf8-interoperability-tests",
+      "whyDistinct": "The reserve owns this bounded question: How can MCP client and server tests verify UTF-8 correctness for non-ASCII tool arguments, skill names, markdown, and error text? Its boundary is: The contract guide focuses tool schemas and errors. This candidate focuses character encoding across transport, API text, and filesystem boundaries. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-info-empty-metadata-arrays",
+      "recommendedReserveSlug": "qaskills-duplicate-skill-install-counts",
+      "whyDistinct": "The reserve owns this bounded question: Does qaskills list count the same skill once per agent installation or once per unique skill name across all agents? Its boundary is: Aggregation semantics for valid repeated installations, not registry install counts or malformed folders. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-info-version-fallback-output",
+      "recommendedReserveSlug": "qaskills-info-optional-metadata-output",
+      "whyDistinct": "The reserve owns this bounded question: How does qaskills info render missing version, frameworks, GitHub URL, license, and array metadata without printing misleading blank lines? Its boundary is: Successful presentation of optional fields, not missing-record errors or metadata schema validation. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-init-output-path-testing",
+      "recommendedReserveSlug": "qaskills-agent-catalog-order-contract",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills agent catalog order contract, including stable AGENTS order and repeatable detection output? Its boundary is: Covers stable AGENTS order and repeatable detection output. Excludes vendor setup tutorials or framework detection. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-interactive-prompt-tty-detection",
+      "recommendedReserveSlug": "qaskills-catalog-slug-collision-audit",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills catalog slug collision audit, including catalog slug collisions across agent definitions? Its boundary is: Covers catalog slug collisions across agent definitions. Excludes skill slugs and blog slugs. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-invalid-init-side-effects",
+      "recommendedReserveSlug": "qaskills-client-user-agent-parity",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills client user agent parity, including CLI and MCP User-Agent identity while SDK omits one? Its boundary is: Covers CLI and MCP User-Agent identity while SDK omits one. Excludes telemetry version labels. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-jetbrains-ai-folder-setup",
+      "recommendedReserveSlug": "qaskills-duplicated-catalog-ids",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills duplicated catalog ids, including duplicate AGENTS ids and command targeting ambiguity? Its boundary is: Covers duplicate AGENTS ids and command targeting ambiguity. Excludes runtime id-versus-name matching. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-leaderboard-envelope-drift",
+      "recommendedReserveSlug": "qaskills-github-install-attribution-fields",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills GitHub install attribution fields, including direct GitHub event identity versus registry event identity? Its boundary is: Covers direct GitHub event identity versus registry event identity. Excludes Git clone source classification. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-list-agents-early-return",
+      "recommendedReserveSlug": "qaskills-init-default-agents-contract",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills init default agents contract, including the five scaffolded agent ids and catalog drift? Its boundary is: Covers the five scaffolded agent ids and catalog drift. Excludes all supported AGENTS entries. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-live-registry-gate-isolation",
+      "recommendedReserveSlug": "qaskills-install-method-contract-drift",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills install method contract drift, including differences between declared copy or symlink methods and installer behavior? Its boundary is: Covers differences between declared copy or symlink methods and installer behavior. Excludes how to install one skill. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-lovable-marker-deployment",
+      "recommendedReserveSlug": "qaskills-k6-project-detection",
+      "whyDistinct": "The reserve owns this bounded question: How does QASkills detect k6 from package dependencies, known script names, or a k6 directory? Its boundary is: Recognition of k6 project markers, not authoring load tests or comparing load tools. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-mcp-launcher-shebang-bytes",
+      "recommendedReserveSlug": "qaskills-mcp-dual-registry-ordering",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills MCP dual registry ordering, including npm publication completing before MCP Registry publication? Its boundary is: Covers npm publication completing before MCP Registry publication. Excludes client install order. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-mcp-manifest-launch-arguments",
+      "recommendedReserveSlug": "qaskills-npm-public-scope-access",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills npm public scope access, including public access flags for scoped CLI, SDK, and MCP packages? Its boundary is: Covers public access flags for scoped CLI, SDK, and MCP packages. Excludes registry authentication. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-mcp-publish-skip-verification",
+      "recommendedReserveSlug": "qaskills-random-sample-bias-testing",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills random sample bias testing, including sort-with-random comparator bias in catalog sampling? Its boundary is: Covers sort-with-random comparator bias in catalog sampling. Excludes telemetry sampling. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-mcp-publisher-checksum-verification",
+      "recommendedReserveSlug": "qaskills-sdk-factory-export-parity",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills SDK factory export parity, including createClient, named class, and default class behavioral parity? Its boundary is: Covers createClient, named class, and default class behavioral parity. Excludes CJS versus ESM packaging. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-mcp-tag-version-parity",
+      "recommendedReserveSlug": "qaskills-sdk-request-timeout-policy",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills SDK request timeout policy, including the absence of a timeout or AbortController in SDK requests? Its boundary is: Covers the absence of a timeout or AbortController in SDK requests. Excludes CLI timeout cleanup. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-nested-skill-depth-boundary",
+      "recommendedReserveSlug": "qaskills-sdk-sourcemap-publishing",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills SDK sourcemap publishing, including source map inclusion and paths in the SDK tarball? Its boundary is: Covers source map inclusion and paths in the SDK tarball. Excludes TypeScript declaration publication. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-none-framework-serialization",
+      "recommendedReserveSlug": "qaskills-telemetry-client-version-labels",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills telemetry client version labels, including CLI_VERSION versus mcp-prefixed package versions? Its boundary is: Covers CLI_VERSION versus mcp-prefixed package versions. Excludes package release version synchronization. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-override-directory-agent-collision",
+      "recommendedReserveSlug": "qaskills-telemetry-timeout-event-loss",
+      "whyDistinct": "The reserve owns this bounded question: What should QA teams verify for QASkills telemetry timeout event loss, including abort timing and silent event loss without affecting commands? Its boundary is: Covers abort timing and silent event loss without affecting commands. Excludes main registry request timeouts. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-package-readme-inclusion",
+      "recommendedReserveSlug": "qaskills-vitest-project-detection",
+      "whyDistinct": "The reserve owns this bounded question: How does QASkills detect Vitest from supported config filenames or package.json dependencies? Its boundary is: Vitest project identification, not Vitest test design or Jest comparison. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    },
+    {
+      "rejectedSlug": "qaskills-partial-init-flag-defaults",
+      "recommendedReserveSlug": "mcp-request-id-correlation-tests",
+      "whyDistinct": "The reserve owns this bounded question: How can concurrent MCP tests prove every JSON-RPC response retains the correct request ID when tool calls finish out of order? Its boundary is: The agent article evaluates model-selected calls and side effects. This candidate verifies transport-level response correlation under concurrency. Manual intent review found no same-need page in the baseline inventory, the 40 remaining cli-sdk-mcp selections, or the other 84 replacements. Exact slug and primary-keyword checks also returned zero collisions."
+    }
+  ]
+}

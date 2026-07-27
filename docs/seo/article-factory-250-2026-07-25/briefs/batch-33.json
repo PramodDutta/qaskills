@@ -1,0 +1,984 @@
+{
+  "batch": 33,
+  "briefs": [
+    {
+      "id": "PW-021",
+      "batch": 33,
+      "domain": "playwright-browser",
+      "slug": "playwright-presssequentially-input-events",
+      "primaryKeyword": "playwright presssequentially input events",
+      "title": "Playwright pressSequentially Input Events",
+      "description": "playwright presssequentially input events: choose pressSequentially when key events matter. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "When should a Playwright test use pressSequentially instead of fill to exercise key, input, mask, and suggestion behavior?",
+      "secondaryKeywords": [
+        "playwright fill versus presssequentially",
+        "playwright keyboard input events",
+        "test input mask playwright",
+        "autocomplete typing playwright",
+        "presssequentially delay option",
+        "key by key browser test"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright pressSequentially Input Events Control?",
+          "question": true,
+          "coverage": "Answer When should a Playwright test use pressSequentially instead of fill to exercise key, input, mask, and suggestion behavior? Define the boundary: pressSequentially dispatches keyboard input one character at a time, while fill sets an editable value directly. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/race-condition-finder/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright Fill Versus pressSequentially Work?",
+          "question": true,
+          "secondaryKeyword": "playwright fill versus presssequentially",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind await locator.pressSequentially('qa skills', { delay: 50 }) for masks, suggestions, or event-sensitive controls. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/race-condition-finder/SKILL.md"]
+        },
+        {
+          "heading": "Playwright Keyboard Input Events: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "playwright keyboard input events",
+          "coverage": "Walk through the relevant repository example in seed-skills/race-condition-finder/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/race-condition-finder/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Test Input Mask Playwright?",
+          "question": true,
+          "secondaryKeyword": "test input mask playwright",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/how-to-test-debounced-search-in-playwright.ts"
+          ]
+        },
+        {
+          "heading": "Autocomplete Typing Playwright: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "autocomplete typing playwright",
+          "coverage": "Reproduce and diagnose this primary risk: fill bypasses behavior under test or an artificial delay becomes the assertion strategy. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/how-to-test-debounced-search-in-playwright.ts"
+          ]
+        },
+        {
+          "heading": "pressSequentially Delay Option: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "presssequentially delay option",
+          "coverage": "Specify the assertion and CI record: assert intermediate or final suggestions, input events, and submitted value without relying on arbitrary waits. Require event sequence, typed value, suggestion state, timing setting, and final assertion so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/race-condition-finder/SKILL.md",
+            "packages/web/src/app/blog/posts/how-to-test-debounced-search-in-playwright.ts"
+          ]
+        },
+        {
+          "heading": "Key By Key Browser Test Comparison Table",
+          "question": false,
+          "secondaryKeyword": "key by key browser test",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/race-condition-finder/SKILL.md",
+            "packages/web/src/app/blog/posts/how-to-test-debounced-search-in-playwright.ts"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright pressSequentially Input Events?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/race-condition-finder/SKILL.md",
+            "packages/web/src/app/blog/posts/how-to-test-debounced-search-in-playwright.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/race-condition-finder/SKILL.md",
+            "packages/web/src/app/blog/posts/how-to-test-debounced-search-in-playwright.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/race-condition-finder/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright pressSequentially Input Events Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "fill",
+            "useWhen": "Set the final editable value when per-key behavior is not under test",
+            "expectedEvidence": "event sequence, typed value, suggestion state, timing setting, and final assertion",
+            "mainRisk": "fill bypasses behavior under test or an artificial delay becomes the assertion strategy"
+          },
+          {
+            "option": "pressSequentially",
+            "useWhen": "Dispatch per-character input for masks, autocomplete, and event handlers",
+            "expectedEvidence": "event sequence, typed value, suggestion state, timing setting, and final assertion",
+            "mainRisk": "fill bypasses behavior under test or an artificial delay becomes the assertion strategy"
+          },
+          {
+            "option": "press",
+            "useWhen": "Send a named key such as Enter, Tab, or ArrowDown",
+            "expectedEvidence": "event sequence, typed value, suggestion state, timing setting, and final assertion",
+            "mainRisk": "fill bypasses behavior under test or an artificial delay becomes the assertion strategy"
+          },
+          {
+            "option": "keyboard API",
+            "useWhen": "Coordinate lower-level key state only when locator actions cannot express the flow",
+            "expectedEvidence": "event sequence, typed value, suggestion state, timing setting, and final assertion",
+            "mainRisk": "fill bypasses behavior under test or an artificial delay becomes the assertion strategy"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/api/class-locator#locator-press-sequentially",
+          "seed-skills/race-condition-finder/SKILL.md",
+          "packages/web/src/app/blog/posts/how-to-test-debounced-search-in-playwright.ts"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright presssequentially input events",
+        "steps": [
+          "Read seed-skills/race-condition-finder/SKILL.md and define the expected contract: pressSequentially dispatches keyboard input one character at a time, while fill sets an editable value directly.",
+          "Create the smallest isolated test or CLI session and implement await locator.pressSequentially('qa skills', { delay: 50 }) for masks, suggestions, or event-sensitive controls.",
+          "Exercise the success case, then reproduce the controlled failure where fill bypasses behavior under test or an artificial delay becomes the assertion strategy.",
+          "Apply the release assertion: assert intermediate or final suggestions, input events, and submitted value without relying on arbitrary waits.",
+          "Capture event sequence, typed value, suggestion state, timing setting, and final assertion, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright pressSequentially Input Events: primary implementation",
+          "language": "typescript",
+          "repoPath": "seed-skills/race-condition-finder/SKILL.md",
+          "plannedSnippet": "await search.pressSequentially('playwright', { delay: 50 });",
+          "purpose": "Implement await locator.pressSequentially('qa skills', { delay: 50 }) for masks, suggestions, or event-sensitive controls using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright pressSequentially Input Events: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "packages/web/src/app/blog/posts/how-to-test-debounced-search-in-playwright.ts",
+          "plannedSnippet": "await expect(page.getByRole('option', { name: /playwright/i })).toBeVisible();",
+          "purpose": "Prove assert intermediate or final suggestions, input events, and submitted value without relying on arbitrary waits and retain event sequence, typed value, suggestion state, timing setting, and final assertion."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/race-condition-finder/SKILL.md",
+        "packages/web/src/app/blog/posts/how-to-test-debounced-search-in-playwright.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/how-to-test-debounced-search-in-playwright",
+        "/blog/playwright-keyboard-mouse-interactions-reference",
+        "/blog/playwright-testing-best-practices-2026",
+        "/blog/playwright-e2e-complete-guide"
+      ],
+      "relatedSlugs": [
+        "how-to-test-debounced-search-in-playwright",
+        "playwright-keyboard-mouse-interactions-reference",
+        "playwright-testing-best-practices-2026",
+        "playwright-e2e-complete-guide"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/api/class-locator#locator-press-sequentially",
+        "https://playwright.dev/docs/input",
+        "https://playwright.dev/docs/actionability"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright fill versus presssequentially?",
+        "How do you verify playwright keyboard input events?",
+        "When should a QA team choose test input mask playwright?",
+        "What causes failures in autocomplete typing playwright?",
+        "Which evidence should presssequentially delay option retain?",
+        "How should CI handle key by key browser test?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 1
+    },
+    {
+      "id": "PW-040",
+      "batch": 33,
+      "domain": "playwright-browser",
+      "slug": "playwright-update-snapshots-modes",
+      "primaryKeyword": "playwright update snapshots modes",
+      "title": "Playwright Update Snapshots Modes",
+      "description": "playwright update snapshots modes: choose safe all, changed, missing, or none snapshot modes. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "When should a Playwright run update all, changed, missing, or no snapshots, and which mode is safe in CI?",
+      "secondaryKeywords": [
+        "playwright update snapshots changed",
+        "playwright update missing snapshots",
+        "snapshot update mode ci",
+        "prevent accidental baseline update",
+        "playwright update snapshots all",
+        "visual baseline review command"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright Update Snapshots Modes Control?",
+          "question": true,
+          "coverage": "Answer When should a Playwright run update all, changed, missing, or no snapshots, and which mode is safe in CI? Define the boundary: Playwright snapshot update modes control which expected baselines may be created or replaced. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/screenshot-baseline-generator/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright Update Snapshots Changed Work?",
+          "question": true,
+          "secondaryKeyword": "playwright update snapshots changed",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind run the selected --update-snapshots mode only in a reviewed baseline workflow, never as an unconditional CI repair. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/screenshot-baseline-generator/SKILL.md"]
+        },
+        {
+          "heading": "Playwright Update Missing Snapshots: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "playwright update missing snapshots",
+          "coverage": "Walk through the relevant repository example in seed-skills/screenshot-baseline-generator/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/screenshot-baseline-generator/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Snapshot Update Mode CI?",
+          "question": true,
+          "secondaryKeyword": "snapshot update mode ci",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-visual-testing/SKILL.md"]
+        },
+        {
+          "heading": "Prevent Accidental Baseline Update: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "prevent accidental baseline update",
+          "coverage": "Reproduce and diagnose this primary risk: CI rewrites approved baselines or a missing snapshot is accepted without review. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-visual-testing/SKILL.md"]
+        },
+        {
+          "heading": "Playwright Update Snapshots All: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "playwright update snapshots all",
+          "coverage": "Specify the assertion and CI record: inspect changed files, visual diffs, missing baselines, and the final test result before accepting updates. Require mode, changed baseline paths, diff images, reviewer decision, and commit status so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/screenshot-baseline-generator/SKILL.md",
+            "seed-skills/playwright-visual-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Visual Baseline Review Command Comparison Table",
+          "question": false,
+          "secondaryKeyword": "visual baseline review command",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/screenshot-baseline-generator/SKILL.md",
+            "seed-skills/playwright-visual-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright Update Snapshots Modes?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/screenshot-baseline-generator/SKILL.md",
+            "seed-skills/playwright-visual-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/screenshot-baseline-generator/SKILL.md",
+            "seed-skills/playwright-visual-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/screenshot-baseline-generator/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright Update Snapshots Modes Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "none",
+            "useWhen": "Treat missing or changed snapshots as failures without modifying baselines",
+            "expectedEvidence": "mode, changed baseline paths, diff images, reviewer decision, and commit status",
+            "mainRisk": "CI rewrites approved baselines or a missing snapshot is accepted without review"
+          },
+          {
+            "option": "missing",
+            "useWhen": "Create only absent snapshots during an intentional baseline bootstrap",
+            "expectedEvidence": "mode, changed baseline paths, diff images, reviewer decision, and commit status",
+            "mainRisk": "CI rewrites approved baselines or a missing snapshot is accepted without review"
+          },
+          {
+            "option": "changed",
+            "useWhen": "Replace baselines whose current comparison fails, subject to review",
+            "expectedEvidence": "mode, changed baseline paths, diff images, reviewer decision, and commit status",
+            "mainRisk": "CI rewrites approved baselines or a missing snapshot is accepted without review"
+          },
+          {
+            "option": "all",
+            "useWhen": "Regenerate every reached baseline only during an explicitly approved reset",
+            "expectedEvidence": "mode, changed baseline paths, diff images, reviewer decision, and commit status",
+            "mainRisk": "CI rewrites approved baselines or a missing snapshot is accepted without review"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/test-cli",
+          "seed-skills/screenshot-baseline-generator/SKILL.md",
+          "seed-skills/playwright-visual-testing/SKILL.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright update snapshots modes",
+        "steps": [
+          "Read seed-skills/screenshot-baseline-generator/SKILL.md and define the expected contract: Playwright snapshot update modes control which expected baselines may be created or replaced.",
+          "Create the smallest isolated test or CLI session and implement run the selected --update-snapshots mode only in a reviewed baseline workflow, never as an unconditional CI repair.",
+          "Exercise the success case, then reproduce the controlled failure where CI rewrites approved baselines or a missing snapshot is accepted without review.",
+          "Apply the release assertion: inspect changed files, visual diffs, missing baselines, and the final test result before accepting updates.",
+          "Capture mode, changed baseline paths, diff images, reviewer decision, and commit status, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright Update Snapshots Modes: primary implementation",
+          "language": "typescript",
+          "repoPath": "seed-skills/screenshot-baseline-generator/SKILL.md",
+          "plannedSnippet": "npx playwright test --update-snapshots=missing",
+          "purpose": "Implement run the selected --update-snapshots mode only in a reviewed baseline workflow, never as an unconditional CI repair using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright Update Snapshots Modes: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-visual-testing/SKILL.md",
+          "plannedSnippet": "git diff --exit-code -- tests/**-snapshots || echo \"Snapshot review required\"",
+          "purpose": "Prove inspect changed files, visual diffs, missing baselines, and the final test result before accepting updates and retain mode, changed baseline paths, diff images, reviewer decision, and commit status."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/screenshot-baseline-generator/SKILL.md",
+        "seed-skills/playwright-visual-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-visual-comparison-snapshots-guide",
+        "/blog/visual-baseline-governance-guide-2026",
+        "/blog/snapshot-testing-governance-guide",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-visual-comparison-snapshots-guide",
+        "visual-baseline-governance-guide-2026",
+        "snapshot-testing-governance-guide",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/test-cli",
+        "https://playwright.dev/docs/test-snapshots",
+        "https://playwright.dev/docs/api/class-testconfig#test-config-update-snapshots"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright update snapshots changed?",
+        "How do you verify playwright update missing snapshots?",
+        "When should a QA team choose snapshot update mode ci?",
+        "What causes failures in prevent accidental baseline update?",
+        "Which evidence should playwright update snapshots all retain?",
+        "How should CI handle visual baseline review command?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 2
+    },
+    {
+      "id": "PW-012",
+      "batch": 33,
+      "domain": "playwright-browser",
+      "slug": "playwright-cli-network-log-inspection",
+      "primaryKeyword": "playwright cli network log inspection",
+      "title": "Playwright CLI Network Log Inspection",
+      "description": "playwright cli network log inspection: inspect CLI network logs for failed and unexpected requests. Repo evidence maps checks and CI-safe steps.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you inspect Playwright CLI network output to identify failed, slow, or unexpected browser requests?",
+      "secondaryKeywords": [
+        "playwright cli network command",
+        "inspect browser requests terminal",
+        "playwright failed request logs",
+        "network waterfall cli debugging",
+        "browser api call evidence",
+        "playwright cli response timing"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright CLI Network Log Inspection Control?",
+          "question": true,
+          "coverage": "Answer How do you inspect Playwright CLI network output to identify failed, slow, or unexpected browser requests? Define the boundary: the Playwright CLI network command exposes request and response evidence from the active session. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright CLI Network Command Work?",
+          "question": true,
+          "secondaryKeyword": "playwright cli network command",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind reproduce one user action, run playwright-cli network, and classify failed, slow, duplicate, and unexpected calls. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "Inspect Browser Requests Terminal: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "inspect browser requests terminal",
+          "coverage": "Walk through the relevant repository example in seed-skills/playwright-cli/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Playwright Failed Request Logs?",
+          "question": true,
+          "secondaryKeyword": "playwright failed request logs",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/tracing.md"]
+        },
+        {
+          "heading": "Network Waterfall CLI Debugging: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "network waterfall cli debugging",
+          "coverage": "Reproduce and diagnose this primary risk: a large undifferentiated network dump is treated as proof without an expected-request contract. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/tracing.md"]
+        },
+        {
+          "heading": "Browser API Call Evidence: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "browser api call evidence",
+          "coverage": "Specify the assertion and CI record: correlate each suspicious request with its initiating action, status, timing, console output, and trace. Require URL, method, status or failure, timing, initiator action, and related trace so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/tracing.md"
+          ]
+        },
+        {
+          "heading": "Playwright CLI Response Timing Comparison Table",
+          "question": false,
+          "secondaryKeyword": "playwright cli response timing",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/tracing.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright CLI Network Log Inspection?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/tracing.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/tracing.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright CLI Network Log Inspection Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "CLI network log",
+            "useWhen": "Inspect active-session request and response evidence from the terminal",
+            "expectedEvidence": "URL, method, status or failure, timing, initiator action, and related trace",
+            "mainRisk": "a large undifferentiated network dump is treated as proof without an expected-request contract"
+          },
+          {
+            "option": "page events",
+            "useWhen": "Collect structured request data inside a maintained Playwright test",
+            "expectedEvidence": "URL, method, status or failure, timing, initiator action, and related trace",
+            "mainRisk": "a large undifferentiated network dump is treated as proof without an expected-request contract"
+          },
+          {
+            "option": "trace viewer",
+            "useWhen": "Correlate network activity with DOM snapshots and runner actions",
+            "expectedEvidence": "URL, method, status or failure, timing, initiator action, and related trace",
+            "mainRisk": "a large undifferentiated network dump is treated as proof without an expected-request contract"
+          },
+          {
+            "option": "route interception",
+            "useWhen": "Modify traffic only when the test requires controlled responses",
+            "expectedEvidence": "URL, method, status or failure, timing, initiator action, and related trace",
+            "mainRisk": "a large undifferentiated network dump is treated as proof without an expected-request contract"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/getting-started-cli",
+          "seed-skills/playwright-cli/SKILL.md",
+          "seed-skills/playwright-cli/references/tracing.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright cli network log inspection",
+        "steps": [
+          "Read seed-skills/playwright-cli/SKILL.md and define the expected contract: the Playwright CLI network command exposes request and response evidence from the active session.",
+          "Create the smallest isolated test or CLI session and implement reproduce one user action, run playwright-cli network, and classify failed, slow, duplicate, and unexpected calls.",
+          "Exercise the success case, then reproduce the controlled failure where a large undifferentiated network dump is treated as proof without an expected-request contract.",
+          "Apply the release assertion: correlate each suspicious request with its initiating action, status, timing, console output, and trace.",
+          "Capture URL, method, status or failure, timing, initiator action, and related trace, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright CLI Network Log Inspection: primary implementation",
+          "language": "bash",
+          "repoPath": "seed-skills/playwright-cli/SKILL.md",
+          "plannedSnippet": "playwright-cli click e12 && playwright-cli network",
+          "purpose": "Implement reproduce one user action, run playwright-cli network, and classify failed, slow, duplicate, and unexpected calls using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright CLI Network Log Inspection: failure assertion and evidence",
+          "language": "bash",
+          "repoPath": "seed-skills/playwright-cli/references/tracing.md",
+          "plannedSnippet": "playwright-cli run-code \"async page => page.on(\\\"requestfailed\\\", request => console.log(request.url(), request.failure()))\"",
+          "purpose": "Prove correlate each suspicious request with its initiating action, status, timing, console output, and trace and retain URL, method, status or failure, timing, initiator action, and related trace."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/playwright-cli/SKILL.md",
+        "seed-skills/playwright-cli/references/tracing.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-cli-complete-guide-2026",
+        "/blog/playwright-network-interception-route-guide",
+        "/blog/playwright-trace-viewer-complete-guide-2026",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-cli-complete-guide-2026",
+        "playwright-network-interception-route-guide",
+        "playwright-trace-viewer-complete-guide-2026",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/getting-started-cli",
+        "https://github.com/microsoft/playwright-cli",
+        "https://playwright.dev/docs/network"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright cli network command?",
+        "How do you verify inspect browser requests terminal?",
+        "When should a QA team choose playwright failed request logs?",
+        "What causes failures in network waterfall cli debugging?",
+        "Which evidence should browser api call evidence retain?",
+        "How should CI handle playwright cli response timing?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 3
+    },
+    {
+      "id": "PW-056",
+      "batch": 33,
+      "domain": "playwright-browser",
+      "slug": "playwright-mcp-action-audit-logging",
+      "primaryKeyword": "playwright mcp action audit logging",
+      "title": "Playwright MCP Action Audit Logging",
+      "description": "playwright mcp action audit logging: record reviewable MCP observations, actions, and artifacts. Repo evidence maps checks and CI-safe steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you record a reviewable audit log of Playwright MCP observations, tool calls, browser actions, results, and artifact paths?",
+      "secondaryKeywords": [
+        "playwright mcp tool call log",
+        "browser agent action audit",
+        "mcp browser evidence trail",
+        "record playwright mcp results",
+        "agent browser artifact manifest",
+        "review mcp navigation history"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright MCP Action Audit Logging Control?",
+          "question": true,
+          "coverage": "Answer How do you record a reviewable audit log of Playwright MCP observations, tool calls, browser actions, results, and artifact paths? Define the boundary: an MCP action audit log links every observation and tool input to its browser result and retained evidence. State what this workflow does not replace.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts"]
+        },
+        {
+          "heading": "How Does Playwright MCP Tool Call Log Work?",
+          "question": true,
+          "secondaryKeyword": "playwright mcp tool call log",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind append timestamped snapshot, tool, arguments, result, assertion, and artifact-path records in sequence order. Distinguish observation from assertion.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts"]
+        },
+        {
+          "heading": "Browser Agent Action Audit: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "browser agent action audit",
+          "coverage": "Walk through the relevant repository example in packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts"]
+        },
+        {
+          "heading": "When Should QA Teams Use MCP Browser Evidence Trail?",
+          "question": true,
+          "secondaryKeyword": "mcp browser evidence trail",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-agents/SKILL.md"]
+        },
+        {
+          "heading": "Record Playwright MCP Results: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "record playwright mcp results",
+          "coverage": "Reproduce and diagnose this primary risk: the log records only agent prose or omits tool arguments and artifact paths needed for replay. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-agents/SKILL.md"]
+        },
+        {
+          "heading": "Agent Browser Artifact Manifest: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "agent browser artifact manifest",
+          "coverage": "Specify the assertion and CI record: validate required fields, monotonic sequence numbers, referenced artifacts, and final assertion status. Require sequence ID, observation, tool call, redacted arguments, result, assertion, and artifact paths so the result remains reviewable.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts",
+            "seed-skills/playwright-agents/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Review MCP Navigation History Comparison Table",
+          "question": false,
+          "secondaryKeyword": "review mcp navigation history",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts",
+            "seed-skills/playwright-agents/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright MCP Action Audit Logging?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts",
+            "seed-skills/playwright-agents/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts",
+            "seed-skills/playwright-agents/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright MCP Action Audit Logging Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "append-only JSONL",
+            "useWhen": "Record one structured observation or action per immutable line",
+            "expectedEvidence": "sequence ID, observation, tool call, redacted arguments, result, assertion, and artifact paths",
+            "mainRisk": "the log records only agent prose or omits tool arguments and artifact paths needed for replay"
+          },
+          {
+            "option": "summary report",
+            "useWhen": "Present reviewer context without replacing the underlying action records",
+            "expectedEvidence": "sequence ID, observation, tool call, redacted arguments, result, assertion, and artifact paths",
+            "mainRisk": "the log records only agent prose or omits tool arguments and artifact paths needed for replay"
+          },
+          {
+            "option": "artifact manifest",
+            "useWhen": "Resolve screenshots, traces, logs, and sessions referenced by the audit log",
+            "expectedEvidence": "sequence ID, observation, tool call, redacted arguments, result, assertion, and artifact paths",
+            "mainRisk": "the log records only agent prose or omits tool arguments and artifact paths needed for replay"
+          },
+          {
+            "option": "raw transcript",
+            "useWhen": "Retain only when sensitive data controls and stable parsing are available",
+            "expectedEvidence": "sequence ID, observation, tool call, redacted arguments, result, assertion, and artifact paths",
+            "mainRisk": "the log records only agent prose or omits tool arguments and artifact paths needed for replay"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/mcp/introduction",
+          "packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts",
+          "seed-skills/playwright-agents/SKILL.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright mcp action audit logging",
+        "steps": [
+          "Read packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts and define the expected contract: an MCP action audit log links every observation and tool input to its browser result and retained evidence.",
+          "Create the smallest isolated test or CLI session and implement append timestamped snapshot, tool, arguments, result, assertion, and artifact-path records in sequence order.",
+          "Exercise the success case, then reproduce the controlled failure where the log records only agent prose or omits tool arguments and artifact paths needed for replay.",
+          "Apply the release assertion: validate required fields, monotonic sequence numbers, referenced artifacts, and final assertion status.",
+          "Capture sequence ID, observation, tool call, redacted arguments, result, assertion, and artifact paths, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright MCP Action Audit Logging: primary implementation",
+          "language": "typescript",
+          "repoPath": "packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts",
+          "plannedSnippet": "audit.write(JSON.stringify({ seq, tool, args: redact(args), result, artifacts }) + \"\\n\");",
+          "purpose": "Implement append timestamped snapshot, tool, arguments, result, assertion, and artifact-path records in sequence order using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright MCP Action Audit Logging: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-agents/SKILL.md",
+          "plannedSnippet": "expect(records.map(record => record.seq)).toEqual(records.map((_, index) => index + 1));",
+          "purpose": "Prove validate required fields, monotonic sequence numbers, referenced artifacts, and final assertion status and retain sequence ID, observation, tool call, redacted arguments, result, assertion, and artifact paths."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/blog/posts/pillar-playwright-mcp-2026.ts",
+        "seed-skills/playwright-agents/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-mcp-browser-automation-guide",
+        "/blog/playwright-mcp-regression-testing-guide-2026",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/playwright-mcp-testing-capability-guide-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-mcp-browser-automation-guide",
+        "playwright-mcp-regression-testing-guide-2026",
+        "agent-tool-use-regression-testing-guide-2026",
+        "playwright-mcp-testing-capability-guide-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/mcp/introduction",
+        "https://playwright.dev/mcp/configuration/options",
+        "https://github.com/microsoft/playwright-mcp"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright mcp tool call log?",
+        "How do you verify browser agent action audit?",
+        "When should a QA team choose mcp browser evidence trail?",
+        "What causes failures in record playwright mcp results?",
+        "Which evidence should agent browser artifact manifest retain?",
+        "How should CI handle review mcp navigation history?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 4
+    },
+    {
+      "id": "PW-038",
+      "batch": 33,
+      "domain": "playwright-browser",
+      "slug": "playwright-output-directory-cleanup",
+      "primaryKeyword": "playwright output directory cleanup",
+      "title": "Playwright Output Directory Cleanup",
+      "description": "playwright output directory cleanup: clean runner output without losing failure evidence. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do Playwright outputDir and preserveOutput interact, and how should parallel runs prevent artifact collisions?",
+      "secondaryKeywords": [
+        "playwright outputdir config",
+        "playwright preserveoutput setting",
+        "clean test results directory",
+        "parallel artifact filename collision",
+        "testinfo outputpath playwright",
+        "retain failed test artifacts"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright Output Directory Cleanup Control?",
+          "question": true,
+          "coverage": "Answer How do Playwright outputDir and preserveOutput interact, and how should parallel runs prevent artifact collisions? Define the boundary: outputDir defines per-run artifacts, preserveOutput controls retention, and testInfo.outputPath creates worker-safe paths. State what this workflow does not replace.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "How Does Playwright Outputdir Config Work?",
+          "question": true,
+          "secondaryKeyword": "playwright outputdir config",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind configure a dedicated outputDir, choose preserveOutput intentionally, and create custom artifacts through testInfo.outputPath. Distinguish observation from assertion.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "Playwright Preserveoutput Setting: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "playwright preserveoutput setting",
+          "coverage": "Walk through the relevant repository example in packages/web/playwright.config.ts and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "When Should QA Teams Use Clean Test Results Directory?",
+          "question": true,
+          "secondaryKeyword": "clean test results directory",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-advance-e2e/SKILL.md"]
+        },
+        {
+          "heading": "Parallel Artifact Filename Collision: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "parallel artifact filename collision",
+          "coverage": "Reproduce and diagnose this primary risk: parallel workers overwrite one file or startup cleanup removes evidence before CI uploads it. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-advance-e2e/SKILL.md"]
+        },
+        {
+          "heading": "Testinfo Outputpath Playwright: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "testinfo outputpath playwright",
+          "coverage": "Specify the assertion and CI record: run parallel tests with duplicate logical artifact names and prove paths remain isolated and cleanup follows policy. Require resolved output paths, retention mode, worker identity, upload result, and cleanup log so the result remains reviewable.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "seed-skills/playwright-advance-e2e/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Retain Failed Test Artifacts Comparison Table",
+          "question": false,
+          "secondaryKeyword": "retain failed test artifacts",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "seed-skills/playwright-advance-e2e/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright Output Directory Cleanup?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "seed-skills/playwright-advance-e2e/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "seed-skills/playwright-advance-e2e/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright Output Directory Cleanup Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "preserveOutput always",
+            "useWhen": "Retain every test output when storage cost and review policy permit",
+            "expectedEvidence": "resolved output paths, retention mode, worker identity, upload result, and cleanup log",
+            "mainRisk": "parallel workers overwrite one file or startup cleanup removes evidence before CI uploads it"
+          },
+          {
+            "option": "preserveOutput failures-only",
+            "useWhen": "Keep failed-test evidence while cleaning successful output",
+            "expectedEvidence": "resolved output paths, retention mode, worker identity, upload result, and cleanup log",
+            "mainRisk": "parallel workers overwrite one file or startup cleanup removes evidence before CI uploads it"
+          },
+          {
+            "option": "preserveOutput never",
+            "useWhen": "Use only when other reporters retain all required evidence",
+            "expectedEvidence": "resolved output paths, retention mode, worker identity, upload result, and cleanup log",
+            "mainRisk": "parallel workers overwrite one file or startup cleanup removes evidence before CI uploads it"
+          },
+          {
+            "option": "testInfo.outputPath",
+            "useWhen": "Generate collision-safe custom paths inside each test result directory",
+            "expectedEvidence": "resolved output paths, retention mode, worker identity, upload result, and cleanup log",
+            "mainRisk": "parallel workers overwrite one file or startup cleanup removes evidence before CI uploads it"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/api/class-testconfig#test-config-output-dir",
+          "packages/web/playwright.config.ts",
+          "seed-skills/playwright-advance-e2e/SKILL.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright output directory cleanup",
+        "steps": [
+          "Read packages/web/playwright.config.ts and define the expected contract: outputDir defines per-run artifacts, preserveOutput controls retention, and testInfo.outputPath creates worker-safe paths.",
+          "Create the smallest isolated test or CLI session and implement configure a dedicated outputDir, choose preserveOutput intentionally, and create custom artifacts through testInfo.outputPath.",
+          "Exercise the success case, then reproduce the controlled failure where parallel workers overwrite one file or startup cleanup removes evidence before CI uploads it.",
+          "Apply the release assertion: run parallel tests with duplicate logical artifact names and prove paths remain isolated and cleanup follows policy.",
+          "Capture resolved output paths, retention mode, worker identity, upload result, and cleanup log, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright Output Directory Cleanup: primary implementation",
+          "language": "typescript",
+          "repoPath": "packages/web/playwright.config.ts",
+          "plannedSnippet": "export default defineConfig({ outputDir: 'test-results', preserveOutput: 'failures-only' });",
+          "purpose": "Implement configure a dedicated outputDir, choose preserveOutput intentionally, and create custom artifacts through testInfo.outputPath using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright Output Directory Cleanup: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-advance-e2e/SKILL.md",
+          "plannedSnippet": "const evidencePath = testInfo.outputPath('network.json'); await fs.writeFile(evidencePath, JSON.stringify(events));",
+          "purpose": "Prove run parallel tests with duplicate logical artifact names and prove paths remain isolated and cleanup follows policy and retain resolved output paths, retention mode, worker identity, upload result, and cleanup log."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/playwright.config.ts",
+        "seed-skills/playwright-advance-e2e/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-test-config-options-complete-reference",
+        "/blog/playwright-screenshots-videos-traces-complete-guide",
+        "/blog/ci-upload-artifacts-only-on-test-failure",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-test-config-options-complete-reference",
+        "playwright-screenshots-videos-traces-complete-guide",
+        "ci-upload-artifacts-only-on-test-failure",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/api/class-testconfig#test-config-output-dir",
+        "https://playwright.dev/docs/api/class-testproject#test-project-preserve-output",
+        "https://playwright.dev/docs/test-configuration"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright outputdir config?",
+        "How do you verify playwright preserveoutput setting?",
+        "When should a QA team choose clean test results directory?",
+        "What causes failures in parallel artifact filename collision?",
+        "Which evidence should testinfo outputpath playwright retain?",
+        "How should CI handle retain failed test artifacts?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 5
+    }
+  ]
+}

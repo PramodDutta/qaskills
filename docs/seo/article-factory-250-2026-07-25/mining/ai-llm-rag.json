@@ -1,0 +1,2610 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-25T00:00:00.000Z",
+  "scope": "AI and LLM quality engineering, RAG evaluation, DeepEval, Ragas, Promptfoo, prompt injection, tool calling, agents, hallucination controls, model drift, evaluation datasets, and LLM observability",
+  "inputs": {
+    "worktree": "/tmp/qaskills-seo-factory-20260725",
+    "inventory": "/tmp/qaskills-seo-inventory-250-20260725.json",
+    "registry": "packages/web/src/app/blog/posts/index.ts",
+    "inventoryItems": 1528,
+    "registeredPosts": 1491,
+    "staticRoutes": 37,
+    "registryAgreementVerified": true
+  },
+  "counts": {
+    "survivors": 60,
+    "rejections": 15,
+    "totalEvaluated": 75
+  },
+  "collisionMethod": {
+    "slug": "Reject exact, containing, or contained slugs against inventory and this candidate set.",
+    "title": "Reject more than 60 percent non-stopword token overlap with an existing title, H1, or another candidate.",
+    "primaryKeyword": "Reject an exact primary keyword already owned by inventory or another candidate.",
+    "intent": "Reject when an existing page or another candidate answers the same core question, even if wording differs.",
+    "closestOwnerMeaning": "The nearest existing route by subject. A survivor remains distinct because its exact question targets a narrower behavior or failure mode."
+  },
+  "validation": {
+    "completedAt": "2026-07-25T05:38:36Z",
+    "status": "pass",
+    "inventorySlugCollisions": 0,
+    "inventoryTitleCollisions": 0,
+    "inventoryPrimaryKeywordCollisions": 0,
+    "selfCollisions": 0,
+    "missingInternalRoutes": 0,
+    "invalidRepoEvidenceReferences": 0,
+    "repoEvidenceReferencesChecked": 120,
+    "uniqueAuthoritativeSourcesChecked": 46,
+    "authoritativeSourcesPassed": 46,
+    "minimumCandidateScore": 38,
+    "maximumTitleLength": 45
+  },
+  "survivors": [
+    {
+      "primaryKeyword": "DeepEval retrieval context validation",
+      "slug": "deepeval-retrieval-context-validation",
+      "title": "Validate DeepEval Retrieval Context",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you fail a DeepEval test before scoring when retrieval_context is missing, empty, malformed, or unrelated to the evaluated answer?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md:64-78 constructs LLMTestCase with retrieval_context for faithfulness.",
+        "seed-skills/deepeval-llm-evaluation/SKILL.md:142-148 names missing retrieval_context as a common evaluation mistake."
+      ],
+      "secondaryKeywords": [
+        "how to deepeval retrieval context validation",
+        "deepeval retrieval context validation example",
+        "DeepEval faithfulness missing context",
+        "LLMTestCase retrieval_context test",
+        "validate RAG context before eval"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates"
+      ],
+      "authoritativeSources": [
+        "https://deepeval.com/docs/evaluation-test-cases",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+        "https://deepeval.com/docs/evaluation-datasets"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/deepeval-pytest-llm-testing-guide",
+        "decision": "survive",
+        "reason": "The existing guide introduces DeepEval broadly. This candidate owns pre-score validation of the retrieval_context contract and its failure diagnostics."
+      }
+    },
+    {
+      "primaryKeyword": "DeepEval metric score direction testing",
+      "slug": "deepeval-metric-score-direction-testing",
+      "title": "Verify Score Direction in DeepEval",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test that DeepEval gates interpret higher-is-better and lower-is-better metrics correctly at exact threshold boundaries?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md:119-128 lists metrics whose score direction and thresholds differ.",
+        "seed-skills/prompt-testing/SKILL.md:647-696 configures toxicity and bias metrics separately from positive quality scores."
+      ],
+      "secondaryKeywords": [
+        "how to deepeval metric score direction testing",
+        "deepeval metric score direction testing example",
+        "DeepEval hallucination score direction",
+        "lower is better metric assertion",
+        "metric threshold polarity test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates"
+      ],
+      "authoritativeSources": [
+        "https://deepeval.com/docs/introduction",
+        "https://deepeval.com/docs/evaluation-test-cases",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/deepeval-metrics-complete-guide-2026",
+        "decision": "survive",
+        "reason": "The existing reference catalogs metrics. This candidate tests score polarity bugs in custom gates, including inverted hallucination and safety decisions."
+      }
+    },
+    {
+      "primaryKeyword": "DeepEval threshold boundary testing",
+      "slug": "deepeval-threshold-boundary-testing",
+      "title": "Test DeepEval Threshold Boundaries",
+      "intent": "how-to",
+      "exactQuestion": "How do you write deterministic boundary cases for DeepEval scores just below, equal to, and just above a configured threshold?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md:72-95 applies explicit thresholds to relevancy, faithfulness, and GEval.",
+        "seed-skills/ai-system-quality-engineer/SKILL.md:92-103 aggregates repeated scores around a threshold into pass rates."
+      ],
+      "secondaryKeywords": [
+        "how to deepeval threshold boundary testing",
+        "deepeval threshold boundary testing example",
+        "DeepEval exact threshold behavior",
+        "LLM metric boundary matrix",
+        "floating point eval threshold"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates"
+      ],
+      "authoritativeSources": [
+        "https://deepeval.com/docs/evaluation-test-cases",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+        "https://docs.pytest.org/en/stable/how-to/parametrize.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/deepeval-pytest-llm-testing-guide",
+        "decision": "survive",
+        "reason": "The broad pytest guide uses thresholds but does not own an exact boundary matrix for equality, rounding, and floating point behavior."
+      }
+    },
+    {
+      "primaryKeyword": "DeepEval judge version pinning",
+      "slug": "deepeval-judge-version-pinning",
+      "title": "Pin DeepEval Judge Versions",
+      "intent": "how-to",
+      "exactQuestion": "How can a QA team prove that a DeepEval run used the intended judge model and reject silent judge-version changes in CI?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md:147-155 requires a pinned judge and periodic human spot checks.",
+        "seed-skills/rag-regression-testing/SKILL.md:48-68 pins judge model, temperature, embeddings, and retrieval settings."
+      ],
+      "secondaryKeywords": [
+        "how to deepeval judge version pinning",
+        "deepeval judge version pinning example",
+        "DeepEval evaluator model pinning",
+        "LLM judge version regression",
+        "record judge model in eval report"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates"
+      ],
+      "authoritativeSources": [
+        "https://deepeval.com/docs/introduction",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+        "https://www.nist.gov/itl/ai-risk-management-framework"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/llm-judge-calibration-guide-2026",
+        "decision": "survive",
+        "reason": "The calibration guide measures judge quality. This candidate owns build-time identity checks and evidence that the configured judge version actually ran."
+      }
+    },
+    {
+      "primaryKeyword": "DeepEval parallel provider backoff testing",
+      "slug": "deepeval-parallel-provider-backoff-testing",
+      "title": "Test DeepEval Parallel Backoff",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test DeepEval parallel workers against scripted provider throttling without hiding lost cases, duplicate evaluations, or unbounded retries?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md:97-98 documents parallel DeepEval execution with multiple workers.",
+        "seed-skills/prompt-testing/SKILL.md:737-741 recommends tiered expensive runs, caching, and pinned model versions."
+      ],
+      "secondaryKeywords": [
+        "how to deepeval parallel provider backoff testing",
+        "deepeval parallel provider backoff testing example",
+        "DeepEval parallel rate limit test",
+        "deepeval worker retry behavior",
+        "LLM eval 429 backoff"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates"
+      ],
+      "authoritativeSources": [
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+        "https://deepeval.com/docs/introduction",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/llm-eval-cost-latency-testing-guide-2026",
+        "decision": "survive",
+        "reason": "The existing cost and latency guide measures budgets. This candidate owns correctness under throttling when parallel DeepEval workers back off and retry."
+      }
+    },
+    {
+      "primaryKeyword": "DeepEval cached response regrading",
+      "slug": "deepeval-cached-response-regrading",
+      "title": "Regrade Cached Responses in DeepEval",
+      "intent": "how-to",
+      "exactQuestion": "How do you cache application responses while forcing DeepEval to regrade them after a rubric, threshold, or judge version changes?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md:140-148 recommends caching app responses so reruns can rejudge without regenerating.",
+        "seed-skills/prompt-testing/SKILL.md:739-741 treats response caching and model version pinning as separate controls."
+      ],
+      "secondaryKeywords": [
+        "how to deepeval cached response regrading",
+        "deepeval cached response regrading example",
+        "DeepEval response cache test",
+        "regrade LLM outputs without recall",
+        "separate generation and evaluation cache"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates"
+      ],
+      "authoritativeSources": [
+        "https://deepeval.com/docs/evaluation-datasets",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+        "https://deepeval.com/docs/introduction"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/llm-eval-cost-latency-testing-guide-2026",
+        "decision": "survive",
+        "reason": "The existing page covers overall eval cost. This candidate owns cache-key separation between system outputs and judge artifacts during regrading."
+      }
+    },
+    {
+      "primaryKeyword": "DeepEval GEval rubric mutation testing",
+      "slug": "deepeval-geval-rubric-mutation-testing",
+      "title": "Mutation Test DeepEval GEval Rubrics",
+      "intent": "how-to",
+      "exactQuestion": "How can mutation tests prove that a DeepEval GEval rubric detects omitted facts, invented values, unsafe wording, and weakened criteria?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md:80-95 defines a domain-specific GEval correctness rubric.",
+        "seed-skills/ai-system-quality-engineer/SKILL.md:106-111 warns that judge-only thresholds can drift or be gamed."
+      ],
+      "secondaryKeywords": [
+        "how to deepeval geval rubric mutation testing",
+        "deepeval geval rubric mutation testing example",
+        "GEval rubric sensitivity test",
+        "mutate LLM judge criteria",
+        "DeepEval rubric negative controls"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates"
+      ],
+      "authoritativeSources": [
+        "https://deepeval.com/docs/evaluation-test-cases",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+        "https://www.nist.gov/itl/ai-risk-management-framework"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/g-eval-llm-judge-metric-guide-2026",
+        "decision": "survive",
+        "reason": "The existing GEval guide explains configuration. This candidate owns rubric mutation testing that demonstrates each criterion can change a verdict."
+      }
+    },
+    {
+      "primaryKeyword": "DeepEval metric failure reason testing",
+      "slug": "deepeval-metric-failure-reason-testing",
+      "title": "Inspect DeepEval Evaluator Explanations",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you contract-test DeepEval failure reasons so CI reports identify the failed criterion without snapshots that break on harmless wording?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/openai-evals-trace-grading/SKILL.md:309-318 requires an actionable reason for every failed sample.",
+        "seed-skills/deepeval-llm-evaluation/SKILL.md:130-140 shows the CI gate where evaluator diagnostics must remain useful."
+      ],
+      "secondaryKeywords": [
+        "how to deepeval metric failure reason testing",
+        "deepeval metric failure reason testing example",
+        "DeepEval metric reason contract",
+        "LLM eval failure diagnostics",
+        "assert evaluator explanation fields"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates"
+      ],
+      "authoritativeSources": [
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+        "https://deepeval.com/docs/evaluation-test-cases",
+        "https://platform.openai.com/docs/guides/evals"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/deepeval-task-completion-metric-agent",
+        "decision": "survive",
+        "reason": "The existing metric article explains failure analysis for one agent metric. This candidate defines stable diagnostic contracts across DeepEval metrics."
+      }
+    },
+    {
+      "primaryKeyword": "DeepEval smoke nightly suite split",
+      "slug": "deepeval-smoke-nightly-suite-split",
+      "title": "Split DeepEval Smoke and Nightly Runs",
+      "intent": "how-to",
+      "exactQuestion": "How should DeepEval cases be partitioned into a fast pull-request smoke suite and a complete nightly suite without changing release semantics?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md:130-140 defines a pull-request smoke slice and nightly full run.",
+        "seed-skills/deepeval-llm-evaluation/SKILL.md:150-155 requires both suites and visible results."
+      ],
+      "secondaryKeywords": [
+        "how to deepeval smoke nightly suite split",
+        "deepeval smoke nightly suite split example",
+        "DeepEval PR smoke tests",
+        "nightly LLM evaluation suite",
+        "tiered DeepEval CI workflow"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates"
+      ],
+      "authoritativeSources": [
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+        "https://deepeval.com/docs/evaluation-datasets",
+        "https://docs.pytest.org/en/stable/how-to/parametrize.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/llm-evaluation-ci-cd-quality-gates",
+        "decision": "survive",
+        "reason": "The existing CI article is framework-neutral. This candidate owns DeepEval case selection, marker contracts, and parity between smoke and nightly gates."
+      }
+    },
+    {
+      "primaryKeyword": "DeepEval dataset key mapping tests",
+      "slug": "deepeval-dataset-key-mapping-tests",
+      "title": "Test DeepEval Dataset Key Mapping",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test DeepEval JSON and JSONL key mappings so renamed input or expected-output fields fail before cases silently load incomplete data?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md:99-115 maps input and expected-output keys from a versioned JSONL file.",
+        "seed-skills/deepeval-llm-evaluation/SKILL.md:36-47 defines the dataset directory and expected file role."
+      ],
+      "secondaryKeywords": [
+        "how to deepeval dataset key mapping tests",
+        "deepeval dataset key mapping tests example",
+        "DeepEval JSONL key mapping",
+        "EvaluationDataset loader contract",
+        "missing expected output dataset test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates"
+      ],
+      "authoritativeSources": [
+        "https://deepeval.com/docs/evaluation-datasets",
+        "https://deepeval.com/docs/evaluation-test-cases",
+        "https://docs.pytest.org/en/stable/how-to/parametrize.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/deepeval-pytest-llm-testing-guide",
+        "decision": "survive",
+        "reason": "The broad guide loads datasets. This candidate owns loader schema drift, key renames, missing fields, and malformed row failures."
+      }
+    },
+    {
+      "primaryKeyword": "Ragas NaN score handling",
+      "slug": "ragas-nan-score-handling",
+      "title": "Handle NaN Scores in Ragas",
+      "intent": "troubleshooting",
+      "exactQuestion": "How should a Ragas quality gate detect, report, and fail on NaN metric values instead of dropping them from an aggregate mean?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/rag-regression-testing/SKILL.md:133-150 converts Ragas result columns into aggregate means.",
+        "seed-skills/rag-evaluation-metrics/SKILL.md:25-28 requires explicit thresholds and score distributions rather than silent omissions."
+      ],
+      "secondaryKeywords": [
+        "how to ragas nan score handling",
+        "ragas nan score handling example",
+        "Ragas missing metric score",
+        "Ragas NaN pandas mean",
+        "fail CI on invalid eval score"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://docs.ragas.io/en/latest/references/evaluate/",
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/",
+        "https://docs.ragas.io/en/stable/getstarted/evals/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "decision": "survive",
+        "reason": "The existing guide interprets valid metric scores. This candidate owns invalid NaN propagation, aggregation, and release-gate behavior."
+      }
+    },
+    {
+      "primaryKeyword": "Ragas dataset schema validation",
+      "slug": "ragas-dataset-schema-validation",
+      "title": "Validate Ragas Dataset Schemas",
+      "intent": "how-to",
+      "exactQuestion": "How do you validate Ragas single-turn dataset fields, list nesting, nullability, and row alignment before paid evaluator calls begin?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/rag-regression-testing/SKILL.md:108-131 constructs aligned question, answer, contexts, and ground-truth columns.",
+        "seed-skills/rag-evaluation-metrics/SKILL.md:39-72 defines the golden sample fields required for evaluation."
+      ],
+      "secondaryKeywords": [
+        "how to ragas dataset schema validation",
+        "ragas dataset schema validation example",
+        "Ragas EvaluationDataset validation",
+        "SingleTurnSample schema test",
+        "retrieved contexts list validation"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://docs.ragas.io/en/stable/getstarted/evals/",
+        "https://docs.ragas.io/en/latest/references/evaluate/",
+        "https://docs.ragas.io/en/stable/howtos/migrations/migrate_from_v03_to_v04/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/ragas-rag-evaluation-guide",
+        "decision": "survive",
+        "reason": "The tutorial shows a valid dataset. This candidate owns negative schema cases and early validation before evaluator requests."
+      }
+    },
+    {
+      "primaryKeyword": "Ragas evaluator timeout recovery",
+      "slug": "ragas-evaluator-timeout-recovery",
+      "title": "Test Ragas Evaluator Timeouts",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you simulate Ragas evaluator timeouts and verify bounded retries, preserved sample IDs, partial reports, and a nonzero CI result?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/rag-regression-testing/SKILL.md:252-281 gives the RAG evaluation job a bounded workflow timeout and uploads its report.",
+        "seed-skills/rag-regression-testing/SKILL.md:173-203 requires deterministic gate failures when evaluation evidence is incomplete."
+      ],
+      "secondaryKeywords": [
+        "how to ragas evaluator timeout recovery",
+        "ragas evaluator timeout recovery example",
+        "Ragas RunConfig timeout test",
+        "Ragas evaluator retry limit",
+        "LLM metric timeout recovery"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://docs.ragas.io/en/stable/howtos/customizations/run_config/",
+        "https://docs.ragas.io/en/latest/references/evaluate/",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/rag-regression-testing-cicd-2026",
+        "decision": "survive",
+        "reason": "The existing CI page assumes the evaluator completes. This candidate owns provider timeout injection, bounded recovery, and partial-result integrity."
+      }
+    },
+    {
+      "primaryKeyword": "Ragas custom metric regression testing",
+      "slug": "ragas-custom-metric-regression-testing",
+      "title": "Regression Test Custom Ragas Metrics",
+      "intent": "how-to",
+      "exactQuestion": "How can fixture cases and mutation tests prove that a custom Ragas metric preserves its output range, labels, reasons, and failure sensitivity?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/rag-evaluation-metrics/SKILL.md:21-28 maps each failure mode to a separate metric and threshold.",
+        "seed-skills/ai-system-quality-engineer/SKILL.md:61-72 layers deterministic and model-graded checks by failure type."
+      ],
+      "secondaryKeywords": [
+        "how to ragas custom metric regression testing",
+        "ragas custom metric regression testing example",
+        "custom Ragas metric unit test",
+        "Ragas metric output contract",
+        "Ragas evaluator mutation cases"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/",
+        "https://docs.ragas.io/en/stable/howtos/migrations/migrate_from_v03_to_v04/",
+        "https://docs.ragas.io/en/stable/getstarted/evals/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "decision": "survive",
+        "reason": "The metric guide covers built-in metrics. This candidate owns tests for team-defined metric code and its stable result contract."
+      }
+    },
+    {
+      "primaryKeyword": "Ragas metric language adaptation",
+      "slug": "ragas-metric-language-adaptation",
+      "title": "Test Ragas Metric Language Adaptation",
+      "intent": "how-to",
+      "exactQuestion": "How do you verify that a Ragas metric adapts every required prompt and example for a target language without changing its scoring semantics?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/prompt-testing/SKILL.md:719-728 requires multilingual examples and evaluator criteria in the ground-truth workflow.",
+        "seed-skills/rag-regression-testing/SKILL.md:25-27 requires scoring configuration to be pinned and reviewable."
+      ],
+      "secondaryKeywords": [
+        "how to ragas metric language adaptation",
+        "ragas metric language adaptation example",
+        "Ragas multilingual metric test",
+        "adapt Ragas prompts safely",
+        "Ragas translated evaluator regression"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://docs.ragas.io/en/latest/howtos/customizations/metrics/metrics_language_adaptation/",
+        "https://docs.ragas.io/en/stable/howtos/migrations/migrate_from_v03_to_v04/",
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-rag-multilingual-retrieval-quality",
+        "decision": "survive",
+        "reason": "The existing multilingual article tests retriever quality. This candidate tests the evaluator prompt adaptation itself and unchanged scoring behavior."
+      }
+    },
+    {
+      "primaryKeyword": "RAG contradictory evidence testing",
+      "slug": "rag-contradictory-evidence-testing",
+      "title": "Resolve Conflicting Evidence in RAG",
+      "intent": "how-to",
+      "exactQuestion": "How do you build RAG fixtures with mutually contradictory retrieved passages and test citation choice, uncertainty, and document precedence?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/rag-evaluation-metrics/SKILL.md:21-28 separates retrieval quality, faithfulness, and answer relevance.",
+        "seed-skills/ai-system-quality-engineer/SKILL.md:47-59 stores required citations and held-out behavioral properties in golden cases."
+      ],
+      "secondaryKeywords": [
+        "how to rag contradictory evidence testing",
+        "rag contradictory evidence testing example",
+        "RAG conflicting context test",
+        "contradictory source citation behavior",
+        "RAG evidence precedence fixture"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://arxiv.org/abs/2309.15217",
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/",
+        "https://platform.openai.com/docs/guides/retrieval"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/rag-high-relevance-low-faithfulness-diagnosis-2026",
+        "decision": "survive",
+        "reason": "The existing diagnosis page starts from a low-faithfulness result. This candidate owns controlled contradictory-source fixtures and precedence assertions."
+      }
+    },
+    {
+      "primaryKeyword": "RAG context order sensitivity testing",
+      "slug": "rag-context-order-sensitivity-testing",
+      "title": "Test RAG Context Order Sensitivity",
+      "intent": "how-to",
+      "exactQuestion": "How do you permute the same retrieved chunks to detect answers or citations that change only because evidence order changed?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/rag-evaluation-metrics/SKILL.md:30-37 defines context precision as ranking relevant chunks near the top.",
+        "seed-skills/rag-regression-testing/SKILL.md:113-131 records ordered context arrays for every evaluated answer."
+      ],
+      "secondaryKeywords": [
+        "how to rag context order sensitivity testing",
+        "rag context order sensitivity testing example",
+        "RAG context permutation test",
+        "retrieved chunk order bias",
+        "citation order sensitivity"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/",
+        "https://docs.ragas.io/en/latest/references/evaluate/",
+        "https://www.elastic.co/guide/en/elasticsearch/reference/current/search-rank-eval.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-rag-context-precision-top-k",
+        "decision": "survive",
+        "reason": "The existing page varies retrieval depth. This candidate freezes the chunk set and varies only ordering to isolate generation and citation sensitivity."
+      }
+    },
+    {
+      "primaryKeyword": "RAG document version precedence testing",
+      "slug": "rag-document-version-precedence-testing",
+      "title": "Test RAG Document Version Precedence",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you prove a RAG system prefers the current document version when old and new policy chunks coexist during an index rollout?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/rag-regression-testing/SKILL.md:21-27 identifies index rebuilds and retriever versions as silent regression sources.",
+        "seed-skills/rag-regression-testing/SKILL.md:138-148 tags every report with prompt, retriever, and judge versions."
+      ],
+      "secondaryKeywords": [
+        "how to rag document version precedence testing",
+        "rag document version precedence testing example",
+        "RAG stale policy version test",
+        "vector index version precedence",
+        "RAG current document selection"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/retrieval",
+        "https://docs.ragas.io/en/latest/references/evaluate/",
+        "https://www.w3.org/TR/prov-o/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-rag-deleted-document-tombstones",
+        "decision": "survive",
+        "reason": "The tombstone article covers deleted sources. This candidate owns precedence while multiple valid versions temporarily coexist."
+      }
+    },
+    {
+      "primaryKeyword": "RAG query rewrite regression testing",
+      "slug": "rag-query-rewrite-regression-testing",
+      "title": "Regression Test RAG Query Rewrites",
+      "intent": "how-to",
+      "exactQuestion": "How do you test whether a query rewriter preserves entities, constraints, negation, and user intent before retrieval runs?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/rag-regression-testing/SKILL.md:63-68 versions the retriever configuration used by every eval.",
+        "seed-skills/rag-evaluation-metrics/SKILL.md:21-28 requires retrieval and generation to be measured as separate subsystems."
+      ],
+      "secondaryKeywords": [
+        "how to rag query rewrite regression testing",
+        "rag query rewrite regression testing example",
+        "RAG rewritten query contract",
+        "query expansion regression suite",
+        "retrieval query semantic preservation"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/retrieval",
+        "https://www.elastic.co/guide/en/elasticsearch/reference/current/search-rank-eval.html",
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/rag-retrieval-testing-best-practices-2026",
+        "decision": "survive",
+        "reason": "The existing retrieval guide measures returned documents. This candidate owns the pre-retrieval rewrite contract and semantic preservation."
+      }
+    },
+    {
+      "primaryKeyword": "RAG hard negative retrieval testing",
+      "slug": "rag-hard-negative-retrieval-testing",
+      "title": "Test RAG Retrieval Hard Negatives",
+      "intent": "how-to",
+      "exactQuestion": "How do you curate near-match documents that share vocabulary but contain the wrong entity, date, product, or policy for RAG retrieval tests?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/rag-evaluation-metrics/SKILL.md:39-72 stores questions, references, and relevant source contexts as a reviewable contract.",
+        "seed-skills/rag-regression-testing/SKILL.md:27-28 requires reviewed baselines and quarantining rather than deleting difficult samples."
+      ],
+      "secondaryKeywords": [
+        "how to rag hard negative retrieval testing",
+        "rag hard negative retrieval testing example",
+        "RAG hard negative dataset",
+        "near match retrieval fixture",
+        "semantic search false positive test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.elastic.co/guide/en/elasticsearch/reference/current/search-rank-eval.html",
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/",
+        "https://arxiv.org/abs/2309.15217"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/retrieval-relevance-testing-guide-2026",
+        "decision": "survive",
+        "reason": "The existing guide covers qrels and ranking broadly. This candidate owns construction and diagnosis of lexical and semantic hard-negative fixtures."
+      }
+    },
+    {
+      "primaryKeyword": "RAG partial index update testing",
+      "slug": "rag-partial-index-update-testing",
+      "title": "Test Partial RAG Index Updates",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test a failed RAG index update so users never see a mixed corpus, missing chunks, duplicate vectors, or inconsistent citations?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/rag-regression-testing/SKILL.md:21-25 treats an index rebuild and retriever version as behavior changes.",
+        "seed-skills/rag-regression-testing/SKILL.md:327-333 requires committed baselines and version tags for every rollout."
+      ],
+      "secondaryKeywords": [
+        "how to rag partial index update testing",
+        "rag partial index update testing example",
+        "RAG interrupted indexing test",
+        "vector index partial write recovery",
+        "atomic RAG corpus update"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/retrieval",
+        "https://www.w3.org/TR/prov-o/",
+        "https://docs.ragas.io/en/latest/references/evaluate/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-embedding-model-migration-regression",
+        "decision": "survive",
+        "reason": "The existing migration article compares completed indexes. This candidate owns interruption and atomicity failures during an incremental index update."
+      }
+    },
+    {
+      "primaryKeyword": "RAG context truncation boundary testing",
+      "slug": "rag-context-truncation-boundary-testing",
+      "title": "Catch RAG Context Window Truncation",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you place decisive evidence at context-window boundaries and prove token truncation cannot silently remove citations or policy qualifiers?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/ai-system-quality-engineer/SKILL.md:47-50 includes required citations and maximum tokens in each golden case.",
+        "seed-skills/ai-system-quality-engineer/SKILL.md:65-70 treats citation and token budgets as deterministic gates."
+      ],
+      "secondaryKeywords": [
+        "how to rag context truncation boundary testing",
+        "rag context truncation boundary testing example",
+        "RAG token limit boundary test",
+        "retrieval context truncation fixture",
+        "lost evidence after prompt assembly"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/retrieval",
+        "https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken",
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/needle-in-a-haystack-long-context-eval-guide-2026",
+        "decision": "survive",
+        "reason": "The existing long-context page evaluates retrieval of hidden facts. This candidate owns deterministic prompt-assembly truncation boundaries in a RAG pipeline."
+      }
+    },
+    {
+      "primaryKeyword": "RAG retrieval cache invalidation testing",
+      "slug": "rag-retrieval-cache-invalidation-testing",
+      "title": "Test RAG Retrieval Cache Invalidation",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you prove cached RAG results are invalidated when corpus, tenant scope, embedding model, filters, or retriever version changes?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/rag-regression-testing/SKILL.md:25-27 pins prompt, retriever, embedding, and top-k inputs that affect behavior.",
+        "seed-skills/rag-regression-testing/SKILL.md:63-68 records retriever version beside every dataset and baseline path."
+      ],
+      "secondaryKeywords": [
+        "how to rag retrieval cache invalidation testing",
+        "rag retrieval cache invalidation testing example",
+        "RAG stale retrieval cache test",
+        "semantic cache invalidation key",
+        "retriever version cache isolation"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://docs.ragas.io/en/stable/howtos/customizations/_caching/",
+        "https://platform.openai.com/docs/guides/retrieval"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/rag-regression-testing-guide-2026",
+        "decision": "survive",
+        "reason": "The regression guide mentions versioned retrievers. This candidate owns cache-key dimensions and invalidation oracles across corpus changes."
+      }
+    },
+    {
+      "primaryKeyword": "RAG chunk identifier stability testing",
+      "slug": "rag-chunk-identifier-stability-testing",
+      "title": "Verify Immutable Corpus Record Identifiers",
+      "intent": "how-to",
+      "exactQuestion": "How do you test that chunk identifiers remain stable across no-op reindexing while changing predictably when source content or version changes?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/ai-system-quality-engineer/SKILL.md:47-50 stores required citation IDs as deterministic golden properties.",
+        "seed-skills/ai-system-quality-engineer/SKILL.md:132-133 requires every cited chunk ID to exist in the corpus and retrieved set."
+      ],
+      "secondaryKeywords": [
+        "how to rag chunk identifier stability testing",
+        "rag chunk identifier stability testing example",
+        "stable RAG citation identifier",
+        "chunk ID reindex regression",
+        "source provenance key test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.w3.org/TR/prov-o/",
+        "https://platform.openai.com/docs/guides/retrieval",
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/rag-source-attribution-testing-guide-2026",
+        "decision": "survive",
+        "reason": "The attribution guide validates displayed sources. This candidate owns identifier stability across ingestion and no-op reindex operations."
+      }
+    },
+    {
+      "primaryKeyword": "RAG ingestion retry idempotency testing",
+      "slug": "rag-ingestion-retry-idempotency-testing",
+      "title": "Test Idempotent RAG Ingestion Retries",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you replay failed RAG ingestion batches and prove retries do not duplicate chunks, vectors, metadata, or source records?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/rag-regression-testing/SKILL.md:21-25 identifies index rebuilds as a source of silent quality regressions.",
+        "seed-skills/rag-regression-testing/SKILL.md:327-333 requires index behavior to remain traceable to committed versions and reports."
+      ],
+      "secondaryKeywords": [
+        "how to rag ingestion retry idempotency testing",
+        "rag ingestion retry idempotency testing example",
+        "RAG ingestion duplicate vector test",
+        "idempotent document indexing",
+        "retry failed embedding batch"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/ragas-rag-evaluation-metrics-complete-guide",
+        "/blog/rag-regression-testing-guide-2026",
+        "/blog/rag-retrieval-testing-best-practices-2026"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/retrieval",
+        "https://www.w3.org/TR/prov-o/",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/rag-integration-testing-guide-2026",
+        "decision": "survive",
+        "reason": "The existing integration guide covers a successful pipeline. This candidate owns replay safety after partial ingestion and embedding failures."
+      }
+    },
+    {
+      "primaryKeyword": "Promptfoo assertion aggregation testing",
+      "slug": "promptfoo-assertion-aggregation-testing",
+      "title": "Combine Promptfoo Assertions Safely",
+      "intent": "how-to",
+      "exactQuestion": "How do you test Promptfoo assertion sets, weights, and thresholds so one strong score cannot hide a mandatory deterministic failure?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:45-74 combines deterministic and model-graded assertions in each case.",
+        "seed-skills/ai-system-quality-engineer/SKILL.md:61-72 requires deterministic gates to run before metric and adversarial checks."
+      ],
+      "secondaryKeywords": [
+        "how to promptfoo assertion aggregation testing",
+        "promptfoo assertion aggregation testing example",
+        "Promptfoo assert-set threshold",
+        "Promptfoo weighted assertion test",
+        "mandatory assertion failure gate"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/configuration/expected-outputs/",
+        "https://www.promptfoo.dev/docs/configuration/guide/",
+        "https://www.promptfoo.dev/docs/configuration/outputs/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/promptfoo-custom-javascript-assertion-example",
+        "decision": "survive",
+        "reason": "The existing page implements one assertion. This candidate owns assertion-set aggregation, mandatory checks, weighting, and threshold math."
+      }
+    },
+    {
+      "primaryKeyword": "Promptfoo HTTP provider contract testing",
+      "slug": "promptfoo-http-provider-contract-testing",
+      "title": "Test Promptfoo HTTP Provider Contracts",
+      "intent": "how-to",
+      "exactQuestion": "How do you contract-test Promptfoo HTTP provider templates for methods, headers, authentication, request bodies, sessions, and transformed responses?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:101-111 configures a deployed HTTP target and transformResponse.",
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:137-148 requires tests to run through the deployed app and its guardrails."
+      ],
+      "secondaryKeywords": [
+        "how to promptfoo http provider contract testing",
+        "promptfoo http provider contract testing example",
+        "Promptfoo HTTP provider mock server",
+        "transformResponse contract test",
+        "Promptfoo request template validation"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/providers/http/",
+        "https://www.promptfoo.dev/docs/providers/",
+        "https://www.promptfoo.dev/docs/configuration/guide/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/promptfoo-complete-guide-2026",
+        "decision": "survive",
+        "reason": "The complete guide configures providers broadly. This candidate owns a local mock-server contract suite for rendered HTTP requests and parsed responses."
+      }
+    },
+    {
+      "primaryKeyword": "Promptfoo environment isolation testing",
+      "slug": "promptfoo-environment-isolation-testing",
+      "title": "Test Promptfoo Environment Isolation",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you prove Promptfoo development, CI, and red-team runs use isolated credentials, endpoints, cache paths, and configuration precedence?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:27-33 loads provider credentials from environment variables.",
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:124-133 separates pull-request and nightly red-team configurations."
+      ],
+      "secondaryKeywords": [
+        "how to promptfoo environment isolation testing",
+        "promptfoo environment isolation testing example",
+        "Promptfoo env variable precedence",
+        "isolate Promptfoo CI credentials",
+        "Promptfoo staging endpoint test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/configuration/guide/",
+        "https://www.promptfoo.dev/docs/red-team/configuration/",
+        "https://www.promptfoo.dev/docs/red-team/troubleshooting/data-handling/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/promptfoo-cli-tutorial-2026",
+        "decision": "survive",
+        "reason": "The CLI tutorial runs one environment. This candidate owns cross-environment isolation and precedence tests that prevent production-target mistakes."
+      }
+    },
+    {
+      "primaryKeyword": "Promptfoo eval cache invalidation testing",
+      "slug": "promptfoo-eval-cache-invalidation-testing",
+      "title": "Test Promptfoo Eval Cache Invalidation",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you verify Promptfoo cache identity changes when prompts, providers, variables, headers, model settings, or response transforms change?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/app/blog/posts/pillar-promptfoo-2026.ts:96-104 warns that cached responses from older targets can invalidate comparisons.",
+        "seed-skills/prompt-testing/SKILL.md:737-741 recommends caching while also pinning every behavior-changing model input."
+      ],
+      "secondaryKeywords": [
+        "how to promptfoo eval cache invalidation testing",
+        "promptfoo eval cache invalidation testing example",
+        "Promptfoo stale cache test",
+        "Promptfoo provider cache key",
+        "disable Promptfoo cache in CI"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/configuration/caching/",
+        "https://www.promptfoo.dev/docs/configuration/guide/",
+        "https://www.promptfoo.dev/docs/providers/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/promptfoo-variable-matrix-prompt-versions",
+        "decision": "survive",
+        "reason": "The matrix article compares prompt versions. This candidate owns cache-key mutation and stale-response detection across all rendered request inputs."
+      }
+    },
+    {
+      "primaryKeyword": "Promptfoo provider rate limit recovery",
+      "slug": "promptfoo-provider-rate-limit-recovery",
+      "title": "Test Promptfoo Rate Limit Recovery",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you script 429 and transient provider failures in Promptfoo and verify bounded concurrency, retries, case accounting, and terminal errors?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:68-74 defines machine-readable eval output used to account for every case.",
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:124-133 requires deterministic CI runs and complete result evidence."
+      ],
+      "secondaryKeywords": [
+        "how to promptfoo provider rate limit recovery",
+        "promptfoo provider rate limit recovery example",
+        "Promptfoo 429 retry test",
+        "Promptfoo max concurrency rate limit",
+        "LLM provider backoff eval"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/providers/",
+        "https://www.promptfoo.dev/docs/configuration/guide/",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/llm-eval-cost-latency-testing-guide-2026",
+        "decision": "survive",
+        "reason": "The existing page measures cost and latency. This candidate owns correctness and complete case accounting during provider throttling."
+      }
+    },
+    {
+      "primaryKeyword": "Promptfoo output transform failure testing",
+      "slug": "promptfoo-output-transform-failure-testing",
+      "title": "Test Promptfoo Output Transform Failures",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test Promptfoo output transforms against missing fields, invalid JSON, null payloads, arrays, provider errors, and thrown exceptions?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:101-111 extracts a reply with transformResponse from an HTTP target.",
+        "seed-skills/prompt-testing/SKILL.md:541-588 validates structured LLM output and malformed extraction edge cases."
+      ],
+      "secondaryKeywords": [
+        "how to promptfoo output transform failure testing",
+        "promptfoo output transform failure testing example",
+        "Promptfoo transformResponse error",
+        "Promptfoo output transform contract",
+        "invalid provider JSON assertion"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/configuration/guide/",
+        "https://www.promptfoo.dev/docs/providers/http/",
+        "https://www.promptfoo.dev/docs/configuration/expected-outputs/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/promptfoo-json-schema-structured-output-tests",
+        "decision": "survive",
+        "reason": "The existing page validates the final model output. This candidate owns failures inside the transform layer before assertions receive a value."
+      }
+    },
+    {
+      "primaryKeyword": "Promptfoo Python assertion exception testing",
+      "slug": "promptfoo-python-assertion-exception-testing",
+      "title": "Test Promptfoo Python Assertion Errors",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test Promptfoo Python assertions for import errors, wrong return types, stderr output, timeouts, exceptions, and actionable failure reasons?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/prompt-testing/SKILL.md:114-126 embeds a custom Python assertion with an explicit pass or failure reason.",
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:23-25 requires explicit behavioral assertions and permanent regression cases."
+      ],
+      "secondaryKeywords": [
+        "how to promptfoo python assertion exception testing",
+        "promptfoo python assertion exception testing example",
+        "Promptfoo Python assertion failure",
+        "get_assert return type test",
+        "Promptfoo file assertion timeout"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/configuration/expected-outputs/python/",
+        "https://www.promptfoo.dev/docs/configuration/expected-outputs/",
+        "https://www.promptfoo.dev/docs/configuration/outputs/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/promptfoo-custom-javascript-assertion-example",
+        "decision": "survive",
+        "reason": "The existing article covers a successful JavaScript assertion. This candidate owns Python process and assertion failure contracts."
+      }
+    },
+    {
+      "primaryKeyword": "Promptfoo red team reproducibility testing",
+      "slug": "promptfoo-red-team-reproducibility-testing",
+      "title": "Make Promptfoo Red Teams Reproducible",
+      "intent": "how-to",
+      "exactQuestion": "How do you freeze Promptfoo red-team inputs, target identity, plugins, strategies, tags, and confirmed findings so two runs are comparable?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:21-25 treats declarative configs and confirmed attacks as versioned tests.",
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:124-148 separates pinned PR cases from newly generated nightly attacks."
+      ],
+      "secondaryKeywords": [
+        "how to promptfoo red team reproducibility testing",
+        "promptfoo red team reproducibility testing example",
+        "Promptfoo redteam config hash",
+        "version Promptfoo attack cases",
+        "reproducible AI red team CI"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/red-team/configuration/",
+        "https://www.promptfoo.dev/docs/red-team/troubleshooting/best-practices/",
+        "https://www.promptfoo.dev/docs/configuration/outputs/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/promptfoo-red-teaming-guide-2026",
+        "decision": "survive",
+        "reason": "The existing guide runs a red team. This candidate owns repeatability, immutable inputs, run identity, and comparable regression evidence."
+      }
+    },
+    {
+      "primaryKeyword": "Promptfoo red team false positives",
+      "slug": "promptfoo-red-team-false-positives",
+      "title": "Triage Promptfoo Red Team False Positives",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you reproduce, label, and reduce Promptfoo red-team false positives without weakening real attack coverage or deleting hard cases?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:84-99 configures purpose, plugins, and strategies that influence generated attacks.",
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:133-148 requires weekly triage and permanent confirmed regression cases."
+      ],
+      "secondaryKeywords": [
+        "how to promptfoo red team false positives",
+        "promptfoo red team false positives example",
+        "Promptfoo grader false positive",
+        "red team purpose calibration",
+        "Promptfoo finding human review"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/red-team/troubleshooting/best-practices/",
+        "https://www.promptfoo.dev/docs/red-team/configuration/",
+        "https://www.nist.gov/publications/adversarial-machine-learning-taxonomy-and-terminology-attacks-and-mitigations"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-guardrail-false-positive-rate",
+        "decision": "survive",
+        "reason": "The existing article measures a deployed guardrail. This candidate owns Promptfoo finding triage and grader calibration within red-team reports."
+      }
+    },
+    {
+      "primaryKeyword": "Promptfoo provider result normalization testing",
+      "slug": "promptfoo-provider-result-normalization-testing",
+      "title": "Normalize Promptfoo Outputs Across Models",
+      "intent": "how-to",
+      "exactQuestion": "How do you normalize text, structured output, usage, cost, errors, and finish reasons so Promptfoo compares unlike providers fairly?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:37-72 compares multiple providers over the same prompt and tests.",
+        "seed-skills/prompt-testing/SKILL.md:469-526 collects quality, latency, and cost for prompt variants before selecting a winner."
+      ],
+      "secondaryKeywords": [
+        "how to promptfoo provider result normalization testing",
+        "promptfoo provider result normalization testing example",
+        "Promptfoo provider response normalization",
+        "cross model eval output contract",
+        "normalize token usage Promptfoo"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/providers/",
+        "https://www.promptfoo.dev/docs/configuration/outputs/",
+        "https://www.promptfoo.dev/docs/configuration/expected-outputs/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/promptfoo-vs-deepeval-2026",
+        "decision": "survive",
+        "reason": "The comparison page contrasts tools. This candidate owns adapter-level normalization needed for fair multi-provider Promptfoo results."
+      }
+    },
+    {
+      "primaryKeyword": "Promptfoo report secret redaction testing",
+      "slug": "promptfoo-report-secret-redaction-testing",
+      "title": "Test Promptfoo Report Secret Redaction",
+      "intent": "how-to",
+      "exactQuestion": "How do you scan Promptfoo JSON, HTML, YAML, and CI artifacts for credentials, private prompts, PII, and unsafe config values before publishing reports?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:68-72 emits machine-readable result files for CI.",
+        "seed-skills/prompt-testing/SKILL.md:735-740 forbids hardcoded API keys and treats cached and generated outputs as controlled artifacts."
+      ],
+      "secondaryKeywords": [
+        "how to promptfoo report secret redaction testing",
+        "promptfoo report secret redaction testing example",
+        "Promptfoo output secret scanner",
+        "redact Promptfoo HTML report",
+        "Promptfoo CI artifact privacy"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://www.promptfoo.dev/docs/configuration/outputs/",
+        "https://www.promptfoo.dev/docs/red-team/troubleshooting/data-handling/",
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/pii-leakage-testing-llm-guide-2026",
+        "decision": "survive",
+        "reason": "The existing article tests application output leakage. This candidate owns secrets and PII exposed by Promptfoo report formats and CI artifacts."
+      }
+    },
+    {
+      "primaryKeyword": "Tool output prompt injection testing",
+      "slug": "tool-output-prompt-injection-testing",
+      "title": "Reject Untrusted Function Result Instructions",
+      "intent": "how-to",
+      "exactQuestion": "How do you inject malicious instructions into tool results and prove an agent treats function data as untrusted evidence rather than new policy?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:24-25 requires red-teaming the application through its tools and preserving successful attacks.",
+        "seed-skills/ai-system-quality-engineer/SKILL.md:134-147 validates tool identity, schema, sandboxing, order, and final state."
+      ],
+      "secondaryKeywords": [
+        "how to tool output prompt injection testing",
+        "tool output prompt injection testing example",
+        "agent tool result injection",
+        "function response prompt attack",
+        "untrusted tool content test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/how-to-test-llm-tool-calling-accuracy",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/ai-agent-eval-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/",
+        "https://www.nist.gov/publications/adversarial-machine-learning-taxonomy-and-terminology-attacks-and-mitigations"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/prompt-injection-testing-guide-2026",
+        "decision": "survive",
+        "reason": "The existing guide covers direct and retrieved-content attacks. This candidate isolates malicious instructions returned by an otherwise authorized tool."
+      }
+    },
+    {
+      "primaryKeyword": "Unicode prompt injection normalization testing",
+      "slug": "unicode-prompt-injection-normalization-testing",
+      "title": "Test Unicode-Obfuscated LLM Attacks",
+      "intent": "how-to",
+      "exactQuestion": "How do you test prompt-injection filters against Unicode normalization, confusables, zero-width characters, bidirectional controls, and mixed scripts?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:95-99 includes multilingual transformations in the adversarial strategy.",
+        "seed-skills/prompt-testing/SKILL.md:721-728 requires multilingual and adversarial examples in every safety dataset."
+      ],
+      "secondaryKeywords": [
+        "how to unicode prompt injection normalization testing",
+        "unicode prompt injection normalization testing example",
+        "Unicode jailbreak bypass test",
+        "zero width prompt injection",
+        "normalize confusable attack text"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://www.nist.gov/publications/adversarial-machine-learning-taxonomy-and-terminology-attacks-and-mitigations",
+        "https://www.promptfoo.dev/docs/red-team/configuration/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/prompt-injection-testing-guide-2026",
+        "decision": "survive",
+        "reason": "The existing guide covers attack classes. This candidate owns Unicode canonicalization and invisible-character bypass matrices before filtering."
+      }
+    },
+    {
+      "primaryKeyword": "Multi turn jailbreak persistence testing",
+      "slug": "multi-turn-jailbreak-persistence-testing",
+      "title": "Test Multi-Turn Jailbreak Persistence",
+      "intent": "how-to",
+      "exactQuestion": "How do you test whether a jailbreak planted in an early turn continues to alter policy, memory, tool choices, or refusals in later turns?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:95-99 defines iterative jailbreak and prompt-injection strategies.",
+        "seed-skills/ai-agent-eval/SKILL.md:597-670 defines multi-turn conversation evaluation as a separate test surface."
+      ],
+      "secondaryKeywords": [
+        "how to multi turn jailbreak persistence testing",
+        "multi turn jailbreak persistence testing example",
+        "multi turn prompt injection test",
+        "jailbreak conversation persistence",
+        "LLM safety state reset"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://www.promptfoo.dev/docs/red-team/configuration/",
+        "https://www.nist.gov/publications/adversarial-machine-learning-taxonomy-and-terminology-attacks-and-mitigations"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-guardrail-false-negative-jailbreaks",
+        "decision": "survive",
+        "reason": "The existing page measures jailbreak misses per prompt. This candidate owns state persistence and recovery across a complete conversation."
+      }
+    },
+    {
+      "primaryKeyword": "Prompt role spoofing detection testing",
+      "slug": "prompt-role-spoofing-detection-testing",
+      "title": "Detect Conversation Role Spoofing",
+      "intent": "how-to",
+      "exactQuestion": "How do you test user content that imitates system, developer, assistant, or tool message boundaries without letting it change actual message roles?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/promptfoo-llm-red-teaming/SKILL.md:115-122 requires injected instructions never to override system policy.",
+        "seed-skills/ai-system-quality-engineer/SKILL.md:149-163 turns prompt injection and hijacking attempts into explicit assertions."
+      ],
+      "secondaryKeywords": [
+        "how to prompt role spoofing detection testing",
+        "prompt role spoofing detection testing example",
+        "LLM system role spoofing test",
+        "fake tool message injection",
+        "chat role boundary validation"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/promptfoo-complete-guide-2026",
+        "/blog/promptfoo-red-teaming-llm-applications",
+        "/blog/prompt-injection-testing-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://www.promptfoo.dev/docs/red-team/configuration/",
+        "https://json-schema.org/draft/2020-12/json-schema-core"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/prompt-injection-testing-guide-2026",
+        "decision": "survive",
+        "reason": "The broad guide covers instruction override. This candidate owns serialization and role-boundary spoofing in structured chat inputs."
+      }
+    },
+    {
+      "primaryKeyword": "Parallel tool call ordering tests",
+      "slug": "parallel-tool-call-ordering-tests",
+      "title": "Test Parallel Tool Call Ordering",
+      "intent": "how-to",
+      "exactQuestion": "How do you test parallel tool calls when some operations are independent but others require deterministic dependencies, joins, and side-effect order?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/ai-system-quality-engineer/SKILL.md:134-147 requires correct tool order and asserted final state.",
+        "seed-skills/openai-evals-trace-grading/SKILL.md:58-92 records ordered tool calls in each agent trace."
+      ],
+      "secondaryKeywords": [
+        "how to parallel tool call ordering tests",
+        "parallel tool call ordering tests example",
+        "parallel function call dependency test",
+        "agent tool join ordering",
+        "concurrent tool result correlation"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/how-to-test-llm-tool-calling-accuracy",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/ai-agent-eval-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://platform.openai.com/docs/guides/evals",
+        "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/how-to-test-llm-tool-calling-accuracy",
+        "decision": "survive",
+        "reason": "The existing guide scores selection and arguments. This candidate owns dependency order, fan-out, fan-in, and correlation under parallel calls."
+      }
+    },
+    {
+      "primaryKeyword": "Agent tool result truncation testing",
+      "slug": "agent-tool-result-truncation-testing",
+      "title": "Test Agent Tool Result Truncation",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you truncate oversized tool results at controlled boundaries and verify the agent detects incomplete data instead of producing confident answers?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/ai-system-quality-engineer/SKILL.md:65-70 treats schema, citation, and token budgets as deterministic gates.",
+        "seed-skills/ai-agent-eval/SKILL.md:21-27 requires separate correctness, safety, latency, cost, and completion dimensions."
+      ],
+      "secondaryKeywords": [
+        "how to agent tool result truncation testing",
+        "agent tool result truncation testing example",
+        "LLM tool response token limit",
+        "truncated function result test",
+        "agent incomplete evidence handling"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/how-to-test-llm-tool-calling-accuracy",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/ai-agent-eval-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken",
+        "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/how-to-test-llm-tool-calling-accuracy",
+        "decision": "survive",
+        "reason": "The existing guide validates calls sent to tools. This candidate owns incomplete and oversized data returned from a valid tool."
+      }
+    },
+    {
+      "primaryKeyword": "Tool call cancellation propagation testing",
+      "slug": "tool-call-cancellation-propagation-testing",
+      "title": "Test Tool Call Cancellation Propagation",
+      "intent": "how-to",
+      "exactQuestion": "How do you cancel an agent run and prove in-flight tools stop, resources close, late results are ignored, and no side effect occurs afterward?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/ai-agent-eval/SKILL.md:21-27 requires deterministic pipelines and task-completion evidence.",
+        "seed-skills/ai-system-quality-engineer/SKILL.md:143-147 restricts side effects and requires termination within a step budget."
+      ],
+      "secondaryKeywords": [
+        "how to tool call cancellation propagation testing",
+        "tool call cancellation propagation testing example",
+        "agent AbortController tool test",
+        "cancel in flight function call",
+        "late tool result suppression"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/how-to-test-llm-tool-calling-accuracy",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/ai-agent-eval-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/",
+        "https://opentelemetry.io/docs/concepts/signals/traces/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-agent-tool-call-retry-behavior",
+        "decision": "survive",
+        "reason": "The retry article owns transient failure recovery. This candidate owns explicit run cancellation, cleanup, and suppression of late tool completion."
+      }
+    },
+    {
+      "primaryKeyword": "Destructive tool confirmation testing",
+      "slug": "destructive-tool-confirmation-testing",
+      "title": "Test Destructive Tool Confirmation",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove destructive agent actions require fresh, scoped human confirmation and cannot reuse stale approval or ambiguous language?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/ai-system-quality-engineer/SKILL.md:138-145 requires destructive tools to run only in a controlled sandbox.",
+        "seed-skills/ai-release-guardian/SKILL.md:19-24 reserves merge, deploy, tag, and approval decisions for humans."
+      ],
+      "secondaryKeywords": [
+        "how to destructive tool confirmation testing",
+        "destructive tool confirmation testing example",
+        "agent human approval test",
+        "confirm destructive function call",
+        "stale tool consent rejection"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/how-to-test-llm-tool-calling-accuracy",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/ai-agent-eval-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/",
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://www.nist.gov/itl/ai-risk-management-framework"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-agent-permission-boundary-violations",
+        "decision": "survive",
+        "reason": "The permission article tests authorization. This candidate owns the separate fresh-consent state machine for destructive but authorized operations."
+      }
+    },
+    {
+      "primaryKeyword": "Agent stale tool result testing",
+      "slug": "agent-stale-tool-result-testing",
+      "title": "Expire Time-Sensitive Agent Evidence",
+      "intent": "how-to",
+      "exactQuestion": "How do you mark time-sensitive tool results and test that an agent refreshes expired prices, permissions, inventory, or policy data before acting?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/ai-system-quality-engineer/SKILL.md:132-147 treats tool output and cited evidence as deterministic inputs to final-state checks.",
+        "seed-skills/ai-agent-eval/SKILL.md:867-890 requires versioned data, production failures, and historical result tracking."
+      ],
+      "secondaryKeywords": [
+        "how to agent stale tool result testing",
+        "agent stale tool result testing example",
+        "agent stale function response",
+        "tool result freshness assertion",
+        "expire cached agent evidence"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/how-to-test-llm-tool-calling-accuracy",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/ai-agent-eval-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/",
+        "https://www.nist.gov/itl/ai-risk-management-framework"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/agent-tool-use-regression-testing-guide-2026",
+        "decision": "survive",
+        "reason": "The existing guide validates tool calls and immediate side effects. This candidate owns freshness metadata and forced refresh before consequential actions."
+      }
+    },
+    {
+      "primaryKeyword": "Agent deterministic trace replay testing",
+      "slug": "agent-deterministic-trace-replay-testing",
+      "title": "Reproduce Agent Runs from Saved Traces",
+      "intent": "how-to",
+      "exactQuestion": "How do you replay saved agent traces with stubbed tool results and prove graders, transitions, and final-state checks are deterministic?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/openai-evals-trace-grading/SKILL.md:47-92 defines versioned JSONL cases and structured traces with expected tools.",
+        "seed-skills/openai-evals-trace-grading/SKILL.md:115-149 grades output and tool-call equality deterministically."
+      ],
+      "secondaryKeywords": [
+        "how to agent deterministic trace replay testing",
+        "agent deterministic trace replay testing example",
+        "agent trace replay harness",
+        "stub tool results from trace",
+        "reproducible agent regression test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/how-to-test-llm-tool-calling-accuracy",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/ai-agent-eval-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/evals",
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://opentelemetry.io/docs/concepts/signals/traces/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/openai-trace-grading-tutorial-2026",
+        "decision": "survive",
+        "reason": "The existing tutorial grades captured traces. This candidate owns offline replay with stubbed tools and deterministic transition evidence."
+      }
+    },
+    {
+      "primaryKeyword": "Agent final state verification testing",
+      "slug": "agent-final-state-verification-testing",
+      "title": "Verify Agent Final State After Tools",
+      "intent": "how-to",
+      "exactQuestion": "How do you verify the external state created by agent tools instead of trusting a fluent final answer that claims the task succeeded?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/ai-system-quality-engineer/SKILL.md:134-147 requires the correct trajectory and asserted final state.",
+        "seed-skills/openai-evals-trace-grading/SKILL.md:115-149 combines structured output checks with expected tool calls."
+      ],
+      "secondaryKeywords": [
+        "how to agent final state verification testing",
+        "agent final state verification testing example",
+        "agent task outcome assertion",
+        "verify tool side effect state",
+        "LLM final answer state mismatch"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/how-to-test-llm-tool-calling-accuracy",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/ai-agent-eval-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/guides/evals",
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/deepeval-task-completion-metric-agent",
+        "decision": "survive",
+        "reason": "The metric article scores completion through a judge. This candidate owns deterministic reads of the system of record after tools finish."
+      }
+    },
+    {
+      "primaryKeyword": "Agent tool result provenance testing",
+      "slug": "agent-tool-result-provenance-testing",
+      "title": "Verify Agent Tool Result Provenance",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove each agent observation came from the expected tool call, tenant, request, and timestamp before the result enters model context?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/openai-evals-trace-grading/SKILL.md:58-92 binds sample IDs, inputs, outputs, and tool calls in a trace.",
+        "seed-skills/ai-system-quality-engineer/SKILL.md:138-147 validates tool registry membership, arguments, sandbox, order, and outcome."
+      ],
+      "secondaryKeywords": [
+        "how to agent tool result provenance testing",
+        "agent tool result provenance testing example",
+        "tool call result correlation ID",
+        "agent evidence provenance test",
+        "bind function result to request"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/how-to-test-llm-tool-calling-accuracy",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/ai-agent-eval-testing-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.w3.org/TR/prov-o/",
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/agent-trajectory-evaluation-guide-2026",
+        "decision": "survive",
+        "reason": "The trajectory guide scores steps. This candidate owns cryptographic or deterministic binding between a call and the result injected into context."
+      }
+    },
+    {
+      "primaryKeyword": "Model alias update detection testing",
+      "slug": "model-alias-update-detection-testing",
+      "title": "Detect Silent Model Alias Updates",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you detect when a provider model alias resolves to a new backend version and separate that change from prompt or dataset regressions?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/prompt-testing/SKILL.md:719-741 requires pinned model versions and logs every behavior-changing parameter.",
+        "seed-skills/rag-regression-testing/SKILL.md:48-68 pins the judge, embeddings, prompt, and retriever versions."
+      ],
+      "secondaryKeywords": [
+        "how to model alias update detection testing",
+        "model alias update detection testing example",
+        "LLM model alias drift test",
+        "record resolved model version",
+        "provider model update regression"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/golden-dataset-llm-evaluation-guide",
+        "/blog/eval-dataset-versioning-guide-2026",
+        "/blog/testing-llm-applications-guide"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/models",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/llm-non-determinism-flaky-eval-guide-2026",
+        "decision": "survive",
+        "reason": "The existing non-determinism guide tracks variable model behavior. This candidate owns detecting and attributing silent provider alias resolution changes."
+      }
+    },
+    {
+      "primaryKeyword": "Tokenizer version drift testing",
+      "slug": "tokenizer-version-drift-testing",
+      "title": "Catch Tokenizer Changes in LLM Tests",
+      "intent": "how-to",
+      "exactQuestion": "How do you detect tokenizer-version changes that alter prompt budgets, truncation points, usage estimates, and cost without changing visible text?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/prompt-testing/SKILL.md:591-639 asserts token usage, latency, and estimated cost budgets.",
+        "seed-skills/ai-system-quality-engineer/SKILL.md:65-70 treats token budgets as deterministic release gates."
+      ],
+      "secondaryKeywords": [
+        "how to tokenizer version drift testing",
+        "tokenizer version drift testing example",
+        "LLM token count regression",
+        "tiktoken version drift test",
+        "prompt truncation tokenizer change"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/golden-dataset-llm-evaluation-guide",
+        "/blog/eval-dataset-versioning-guide-2026",
+        "/blog/testing-llm-applications-guide"
+      ],
+      "authoritativeSources": [
+        "https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken",
+        "https://platform.openai.com/docs/models",
+        "https://www.nist.gov/itl/ai-risk-management-framework"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/llm-cost-budget-ci-guide",
+        "decision": "survive",
+        "reason": "The existing budget page gates reported usage. This candidate owns tokenizer dependency changes that move boundaries before an API call."
+      }
+    },
+    {
+      "primaryKeyword": "LLM provider schema drift testing",
+      "slug": "llm-provider-schema-drift-testing",
+      "title": "Test LLM Provider Schema Drift",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you contract-test an LLM provider adapter when response fields, nullability, usage objects, finish reasons, or error envelopes change?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/prompt-testing/SKILL.md:469-526 consumes provider response quality, latency, usage, and cost fields.",
+        "seed-skills/prompt-testing/SKILL.md:541-588 validates structured outputs and malformed JSON edge cases."
+      ],
+      "secondaryKeywords": [
+        "how to llm provider schema drift testing",
+        "llm provider schema drift testing example",
+        "LLM API response contract test",
+        "provider finish reason schema",
+        "token usage response drift"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/golden-dataset-llm-evaluation-guide",
+        "/blog/eval-dataset-versioning-guide-2026",
+        "/blog/testing-llm-applications-guide"
+      ],
+      "authoritativeSources": [
+        "https://json-schema.org/draft/2020-12/json-schema-core",
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-llm-structured-output-json-schema-guide",
+        "decision": "survive",
+        "reason": "The structured-output article validates model-generated business data. This candidate owns the provider transport and metadata envelope itself."
+      }
+    },
+    {
+      "primaryKeyword": "Model parameter default drift testing",
+      "slug": "model-parameter-default-drift-testing",
+      "title": "Test Model Parameter Default Drift",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove omitted temperature, seed, token limit, tool-choice, and sampling parameters do not silently change behavior after an SDK upgrade?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/ai-agent-eval/SKILL.md:21-27 requires pinned models, temperatures, seeds, and system prompts.",
+        "seed-skills/prompt-testing/SKILL.md:724-741 tests temperatures and forbids ignored model-version changes."
+      ],
+      "secondaryKeywords": [
+        "how to model parameter default drift testing",
+        "model parameter default drift testing example",
+        "LLM default parameter regression",
+        "pin model sampling settings",
+        "SDK model default change test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/golden-dataset-llm-evaluation-guide",
+        "/blog/eval-dataset-versioning-guide-2026",
+        "/blog/testing-llm-applications-guide"
+      ],
+      "authoritativeSources": [
+        "https://platform.openai.com/docs/models",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/llm-non-determinism-flaky-eval-guide-2026",
+        "decision": "survive",
+        "reason": "The existing article manages stochastic outputs. This candidate owns adapter defaults and SDK upgrades when parameters are omitted."
+      }
+    },
+    {
+      "primaryKeyword": "Evaluation dataset duplicate detection",
+      "slug": "evaluation-dataset-duplicate-detection",
+      "title": "Detect Duplicate Evaluation Cases",
+      "intent": "how-to",
+      "exactQuestion": "How do you detect exact, normalized, and semantic duplicates that inflate pass rates or leak one failure across LLM evaluation slices?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/ai-agent-eval/SKILL.md:71-127 defines IDs, categories, difficulty, and expected behavior for each eval case.",
+        "seed-skills/ai-system-quality-engineer/SKILL.md:42-59 requires a versioned golden set with a held-out slice."
+      ],
+      "secondaryKeywords": [
+        "how to evaluation dataset duplicate detection",
+        "evaluation dataset duplicate detection example",
+        "LLM eval dataset deduplication",
+        "semantic duplicate golden cases",
+        "duplicate weighted pass rate"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/golden-dataset-llm-evaluation-guide",
+        "/blog/eval-dataset-versioning-guide-2026",
+        "/blog/testing-llm-applications-guide"
+      ],
+      "authoritativeSources": [
+        "https://deepeval.com/docs/evaluation-datasets",
+        "https://huggingface.co/docs/datasets/en/loading",
+        "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/golden-dataset-llm-evaluation-guide",
+        "decision": "survive",
+        "reason": "The existing guide curates datasets broadly. This candidate owns duplicate detection and quantifies how duplicates distort aggregate scores."
+      }
+    },
+    {
+      "primaryKeyword": "Evaluation label taxonomy drift testing",
+      "slug": "evaluation-label-taxonomy-drift-testing",
+      "title": "Test Eval Label Taxonomy Drift",
+      "intent": "how-to",
+      "exactQuestion": "How do you detect renamed, merged, missing, or newly introduced eval labels that break slice coverage and historical score comparisons?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/ai-agent-eval/SKILL.md:21-27 requires cases tagged by difficulty, category, and edge-case classification.",
+        "seed-skills/ai-agent-eval/SKILL.md:867-890 requires stratified sampling and historical result tracking."
+      ],
+      "secondaryKeywords": [
+        "how to evaluation label taxonomy drift testing",
+        "evaluation label taxonomy drift testing example",
+        "LLM eval category schema drift",
+        "golden dataset label migration",
+        "evaluation slice coverage contract"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/golden-dataset-llm-evaluation-guide",
+        "/blog/eval-dataset-versioning-guide-2026",
+        "/blog/testing-llm-applications-guide"
+      ],
+      "authoritativeSources": [
+        "https://huggingface.co/docs/datasets/v3.6.0/about_dataset_features",
+        "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html",
+        "https://deepeval.com/docs/evaluation-datasets"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/eval-dataset-versioning-guide-2026",
+        "decision": "survive",
+        "reason": "The existing versioning page governs files and splits. This candidate owns label-enum migrations and preservation of slice-level comparability."
+      }
+    },
+    {
+      "primaryKeyword": "LLM trace sampling bias testing",
+      "slug": "llm-trace-sampling-bias-testing",
+      "title": "Measure Bias in Sampled LLM Traces",
+      "intent": "how-to",
+      "exactQuestion": "How do you test whether sampled production traces preserve model, tenant, language, latency, error, and safety-failure distributions?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/langfuse-llm-observability/SKILL.md:55-71 samples traces for automated judging and trends scores over time.",
+        "seed-skills/ai-agent-eval/SKILL.md:869-876 requires stratified sampling and multiple judge models."
+      ],
+      "secondaryKeywords": [
+        "how to llm trace sampling bias testing",
+        "llm trace sampling bias testing example",
+        "Langfuse production trace sampling",
+        "LLM observability cohort bias",
+        "stratified online eval sample"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/langfuse-llm-observability-guide-2026",
+        "/blog/langfuse-trace-quality-testing-guide",
+        "/blog/llm-observability-vs-evaluation-2026"
+      ],
+      "authoritativeSources": [
+        "https://langfuse.com/docs/observability/overview",
+        "https://langfuse.com/docs/metrics/overview",
+        "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/llm-observability-vs-evaluation-2026",
+        "decision": "survive",
+        "reason": "The existing article recommends sampling production traffic. This candidate owns statistical tests that detect a biased online-evaluation cohort."
+      }
+    },
+    {
+      "primaryKeyword": "LLM retry cost double counting testing",
+      "slug": "llm-retry-cost-double-counting-testing",
+      "title": "Prevent Double-Counted LLM Retry Costs",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you reconcile logical requests, provider attempts, retries, cached calls, and successful outcomes so LLM observability does not double-count cost?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/langfuse-llm-observability/SKILL.md:21-25 treats cost and latency per trace as quality metrics.",
+        "packages/web/src/app/blog/posts/pillar-llm-agent-testing-2026.ts:868-876 separates retry cost from cost per successful task."
+      ],
+      "secondaryKeywords": [
+        "how to llm retry cost double counting testing",
+        "llm retry cost double counting testing example",
+        "Langfuse retry cost attribution",
+        "LLM attempt versus request cost",
+        "deduplicate token usage retries"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/langfuse-llm-observability-guide-2026",
+        "/blog/langfuse-trace-quality-testing-guide",
+        "/blog/llm-observability-vs-evaluation-2026"
+      ],
+      "authoritativeSources": [
+        "https://langfuse.com/docs/metrics/overview",
+        "https://langfuse.com/docs/api-and-data-platform/features/observations-api",
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/llm-cost-budget-ci-guide",
+        "decision": "survive",
+        "reason": "The existing budget guide enforces totals. This candidate owns attempt-level correlation and deduplication in observability data."
+      }
+    },
+    {
+      "primaryKeyword": "LLM async trace context testing",
+      "slug": "llm-async-trace-context-testing",
+      "title": "Test Async Context in LLM Traces",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove trace and span context survives promises, queues, background callbacks, and parallel tool calls without cross-request contamination?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/langfuse-llm-observability/SKILL.md:37-53 creates nested retrieval and generation observations under one trace.",
+        "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts:12-20 treats parent-child span relationships as testable behavior."
+      ],
+      "secondaryKeywords": [
+        "how to llm async trace context testing",
+        "llm async trace context testing example",
+        "LLM trace context propagation",
+        "async span parent test",
+        "agent trace cross request isolation"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/langfuse-llm-observability-guide-2026",
+        "/blog/langfuse-trace-quality-testing-guide",
+        "/blog/llm-observability-vs-evaluation-2026"
+      ],
+      "authoritativeSources": [
+        "https://opentelemetry.io/docs/concepts/signals/traces/",
+        "https://opentelemetry.io/docs/specs/semconv/general/trace/",
+        "https://langfuse.com/docs/observability/best-practices"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/trace-based-testing-opentelemetry-2026",
+        "decision": "survive",
+        "reason": "The existing page explains trace assertions across services. This candidate owns async context loss and cross-request contamination in LLM workflows."
+      }
+    },
+    {
+      "primaryKeyword": "LLM streaming span completion testing",
+      "slug": "llm-streaming-span-completion-testing",
+      "title": "Test LLM Streaming Span Completion",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you verify an LLM generation span closes exactly once with final usage, status, and partial-output policy after completion, cancellation, or disconnect?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/langfuse-llm-observability/SKILL.md:21-25 requires every request to record generation, cost, and latency.",
+        "packages/web/src/app/blog/posts/testing-llm-streaming-chunk-order.ts:386-395 treats completion and backpressure as explicit streaming contracts."
+      ],
+      "secondaryKeywords": [
+        "how to llm streaming span completion testing",
+        "llm streaming span completion testing example",
+        "Langfuse streaming generation span",
+        "LLM cancelled stream trace test",
+        "final token usage span completion"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/langfuse-llm-observability-guide-2026",
+        "/blog/langfuse-trace-quality-testing-guide",
+        "/blog/llm-observability-vs-evaluation-2026"
+      ],
+      "authoritativeSources": [
+        "https://langfuse.com/docs/observability/best-practices",
+        "https://opentelemetry.io/docs/concepts/signals/traces/",
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/testing-llm-streaming-chunk-order",
+        "decision": "survive",
+        "reason": "The existing article validates user-visible stream chunks. This candidate owns observability span finalization and usage after every terminal path."
+      }
+    },
+    {
+      "primaryKeyword": "LLM token usage reconciliation testing",
+      "slug": "llm-token-usage-reconciliation-testing",
+      "title": "Reconcile LLM Token Usage in Traces",
+      "intent": "how-to",
+      "exactQuestion": "How do you reconcile provider usage, local tokenizer estimates, streamed usage updates, cache hits, and Langfuse totals for each request?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/langfuse-llm-observability/SKILL.md:21-25 makes token cost and latency trace-level quality metrics.",
+        "seed-skills/prompt-testing/SKILL.md:591-639 asserts response token totals and estimated cost budgets."
+      ],
+      "secondaryKeywords": [
+        "how to llm token usage reconciliation testing",
+        "llm token usage reconciliation testing example",
+        "Langfuse token usage accuracy",
+        "LLM provider usage reconciliation",
+        "trace cost token mismatch test"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/langfuse-llm-observability-guide-2026",
+        "/blog/langfuse-trace-quality-testing-guide",
+        "/blog/llm-observability-vs-evaluation-2026"
+      ],
+      "authoritativeSources": [
+        "https://langfuse.com/docs/metrics/overview",
+        "https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken",
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/llm-cost-budget-ci-guide",
+        "decision": "survive",
+        "reason": "The existing article gates budget values. This candidate owns independent reconciliation across provider, tokenizer, cache, stream, and trace records."
+      }
+    },
+    {
+      "primaryKeyword": "LLM trace error status mapping",
+      "slug": "llm-trace-error-status-mapping",
+      "title": "Map LLM Failures to Trace Status",
+      "intent": "how-to",
+      "exactQuestion": "How do you map provider errors, refusals, guardrail blocks, timeouts, cancellations, and parser failures to stable LLM trace statuses?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "seed-skills/langfuse-llm-observability/SKILL.md:104-120 lists views and instrumentation mistakes used to localize failures.",
+        "packages/web/src/app/blog/posts/langfuse-trace-quality-testing-guide.ts:17-34 defines required error-aware observations for RAG and tool workflows."
+      ],
+      "secondaryKeywords": [
+        "how to llm trace error status mapping",
+        "llm trace error status mapping example",
+        "Langfuse trace error contract",
+        "OpenTelemetry LLM status mapping",
+        "agent failure span taxonomy"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/langfuse-llm-observability-guide-2026",
+        "/blog/langfuse-trace-quality-testing-guide",
+        "/blog/llm-observability-vs-evaluation-2026"
+      ],
+      "authoritativeSources": [
+        "https://opentelemetry.io/docs/specs/semconv/general/trace/",
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/",
+        "https://langfuse.com/docs/observability/best-practices"
+      ],
+      "collisionAudit": {
+        "closestOwner": "/blog/langfuse-trace-quality-testing-guide",
+        "decision": "survive",
+        "reason": "The existing article requires error text and status metadata. This candidate owns the complete failure taxonomy and consistent status mapping."
+      }
+    }
+  ],
+  "rejections": [
+    {
+      "primaryKeyword": "DeepEval pytest LLM testing",
+      "proposedSlug": "deepeval-pytest-llm-testing",
+      "collisionType": "primary keyword and intent",
+      "reason": "A complete pytest-native DeepEval guide already owns setup, test cases, metrics, datasets, regression testing, and CI.",
+      "closestOwner": "/blog/deepeval-pytest-llm-testing-guide"
+    },
+    {
+      "primaryKeyword": "Ragas faithfulness testing",
+      "proposedSlug": "ragas-faithfulness-testing",
+      "collisionType": "primary keyword and intent",
+      "reason": "The existing article already answers how to run, calibrate, diagnose, and gate Ragas faithfulness.",
+      "closestOwner": "/blog/testing-rag-faithfulness-with-ragas"
+    },
+    {
+      "primaryKeyword": "RAG duplicate chunk retrieval testing",
+      "proposedSlug": "rag-duplicate-chunk-retrieval-testing",
+      "collisionType": "intent cannibalization",
+      "reason": "The chunk-overlap regression article already tests duplication and boundary retrieval effects.",
+      "closestOwner": "/blog/testing-rag-chunk-overlap-regression"
+    },
+    {
+      "primaryKeyword": "RAG empty retrieval fallback testing",
+      "proposedSlug": "rag-empty-retrieval-fallback-testing",
+      "collisionType": "intent cannibalization",
+      "reason": "The no-answer article already owns empty evidence, abstention behavior, thresholds, and citation checks.",
+      "closestOwner": "/blog/testing-rag-no-answer-abstention"
+    },
+    {
+      "primaryKeyword": "RAG retrieval access control testing",
+      "proposedSlug": "rag-retrieval-access-control-testing",
+      "collisionType": "intent cannibalization",
+      "reason": "The metadata-filtered retrieval article already tests tenant and authorization boundaries in retrieval.",
+      "closestOwner": "/blog/testing-rag-metadata-filter-retrieval"
+    },
+    {
+      "primaryKeyword": "Indirect RAG prompt injection testing",
+      "proposedSlug": "indirect-rag-prompt-injection-testing",
+      "collisionType": "primary keyword and intent",
+      "reason": "The RAG prompt-injection checklist already owns malicious retrieved-document instructions.",
+      "closestOwner": "/blog/rag-prompt-injection-testing-checklist-2026"
+    },
+    {
+      "primaryKeyword": "Prompt injection canary leakage testing",
+      "proposedSlug": "prompt-injection-canary-leakage-testing",
+      "collisionType": "intent cannibalization",
+      "reason": "The Rebuff guide already tests canary leaks, attack replay, and prompt-injection guardrail limits.",
+      "closestOwner": "/blog/rebuff-prompt-injection-testing-guide"
+    },
+    {
+      "primaryKeyword": "Agent duplicate side effect testing",
+      "proposedSlug": "agent-duplicate-side-effect-testing",
+      "collisionType": "intent cannibalization",
+      "reason": "The tool-use regression guide already validates side effects and retries for agent tools.",
+      "closestOwner": "/blog/agent-tool-use-regression-testing-guide-2026"
+    },
+    {
+      "primaryKeyword": "Agent tenant tool authorization testing",
+      "proposedSlug": "agent-tenant-tool-authorization-testing",
+      "collisionType": "intent cannibalization",
+      "reason": "The permission-boundary article already proves unauthorized tools never execute across stale grants and failure paths.",
+      "closestOwner": "/blog/testing-agent-permission-boundary-violations"
+    },
+    {
+      "primaryKeyword": "Tool schema default value testing",
+      "proposedSlug": "tool-schema-default-value-testing",
+      "collisionType": "intent cannibalization",
+      "reason": "The tool-schema contract guide already owns omitted defaults, invalid inputs, protocol errors, and schema compatibility.",
+      "closestOwner": "/blog/tool-schema-contract-testing-guide"
+    },
+    {
+      "primaryKeyword": "Langfuse trace PII redaction testing",
+      "proposedSlug": "langfuse-trace-pii-redaction-testing",
+      "collisionType": "intent cannibalization",
+      "reason": "The Langfuse trace-quality guide already contains a dedicated redaction contract and sensitive-field matrix.",
+      "closestOwner": "/blog/langfuse-trace-quality-testing-guide"
+    },
+    {
+      "primaryKeyword": "Langfuse missing span detection testing",
+      "proposedSlug": "langfuse-missing-span-detection-testing",
+      "collisionType": "intent cannibalization",
+      "reason": "The trace-quality guide already owns span completeness and required-observation checks.",
+      "closestOwner": "/blog/langfuse-trace-quality-testing-guide"
+    },
+    {
+      "primaryKeyword": "Langfuse feedback trace joining testing",
+      "proposedSlug": "langfuse-feedback-trace-joining-testing",
+      "collisionType": "intent cannibalization",
+      "reason": "The trace-quality and observability articles already connect feedback and scores to exact traces.",
+      "closestOwner": "/blog/langfuse-trace-quality-testing-guide"
+    },
+    {
+      "primaryKeyword": "Eval dataset versioning testing",
+      "proposedSlug": "eval-dataset-versioning-testing",
+      "collisionType": "primary keyword and intent",
+      "reason": "The existing versioning guide already owns golden-set versions, splits, drift review, and reproducible gates.",
+      "closestOwner": "/blog/eval-dataset-versioning-guide-2026"
+    },
+    {
+      "primaryKeyword": "LLM judge calibration testing",
+      "proposedSlug": "llm-judge-calibration-testing",
+      "collisionType": "primary keyword and intent",
+      "reason": "The existing calibration guide already owns agreement, bias probes, rubric tests, and human review.",
+      "closestOwner": "/blog/llm-judge-calibration-guide-2026"
+    }
+  ]
+}

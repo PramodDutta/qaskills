@@ -1,0 +1,885 @@
+{
+  "batch": 26,
+  "briefs": [
+    {
+      "batch": 26,
+      "domain": "mcp-agents",
+      "slug": "mcp-malformed-json-rpc-message-testing",
+      "primaryKeyword": "MCP malformed JSON-RPC message testing",
+      "title": "MCP malformed JSON-RPC message testing",
+      "description": "MCP malformed JSON-RPC message testing with repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams shipping MCP servers.",
+      "intent": "how-to",
+      "coreQuestion": "How can an MCP transport harness test invalid JSON, wrong JSON-RPC versions, missing methods, bad params, and malformed identifiers?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states The stdio transport must reject malformed JSON-RPC messages at the protocol boundary before tool code runs. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "MCP parse error test",
+        "invalid JSON-RPC version",
+        "missing MCP method",
+        "malformed tool params",
+        "JSON-RPC invalid request code"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP malformed JSON-RPC message testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can an MCP transport harness test invalid JSON, wrong JSON-RPC versions, missing methods, bad params, and malformed identifiers?\" in 40 to 60 words, define the observable contract, and state this article's boundary: The stdio transport must reject malformed JSON-RPC messages at the protocol boundary before tool code runs.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            "packages/mcp/src/index.ts: all tool traffic passes through StdioServerTransport and McpServer",
+            "packages/mcp/src/index.ts: Zod schemas validate tool arguments after JSON-RPC parsing"
+          ]
+        },
+        {
+          "heading": "How should QA teams test MCP parse error test?",
+          "secondaryKeyword": "MCP parse error test",
+          "coverage": "Build the primary fixture and oracle around this behavior: Parse, invalid-request, method, parameter, and identifier failures return the protocol-defined response. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": ["packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Test matrix for invalid JSON-RPC version",
+          "secondaryKeyword": "invalid JSON-RPC version",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "What failures expose missing MCP method?",
+          "secondaryKeyword": "missing MCP method",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: Invalid input reaches a tool handler, produces an unrelated code, or terminates the server. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": ["packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "CI coverage for malformed tool params",
+          "secondaryKeyword": "malformed tool params",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "How should JSON-RPC invalid request code be asserted?",
+          "secondaryKeyword": "JSON-RPC invalid request code",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Spawn the stdio process and send newline-delimited malformed request fixtures.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Malformed JSON-RPC fixtures mapped to protocol error classes",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "MCP parse error test: one positive row, one boundary or negative row, and its exact oracle",
+          "invalid JSON-RPC version: one positive row, one boundary or negative row, and its exact oracle",
+          "missing MCP method: one positive row, one boundary or negative row, and its exact oracle",
+          "malformed tool params: one positive row, one boundary or negative row, and its exact oracle",
+          "JSON-RPC invalid request code: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          "packages/mcp/src/index.ts",
+          "packages/mcp/package.json",
+          "https://www.jsonrpc.org/specification",
+          "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+          "https://modelcontextprotocol.io/specification/2025-11-25/schema"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP malformed JSON-RPC message testing in six steps",
+        "steps": [
+          "Read packages/mcp/src/index.ts and record the production contract without changing it.",
+          "Create isolated fixtures for MCP parse error test and invalid JSON-RPC version.",
+          "Build the harness: Spawn the stdio process and send newline-delimited malformed request fixtures.",
+          "Execute the expected path and assert: Parse, invalid-request, method, parameter, and identifier failures return the protocol-defined response.",
+          "Inject boundary and failure cases and assert: Invalid input reaches a tool handler, produces an unrelated code, or terminates the server.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "MCP parse error test positive contract",
+          "repositoryPath": "packages/mcp/src/index.ts",
+          "exactEvidence": "all tool traffic passes through StdioServerTransport and McpServer",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Prove the expected path: Parse, invalid-request, method, parameter, and identifier failures return the protocol-defined response.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "Missing MCP method negative contract",
+          "repositoryPath": "packages/mcp/src/index.ts",
+          "exactEvidence": "Zod schemas validate tool arguments after JSON-RPC parsing",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Force and diagnose the rejected path: Invalid input reaches a tool handler, produces an unrelated code, or terminates the server.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": ["packages/mcp/src/index.ts", "packages/mcp/package.json"],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-server-contract-testing-guide",
+        "/blog/mcp-official-conformance-suite-server-guide-2026",
+        "/blog/mcp-inspector-tutorial-2026",
+        "/skills",
+        "/blog",
+        "/getting-started"
+      ],
+      "relatedSlugs": [
+        "mcp-server-contract-testing-guide",
+        "mcp-official-conformance-suite-server-guide-2026",
+        "mcp-inspector-tutorial-2026",
+        "qaskills-mcp-server-guide"
+      ],
+      "sources": [
+        "https://www.jsonrpc.org/specification",
+        "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+        "https://modelcontextprotocol.io/specification/2025-11-25/schema"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 1
+    },
+    {
+      "batch": 26,
+      "domain": "mcp-agents",
+      "slug": "mcp-partial-install-failure-testing",
+      "primaryKeyword": "MCP partial install failure testing",
+      "title": "MCP partial install failure testing",
+      "description": "MCP partial install failure testing guide with repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams shipping MCP servers.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How can tests detect empty directories, truncated files, or stale content when an MCP skill installation fails between download, mkdir, write, and telemetry?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states Tests must expose the exact filesystem state left by failures between download, mkdir, writeFile, and telemetry. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "atomic SKILL.md installation",
+        "truncated skill file test",
+        "orphan install directory",
+        "MCP write crash recovery",
+        "download before write failure"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP partial install failure testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can tests detect empty directories, truncated files, or stale content when an MCP skill installation fails between download, mkdir, write, and telemetry?\" in 40 to 60 words, define the observable contract, and state this article's boundary: Tests must expose the exact filesystem state left by failures between download, mkdir, writeFile, and telemetry.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            "packages/mcp/src/index.ts: installSkill performs download, directory creation, direct write, then telemetry in sequence",
+            "packages/mcp/src/index.ts: writeFile is not wrapped in an atomic temporary-file rename flow"
+          ]
+        },
+        {
+          "heading": "How should QA teams test atomic SKILL.md installation?",
+          "secondaryKeyword": "atomic SKILL.md installation",
+          "coverage": "Build the primary fixture and oracle around this behavior: Pre-write failures leave no skill file, successful writes contain complete content, and telemetry failure does not corrupt the file. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": ["packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Test matrix for truncated skill file test",
+          "secondaryKeyword": "truncated skill file test",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "What failures expose orphan install directory?",
+          "secondaryKeyword": "orphan install directory",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: A failed run leaves a truncated file, misleading success text, or stale content that appears current. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": ["packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "CI coverage for MCP write crash recovery",
+          "secondaryKeyword": "MCP write crash recovery",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "How should download before write failure be asserted?",
+          "secondaryKeyword": "download before write failure",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Inject a failure at each install stage inside an isolated temporary directory.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/mcp/src/index.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Install failure injection point compared with expected disk state",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "atomic SKILL.md installation: one positive row, one boundary or negative row, and its exact oracle",
+          "truncated skill file test: one positive row, one boundary or negative row, and its exact oracle",
+          "orphan install directory: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP write crash recovery: one positive row, one boundary or negative row, and its exact oracle",
+          "download before write failure: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          "packages/mcp/src/index.ts",
+          "packages/mcp/package.json",
+          "https://nodejs.org/api/fs.html",
+          "https://nodejs.org/api/path.html",
+          "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP partial install failure testing in six steps",
+        "steps": [
+          "Read packages/mcp/src/index.ts and record the production contract without changing it.",
+          "Create isolated fixtures for atomic SKILL.md installation and truncated skill file test.",
+          "Build the harness: Inject a failure at each install stage inside an isolated temporary directory.",
+          "Execute the expected path and assert: Pre-write failures leave no skill file, successful writes contain complete content, and telemetry failure does not corrupt the file.",
+          "Inject boundary and failure cases and assert: A failed run leaves a truncated file, misleading success text, or stale content that appears current.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "Atomic SKILL.md installation positive contract",
+          "repositoryPath": "packages/mcp/src/index.ts",
+          "exactEvidence": "installSkill performs download, directory creation, direct write, then telemetry in sequence",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Prove the expected path: Pre-write failures leave no skill file, successful writes contain complete content, and telemetry failure does not corrupt the file.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "Orphan install directory negative contract",
+          "repositoryPath": "packages/mcp/src/index.ts",
+          "exactEvidence": "writeFile is not wrapped in an atomic temporary-file rename flow",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Force and diagnose the rejected path: A failed run leaves a truncated file, misleading success text, or stale content that appears current.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": ["packages/mcp/src/index.ts", "packages/mcp/package.json"],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/mcp-server-testing-guide-2026",
+        "/blog",
+        "/getting-started"
+      ],
+      "relatedSlugs": [
+        "qaskills-mcp-server-guide",
+        "mcp-server-testing-guide-2026",
+        "mcp-server-contract-testing-guide",
+        "mcp-inspector-tutorial-2026"
+      ],
+      "sources": [
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/path.html",
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 2
+    },
+    {
+      "batch": 26,
+      "domain": "mcp-agents",
+      "slug": "mcp-install-telemetry-payload-testing",
+      "primaryKeyword": "MCP install telemetry payload testing",
+      "title": "MCP install telemetry payload testing",
+      "description": "MCP install telemetry payload testing with repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams shipping MCP servers.",
+      "intent": "how-to",
+      "coreQuestion": "How can contract tests verify skillSlug, agentType, installType, action, agents, and mcp-prefixed version fields in install telemetry?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states The emitted event must contain the six current fields with the requested slug, agent, install action, and mcp-prefixed version. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "MCP telemetry schema contract",
+        "mcp version telemetry tag",
+        "install agentType payload",
+        "skillSlug telemetry normalization",
+        "anonymous install event test"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP install telemetry payload testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can contract tests verify skillSlug, agentType, installType, action, agents, and mcp-prefixed version fields in install telemetry?\" in 40 to 60 words, define the observable contract, and state this article's boundary: The emitted event must contain the six current fields with the requested slug, agent, install action, and mcp-prefixed version.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/lib/telemetry-normalize.ts"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            "packages/mcp/src/index.ts: trackInstall posts a six-field payload to /api/telemetry/install",
+            "packages/web/src/lib/telemetry-normalize.ts: normalizeInstallEvent accepts current and legacy payload shapes"
+          ]
+        },
+        {
+          "heading": "How should QA teams test MCP telemetry schema contract?",
+          "secondaryKeyword": "MCP telemetry schema contract",
+          "coverage": "Build the primary fixture and oracle around this behavior: The web normalizer accepts the MCP payload and preserves its intended install dimensions. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": ["packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Test matrix for mcp version telemetry tag",
+          "secondaryKeyword": "mcp version telemetry tag",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/lib/telemetry-normalize.ts"]
+        },
+        {
+          "heading": "What failures expose install agentType payload?",
+          "secondaryKeyword": "install agentType payload",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: A field is missing, renamed, typed incorrectly, or normalized as a legacy event with different meaning. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": ["packages/web/src/lib/telemetry-normalize.ts"]
+        },
+        {
+          "heading": "CI coverage for skillSlug telemetry normalization",
+          "secondaryKeyword": "skillSlug telemetry normalization",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/lib/telemetry-normalize.ts"]
+        },
+        {
+          "heading": "How should anonymous install event test be asserted?",
+          "secondaryKeyword": "anonymous install event test",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/lib/telemetry-normalize.ts"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Capture the trackInstall request body and pass it through normalizeInstallEvent.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/lib/telemetry-normalize.ts"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/lib/telemetry-normalize.ts"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/lib/telemetry-normalize.ts"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/lib/telemetry-normalize.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "MCP telemetry fields, source values, and normalized outputs",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "MCP telemetry schema contract: one positive row, one boundary or negative row, and its exact oracle",
+          "mcp version telemetry tag: one positive row, one boundary or negative row, and its exact oracle",
+          "install agentType payload: one positive row, one boundary or negative row, and its exact oracle",
+          "skillSlug telemetry normalization: one positive row, one boundary or negative row, and its exact oracle",
+          "anonymous install event test: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          "packages/mcp/src/index.ts",
+          "packages/web/src/lib/telemetry-normalize.ts",
+          "packages/mcp/package.json",
+          "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+          "https://nodejs.org/api/globals.html#fetch",
+          "https://json-schema.org/draft/2020-12/json-schema-core"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP install telemetry payload testing in six steps",
+        "steps": [
+          "Read packages/mcp/src/index.ts and record the production contract without changing it.",
+          "Create isolated fixtures for MCP telemetry schema contract and mcp version telemetry tag.",
+          "Build the harness: Capture the trackInstall request body and pass it through normalizeInstallEvent.",
+          "Execute the expected path and assert: The web normalizer accepts the MCP payload and preserves its intended install dimensions.",
+          "Inject boundary and failure cases and assert: A field is missing, renamed, typed incorrectly, or normalized as a legacy event with different meaning.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "MCP telemetry schema contract positive contract",
+          "repositoryPath": "packages/mcp/src/index.ts",
+          "exactEvidence": "trackInstall posts a six-field payload to /api/telemetry/install",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Prove the expected path: The web normalizer accepts the MCP payload and preserves its intended install dimensions.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "Install agentType payload negative contract",
+          "repositoryPath": "packages/web/src/lib/telemetry-normalize.ts",
+          "exactEvidence": "normalizeInstallEvent accepts current and legacy payload shapes",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Force and diagnose the rejected path: A field is missing, renamed, typed incorrectly, or normalized as a legacy event with different meaning.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "packages/mcp/src/index.ts",
+        "packages/web/src/lib/telemetry-normalize.ts",
+        "packages/mcp/package.json"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/skills",
+        "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog",
+        "/getting-started"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-disable-telemetry-do-not-track",
+        "qaskills-mcp-server-guide",
+        "mcp-server-contract-testing-guide",
+        "mcp-server-testing-guide-2026"
+      ],
+      "sources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://nodejs.org/api/globals.html#fetch",
+        "https://json-schema.org/draft/2020-12/json-schema-core"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 3
+    },
+    {
+      "batch": 26,
+      "domain": "mcp-agents",
+      "slug": "mcp-leaderboard-truncation-contract-testing",
+      "primaryKeyword": "MCP leaderboard truncation contract testing",
+      "title": "MCP leaderboard truncation contract testing",
+      "description": "MCP leaderboard truncation contract testing explained through repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams.",
+      "intent": "how-to",
+      "coreQuestion": "How can tests prove get_leaderboard preserves API order and metadata while returning exactly the requested bounded number of skills?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states get_leaderboard must preserve API ordering and metadata while slicing skills to the validated requested limit. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "MCP leaderboard limit test",
+        "leaderboard order preservation",
+        "missing skills array fallback",
+        "MCP top skills contract",
+        "leaderboard metadata retention"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP leaderboard truncation contract testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can tests prove get_leaderboard preserves API order and metadata while returning exactly the requested bounded number of skills?\" in 40 to 60 words, define the observable contract, and state this article's boundary: get_leaderboard must preserve API ordering and metadata while slicing skills to the validated requested limit.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/app/api/leaderboard/route.ts"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            "packages/mcp/src/index.ts: get_leaderboard slices response.skills to the requested limit",
+            "packages/web/src/app/api/leaderboard/route.ts: the API ranks up to 50 skills and adds rank, filter, and timestamps"
+          ]
+        },
+        {
+          "heading": "How should QA teams test MCP leaderboard limit test?",
+          "secondaryKeyword": "MCP leaderboard limit test",
+          "coverage": "Build the primary fixture and oracle around this behavior: Limits return exactly the leading N records without rank or timestamp mutation. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": ["packages/mcp/src/index.ts"]
+        },
+        {
+          "heading": "Test matrix for leaderboard order preservation",
+          "secondaryKeyword": "leaderboard order preservation",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/app/api/leaderboard/route.ts"]
+        },
+        {
+          "heading": "What failures expose missing skills array fallback?",
+          "secondaryKeyword": "missing skills array fallback",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: Slicing reorders records, loses response metadata, exceeds the limit, or fails on a missing skills array. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": ["packages/web/src/app/api/leaderboard/route.ts"]
+        },
+        {
+          "heading": "CI coverage for MCP top skills contract",
+          "secondaryKeyword": "MCP top skills contract",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/app/api/leaderboard/route.ts"]
+        },
+        {
+          "heading": "How should leaderboard metadata retention be asserted?",
+          "secondaryKeyword": "leaderboard metadata retention",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/app/api/leaderboard/route.ts"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Feed ranked API fixtures through the tool for minimum, typical, maximum, and absent-array cases.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/app/api/leaderboard/route.ts"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/app/api/leaderboard/route.ts"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/app/api/leaderboard/route.ts"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": ["packages/mcp/src/index.ts", "packages/web/src/app/api/leaderboard/route.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Leaderboard limit inputs and preserved output fields",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "MCP leaderboard limit test: one positive row, one boundary or negative row, and its exact oracle",
+          "leaderboard order preservation: one positive row, one boundary or negative row, and its exact oracle",
+          "missing skills array fallback: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP top skills contract: one positive row, one boundary or negative row, and its exact oracle",
+          "leaderboard metadata retention: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          "packages/mcp/src/index.ts",
+          "packages/web/src/app/api/leaderboard/route.ts",
+          "packages/mcp/package.json",
+          "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+          "https://zod.dev/api",
+          "https://json-schema.org/draft/2020-12/json-schema-core"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP leaderboard truncation contract testing in six steps",
+        "steps": [
+          "Read packages/mcp/src/index.ts and record the production contract without changing it.",
+          "Create isolated fixtures for MCP leaderboard limit test and leaderboard order preservation.",
+          "Build the harness: Feed ranked API fixtures through the tool for minimum, typical, maximum, and absent-array cases.",
+          "Execute the expected path and assert: Limits return exactly the leading N records without rank or timestamp mutation.",
+          "Inject boundary and failure cases and assert: Slicing reorders records, loses response metadata, exceeds the limit, or fails on a missing skills array.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "MCP leaderboard limit test positive contract",
+          "repositoryPath": "packages/mcp/src/index.ts",
+          "exactEvidence": "get_leaderboard slices response.skills to the requested limit",
+          "plannedSnippet": "Vitest contract test with mocked network, process, or filesystem boundaries",
+          "testGoal": "Prove the expected path: Limits return exactly the leading N records without rank or timestamp mutation.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "Missing skills array fallback negative contract",
+          "repositoryPath": "packages/web/src/app/api/leaderboard/route.ts",
+          "exactEvidence": "the API ranks up to 50 skills and adds rank, filter, and timestamps",
+          "plannedSnippet": "Vitest route integration test with controlled request, dependency, and response fixtures",
+          "testGoal": "Force and diagnose the rejected path: Slicing reorders records, loses response metadata, exceeds the limit, or fails on a missing skills array.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "packages/mcp/src/index.ts",
+        "packages/web/src/app/api/leaderboard/route.ts",
+        "packages/mcp/package.json"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/leaderboard",
+        "/blog/qaskills-mcp-server-guide",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "/skills",
+        "/blog",
+        "/getting-started"
+      ],
+      "relatedSlugs": [
+        "qaskills-mcp-server-guide",
+        "testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "mcp-server-contract-testing-guide",
+        "mcp-server-testing-guide-2026"
+      ],
+      "sources": [
+        "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+        "https://zod.dev/api",
+        "https://json-schema.org/draft/2020-12/json-schema-core"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 4
+    },
+    {
+      "batch": 26,
+      "domain": "mcp-agents",
+      "slug": "mcp-server-manifest-schema-testing",
+      "primaryKeyword": "MCP server manifest schema testing",
+      "title": "MCP server manifest schema testing",
+      "description": "MCP server manifest schema testing guide with repository-backed tests, edge cases, CI checks, and clear failure signals for QA teams shipping MCP servers.",
+      "intent": "how-to",
+      "coreQuestion": "How can CI validate server.json against the official schema and report precise failures for required fields, package metadata, and transport configuration?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer that states server.json must satisfy its declared official schema and match the package transport, identifier, version, and configuration. Name the production observation that proves success and the failure signal that disproves it.",
+      "secondaryKeywords": [
+        "server.json validation CI",
+        "MCP registry schema error",
+        "official server schema test",
+        "MCP manifest required fields",
+        "mcp-publisher validation failure"
+      ],
+      "outline": [
+        {
+          "heading": "What must MCP server manifest schema testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can CI validate server.json against the official schema and report precise failures for required fields, package metadata, and transport configuration?\" in 40 to 60 words, define the observable contract, and state this article's boundary: server.json must satisfy its declared official schema and match the package transport, identifier, version, and configuration.",
+          "evidence": ["packages/mcp/server.json", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Which repository behavior defines the contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the exact production sequence in the evidence files. Separate implementation facts from protocol requirements and identify every observable input, output, network call, process event, or filesystem effect.",
+          "evidence": [
+            "packages/mcp/server.json: declares the official 2025-12-11 server schema",
+            ".github/workflows/mcp-publish.yml: mcp-publisher consumes server.json during registry publication"
+          ]
+        },
+        {
+          "heading": "How should QA teams test server.json validation CI?",
+          "secondaryKeyword": "server.json validation CI",
+          "coverage": "Build the primary fixture and oracle around this behavior: The committed manifest validates before mcp-publisher runs and reports no identity drift. Explain setup, isolation, deterministic inputs, and assertions that prove the result rather than merely exercising code.",
+          "evidence": ["packages/mcp/server.json"]
+        },
+        {
+          "heading": "Test matrix for MCP registry schema error",
+          "secondaryKeyword": "MCP registry schema error",
+          "coverage": "Use the planned table to cover normal, boundary, repeated, missing, malformed, and failure inputs where they apply. Connect every expected result to the repository contract and an approved source.",
+          "evidence": ["packages/mcp/server.json", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "What failures expose official server schema test?",
+          "secondaryKeyword": "official server schema test",
+          "coverage": "Inject the negative cases without changing production behavior. The central failure oracle is: Required fields, package metadata, environment entries, or transport values fail with precise paths. Include cleanup and diagnostic assertions so a failure cannot pass as an empty success.",
+          "evidence": [".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "CI coverage for MCP manifest required fields",
+          "secondaryKeyword": "MCP manifest required fields",
+          "coverage": "Describe local and CI execution, process and network isolation, timeouts, artifact capture, and a focused regression command. Explain which failures block release and which diagnostics should be retained.",
+          "evidence": ["packages/mcp/server.json", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "How should mcp-publisher validation failure be asserted?",
+          "secondaryKeyword": "mcp-publisher validation failure",
+          "coverage": "Define exact assertions for values, ordering, side effects, errors, and immutability as relevant. Show why weak existence-only checks miss the contract and how the planned examples produce actionable diffs.",
+          "evidence": ["packages/mcp/server.json", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the numbered procedure from repository baseline through fixture setup, execution, negative cases, cleanup, and CI. Use this harness approach: Validate server.json in CI, then mutate one field at a time to prove diagnostics.",
+          "evidence": ["packages/mcp/server.json", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map failures to protocol, MCP package, web API, client configuration, release workflow, or environment ownership. Include a compact decision path based on captured request, response, process, and filesystem evidence.",
+          "evidence": ["packages/mcp/server.json", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer five questions in 40 to 60 words each. Reuse the core question and the five secondary intents without introducing a broader MCP guide or any rejected topic.",
+          "evidence": ["packages/mcp/server.json", ".github/workflows/mcp-publish.yml"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Summarize the contract and direct readers to the QASkills MCP page and skills directory with the planned CTA. Do not add a new claim or expand into adjacent rejected intent.",
+          "evidence": ["packages/mcp/server.json", ".github/workflows/mcp-publish.yml"]
+        }
+      ],
+      "tablePlan": {
+        "title": "server.json fields, schema requirements, and repository owners",
+        "columns": [
+          "Case or condition",
+          "Fixture or input",
+          "Expected observation",
+          "Failure signal",
+          "Repository or specification source"
+        ],
+        "rowTopics": [
+          "server.json validation CI: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP registry schema error: one positive row, one boundary or negative row, and its exact oracle",
+          "official server schema test: one positive row, one boundary or negative row, and its exact oracle",
+          "MCP manifest required fields: one positive row, one boundary or negative row, and its exact oracle",
+          "mcp-publisher validation failure: one positive row, one boundary or negative row, and its exact oracle"
+        ],
+        "sources": [
+          "packages/mcp/server.json",
+          ".github/workflows/mcp-publish.yml",
+          "packages/mcp/src/index.ts",
+          "packages/mcp/package.json",
+          "https://modelcontextprotocol.io/registry/quickstart",
+          "https://registry.modelcontextprotocol.io/docs",
+          "https://github.com/modelcontextprotocol/registry"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement MCP server manifest schema testing in six steps",
+        "steps": [
+          "Read packages/mcp/server.json and record the production contract without changing it.",
+          "Create isolated fixtures for server.json validation CI and MCP registry schema error.",
+          "Build the harness: Validate server.json in CI, then mutate one field at a time to prove diagnostics.",
+          "Execute the expected path and assert: The committed manifest validates before mcp-publisher runs and reports no identity drift.",
+          "Inject boundary and failure cases and assert: Required fields, package metadata, environment entries, or transport values fail with precise paths.",
+          "Run the focused suite in CI, retain diagnostics, and link failures to the owning repository layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "Server.json validation CI positive contract",
+          "repositoryPath": "packages/mcp/server.json",
+          "exactEvidence": "declares the official 2025-12-11 server schema",
+          "plannedSnippet": "TypeScript metadata contract test that parses committed JSON and compares exact fields",
+          "testGoal": "Prove the expected path: The committed manifest validates before mcp-publisher runs and reports no identity drift.",
+          "requiredAssertions": [
+            "exact returned value or protocol shape",
+            "expected side effects",
+            "absence of unrelated effects"
+          ]
+        },
+        {
+          "name": "Official server schema test negative contract",
+          "repositoryPath": ".github/workflows/mcp-publish.yml",
+          "exactEvidence": "mcp-publisher consumes server.json during registry publication",
+          "plannedSnippet": "TypeScript workflow contract test that parses YAML and asserts step order, permissions, conditions, and commands",
+          "testGoal": "Force and diagnose the rejected path: Required fields, package metadata, environment entries, or transport values fail with precise paths.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "no false success",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "packages/mcp/server.json",
+        ".github/workflows/mcp-publish.yml",
+        "packages/mcp/src/index.ts",
+        "packages/mcp/package.json"
+      ],
+      "internalRoutes": [
+        "/mcp",
+        "/blog/mcp-registry-qa-teams-guide-2026",
+        "/blog/mcp-package-registry-version-drift-tests",
+        "/blog/qaskills-mcp-server-guide",
+        "/skills",
+        "/blog",
+        "/getting-started"
+      ],
+      "relatedSlugs": [
+        "mcp-registry-qa-teams-guide-2026",
+        "mcp-package-registry-version-drift-tests",
+        "qaskills-mcp-server-guide",
+        "mcp-server-contract-testing-guide"
+      ],
+      "sources": [
+        "https://modelcontextprotocol.io/registry/quickstart",
+        "https://registry.modelcontextprotocol.io/docs",
+        "https://github.com/modelcontextprotocol/registry"
+      ],
+      "cta": "Review the QASkills MCP integration at /mcp, then browse verified QA agent skills at /skills and apply this test matrix before the next MCP release.",
+      "batchPosition": 5
+    }
+  ]
+}

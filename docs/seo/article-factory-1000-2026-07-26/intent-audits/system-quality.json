@@ -1,0 +1,1280 @@
+{
+  "metadata": {
+    "schemaVersion": 1,
+    "generatedAt": "2026-07-27T03:36:23.534Z",
+    "campaignCluster": "system-quality",
+    "auditType": "independent-intent-and-publication-depth",
+    "inputs": {
+      "selected": "docs/seo/article-factory-1000-2026-07-26/selected.json",
+      "baselineInventory": "docs/seo/article-factory-250-2026-07-25/inventory.json",
+      "writerContract": "docs/seo/article-factory-1000-2026-07-26/writer-contract.md",
+      "miningSource": "docs/seo/article-factory-1000-2026-07-26/mining/system-quality.json",
+      "briefBatches": "docs/seo/article-factory-1000-2026-07-26/briefs/batch-101.json through batch-125.json"
+    },
+    "method": {
+      "inventoryChecks": [
+        "Exact slug, title, and primary-keyword comparison",
+        "Manual same-searcher-intent comparison against every inventory item",
+        "Manual comparison against all selected topics, including other campaign clusters"
+      ],
+      "publicationChecks": [
+        "Honest 3,000 to 4,000 word depth without padding",
+        "Two repository-backed code or workflow examples",
+        "Claim support from repository evidence and approved primary sources",
+        "Canonical internal-route and evidence-path alignment",
+        "Defensive security framing without unsafe operational disclosure"
+      ],
+      "replacementChecks": [
+        "Reserve belongs to campaignCluster system-quality",
+        "No exact inventory, remaining-selected, or replacement-set collision",
+        "Manual intent-boundary review against inventory and all 709 remaining selected topics",
+        "All evidence paths exist, all canonical routes resolve, and all sources are HTTPS"
+      ]
+    },
+    "securityAssessment": "No target was rejected solely for security risk. Security topics were accepted only when they remained defensive, used synthetic test design, and did not require exploit deployment or secret disclosure."
+  },
+  "counts": {
+    "baselineInventoryRecords": 1778,
+    "allSelectedTopics": 750,
+    "systemQualitySelectedReviewed": 125,
+    "pass": 84,
+    "reject": 41,
+    "primaryIntentCollisionRejects": 10,
+    "evidenceSourceOrDepthRejects": 31,
+    "securityRiskRejects": 0,
+    "replacements": 41,
+    "remainingSelectedAfterRejects": 709,
+    "uniqueEvidencePathsRead": 102,
+    "uniqueAuthoritativeSourcesReviewed": 121,
+    "uniqueCanonicalRoutesChecked": 35,
+    "structuralBriefsChecked": 125
+  },
+  "reviews": [
+    {
+      "slug": "debezium-snapshot-handoff-testing",
+      "decision": "reject",
+      "reason": "Reject: the intent is distinct, but the repository evidence never implements or explains Debezium snapshot-to-stream handoff. A 3,000-word article would depend on external documentation and generic CDC filler rather than repository-backed examples.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. Snapshot offsets, duplicate boundaries, WAL transition, restart behavior, and failure recovery need a real Debezium fixture or code path that the approved evidence does not provide.",
+      "evidenceAssessment": "Weak. The two skills and the data-contract article contain no Debezium snapshot handoff implementation; only the connector documentation is directly on topic."
+    },
+    {
+      "slug": "graceful-degradation-stale-data-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns intentional stale-data service, not ordinary cache-control correctness. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates stale-if-error response, data age disclosure, degraded cache fallback, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/retry-resilience-testing/SKILL.md, seed-skills/error-handling-testing/SKILL.md, packages/web/src/app/blog/posts/error-handling-testing-patterns.ts provide repository workflow or example material, while approved primary sources on www.rfc-editor.org, sre.google bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "jwt-audience-confusion-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns aud claim isolation, not issuer validation or generic RBAC. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates cross-service token replay, multiple audience claim, tenant audience binding, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/jwt-security-testing/SKILL.md, seed-skills/authorization-testing/SKILL.md, packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts provide repository workflow or example material, while approved primary sources on www.rfc-editor.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "openapi-nullable-required-property-testing",
+      "decision": "reject",
+      "reason": "Reject: the existing nullable-versus-optional article already answers omitted, null, and populated property behavior. Reframing the same matrix around required fields would split one searcher intent.",
+      "nearestCollision": "/blog/openapi-nullable-vs-optional-contract-tests",
+      "coverageAssessment": "Duplicate depth. The planned required/null matrix, validator differences, request and response cases, and client behavior are already within the existing page scope.",
+      "evidenceAssessment": "Adequate evidence, but it supports the existing owner rather than a separate publication."
+    },
+    {
+      "slug": "api-idempotency-key-conflict-testing",
+      "decision": "reject",
+      "reason": "Reject: the inventory page already covers concurrent requests, one side effect, replay responses, and payload conflict handling. The selected topic would cannibalize that intent and adds expiry behavior not defined by its approved RFCs.",
+      "nearestCollision": "/blog/testing-idempotency-key-concurrent-requests",
+      "coverageAssessment": "Duplicate and partly unsupported. Most proposed sections belong in the current idempotency-key article; expiry policy is implementation specific without a cited product contract.",
+      "evidenceAssessment": "Mixed. Repository API examples are useful, but RFC 9110 and RFC 9457 do not define an Idempotency-Key lifecycle or conflict policy."
+    },
+    {
+      "slug": "canary-metric-sample-size-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns sample sufficiency, not canary metric selection or generic A/B significance. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates minimum canary requests, low traffic release gate, representative canary cohort, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/canary-deployment-testing/SKILL.md, seed-skills/synthetic-monitoring/SKILL.md, packages/web/src/app/blog/posts/incident-driven-test-creation-guide.ts provide repository workflow or example material, while approved primary sources on sre.google bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "ci-cancellation-cleanup-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns cancel-time cleanup, not stale run cancellation policy itself. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates always cleanup step, concurrency cancel signal, ephemeral resource leak, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/github-actions-testing/SKILL.md, seed-skills/cicd-pipeline/SKILL.md, packages/web/src/app/blog/posts/cicd-testing-pipeline-github-actions.ts provide repository workflow or example material, while approved primary sources on docs.github.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "deserialization-type-allowlist-testing",
+      "decision": "reject",
+      "reason": "Reject: the cited repository files contain no polymorphic deserialization, gadget, or type-allowlist implementation. A safe defensive article is possible in general, but not under this repository-evidence contract.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient code-backed depth. Language-specific serializers, allowlist configuration, negative fixtures, and safe diagnostics cannot be shown honestly from the approved evidence.",
+      "evidenceAssessment": "Weak. The OWASP and authentication skills are broad, and the selected blog article does not contain deserialization examples."
+    },
+    {
+      "slug": "http-proxy-connection-reuse-testing",
+      "decision": "reject",
+      "reason": "Reject: the evidence does not contain a forward-proxy, CONNECT tunnel, pooled socket, or cross-user isolation harness. Generic HTTP and TCP RFCs cannot prove the proposed proxy behavior.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. Reuse keys, authentication boundaries, tunnel teardown, keep-alive races, and leakage assertions require a concrete proxy implementation.",
+      "evidenceAssessment": "Weak. Network latency, load-balancer, and chaos materials are adjacent but do not support the named proxy contract."
+    },
+    {
+      "slug": "ios-keychain-accessibility-class-testing",
+      "decision": "reject",
+      "reason": "Reject: Apple documentation defines the accessibility classes, but none of the repository evidence exercises Keychain state across lock, reboot, migration, or device-only conditions.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient repository-backed depth. The required native setup, entitlement handling, device-state matrix, and assertions would have to be invented or imported from unapproved examples.",
+      "evidenceAssessment": "Weak. The Appium and device-farm skills are generic, and the cited EarlGrey article contains no Keychain test workflow."
+    },
+    {
+      "slug": "k6-scenario-executor-fairness-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns resource fairness between scenarios, not single-scenario executor selection. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates shared VU starvation, parallel scenario capacity, executor allocation drift, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/k6-performance/SKILL.md, seed-skills/performance-test-scenario-generator/SKILL.md, packages/web/src/app/blog/posts/load-testing-beginners-guide.ts provide repository workflow or example material, while approved primary sources on grafana.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "load-test-warmup-exclusion-analysis",
+      "decision": "pass",
+      "reason": "Pass: Owns measurement-window exclusion, not REST Assured request warmup or cold-start budgets. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates warmup percentile exclusion, steady state measurement window, cold cache baseline, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/performance-budget-testing/SKILL.md, seed-skills/database-performance-testing/SKILL.md, packages/web/src/app/blog/posts/load-testing-beginners-guide.ts provide repository workflow or example material, while approved primary sources on grafana.com, opentelemetry.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "opentelemetry-log-trace-correlation-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns log-record correlation fields, not full trace-context propagation. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates trace_id log field, async logger context, orphan log detection, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/opentelemetry-testing/SKILL.md, seed-skills/distributed-tracing-testing/SKILL.md, packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts provide repository workflow or example material, while approved primary sources on opentelemetry.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "pdf-reading-order-regression-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns PDF tag-tree order, not browser DOM order or page visual layout. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates PDF tag reading sequence, multi-column reading order, artifact tag exclusion, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/accessibility-manual-audit/SKILL.md, seed-skills/pdf-generation-testing/SKILL.md, packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts provide repository workflow or example material, while approved primary sources on www.w3.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "postgresql-sequence-gap-assumption-testing",
+      "decision": "reject",
+      "reason": "Reject: the approved PostgreSQL sources cover transaction isolation and lock settings, not sequence allocation, caching, rollback gaps, or nextval behavior.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient supported depth. A useful article needs sequence-specific fixtures and documentation for rollback, cache, failover, and uniqueness assumptions.",
+      "evidenceAssessment": "Weak and mismatched. Neither repository evidence nor the approved PostgreSQL pages substantiate the primary mechanism."
+    },
+    {
+      "slug": "android-talkback-traversal-order-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns Android screen-reader traversal, not keyboard tab order in web pages. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates TalkBack focus sequence, accessibility traversalAfter, dynamic content order, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/mobile-accessibility-testing/SKILL.md, seed-skills/wcag-accessibility-testing/SKILL.md, packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts provide repository workflow or example material, while approved primary sources on www.w3.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "distributed-trace-clock-skew-testing",
+      "decision": "reject",
+      "reason": "Reject: the sources define trace data and propagation but do not define a clock-skew correction contract, and the repository has no controlled skew fixture or ordering oracle.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. Host clock injection, collector normalization, impossible parent-child timing, and backend-specific correction would exceed the evidence boundary.",
+      "evidenceAssessment": "Weak. Trace material is adjacent, but no cited path demonstrates skew detection or correction behavior."
+    },
+    {
+      "slug": "grpc-compression-negotiation-testing",
+      "decision": "reject",
+      "reason": "Reject: generic gRPC concept and guide indexes do not establish the exact grpc-encoding negotiation and failure behavior, and the repository evidence contains no compression fixture.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient supported depth. Identity fallback, unsupported encodings, per-message compression, streaming, and proxy behavior need specific protocol and implementation evidence.",
+      "evidenceAssessment": "Weak. The gRPC skill and umbrella guide do not contain compression configuration or assertions."
+    },
+    {
+      "slug": "audio-transcript-synchronization-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns transcript timing and text agreement, not speech recognition model benchmarking. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates transcript timestamp drift, speaker identification, searchable audio transcript, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/accessibility-manual-audit/SKILL.md, seed-skills/wcag-accessibility-testing/SKILL.md, packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts provide repository workflow or example material, while approved primary sources on www.w3.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "ci-test-result-merge-completeness",
+      "decision": "pass",
+      "reason": "Pass: Owns report aggregation completeness, not shard allocation or artifact retention. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates missing JUnit shard, duplicate test result, aggregate report gate, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/github-actions-testing/SKILL.md, seed-skills/cicd-pipeline/SKILL.md, packages/web/src/app/blog/posts/cicd-testing-pipeline-github-actions.ts provide repository workflow or example material, while approved primary sources on docs.github.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "graphql-persisted-query-cache-testing",
+      "decision": "reject",
+      "reason": "Reject: an existing page already owns hash misses, registration, cache hits, tampering, rollout compatibility, and CDN behavior for persisted queries.",
+      "nearestCollision": "/blog/testing-graphql-persisted-queries",
+      "coverageAssessment": "Duplicate depth. The selected outline cannot reach 3,000 words without repeating the current persisted-query lifecycle article.",
+      "evidenceAssessment": "Evidence is adequate for the existing owner, not for a second page with the same searcher need."
+    },
+    {
+      "slug": "jmeter-backend-listener-backpressure-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns backend-listener pressure, not dashboard visualization setup. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates metrics sender queue, InfluxDB listener lag, sample export loss, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/jmeter-load/SKILL.md, seed-skills/performance-test-scenario-generator/SKILL.md, packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts provide repository workflow or example material, while approved primary sources on jmeter.apache.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "opentelemetry-baggage-propagation-testing",
+      "decision": "reject",
+      "reason": "Reject: the approved source set omits the OpenTelemetry Baggage specification and the W3C Baggage definition. The repository only mentions baggage at a high level and provides no propagation or filtering harness.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient supported depth. Carrier encoding, limits, filtering, trust boundaries, async propagation, and leak prevention need baggage-specific evidence.",
+      "evidenceAssessment": "Weak and source-mismatched. Trace and Trace Context pages are adjacent but do not fully define the selected baggage contract."
+    },
+    {
+      "slug": "accessible-authentication-cognitive-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns WCAG accessible-authentication criteria, not OAuth protocol security. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates cognitive function test, password manager support, copy paste verification code, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/mobile-accessibility-testing/SKILL.md, seed-skills/wcag-accessibility-testing/SKILL.md, packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts provide repository workflow or example material, while approved primary sources on www.w3.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "android-foreground-service-timeout-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns Android foreground-service limits, not generic background task retries. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates foreground service type, timeout callback handling, service stop deadline, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/espresso-android/SKILL.md, seed-skills/appium-mobile/SKILL.md, packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts provide repository workflow or example material, while approved primary sources on developer.android.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "api-pagination-link-relation-testing",
+      "decision": "reject",
+      "reason": "Reject: RFC 9110 and RFC 9457 do not define pagination link relations, and the repository evidence has no concrete next, prev, first, or last link implementation.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient supported depth. Relation syntax, URI preservation, termination, malformed links, and client traversal need RFC 8288 or a real API contract.",
+      "evidenceAssessment": "Weak and mismatched. The cited API material is broad, while the two approved RFCs do not support the primary keyword."
+    },
+    {
+      "slug": "chaos-system-clock-skew-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns host clock faults, not user timezone formatting or distributed load-worker drift. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates expired token clock drift, lease timestamp skew, scheduled task time jump, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/chaos-engineering-advanced/SKILL.md, seed-skills/retry-resilience-testing/SKILL.md, packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts provide repository workflow or example material, while approved primary sources on principlesofchaos.org, chaos-mesh.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "database-migration-gate-ordering-testing",
+      "decision": "reject",
+      "reason": "Reject: the existing rolling-deploy migration compatibility gate already covers expand-contract sequencing, old-code probes, rollback evidence, and release decisions.",
+      "nearestCollision": "/blog/database-migration-rolling-deploy-compatibility-gate",
+      "coverageAssessment": "Duplicate depth. Expanding the same deploy and contract gate ordering into another page would fragment one release-safety workflow.",
+      "evidenceAssessment": "Evidence is relevant, but it belongs to the established inventory owner and does not establish a separate ordering workflow."
+    },
+    {
+      "slug": "hmac-canonical-request-ordering-testing",
+      "decision": "reject",
+      "reason": "Reject: canonicalization rules are signature-scheme specific, while the approved OWASP sources and repository files do not define one canonical request algorithm.",
+      "nearestCollision": null,
+      "coverageAssessment": "Unsupported breadth. Header normalization, duplicate queries, body hashing, path encoding, and replay behavior cannot be stated universally without a named protocol.",
+      "evidenceAssessment": "Weak. No approved repository path provides canonicalization code or deterministic test vectors."
+    },
+    {
+      "slug": "jmeter-transaction-controller-timing-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns transaction-controller measurement semantics, not timer execution scope. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates generate parent sample, transaction nested timer, controller duration assertion, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/jmeter-load/SKILL.md, seed-skills/performance-test-scenario-generator/SKILL.md, packages/web/src/app/blog/posts/jmeter-distributed-load-testing-complete-guide.ts provide repository workflow or example material, while approved primary sources on jmeter.apache.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "kill-switch-activation-latency-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns activation propagation and confirmation, not feature-flag rollout strategy broadly. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates emergency disable deadline, kill switch confirmation, control plane propagation, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/testing-in-production/SKILL.md, seed-skills/production-smoke-suite/SKILL.md, packages/web/src/app/blog/posts/testing-in-production-strategies.ts provide repository workflow or example material, while approved primary sources on openfeature.dev, kubernetes.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "kubernetes-disruption-budget-eviction-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns PDB eviction constraints, not involuntary node failure recovery. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates kubectl drain blocked, maxUnavailable eviction, disruptedPods cleanup, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/kubernetes-testing/SKILL.md, seed-skills/chaos-testing-kubernetes/SKILL.md, packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts provide repository workflow or example material, while approved primary sources on kubernetes.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "openapi-callback-url-contract-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns OpenAPI callback expressions, not inbound webhook signature verification. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates runtime callback expression, callback request schema, callback URL substitution, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/openapi-validation/SKILL.md, seed-skills/api-schema-evolution/SKILL.md, packages/web/src/app/blog/posts/api-contract-testing-microservices.ts provide repository workflow or example material, while approved primary sources on spec.openapis.org, json-schema.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "pci-log-masking-verification-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns payment-data masking in observability outputs, not general CI secret masking. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates PAN log redaction, sensitive authentication data, trace attribute masking, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/pci-dss-testing/SKILL.md, seed-skills/secure-test-data-engineer/SKILL.md, packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts provide repository workflow or example material, while approved primary sources on www.pcisecuritystandards.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "redis-eviction-policy-data-loss-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns maxmemory eviction semantics, not TTL expiry or cached-null ambiguity. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates allkeys-lru behavior, noeviction write failure, critical cache key loss, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/redis-testing/SKILL.md, seed-skills/data-integrity-testing/SKILL.md, packages/web/src/app/blog/posts/database-testing-automation-guide.ts provide repository workflow or example material, while approved primary sources on redis.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "retry-budget-exhaustion-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns aggregate retry budget depletion, not per-request exponential backoff basics. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates retry token budget, retry storm prevention, budget replenishment, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/retry-resilience-testing/SKILL.md, seed-skills/error-handling-testing/SKILL.md, packages/web/src/app/blog/posts/error-handling-testing-patterns.ts provide repository workflow or example material, while approved primary sources on aws.amazon.com, learn.microsoft.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "serverless-cold-start-budget-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns function cold starts, not browser performance or autoscaling stabilization. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates Lambda init duration, provisioned concurrency baseline, cold invocation percentile, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/serverless-testing/SKILL.md, seed-skills/performance-budget-testing/SKILL.md, packages/web/src/app/blog/posts/cloudflare-workers-testing-guide.ts provide repository workflow or example material, while approved primary sources on docs.aws.amazon.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "alertmanager-deduplication-fingerprint-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns Alertmanager fingerprint and grouping behavior, not event idempotency. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates alert label fingerprint, group_wait notification, repeat_interval dedupe, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/alerting-testing/SKILL.md, seed-skills/test-observability/SKILL.md, packages/web/src/app/blog/posts/observability-driven-testing-guide.ts provide repository workflow or example material, while approved primary sources on prometheus.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "android-workmanager-retry-backoff-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns WorkManager retry scheduling, not general offline queue replay. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates run attempt count, backoff delay policy, constraint change retry, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/espresso-android/SKILL.md, seed-skills/appium-mobile/SKILL.md, packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts provide repository workflow or example material, while approved primary sources on developer.android.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "api-excessive-data-exposure-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns unauthorized response data exposure, not documented partial-response masks. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates sensitive JSON field leak, server-side response filtering, hidden PII property, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/api-security-testing/SKILL.md, seed-skills/authorization-testing/SKILL.md, packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts provide repository workflow or example material, while approved primary sources on owasp.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "api-partial-response-field-mask-testing",
+      "decision": "reject",
+      "reason": "Reject: the approved HTTP and Problem Details RFCs do not define field-mask syntax or nesting, and much of the leakage discussion overlaps the selected excessive-data-exposure page.",
+      "nearestCollision": "/blog/api-excessive-data-exposure-testing",
+      "coverageAssessment": "Insufficient distinct supported depth. Projection semantics need a named field-mask specification or product contract; authorization leakage belongs to the adjacent selected page.",
+      "evidenceAssessment": "Weak and source-mismatched. The repository API examples are generic and do not implement response masks."
+    },
+    {
+      "slug": "bulkhead-queue-isolation-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns queue and pool partitioning, not generic rate limits or Kubernetes quotas. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates separate executor pool, bulkhead queue saturation, tenant workload isolation, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/retry-resilience-testing/SKILL.md, seed-skills/error-handling-testing/SKILL.md, packages/web/src/app/blog/posts/error-handling-testing-patterns.ts provide repository workflow or example material, while approved primary sources on learn.microsoft.com, sre.google bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "chaos-disk-latency-injection-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns slow disk behavior, not disk-full or process-memory pressure. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates storage latency fault, fsync delay behavior, disk queue timeout, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/chaos-engineering-advanced/SKILL.md, seed-skills/retry-resilience-testing/SKILL.md, packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts provide repository workflow or example material, while approved primary sources on principlesofchaos.org, chaos-mesh.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "container-image-signature-verification-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns image signature trust policy, not vulnerability scanning or SBOM contents. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates Cosign signature policy, untrusted image issuer, tampered image digest, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/dependency-vulnerability-scanner/SKILL.md, seed-skills/compliance-as-code/SKILL.md, packages/web/src/app/blog/posts/dast-vs-sast-vs-sca-qa-guide-2026.ts provide repository workflow or example material, while approved primary sources on slsa.dev, docs.sigstore.dev bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "data-pipeline-watermark-boundary-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns event-time watermark edges, not batch lookback windows or clock display. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates allowed lateness boundary, event time window close, late data side output, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/data-pipeline-testing/SKILL.md, seed-skills/pipeline-testing/SKILL.md, packages/web/src/app/blog/posts/metamorphic-testing-data-pipelines-guide.ts provide repository workflow or example material, while approved primary sources on nightlies.apache.org, beam.apache.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "dns-negative-cache-ttl-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns negative caching, not positive DNS load-test caching. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates NXDOMAIN cache expiry, SOA minimum TTL, NODATA retry timing, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/dns-testing/SKILL.md, seed-skills/network-latency-testing/SKILL.md, packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts provide repository workflow or example material, while approved primary sources on www.rfc-editor.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "gdpr-erasure-backup-propagation-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns erasure propagation into backup workflows, not production-data anonymization. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates backup restore re-delete, erasure retention schedule, deleted subject recovery, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/gdpr-compliance-testing/SKILL.md, seed-skills/compliance-as-code/SKILL.md, packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts provide repository workflow or example material, while approved primary sources on eur-lex.europa.eu, www.edpb.europa.eu bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "github-actions-oidc-claim-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns OIDC token claims, not stored secret masking or package publishing. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates sub claim pattern, workflow_ref claim, pull request trust policy, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/compliance-as-code/SKILL.md, seed-skills/codeql-security/SKILL.md, packages/web/src/app/blog/posts/devops-testing-strategy-guide.ts provide repository workflow or example material, while approved primary sources on docs.github.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "grpc-health-transition-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns gRPC health service transitions, not Kubernetes probe configuration. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates SERVING status change, Watch health stream, service drain health state, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/grpc-testing/SKILL.md, seed-skills/microservices-contract-testing/SKILL.md, packages/web/src/app/blog/posts/grpc-api-testing-complete-guide-2026.ts provide repository workflow or example material, while approved primary sources on grpc.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "grpc-maximum-message-size-testing",
+      "decision": "reject",
+      "reason": "Reject: the repository has no configured inbound or outbound gRPC message limit, and the generic gRPC sources do not support the proposed compressed and streaming boundary matrix.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. Limit ownership varies by client, server, proxy, language, and compression stage, none of which is fixed by the approved evidence.",
+      "evidenceAssessment": "Weak. The cited gRPC guide contains no maximum-message-size implementation or assertions."
+    },
+    {
+      "slug": "haptic-feedback-accessibility-fallback-testing",
+      "decision": "reject",
+      "reason": "Reject: WCAG supports sensory alternatives, but the repository evidence contains no haptic event, platform API, or fallback implementation that can supply two real code examples.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient code-backed depth. Platform settings, disabled vibration, repeated signals, alternative announcements, and device validation would require unapproved material.",
+      "evidenceAssessment": "Weak. The mobile accessibility sources are conceptually relevant but not implementation evidence for haptic-only signals."
+    },
+    {
+      "slug": "hipaa-emergency-access-audit-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns emergency access evidence, not ordinary role authorization. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates break glass audit, emergency role expiry, post-access review, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/hipaa-compliance-testing/SKILL.md, seed-skills/authorization-testing/SKILL.md, packages/web/src/app/blog/posts/healthcare-qa-compliance-testing-guide.ts provide repository workflow or example material, while approved primary sources on www.hhs.gov bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "kafka-transaction-fencing-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns transactional producer epochs, not consumer rebalance behavior. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates ProducerFencedException handling, transactional.id collision, stale producer commit, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/kafka-event-driven-testing/SKILL.md, seed-skills/data-pipeline-testing/SKILL.md, packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts provide repository workflow or example material, while approved primary sources on kafka.apache.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "kubernetes-graceful-termination-drain-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns pod request draining, not load-balancer session drain outside Kubernetes. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates preStop drain ordering, terminationGracePeriodSeconds, endpoint removal race, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/kubernetes-testing/SKILL.md, seed-skills/chaos-testing-kubernetes/SKILL.md, packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts provide repository workflow or example material, while approved primary sources on kubernetes.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "locust-wait-time-distribution-validation",
+      "decision": "pass",
+      "reason": "Pass: Owns think-time distribution quality, not request latency thresholds. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates between wait_time sampling, constant pacing drift, user think time histogram, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/locust-load-testing/SKILL.md, seed-skills/stress-testing-patterns/SKILL.md, packages/web/src/app/blog/posts/locust-load-testing-python-guide-2026.ts provide repository workflow or example material, while approved primary sources on docs.locust.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "mobile-database-upgrade-rollback-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns on-device database rollback and recovery, not server rolling migrations. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates interrupted Room migration, SQLite schema rollback, local data integrity, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/data-integrity-testing/SKILL.md, seed-skills/offline-mode-tester/SKILL.md, packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts provide repository workflow or example material, while approved primary sources on www.sqlite.org, developer.android.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "mobile-dynamic-type-truncation-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns OS text scaling, not responsive browser zoom or visual snapshots. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates largest content size, native label clipping, dynamic type reflow, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/mobile-accessibility-testing/SKILL.md, seed-skills/wcag-accessibility-testing/SKILL.md, packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts provide repository workflow or example material, while approved primary sources on www.w3.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "openapi-default-value-drift-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns default-value agreement, not optional field omission or server configuration defaults. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates documented default mismatch, generated client default behavior, runtime default contract, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/openapi-validation/SKILL.md, seed-skills/api-schema-evolution/SKILL.md, packages/web/src/app/blog/posts/api-contract-testing-microservices.ts provide repository workflow or example material, while approved primary sources on spec.openapis.org, json-schema.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "openapi-recursive-schema-depth-testing",
+      "decision": "reject",
+      "reason": "Reject: OpenAPI and JSON Schema permit recursive references but do not define a universal maximum depth, cycle policy, generator limit, or validator failure mode.",
+      "nearestCollision": null,
+      "coverageAssessment": "Unsupported breadth. Honest publication requires selecting and evidencing a concrete validator or generator rather than presenting implementation-specific limits as an OpenAPI contract.",
+      "evidenceAssessment": "Weak. The repository contains schema examples but no recursive-depth harness or bounded implementation behavior."
+    },
+    {
+      "slug": "production-smoke-account-permission-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns least-privilege smoke accounts, not authentication flow coverage broadly. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates smoke service account, production test permission, restricted synthetic identity, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/testing-in-production/SKILL.md, seed-skills/production-smoke-suite/SKILL.md, packages/web/src/app/blog/posts/testing-in-production-strategies.ts provide repository workflow or example material, while approved primary sources on sre.google bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "service-mesh-retry-amplification-testing",
+      "decision": "reject",
+      "reason": "Reject: the repository evidence does not configure layered application and mesh retries, and the approved Kubernetes NetworkPolicy source is unrelated to retry multiplication.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient supported depth. Attempt accounting, per-try timeout, route overrides, idempotency, and amplification metrics require concrete mesh and application configurations.",
+      "evidenceAssessment": "Weak and partially mismatched. Istio traffic management is relevant, but the second source and repository paths do not prove the target workflow."
+    },
+    {
+      "slug": "terraform-plan-nondeterminism-testing",
+      "decision": "reject",
+      "reason": "Reject: the cited Docker article is unrelated, the state-locking source does not explain unstable plans, and no repository fixture repeats Terraform plans from identical inputs.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient evidence for 3,000 words. Provider ordering, unknown values, external data, state refresh, and normalization need a real Terraform test fixture.",
+      "evidenceAssessment": "Weak and source-mismatched. Only the broad Terraform skill is adjacent to the proposed mechanism."
+    },
+    {
+      "slug": "android-process-death-restoration-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns OS process recreation, not rotation-only configuration changes. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates saved state handle, process recreation test, pending navigation restoration, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/espresso-android/SKILL.md, seed-skills/appium-mobile/SKILL.md, packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts provide repository workflow or example material, while approved primary sources on developer.android.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "api-mass-assignment-allowlist-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns request-model binding allowlists, not response property authorization. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates privileged field injection, DTO binding allowlist, unknown update property, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/api-security-testing/SKILL.md, seed-skills/authorization-testing/SKILL.md, packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts provide repository workflow or example material, while approved primary sources on owasp.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "api-problem-details-contract-testing",
+      "decision": "reject",
+      "reason": "Reject: the inventory already has a dedicated RFC 9457 page covering media type, status, type URI, instance, extensions, schema, localization, and leakage.",
+      "nearestCollision": "/blog/testing-problem-details-rfc-9457-errors",
+      "coverageAssessment": "Duplicate depth. The selected page would restate the same contract and failure matrix.",
+      "evidenceAssessment": "Evidence is authoritative but already assigned to the existing intent owner and supplies no distinct repository workflow."
+    },
+    {
+      "slug": "artillery-phase-transition-load-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns phase-boundary behavior, not whole-script configuration. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates rampTo phase boundary, arrival count handoff, phase duration accuracy, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/artillery-load-testing/SKILL.md, seed-skills/performance-budget-testing/SKILL.md, packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts provide repository workflow or example material, while approved primary sources on www.artillery.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "autoscaling-stabilization-load-testing",
+      "decision": "reject",
+      "reason": "Reject: the approved sources discuss k6 test types and OpenTelemetry metrics, not autoscaler stabilization windows, scale policies, or HPA decision behavior.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient supported depth. A credible article needs a named autoscaler, manifests, metric delays, stabilization configuration, and load assertions.",
+      "evidenceAssessment": "Weak and mismatched. The repository evidence is generic performance material with no autoscaling implementation."
+    },
+    {
+      "slug": "ci-environment-approval-bypass-testing",
+      "decision": "reject",
+      "reason": "Reject: the approved GitHub sources cover OIDC and artifact attestations, not protected-environment reviewers, deployment branches, reruns, or approval bypass paths.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient supported depth. Alternate jobs, refs, reruns, administrators, and reusable workflows need environment-protection evidence and fixtures.",
+      "evidenceAssessment": "Weak and source-mismatched. The repository security files contain no environment approval test harness."
+    },
+    {
+      "slug": "circuit-breaker-half-open-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns half-open probe concurrency, not open-state fallback behavior broadly. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates half-open probe limit, circuit close race, failed recovery probe, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/retry-resilience-testing/SKILL.md, seed-skills/error-handling-testing/SKILL.md, packages/web/src/app/blog/posts/error-handling-testing-patterns.ts provide repository workflow or example material, while approved primary sources on aws.amazon.com, learn.microsoft.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "dns-failover-propagation-testing",
+      "decision": "reject",
+      "reason": "Reject: RFC 2308 and RFC 8767 cover negative caching and stale answers, not positive-record TTL convergence during endpoint failover.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient supported depth. Authoritative changes, recursive resolvers, positive TTLs, health checks, and convergence sampling need different sources and a real DNS fixture.",
+      "evidenceAssessment": "Weak and source-mismatched. The DNS skill is broad, while both approved RFCs miss the primary failover contract."
+    },
+    {
+      "slug": "feature-flag-rollback-propagation-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns flag propagation during rollback, not general deployment rollback automation. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates flag cache invalidation, emergency disable latency, stale flag instance, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/testing-in-production/SKILL.md, seed-skills/production-smoke-suite/SKILL.md, packages/web/src/app/blog/posts/testing-in-production-strategies.ts provide repository workflow or example material, while approved primary sources on openfeature.dev, kubernetes.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "gdpr-consent-version-audit-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns consent evidence versioning, not cookie banner user interface behavior. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates consent purpose version, withdrawal audit trail, policy revision acceptance, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/gdpr-compliance-testing/SKILL.md, seed-skills/compliance-as-code/SKILL.md, packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts provide repository workflow or example material, while approved primary sources on eur-lex.europa.eu, www.edpb.europa.eu bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "ios-required-reason-manifest-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns privacy manifest artifact accuracy, not runtime consent screens. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates required reason API, PrivacyInfo.xcprivacy merge, SDK privacy declaration, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/appium-mobile/SKILL.md, seed-skills/mobile-device-farm/SKILL.md, packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts provide repository workflow or example material, while approved primary sources on developer.apple.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "json-schema-unevaluatedproperties-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns annotation-aware unevaluated properties, not basic additionalProperties behavior. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates unevaluated property composition, allOf extra field validation, JSON Schema annotation scope, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/openapi-validation/SKILL.md, seed-skills/api-schema-evolution/SKILL.md, packages/web/src/app/blog/posts/api-contract-testing-microservices.ts provide repository workflow or example material, while approved primary sources on spec.openapis.org, json-schema.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "k6-coordinated-omission-detection",
+      "decision": "reject",
+      "reason": "Reject: the approved k6 scenario and metric pages do not establish a coordinated-omission oracle, and the repository evidence does not calculate or compare omitted latency.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient supported depth. Arrival models, scheduler pauses, corrected histograms, dropped iterations, and interpretation need explicit evidence.",
+      "evidenceAssessment": "Weak. General k6 configuration is present, but no cited path demonstrates coordinated-omission detection."
+    },
+    {
+      "slug": "kubernetes-admission-policy-bypass-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns admission coverage gaps, not general pod security configuration. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates subresource admission check, API version policy bypass, update operation validation, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/kubernetes-testing/SKILL.md, seed-skills/security-best-practices/SKILL.md, packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts provide repository workflow or example material, while approved primary sources on kubernetes.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "kubernetes-probe-ordering-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns probe interaction and gating, not endpoint implementation details. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates startup probe gate, readiness before liveness, probe transition timeline, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/kubernetes-testing/SKILL.md, seed-skills/chaos-testing-kubernetes/SKILL.md, packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts provide repository workflow or example material, while approved primary sources on kubernetes.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "kubernetes-resource-quota-rejection-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns namespace quota admission, not runtime CPU throttling or HPA scaling. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates hard quota exceeded, LimitRange interaction, quota status usage, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/kubernetes-testing/SKILL.md, seed-skills/chaos-testing-kubernetes/SKILL.md, packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts provide repository workflow or example material, while approved primary sources on kubernetes.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "kubernetes-secret-mount-rotation-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns mounted secret refresh, not application dual-secret overlap policy. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates projected secret refresh, subPath rotation limitation, credential mount update, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/kubernetes-testing/SKILL.md, seed-skills/chaos-testing-kubernetes/SKILL.md, packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts provide repository workflow or example material, while approved primary sources on kubernetes.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "nat-port-exhaustion-resilience-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns NAT translation capacity, not server connection-pool saturation. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates SNAT port allocation, ephemeral port reuse, outbound connection failure, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/network-latency-testing/SKILL.md, seed-skills/load-balancer-testing/SKILL.md, packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts provide repository workflow or example material, while approved primary sources on docs.aws.amazon.com, www.rfc-editor.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "oauth-pkce-verifier-downgrade-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns PKCE downgrade resistance, not the complete authorization-code flow. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates plain challenge rejection, missing code_verifier, S256 enforcement, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/oauth-security-testing/SKILL.md, seed-skills/authentication-testing/SKILL.md, packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts provide repository workflow or example material, while approved primary sources on www.rfc-editor.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "openapi-parameter-serialization-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns OpenAPI serialization keywords, not ordinary URL encoding or repeated query parameters. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates style explode matrix, deepObject query serialization, path parameter encoding, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/openapi-validation/SKILL.md, seed-skills/api-schema-evolution/SKILL.md, packages/web/src/app/blog/posts/api-contract-testing-microservices.ts provide repository workflow or example material, while approved primary sources on spec.openapis.org, json-schema.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "pdf-tagged-heading-structure-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns tagged heading semantics, not visual font sizes or HTML headings. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates PDF H1 hierarchy, tag tree heading level, screen reader document outline, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/accessibility-manual-audit/SKILL.md, seed-skills/pdf-generation-testing/SKILL.md, packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts provide repository workflow or example material, while approved primary sources on www.w3.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "postgresql-replication-slot-retention-testing",
+      "decision": "reject",
+      "reason": "Reject: the DDL partitioning source is unrelated, the logical replication page is too broad, and the repository has no slot retention, WAL growth, or recovery fixture.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient supported depth. Slot lag, max retention, disk pressure, consumer restart, and safe slot recovery need replication-slot-specific evidence.",
+      "evidenceAssessment": "Weak and mismatched. None of the repository paths substantiate the selected operational contract."
+    },
+    {
+      "slug": "postgresql-serializable-retry-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns SQLSTATE 40001 recovery, not generic API retries or deadlock handling. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates serialization_failure retry, transaction replay safety, serializable anomaly test, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/database-migration-testing/SKILL.md, seed-skills/data-integrity-testing/SKILL.md, packages/web/src/app/blog/posts/database-testing-automation-guide.ts provide repository workflow or example material, while approved primary sources on www.postgresql.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "prometheus-counter-reset-alert-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns counter reset behavior in alert expressions, not application restart testing. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates rate after counter reset, false alert spike, process restart metric, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/alerting-testing/SKILL.md, seed-skills/test-observability/SKILL.md, packages/web/src/app/blog/posts/observability-driven-testing-guide.ts provide repository workflow or example material, while approved primary sources on prometheus.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "redis-stream-pending-recovery-testing",
+      "decision": "reject",
+      "reason": "Reject: the approved eviction source is unrelated to consumer-group pending entries, and the repository evidence contains no PEL, XCLAIM, or XAUTOCLAIM recovery workflow.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient code-backed depth. Ownership transfer, idle time, duplicate delivery, acknowledgements, and crash recovery require a concrete Redis Streams fixture.",
+      "evidenceAssessment": "Weak and partially mismatched. The streams documentation is relevant, but the other source and repository examples do not support the planned article."
+    },
+    {
+      "slug": "soc2-change-approval-evidence-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns change-management evidence completeness, not CI environment approval mechanics alone. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates deployment approval record, change exception evidence, control audit trail, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/soc2-compliance-testing/SKILL.md, seed-skills/compliance-as-code/SKILL.md, packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts provide repository workflow or example material, while approved primary sources on www.aicpa-cima.com, csrc.nist.gov bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "account-lockout-race-condition-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns atomic lockout counters, not rate limiting across unrelated API routes. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates parallel login failures, atomic failed-attempt counter, lockout threshold boundary, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/owasp-security/SKILL.md, seed-skills/authentication-testing/SKILL.md, packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts provide repository workflow or example material, while approved primary sources on owasp.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "airflow-backfill-idempotency-testing",
+      "decision": "reject",
+      "reason": "Reject: the repository evidence contains no Airflow DAG or backfill implementation, and the dynamic-task-mapping source does not support backfill idempotency.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. Historical intervals, catchup, reruns, side effects, data intervals, and cleanup need a real DAG and deterministic dataset.",
+      "evidenceAssessment": "Weak and partially mismatched. Only the DAG-run documentation directly addresses the target."
+    },
+    {
+      "slug": "alertmanager-inhibition-dependency-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns inhibition matching and recovery, not generic alert threshold tuning. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates source target matcher, inhibited alert visibility, root cause recovery, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/alerting-testing/SKILL.md, seed-skills/test-observability/SKILL.md, packages/web/src/app/blog/posts/observability-driven-testing-guide.ts provide repository workflow or example material, while approved primary sources on prometheus.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "android-app-links-verification-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns Android domain verification, not deep-link cold-start navigation. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates assetlinks.json failure, verified domain state, App Links fallback, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/espresso-android/SKILL.md, seed-skills/appium-mobile/SKILL.md, packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts provide repository workflow or example material, while approved primary sources on developer.android.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "android-predictive-back-gesture-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns predictive back lifecycle, not ordinary tap or swipe gestures. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates back preview animation, cancelled back gesture, OnBackInvoked state, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/espresso-android/SKILL.md, seed-skills/appium-mobile/SKILL.md, packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts provide repository workflow or example material, while approved primary sources on developer.android.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "android-scoped-storage-migration-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns Android storage-model migration, not database schema migration. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates legacy external storage, media permission migration, app-specific file access, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/espresso-android/SKILL.md, seed-skills/appium-mobile/SKILL.md, packages/web/src/app/blog/posts/mobile-testing-automation-guide.ts provide repository workflow or example material, while approved primary sources on developer.android.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "api-202-polling-lifecycle-testing",
+      "decision": "reject",
+      "reason": "Reject: RFC 9110 defines 202 Accepted but not a polling-resource state machine, while RFC 9457 is unrelated to successful asynchronous job progression.",
+      "nearestCollision": null,
+      "coverageAssessment": "Unsupported breadth. Poll intervals, status resources, cancellation, expiry, terminal states, and retry rules are application contracts absent from the repository.",
+      "evidenceAssessment": "Weak and source-mismatched. The generic API examples do not expose a 202 polling workflow."
+    },
+    {
+      "slug": "api-bulk-endpoint-partial-failure-testing",
+      "decision": "reject",
+      "reason": "Reject: HTTP and Problem Details RFCs do not define per-item bulk outcomes, aggregate status, ordering, or retry identity, and the repository has no bulk endpoint contract.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient supported depth. The article would have to invent a response model and retry semantics to reach the required length.",
+      "evidenceAssessment": "Weak and mismatched. Broad REST testing material cannot substantiate one universal bulk behavior."
+    },
+    {
+      "slug": "api-byte-range-response-testing",
+      "decision": "reject",
+      "reason": "Reject: the existing range-request page already covers byte boundaries, 206 and 416 responses, validators, multipart ranges, and corruption checks.",
+      "nearestCollision": "/blog/testing-http-range-requests-file-download",
+      "coverageAssessment": "Duplicate depth. The selected outline is the same HTTP Range searcher journey as the inventory owner.",
+      "evidenceAssessment": "Evidence is adequate but already belongs to the existing page and does not justify a second byte-range contract article."
+    },
+    {
+      "slug": "api-optimistic-concurrency-etag-testing",
+      "decision": "reject",
+      "reason": "Reject: the existing ETag and If-Match page already owns stale writes, strong validators, 412 responses, atomic races, and lost-update prevention.",
+      "nearestCollision": "/blog/testing-etag-if-match-concurrency-control",
+      "coverageAssessment": "Duplicate depth. A second optimistic-concurrency page would repeat the same precondition and race matrix.",
+      "evidenceAssessment": "Evidence is relevant but already assigned to the inventory owner and offers no separate concurrency-control implementation."
+    },
+    {
+      "slug": "api-property-authorization-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns broken object property authorization, not object identifier authorization. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates BOPLA field access, sensitive property mutation, role-based response fields, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/api-security-testing/SKILL.md, seed-skills/authorization-testing/SKILL.md, packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts provide repository workflow or example material, while approved primary sources on owasp.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "artillery-arrival-rate-overload-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns Artillery generator overload, not target-system saturation alone. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates arrival rate lag, virtual user creation backlog, generator CPU saturation, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/artillery-load-testing/SKILL.md, seed-skills/performance-budget-testing/SKILL.md, packages/web/src/app/blog/posts/artillery-load-testing-nodejs-guide.ts provide repository workflow or example material, while approved primary sources on www.artillery.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "cdc-out-of-order-event-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns source-order reconciliation, not message queue delivery order generally. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates LSN event ordering, late CDC update, source position conflict, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/data-pipeline-testing/SKILL.md, seed-skills/event-sourcing-testing/SKILL.md, packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts provide repository workflow or example material, while approved primary sources on debezium.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "chaos-dependency-brownout-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns partial quality degradation, not complete dependency outage. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates partial dependency failure, slow error mix, degraded service fallback, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/chaos-engineering-advanced/SKILL.md, seed-skills/retry-resilience-testing/SKILL.md, packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts provide repository workflow or example material, while approved primary sources on principlesofchaos.org, chaos-mesh.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "chaos-packet-corruption-recovery-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns corrupted network payload recovery, not delay, loss, or partition testing. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates checksum failure recovery, corrupted response retry, packet integrity fault, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/chaos-engineering-advanced/SKILL.md, seed-skills/retry-resilience-testing/SKILL.md, packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts provide repository workflow or example material, while approved primary sources on principlesofchaos.org, chaos-mesh.org bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "ci-artifact-provenance-verification-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns provenance verification, not artifact retention or upload conditions. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates build attestation signature, source commit provenance, trusted builder identity, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/compliance-as-code/SKILL.md, seed-skills/codeql-security/SKILL.md, packages/web/src/app/blog/posts/devops-testing-strategy-guide.ts provide repository workflow or example material, while approved primary sources on slsa.dev, in-toto.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "ci-matrix-include-exclude-testing",
+      "decision": "reject",
+      "reason": "Reject: the inventory already teaches GitHub Actions matrix exclusion with concrete browser and OS combinations. A broader include/exclude page targets the same operator task.",
+      "nearestCollision": "/blog/github-actions-matrix-exclude-browser-os-combinations",
+      "coverageAssessment": "Cannibalizing depth. Include behavior can be added to the existing matrix article without creating a separate searcher journey.",
+      "evidenceAssessment": "Evidence is adequate, but it does not justify another page for the same workflow."
+    },
+    {
+      "slug": "ci-partial-cache-restore-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns partial-key correctness, not cache poisoning by untrusted contributors. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates restore-keys fallback, stale dependency cache, cache compatibility key, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/github-actions-testing/SKILL.md, seed-skills/cicd-pipeline/SKILL.md, packages/web/src/app/blog/posts/cicd-testing-pipeline-github-actions.ts provide repository workflow or example material, while approved primary sources on docs.github.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "ci-quarantine-expiry-enforcement-testing",
+      "decision": "reject",
+      "reason": "Reject: the approved GitHub workflow and jobs pages do not define quarantine records or expiry, and the repository evidence has no quarantine manifest, date check, or enforcement script.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient code-backed depth. Ownership, expiry format, timezone handling, exceptions, and failure reporting need a real quarantine implementation.",
+      "evidenceAssessment": "Weak and source-mismatched. General CI configuration cannot support the selected lifecycle contract."
+    },
+    {
+      "slug": "ci-reusable-workflow-input-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns reusable-workflow call contracts, not application API inputs. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates workflow_call input type, missing reusable secret, caller default value, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/github-actions-testing/SKILL.md, seed-skills/cicd-pipeline/SKILL.md, packages/web/src/app/blog/posts/cicd-testing-pipeline-github-actions.ts provide repository workflow or example material, while approved primary sources on docs.github.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "ci-runner-disk-exhaustion-recovery",
+      "decision": "reject",
+      "reason": "Reject: the approved sources do not document runner disk limits or cleanup semantics, and the repository has no controlled disk-pressure or recovery fixture.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient honest depth. Detection thresholds, safe cleanup, partial artifacts, retries, and hosted versus self-hosted behavior would be speculative.",
+      "evidenceAssessment": "Weak. The CI evidence contains normal jobs, not disk exhaustion injection or recovery."
+    },
+    {
+      "slug": "cloud-region-failover-consistency-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns cross-region data and traffic handoff, not DNS propagation alone. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates regional write recovery, RPO failover assertion, traffic shift consistency, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/edge-computing-testing/SKILL.md, seed-skills/retry-resilience-testing/SKILL.md, packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts provide repository workflow or example material, while approved primary sources on docs.aws.amazon.com, sre.google bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "dark-launch-traffic-segregation-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns dark-launch routing and isolation, not canary comparison or shadow replay. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates dark traffic routing, hidden service response suppression, launch cohort isolation, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/testing-in-production/SKILL.md, seed-skills/production-smoke-suite/SKILL.md, packages/web/src/app/blog/posts/testing-in-production-strategies.ts provide repository workflow or example material, while approved primary sources on sre.google bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "dbt-incremental-late-data-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns dbt incremental late arrivals, not stream watermarks or full-refresh correctness. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates incremental lookback window, unique_key merge, late arriving fact, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/data-pipeline-testing/SKILL.md, seed-skills/pipeline-testing/SKILL.md, packages/web/src/app/blog/posts/metamorphic-testing-data-pipelines-guide.ts provide repository workflow or example material, while approved primary sources on docs.getdbt.com bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "dependency-fallback-freshness-testing",
+      "decision": "reject",
+      "reason": "Reject: the remaining graceful-degradation page already owns bounded stale data, age disclosure, degraded cache fallback, and safer-than-failure decisions.",
+      "nearestCollision": "/blog/graceful-degradation-stale-data-testing",
+      "coverageAssessment": "Duplicate depth. Fallback freshness is one assertion dimension inside the selected stale-data degradation article, not a separate 3,000-word intent.",
+      "evidenceAssessment": "The evidence supports the remaining selected owner and does not establish a second distinct implementation."
+    },
+    {
+      "slug": "deployment-rollback-automation-dry-run",
+      "decision": "reject",
+      "reason": "Reject: the repository mentions rollback plans and automated rollback but provides no dry-run command, permission probe, target-version check, or rehearsal implementation.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient code-backed depth. The workflow is deployment-platform specific, while the approved brief remains generic.",
+      "evidenceAssessment": "Weak and source-mismatched. Generic GitHub workflow documentation does not define rollback dry-run behavior."
+    },
+    {
+      "slug": "email-screen-reader-table-testing",
+      "decision": "reject",
+      "reason": "Reject: the W3C table tutorial covers web tables, while the repository evidence covers PDF and browser accessibility rather than email clients and email markup constraints.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient supported depth. Client compatibility, role presentation, layout-table handling, and screen-reader combinations need email-specific primary evidence and fixtures.",
+      "evidenceAssessment": "Weak and mismatched. No approved repository path implements or tests an accessible email table."
+    },
+    {
+      "slug": "gatling-closed-workload-queue-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns closed workload concurrency semantics, not general injection profiles. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates constantConcurrentUsers queue, closed model saturation, user recycle timing, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/gatling-performance/SKILL.md, seed-skills/stress-testing-patterns/SKILL.md, packages/web/src/app/blog/posts/gatling-load-testing-guide.ts provide repository workflow or example material, while approved primary sources on docs.gatling.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "graphql-directive-behavior-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns directive placement and runtime effects, not schema authorization middleware broadly. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates skip include directive matrix, custom directive execution, invalid directive location, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/graphql-testing/SKILL.md, seed-skills/contract-testing-graphql/SKILL.md, packages/web/src/app/blog/posts/graphql-testing-complete-guide.ts provide repository workflow or example material, while approved primary sources on spec.graphql.org, graphql.github.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "graphql-input-coercion-boundary-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns GraphQL input coercion rules, not JSON Schema type conversion. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates single value list coercion, enum input rejection, variable default coercion, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/graphql-testing/SKILL.md, seed-skills/contract-testing-graphql/SKILL.md, packages/web/src/app/blog/posts/graphql-testing-complete-guide.ts provide repository workflow or example material, while approved primary sources on spec.graphql.org, graphql.github.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "graphql-multipart-response-testing",
+      "decision": "reject",
+      "reason": "Reject: the October 2021 GraphQL specification and selected GraphQL-over-HTTP draft do not define the incremental multipart format targeted by deferred and streamed payloads.",
+      "nearestCollision": null,
+      "coverageAssessment": "Unsupported depth. Patch paths, ordering, boundaries, completion, cancellation, and client merge behavior require an approved incremental-delivery specification and fixture.",
+      "evidenceAssessment": "Weak and source-mismatched. The repository GraphQL materials contain no executable multipart response flow."
+    },
+    {
+      "slug": "graphql-null-bubbling-contract-testing",
+      "decision": "reject",
+      "reason": "Reject: the existing partial-data article explicitly covers null propagation, error paths, extensions, and client behavior.",
+      "nearestCollision": "/blog/testing-graphql-partial-data-errors",
+      "coverageAssessment": "Duplicate depth. Null bubbling is a core section of the established partial-data and errors intent.",
+      "evidenceAssessment": "Evidence is strong but already supports the inventory owner and cannot substantiate a second independent searcher journey."
+    },
+    {
+      "slug": "graphql-schema-deprecation-usage-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns consumer usage of deprecated schema members, not generic breaking-change diffing. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates deprecated field operation scan, deprecation reason quality, safe field removal gate, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/graphql-testing/SKILL.md, seed-skills/contract-testing-graphql/SKILL.md, packages/web/src/app/blog/posts/graphql-testing-complete-guide.ts provide repository workflow or example material, while approved primary sources on spec.graphql.org, graphql.github.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "grpc-metadata-propagation-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns gRPC metadata and trailers, not distributed trace semantics generally. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates binary metadata handling, trailing metadata contract, interceptor header propagation, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/grpc-testing/SKILL.md, seed-skills/microservices-contract-testing/SKILL.md, packages/web/src/app/blog/posts/grpc-api-testing-complete-guide-2026.ts provide repository workflow or example material, while approved primary sources on grpc.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "grpc-retry-pushback-testing",
+      "decision": "reject",
+      "reason": "Reject: the generic gRPC sources and repository guide do not define retry pushback metadata, negative values, precedence, or service-config interaction.",
+      "nearestCollision": null,
+      "coverageAssessment": "Insufficient supported depth. A credible article needs the retry gRFC and a client/server fixture that emits and observes pushback values.",
+      "evidenceAssessment": "Weak and source-mismatched. No approved repository path implements gRPC retry pushback."
+    },
+    {
+      "slug": "grpc-server-reflection-access-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns reflection service exposure, not protobuf compatibility or business authorization. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates grpcurl reflection access, descriptor discovery policy, reflection service disabled, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/grpc-testing/SKILL.md, seed-skills/microservices-contract-testing/SKILL.md, packages/web/src/app/blog/posts/grpc-api-testing-complete-guide-2026.ts provide repository workflow or example material, while approved primary sources on grpc.io bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    },
+    {
+      "slug": "hipaa-minimum-necessary-access-testing",
+      "decision": "pass",
+      "reason": "Pass: Owns minimum-necessary data scope, not generic API property authorization. Manual comparison found no same-searcher-intent owner in the baseline inventory or the other selected topics.",
+      "nearestCollision": null,
+      "coverageAssessment": "Publication depth is credible. The 10-section brief separates PHI field minimization, healthcare role matrix, minimum necessary disclosure, negative cases, boundary cases, CI evidence, diagnostics, a comparison table, and FAQs without broadening the approved intent.",
+      "evidenceAssessment": "Adequate. seed-skills/hipaa-compliance-testing/SKILL.md, seed-skills/authorization-testing/SKILL.md, packages/web/src/app/blog/posts/healthcare-qa-compliance-testing-guide.ts provide repository workflow or example material, while approved primary sources on www.hhs.gov bound protocol and platform claims. Paths and planned routes resolve, and the brief includes 2 repository-backed examples."
+    }
+  ],
+  "replacements": [
+    {
+      "rejectedSlug": "debezium-snapshot-handoff-testing",
+      "recommendedReserveSlug": "idempotent-consumer-duplicate-testing",
+      "whyDistinct": "Owns consumer deduplication, not API idempotency keys or Kafka transactions. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "openapi-nullable-required-property-testing",
+      "recommendedReserveSlug": "ios-background-task-expiration-testing",
+      "whyDistinct": "Owns background-task expiry handlers, not push notification delivery. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "api-idempotency-key-conflict-testing",
+      "recommendedReserveSlug": "ios-universal-link-fallback-testing",
+      "whyDistinct": "Owns iOS association and fallback behavior, not Android App Links or cold starts. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "deserialization-type-allowlist-testing",
+      "recommendedReserveSlug": "ipv6-dual-stack-fallback-testing",
+      "whyDistinct": "Owns Happy Eyeballs behavior, not DNS record propagation or NAT exhaustion. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "http-proxy-connection-reuse-testing",
+      "recommendedReserveSlug": "jmeter-connection-pool-saturation-testing",
+      "whyDistinct": "Owns load-generator pool limits, not server database pool capacity. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "ios-keychain-accessibility-class-testing",
+      "recommendedReserveSlug": "json-schema-conditional-dependency-testing",
+      "whyDistinct": "Owns conditional and dependent keywords, not generic required field matrices. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "postgresql-sequence-gap-assumption-testing",
+      "recommendedReserveSlug": "jwt-algorithm-confusion-rejection-testing",
+      "whyDistinct": "Owns JWT algorithm selection, not claim authorization or key rotation. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "distributed-trace-clock-skew-testing",
+      "recommendedReserveSlug": "k6-connection-reuse-performance-testing",
+      "whyDistinct": "Owns transport connection reuse, not application cache performance. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "grpc-compression-negotiation-testing",
+      "recommendedReserveSlug": "kafka-consumer-offset-reset-testing",
+      "whyDistinct": "Owns offset reset behavior, not normal committed-offset recovery or rebalance. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "graphql-persisted-query-cache-testing",
+      "recommendedReserveSlug": "kafka-tombstone-compaction-testing",
+      "whyDistinct": "Owns compacted-topic tombstones, not database soft deletes or event retention generally. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "opentelemetry-baggage-propagation-testing",
+      "recommendedReserveSlug": "kafka-transitive-schema-compatibility-testing",
+      "whyDistinct": "Owns transitive registry modes, not pairwise schema checks or event semantics broadly. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "api-pagination-link-relation-testing",
+      "recommendedReserveSlug": "kubernetes-default-deny-policy-testing",
+      "whyDistinct": "Owns Kubernetes network isolation, not admission policy or service-mesh retries. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "database-migration-gate-ordering-testing",
+      "recommendedReserveSlug": "kubernetes-hpa-metric-staleness-testing",
+      "whyDistinct": "Owns autoscaler metric freshness, not stabilization-window load behavior. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "hmac-canonical-request-ordering-testing",
+      "recommendedReserveSlug": "kubernetes-job-backoff-limit-testing",
+      "whyDistinct": "Owns Job retry accounting, not application-level retry budgets. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "grpc-maximum-message-size-testing",
+      "recommendedReserveSlug": "kubernetes-topology-spread-testing",
+      "whyDistinct": "Owns topology spread constraints, not multi-region database consistency. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "haptic-feedback-accessibility-fallback-testing",
+      "recommendedReserveSlug": "live-caption-accuracy-qa-testing",
+      "whyDistinct": "Owns caption QA criteria, not translation quality or prerecorded transcript authoring. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "api-partial-response-field-mask-testing",
+      "recommendedReserveSlug": "load-balancer-session-draining-testing",
+      "whyDistinct": "Owns external target draining, not Kubernetes pod termination ordering. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "openapi-recursive-schema-depth-testing",
+      "recommendedReserveSlug": "locust-worker-rebalance-load-testing",
+      "whyDistinct": "Owns distributed worker membership changes, not static distributed setup. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "service-mesh-retry-amplification-testing",
+      "recommendedReserveSlug": "mobile-clock-change-sync-testing",
+      "whyDistinct": "Owns device-clock effects on sync ordering, not display timezone formatting. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "terraform-plan-nondeterminism-testing",
+      "recommendedReserveSlug": "mtls-client-certificate-revocation-testing",
+      "whyDistinct": "Owns client certificate status and EKU, not server TLS chain validation. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "api-problem-details-contract-testing",
+      "recommendedReserveSlug": "oauth-device-code-polling-abuse-testing",
+      "whyDistinct": "Owns device-code polling controls, not browser-based OAuth redirects. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "autoscaling-stabilization-load-testing",
+      "recommendedReserveSlug": "openapi-additionalproperties-policy-testing",
+      "whyDistinct": "Owns additionalProperties behavior, not top-level version compatibility. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "ci-environment-approval-bypass-testing",
+      "recommendedReserveSlug": "openapi-discriminator-mapping-validation",
+      "whyDistinct": "Owns explicit discriminator mappings and missing targets, not generic oneOf testing. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "dns-failover-propagation-testing",
+      "recommendedReserveSlug": "openapi-readonly-writeonly-contract-testing",
+      "whyDistinct": "Owns request and response visibility semantics, not field authorization policy. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "k6-coordinated-omission-detection",
+      "recommendedReserveSlug": "openapi-webhook-schema-evolution-testing",
+      "whyDistinct": "Owns schema evolution for outbound events, not signature replay or delivery retries. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "postgresql-replication-slot-retention-testing",
+      "recommendedReserveSlug": "opentelemetry-metric-temporality-testing",
+      "whyDistinct": "Owns metric temporality conversion, not Prometheus counter alert logic. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "redis-stream-pending-recovery-testing",
+      "recommendedReserveSlug": "opentelemetry-span-link-causality-testing",
+      "whyDistinct": "Owns span links for fan-in and queues, not ordinary parent-child nesting. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "airflow-backfill-idempotency-testing",
+      "recommendedReserveSlug": "password-reset-token-single-use-testing",
+      "whyDistinct": "Owns reset-token lifecycle, not general session logout or MFA recovery. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "api-202-polling-lifecycle-testing",
+      "recommendedReserveSlug": "pci-card-data-retention-testing",
+      "whyDistinct": "Owns payment-data retention controls, not test-data cleanup generally. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "api-bulk-endpoint-partial-failure-testing",
+      "recommendedReserveSlug": "pdf-form-field-accessibility-testing",
+      "whyDistinct": "Owns interactive PDF form semantics, not HTML forms or static PDF text. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "api-byte-range-response-testing",
+      "recommendedReserveSlug": "poison-message-quarantine-testing",
+      "whyDistinct": "Owns poison-message handling, not transient retry queues or schema rejection alone. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "api-optimistic-concurrency-etag-testing",
+      "recommendedReserveSlug": "protobuf-unknown-field-preservation-testing",
+      "whyDistinct": "Owns unknown-field round trips, not tag renumbering or broad protobuf evolution. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "ci-matrix-include-exclude-testing",
+      "recommendedReserveSlug": "quic-version-negotiation-testing",
+      "whyDistinct": "Owns QUIC version negotiation packets, not TLS application protocol negotiation. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "ci-quarantine-expiry-enforcement-testing",
+      "recommendedReserveSlug": "redis-cluster-slot-migration-testing",
+      "whyDistinct": "Owns Redis Cluster resharding transitions, not ordinary failover or cache outages. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "ci-runner-disk-exhaustion-recovery",
+      "recommendedReserveSlug": "shadow-traffic-side-effect-isolation",
+      "whyDistinct": "Owns side-effect suppression for shadow traffic, not request replay generation. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "dependency-fallback-freshness-testing",
+      "recommendedReserveSlug": "slo-burn-rate-window-testing",
+      "whyDistinct": "Owns multi-window burn-rate math, not broad SLA monitoring or load thresholds. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "deployment-rollback-automation-dry-run",
+      "recommendedReserveSlug": "telemetry-cardinality-budget-testing",
+      "whyDistinct": "Owns label and attribute cardinality, not traffic volume or storage retention alone. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "email-screen-reader-table-testing",
+      "recommendedReserveSlug": "terraform-state-lock-recovery-testing",
+      "whyDistinct": "Owns backend lock recovery, not state migration or drift detection. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "graphql-multipart-response-testing",
+      "recommendedReserveSlug": "timeout-budget-propagation-testing",
+      "whyDistinct": "Owns deadline propagation across calls, not gRPC retry pushback or fixed timeouts. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "graphql-null-bubbling-contract-testing",
+      "recommendedReserveSlug": "tls-certificate-chain-order-testing",
+      "whyDistinct": "Owns server certificate-chain assembly, not mTLS revocation or session tickets. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    },
+    {
+      "rejectedSlug": "grpc-retry-pushback-testing",
+      "recommendedReserveSlug": "tls-session-resumption-policy-testing",
+      "whyDistinct": "Owns session tickets and PSK resumption, not full handshakes or certificate ordering. It has no exact slug, title, or primary-keyword collision and no same-searcher-intent owner in the baseline inventory, the 709 remaining selected topics, or the other recommended reserves."
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "reviewedSelectedCountMatches": true,
+    "uniqueReviewSlugs": true,
+    "allCurrentSelectedSlugsReviewed": true,
+    "exactPassBudget": true,
+    "exactRejectBudget": true,
+    "oneToOneReplacementCount": true,
+    "uniqueReplacementSlugs": true,
+    "reservesBelongToCluster": true,
+    "reservesUnusedByCurrentSelection": true,
+    "reserveEvidencePathsExist": true,
+    "reserveSourceCountIsTwoToFour": true,
+    "reserveSourcesAreHttps": true,
+    "canonicalRoutesResolve": true,
+    "structuralBriefsChecked": true,
+    "safetyReviewed": true,
+    "statement": "All 125 current system-quality topics were reviewed, and every rejected topic has one distinct, evidence-backed, source-backed, unused reserve replacement."
+  }
+}

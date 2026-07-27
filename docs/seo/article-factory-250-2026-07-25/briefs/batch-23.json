@@ -1,0 +1,999 @@
+{
+  "batch": 23,
+  "briefs": [
+    {
+      "batch": 23,
+      "domain": "skill-parser-validator",
+      "slug": "skill-md-whitespace-only-metadata",
+      "primaryKeyword": "SKILL.md whitespace only metadata",
+      "title": "SKILL.md whitespace only metadata Tests",
+      "description": "SKILL.md whitespace only metadata: reject strings that are present but blank. Use verified code, edge-case fixtures, and clear acceptance criteria.",
+      "intent": "troubleshooting",
+      "coreQuestion": "Why can whitespace-only name, author, license, or description values satisfy minimum string lengths, and where should trimming occur?",
+      "secondaryKeywords": [
+        "Zod trim nonempty string",
+        "blank frontmatter values",
+        "whitespace author validation",
+        "empty skill description",
+        "metadata canonicalization tests"
+      ],
+      "outline": [
+        {
+          "heading": "What does SKILL.md whitespace only metadata need to prove?",
+          "focus": "Answer the core question immediately, define the narrow search intent, and distinguish this topic from /blog/malformed-skill-md-frontmatter-parser-tests.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/parsers/skill-parser.ts"
+          ]
+        },
+        {
+          "heading": "Zod trim nonempty string: current repository behavior",
+          "focus": "Trace the accepted baseline through packages/shared/src/schemas/skill-schema.ts, naming the exact input and observable output without presenting a proposed change as shipped.",
+          "evidence": ["packages/shared/src/schemas/skill-schema.ts"],
+          "secondaryKeyword": "Zod trim nonempty string"
+        },
+        {
+          "heading": "Why does blank frontmatter values change the contract?",
+          "focus": "Compare the two repository boundaries and explain where parsing, validation, serialization, scoring, or packaging responsibilities differ.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/parsers/skill-parser.ts"
+          ],
+          "secondaryKeyword": "blank frontmatter values"
+        },
+        {
+          "heading": "whitespace author validation test matrix",
+          "focus": "Present the planned table for single-space name, tab-only author, newline-only license, padded valid description with one observable assertion per case.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/parsers/skill-parser.ts"
+          ],
+          "secondaryKeyword": "whitespace author validation"
+        },
+        {
+          "heading": "How should empty skill description be verified?",
+          "focus": "Develop the two repository-backed TypeScript examples, including a baseline fixture, boundary mutations, and stable assertions.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/parsers/skill-parser.ts"
+          ],
+          "secondaryKeyword": "empty skill description"
+        },
+        {
+          "heading": "metadata canonicalization tests acceptance criteria",
+          "focus": "Tests should distinguish absent, whitespace-only, padded valid, and normalized scalar values. Separate current characterization from any recommended policy or migration.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/parsers/skill-parser.ts"
+          ],
+          "secondaryKeyword": "metadata canonicalization tests"
+        },
+        {
+          "heading": "How do you test SKILL.md whitespace only metadata step by step?",
+          "focus": "Follow the numbered procedure from source inspection through fixtures, execution, assertions, and CI regression coverage.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/parsers/skill-parser.ts"
+          ]
+        },
+        {
+          "heading": "SKILL.md whitespace only metadata rollout and regression checks",
+          "focus": "Define review ownership, backward-compatibility checks, failure diagnostics, and the smallest post-change suite needed before publication.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/parsers/skill-parser.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "focus": "Answer each question in 40 to 60 words using only repository evidence and the approved sources.",
+          "questions": [
+            "What should Zod trim nonempty string tests assert?",
+            "How does blank frontmatter values affect the SKILL.md contract?",
+            "Which fixture best exposes whitespace author validation?",
+            "When should teams check empty skill description?",
+            "What is the pass criterion for metadata canonicalization tests?"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "focus": "Summarize the chosen contract, name the next test to add, and end with the verified QASkills CTA."
+        }
+      ],
+      "tablePlan": {
+        "heading": "SKILL.md whitespace only metadata fixture matrix",
+        "purpose": "Compare baseline, boundary, variant, and failure behavior without implying that a recommended change is already deployed.",
+        "columns": ["Case", "Input or boundary", "Layer under test", "Expected assertion"],
+        "rows": [
+          {
+            "case": 1,
+            "inputOrBoundary": "single-space name",
+            "layerUnderTest": "packages/shared/src/schemas/skill-schema.ts",
+            "expectedAssertion": "Preserve the accepted baseline behavior and record the exact result."
+          },
+          {
+            "case": 2,
+            "inputOrBoundary": "tab-only author",
+            "layerUnderTest": "packages/shared/src/parsers/skill-parser.ts",
+            "expectedAssertion": "Return a deterministic result at the first boundary or variant."
+          },
+          {
+            "case": 3,
+            "inputOrBoundary": "newline-only license",
+            "layerUnderTest": "packages/shared/src/schemas/skill-schema.ts",
+            "expectedAssertion": "Apply the selected policy consistently across every relevant layer."
+          },
+          {
+            "case": 4,
+            "inputOrBoundary": "padded valid description",
+            "layerUnderTest": "packages/shared/src/parsers/skill-parser.ts",
+            "expectedAssertion": "Return a stable diagnostic or documented result without partial state."
+          }
+        ],
+        "sourcePaths": [
+          "packages/shared/src/schemas/skill-schema.ts",
+          "packages/shared/src/parsers/skill-parser.ts"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Test SKILL.md whitespace only metadata in six steps",
+        "steps": [
+          "Read packages/shared/src/schemas/skill-schema.ts and packages/shared/src/parsers/skill-parser.ts, then record the current input and output contract.",
+          "Create one smallest-valid SKILL.md fixture as the baseline for SKILL.md whitespace only metadata.",
+          "Add isolated fixtures for single-space name, tab-only author, newline-only license, padded valid description.",
+          "Run each fixture through the relevant parser, schema, validator, scorer, CLI, or artifact boundary.",
+          "Assert the selected contract: Tests should distinguish absent, whitespace-only, padded valid, and normalized scalar values.",
+          "Add the matrix to CI and require stable diagnostics for every rejected or warning-only case."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Characterization test for SKILL.md whitespace only metadata",
+          "language": "typescript",
+          "sourcePath": "packages/shared/src/schemas/skill-schema.ts",
+          "plan": "Show the relevant production branch from packages/shared/src/schemas/skill-schema.ts, then build a Vitest table covering single-space name, tab-only author, newline-only license."
+        },
+        {
+          "title": "Cross-layer contract test for SKILL.md whitespace only metadata",
+          "language": "typescript",
+          "sourcePath": "packages/shared/src/parsers/skill-parser.ts",
+          "plan": "Compare the observable result from packages/shared/src/parsers/skill-parser.ts with the first example and assert the documented acceptance policy."
+        }
+      ],
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts",
+        "packages/shared/src/parsers/skill-parser.ts"
+      ],
+      "evidenceNotes": [
+        "packages/shared/src/schemas/skill-schema.ts:4-8 applies min and max lengths without trim transformations.",
+        "packages/shared/src/parsers/skill-parser.ts:7-12 copies scalar strings without trimming them."
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/how-to-publish",
+        "/blog/skill-md-format-guide",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/seed-skill-catalog-parser-regression-tests"
+      ],
+      "relatedSlugs": [
+        "skill-md-format-guide",
+        "validate-skill-md-in-ci-pipeline",
+        "malformed-skill-md-frontmatter-parser-tests",
+        "seed-skill-catalog-parser-regression-tests"
+      ],
+      "sources": [
+        "https://zod.dev/api",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "cta": "Open /skills, inspect a published SKILL.md, then use /how-to-publish to apply this test contract before publication.",
+      "technicalClaimBoundary": "Describe repository behavior as characterization. Do not call it an exploitable vulnerability or state that a recommended change has shipped without code evidence.",
+      "writingTargets": {
+        "codeExcludedWords": "3000-4000",
+        "h2Count": 10,
+        "questionH2Minimum": 3,
+        "faqAnswerWords": "40-60",
+        "averageSentenceWords": "15-20",
+        "fleschReadingEase": "58-72"
+      },
+      "batchPosition": 1
+    },
+    {
+      "batch": 23,
+      "domain": "skill-parser-validator",
+      "slug": "skill-md-500-line-boundary",
+      "primaryKeyword": "SKILL.md 500 line boundary",
+      "title": "SKILL.md 500 line boundary Guide",
+      "description": "SKILL.md 500 line boundary: test exact LF, CRLF, and final-newline edges. Use verified code, edge-case fixtures, and clear acceptance criteria.",
+      "intent": "how-to",
+      "coreQuestion": "How should tests count exactly 500 lines when files have trailing newlines, CRLF endings, or an empty final segment?",
+      "secondaryKeywords": [
+        "MAX_SKILL_LINES test",
+        "trailing newline line count",
+        "CRLF line boundary",
+        "500 versus 501 lines",
+        "skill validator off by one"
+      ],
+      "outline": [
+        {
+          "heading": "What does SKILL.md 500 line boundary need to prove?",
+          "focus": "Answer the core question immediately, define the narrow search intent, and distinguish this topic from /blog/validate-skill-md-in-ci-pipeline.",
+          "evidence": [
+            "packages/shared/src/constants/index.ts",
+            "packages/skill-validator/src/index.ts"
+          ]
+        },
+        {
+          "heading": "MAX_SKILL_LINES test: current repository behavior",
+          "focus": "Trace the accepted baseline through packages/shared/src/constants/index.ts, naming the exact input and observable output without presenting a proposed change as shipped.",
+          "evidence": ["packages/shared/src/constants/index.ts"],
+          "secondaryKeyword": "MAX_SKILL_LINES test"
+        },
+        {
+          "heading": "Why does trailing newline line count change the contract?",
+          "focus": "Compare the two repository boundaries and explain where parsing, validation, serialization, scoring, or packaging responsibilities differ.",
+          "evidence": [
+            "packages/shared/src/constants/index.ts",
+            "packages/skill-validator/src/index.ts"
+          ],
+          "secondaryKeyword": "trailing newline line count"
+        },
+        {
+          "heading": "CRLF line boundary test matrix",
+          "focus": "Present the planned table for 499 lines, 500 lines without a final newline, 500 lines with a final newline, 501 lines, 500 CRLF lines with one observable assertion per case.",
+          "evidence": [
+            "packages/shared/src/constants/index.ts",
+            "packages/skill-validator/src/index.ts"
+          ],
+          "secondaryKeyword": "CRLF line boundary"
+        },
+        {
+          "heading": "How should 500 versus 501 lines be verified?",
+          "focus": "Develop the two repository-backed TypeScript examples, including a baseline fixture, boundary mutations, and stable assertions.",
+          "evidence": [
+            "packages/shared/src/constants/index.ts",
+            "packages/skill-validator/src/index.ts"
+          ],
+          "secondaryKeyword": "500 versus 501 lines"
+        },
+        {
+          "heading": "skill validator off by one acceptance criteria",
+          "focus": "Boundary tests should define line-count semantics before changing the warning comparison or input normalization. Separate current characterization from any recommended policy or migration.",
+          "evidence": [
+            "packages/shared/src/constants/index.ts",
+            "packages/skill-validator/src/index.ts"
+          ],
+          "secondaryKeyword": "skill validator off by one"
+        },
+        {
+          "heading": "How do you test SKILL.md 500 line boundary step by step?",
+          "focus": "Follow the numbered procedure from source inspection through fixtures, execution, assertions, and CI regression coverage.",
+          "evidence": [
+            "packages/shared/src/constants/index.ts",
+            "packages/skill-validator/src/index.ts"
+          ]
+        },
+        {
+          "heading": "SKILL.md 500 line boundary rollout and regression checks",
+          "focus": "Define review ownership, backward-compatibility checks, failure diagnostics, and the smallest post-change suite needed before publication.",
+          "evidence": [
+            "packages/shared/src/constants/index.ts",
+            "packages/skill-validator/src/index.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "focus": "Answer each question in 40 to 60 words using only repository evidence and the approved sources.",
+          "questions": [
+            "What should MAX_SKILL_LINES test tests assert?",
+            "How does trailing newline line count affect the SKILL.md contract?",
+            "Which fixture best exposes CRLF line boundary?",
+            "When should teams check 500 versus 501 lines?",
+            "What is the pass criterion for skill validator off by one?"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "focus": "Summarize the chosen contract, name the next test to add, and end with the verified QASkills CTA."
+        }
+      ],
+      "tablePlan": {
+        "heading": "SKILL.md 500 line boundary fixture matrix",
+        "purpose": "Compare baseline, boundary, variant, and failure behavior without implying that a recommended change is already deployed.",
+        "columns": ["Case", "Input or boundary", "Layer under test", "Expected assertion"],
+        "rows": [
+          {
+            "case": 1,
+            "inputOrBoundary": "499 lines",
+            "layerUnderTest": "packages/shared/src/constants/index.ts",
+            "expectedAssertion": "Preserve the accepted baseline behavior and record the exact result."
+          },
+          {
+            "case": 2,
+            "inputOrBoundary": "500 lines without a final newline",
+            "layerUnderTest": "packages/skill-validator/src/index.ts",
+            "expectedAssertion": "Return a deterministic result at the first boundary or variant."
+          },
+          {
+            "case": 3,
+            "inputOrBoundary": "500 lines with a final newline",
+            "layerUnderTest": "packages/shared/src/constants/index.ts",
+            "expectedAssertion": "Apply the selected policy consistently across every relevant layer."
+          },
+          {
+            "case": 4,
+            "inputOrBoundary": "501 lines",
+            "layerUnderTest": "packages/skill-validator/src/index.ts",
+            "expectedAssertion": "Return a stable diagnostic or documented result without partial state."
+          },
+          {
+            "case": 5,
+            "inputOrBoundary": "500 CRLF lines",
+            "layerUnderTest": "packages/shared/src/constants/index.ts",
+            "expectedAssertion": "Remain consistent when the case is repeated in CI."
+          }
+        ],
+        "sourcePaths": [
+          "packages/shared/src/constants/index.ts",
+          "packages/skill-validator/src/index.ts"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Test SKILL.md 500 line boundary in six steps",
+        "steps": [
+          "Read packages/shared/src/constants/index.ts and packages/skill-validator/src/index.ts, then record the current input and output contract.",
+          "Create one smallest-valid SKILL.md fixture as the baseline for SKILL.md 500 line boundary.",
+          "Add isolated fixtures for 499 lines, 500 lines without a final newline, 500 lines with a final newline, 501 lines, 500 CRLF lines.",
+          "Run each fixture through the relevant parser, schema, validator, scorer, CLI, or artifact boundary.",
+          "Assert the selected contract: Boundary tests should define line-count semantics before changing the warning comparison or input normalization.",
+          "Add the matrix to CI and require stable diagnostics for every rejected or warning-only case."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Characterization test for SKILL.md 500 line boundary",
+          "language": "typescript",
+          "sourcePath": "packages/shared/src/constants/index.ts",
+          "plan": "Show the relevant production branch from packages/shared/src/constants/index.ts, then build a Vitest table covering 499 lines, 500 lines without a final newline, 500 lines with a final newline."
+        },
+        {
+          "title": "Cross-layer contract test for SKILL.md 500 line boundary",
+          "language": "typescript",
+          "sourcePath": "packages/skill-validator/src/index.ts",
+          "plan": "Compare the observable result from packages/skill-validator/src/index.ts with the first example and assert the documented acceptance policy."
+        }
+      ],
+      "repoEvidence": [
+        "packages/shared/src/constants/index.ts",
+        "packages/skill-validator/src/index.ts"
+      ],
+      "evidenceNotes": [
+        "packages/shared/src/constants/index.ts:8 defines MAX_SKILL_LINES as 500.",
+        "packages/skill-validator/src/index.ts:82-89 computes raw.split('\\n').length and warns only when the result exceeds the constant."
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/how-to-publish",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/seed-skill-catalog-parser-regression-tests",
+        "/blog/skill-md-format-guide"
+      ],
+      "relatedSlugs": [
+        "validate-skill-md-in-ci-pipeline",
+        "malformed-skill-md-frontmatter-parser-tests",
+        "seed-skill-catalog-parser-regression-tests",
+        "skill-md-format-guide"
+      ],
+      "sources": ["https://agentskills.io/specification", "https://nodejs.org/api/fs.html"],
+      "cta": "Open /skills, inspect a published SKILL.md, then use /how-to-publish to apply this test contract before publication.",
+      "technicalClaimBoundary": "Describe repository behavior as characterization. Do not call it an exploitable vulnerability or state that a recommended change has shipped without code evidence.",
+      "writingTargets": {
+        "codeExcludedWords": "3000-4000",
+        "h2Count": 10,
+        "questionH2Minimum": 3,
+        "faqAnswerWords": "40-60",
+        "averageSentenceWords": "15-20",
+        "fleschReadingEase": "58-72"
+      },
+      "batchPosition": 2
+    },
+    {
+      "batch": 23,
+      "domain": "skill-parser-validator",
+      "slug": "skill-md-file-error-diagnostics",
+      "primaryKeyword": "SKILL.md file error diagnostics",
+      "title": "SKILL.md file error diagnostics Tests",
+      "description": "SKILL.md file error diagnostics: separate path, permission, and read failures. Use verified code, edge-case fixtures, and clear acceptance criteria.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should the validator distinguish missing files, permission failures, directories, broken symlinks, and read errors instead of reporting one generic CLI failure?",
+      "secondaryKeywords": [
+        "SKILL.md ENOENT error",
+        "validator permission denied",
+        "directory instead of file",
+        "broken symlink diagnostic",
+        "qaskills validate error codes"
+      ],
+      "outline": [
+        {
+          "heading": "What does SKILL.md file error diagnostics need to prove?",
+          "focus": "Answer the core question immediately, define the narrow search intent, and distinguish this topic from /blog/malformed-skill-md-frontmatter-parser-tests.",
+          "evidence": [
+            "packages/skill-validator/src/index.ts",
+            "packages/skill-validator/src/cli.ts"
+          ]
+        },
+        {
+          "heading": "SKILL.md ENOENT error: current repository behavior",
+          "focus": "Trace the accepted baseline through packages/skill-validator/src/index.ts, naming the exact input and observable output without presenting a proposed change as shipped.",
+          "evidence": ["packages/skill-validator/src/index.ts"],
+          "secondaryKeyword": "SKILL.md ENOENT error"
+        },
+        {
+          "heading": "Why does validator permission denied change the contract?",
+          "focus": "Compare the two repository boundaries and explain where parsing, validation, serialization, scoring, or packaging responsibilities differ.",
+          "evidence": [
+            "packages/skill-validator/src/index.ts",
+            "packages/skill-validator/src/cli.ts"
+          ],
+          "secondaryKeyword": "validator permission denied"
+        },
+        {
+          "heading": "directory instead of file test matrix",
+          "focus": "Present the planned table for missing file, directory path, permission denied, broken symbolic link, valid readable file with one observable assertion per case.",
+          "evidence": [
+            "packages/skill-validator/src/index.ts",
+            "packages/skill-validator/src/cli.ts"
+          ],
+          "secondaryKeyword": "directory instead of file"
+        },
+        {
+          "heading": "How should broken symlink diagnostic be verified?",
+          "focus": "Develop the two repository-backed TypeScript examples, including a baseline fixture, boundary mutations, and stable assertions.",
+          "evidence": [
+            "packages/skill-validator/src/index.ts",
+            "packages/skill-validator/src/cli.ts"
+          ],
+          "secondaryKeyword": "broken symlink diagnostic"
+        },
+        {
+          "heading": "qaskills validate error codes acceptance criteria",
+          "focus": "Tests should map filesystem failures to stable diagnostics while preserving nonzero CLI exit behavior. Separate current characterization from any recommended policy or migration.",
+          "evidence": [
+            "packages/skill-validator/src/index.ts",
+            "packages/skill-validator/src/cli.ts"
+          ],
+          "secondaryKeyword": "qaskills validate error codes"
+        },
+        {
+          "heading": "How do you test SKILL.md file error diagnostics step by step?",
+          "focus": "Follow the numbered procedure from source inspection through fixtures, execution, assertions, and CI regression coverage.",
+          "evidence": [
+            "packages/skill-validator/src/index.ts",
+            "packages/skill-validator/src/cli.ts"
+          ]
+        },
+        {
+          "heading": "SKILL.md file error diagnostics rollout and regression checks",
+          "focus": "Define review ownership, backward-compatibility checks, failure diagnostics, and the smallest post-change suite needed before publication.",
+          "evidence": [
+            "packages/skill-validator/src/index.ts",
+            "packages/skill-validator/src/cli.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "focus": "Answer each question in 40 to 60 words using only repository evidence and the approved sources.",
+          "questions": [
+            "What should SKILL.md ENOENT error tests assert?",
+            "How does validator permission denied affect the SKILL.md contract?",
+            "Which fixture best exposes directory instead of file?",
+            "When should teams check broken symlink diagnostic?",
+            "What is the pass criterion for qaskills validate error codes?"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "focus": "Summarize the chosen contract, name the next test to add, and end with the verified QASkills CTA."
+        }
+      ],
+      "tablePlan": {
+        "heading": "SKILL.md file error diagnostics fixture matrix",
+        "purpose": "Compare baseline, boundary, variant, and failure behavior without implying that a recommended change is already deployed.",
+        "columns": ["Case", "Input or boundary", "Layer under test", "Expected assertion"],
+        "rows": [
+          {
+            "case": 1,
+            "inputOrBoundary": "missing file",
+            "layerUnderTest": "packages/skill-validator/src/index.ts",
+            "expectedAssertion": "Preserve the accepted baseline behavior and record the exact result."
+          },
+          {
+            "case": 2,
+            "inputOrBoundary": "directory path",
+            "layerUnderTest": "packages/skill-validator/src/cli.ts",
+            "expectedAssertion": "Return a deterministic result at the first boundary or variant."
+          },
+          {
+            "case": 3,
+            "inputOrBoundary": "permission denied",
+            "layerUnderTest": "packages/skill-validator/src/index.ts",
+            "expectedAssertion": "Apply the selected policy consistently across every relevant layer."
+          },
+          {
+            "case": 4,
+            "inputOrBoundary": "broken symbolic link",
+            "layerUnderTest": "packages/skill-validator/src/cli.ts",
+            "expectedAssertion": "Return a stable diagnostic or documented result without partial state."
+          },
+          {
+            "case": 5,
+            "inputOrBoundary": "valid readable file",
+            "layerUnderTest": "packages/skill-validator/src/index.ts",
+            "expectedAssertion": "Remain consistent when the case is repeated in CI."
+          }
+        ],
+        "sourcePaths": [
+          "packages/skill-validator/src/index.ts",
+          "packages/skill-validator/src/cli.ts"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Test SKILL.md file error diagnostics in six steps",
+        "steps": [
+          "Read packages/skill-validator/src/index.ts and packages/skill-validator/src/cli.ts, then record the current input and output contract.",
+          "Create one smallest-valid SKILL.md fixture as the baseline for SKILL.md file error diagnostics.",
+          "Add isolated fixtures for missing file, directory path, permission denied, broken symbolic link, valid readable file.",
+          "Run each fixture through the relevant parser, schema, validator, scorer, CLI, or artifact boundary.",
+          "Assert the selected contract: Tests should map filesystem failures to stable diagnostics while preserving nonzero CLI exit behavior.",
+          "Add the matrix to CI and require stable diagnostics for every rejected or warning-only case."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Characterization test for SKILL.md file error diagnostics",
+          "language": "typescript",
+          "sourcePath": "packages/skill-validator/src/index.ts",
+          "plan": "Show the relevant production branch from packages/skill-validator/src/index.ts, then build a Vitest table covering missing file, directory path, permission denied."
+        },
+        {
+          "title": "Cross-layer contract test for SKILL.md file error diagnostics",
+          "language": "typescript",
+          "sourcePath": "packages/skill-validator/src/cli.ts",
+          "plan": "Compare the observable result from packages/skill-validator/src/cli.ts with the first example and assert the documented acceptance policy."
+        }
+      ],
+      "repoEvidence": [
+        "packages/skill-validator/src/index.ts",
+        "packages/skill-validator/src/cli.ts"
+      ],
+      "evidenceNotes": [
+        "packages/skill-validator/src/index.ts:47-50 lets path resolution and file-read errors escape validateSkillFile.",
+        "packages/skill-validator/src/cli.ts:60-62 catches every failure and prints only the Error message or Unknown error."
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/how-to-publish",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/seed-skill-catalog-parser-regression-tests",
+        "/blog/skill-md-format-guide"
+      ],
+      "relatedSlugs": [
+        "validate-skill-md-in-ci-pipeline",
+        "malformed-skill-md-frontmatter-parser-tests",
+        "seed-skill-catalog-parser-regression-tests",
+        "skill-md-format-guide"
+      ],
+      "sources": ["https://nodejs.org/api/fs.html", "https://nodejs.org/api/process.html"],
+      "cta": "Open /skills, inspect a published SKILL.md, then use /how-to-publish to apply this test contract before publication.",
+      "technicalClaimBoundary": "Describe repository behavior as characterization. Do not call it an exploitable vulnerability or state that a recommended change has shipped without code evidence.",
+      "writingTargets": {
+        "codeExcludedWords": "3000-4000",
+        "h2Count": 10,
+        "questionH2Minimum": 3,
+        "faqAnswerWords": "40-60",
+        "averageSentenceWords": "15-20",
+        "fleschReadingEase": "58-72"
+      },
+      "batchPosition": 3
+    },
+    {
+      "batch": 23,
+      "domain": "skill-parser-validator",
+      "slug": "agent-skill-package-sbom-generation",
+      "primaryKeyword": "agent skill package SBOM generation",
+      "title": "agent skill package SBOM generation Guide",
+      "description": "agent skill package SBOM generation: inventory files, hashes, and source relationships. See verified code, focused fixtures, and clear acceptance criteria.",
+      "intent": "how-to",
+      "coreQuestion": "How can a skill package inventory list SKILL.md, scripts, references, assets, licenses, hashes, and source relationships before installation?",
+      "secondaryKeywords": [
+        "agent skill file inventory",
+        "SKILL.md package manifest",
+        "skill scripts SBOM",
+        "artifact component hashes",
+        "skill supply chain inventory"
+      ],
+      "outline": [
+        {
+          "heading": "What does agent skill package SBOM generation need to prove?",
+          "focus": "Answer the core question immediately, define the narrow search intent, and distinguish this topic from /blog/qaskills-cli-extract-skill-package-github.",
+          "evidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/web/src/app/api/skills/[id]/artifact/route.ts"
+          ]
+        },
+        {
+          "heading": "agent skill file inventory: current repository behavior",
+          "focus": "Trace the accepted baseline through packages/cli/src/lib/installer.ts, naming the exact input and observable output without presenting a proposed change as shipped.",
+          "evidence": ["packages/cli/src/lib/installer.ts"],
+          "secondaryKeyword": "agent skill file inventory"
+        },
+        {
+          "heading": "Why does SKILL.md package manifest change the contract?",
+          "focus": "Compare the two repository boundaries and explain where parsing, validation, serialization, scoring, or packaging responsibilities differ.",
+          "evidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/web/src/app/api/skills/[id]/artifact/route.ts"
+          ],
+          "secondaryKeyword": "SKILL.md package manifest"
+        },
+        {
+          "heading": "skill scripts SBOM test matrix",
+          "focus": "Present the planned table for SKILL.md only, package with scripts, package with references and assets, package with a license file, same file name in different directories with one observable assertion per case.",
+          "evidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/web/src/app/api/skills/[id]/artifact/route.ts"
+          ],
+          "secondaryKeyword": "skill scripts SBOM"
+        },
+        {
+          "heading": "How should artifact component hashes be verified?",
+          "focus": "Develop the two repository-backed TypeScript examples, including a baseline fixture, boundary mutations, and stable assertions.",
+          "evidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/web/src/app/api/skills/[id]/artifact/route.ts"
+          ],
+          "secondaryKeyword": "artifact component hashes"
+        },
+        {
+          "heading": "skill supply chain inventory acceptance criteria",
+          "focus": "The proposed inventory should describe packaged files and provenance without implying that attestation already ships. Separate current characterization from any recommended policy or migration.",
+          "evidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/web/src/app/api/skills/[id]/artifact/route.ts"
+          ],
+          "secondaryKeyword": "skill supply chain inventory"
+        },
+        {
+          "heading": "How do you test agent skill package SBOM generation step by step?",
+          "focus": "Follow the numbered procedure from source inspection through fixtures, execution, assertions, and CI regression coverage.",
+          "evidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/web/src/app/api/skills/[id]/artifact/route.ts"
+          ]
+        },
+        {
+          "heading": "agent skill package SBOM generation rollout and regression checks",
+          "focus": "Define review ownership, backward-compatibility checks, failure diagnostics, and the smallest post-change suite needed before publication.",
+          "evidence": [
+            "packages/cli/src/lib/installer.ts",
+            "packages/web/src/app/api/skills/[id]/artifact/route.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "focus": "Answer each question in 40 to 60 words using only repository evidence and the approved sources.",
+          "questions": [
+            "What should agent skill file inventory tests assert?",
+            "How does SKILL.md package manifest affect the SKILL.md contract?",
+            "Which fixture best exposes skill scripts SBOM?",
+            "When should teams check artifact component hashes?",
+            "What is the pass criterion for skill supply chain inventory?"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "focus": "Summarize the chosen contract, name the next test to add, and end with the verified QASkills CTA."
+        }
+      ],
+      "tablePlan": {
+        "heading": "agent skill package SBOM generation fixture matrix",
+        "purpose": "Compare baseline, boundary, variant, and failure behavior without implying that a recommended change is already deployed.",
+        "columns": ["Case", "Input or boundary", "Layer under test", "Expected assertion"],
+        "rows": [
+          {
+            "case": 1,
+            "inputOrBoundary": "SKILL.md only",
+            "layerUnderTest": "packages/cli/src/lib/installer.ts",
+            "expectedAssertion": "Preserve the accepted baseline behavior and record the exact result."
+          },
+          {
+            "case": 2,
+            "inputOrBoundary": "package with scripts",
+            "layerUnderTest": "packages/web/src/app/api/skills/[id]/artifact/route.ts",
+            "expectedAssertion": "Return a deterministic result at the first boundary or variant."
+          },
+          {
+            "case": 3,
+            "inputOrBoundary": "package with references and assets",
+            "layerUnderTest": "packages/cli/src/lib/installer.ts",
+            "expectedAssertion": "Apply the selected policy consistently across every relevant layer."
+          },
+          {
+            "case": 4,
+            "inputOrBoundary": "package with a license file",
+            "layerUnderTest": "packages/web/src/app/api/skills/[id]/artifact/route.ts",
+            "expectedAssertion": "Return a stable diagnostic or documented result without partial state."
+          },
+          {
+            "case": 5,
+            "inputOrBoundary": "same file name in different directories",
+            "layerUnderTest": "packages/cli/src/lib/installer.ts",
+            "expectedAssertion": "Remain consistent when the case is repeated in CI."
+          }
+        ],
+        "sourcePaths": [
+          "packages/cli/src/lib/installer.ts",
+          "packages/web/src/app/api/skills/[id]/artifact/route.ts"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Test agent skill package SBOM generation in six steps",
+        "steps": [
+          "Read packages/cli/src/lib/installer.ts and packages/web/src/app/api/skills/[id]/artifact/route.ts, then record the current input and output contract.",
+          "Create one smallest-valid SKILL.md fixture as the baseline for agent skill package SBOM generation.",
+          "Add isolated fixtures for SKILL.md only, package with scripts, package with references and assets, package with a license file, same file name in different directories.",
+          "Run each fixture through the relevant parser, schema, validator, scorer, CLI, or artifact boundary.",
+          "Assert the selected contract: The proposed inventory should describe packaged files and provenance without implying that attestation already ships.",
+          "Add the matrix to CI and require stable diagnostics for every rejected or warning-only case."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Characterization test for agent skill package SBOM generation",
+          "language": "typescript",
+          "sourcePath": "packages/cli/src/lib/installer.ts",
+          "plan": "Show the relevant production branch from packages/cli/src/lib/installer.ts, then build a Vitest table covering SKILL.md only, package with scripts, package with references and assets."
+        },
+        {
+          "title": "Cross-layer contract test for agent skill package SBOM generation",
+          "language": "typescript",
+          "sourcePath": "packages/web/src/app/api/skills/[id]/artifact/route.ts",
+          "plan": "Compare the observable result from packages/web/src/app/api/skills/[id]/artifact/route.ts with the first example and assert the documented acceptance policy."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/installer.ts",
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts"
+      ],
+      "evidenceNotes": [
+        "packages/cli/src/lib/installer.ts:106-164 extracts SKILL.md plus three companion directory classes without producing a manifest.",
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:56-64 currently packages only one SKILL.md file and hashes the resulting ZIP."
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/how-to-publish",
+        "/blog/qaskills-cli-extract-skill-package-github",
+        "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/how-to-publish-ai-agent-skill-directory"
+      ],
+      "relatedSlugs": [
+        "qaskills-cli-extract-skill-package-github",
+        "testing-versioned-zip-artifact-sha256-etag",
+        "agent-skill-security-review-checklist",
+        "how-to-publish-ai-agent-skill-directory"
+      ],
+      "sources": [
+        "https://spdx.github.io/spdx-spec/v3.0.1/",
+        "https://slsa.dev/spec/v1.0/provenance"
+      ],
+      "cta": "Open /skills, inspect a published package, then use /how-to-publish to apply the inventory checklist before distribution.",
+      "technicalClaimBoundary": "Describe repository behavior as characterization. Do not call it an exploitable vulnerability or state that a recommended change has shipped without code evidence.",
+      "writingTargets": {
+        "codeExcludedWords": "3000-4000",
+        "h2Count": 10,
+        "questionH2Minimum": 3,
+        "faqAnswerWords": "40-60",
+        "averageSentenceWords": "15-20",
+        "fleschReadingEase": "58-72"
+      },
+      "batchPosition": 4
+    },
+    {
+      "batch": 23,
+      "domain": "skill-parser-validator",
+      "slug": "skill-md-byte-order-mark-handling",
+      "primaryKeyword": "SKILL.md byte order mark handling",
+      "title": "SKILL.md byte order mark handling Tests",
+      "description": "SKILL.md byte order mark handling: test a UTF-8 signature before frontmatter. Use verified code, edge-case fixtures, and clear acceptance criteria.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should the SKILL.md parser and file validator behave when a UTF-8 byte order mark appears before the opening frontmatter delimiter?",
+      "secondaryKeywords": [
+        "UTF-8 BOM frontmatter",
+        "gray-matter BOM parsing",
+        "SKILL.md encoding tests",
+        "frontmatter delimiter not detected",
+        "validator BOM regression"
+      ],
+      "outline": [
+        {
+          "heading": "What does SKILL.md byte order mark handling need to prove?",
+          "focus": "Answer the core question immediately, define the narrow search intent, and distinguish this topic from /blog/malformed-skill-md-frontmatter-parser-tests.",
+          "evidence": [
+            "packages/shared/src/parsers/skill-parser.ts",
+            "packages/skill-validator/src/index.ts"
+          ]
+        },
+        {
+          "heading": "UTF-8 BOM frontmatter: current repository behavior",
+          "focus": "Trace the accepted baseline through packages/shared/src/parsers/skill-parser.ts, naming the exact input and observable output without presenting a proposed change as shipped.",
+          "evidence": ["packages/shared/src/parsers/skill-parser.ts"],
+          "secondaryKeyword": "UTF-8 BOM frontmatter"
+        },
+        {
+          "heading": "Why does gray-matter BOM parsing change the contract?",
+          "focus": "Compare the two repository boundaries and explain where parsing, validation, serialization, scoring, or packaging responsibilities differ.",
+          "evidence": [
+            "packages/shared/src/parsers/skill-parser.ts",
+            "packages/skill-validator/src/index.ts"
+          ],
+          "secondaryKeyword": "gray-matter BOM parsing"
+        },
+        {
+          "heading": "SKILL.md encoding tests test matrix",
+          "focus": "Present the planned table for no BOM, one UTF-8 BOM, BOM before the delimiter, BOM inside the body with one observable assertion per case.",
+          "evidence": [
+            "packages/shared/src/parsers/skill-parser.ts",
+            "packages/skill-validator/src/index.ts"
+          ],
+          "secondaryKeyword": "SKILL.md encoding tests"
+        },
+        {
+          "heading": "How should frontmatter delimiter not detected be verified?",
+          "focus": "Develop the two repository-backed TypeScript examples, including a baseline fixture, boundary mutations, and stable assertions.",
+          "evidence": [
+            "packages/shared/src/parsers/skill-parser.ts",
+            "packages/skill-validator/src/index.ts"
+          ],
+          "secondaryKeyword": "frontmatter delimiter not detected"
+        },
+        {
+          "heading": "validator BOM regression acceptance criteria",
+          "focus": "Characterization tests should record BOM handling at byte-read and parser boundaries before choosing normalization. Separate current characterization from any recommended policy or migration.",
+          "evidence": [
+            "packages/shared/src/parsers/skill-parser.ts",
+            "packages/skill-validator/src/index.ts"
+          ],
+          "secondaryKeyword": "validator BOM regression"
+        },
+        {
+          "heading": "How do you test SKILL.md byte order mark handling step by step?",
+          "focus": "Follow the numbered procedure from source inspection through fixtures, execution, assertions, and CI regression coverage.",
+          "evidence": [
+            "packages/shared/src/parsers/skill-parser.ts",
+            "packages/skill-validator/src/index.ts"
+          ]
+        },
+        {
+          "heading": "SKILL.md byte order mark handling rollout and regression checks",
+          "focus": "Define review ownership, backward-compatibility checks, failure diagnostics, and the smallest post-change suite needed before publication.",
+          "evidence": [
+            "packages/shared/src/parsers/skill-parser.ts",
+            "packages/skill-validator/src/index.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "focus": "Answer each question in 40 to 60 words using only repository evidence and the approved sources.",
+          "questions": [
+            "What should UTF-8 BOM frontmatter tests assert?",
+            "How does gray-matter BOM parsing affect the SKILL.md contract?",
+            "Which fixture best exposes SKILL.md encoding tests?",
+            "When should teams check frontmatter delimiter not detected?",
+            "What is the pass criterion for validator BOM regression?"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "focus": "Summarize the chosen contract, name the next test to add, and end with the verified QASkills CTA."
+        }
+      ],
+      "tablePlan": {
+        "heading": "SKILL.md byte order mark handling fixture matrix",
+        "purpose": "Compare baseline, boundary, variant, and failure behavior without implying that a recommended change is already deployed.",
+        "columns": ["Case", "Input or boundary", "Layer under test", "Expected assertion"],
+        "rows": [
+          {
+            "case": 1,
+            "inputOrBoundary": "no BOM",
+            "layerUnderTest": "packages/shared/src/parsers/skill-parser.ts",
+            "expectedAssertion": "Preserve the accepted baseline behavior and record the exact result."
+          },
+          {
+            "case": 2,
+            "inputOrBoundary": "one UTF-8 BOM",
+            "layerUnderTest": "packages/skill-validator/src/index.ts",
+            "expectedAssertion": "Return a deterministic result at the first boundary or variant."
+          },
+          {
+            "case": 3,
+            "inputOrBoundary": "BOM before the delimiter",
+            "layerUnderTest": "packages/shared/src/parsers/skill-parser.ts",
+            "expectedAssertion": "Apply the selected policy consistently across every relevant layer."
+          },
+          {
+            "case": 4,
+            "inputOrBoundary": "BOM inside the body",
+            "layerUnderTest": "packages/skill-validator/src/index.ts",
+            "expectedAssertion": "Return a stable diagnostic or documented result without partial state."
+          }
+        ],
+        "sourcePaths": [
+          "packages/shared/src/parsers/skill-parser.ts",
+          "packages/skill-validator/src/index.ts"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Test SKILL.md byte order mark handling in six steps",
+        "steps": [
+          "Read packages/shared/src/parsers/skill-parser.ts and packages/skill-validator/src/index.ts, then record the current input and output contract.",
+          "Create one smallest-valid SKILL.md fixture as the baseline for SKILL.md byte order mark handling.",
+          "Add isolated fixtures for no BOM, one UTF-8 BOM, BOM before the delimiter, BOM inside the body.",
+          "Run each fixture through the relevant parser, schema, validator, scorer, CLI, or artifact boundary.",
+          "Assert the selected contract: Characterization tests should record BOM handling at byte-read and parser boundaries before choosing normalization.",
+          "Add the matrix to CI and require stable diagnostics for every rejected or warning-only case."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Characterization test for SKILL.md byte order mark handling",
+          "language": "typescript",
+          "sourcePath": "packages/shared/src/parsers/skill-parser.ts",
+          "plan": "Show the relevant production branch from packages/shared/src/parsers/skill-parser.ts, then build a Vitest table covering no BOM, one UTF-8 BOM, BOM before the delimiter."
+        },
+        {
+          "title": "Cross-layer contract test for SKILL.md byte order mark handling",
+          "language": "typescript",
+          "sourcePath": "packages/skill-validator/src/index.ts",
+          "plan": "Compare the observable result from packages/skill-validator/src/index.ts with the first example and assert the documented acceptance policy."
+        }
+      ],
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts",
+        "packages/skill-validator/src/index.ts"
+      ],
+      "evidenceNotes": [
+        "packages/shared/src/parsers/skill-parser.ts:4-5 passes the complete input directly to gray-matter.",
+        "packages/skill-validator/src/index.ts:47-50 reads the file as utf-8 before parsing it."
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/how-to-publish",
+        "/blog/skill-md-format-guide",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/validate-skill-md-in-ci-pipeline"
+      ],
+      "relatedSlugs": [
+        "skill-md-format-guide",
+        "testing-skill-md-yaml-frontmatter-roundtrip",
+        "malformed-skill-md-frontmatter-parser-tests",
+        "validate-skill-md-in-ci-pipeline"
+      ],
+      "sources": ["https://github.com/jonschlinkert/gray-matter", "https://nodejs.org/api/fs.html"],
+      "cta": "Open /skills, inspect a published SKILL.md, then use /how-to-publish to apply this test contract before publication.",
+      "technicalClaimBoundary": "Describe repository behavior as characterization. Do not call it an exploitable vulnerability or state that a recommended change has shipped without code evidence.",
+      "writingTargets": {
+        "codeExcludedWords": "3000-4000",
+        "h2Count": 10,
+        "questionH2Minimum": 3,
+        "faqAnswerWords": "40-60",
+        "averageSentenceWords": "15-20",
+        "fleschReadingEase": "58-72"
+      },
+      "batchPosition": 5
+    }
+  ]
+}

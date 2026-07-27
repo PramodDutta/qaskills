@@ -1,0 +1,67 @@
+import { createArticleFactory1000Post } from './article-factory-1000-builder';
+
+export const post = createArticleFactory1000Post({
+  articleNumber: 415,
+  slug: 'duplicate-review-submission-copy-tests',
+  campaignCluster: 'web-platform',
+  title: 'Duplicate Review Submission Copy Tests',
+  description:
+    'duplicate review submission copy tests: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.',
+  primaryKeyword: 'duplicate review submission copy tests',
+  intent: 'how-to',
+  coreQuestion:
+    'How should QA teams verify duplicate review submission copy in the QASkills Next.js application across success, fallback, and boundary states?',
+  intentBoundary:
+    'Owns duplicate review submission copy as implemented by the cited QASkills files. It excludes broad review component state and the response fields it consumes guides and adjacent flows with different inputs, state transitions, or outputs.',
+  secondaryKeywords: [
+    'how to test duplicate review submission copy',
+    'duplicate review submission copy edge cases',
+    'duplicate review submission copy integration coverage',
+    'duplicate review submission copy Playwright assertions',
+    'duplicate review submission copy fallback behavior',
+    'duplicate review submission copy regression checklist',
+  ],
+  repoEvidence: [
+    'packages/web/src/components/skills/review-section.tsx',
+    'packages/web/src/app/api/reviews/route.ts#evidence-2',
+    'packages/web/src/app/api/reviews/route.ts#evidence-3',
+  ],
+  internalRoutes: [
+    '/skills',
+    '/blog',
+    '/leaderboard',
+    '/getting-started',
+    '/faq',
+    '/blog/react-nextjs-testing-complete-guide',
+    '/blog/api-testing-complete-guide',
+    '/blog/database-testing-automation-guide',
+    '/blog/authentication-authorization-testing-guide',
+  ],
+  relatedSlugs: [
+    'react-nextjs-testing-complete-guide',
+    'api-testing-complete-guide',
+    'database-testing-automation-guide',
+    'authentication-authorization-testing-guide',
+  ],
+  sources: [
+    'https://nextjs.org/docs/app/getting-started/route-handlers',
+    'https://testing-library.com/docs/react-testing-library/intro/',
+    'https://playwright.dev/docs/test-assertions',
+  ],
+  codeExamples: [
+    {
+      title: 'Build the duplicate review submission copy tests baseline',
+      language: 'typescript',
+      path: 'packages/web/src/components/skills/review-section.tsx',
+      snippet:
+        "export function ReviewSection({ skillId }: { skillId: string }) {\n  const [reviews, setReviews] = useState<Review[]>([]);\n  const [averageRating, setAverageRating] = useState(0);\n  const [totalReviews, setTotalReviews] = useState(0);\n  const [loading, setLoading] = useState(true);\n  const [error, setError] = useState('');\n\n  // Review form state\n  const [showForm, setShowForm] = useState(false);\n  const [formRating, setFormRating] = useState(0);\n  const [formComment, setFormComment] = useState('');\n  const [submitting, setSubmitting] = useState(false);\n  const [submitError, setSubmitError] = useState('');\n  const [submitSuccess, setSubmitSuccess] = useState(false);\n\n  // Auth state - we detect auth by attempting to check if Clerk is available\n  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);",
+    },
+    {
+      title: 'Add negative cases and CI evidence',
+      language: 'typescript',
+      path: 'packages/web/src/app/api/reviews/route.ts',
+      snippet:
+        '// Fetch reviews joined with users for reviewer info\n    const reviewRows = await db\n      .select({\n        id: reviews.id,\n        rating: reviews.rating,\n        comment: reviews.comment,\n        helpfulCount: reviews.helpfulCount,\n        createdAt: reviews.createdAt,\n        updatedAt: reviews.updatedAt,\n        userName: users.name,\n        userAvatar: users.avatar,\n        userUsername: users.username,\n      })\n      .from(reviews)\n      .innerJoin(users, eq(reviews.userId, users.id))\n      .where(eq(reviews.skillId, skillId))\n      .orderBy(desc(reviews.createdAt));',
+    },
+  ],
+});

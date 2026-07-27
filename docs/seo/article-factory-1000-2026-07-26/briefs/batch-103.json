@@ -1,0 +1,1163 @@
+{
+  "batch": 103,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-037",
+      "batch": 103,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "k6-scenario-executor-fairness-testing",
+      "primaryKeyword": "k6 scenario executor fairness testing",
+      "title": "K6 Scenario Executor Fairness Testing",
+      "description": "k6 scenario executor fairness testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify concurrent k6 scenarios receive intended VU and iteration capacity?",
+      "intentBoundary": "Owns resource fairness between scenarios, not single-scenario executor selection.",
+      "secondaryKeywords": [
+        "shared VU starvation",
+        "parallel scenario capacity",
+        "executor allocation drift",
+        "k6 scenario executor fairness testing checklist",
+        "k6 scenario executor fairness testing CI strategy",
+        "k6 scenario executor fairness testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does k6 scenario executor fairness testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify concurrent k6 scenarios receive intended VU and iteration capacity?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build shared VU starvation?",
+          "question": true,
+          "secondaryKeyword": "shared VU starvation",
+          "coverage": "Create an isolated fixture for shared VU starvation. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks parallel scenario capacity?",
+          "question": true,
+          "secondaryKeyword": "parallel scenario capacity",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for parallel scenario capacity. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts",
+            "seed-skills/k6-performance/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Executor allocation drift fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "executor allocation drift",
+          "coverage": "Turn executor allocation drift into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should k6 scenario executor fairness testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "k6 scenario executor fairness testing checklist",
+          "coverage": "Build the oracle for k6 scenario executor fairness testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          ]
+        },
+        {
+          "heading": "K6 scenario executor fairness testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "k6 scenario executor fairness testing CI strategy",
+          "coverage": "Package k6 scenario executor fairness testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts",
+            "seed-skills/k6-performance/SKILL.md"
+          ]
+        },
+        {
+          "heading": "K6 Scenario Executor Fairness Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement k6 scenario executor fairness testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "K6 Scenario Executor Fairness Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/k6-performance/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by k6 scenario executor fairness testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/k6-performance/SKILL.md"
+          },
+          {
+            "scenario": "shared VU starvation",
+            "controlledSetup": "Change only the condition represented by \"shared VU starvation\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by k6 scenario executor fairness testing.",
+            "failureSignal": "The observed result differs from the approved shared VU starvation contract.",
+            "evidenceSource": "seed-skills/performance-test-scenario-generator/SKILL.md"
+          },
+          {
+            "scenario": "parallel scenario capacity",
+            "controlledSetup": "Change only the condition represented by \"parallel scenario capacity\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by k6 scenario executor fairness testing.",
+            "failureSignal": "The observed result differs from the approved parallel scenario capacity contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by k6 scenario executor fairness testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/k6-performance/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by k6 scenario executor fairness testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/performance-test-scenario-generator/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/k6-performance/SKILL.md",
+          "seed-skills/performance-test-scenario-generator/SKILL.md",
+          "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts",
+          "https://grafana.com/docs/k6/latest/using-k6/scenarios/",
+          "https://grafana.com/docs/k6/latest/using-k6/metrics/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run k6 scenario executor fairness testing",
+        "steps": [
+          "Read seed-skills/k6-performance/SKILL.md and seed-skills/performance-test-scenario-generator/SKILL.md and packages/web/src/app/blog/posts/load-testing-beginners-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for k6 scenario executor fairness testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for shared VU starvation, parallel scenario capacity, executor allocation drift, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the k6 scenario executor fairness testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/k6-performance/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated k6 scenario executor fairness testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/performance-test-scenario-generator/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/k6-performance/SKILL.md",
+        "seed-skills/performance-test-scenario-generator/SKILL.md",
+        "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/performance-testing",
+        "/blog/load-testing-beginners-guide",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "load-testing-beginners-guide",
+        "chaos-engineering-resilience-testing",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://grafana.com/docs/k6/latest/using-k6/scenarios/",
+        "https://grafana.com/docs/k6/latest/using-k6/metrics/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify concurrent k6 scenarios receive intended VU and iteration capacity?",
+        "What should a shared VU starvation fixture record?",
+        "Which failure proves parallel scenario capacity is broken?",
+        "How do teams isolate executor allocation drift?",
+        "Which assertion is strongest for k6 scenario executor fairness testing checklist?",
+        "How should CI report k6 scenario executor fairness testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/load-testing-beginners-guide, then open /skills and add the k6 scenario executor fairness testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-049",
+      "batch": 103,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "load-test-warmup-exclusion-analysis",
+      "primaryKeyword": "load test warmup exclusion analysis",
+      "title": "Load Test Warmup Exclusion Analysis",
+      "description": "load test warmup exclusion analysis: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams define and verify warmup windows without hiding early capacity problems?",
+      "intentBoundary": "Owns measurement-window exclusion, not REST Assured request warmup or cold-start budgets.",
+      "secondaryKeywords": [
+        "warmup percentile exclusion",
+        "steady state measurement window",
+        "cold cache baseline",
+        "load test warmup exclusion analysis checklist",
+        "load test warmup exclusion analysis CI strategy",
+        "load test warmup exclusion analysis failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does load test warmup exclusion analysis verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams define and verify warmup windows without hiding early capacity problems?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "seed-skills/database-performance-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build warmup percentile exclusion?",
+          "question": true,
+          "secondaryKeyword": "warmup percentile exclusion",
+          "coverage": "Create an isolated fixture for warmup percentile exclusion. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/database-performance-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks steady state measurement window?",
+          "question": true,
+          "secondaryKeyword": "steady state measurement window",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for steady state measurement window. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Cold cache baseline fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "cold cache baseline",
+          "coverage": "Turn cold cache baseline into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "seed-skills/database-performance-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should load test warmup exclusion analysis checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "load test warmup exclusion analysis checklist",
+          "coverage": "Build the oracle for load test warmup exclusion analysis checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/database-performance-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          ]
+        },
+        {
+          "heading": "Load test warmup exclusion analysis CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "load test warmup exclusion analysis CI strategy",
+          "coverage": "Package load test warmup exclusion analysis CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Load Test Warmup Exclusion Analysis comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "seed-skills/database-performance-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement load test warmup exclusion analysis?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "seed-skills/database-performance-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/database-performance-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/performance-budget-testing/SKILL.md",
+            "seed-skills/database-performance-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Load Test Warmup Exclusion Analysis scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/performance-budget-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by load test warmup exclusion analysis.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          },
+          {
+            "scenario": "warmup percentile exclusion",
+            "controlledSetup": "Change only the condition represented by \"warmup percentile exclusion\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by load test warmup exclusion analysis.",
+            "failureSignal": "The observed result differs from the approved warmup percentile exclusion contract.",
+            "evidenceSource": "seed-skills/database-performance-testing/SKILL.md"
+          },
+          {
+            "scenario": "steady state measurement window",
+            "controlledSetup": "Change only the condition represented by \"steady state measurement window\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by load test warmup exclusion analysis.",
+            "failureSignal": "The observed result differs from the approved steady state measurement window contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by load test warmup exclusion analysis.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by load test warmup exclusion analysis.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/database-performance-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/performance-budget-testing/SKILL.md",
+          "seed-skills/database-performance-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts",
+          "https://grafana.com/docs/k6/latest/testing-guides/test-types/",
+          "https://opentelemetry.io/docs/specs/otel/metrics/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run load test warmup exclusion analysis",
+        "steps": [
+          "Read seed-skills/performance-budget-testing/SKILL.md and seed-skills/database-performance-testing/SKILL.md and packages/web/src/app/blog/posts/load-testing-beginners-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for load test warmup exclusion analysis with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for warmup percentile exclusion, steady state measurement window, cold cache baseline, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the load test warmup exclusion analysis baseline",
+          "language": "typescript",
+          "path": "seed-skills/performance-budget-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated load test warmup exclusion analysis fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/database-performance-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/performance-budget-testing/SKILL.md",
+        "seed-skills/database-performance-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/performance-testing",
+        "/blog/load-testing-beginners-guide",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "load-testing-beginners-guide",
+        "chaos-engineering-resilience-testing",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://grafana.com/docs/k6/latest/testing-guides/test-types/",
+        "https://opentelemetry.io/docs/specs/otel/metrics/"
+      ],
+      "faqQuestions": [
+        "How can QA teams define and verify warmup windows without hiding early capacity problems?",
+        "What should a warmup percentile exclusion fixture record?",
+        "Which failure proves steady state measurement window is broken?",
+        "How do teams isolate cold cache baseline?",
+        "Which assertion is strongest for load test warmup exclusion analysis checklist?",
+        "How should CI report load test warmup exclusion analysis CI strategy failures?"
+      ],
+      "cta": "Read /blog/load-testing-beginners-guide, then open /skills and add the load test warmup exclusion analysis checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-145",
+      "batch": 103,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "opentelemetry-log-trace-correlation-testing",
+      "primaryKeyword": "OpenTelemetry log trace correlation testing",
+      "title": "Opentelemetry Log Trace Correlation Testing",
+      "description": "OpenTelemetry log trace correlation testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify logs carry valid trace and span identifiers across async execution?",
+      "intentBoundary": "Owns log-record correlation fields, not full trace-context propagation.",
+      "secondaryKeywords": [
+        "trace_id log field",
+        "async logger context",
+        "orphan log detection",
+        "OpenTelemetry log trace correlation testing checklist",
+        "OpenTelemetry log trace correlation testing CI strategy",
+        "OpenTelemetry log trace correlation testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does OpenTelemetry log trace correlation testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify logs carry valid trace and span identifiers across async execution?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build trace_id log field?",
+          "question": true,
+          "secondaryKeyword": "trace_id log field",
+          "coverage": "Create an isolated fixture for trace_id log field. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/distributed-tracing-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks async logger context?",
+          "question": true,
+          "secondaryKeyword": "async logger context",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for async logger context. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts",
+            "seed-skills/opentelemetry-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Orphan log detection fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "orphan log detection",
+          "coverage": "Turn orphan log detection into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should OpenTelemetry log trace correlation testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "OpenTelemetry log trace correlation testing checklist",
+          "coverage": "Build the oracle for OpenTelemetry log trace correlation testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/distributed-tracing-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "OpenTelemetry log trace correlation testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "OpenTelemetry log trace correlation testing CI strategy",
+          "coverage": "Package OpenTelemetry log trace correlation testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts",
+            "seed-skills/opentelemetry-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Opentelemetry Log Trace Correlation Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement OpenTelemetry log trace correlation testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/distributed-tracing-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/opentelemetry-testing/SKILL.md",
+            "seed-skills/distributed-tracing-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Opentelemetry Log Trace Correlation Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/opentelemetry-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry log trace correlation testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/opentelemetry-testing/SKILL.md"
+          },
+          {
+            "scenario": "trace_id log field",
+            "controlledSetup": "Change only the condition represented by \"trace_id log field\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry log trace correlation testing.",
+            "failureSignal": "The observed result differs from the approved trace_id log field contract.",
+            "evidenceSource": "seed-skills/distributed-tracing-testing/SKILL.md"
+          },
+          {
+            "scenario": "async logger context",
+            "controlledSetup": "Change only the condition represented by \"async logger context\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry log trace correlation testing.",
+            "failureSignal": "The observed result differs from the approved async logger context contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry log trace correlation testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/opentelemetry-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by OpenTelemetry log trace correlation testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/distributed-tracing-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/opentelemetry-testing/SKILL.md",
+          "seed-skills/distributed-tracing-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts",
+          "https://opentelemetry.io/docs/specs/otel/metrics/",
+          "https://opentelemetry.io/docs/specs/otel/logs/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run OpenTelemetry log trace correlation testing",
+        "steps": [
+          "Read seed-skills/opentelemetry-testing/SKILL.md and seed-skills/distributed-tracing-testing/SKILL.md and packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for OpenTelemetry log trace correlation testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for trace_id log field, async logger context, orphan log detection, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the OpenTelemetry log trace correlation testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/opentelemetry-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated OpenTelemetry log trace correlation testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/distributed-tracing-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/opentelemetry-testing/SKILL.md",
+        "seed-skills/distributed-tracing-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/trace-based-testing-opentelemetry-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/observability-driven-testing-guide",
+        "/blog/trace-based-testing-opentelemetry-2026",
+        "/blog/shift-right-testing-observability-guide-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "observability-driven-testing-guide",
+        "trace-based-testing-opentelemetry-2026",
+        "shift-right-testing-observability-guide-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://opentelemetry.io/docs/specs/otel/metrics/",
+        "https://opentelemetry.io/docs/specs/otel/logs/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify logs carry valid trace and span identifiers across async execution?",
+        "What should a trace_id log field fixture record?",
+        "Which failure proves async logger context is broken?",
+        "How do teams isolate orphan log detection?",
+        "Which assertion is strongest for OpenTelemetry log trace correlation testing checklist?",
+        "How should CI report OpenTelemetry log trace correlation testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/observability-driven-testing-guide, then open /skills and add the OpenTelemetry log trace correlation testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-097",
+      "batch": 103,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "pdf-reading-order-regression-testing",
+      "primaryKeyword": "PDF reading order regression testing",
+      "title": "Pdf Reading Order Regression Testing",
+      "description": "PDF reading order regression testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify generated PDF content reads in a stable logical sequence?",
+      "intentBoundary": "Owns PDF tag-tree order, not browser DOM order or page visual layout.",
+      "secondaryKeywords": [
+        "PDF tag reading sequence",
+        "multi-column reading order",
+        "artifact tag exclusion",
+        "PDF reading order regression testing checklist",
+        "PDF reading order regression testing CI strategy",
+        "PDF reading order regression testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does PDF reading order regression testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify generated PDF content reads in a stable logical sequence?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build PDF tag reading sequence?",
+          "question": true,
+          "secondaryKeyword": "PDF tag reading sequence",
+          "coverage": "Create an isolated fixture for PDF tag reading sequence. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/pdf-generation-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks multi-column reading order?",
+          "question": true,
+          "secondaryKeyword": "multi-column reading order",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for multi-column reading order. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts",
+            "seed-skills/accessibility-manual-audit/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Artifact tag exclusion fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "artifact tag exclusion",
+          "coverage": "Turn artifact tag exclusion into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should PDF reading order regression testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "PDF reading order regression testing checklist",
+          "coverage": "Build the oracle for PDF reading order regression testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/pdf-generation-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "PDF reading order regression testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "PDF reading order regression testing CI strategy",
+          "coverage": "Package PDF reading order regression testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts",
+            "seed-skills/accessibility-manual-audit/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Pdf Reading Order Regression Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement PDF reading order regression testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/pdf-generation-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/pdf-generation-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Pdf Reading Order Regression Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/accessibility-manual-audit/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF reading order regression testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/accessibility-manual-audit/SKILL.md"
+          },
+          {
+            "scenario": "PDF tag reading sequence",
+            "controlledSetup": "Change only the condition represented by \"PDF tag reading sequence\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF reading order regression testing.",
+            "failureSignal": "The observed result differs from the approved PDF tag reading sequence contract.",
+            "evidenceSource": "seed-skills/pdf-generation-testing/SKILL.md"
+          },
+          {
+            "scenario": "multi-column reading order",
+            "controlledSetup": "Change only the condition represented by \"multi-column reading order\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF reading order regression testing.",
+            "failureSignal": "The observed result differs from the approved multi-column reading order contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF reading order regression testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/accessibility-manual-audit/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by PDF reading order regression testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/pdf-generation-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/accessibility-manual-audit/SKILL.md",
+          "seed-skills/pdf-generation-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts",
+          "https://www.w3.org/WAI/WCAG22/Techniques/",
+          "https://www.w3.org/TR/WCAG22/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run PDF reading order regression testing",
+        "steps": [
+          "Read seed-skills/accessibility-manual-audit/SKILL.md and seed-skills/pdf-generation-testing/SKILL.md and packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for PDF reading order regression testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for PDF tag reading sequence, multi-column reading order, artifact tag exclusion, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the PDF reading order regression testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/accessibility-manual-audit/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated PDF reading order regression testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/pdf-generation-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/accessibility-manual-audit/SKILL.md",
+        "seed-skills/pdf-generation-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/accessibility-testing",
+        "/blog/mobile-accessibility-testing-guide",
+        "/blog/accessibility-testing-automation-guide",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-accessibility-testing-guide",
+        "accessibility-testing-automation-guide",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://www.w3.org/WAI/WCAG22/Techniques/",
+        "https://www.w3.org/TR/WCAG22/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify generated PDF content reads in a stable logical sequence?",
+        "What should a PDF tag reading sequence fixture record?",
+        "Which failure proves multi-column reading order is broken?",
+        "How do teams isolate artifact tag exclusion?",
+        "Which assertion is strongest for PDF reading order regression testing checklist?",
+        "How should CI report PDF reading order regression testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-accessibility-testing-guide, then open /skills and add the PDF reading order regression testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-060",
+      "batch": 103,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "jwt-algorithm-confusion-rejection-testing",
+      "primaryKeyword": "JWT algorithm confusion rejection testing",
+      "title": "Jwt Algorithm Confusion Rejection Testing",
+      "description": "JWT algorithm confusion rejection testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams prove verifiers reject alg substitution, none, and key-type confusion attacks?",
+      "intentBoundary": "Owns JWT algorithm selection, not claim authorization or key rotation.",
+      "secondaryKeywords": [
+        "JWT alg none rejection",
+        "HS RS confusion",
+        "allowed algorithms list",
+        "JWT algorithm confusion rejection testing checklist",
+        "JWT algorithm confusion rejection testing CI strategy",
+        "JWT algorithm confusion rejection testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does JWT algorithm confusion rejection testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams prove verifiers reject alg substitution, none, and key-type confusion attacks?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/jwt-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build JWT alg none rejection?",
+          "question": true,
+          "secondaryKeyword": "JWT alg none rejection",
+          "coverage": "Create an isolated fixture for JWT alg none rejection. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks HS RS confusion?",
+          "question": true,
+          "secondaryKeyword": "HS RS confusion",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for HS RS confusion. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/jwt-security-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Allowed algorithms list fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "allowed algorithms list",
+          "coverage": "Turn allowed algorithms list into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/jwt-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should JWT algorithm confusion rejection testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "JWT algorithm confusion rejection testing checklist",
+          "coverage": "Build the oracle for JWT algorithm confusion rejection testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "JWT algorithm confusion rejection testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "JWT algorithm confusion rejection testing CI strategy",
+          "coverage": "Package JWT algorithm confusion rejection testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/jwt-security-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Jwt Algorithm Confusion Rejection Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/jwt-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement JWT algorithm confusion rejection testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/jwt-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/jwt-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Jwt Algorithm Confusion Rejection Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/jwt-security-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JWT algorithm confusion rejection testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/jwt-security-testing/SKILL.md"
+          },
+          {
+            "scenario": "JWT alg none rejection",
+            "controlledSetup": "Change only the condition represented by \"JWT alg none rejection\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JWT algorithm confusion rejection testing.",
+            "failureSignal": "The observed result differs from the approved JWT alg none rejection contract.",
+            "evidenceSource": "seed-skills/authorization-testing/SKILL.md"
+          },
+          {
+            "scenario": "HS RS confusion",
+            "controlledSetup": "Change only the condition represented by \"HS RS confusion\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JWT algorithm confusion rejection testing.",
+            "failureSignal": "The observed result differs from the approved HS RS confusion contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JWT algorithm confusion rejection testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/jwt-security-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JWT algorithm confusion rejection testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/authorization-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/jwt-security-testing/SKILL.md",
+          "seed-skills/authorization-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+          "https://www.rfc-editor.org/rfc/rfc7519.html",
+          "https://www.rfc-editor.org/rfc/rfc8725.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run JWT algorithm confusion rejection testing",
+        "steps": [
+          "Read seed-skills/jwt-security-testing/SKILL.md and seed-skills/authorization-testing/SKILL.md and packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for JWT algorithm confusion rejection testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for JWT alg none rejection, HS RS confusion, allowed algorithms list, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the JWT algorithm confusion rejection testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/jwt-security-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated JWT algorithm confusion rejection testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/authorization-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/jwt-security-testing/SKILL.md",
+        "seed-skills/authorization-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/dast-vs-sast-vs-sca-qa-guide-2026",
+        "/blog/security-testing-ai-generated-code",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "api-security-testing-checklist-2026",
+        "dast-vs-sast-vs-sca-qa-guide-2026",
+        "security-testing-ai-generated-code",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc7519.html",
+        "https://www.rfc-editor.org/rfc/rfc8725.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams prove verifiers reject alg substitution, none, and key-type confusion attacks?",
+        "What should a JWT alg none rejection fixture record?",
+        "Which failure proves HS RS confusion is broken?",
+        "How do teams isolate allowed algorithms list?",
+        "Which assertion is strongest for JWT algorithm confusion rejection testing checklist?",
+        "How should CI report JWT algorithm confusion rejection testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-security-testing-checklist-2026, then open /skills and add the JWT algorithm confusion rejection testing checks to the next QA run."
+    }
+  ]
+}

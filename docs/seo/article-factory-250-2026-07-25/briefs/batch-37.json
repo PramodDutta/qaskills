@@ -1,0 +1,977 @@
+{
+  "batch": 37,
+  "briefs": [
+    {
+      "id": "PW-053",
+      "batch": 37,
+      "domain": "playwright-browser",
+      "slug": "playwright-only-changed-tests",
+      "primaryKeyword": "playwright only changed tests",
+      "title": "Playwright Only Changed Tests",
+      "description": "playwright only changed tests: run changed Playwright tests with a verified fallback. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you run only Playwright tests affected by changes since a Git reference and verify the selection is not incomplete?",
+      "secondaryKeywords": [
+        "playwright only changed flag",
+        "playwright changed tests git ref",
+        "affected e2e tests pull request",
+        "test impact analysis playwright",
+        "verify changed test selection",
+        "fallback full browser suite"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright Only Changed Tests Control?",
+          "question": true,
+          "coverage": "Answer How do you run only Playwright tests affected by changes since a Git reference and verify the selection is not incomplete? Define the boundary: only-changed selects tests affected since a Git reference and depends on repository history plus dependency analysis. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/pr-test-impact-analyzer/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright Only Changed Flag Work?",
+          "question": true,
+          "secondaryKeyword": "playwright only changed flag",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind run --list with --only-changed against the PR base, execute the selection, then invoke a policy-based full-suite fallback. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/pr-test-impact-analyzer/SKILL.md"]
+        },
+        {
+          "heading": "Playwright Changed Tests Git Ref: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "playwright changed tests git ref",
+          "coverage": "Walk through the relevant repository example in seed-skills/pr-test-impact-analyzer/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/pr-test-impact-analyzer/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Affected E2e Tests Pull Request?",
+          "question": true,
+          "secondaryKeyword": "affected e2e tests pull request",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["packages/web/package.json"]
+        },
+        {
+          "heading": "Test Impact Analysis Playwright: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "test impact analysis playwright",
+          "coverage": "Reproduce and diagnose this primary risk: a shallow checkout, incorrect Git ref, dynamic dependency, or missing mapping excludes a required browser test. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["packages/web/package.json"]
+        },
+        {
+          "heading": "Verify Changed Test Selection: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "verify changed test selection",
+          "coverage": "Specify the assertion and CI record: compare selected tests with changed files, known dependency edges, and representative high-risk controls. Require Git ref, changed files, selected tests, exclusions, fallback decision, and full-suite result so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/pr-test-impact-analyzer/SKILL.md",
+            "packages/web/package.json"
+          ]
+        },
+        {
+          "heading": "Fallback Full Browser Suite Comparison Table",
+          "question": false,
+          "secondaryKeyword": "fallback full browser suite",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/pr-test-impact-analyzer/SKILL.md",
+            "packages/web/package.json"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright Only Changed Tests?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/pr-test-impact-analyzer/SKILL.md",
+            "packages/web/package.json"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/pr-test-impact-analyzer/SKILL.md",
+            "packages/web/package.json"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/pr-test-impact-analyzer/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright Only Changed Tests Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "--only-changed",
+            "useWhen": "Run the Playwright selection affected by a verified Git comparison point",
+            "expectedEvidence": "Git ref, changed files, selected tests, exclusions, fallback decision, and full-suite result",
+            "mainRisk": "a shallow checkout, incorrect Git ref, dynamic dependency, or missing mapping excludes a required browser test"
+          },
+          {
+            "option": "--list preflight",
+            "useWhen": "Review selected titles and projects without launching browsers",
+            "expectedEvidence": "Git ref, changed files, selected tests, exclusions, fallback decision, and full-suite result",
+            "mainRisk": "a shallow checkout, incorrect Git ref, dynamic dependency, or missing mapping excludes a required browser test"
+          },
+          {
+            "option": "risk-based additions",
+            "useWhen": "Include tests for dependencies the automated selector cannot infer",
+            "expectedEvidence": "Git ref, changed files, selected tests, exclusions, fallback decision, and full-suite result",
+            "mainRisk": "a shallow checkout, incorrect Git ref, dynamic dependency, or missing mapping excludes a required browser test"
+          },
+          {
+            "option": "full-suite fallback",
+            "useWhen": "Run when Git history or selection evidence is incomplete",
+            "expectedEvidence": "Git ref, changed files, selected tests, exclusions, fallback decision, and full-suite result",
+            "mainRisk": "a shallow checkout, incorrect Git ref, dynamic dependency, or missing mapping excludes a required browser test"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/test-cli",
+          "seed-skills/pr-test-impact-analyzer/SKILL.md",
+          "packages/web/package.json"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright only changed tests",
+        "steps": [
+          "Read seed-skills/pr-test-impact-analyzer/SKILL.md and define the expected contract: only-changed selects tests affected since a Git reference and depends on repository history plus dependency analysis.",
+          "Create the smallest isolated test or CLI session and implement run --list with --only-changed against the PR base, execute the selection, then invoke a policy-based full-suite fallback.",
+          "Exercise the success case, then reproduce the controlled failure where a shallow checkout, incorrect Git ref, dynamic dependency, or missing mapping excludes a required browser test.",
+          "Apply the release assertion: compare selected tests with changed files, known dependency edges, and representative high-risk controls.",
+          "Capture Git ref, changed files, selected tests, exclusions, fallback decision, and full-suite result, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright Only Changed Tests: primary implementation",
+          "language": "typescript",
+          "repoPath": "seed-skills/pr-test-impact-analyzer/SKILL.md",
+          "plannedSnippet": "npx playwright test --list --only-changed=origin/main",
+          "purpose": "Implement run --list with --only-changed against the PR base, execute the selection, then invoke a policy-based full-suite fallback using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright Only Changed Tests: failure assertion and evidence",
+          "language": "json",
+          "repoPath": "packages/web/package.json",
+          "plannedSnippet": "npx playwright test --only-changed=origin/main || npx playwright test",
+          "purpose": "Prove compare selected tests with changed files, known dependency edges, and representative high-risk controls and retain Git ref, changed files, selected tests, exclusions, fallback decision, and full-suite result."
+        }
+      ],
+      "repoEvidence": ["seed-skills/pr-test-impact-analyzer/SKILL.md", "packages/web/package.json"],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/ci-detect-tests-affected-by-changed-files",
+        "/blog/test-impact-analysis-ci-guide-2026",
+        "/blog/playwright-ci-github-actions-complete-guide-2026",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "ci-detect-tests-affected-by-changed-files",
+        "test-impact-analysis-ci-guide-2026",
+        "playwright-ci-github-actions-complete-guide-2026",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/test-cli",
+        "https://playwright.dev/docs/running-tests",
+        "https://playwright.dev/docs/ci"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright only changed flag?",
+        "How do you verify playwright changed tests git ref?",
+        "When should a QA team choose affected e2e tests pull request?",
+        "What causes failures in test impact analysis playwright?",
+        "Which evidence should verify changed test selection retain?",
+        "How should CI handle fallback full browser suite?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 1
+    },
+    {
+      "id": "PW-002",
+      "batch": 37,
+      "domain": "playwright-browser",
+      "slug": "playwright-cli-localstorage-commands",
+      "primaryKeyword": "playwright cli localstorage commands",
+      "title": "Playwright CLI localStorage Commands",
+      "description": "playwright cli localstorage commands: inspect and edit localStorage from a CLI session. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you inspect, set, delete, and clear localStorage values from a Playwright CLI browser session?",
+      "secondaryKeywords": [
+        "playwright cli localstorage list",
+        "set localstorage from terminal",
+        "playwright localstorage json value",
+        "delete localstorage key cli",
+        "clear localstorage browser session",
+        "inspect browser storage cli"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright CLI localStorage Commands Control?",
+          "question": true,
+          "coverage": "Answer How do you inspect, set, delete, and clear localStorage values from a Playwright CLI browser session? Define the boundary: Playwright CLI localstorage commands operate on the active page origin and browser session. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright CLI localStorage List Work?",
+          "question": true,
+          "secondaryKeyword": "playwright cli localstorage list",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind list or get the current value, set a scalar or serialized JSON value, verify the UI, then delete only the target key. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "Set localStorage From Terminal: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "set localstorage from terminal",
+          "coverage": "Walk through the relevant repository example in seed-skills/playwright-cli/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Playwright localStorage Json Value?",
+          "question": true,
+          "secondaryKeyword": "playwright localstorage json value",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/storage-state.md"]
+        },
+        {
+          "heading": "Delete localStorage Key CLI: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "delete localstorage key cli",
+          "coverage": "Reproduce and diagnose this primary risk: the command runs on the wrong origin, JSON is double encoded, or localstorage-clear erases unrelated state. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/storage-state.md"]
+        },
+        {
+          "heading": "Clear localStorage Browser Session: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "clear localstorage browser session",
+          "coverage": "Specify the assertion and CI record: reload the same origin, inspect the stored value, and assert the application behavior that consumes it. Require origin, key, redacted value, serialization form, reload result, and UI assertion so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/storage-state.md"
+          ]
+        },
+        {
+          "heading": "Inspect Browser Storage CLI Comparison Table",
+          "question": false,
+          "secondaryKeyword": "inspect browser storage cli",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/storage-state.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright CLI localStorage Commands?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/storage-state.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/playwright-cli/SKILL.md",
+            "seed-skills/playwright-cli/references/storage-state.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright CLI localStorage Commands Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "localstorage-list and get",
+            "useWhen": "Inspect values in the active page origin before mutation",
+            "expectedEvidence": "origin, key, redacted value, serialization form, reload result, and UI assertion",
+            "mainRisk": "the command runs on the wrong origin, JSON is double encoded, or localstorage-clear erases unrelated state"
+          },
+          {
+            "option": "localstorage-set scalar",
+            "useWhen": "Set a simple string value consumed directly by the application",
+            "expectedEvidence": "origin, key, redacted value, serialization form, reload result, and UI assertion",
+            "mainRisk": "the command runs on the wrong origin, JSON is double encoded, or localstorage-clear erases unrelated state"
+          },
+          {
+            "option": "localstorage-set JSON",
+            "useWhen": "Store correctly serialized structured state and verify parsing",
+            "expectedEvidence": "origin, key, redacted value, serialization form, reload result, and UI assertion",
+            "mainRisk": "the command runs on the wrong origin, JSON is double encoded, or localstorage-clear erases unrelated state"
+          },
+          {
+            "option": "delete versus clear",
+            "useWhen": "Remove one key by default and clear all values only for a full reset",
+            "expectedEvidence": "origin, key, redacted value, serialization form, reload result, and UI assertion",
+            "mainRisk": "the command runs on the wrong origin, JSON is double encoded, or localstorage-clear erases unrelated state"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/getting-started-cli",
+          "seed-skills/playwright-cli/SKILL.md",
+          "seed-skills/playwright-cli/references/storage-state.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright cli localstorage commands",
+        "steps": [
+          "Read seed-skills/playwright-cli/SKILL.md and define the expected contract: Playwright CLI localstorage commands operate on the active page origin and browser session.",
+          "Create the smallest isolated test or CLI session and implement list or get the current value, set a scalar or serialized JSON value, verify the UI, then delete only the target key.",
+          "Exercise the success case, then reproduce the controlled failure where the command runs on the wrong origin, JSON is double encoded, or localstorage-clear erases unrelated state.",
+          "Apply the release assertion: reload the same origin, inspect the stored value, and assert the application behavior that consumes it.",
+          "Capture origin, key, redacted value, serialization form, reload result, and UI assertion, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright CLI localStorage Commands: primary implementation",
+          "language": "bash",
+          "repoPath": "seed-skills/playwright-cli/SKILL.md",
+          "plannedSnippet": "playwright-cli localstorage-list && playwright-cli localstorage-get theme",
+          "purpose": "Implement list or get the current value, set a scalar or serialized JSON value, verify the UI, then delete only the target key using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright CLI localStorage Commands: failure assertion and evidence",
+          "language": "bash",
+          "repoPath": "seed-skills/playwright-cli/references/storage-state.md",
+          "plannedSnippet": "playwright-cli localstorage-set user_settings '{\"theme\":\"dark\",\"language\":\"en\"}'",
+          "purpose": "Prove reload the same origin, inspect the stored value, and assert the application behavior that consumes it and retain origin, key, redacted value, serialization form, reload result, and UI assertion."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/playwright-cli/SKILL.md",
+        "seed-skills/playwright-cli/references/storage-state.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-cli-complete-guide-2026",
+        "/blog/playwright-1-61-web-storage-api-guide-2026",
+        "/blog/playwright-testing-best-practices-2026",
+        "/blog/playwright-e2e-complete-guide"
+      ],
+      "relatedSlugs": [
+        "playwright-cli-complete-guide-2026",
+        "playwright-1-61-web-storage-api-guide-2026",
+        "playwright-testing-best-practices-2026",
+        "playwright-e2e-complete-guide"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/getting-started-cli",
+        "https://github.com/microsoft/playwright-cli/blob/main/skills/playwright-cli/SKILL.md",
+        "https://playwright.dev/docs/auth"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright cli localstorage list?",
+        "How do you verify set localstorage from terminal?",
+        "When should a QA team choose playwright localstorage json value?",
+        "What causes failures in delete localstorage key cli?",
+        "Which evidence should clear localstorage browser session retain?",
+        "How should CI handle inspect browser storage cli?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 2
+    },
+    {
+      "id": "PW-047",
+      "batch": 37,
+      "domain": "playwright-browser",
+      "slug": "playwright-action-navigation-timeout",
+      "primaryKeyword": "playwright action navigation timeout",
+      "title": "Playwright Action Navigation Timeout",
+      "description": "playwright action navigation timeout: resolve action and navigation timeout precedence. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do Playwright actionTimeout and navigationTimeout differ, and which setting wins when a click triggers navigation?",
+      "secondaryKeywords": [
+        "playwright actiontimeout versus navigationtimeout",
+        "click navigation timeout playwright",
+        "page goto timeout config",
+        "locator action deadline",
+        "default navigation timeout",
+        "playwright timeout precedence"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright Action Navigation Timeout Control?",
+          "question": true,
+          "coverage": "Answer How do Playwright actionTimeout and navigationTimeout differ, and which setting wins when a click triggers navigation? Define the boundary: actionTimeout bounds Playwright actions, navigationTimeout bounds navigation operations, and explicit call options can override defaults. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/playwright-advance-e2e/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright Actiontimeout Versus Navigationtimeout Work?",
+          "question": true,
+          "secondaryKeyword": "playwright actiontimeout versus navigationtimeout",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind configure distinct action and navigation values, then use explicit per-call timeouts only for documented exceptions. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/playwright-advance-e2e/SKILL.md"]
+        },
+        {
+          "heading": "Click Navigation Timeout Playwright: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "click navigation timeout playwright",
+          "coverage": "Walk through the relevant repository example in seed-skills/playwright-advance-e2e/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/playwright-advance-e2e/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Page Goto Timeout Config?",
+          "question": true,
+          "secondaryKeyword": "page goto timeout config",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/running-code.md"]
+        },
+        {
+          "heading": "Locator Action Deadline: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "locator action deadline",
+          "coverage": "Reproduce and diagnose this primary risk: a click-triggered navigation is diagnosed as one timeout class without separating actionability from navigation. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-cli/references/running-code.md"]
+        },
+        {
+          "heading": "Default Navigation Timeout: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "default navigation timeout",
+          "coverage": "Specify the assertion and CI record: exercise a stalled click target and a stalled navigation separately, recording which deadline and message wins. Require operation, configured defaults, explicit override, elapsed time, error message, and trace so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/playwright-advance-e2e/SKILL.md",
+            "seed-skills/playwright-cli/references/running-code.md"
+          ]
+        },
+        {
+          "heading": "Playwright Timeout Precedence Comparison Table",
+          "question": false,
+          "secondaryKeyword": "playwright timeout precedence",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/playwright-advance-e2e/SKILL.md",
+            "seed-skills/playwright-cli/references/running-code.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright Action Navigation Timeout?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/playwright-advance-e2e/SKILL.md",
+            "seed-skills/playwright-cli/references/running-code.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/playwright-advance-e2e/SKILL.md",
+            "seed-skills/playwright-cli/references/running-code.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/playwright-advance-e2e/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright Action Navigation Timeout Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "actionTimeout",
+            "useWhen": "Bound locator actions such as click and fill while actionability is unresolved",
+            "expectedEvidence": "operation, configured defaults, explicit override, elapsed time, error message, and trace",
+            "mainRisk": "a click-triggered navigation is diagnosed as one timeout class without separating actionability from navigation"
+          },
+          {
+            "option": "navigationTimeout",
+            "useWhen": "Bound page navigation operations and configured navigation waits",
+            "expectedEvidence": "operation, configured defaults, explicit override, elapsed time, error message, and trace",
+            "mainRisk": "a click-triggered navigation is diagnosed as one timeout class without separating actionability from navigation"
+          },
+          {
+            "option": "per-call timeout",
+            "useWhen": "Override one known operation without changing the whole project",
+            "expectedEvidence": "operation, configured defaults, explicit override, elapsed time, error message, and trace",
+            "mainRisk": "a click-triggered navigation is diagnosed as one timeout class without separating actionability from navigation"
+          },
+          {
+            "option": "test timeout",
+            "useWhen": "Provide the outer test budget that can expire before narrower operations",
+            "expectedEvidence": "operation, configured defaults, explicit override, elapsed time, error message, and trace",
+            "mainRisk": "a click-triggered navigation is diagnosed as one timeout class without separating actionability from navigation"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/test-timeouts",
+          "seed-skills/playwright-advance-e2e/SKILL.md",
+          "seed-skills/playwright-cli/references/running-code.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright action navigation timeout",
+        "steps": [
+          "Read seed-skills/playwright-advance-e2e/SKILL.md and define the expected contract: actionTimeout bounds Playwright actions, navigationTimeout bounds navigation operations, and explicit call options can override defaults.",
+          "Create the smallest isolated test or CLI session and implement configure distinct action and navigation values, then use explicit per-call timeouts only for documented exceptions.",
+          "Exercise the success case, then reproduce the controlled failure where a click-triggered navigation is diagnosed as one timeout class without separating actionability from navigation.",
+          "Apply the release assertion: exercise a stalled click target and a stalled navigation separately, recording which deadline and message wins.",
+          "Capture operation, configured defaults, explicit override, elapsed time, error message, and trace, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright Action Navigation Timeout: primary implementation",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-advance-e2e/SKILL.md",
+          "plannedSnippet": "export default defineConfig({ use: { actionTimeout: 10_000, navigationTimeout: 30_000 } });",
+          "purpose": "Implement configure distinct action and navigation values, then use explicit per-call timeouts only for documented exceptions using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright Action Navigation Timeout: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-cli/references/running-code.md",
+          "plannedSnippet": "await page.getByRole('link', { name: 'Docs' }).click({ timeout: 5_000 }); await page.waitForURL('**/docs', { timeout: 20_000 });",
+          "purpose": "Prove exercise a stalled click target and a stalled navigation separately, recording which deadline and message wins and retain operation, configured defaults, explicit override, elapsed time, error message, and trace."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/playwright-advance-e2e/SKILL.md",
+        "seed-skills/playwright-cli/references/running-code.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-test-config-options-complete-reference",
+        "/blog/playwright-test-timeout-exceeded-after-hook-fix",
+        "/blog/playwright-testing-best-practices-2026",
+        "/blog/playwright-e2e-complete-guide"
+      ],
+      "relatedSlugs": [
+        "playwright-test-config-options-complete-reference",
+        "playwright-test-timeout-exceeded-after-hook-fix",
+        "playwright-testing-best-practices-2026",
+        "playwright-e2e-complete-guide"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/test-timeouts",
+        "https://playwright.dev/docs/api/class-testoptions#test-options-action-timeout",
+        "https://playwright.dev/docs/api/class-testoptions#test-options-navigation-timeout"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright actiontimeout versus navigationtimeout?",
+        "How do you verify click navigation timeout playwright?",
+        "When should a QA team choose page goto timeout config?",
+        "What causes failures in locator action deadline?",
+        "Which evidence should default navigation timeout retain?",
+        "How should CI handle playwright timeout precedence?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 3
+    },
+    {
+      "id": "PW-028",
+      "batch": 37,
+      "domain": "playwright-browser",
+      "slug": "playwright-console-message-location",
+      "primaryKeyword": "playwright console message location",
+      "title": "Playwright Console Message Location",
+      "description": "playwright console message location: capture console source URL, line, and column in CI. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you capture a Playwright console message's URL, line, and column so CI logs identify the failing browser source?",
+      "secondaryKeywords": [
+        "playwright consolemessage location",
+        "browser console source url",
+        "console error line column",
+        "attach console logs playwright",
+        "ci browser error source",
+        "playwright console evidence"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright Console Message Location Control?",
+          "question": true,
+          "coverage": "Answer How do you capture a Playwright console message's URL, line, and column so CI logs identify the failing browser source? Define the boundary: ConsoleMessage location returns source coordinates that can tie browser output to an application asset. State what this workflow does not replace.",
+          "repoEvidence": ["seed-skills/console-error-hunter/SKILL.md"]
+        },
+        {
+          "heading": "How Does Playwright Consolemessage Location Work?",
+          "question": true,
+          "secondaryKeyword": "playwright consolemessage location",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind listen for page console events and store message type, text, and message.location() in a normalized record. Distinguish observation from assertion.",
+          "repoEvidence": ["seed-skills/console-error-hunter/SKILL.md"]
+        },
+        {
+          "heading": "Browser Console Source Url: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "browser console source url",
+          "coverage": "Walk through the relevant repository example in seed-skills/console-error-hunter/SKILL.md and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["seed-skills/console-error-hunter/SKILL.md"]
+        },
+        {
+          "heading": "When Should QA Teams Use Console Error Line Column?",
+          "question": true,
+          "secondaryKeyword": "console error line column",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "Attach Console Logs Playwright: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "attach console logs playwright",
+          "coverage": "Reproduce and diagnose this primary risk: CI logs contain only message text or assume every console entry has a useful source URL. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-cli/SKILL.md"]
+        },
+        {
+          "heading": "CI Browser Error Source: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "ci browser error source",
+          "coverage": "Specify the assertion and CI record: emit a controlled browser message from a known script location and assert normalized source metadata and attachment output. Require message type, text, source URL, line, column, page URL, and attachment path so the result remains reviewable.",
+          "repoEvidence": [
+            "seed-skills/console-error-hunter/SKILL.md",
+            "seed-skills/playwright-cli/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Playwright Console Evidence Comparison Table",
+          "question": false,
+          "secondaryKeyword": "playwright console evidence",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "seed-skills/console-error-hunter/SKILL.md",
+            "seed-skills/playwright-cli/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright Console Message Location?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "seed-skills/console-error-hunter/SKILL.md",
+            "seed-skills/playwright-cli/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "seed-skills/console-error-hunter/SKILL.md",
+            "seed-skills/playwright-cli/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["seed-skills/console-error-hunter/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright Console Message Location Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "message text only",
+            "useWhen": "Useful for quick local reading but insufficient for source ownership",
+            "expectedEvidence": "message type, text, source URL, line, column, page URL, and attachment path",
+            "mainRisk": "CI logs contain only message text or assume every console entry has a useful source URL"
+          },
+          {
+            "option": "ConsoleMessage location",
+            "useWhen": "Add URL, line, and column when the browser provides coordinates",
+            "expectedEvidence": "message type, text, source URL, line, column, page URL, and attachment path",
+            "mainRisk": "CI logs contain only message text or assume every console entry has a useful source URL"
+          },
+          {
+            "option": "trace attachment",
+            "useWhen": "Correlate the source record with surrounding actions and page state",
+            "expectedEvidence": "message type, text, source URL, line, column, page URL, and attachment path",
+            "mainRisk": "CI logs contain only message text or assume every console entry has a useful source URL"
+          },
+          {
+            "option": "source-map processing",
+            "useWhen": "Apply as a separate build-aware step when generated assets need mapping",
+            "expectedEvidence": "message type, text, source URL, line, column, page URL, and attachment path",
+            "mainRisk": "CI logs contain only message text or assume every console entry has a useful source URL"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/api/class-consolemessage#console-message-location",
+          "seed-skills/console-error-hunter/SKILL.md",
+          "seed-skills/playwright-cli/SKILL.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright console message location",
+        "steps": [
+          "Read seed-skills/console-error-hunter/SKILL.md and define the expected contract: ConsoleMessage location returns source coordinates that can tie browser output to an application asset.",
+          "Create the smallest isolated test or CLI session and implement listen for page console events and store message type, text, and message.location() in a normalized record.",
+          "Exercise the success case, then reproduce the controlled failure where CI logs contain only message text or assume every console entry has a useful source URL.",
+          "Apply the release assertion: emit a controlled browser message from a known script location and assert normalized source metadata and attachment output.",
+          "Capture message type, text, source URL, line, column, page URL, and attachment path, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright Console Message Location: primary implementation",
+          "language": "typescript",
+          "repoPath": "seed-skills/console-error-hunter/SKILL.md",
+          "plannedSnippet": "page.on('console', message => logs.push({ type: message.type(), text: message.text(), ...message.location() }));",
+          "purpose": "Implement listen for page console events and store message type, text, and message.location() in a normalized record using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright Console Message Location: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-cli/SKILL.md",
+          "plannedSnippet": "await testInfo.attach('browser-console', { body: JSON.stringify(logs, null, 2), contentType: 'application/json' });",
+          "purpose": "Prove emit a controlled browser message from a known script location and assert normalized source metadata and attachment output and retain message type, text, source URL, line, column, page URL, and attachment path."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/console-error-hunter/SKILL.md",
+        "seed-skills/playwright-cli/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-debug-mode-inspector-guide",
+        "/blog/observability-driven-testing-guide",
+        "/blog/playwright-allure-attachment-trace-guide",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-debug-mode-inspector-guide",
+        "observability-driven-testing-guide",
+        "playwright-allure-attachment-trace-guide",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/api/class-consolemessage#console-message-location",
+        "https://playwright.dev/docs/events",
+        "https://playwright.dev/docs/api/class-page#page-event-console"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright consolemessage location?",
+        "How do you verify browser console source url?",
+        "When should a QA team choose console error line column?",
+        "What causes failures in attach console logs playwright?",
+        "Which evidence should ci browser error source retain?",
+        "How should CI handle playwright console evidence?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 4
+    },
+    {
+      "id": "PW-055",
+      "batch": 37,
+      "domain": "playwright-browser",
+      "slug": "playwright-workers-percentage-setting",
+      "primaryKeyword": "playwright workers percentage setting",
+      "title": "Playwright Workers Percentage Setting",
+      "description": "playwright workers percentage setting: size Playwright workers by CPU percentage in shared CI. Use repo evidence, failure checks, and CI-safe QA steps.",
+      "intent": "how-to",
+      "coreQuestion": "How do you configure Playwright workers as a CPU percentage and choose a stable value for shared CI runners?",
+      "secondaryKeywords": [
+        "playwright workers fifty percent",
+        "playwright workers cpu cores",
+        "shared ci runner concurrency",
+        "playwright workers config versus cli",
+        "browser memory worker limit",
+        "stable parallel e2e setting"
+      ],
+      "outline": [
+        {
+          "heading": "What Does Playwright Workers Percentage Setting Control?",
+          "question": true,
+          "coverage": "Answer How do you configure Playwright workers as a CPU percentage and choose a stable value for shared CI runners? Define the boundary: Playwright workers can be configured as a number or percentage of available logical CPU cores. State what this workflow does not replace.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "How Does Playwright Workers Fifty Percent Work?",
+          "question": true,
+          "secondaryKeyword": "playwright workers fifty percent",
+          "coverage": "Explain the exact Playwright event, command, option, or API lifecycle behind set workers to a measured percentage such as '50%' for shared runners and retain an explicit CI override when needed. Distinguish observation from assertion.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "Playwright Workers Cpu Cores: Repository Evidence",
+          "question": false,
+          "secondaryKeyword": "playwright workers cpu cores",
+          "coverage": "Walk through the relevant repository example in packages/web/playwright.config.ts and connect each planned code line to the documented behavior.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        },
+        {
+          "heading": "When Should QA Teams Use Shared CI Runner Concurrency?",
+          "question": true,
+          "secondaryKeyword": "shared ci runner concurrency",
+          "coverage": "Define appropriate use cases, prerequisites, and a control case. Explain when a locator assertion, runner option, CLI command, or MCP record is the better choice.",
+          "repoEvidence": ["seed-skills/playwright-advance-e2e/SKILL.md"]
+        },
+        {
+          "heading": "Playwright Workers Config Versus CLI: Failure Modes and Diagnostics",
+          "question": false,
+          "secondaryKeyword": "playwright workers config versus cli",
+          "coverage": "Reproduce and diagnose this primary risk: a percentage resolves to unstable resource pressure or is compared without controlling shard and browser load. Separate product failures, test defects, and environment limitations.",
+          "repoEvidence": ["seed-skills/playwright-advance-e2e/SKILL.md"]
+        },
+        {
+          "heading": "Browser Memory Worker Limit: Evidence and CI Assertions",
+          "question": false,
+          "secondaryKeyword": "browser memory worker limit",
+          "coverage": "Specify the assertion and CI record: record detected cores, resolved concurrency, duration, memory pressure, failures, and repeatability across runner sizes. Require runner cores, configured percentage, resolved workers, duration, memory signal, and failure rate so the result remains reviewable.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "seed-skills/playwright-advance-e2e/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Stable Parallel E2e Setting Comparison Table",
+          "question": false,
+          "secondaryKeyword": "stable parallel e2e setting",
+          "coverage": "Compare the four approved choices by trigger, scope, retained evidence, cleanup needs, and misuse risk. Use the official API source and repository contracts.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "seed-skills/playwright-advance-e2e/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How Do You Implement Playwright Workers Percentage Setting?",
+          "question": true,
+          "coverage": "Present the numbered procedure and both code examples. Include a success case, a controlled failure, cleanup, and the smallest local plus CI verification commands.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "seed-skills/playwright-advance-e2e/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer six long-tail questions in 40 to 60 words each. Keep answers source-backed and avoid repeating the implementation section.",
+          "repoEvidence": [
+            "packages/web/playwright.config.ts",
+            "seed-skills/playwright-advance-e2e/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the decision rule, name the evidence required before adoption, and end with the specified QASkills CTA.",
+          "repoEvidence": ["packages/web/playwright.config.ts"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Playwright Workers Percentage Setting Decision and Evidence Matrix",
+        "columns": ["Option or signal", "Use when", "Expected evidence", "Main risk"],
+        "rows": [
+          {
+            "option": "workers 1",
+            "useWhen": "Maximize isolation for constrained or state-sensitive CI jobs",
+            "expectedEvidence": "runner cores, configured percentage, resolved workers, duration, memory signal, and failure rate",
+            "mainRisk": "a percentage resolves to unstable resource pressure or is compared without controlling shard and browser load"
+          },
+          {
+            "option": "workers 50 percent",
+            "useWhen": "Scale concurrency with available cores while leaving capacity for the app and runner",
+            "expectedEvidence": "runner cores, configured percentage, resolved workers, duration, memory signal, and failure rate",
+            "mainRisk": "a percentage resolves to unstable resource pressure or is compared without controlling shard and browser load"
+          },
+          {
+            "option": "fixed worker count",
+            "useWhen": "Use when the CI machine shape is stable and measured",
+            "expectedEvidence": "runner cores, configured percentage, resolved workers, duration, memory signal, and failure rate",
+            "mainRisk": "a percentage resolves to unstable resource pressure or is compared without controlling shard and browser load"
+          },
+          {
+            "option": "CLI override",
+            "useWhen": "Temporarily probe a worker value without changing committed project configuration",
+            "expectedEvidence": "runner cores, configured percentage, resolved workers, duration, memory signal, and failure rate",
+            "mainRisk": "a percentage resolves to unstable resource pressure or is compared without controlling shard and browser load"
+          }
+        ],
+        "sources": [
+          "https://playwright.dev/docs/test-cli",
+          "packages/web/playwright.config.ts",
+          "seed-skills/playwright-advance-e2e/SKILL.md"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement and verify playwright workers percentage setting",
+        "steps": [
+          "Read packages/web/playwright.config.ts and define the expected contract: Playwright workers can be configured as a number or percentage of available logical CPU cores.",
+          "Create the smallest isolated test or CLI session and implement set workers to a measured percentage such as '50%' for shared runners and retain an explicit CI override when needed.",
+          "Exercise the success case, then reproduce the controlled failure where a percentage resolves to unstable resource pressure or is compared without controlling shard and browser load.",
+          "Apply the release assertion: record detected cores, resolved concurrency, duration, memory pressure, failures, and repeatability across runner sizes.",
+          "Capture runner cores, configured percentage, resolved workers, duration, memory signal, and failure rate, then verify cleanup and redaction rules.",
+          "Run the focused workflow locally, repeat it with CI settings, and document any fallback to the full Playwright suite."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Playwright Workers Percentage Setting: primary implementation",
+          "language": "typescript",
+          "repoPath": "packages/web/playwright.config.ts",
+          "plannedSnippet": "export default defineConfig({ workers: process.env.CI ? '50%' : undefined });",
+          "purpose": "Implement set workers to a measured percentage such as '50%' for shared runners and retain an explicit CI override when needed using the behavior documented in the repository evidence."
+        },
+        {
+          "title": "Playwright Workers Percentage Setting: failure assertion and evidence",
+          "language": "typescript",
+          "repoPath": "seed-skills/playwright-advance-e2e/SKILL.md",
+          "plannedSnippet": "npx playwright test --workers=50%",
+          "purpose": "Prove record detected cores, resolved concurrency, duration, memory pressure, failures, and repeatability across runner sizes and retain runner cores, configured percentage, resolved workers, duration, memory signal, and failure rate."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/playwright.config.ts",
+        "seed-skills/playwright-advance-e2e/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/skills/Pramod/playwright-cli",
+        "/blog/playwright-parallel-sharding-execution-guide",
+        "/blog/playwright-parallel-testing-best-practices-2026",
+        "/blog/playwright-ci-github-actions-complete-guide-2026",
+        "/blog/playwright-testing-best-practices-2026"
+      ],
+      "relatedSlugs": [
+        "playwright-parallel-sharding-execution-guide",
+        "playwright-parallel-testing-best-practices-2026",
+        "playwright-ci-github-actions-complete-guide-2026",
+        "playwright-testing-best-practices-2026"
+      ],
+      "sources": [
+        "https://playwright.dev/docs/test-cli",
+        "https://playwright.dev/docs/test-parallel",
+        "https://playwright.dev/docs/api/class-testconfig#test-config-workers"
+      ],
+      "faqQuestions": [
+        "What is the safest way to use playwright workers fifty percent?",
+        "How do you verify playwright workers cpu cores?",
+        "When should a QA team choose shared ci runner concurrency?",
+        "What causes failures in playwright workers config versus cli?",
+        "Which evidence should browser memory worker limit retain?",
+        "How should CI handle stable parallel e2e setting?"
+      ],
+      "cta": "Open /skills/Pramod/playwright-cli, install the Playwright CLI Browser Automation skill, and apply this brief's focused verification workflow.",
+      "batchPosition": 5
+    }
+  ]
+}

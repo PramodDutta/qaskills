@@ -25,8 +25,8 @@ export const post: BlogPost = {
     'aggregate-driven-synthetic-test-data-without-production-rows',
   ],
   sources: [
-    'https://www.rfc-editor.org/rfc/rfc2606',
-    'https://www.rfc-editor.org/rfc/rfc5737',
+    'https://www.rfc-editor.org/rfc/rfc2606.html',
+    'https://www.rfc-editor.org/rfc/rfc5737.html',
     'https://fakerjs.dev/guide/usage',
     'https://csrc.nist.gov/pubs/sp/800/188/final',
   ],
@@ -62,9 +62,9 @@ The [test data management strategies guide](/blog/test-data-management-strategie
 
 Create a field map from schemas before generating values. For every property, record type, nullability, uniqueness, length, enum, format, relation, and any database check. Then assign a safe generator and a reserved or project-approved value space where one exists.
 
-RFC 2606 reserves \`.test\`, \`.example\`, \`.invalid\`, and \`.localhost\` for specific special uses, and also identifies \`example.com\`, \`example.net\`, and \`example.org\` as example domains. The [RFC 2606 text](https://www.rfc-editor.org/rfc/rfc2606) recommends \`.test\` for testing. Use addresses such as \`user-17@example.test\` when the application accepts that domain.
+RFC 2606 reserves \`.test\`, \`.example\`, \`.invalid\`, and \`.localhost\` for specific special uses, and also identifies \`example.com\`, \`example.net\`, and \`example.org\` as example domains. The [RFC 2606 text](https://www.rfc-editor.org/rfc/rfc2606.html) recommends \`.test\` for testing. Use addresses such as \`user-17@example.test\` when the application accepts that domain.
 
-RFC 5737 defines \`192.0.2.0/24\`, \`198.51.100.0/24\`, and \`203.0.113.0/24\` as documentation address blocks. The [RFC 5737 text](https://www.rfc-editor.org/rfc/rfc5737) also says these addresses should not appear on the public Internet. Use them as stored examples and test inputs, not as actual local bind addresses or a substitute for network isolation.
+RFC 5737 defines \`192.0.2.0/24\`, \`198.51.100.0/24\`, and \`203.0.113.0/24\` as documentation address blocks. The [RFC 5737 text](https://www.rfc-editor.org/rfc/rfc5737.html) also says these addresses should not appear on the public Internet. Use them as stored examples and test inputs, not as actual local bind addresses or a substitute for network isolation.
 
 | Field type | Safe test space | Example | Additional control |
 |---|---|---|---|

@@ -1,0 +1,981 @@
+{
+  "batch": 20,
+  "briefs": [
+    {
+      "batch": 20,
+      "domain": "skill-parser-validator",
+      "slug": "skill-md-name-directory-matching",
+      "primaryKeyword": "SKILL.md name directory matching",
+      "title": "SKILL.md name directory matching Guide",
+      "description": "SKILL.md name directory matching: add path-aware checks for package identity. Use verified code, edge-case fixtures, and clear acceptance criteria.",
+      "intent": "how-to",
+      "coreQuestion": "How can file-level validation compare the SKILL.md name with its parent directory instead of validating content without path context?",
+      "secondaryKeywords": [
+        "skill folder name validation",
+        "parent directory mismatch",
+        "Agent Skills name rule",
+        "path aware skill validator",
+        "SKILL.md package identity"
+      ],
+      "outline": [
+        {
+          "heading": "What does SKILL.md name directory matching need to prove?",
+          "focus": "Answer the core question immediately, define the narrow search intent, and distinguish this topic from /blog/qaskills-cli-extract-skill-package-github.",
+          "evidence": [
+            "packages/skill-validator/src/index.ts",
+            "packages/shared/src/schemas/skill-schema.ts"
+          ]
+        },
+        {
+          "heading": "skill folder name validation: current repository behavior",
+          "focus": "Trace the accepted baseline through packages/skill-validator/src/index.ts, naming the exact input and observable output without presenting a proposed change as shipped.",
+          "evidence": ["packages/skill-validator/src/index.ts"],
+          "secondaryKeyword": "skill folder name validation"
+        },
+        {
+          "heading": "Why does parent directory mismatch change the contract?",
+          "focus": "Compare the two repository boundaries and explain where parsing, validation, serialization, scoring, or packaging responsibilities differ.",
+          "evidence": [
+            "packages/skill-validator/src/index.ts",
+            "packages/shared/src/schemas/skill-schema.ts"
+          ],
+          "secondaryKeyword": "parent directory mismatch"
+        },
+        {
+          "heading": "Agent Skills name rule test matrix",
+          "focus": "Present the planned table for matching name and folder, case-only mismatch, nested temporary package, hyphenated valid identity with one observable assertion per case.",
+          "evidence": [
+            "packages/skill-validator/src/index.ts",
+            "packages/shared/src/schemas/skill-schema.ts"
+          ],
+          "secondaryKeyword": "Agent Skills name rule"
+        },
+        {
+          "heading": "How should path aware skill validator be verified?",
+          "focus": "Develop the two repository-backed TypeScript examples, including a baseline fixture, boundary mutations, and stable assertions.",
+          "evidence": [
+            "packages/skill-validator/src/index.ts",
+            "packages/shared/src/schemas/skill-schema.ts"
+          ],
+          "secondaryKeyword": "path aware skill validator"
+        },
+        {
+          "heading": "SKILL.md package identity acceptance criteria",
+          "focus": "File validation should make the chosen relationship between skill name and parent directory explicit. Separate current characterization from any recommended policy or migration.",
+          "evidence": [
+            "packages/skill-validator/src/index.ts",
+            "packages/shared/src/schemas/skill-schema.ts"
+          ],
+          "secondaryKeyword": "SKILL.md package identity"
+        },
+        {
+          "heading": "How do you test SKILL.md name directory matching step by step?",
+          "focus": "Follow the numbered procedure from source inspection through fixtures, execution, assertions, and CI regression coverage.",
+          "evidence": [
+            "packages/skill-validator/src/index.ts",
+            "packages/shared/src/schemas/skill-schema.ts"
+          ]
+        },
+        {
+          "heading": "SKILL.md name directory matching rollout and regression checks",
+          "focus": "Define review ownership, backward-compatibility checks, failure diagnostics, and the smallest post-change suite needed before publication.",
+          "evidence": [
+            "packages/skill-validator/src/index.ts",
+            "packages/shared/src/schemas/skill-schema.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "focus": "Answer each question in 40 to 60 words using only repository evidence and the approved sources.",
+          "questions": [
+            "What should skill folder name validation tests assert?",
+            "How does parent directory mismatch affect the SKILL.md contract?",
+            "Which fixture best exposes Agent Skills name rule?",
+            "When should teams check path aware skill validator?",
+            "What is the pass criterion for SKILL.md package identity?"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "focus": "Summarize the chosen contract, name the next test to add, and end with the verified QASkills CTA."
+        }
+      ],
+      "tablePlan": {
+        "heading": "SKILL.md name directory matching fixture matrix",
+        "purpose": "Compare baseline, boundary, variant, and failure behavior without implying that a recommended change is already deployed.",
+        "columns": ["Case", "Input or boundary", "Layer under test", "Expected assertion"],
+        "rows": [
+          {
+            "case": 1,
+            "inputOrBoundary": "matching name and folder",
+            "layerUnderTest": "packages/skill-validator/src/index.ts",
+            "expectedAssertion": "Preserve the accepted baseline behavior and record the exact result."
+          },
+          {
+            "case": 2,
+            "inputOrBoundary": "case-only mismatch",
+            "layerUnderTest": "packages/shared/src/schemas/skill-schema.ts",
+            "expectedAssertion": "Return a deterministic result at the first boundary or variant."
+          },
+          {
+            "case": 3,
+            "inputOrBoundary": "nested temporary package",
+            "layerUnderTest": "packages/skill-validator/src/index.ts",
+            "expectedAssertion": "Apply the selected policy consistently across every relevant layer."
+          },
+          {
+            "case": 4,
+            "inputOrBoundary": "hyphenated valid identity",
+            "layerUnderTest": "packages/shared/src/schemas/skill-schema.ts",
+            "expectedAssertion": "Return a stable diagnostic or documented result without partial state."
+          }
+        ],
+        "sourcePaths": [
+          "packages/skill-validator/src/index.ts",
+          "packages/shared/src/schemas/skill-schema.ts"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Test SKILL.md name directory matching in six steps",
+        "steps": [
+          "Read packages/skill-validator/src/index.ts and packages/shared/src/schemas/skill-schema.ts, then record the current input and output contract.",
+          "Create one smallest-valid SKILL.md fixture as the baseline for SKILL.md name directory matching.",
+          "Add isolated fixtures for matching name and folder, case-only mismatch, nested temporary package, hyphenated valid identity.",
+          "Run each fixture through the relevant parser, schema, validator, scorer, CLI, or artifact boundary.",
+          "Assert the selected contract: File validation should make the chosen relationship between skill name and parent directory explicit.",
+          "Add the matrix to CI and require stable diagnostics for every rejected or warning-only case."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Characterization test for SKILL.md name directory matching",
+          "language": "typescript",
+          "sourcePath": "packages/skill-validator/src/index.ts",
+          "plan": "Show the relevant production branch from packages/skill-validator/src/index.ts, then build a Vitest table covering matching name and folder, case-only mismatch, nested temporary package."
+        },
+        {
+          "title": "Cross-layer contract test for SKILL.md name directory matching",
+          "language": "typescript",
+          "sourcePath": "packages/shared/src/schemas/skill-schema.ts",
+          "plan": "Compare the observable result from packages/shared/src/schemas/skill-schema.ts with the first example and assert the documented acceptance policy."
+        }
+      ],
+      "repoEvidence": [
+        "packages/skill-validator/src/index.ts",
+        "packages/shared/src/schemas/skill-schema.ts"
+      ],
+      "evidenceNotes": [
+        "packages/skill-validator/src/index.ts:47-50 resolves and reads a file path but passes only raw text into validateSkillContent.",
+        "packages/skill-validator/src/index.ts:53-127 performs no parent-directory comparison."
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/how-to-publish",
+        "/blog/skill-md-format-guide",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/seed-skill-catalog-parser-regression-tests"
+      ],
+      "relatedSlugs": [
+        "skill-md-format-guide",
+        "validate-skill-md-in-ci-pipeline",
+        "malformed-skill-md-frontmatter-parser-tests",
+        "seed-skill-catalog-parser-regression-tests"
+      ],
+      "sources": ["https://agentskills.io/specification", "https://nodejs.org/api/path.html"],
+      "cta": "Open /skills, inspect a published SKILL.md, then use /how-to-publish to apply this test contract before publication.",
+      "technicalClaimBoundary": "Describe repository behavior as characterization. Do not call it an exploitable vulnerability or state that a recommended change has shipped without code evidence.",
+      "writingTargets": {
+        "codeExcludedWords": "3000-4000",
+        "h2Count": 10,
+        "questionH2Minimum": 3,
+        "faqAnswerWords": "40-60",
+        "averageSentenceWords": "15-20",
+        "fleschReadingEase": "58-72"
+      },
+      "batchPosition": 1
+    },
+    {
+      "batch": 20,
+      "domain": "skill-parser-validator",
+      "slug": "skill-md-spdx-license-validation",
+      "primaryKeyword": "SKILL.md SPDX license validation",
+      "title": "SKILL.md SPDX license validation Guide",
+      "description": "SKILL.md SPDX license validation: separate valid identifiers from arbitrary strings. Use verified code, edge-case fixtures, and clear acceptance criteria.",
+      "intent": "how-to",
+      "coreQuestion": "How should QASkills distinguish SPDX license expressions, bundled license file references, and arbitrary nonempty strings in frontmatter?",
+      "secondaryKeywords": [
+        "SPDX expression parser",
+        "skill license identifier",
+        "bundled license file reference",
+        "invalid license metadata",
+        "agent skill licensing tests"
+      ],
+      "outline": [
+        {
+          "heading": "What does SKILL.md SPDX license validation need to prove?",
+          "focus": "Answer the core question immediately, define the narrow search intent, and distinguish this topic from /blog/agent-skill-security-review-checklist.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/web/src/db/schema/skills.ts"
+          ]
+        },
+        {
+          "heading": "SPDX expression parser: current repository behavior",
+          "focus": "Trace the accepted baseline through packages/shared/src/schemas/skill-schema.ts, naming the exact input and observable output without presenting a proposed change as shipped.",
+          "evidence": ["packages/shared/src/schemas/skill-schema.ts"],
+          "secondaryKeyword": "SPDX expression parser"
+        },
+        {
+          "heading": "Why does skill license identifier change the contract?",
+          "focus": "Compare the two repository boundaries and explain where parsing, validation, serialization, scoring, or packaging responsibilities differ.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/web/src/db/schema/skills.ts"
+          ],
+          "secondaryKeyword": "skill license identifier"
+        },
+        {
+          "heading": "bundled license file reference test matrix",
+          "focus": "Present the planned table for single SPDX identifier, compound SPDX expression, bundled license file reference, arbitrary label with one observable assertion per case.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/web/src/db/schema/skills.ts"
+          ],
+          "secondaryKeyword": "bundled license file reference"
+        },
+        {
+          "heading": "How should invalid license metadata be verified?",
+          "focus": "Develop the two repository-backed TypeScript examples, including a baseline fixture, boundary mutations, and stable assertions.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/web/src/db/schema/skills.ts"
+          ],
+          "secondaryKeyword": "invalid license metadata"
+        },
+        {
+          "heading": "agent skill licensing tests acceptance criteria",
+          "focus": "Tests should distinguish SPDX expressions, supported file references, and unsupported free-form values. Separate current characterization from any recommended policy or migration.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/web/src/db/schema/skills.ts"
+          ],
+          "secondaryKeyword": "agent skill licensing tests"
+        },
+        {
+          "heading": "How do you test SKILL.md SPDX license validation step by step?",
+          "focus": "Follow the numbered procedure from source inspection through fixtures, execution, assertions, and CI regression coverage.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/web/src/db/schema/skills.ts"
+          ]
+        },
+        {
+          "heading": "SKILL.md SPDX license validation rollout and regression checks",
+          "focus": "Define review ownership, backward-compatibility checks, failure diagnostics, and the smallest post-change suite needed before publication.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/web/src/db/schema/skills.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "focus": "Answer each question in 40 to 60 words using only repository evidence and the approved sources.",
+          "questions": [
+            "What should SPDX expression parser tests assert?",
+            "How does skill license identifier affect the SKILL.md contract?",
+            "Which fixture best exposes bundled license file reference?",
+            "When should teams check invalid license metadata?",
+            "What is the pass criterion for agent skill licensing tests?"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "focus": "Summarize the chosen contract, name the next test to add, and end with the verified QASkills CTA."
+        }
+      ],
+      "tablePlan": {
+        "heading": "SKILL.md SPDX license validation fixture matrix",
+        "purpose": "Compare baseline, boundary, variant, and failure behavior without implying that a recommended change is already deployed.",
+        "columns": ["Case", "Input or boundary", "Layer under test", "Expected assertion"],
+        "rows": [
+          {
+            "case": 1,
+            "inputOrBoundary": "single SPDX identifier",
+            "layerUnderTest": "packages/shared/src/schemas/skill-schema.ts",
+            "expectedAssertion": "Preserve the accepted baseline behavior and record the exact result."
+          },
+          {
+            "case": 2,
+            "inputOrBoundary": "compound SPDX expression",
+            "layerUnderTest": "packages/web/src/db/schema/skills.ts",
+            "expectedAssertion": "Return a deterministic result at the first boundary or variant."
+          },
+          {
+            "case": 3,
+            "inputOrBoundary": "bundled license file reference",
+            "layerUnderTest": "packages/shared/src/schemas/skill-schema.ts",
+            "expectedAssertion": "Apply the selected policy consistently across every relevant layer."
+          },
+          {
+            "case": 4,
+            "inputOrBoundary": "arbitrary label",
+            "layerUnderTest": "packages/web/src/db/schema/skills.ts",
+            "expectedAssertion": "Return a stable diagnostic or documented result without partial state."
+          }
+        ],
+        "sourcePaths": [
+          "packages/shared/src/schemas/skill-schema.ts",
+          "packages/web/src/db/schema/skills.ts"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Test SKILL.md SPDX license validation in six steps",
+        "steps": [
+          "Read packages/shared/src/schemas/skill-schema.ts and packages/web/src/db/schema/skills.ts, then record the current input and output contract.",
+          "Create one smallest-valid SKILL.md fixture as the baseline for SKILL.md SPDX license validation.",
+          "Add isolated fixtures for single SPDX identifier, compound SPDX expression, bundled license file reference, arbitrary label.",
+          "Run each fixture through the relevant parser, schema, validator, scorer, CLI, or artifact boundary.",
+          "Assert the selected contract: Tests should distinguish SPDX expressions, supported file references, and unsupported free-form values.",
+          "Add the matrix to CI and require stable diagnostics for every rejected or warning-only case."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Characterization test for SKILL.md SPDX license validation",
+          "language": "typescript",
+          "sourcePath": "packages/shared/src/schemas/skill-schema.ts",
+          "plan": "Show the relevant production branch from packages/shared/src/schemas/skill-schema.ts, then build a Vitest table covering single SPDX identifier, compound SPDX expression, bundled license file reference."
+        },
+        {
+          "title": "Cross-layer contract test for SKILL.md SPDX license validation",
+          "language": "typescript",
+          "sourcePath": "packages/web/src/db/schema/skills.ts",
+          "plan": "Compare the observable result from packages/web/src/db/schema/skills.ts with the first example and assert the documented acceptance policy."
+        }
+      ],
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts",
+        "packages/web/src/db/schema/skills.ts"
+      ],
+      "evidenceNotes": [
+        "packages/shared/src/schemas/skill-schema.ts:8 validates license only as a nonempty string.",
+        "packages/web/src/db/schema/skills.ts:10-12 stores a license string with MIT as the database default."
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/how-to-publish",
+        "/blog/skill-md-format-guide",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/seed-skill-catalog-parser-regression-tests"
+      ],
+      "relatedSlugs": [
+        "skill-md-format-guide",
+        "validate-skill-md-in-ci-pipeline",
+        "malformed-skill-md-frontmatter-parser-tests",
+        "seed-skill-catalog-parser-regression-tests"
+      ],
+      "sources": [
+        "https://spdx.github.io/spdx-spec/v3.0.1/",
+        "https://agentskills.io/specification"
+      ],
+      "cta": "Open /skills, inspect a published SKILL.md, then use /how-to-publish to apply this test contract before publication.",
+      "technicalClaimBoundary": "Describe repository behavior as characterization. Do not call it an exploitable vulnerability or state that a recommended change has shipped without code evidence.",
+      "writingTargets": {
+        "codeExcludedWords": "3000-4000",
+        "h2Count": 10,
+        "questionH2Minimum": 3,
+        "faqAnswerWords": "40-60",
+        "averageSentenceWords": "15-20",
+        "fleschReadingEase": "58-72"
+      },
+      "batchPosition": 2
+    },
+    {
+      "batch": 20,
+      "domain": "skill-parser-validator",
+      "slug": "skill-md-unicode-normalization-collisions",
+      "primaryKeyword": "SKILL.md Unicode normalization collisions",
+      "title": "SKILL.md Unicode normalization collisions",
+      "description": "SKILL.md Unicode normalization collisions: test normalization before identity checks. Use verified code, edge-case fixtures, and clear acceptance criteria.",
+      "intent": "how-to",
+      "coreQuestion": "How should QASkills normalize canonically equivalent Unicode metadata before validation, slug generation, uniqueness checks, and display?",
+      "secondaryKeywords": [
+        "Unicode NFC skill names",
+        "confusable frontmatter metadata",
+        "canonical equivalence slug collision",
+        "international author normalization",
+        "Unicode input validation"
+      ],
+      "outline": [
+        {
+          "heading": "What does SKILL.md Unicode normalization collisions need to prove?",
+          "focus": "Answer the core question immediately, define the narrow search intent, and distinguish this topic from /blog/agent-skill-security-review-checklist.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/utils/slug.ts"
+          ]
+        },
+        {
+          "heading": "Unicode NFC skill names: current repository behavior",
+          "focus": "Trace the accepted baseline through packages/shared/src/schemas/skill-schema.ts, naming the exact input and observable output without presenting a proposed change as shipped.",
+          "evidence": ["packages/shared/src/schemas/skill-schema.ts"],
+          "secondaryKeyword": "Unicode NFC skill names"
+        },
+        {
+          "heading": "Why does confusable frontmatter metadata change the contract?",
+          "focus": "Compare the two repository boundaries and explain where parsing, validation, serialization, scoring, or packaging responsibilities differ.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/utils/slug.ts"
+          ],
+          "secondaryKeyword": "confusable frontmatter metadata"
+        },
+        {
+          "heading": "canonical equivalence slug collision test matrix",
+          "focus": "Present the planned table for NFC-equivalent names, NFD-equivalent names, non-ASCII-only name, mixed-script author with one observable assertion per case.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/utils/slug.ts"
+          ],
+          "secondaryKeyword": "canonical equivalence slug collision"
+        },
+        {
+          "heading": "How should international author normalization be verified?",
+          "focus": "Develop the two repository-backed TypeScript examples, including a baseline fixture, boundary mutations, and stable assertions.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/utils/slug.ts"
+          ],
+          "secondaryKeyword": "international author normalization"
+        },
+        {
+          "heading": "Unicode input validation acceptance criteria",
+          "focus": "Characterization tests should compare canonical forms before any future normalization policy is adopted. Separate current characterization from any recommended policy or migration.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/utils/slug.ts"
+          ],
+          "secondaryKeyword": "Unicode input validation"
+        },
+        {
+          "heading": "How do you test SKILL.md Unicode normalization collisions step by step?",
+          "focus": "Follow the numbered procedure from source inspection through fixtures, execution, assertions, and CI regression coverage.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/utils/slug.ts"
+          ]
+        },
+        {
+          "heading": "SKILL.md Unicode normalization collisions rollout and regression checks",
+          "focus": "Define review ownership, backward-compatibility checks, failure diagnostics, and the smallest post-change suite needed before publication.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/utils/slug.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "focus": "Answer each question in 40 to 60 words using only repository evidence and the approved sources.",
+          "questions": [
+            "What should Unicode NFC skill names tests assert?",
+            "How does confusable frontmatter metadata affect the SKILL.md contract?",
+            "Which fixture best exposes canonical equivalence slug collision?",
+            "When should teams check international author normalization?",
+            "What is the pass criterion for Unicode input validation?"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "focus": "Summarize the chosen contract, name the next test to add, and end with the verified QASkills CTA."
+        }
+      ],
+      "tablePlan": {
+        "heading": "SKILL.md Unicode normalization collisions fixture matrix",
+        "purpose": "Compare baseline, boundary, variant, and failure behavior without implying that a recommended change is already deployed.",
+        "columns": ["Case", "Input or boundary", "Layer under test", "Expected assertion"],
+        "rows": [
+          {
+            "case": 1,
+            "inputOrBoundary": "NFC-equivalent names",
+            "layerUnderTest": "packages/shared/src/schemas/skill-schema.ts",
+            "expectedAssertion": "Preserve the accepted baseline behavior and record the exact result."
+          },
+          {
+            "case": 2,
+            "inputOrBoundary": "NFD-equivalent names",
+            "layerUnderTest": "packages/shared/src/utils/slug.ts",
+            "expectedAssertion": "Return a deterministic result at the first boundary or variant."
+          },
+          {
+            "case": 3,
+            "inputOrBoundary": "non-ASCII-only name",
+            "layerUnderTest": "packages/shared/src/schemas/skill-schema.ts",
+            "expectedAssertion": "Apply the selected policy consistently across every relevant layer."
+          },
+          {
+            "case": 4,
+            "inputOrBoundary": "mixed-script author",
+            "layerUnderTest": "packages/shared/src/utils/slug.ts",
+            "expectedAssertion": "Return a stable diagnostic or documented result without partial state."
+          }
+        ],
+        "sourcePaths": [
+          "packages/shared/src/schemas/skill-schema.ts",
+          "packages/shared/src/utils/slug.ts"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Test SKILL.md Unicode normalization collisions in six steps",
+        "steps": [
+          "Read packages/shared/src/schemas/skill-schema.ts and packages/shared/src/utils/slug.ts, then record the current input and output contract.",
+          "Create one smallest-valid SKILL.md fixture as the baseline for SKILL.md Unicode normalization collisions.",
+          "Add isolated fixtures for NFC-equivalent names, NFD-equivalent names, non-ASCII-only name, mixed-script author.",
+          "Run each fixture through the relevant parser, schema, validator, scorer, CLI, or artifact boundary.",
+          "Assert the selected contract: Characterization tests should compare canonical forms before any future normalization policy is adopted.",
+          "Add the matrix to CI and require stable diagnostics for every rejected or warning-only case."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Characterization test for SKILL.md Unicode normalization collisions",
+          "language": "typescript",
+          "sourcePath": "packages/shared/src/schemas/skill-schema.ts",
+          "plan": "Show the relevant production branch from packages/shared/src/schemas/skill-schema.ts, then build a Vitest table covering NFC-equivalent names, NFD-equivalent names, non-ASCII-only name."
+        },
+        {
+          "title": "Cross-layer contract test for SKILL.md Unicode normalization collisions",
+          "language": "typescript",
+          "sourcePath": "packages/shared/src/utils/slug.ts",
+          "plan": "Compare the observable result from packages/shared/src/utils/slug.ts with the first example and assert the documented acceptance policy."
+        }
+      ],
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts",
+        "packages/shared/src/utils/slug.ts"
+      ],
+      "evidenceNotes": [
+        "packages/shared/src/schemas/skill-schema.ts:4-8 accepts general JavaScript strings without Unicode normalization.",
+        "packages/shared/src/utils/slug.ts:1-5 drops every character outside ASCII lowercase letters and digits after lowercasing."
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/how-to-publish",
+        "/blog/skill-md-format-guide",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/seed-skill-catalog-parser-regression-tests"
+      ],
+      "relatedSlugs": [
+        "skill-md-format-guide",
+        "validate-skill-md-in-ci-pipeline",
+        "malformed-skill-md-frontmatter-parser-tests",
+        "seed-skill-catalog-parser-regression-tests"
+      ],
+      "sources": [
+        "https://www.unicode.org/reports/tr15/",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "cta": "Open /skills, inspect a published SKILL.md, then use /how-to-publish to apply this test contract before publication.",
+      "technicalClaimBoundary": "Describe repository behavior as characterization. Do not call it an exploitable vulnerability or state that a recommended change has shipped without code evidence.",
+      "writingTargets": {
+        "codeExcludedWords": "3000-4000",
+        "h2Count": 10,
+        "questionH2Minimum": 3,
+        "faqAnswerWords": "40-60",
+        "averageSentenceWords": "15-20",
+        "fleschReadingEase": "58-72"
+      },
+      "batchPosition": 3
+    },
+    {
+      "batch": 20,
+      "domain": "skill-parser-validator",
+      "slug": "skill-md-name-character-rules",
+      "primaryKeyword": "SKILL.md name character rules",
+      "title": "SKILL.md name character rules Tests",
+      "description": "SKILL.md name character rules: test identifier rules before slug generation. Use verified code, edge-case fixtures, and clear acceptance criteria.",
+      "intent": "troubleshooting",
+      "coreQuestion": "Which lowercase, digit, hyphen, length, and boundary rules from the Agent Skills specification are missing from the QASkills name schema?",
+      "secondaryKeywords": [
+        "lowercase skill name regex",
+        "consecutive hyphen validation",
+        "64 character skill name",
+        "invalid SKILL.md identifier",
+        "skill slug name parity"
+      ],
+      "outline": [
+        {
+          "heading": "What does SKILL.md name character rules need to prove?",
+          "focus": "Answer the core question immediately, define the narrow search intent, and distinguish this topic from skill-md-name-directory-matching.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/utils/slug.ts"
+          ]
+        },
+        {
+          "heading": "lowercase skill name regex: current repository behavior",
+          "focus": "Trace the accepted baseline through packages/shared/src/schemas/skill-schema.ts, naming the exact input and observable output without presenting a proposed change as shipped.",
+          "evidence": ["packages/shared/src/schemas/skill-schema.ts"],
+          "secondaryKeyword": "lowercase skill name regex"
+        },
+        {
+          "heading": "Why does consecutive hyphen validation change the contract?",
+          "focus": "Compare the two repository boundaries and explain where parsing, validation, serialization, scoring, or packaging responsibilities differ.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/utils/slug.ts"
+          ],
+          "secondaryKeyword": "consecutive hyphen validation"
+        },
+        {
+          "heading": "64 character skill name test matrix",
+          "focus": "Present the planned table for valid lowercase hyphens, uppercase characters, consecutive hyphens, leading or trailing hyphen with one observable assertion per case.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/utils/slug.ts"
+          ],
+          "secondaryKeyword": "64 character skill name"
+        },
+        {
+          "heading": "How should invalid SKILL.md identifier be verified?",
+          "focus": "Develop the two repository-backed TypeScript examples, including a baseline fixture, boundary mutations, and stable assertions.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/utils/slug.ts"
+          ],
+          "secondaryKeyword": "invalid SKILL.md identifier"
+        },
+        {
+          "heading": "skill slug name parity acceptance criteria",
+          "focus": "Tests should compare accepted names with the documented Agent Skills identifier rules and slug output. Separate current characterization from any recommended policy or migration.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/utils/slug.ts"
+          ],
+          "secondaryKeyword": "skill slug name parity"
+        },
+        {
+          "heading": "How do you test SKILL.md name character rules step by step?",
+          "focus": "Follow the numbered procedure from source inspection through fixtures, execution, assertions, and CI regression coverage.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/utils/slug.ts"
+          ]
+        },
+        {
+          "heading": "SKILL.md name character rules rollout and regression checks",
+          "focus": "Define review ownership, backward-compatibility checks, failure diagnostics, and the smallest post-change suite needed before publication.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/utils/slug.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "focus": "Answer each question in 40 to 60 words using only repository evidence and the approved sources.",
+          "questions": [
+            "What should lowercase skill name regex tests assert?",
+            "How does consecutive hyphen validation affect the SKILL.md contract?",
+            "Which fixture best exposes 64 character skill name?",
+            "When should teams check invalid SKILL.md identifier?",
+            "What is the pass criterion for skill slug name parity?"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "focus": "Summarize the chosen contract, name the next test to add, and end with the verified QASkills CTA."
+        }
+      ],
+      "tablePlan": {
+        "heading": "SKILL.md name character rules fixture matrix",
+        "purpose": "Compare baseline, boundary, variant, and failure behavior without implying that a recommended change is already deployed.",
+        "columns": ["Case", "Input or boundary", "Layer under test", "Expected assertion"],
+        "rows": [
+          {
+            "case": 1,
+            "inputOrBoundary": "valid lowercase hyphens",
+            "layerUnderTest": "packages/shared/src/schemas/skill-schema.ts",
+            "expectedAssertion": "Preserve the accepted baseline behavior and record the exact result."
+          },
+          {
+            "case": 2,
+            "inputOrBoundary": "uppercase characters",
+            "layerUnderTest": "packages/shared/src/utils/slug.ts",
+            "expectedAssertion": "Return a deterministic result at the first boundary or variant."
+          },
+          {
+            "case": 3,
+            "inputOrBoundary": "consecutive hyphens",
+            "layerUnderTest": "packages/shared/src/schemas/skill-schema.ts",
+            "expectedAssertion": "Apply the selected policy consistently across every relevant layer."
+          },
+          {
+            "case": 4,
+            "inputOrBoundary": "leading or trailing hyphen",
+            "layerUnderTest": "packages/shared/src/utils/slug.ts",
+            "expectedAssertion": "Return a stable diagnostic or documented result without partial state."
+          }
+        ],
+        "sourcePaths": [
+          "packages/shared/src/schemas/skill-schema.ts",
+          "packages/shared/src/utils/slug.ts"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Test SKILL.md name character rules in six steps",
+        "steps": [
+          "Read packages/shared/src/schemas/skill-schema.ts and packages/shared/src/utils/slug.ts, then record the current input and output contract.",
+          "Create one smallest-valid SKILL.md fixture as the baseline for SKILL.md name character rules.",
+          "Add isolated fixtures for valid lowercase hyphens, uppercase characters, consecutive hyphens, leading or trailing hyphen.",
+          "Run each fixture through the relevant parser, schema, validator, scorer, CLI, or artifact boundary.",
+          "Assert the selected contract: Tests should compare accepted names with the documented Agent Skills identifier rules and slug output.",
+          "Add the matrix to CI and require stable diagnostics for every rejected or warning-only case."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Characterization test for SKILL.md name character rules",
+          "language": "typescript",
+          "sourcePath": "packages/shared/src/schemas/skill-schema.ts",
+          "plan": "Show the relevant production branch from packages/shared/src/schemas/skill-schema.ts, then build a Vitest table covering valid lowercase hyphens, uppercase characters, consecutive hyphens."
+        },
+        {
+          "title": "Cross-layer contract test for SKILL.md name character rules",
+          "language": "typescript",
+          "sourcePath": "packages/shared/src/utils/slug.ts",
+          "plan": "Compare the observable result from packages/shared/src/utils/slug.ts with the first example and assert the documented acceptance policy."
+        }
+      ],
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts",
+        "packages/shared/src/utils/slug.ts"
+      ],
+      "evidenceNotes": [
+        "packages/shared/src/schemas/skill-schema.ts:4 permits any nonempty string up to 100 characters.",
+        "packages/shared/src/utils/slug.ts:1-5 later transforms names, so accepted identity and generated slug can differ."
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/how-to-publish",
+        "/blog/skill-md-format-guide",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/seed-skill-catalog-parser-regression-tests"
+      ],
+      "relatedSlugs": [
+        "skill-md-format-guide",
+        "validate-skill-md-in-ci-pipeline",
+        "malformed-skill-md-frontmatter-parser-tests",
+        "seed-skill-catalog-parser-regression-tests"
+      ],
+      "sources": ["https://agentskills.io/specification", "https://zod.dev/api"],
+      "cta": "Open /skills, inspect a published SKILL.md, then use /how-to-publish to apply this test contract before publication.",
+      "technicalClaimBoundary": "Describe repository behavior as characterization. Do not call it an exploitable vulnerability or state that a recommended change has shipped without code evidence.",
+      "writingTargets": {
+        "codeExcludedWords": "3000-4000",
+        "h2Count": 10,
+        "questionH2Minimum": 3,
+        "faqAnswerWords": "40-60",
+        "averageSentenceWords": "15-20",
+        "fleschReadingEase": "58-72"
+      },
+      "batchPosition": 4
+    },
+    {
+      "batch": 20,
+      "domain": "skill-parser-validator",
+      "slug": "skill-md-token-range-invariants",
+      "primaryKeyword": "SKILL.md token range invariants",
+      "title": "SKILL.md token range invariants Guide",
+      "description": "SKILL.md token range invariants: enforce optional minimum and maximum ordering. Use verified code, edge-case fixtures, and clear acceptance criteria.",
+      "intent": "how-to",
+      "coreQuestion": "How should the schema enforce minTokens less than or equal to maxTokens while allowing either bound to remain optional?",
+      "secondaryKeywords": [
+        "minTokens maxTokens validation",
+        "Zod cross field refinement",
+        "token budget ordering",
+        "optional numeric range",
+        "SKILL.md token invariant tests"
+      ],
+      "outline": [
+        {
+          "heading": "What does SKILL.md token range invariants need to prove?",
+          "focus": "Answer the core question immediately, define the narrow search intent, and distinguish this topic from /blog/validate-skill-md-in-ci-pipeline.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/types/skill.ts"
+          ]
+        },
+        {
+          "heading": "minTokens maxTokens validation: current repository behavior",
+          "focus": "Trace the accepted baseline through packages/shared/src/schemas/skill-schema.ts, naming the exact input and observable output without presenting a proposed change as shipped.",
+          "evidence": ["packages/shared/src/schemas/skill-schema.ts"],
+          "secondaryKeyword": "minTokens maxTokens validation"
+        },
+        {
+          "heading": "Why does Zod cross field refinement change the contract?",
+          "focus": "Compare the two repository boundaries and explain where parsing, validation, serialization, scoring, or packaging responsibilities differ.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/types/skill.ts"
+          ],
+          "secondaryKeyword": "Zod cross field refinement"
+        },
+        {
+          "heading": "token budget ordering test matrix",
+          "focus": "Present the planned table for both bounds omitted, minimum only, maximum only, minimum greater than maximum with one observable assertion per case.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/types/skill.ts"
+          ],
+          "secondaryKeyword": "token budget ordering"
+        },
+        {
+          "heading": "How should optional numeric range be verified?",
+          "focus": "Develop the two repository-backed TypeScript examples, including a baseline fixture, boundary mutations, and stable assertions.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/types/skill.ts"
+          ],
+          "secondaryKeyword": "optional numeric range"
+        },
+        {
+          "heading": "SKILL.md token invariant tests acceptance criteria",
+          "focus": "Cross-field tests should allow either optional bound while rejecting a minimum above the maximum. Separate current characterization from any recommended policy or migration.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/types/skill.ts"
+          ],
+          "secondaryKeyword": "SKILL.md token invariant tests"
+        },
+        {
+          "heading": "How do you test SKILL.md token range invariants step by step?",
+          "focus": "Follow the numbered procedure from source inspection through fixtures, execution, assertions, and CI regression coverage.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/types/skill.ts"
+          ]
+        },
+        {
+          "heading": "SKILL.md token range invariants rollout and regression checks",
+          "focus": "Define review ownership, backward-compatibility checks, failure diagnostics, and the smallest post-change suite needed before publication.",
+          "evidence": [
+            "packages/shared/src/schemas/skill-schema.ts",
+            "packages/shared/src/types/skill.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "focus": "Answer each question in 40 to 60 words using only repository evidence and the approved sources.",
+          "questions": [
+            "What should minTokens maxTokens validation tests assert?",
+            "How does Zod cross field refinement affect the SKILL.md contract?",
+            "Which fixture best exposes token budget ordering?",
+            "When should teams check optional numeric range?",
+            "What is the pass criterion for SKILL.md token invariant tests?"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "focus": "Summarize the chosen contract, name the next test to add, and end with the verified QASkills CTA."
+        }
+      ],
+      "tablePlan": {
+        "heading": "SKILL.md token range invariants fixture matrix",
+        "purpose": "Compare baseline, boundary, variant, and failure behavior without implying that a recommended change is already deployed.",
+        "columns": ["Case", "Input or boundary", "Layer under test", "Expected assertion"],
+        "rows": [
+          {
+            "case": 1,
+            "inputOrBoundary": "both bounds omitted",
+            "layerUnderTest": "packages/shared/src/schemas/skill-schema.ts",
+            "expectedAssertion": "Preserve the accepted baseline behavior and record the exact result."
+          },
+          {
+            "case": 2,
+            "inputOrBoundary": "minimum only",
+            "layerUnderTest": "packages/shared/src/types/skill.ts",
+            "expectedAssertion": "Return a deterministic result at the first boundary or variant."
+          },
+          {
+            "case": 3,
+            "inputOrBoundary": "maximum only",
+            "layerUnderTest": "packages/shared/src/schemas/skill-schema.ts",
+            "expectedAssertion": "Apply the selected policy consistently across every relevant layer."
+          },
+          {
+            "case": 4,
+            "inputOrBoundary": "minimum greater than maximum",
+            "layerUnderTest": "packages/shared/src/types/skill.ts",
+            "expectedAssertion": "Return a stable diagnostic or documented result without partial state."
+          }
+        ],
+        "sourcePaths": [
+          "packages/shared/src/schemas/skill-schema.ts",
+          "packages/shared/src/types/skill.ts"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "Test SKILL.md token range invariants in six steps",
+        "steps": [
+          "Read packages/shared/src/schemas/skill-schema.ts and packages/shared/src/types/skill.ts, then record the current input and output contract.",
+          "Create one smallest-valid SKILL.md fixture as the baseline for SKILL.md token range invariants.",
+          "Add isolated fixtures for both bounds omitted, minimum only, maximum only, minimum greater than maximum.",
+          "Run each fixture through the relevant parser, schema, validator, scorer, CLI, or artifact boundary.",
+          "Assert the selected contract: Cross-field tests should allow either optional bound while rejecting a minimum above the maximum.",
+          "Add the matrix to CI and require stable diagnostics for every rejected or warning-only case."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Characterization test for SKILL.md token range invariants",
+          "language": "typescript",
+          "sourcePath": "packages/shared/src/schemas/skill-schema.ts",
+          "plan": "Show the relevant production branch from packages/shared/src/schemas/skill-schema.ts, then build a Vitest table covering both bounds omitted, minimum only, maximum only."
+        },
+        {
+          "title": "Cross-layer contract test for SKILL.md token range invariants",
+          "language": "typescript",
+          "sourcePath": "packages/shared/src/types/skill.ts",
+          "plan": "Compare the observable result from packages/shared/src/types/skill.ts with the first example and assert the documented acceptance policy."
+        }
+      ],
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts",
+        "packages/shared/src/types/skill.ts"
+      ],
+      "evidenceNotes": [
+        "packages/shared/src/schemas/skill-schema.ts:15-16 validates minTokens and maxTokens independently with no cross-field refinement.",
+        "packages/shared/src/types/skill.ts:13-14 models both limits as optional numbers."
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/how-to-publish",
+        "/blog/skill-md-format-guide",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/seed-skill-catalog-parser-regression-tests"
+      ],
+      "relatedSlugs": [
+        "skill-md-format-guide",
+        "validate-skill-md-in-ci-pipeline",
+        "malformed-skill-md-frontmatter-parser-tests",
+        "seed-skill-catalog-parser-regression-tests"
+      ],
+      "sources": ["https://zod.dev/api", "https://agentskills.io/specification"],
+      "cta": "Open /skills, inspect a published SKILL.md, then use /how-to-publish to apply this test contract before publication.",
+      "technicalClaimBoundary": "Describe repository behavior as characterization. Do not call it an exploitable vulnerability or state that a recommended change has shipped without code evidence.",
+      "writingTargets": {
+        "codeExcludedWords": "3000-4000",
+        "h2Count": 10,
+        "questionH2Minimum": 3,
+        "faqAnswerWords": "40-60",
+        "averageSentenceWords": "15-20",
+        "fleschReadingEase": "58-72"
+      },
+      "batchPosition": 5
+    }
+  ]
+}

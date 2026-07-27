@@ -1,0 +1,1025 @@
+{
+  "batch": 41,
+  "briefs": [
+    {
+      "batch": 41,
+      "batchPosition": 1,
+      "domain": "ai-llm-rag",
+      "slug": "agent-stale-tool-result-testing",
+      "primaryKeyword": "Agent stale tool result testing",
+      "title": "Agent stale tool result testing",
+      "description": "Agent stale tool result testing: use repo evidence, focused fixtures, code examples, and CI checks to expose contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you mark time-sensitive tool results and test that an agent refreshes expired prices, permissions, inventory, or policy data before acting?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you mark time-sensitive tool results and test that an agent refreshes expired prices, permissions, inventory, or policy data before acting?\" State the observable success condition, not a general introduction: The agent validates tool timestamp, source version, and freshness policy, then refreshes or stops when evidence is stale for the requested decision.",
+      "intentBoundary": "The existing guide validates tool calls and immediate side effects. This candidate owns freshness metadata and forced refresh before consequential actions.",
+      "secondaryKeywords": [
+        "how to agent stale tool result testing",
+        "agent stale tool result testing example",
+        "agent stale function response",
+        "tool result freshness assertion",
+        "expire cached agent evidence"
+      ],
+      "outline": [
+        {
+          "heading": "What must Agent stale tool result testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you mark time-sensitive tool results and test that an agent refreshes expired prices, permissions, inventory, or policy data before acting?\" in 40 to 60 words. Define the observable contract as: The agent validates tool timestamp, source version, and freshness policy, then refreshes or stops when evidence is stale for the requested decision. Keep the scope inside this intent boundary: The existing guide validates tool calls and immediate side effects. This candidate owns freshness metadata and forced refresh before consequential actions.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md:132-147 treats tool output and cited evidence as deterministic inputs to final-state checks.",
+            "seed-skills/ai-agent-eval/SKILL.md:867-890 requires versioned data, production failures, and historical result tracking."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md:132-147 treats tool output and cited evidence as deterministic inputs to final-state checks.",
+            "seed-skills/ai-agent-eval/SKILL.md:867-890 requires versioned data, production failures, and historical result tracking."
+          ]
+        },
+        {
+          "heading": "How to agent stale tool result testing?",
+          "secondaryKeyword": "how to agent stale tool result testing",
+          "coverage": "Build the primary positive fixture with this harness: Use a fake clock and versioned tool payloads around the freshness boundary, then assert refresh calls, citations, and final-state decisions. The decisive success oracle is: The agent validates tool timestamp, source version, and freshness policy, then refreshes or stops when evidence is stale for the requested decision.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Agent stale tool result testing example: scenario and assertion matrix",
+          "secondaryKeyword": "agent stale tool result testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose agent stale function response?",
+          "secondaryKeyword": "agent stale function response",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: Expired tool output is cited as current, a newer version is ignored, or cached evidence is reused outside its allowed scope. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should tool result freshness assertion run in CI?",
+          "secondaryKeyword": "tool result freshness assertion",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify expire cached agent evidence?",
+          "secondaryKeyword": "expire cached agent evidence",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: Expired tool output is cited as current, a newer version is ignored, or cached evidence is reused outside its allowed scope.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/how-to-test-llm-tool-calling-accuracy before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Agent stale tool result testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: The agent validates tool timestamp, source version, and freshness policy, then refreshes or stops when evidence is stale for the requested decision.",
+          "Boundary case for agent stale tool result testing example with an exact pass or fail oracle",
+          "Negative case: Expired tool output is cited as current, a newer version is ignored, or cached evidence is reused outside its allowed scope.",
+          "Repeated and concurrent execution for tool result freshness assertion",
+          "CI evidence and ownership for expire cached agent evidence"
+        ],
+        "sources": [
+          "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "seed-skills/ai-agent-eval/SKILL.md",
+          "https://platform.openai.com/docs/guides/function-calling",
+          "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/",
+          "https://www.nist.gov/itl/ai-risk-management-framework"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Agent stale tool result testing in six steps",
+        "steps": [
+          "Read seed-skills/ai-system-quality-engineer/SKILL.md:132-147 and seed-skills/ai-agent-eval/SKILL.md:867-890, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to agent stale tool result testing and agent stale tool result testing example without calling production services or mutating shared state.",
+          "Build the harness: Use a fake clock and versioned tool payloads around the freshness boundary, then assert refresh calls, citations, and final-state decisions.",
+          "Run the expected path and assert: The agent validates tool timestamp, source version, and freshness policy, then refreshes or stops when evidence is stale for the requested decision.",
+          "Inject boundary and failure cases and assert: Expired tool output is cited as current, a newer version is ignored, or cached evidence is reused outside its allowed scope.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to agent stale tool result testing positive contract",
+          "repositoryPath": "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "repositoryLines": "132-147",
+          "exactEvidence": "treats tool output and cited evidence as deterministic inputs to final-state checks.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: The agent validates tool timestamp, source version, and freshness policy, then refreshes or stops when evidence is stale for the requested decision.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "agent stale function response negative contract",
+          "repositoryPath": "seed-skills/ai-agent-eval/SKILL.md",
+          "repositoryLines": "867-890",
+          "exactEvidence": "requires versioned data, production failures, and historical result tracking.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: Expired tool output is cited as current, a newer version is ignored, or cached evidence is reused outside its allowed scope.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/ai-system-quality-engineer/SKILL.md",
+        "seed-skills/ai-agent-eval/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/how-to-test-llm-tool-calling-accuracy",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/ai-agent-eval-testing-guide",
+        "/blog/openai-trace-grading-tutorial-2026"
+      ],
+      "relatedSlugs": [
+        "how-to-test-llm-tool-calling-accuracy",
+        "agent-tool-use-regression-testing-guide-2026",
+        "ai-agent-eval-testing-guide",
+        "openai-trace-grading-tutorial-2026"
+      ],
+      "sources": [
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/",
+        "https://www.nist.gov/itl/ai-risk-management-framework"
+      ],
+      "faqQuestions": [
+        "How do you mark time-sensitive tool results and test that an agent refreshes expired prices, permissions, inventory, or policy data before acting?",
+        "What fixture best tests how to agent stale tool result testing?",
+        "Which failure signal proves agent stale tool result testing example?",
+        "How should CI report agent stale function response?",
+        "When should tool result freshness assertion block a release?",
+        "How can teams keep expire cached agent evidence repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/how-to-test-llm-tool-calling-accuracy before implementing this regression gate."
+    },
+    {
+      "batch": 41,
+      "batchPosition": 2,
+      "domain": "ai-llm-rag",
+      "slug": "deepeval-metric-score-direction-testing",
+      "primaryKeyword": "DeepEval metric score direction testing",
+      "title": "DeepEval metric score direction testing",
+      "description": "DeepEval metric score direction testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you test that DeepEval gates interpret higher-is-better and lower-is-better metrics correctly at exact threshold boundaries?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you test that DeepEval gates interpret higher-is-better and lower-is-better metrics correctly at exact threshold boundaries?\" State the observable success condition, not a general introduction: Each metric declares whether higher or lower is better, applies the correct comparator, and produces expected pass results at boundary scores.",
+      "intentBoundary": "The existing reference catalogs metrics. This candidate tests score polarity bugs in custom gates, including inverted hallucination and safety decisions.",
+      "secondaryKeywords": [
+        "how to deepeval metric score direction testing",
+        "deepeval metric score direction testing example",
+        "DeepEval hallucination score direction",
+        "lower is better metric assertion",
+        "metric threshold polarity test"
+      ],
+      "outline": [
+        {
+          "heading": "What must DeepEval metric score direction testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you test that DeepEval gates interpret higher-is-better and lower-is-better metrics correctly at exact threshold boundaries?\" in 40 to 60 words. Define the observable contract as: Each metric declares whether higher or lower is better, applies the correct comparator, and produces expected pass results at boundary scores. Keep the scope inside this intent boundary: The existing reference catalogs metrics. This candidate tests score polarity bugs in custom gates, including inverted hallucination and safety decisions.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md:119-128 lists metrics whose score direction and thresholds differ.",
+            "seed-skills/prompt-testing/SKILL.md:647-696 configures toxicity and bias metrics separately from positive quality scores."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md:119-128 lists metrics whose score direction and thresholds differ.",
+            "seed-skills/prompt-testing/SKILL.md:647-696 configures toxicity and bias metrics separately from positive quality scores."
+          ]
+        },
+        {
+          "heading": "How to deepeval metric score direction testing?",
+          "secondaryKeyword": "how to deepeval metric score direction testing",
+          "coverage": "Build the primary positive fixture with this harness: Replace metric execution with deterministic scores below, at, and above each threshold, then assert comparator and report language. The decisive success oracle is: Each metric declares whether higher or lower is better, applies the correct comparator, and produces expected pass results at boundary scores.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Deepeval metric score direction testing example: scenario and assertion matrix",
+          "secondaryKeyword": "deepeval metric score direction testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose DeepEval hallucination score direction?",
+          "secondaryKeyword": "DeepEval hallucination score direction",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A toxicity-like metric is interpreted as positive quality, a comparator is reversed, or a threshold configuration passes the wrong side. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should lower is better metric assertion run in CI?",
+          "secondaryKeyword": "lower is better metric assertion",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify metric threshold polarity test?",
+          "secondaryKeyword": "metric threshold polarity test",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A toxicity-like metric is interpreted as positive quality, a comparator is reversed, or a threshold configuration passes the wrong side.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use Python and pytest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/deepeval-pytest-llm-testing-guide before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "DeepEval metric score direction testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Each metric declares whether higher or lower is better, applies the correct comparator, and produces expected pass results at boundary scores.",
+          "Boundary case for deepeval metric score direction testing example with an exact pass or fail oracle",
+          "Negative case: A toxicity-like metric is interpreted as positive quality, a comparator is reversed, or a threshold configuration passes the wrong side.",
+          "Repeated and concurrent execution for lower is better metric assertion",
+          "CI evidence and ownership for metric threshold polarity test"
+        ],
+        "sources": [
+          "seed-skills/deepeval-llm-evaluation/SKILL.md",
+          "seed-skills/prompt-testing/SKILL.md",
+          "https://deepeval.com/docs/introduction",
+          "https://deepeval.com/docs/evaluation-test-cases",
+          "https://deepeval.com/docs/evaluation-end-to-end-single-turn"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement DeepEval metric score direction testing in six steps",
+        "steps": [
+          "Read seed-skills/deepeval-llm-evaluation/SKILL.md:119-128 and seed-skills/prompt-testing/SKILL.md:647-696, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to deepeval metric score direction testing and deepeval metric score direction testing example without calling production services or mutating shared state.",
+          "Build the harness: Replace metric execution with deterministic scores below, at, and above each threshold, then assert comparator and report language.",
+          "Run the expected path and assert: Each metric declares whether higher or lower is better, applies the correct comparator, and produces expected pass results at boundary scores.",
+          "Inject boundary and failure cases and assert: A toxicity-like metric is interpreted as positive quality, a comparator is reversed, or a threshold configuration passes the wrong side.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to deepeval metric score direction testing positive contract",
+          "repositoryPath": "seed-skills/deepeval-llm-evaluation/SKILL.md",
+          "repositoryLines": "119-128",
+          "exactEvidence": "lists metrics whose score direction and thresholds differ.",
+          "plannedSnippet": "Python and pytest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Each metric declares whether higher or lower is better, applies the correct comparator, and produces expected pass results at boundary scores.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "DeepEval hallucination score direction negative contract",
+          "repositoryPath": "seed-skills/prompt-testing/SKILL.md",
+          "repositoryLines": "647-696",
+          "exactEvidence": "configures toxicity and bias metrics separately from positive quality scores.",
+          "plannedSnippet": "Python and pytest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A toxicity-like metric is interpreted as positive quality, a comparator is reversed, or a threshold configuration passes the wrong side.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md",
+        "seed-skills/prompt-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates",
+        "/blog/deepeval-metrics-complete-guide-2026"
+      ],
+      "relatedSlugs": [
+        "deepeval-pytest-llm-testing-guide",
+        "testing-llm-applications-guide",
+        "llm-evaluation-ci-cd-quality-gates",
+        "deepeval-metrics-complete-guide-2026"
+      ],
+      "sources": [
+        "https://deepeval.com/docs/introduction",
+        "https://deepeval.com/docs/evaluation-test-cases",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn"
+      ],
+      "faqQuestions": [
+        "How do you test that DeepEval gates interpret higher-is-better and lower-is-better metrics correctly at exact threshold boundaries?",
+        "What fixture best tests how to deepeval metric score direction testing?",
+        "Which failure signal proves deepeval metric score direction testing example?",
+        "How should CI report DeepEval hallucination score direction?",
+        "When should lower is better metric assertion block a release?",
+        "How can teams keep metric threshold polarity test repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/deepeval-pytest-llm-testing-guide before implementing this regression gate."
+    },
+    {
+      "batch": 41,
+      "batchPosition": 3,
+      "domain": "ai-llm-rag",
+      "slug": "evaluation-label-taxonomy-drift-testing",
+      "primaryKeyword": "Evaluation label taxonomy drift testing",
+      "title": "Evaluation label taxonomy drift testing",
+      "description": "Evaluation label taxonomy drift testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you detect renamed, merged, missing, or newly introduced eval labels that break slice coverage and historical score comparisons?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you detect renamed, merged, missing, or newly introduced eval labels that break slice coverage and historical score comparisons?\" State the observable success condition, not a general introduction: Dataset labels carry a taxonomy version, approved mappings preserve historical meaning, and unknown or ambiguous labels fail validation.",
+      "intentBoundary": "The existing versioning page governs files and splits. This candidate owns label-enum migrations and preservation of slice-level comparability.",
+      "secondaryKeywords": [
+        "how to evaluation label taxonomy drift testing",
+        "evaluation label taxonomy drift testing example",
+        "LLM eval category schema drift",
+        "golden dataset label migration",
+        "evaluation slice coverage contract"
+      ],
+      "outline": [
+        {
+          "heading": "What must Evaluation label taxonomy drift testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you detect renamed, merged, missing, or newly introduced eval labels that break slice coverage and historical score comparisons?\" in 40 to 60 words. Define the observable contract as: Dataset labels carry a taxonomy version, approved mappings preserve historical meaning, and unknown or ambiguous labels fail validation. Keep the scope inside this intent boundary: The existing versioning page governs files and splits. This candidate owns label-enum migrations and preservation of slice-level comparability.",
+          "evidence": [
+            "seed-skills/ai-agent-eval/SKILL.md:21-27 requires cases tagged by difficulty, category, and edge-case classification.",
+            "seed-skills/ai-agent-eval/SKILL.md:867-890 requires stratified sampling and historical result tracking."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/ai-agent-eval/SKILL.md:21-27 requires cases tagged by difficulty, category, and edge-case classification.",
+            "seed-skills/ai-agent-eval/SKILL.md:867-890 requires stratified sampling and historical result tracking."
+          ]
+        },
+        {
+          "heading": "How to evaluation label taxonomy drift testing?",
+          "secondaryKeyword": "how to evaluation label taxonomy drift testing",
+          "coverage": "Build the primary positive fixture with this harness: Compare versioned dataset snapshots through an explicit migration map and assert counts, unmapped labels, and historical report compatibility. The decisive success oracle is: Dataset labels carry a taxonomy version, approved mappings preserve historical meaning, and unknown or ambiguous labels fail validation.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "Evaluation label taxonomy drift testing example: scenario and assertion matrix",
+          "secondaryKeyword": "evaluation label taxonomy drift testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "What failures expose LLM eval category schema drift?",
+          "secondaryKeyword": "LLM eval category schema drift",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: Renamed, merged, or split categories silently change stratum counts, trend comparisons, or evaluation coverage. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "How should golden dataset label migration run in CI?",
+          "secondaryKeyword": "golden dataset label migration",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "Which assertions verify evaluation slice coverage contract?",
+          "secondaryKeyword": "evaluation slice coverage contract",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: Renamed, merged, or split categories silently change stratum counts, trend comparisons, or evaluation coverage.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/golden-dataset-llm-evaluation-guide before implementing this regression gate.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Evaluation label taxonomy drift testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Dataset labels carry a taxonomy version, approved mappings preserve historical meaning, and unknown or ambiguous labels fail validation.",
+          "Boundary case for evaluation label taxonomy drift testing example with an exact pass or fail oracle",
+          "Negative case: Renamed, merged, or split categories silently change stratum counts, trend comparisons, or evaluation coverage.",
+          "Repeated and concurrent execution for golden dataset label migration",
+          "CI evidence and ownership for evaluation slice coverage contract"
+        ],
+        "sources": [
+          "seed-skills/ai-agent-eval/SKILL.md",
+          "seed-skills/prompt-testing/SKILL.md",
+          "https://huggingface.co/docs/datasets/v3.6.0/about_dataset_features",
+          "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html",
+          "https://deepeval.com/docs/evaluation-datasets"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Evaluation label taxonomy drift testing in six steps",
+        "steps": [
+          "Read seed-skills/ai-agent-eval/SKILL.md:21-27 and seed-skills/ai-agent-eval/SKILL.md:867-890, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to evaluation label taxonomy drift testing and evaluation label taxonomy drift testing example without calling production services or mutating shared state.",
+          "Build the harness: Compare versioned dataset snapshots through an explicit migration map and assert counts, unmapped labels, and historical report compatibility.",
+          "Run the expected path and assert: Dataset labels carry a taxonomy version, approved mappings preserve historical meaning, and unknown or ambiguous labels fail validation.",
+          "Inject boundary and failure cases and assert: Renamed, merged, or split categories silently change stratum counts, trend comparisons, or evaluation coverage.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to evaluation label taxonomy drift testing positive contract",
+          "repositoryPath": "seed-skills/ai-agent-eval/SKILL.md",
+          "repositoryLines": "21-27",
+          "exactEvidence": "requires cases tagged by difficulty, category, and edge-case classification.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Dataset labels carry a taxonomy version, approved mappings preserve historical meaning, and unknown or ambiguous labels fail validation.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "LLM eval category schema drift negative contract",
+          "repositoryPath": "seed-skills/ai-agent-eval/SKILL.md",
+          "repositoryLines": "867-890",
+          "exactEvidence": "requires stratified sampling and historical result tracking.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: Renamed, merged, or split categories silently change stratum counts, trend comparisons, or evaluation coverage.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/golden-dataset-llm-evaluation-guide",
+        "/blog/eval-dataset-versioning-guide-2026",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-non-determinism-flaky-eval-guide-2026"
+      ],
+      "relatedSlugs": [
+        "golden-dataset-llm-evaluation-guide",
+        "eval-dataset-versioning-guide-2026",
+        "testing-llm-applications-guide",
+        "llm-non-determinism-flaky-eval-guide-2026"
+      ],
+      "sources": [
+        "https://huggingface.co/docs/datasets/v3.6.0/about_dataset_features",
+        "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html",
+        "https://deepeval.com/docs/evaluation-datasets"
+      ],
+      "faqQuestions": [
+        "How do you detect renamed, merged, missing, or newly introduced eval labels that break slice coverage and historical score comparisons?",
+        "What fixture best tests how to evaluation label taxonomy drift testing?",
+        "Which failure signal proves evaluation label taxonomy drift testing example?",
+        "How should CI report LLM eval category schema drift?",
+        "When should golden dataset label migration block a release?",
+        "How can teams keep evaluation slice coverage contract repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/golden-dataset-llm-evaluation-guide before implementing this regression gate."
+    },
+    {
+      "batch": 41,
+      "batchPosition": 4,
+      "domain": "ai-llm-rag",
+      "slug": "llm-trace-sampling-bias-testing",
+      "primaryKeyword": "LLM trace sampling bias testing",
+      "title": "LLM trace sampling bias testing",
+      "description": "LLM trace sampling bias testing: use repo evidence, focused fixtures, code examples, and CI checks to expose contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test whether sampled production traces preserve model, tenant, language, latency, error, and safety-failure distributions?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you test whether sampled production traces preserve model, tenant, language, latency, error, and safety-failure distributions?\" State the observable success condition, not a general introduction: The sampled trace set preserves required strata or records inclusion probabilities so weighted quality estimates represent the target population.",
+      "intentBoundary": "The existing article recommends sampling production traffic. This candidate owns statistical tests that detect a biased online-evaluation cohort.",
+      "secondaryKeywords": [
+        "how to llm trace sampling bias testing",
+        "llm trace sampling bias testing example",
+        "Langfuse production trace sampling",
+        "LLM observability cohort bias",
+        "stratified online eval sample"
+      ],
+      "outline": [
+        {
+          "heading": "What must LLM trace sampling bias testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you test whether sampled production traces preserve model, tenant, language, latency, error, and safety-failure distributions?\" in 40 to 60 words. Define the observable contract as: The sampled trace set preserves required strata or records inclusion probabilities so weighted quality estimates represent the target population. Keep the scope inside this intent boundary: The existing article recommends sampling production traffic. This candidate owns statistical tests that detect a biased online-evaluation cohort.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md:55-71 samples traces for automated judging and trends scores over time.",
+            "seed-skills/ai-agent-eval/SKILL.md:869-876 requires stratified sampling and multiple judge models."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md:55-71 samples traces for automated judging and trends scores over time.",
+            "seed-skills/ai-agent-eval/SKILL.md:869-876 requires stratified sampling and multiple judge models."
+          ]
+        },
+        {
+          "heading": "How to llm trace sampling bias testing?",
+          "secondaryKeyword": "how to llm trace sampling bias testing",
+          "coverage": "Build the primary positive fixture with this harness: Create a synthetic trace population with known strata, run the production sampling rule repeatedly, and compare inclusion plus weighted metrics. The decisive success oracle is: The sampled trace set preserves required strata or records inclusion probabilities so weighted quality estimates represent the target population.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Llm trace sampling bias testing example: scenario and assertion matrix",
+          "secondaryKeyword": "llm trace sampling bias testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose Langfuse production trace sampling?",
+          "secondaryKeyword": "Langfuse production trace sampling",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: Only successful, short, cheap, recent, or easily judged traces enter evaluation and the report hides the distribution shift. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should LLM observability cohort bias run in CI?",
+          "secondaryKeyword": "LLM observability cohort bias",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify stratified online eval sample?",
+          "secondaryKeyword": "stratified online eval sample",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: Only successful, short, cheap, recent, or easily judged traces enter evaluation and the report hides the distribution shift.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/langfuse-llm-observability-guide-2026 before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/langfuse-llm-observability/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "LLM trace sampling bias testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: The sampled trace set preserves required strata or records inclusion probabilities so weighted quality estimates represent the target population.",
+          "Boundary case for llm trace sampling bias testing example with an exact pass or fail oracle",
+          "Negative case: Only successful, short, cheap, recent, or easily judged traces enter evaluation and the report hides the distribution shift.",
+          "Repeated and concurrent execution for LLM observability cohort bias",
+          "CI evidence and ownership for stratified online eval sample"
+        ],
+        "sources": [
+          "seed-skills/langfuse-llm-observability/SKILL.md",
+          "seed-skills/ai-agent-eval/SKILL.md",
+          "https://langfuse.com/docs/observability/overview",
+          "https://langfuse.com/docs/metrics/overview",
+          "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement LLM trace sampling bias testing in six steps",
+        "steps": [
+          "Read seed-skills/langfuse-llm-observability/SKILL.md:55-71 and seed-skills/ai-agent-eval/SKILL.md:869-876, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to llm trace sampling bias testing and llm trace sampling bias testing example without calling production services or mutating shared state.",
+          "Build the harness: Create a synthetic trace population with known strata, run the production sampling rule repeatedly, and compare inclusion plus weighted metrics.",
+          "Run the expected path and assert: The sampled trace set preserves required strata or records inclusion probabilities so weighted quality estimates represent the target population.",
+          "Inject boundary and failure cases and assert: Only successful, short, cheap, recent, or easily judged traces enter evaluation and the report hides the distribution shift.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to llm trace sampling bias testing positive contract",
+          "repositoryPath": "seed-skills/langfuse-llm-observability/SKILL.md",
+          "repositoryLines": "55-71",
+          "exactEvidence": "samples traces for automated judging and trends scores over time.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: The sampled trace set preserves required strata or records inclusion probabilities so weighted quality estimates represent the target population.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "Langfuse production trace sampling negative contract",
+          "repositoryPath": "seed-skills/ai-agent-eval/SKILL.md",
+          "repositoryLines": "869-876",
+          "exactEvidence": "requires stratified sampling and multiple judge models.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: Only successful, short, cheap, recent, or easily judged traces enter evaluation and the report hides the distribution shift.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/langfuse-llm-observability/SKILL.md",
+        "seed-skills/ai-agent-eval/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/langfuse-llm-observability-guide-2026",
+        "/blog/langfuse-trace-quality-testing-guide",
+        "/blog/llm-observability-vs-evaluation-2026",
+        "/blog/llm-cost-budget-ci-guide"
+      ],
+      "relatedSlugs": [
+        "langfuse-llm-observability-guide-2026",
+        "langfuse-trace-quality-testing-guide",
+        "llm-observability-vs-evaluation-2026",
+        "llm-cost-budget-ci-guide"
+      ],
+      "sources": [
+        "https://langfuse.com/docs/observability/overview",
+        "https://langfuse.com/docs/metrics/overview",
+        "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"
+      ],
+      "faqQuestions": [
+        "How do you test whether sampled production traces preserve model, tenant, language, latency, error, and safety-failure distributions?",
+        "What fixture best tests how to llm trace sampling bias testing?",
+        "Which failure signal proves llm trace sampling bias testing example?",
+        "How should CI report Langfuse production trace sampling?",
+        "When should LLM observability cohort bias block a release?",
+        "How can teams keep stratified online eval sample repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/langfuse-llm-observability-guide-2026 before implementing this regression gate."
+    },
+    {
+      "batch": 41,
+      "batchPosition": 5,
+      "domain": "ai-llm-rag",
+      "slug": "model-parameter-default-drift-testing",
+      "primaryKeyword": "Model parameter default drift testing",
+      "title": "Model parameter default drift testing",
+      "description": "Model parameter default drift testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you prove omitted temperature, seed, token limit, tool-choice, and sampling parameters do not silently change behavior after an SDK upgrade?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you prove omitted temperature, seed, token limit, tool-choice, and sampling parameters do not silently change behavior after an SDK upgrade?\" State the observable success condition, not a general introduction: Every behavior-changing parameter is explicit in the run manifest, and a provider default change creates a reviewable configuration diff.",
+      "intentBoundary": "The existing article manages stochastic outputs. This candidate owns adapter defaults and SDK upgrades when parameters are omitted.",
+      "secondaryKeywords": [
+        "how to model parameter default drift testing",
+        "model parameter default drift testing example",
+        "LLM default parameter regression",
+        "pin model sampling settings",
+        "SDK model default change test"
+      ],
+      "outline": [
+        {
+          "heading": "What must Model parameter default drift testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you prove omitted temperature, seed, token limit, tool-choice, and sampling parameters do not silently change behavior after an SDK upgrade?\" in 40 to 60 words. Define the observable contract as: Every behavior-changing parameter is explicit in the run manifest, and a provider default change creates a reviewable configuration diff. Keep the scope inside this intent boundary: The existing article manages stochastic outputs. This candidate owns adapter defaults and SDK upgrades when parameters are omitted.",
+          "evidence": [
+            "seed-skills/ai-agent-eval/SKILL.md:21-27 requires pinned models, temperatures, seeds, and system prompts.",
+            "seed-skills/prompt-testing/SKILL.md:724-741 tests temperatures and forbids ignored model-version changes."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/ai-agent-eval/SKILL.md:21-27 requires pinned models, temperatures, seeds, and system prompts.",
+            "seed-skills/prompt-testing/SKILL.md:724-741 tests temperatures and forbids ignored model-version changes."
+          ]
+        },
+        {
+          "heading": "How to model parameter default drift testing?",
+          "secondaryKeyword": "how to model parameter default drift testing",
+          "coverage": "Build the primary positive fixture with this harness: Replay adapter requests with omitted and explicit parameters against mocked old and new defaults, then compare effective request manifests. The decisive success oracle is: Every behavior-changing parameter is explicit in the run manifest, and a provider default change creates a reviewable configuration diff.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "Model parameter default drift testing example: scenario and assertion matrix",
+          "secondaryKeyword": "model parameter default drift testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "What failures expose LLM default parameter regression?",
+          "secondaryKeyword": "LLM default parameter regression",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: An omitted temperature, seed, token limit, tool choice, or sampling parameter changes behavior without changing application configuration. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "How should pin model sampling settings run in CI?",
+          "secondaryKeyword": "pin model sampling settings",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "Which assertions verify SDK model default change test?",
+          "secondaryKeyword": "SDK model default change test",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: An omitted temperature, seed, token limit, tool choice, or sampling parameter changes behavior without changing application configuration.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/golden-dataset-llm-evaluation-guide before implementing this regression gate.",
+          "evidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Model parameter default drift testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Every behavior-changing parameter is explicit in the run manifest, and a provider default change creates a reviewable configuration diff.",
+          "Boundary case for model parameter default drift testing example with an exact pass or fail oracle",
+          "Negative case: An omitted temperature, seed, token limit, tool choice, or sampling parameter changes behavior without changing application configuration.",
+          "Repeated and concurrent execution for pin model sampling settings",
+          "CI evidence and ownership for SDK model default change test"
+        ],
+        "sources": [
+          "seed-skills/ai-agent-eval/SKILL.md",
+          "seed-skills/prompt-testing/SKILL.md",
+          "https://platform.openai.com/docs/models",
+          "https://www.nist.gov/itl/ai-risk-management-framework",
+          "https://deepeval.com/docs/evaluation-end-to-end-single-turn"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Model parameter default drift testing in six steps",
+        "steps": [
+          "Read seed-skills/ai-agent-eval/SKILL.md:21-27 and seed-skills/prompt-testing/SKILL.md:724-741, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to model parameter default drift testing and model parameter default drift testing example without calling production services or mutating shared state.",
+          "Build the harness: Replay adapter requests with omitted and explicit parameters against mocked old and new defaults, then compare effective request manifests.",
+          "Run the expected path and assert: Every behavior-changing parameter is explicit in the run manifest, and a provider default change creates a reviewable configuration diff.",
+          "Inject boundary and failure cases and assert: An omitted temperature, seed, token limit, tool choice, or sampling parameter changes behavior without changing application configuration.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to model parameter default drift testing positive contract",
+          "repositoryPath": "seed-skills/ai-agent-eval/SKILL.md",
+          "repositoryLines": "21-27",
+          "exactEvidence": "requires pinned models, temperatures, seeds, and system prompts.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Every behavior-changing parameter is explicit in the run manifest, and a provider default change creates a reviewable configuration diff.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "LLM default parameter regression negative contract",
+          "repositoryPath": "seed-skills/prompt-testing/SKILL.md",
+          "repositoryLines": "724-741",
+          "exactEvidence": "tests temperatures and forbids ignored model-version changes.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: An omitted temperature, seed, token limit, tool choice, or sampling parameter changes behavior without changing application configuration.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": ["seed-skills/ai-agent-eval/SKILL.md", "seed-skills/prompt-testing/SKILL.md"],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/golden-dataset-llm-evaluation-guide",
+        "/blog/eval-dataset-versioning-guide-2026",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-non-determinism-flaky-eval-guide-2026"
+      ],
+      "relatedSlugs": [
+        "golden-dataset-llm-evaluation-guide",
+        "eval-dataset-versioning-guide-2026",
+        "testing-llm-applications-guide",
+        "llm-non-determinism-flaky-eval-guide-2026"
+      ],
+      "sources": [
+        "https://platform.openai.com/docs/models",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn"
+      ],
+      "faqQuestions": [
+        "How do you prove omitted temperature, seed, token limit, tool-choice, and sampling parameters do not silently change behavior after an SDK upgrade?",
+        "What fixture best tests how to model parameter default drift testing?",
+        "Which failure signal proves model parameter default drift testing example?",
+        "How should CI report LLM default parameter regression?",
+        "When should pin model sampling settings block a release?",
+        "How can teams keep SDK model default change test repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/golden-dataset-llm-evaluation-guide before implementing this regression gate."
+    }
+  ]
+}

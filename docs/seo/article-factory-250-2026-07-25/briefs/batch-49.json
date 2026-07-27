@@ -1,0 +1,1115 @@
+{
+  "batch": 49,
+  "briefs": [
+    {
+      "sourceTopicId": "testing-frameworks-49",
+      "batch": 49,
+      "batchPosition": 1,
+      "domain": "testing-frameworks",
+      "slug": "performanceobserver-buffer-overflow-testing",
+      "primaryKeyword": "PerformanceObserver buffer overflow testing",
+      "title": "PerformanceObserver buffer overflow testing",
+      "description": "PerformanceObserver buffer overflow testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How can a PerformanceObserver test handle buffered entries, observer disconnects, and dropped records without false passes?",
+      "intentBoundary": "The nearest page covers a broader performance workflow. This candidate owns observer-buffer completeness and cleanup.",
+      "secondaryKeywords": [
+        "PerformanceObserver buffer test",
+        "takeRecords performance entries",
+        "buffered observer entry test",
+        "performance entry loss detection",
+        "disconnect observer cleanup"
+      ],
+      "outline": [
+        {
+          "heading": "What does PerformanceObserver buffer overflow testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can a PerformanceObserver test handle buffered entries, observer disconnects, and dropped records without false passes?\" in 40 to 60 words. Define the observable contract: the observer captures the expected performance entries, drains pending records before cleanup, and reports evidence gaps instead of passing silently. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an PerformanceObserver buffer test?",
+          "question": true,
+          "secondaryKeyword": "PerformanceObserver buffer test",
+          "coverage": "Describe this exact fixture: a page that creates known resource and mark entries before observation, during a burst, immediately before disconnect, and after cleanup. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/web-vitals-testing/SKILL.md"]
+        },
+        {
+          "heading": "What breaks takeRecords performance entries?",
+          "question": true,
+          "secondaryKeyword": "takeRecords performance entries",
+          "coverage": "Explain the failure mechanics behind late observer installation, unsupported buffered types, disconnect before draining, cross-origin redaction, unbounded entry creation, and false completeness claims. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "buffered observer entry test fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "buffered observer entry test",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a page that creates known resource and mark entries before observation, during a burst, immediately before disconnect, and after cleanup, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/performance-budget-testing/SKILL.md"]
+        },
+        {
+          "heading": "How should performance entry loss detection be asserted?",
+          "question": true,
+          "secondaryKeyword": "performance entry loss detection",
+          "coverage": "Build the oracle from expected entry names, callback batches, buffered delivery, takeRecords output, timestamps, and post-disconnect behavior reveal missing observations. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "disconnect observer cleanup in CI",
+          "question": false,
+          "secondaryKeyword": "disconnect observer cleanup",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to web-vitals-testing and performance-budget-testing.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "PerformanceObserver buffer overflow testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: entries created before a buffered observer; burst of entries after observation starts; records pending immediately before disconnect; entries created after disconnect; cross-origin resource without timing permission. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement PerformanceObserver buffer overflow testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the observer captures the expected performance entries, drains pending records before cleanup, and reports evidence gaps instead of passing silently, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/performance-testing-complete-guide, then open /skills and implement the PerformanceObserver buffer overflow testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/web-vitals-testing/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "PerformanceObserver buffer overflow testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "entries created before a buffered observer",
+            "controlledSetup": "a page that creates known resource and mark entries before observation, during a burst, immediately before disconnect, and after cleanup",
+            "expectedObservation": "expected entry names, callback batches, buffered delivery, takeRecords output, timestamps, and post-disconnect behavior reveal missing observations",
+            "failureSignal": "Observed state differs from the documented the observer captures the expected performance entries, drains pending records before cleanup, and reports evidence gaps instead of passing silently.",
+            "evidenceSource": "seed-skills/web-vitals-testing/SKILL.md"
+          },
+          {
+            "scenario": "burst of entries after observation starts",
+            "controlledSetup": "Change only the condition represented by \"burst of entries after observation starts\" while retaining the baseline fixture.",
+            "expectedObservation": "expected entry names, callback batches, buffered delivery, takeRecords output, timestamps, and post-disconnect behavior reveal missing observations",
+            "failureSignal": "Observed state differs from the documented the observer captures the expected performance entries, drains pending records before cleanup, and reports evidence gaps instead of passing silently.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          },
+          {
+            "scenario": "records pending immediately before disconnect",
+            "controlledSetup": "Change only the condition represented by \"records pending immediately before disconnect\" while retaining the baseline fixture.",
+            "expectedObservation": "expected entry names, callback batches, buffered delivery, takeRecords output, timestamps, and post-disconnect behavior reveal missing observations",
+            "failureSignal": "Observed state differs from the documented the observer captures the expected performance entries, drains pending records before cleanup, and reports evidence gaps instead of passing silently.",
+            "evidenceSource": "seed-skills/web-vitals-testing/SKILL.md"
+          },
+          {
+            "scenario": "entries created after disconnect",
+            "controlledSetup": "Change only the condition represented by \"entries created after disconnect\" while retaining the baseline fixture.",
+            "expectedObservation": "expected entry names, callback batches, buffered delivery, takeRecords output, timestamps, and post-disconnect behavior reveal missing observations",
+            "failureSignal": "Observed state differs from the documented the observer captures the expected performance entries, drains pending records before cleanup, and reports evidence gaps instead of passing silently.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          },
+          {
+            "scenario": "cross-origin resource without timing permission",
+            "controlledSetup": "Change only the condition represented by \"cross-origin resource without timing permission\" while retaining the baseline fixture.",
+            "expectedObservation": "expected entry names, callback batches, buffered delivery, takeRecords output, timestamps, and post-disconnect behavior reveal missing observations",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish late observer installation, unsupported buffered types, disconnect before draining, cross-origin redaction, unbounded entry creation, and false completeness claims.",
+            "evidenceSource": "seed-skills/web-vitals-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/web-vitals-testing/SKILL.md",
+          "seed-skills/performance-budget-testing/SKILL.md",
+          "https://web.dev/articles/bfcache",
+          "https://www.w3.org/TR/resource-timing-2/",
+          "https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md",
+          "https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run PerformanceObserver buffer overflow testing",
+        "steps": [
+          "Read seed-skills/web-vitals-testing/SKILL.md and seed-skills/performance-budget-testing/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a page that creates known resource and mark entries before observation, during a burst, immediately before disconnect, and after cleanup.",
+          "Run the positive case and capture expected entry names, callback batches, buffered delivery, takeRecords output, timestamps, and post-disconnect behavior reveal missing observations.",
+          "Inject one failure at a time from late observer installation, unsupported buffered types, disconnect before draining, cross-origin redaction, unbounded entry creation, and false completeness claims, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the PerformanceObserver buffer overflow testing baseline",
+          "language": "javascript",
+          "path": "seed-skills/web-vitals-testing/SKILL.md",
+          "focus": "Adapt browser performance collection to create named entries and compare observed names with an expected manifest."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "javascript",
+          "path": "seed-skills/performance-budget-testing/SKILL.md",
+          "focus": "Use performance budget cleanup patterns to call takeRecords, disconnect, and report incomplete evidence."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/web-vitals-testing/SKILL.md",
+        "seed-skills/performance-budget-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/performance-testing",
+        "/blog/performance-testing-complete-guide",
+        "/blog/lighthouse-ci-performance-budget-gates-guide-2026",
+        "/blog/core-web-vitals-testing-guide-2026",
+        "/blog/sitespeed-io-performance-testing-guide-2026",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "performance-testing-complete-guide",
+        "lighthouse-ci-performance-budget-gates-guide-2026",
+        "core-web-vitals-testing-guide-2026",
+        "sitespeed-io-performance-testing-guide-2026"
+      ],
+      "sources": [
+        "https://web.dev/articles/bfcache",
+        "https://www.w3.org/TR/resource-timing-2/",
+        "https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md",
+        "https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver"
+      ],
+      "faqQuestions": [
+        "How can a PerformanceObserver test handle buffered entries, observer disconnects, and dropped records without false passes?",
+        "What should an PerformanceObserver buffer test fixture record?",
+        "Which failure proves takeRecords performance entries is broken?",
+        "How do teams isolate buffered observer entry test?",
+        "Which assertion is strongest for performance entry loss detection?",
+        "How should CI report disconnect observer cleanup failures?"
+      ],
+      "cta": "Review /blog/performance-testing-complete-guide, then open /skills and implement the PerformanceObserver buffer overflow testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-31",
+      "batch": 49,
+      "batchPosition": 2,
+      "domain": "testing-frameworks",
+      "slug": "postman-setnextrequest-loop-guard-testing",
+      "primaryKeyword": "Postman setNextRequest loop guard testing",
+      "title": "Postman setNextRequest loop guard testing",
+      "description": "Postman setNextRequest loop guard testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How can a Postman collection use setNextRequest safely without accidental cycles or unbounded request loops?",
+      "intentBoundary": "The nearest page covers a broader postman workflow. This candidate owns loop guards and termination proofs for collection workflows.",
+      "secondaryKeywords": [
+        "Postman setNextRequest loop",
+        "collection workflow cycle guard",
+        "stop Postman request loop",
+        "Postman execution counter",
+        "setNextRequest termination test"
+      ],
+      "outline": [
+        {
+          "heading": "What does Postman setNextRequest loop guard testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can a Postman collection use setNextRequest safely without accidental cycles or unbounded request loops?\" in 40 to 60 words. Define the observable contract: collection workflows terminate at a documented bound even when setNextRequest creates a cycle or a request repeatedly fails. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/postman-api/SKILL.md",
+            "seed-skills/postman-newman-automation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an Postman setNextRequest loop?",
+          "question": true,
+          "secondaryKeyword": "Postman setNextRequest loop",
+          "coverage": "Describe this exact fixture: two requests that point to each other, a scoped execution counter, a maximum-iteration guard, an error branch, and a normal terminal request. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/postman-api/SKILL.md"]
+        },
+        {
+          "heading": "What breaks collection workflow cycle guard?",
+          "question": true,
+          "secondaryKeyword": "collection workflow cycle guard",
+          "coverage": "Explain the failure mechanics behind counter reset in local scope, increment after a failing assertion, renamed requests, folder scope, parallel collection runs, and missing setNextRequest(null). Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/postman-api/SKILL.md",
+            "seed-skills/postman-newman-automation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "stop Postman request loop fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "stop Postman request loop",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use two requests that point to each other, a scoped execution counter, a maximum-iteration guard, an error branch, and a normal terminal request, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/postman-newman-automation/SKILL.md"]
+        },
+        {
+          "heading": "How should Postman execution counter be asserted?",
+          "question": true,
+          "secondaryKeyword": "Postman execution counter",
+          "coverage": "Build the oracle from execution order, counter values, selected next request, termination reason, Newman exit status, and report counts prove bounded behavior. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/postman-api/SKILL.md",
+            "seed-skills/postman-newman-automation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "setNextRequest termination test in CI",
+          "question": false,
+          "secondaryKeyword": "setNextRequest termination test",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to postman-api and postman-newman-automation.",
+          "repoEvidence": [
+            "seed-skills/postman-api/SKILL.md",
+            "seed-skills/postman-newman-automation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Postman setNextRequest loop guard testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: normal acyclic request sequence; two-request cycle below the guard; cycle reaches the maximum counter; request fails before counter update; next-request name no longer exists. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/postman-api/SKILL.md",
+            "seed-skills/postman-newman-automation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Postman setNextRequest loop guard testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/postman-api/SKILL.md",
+            "seed-skills/postman-newman-automation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within collection workflows terminate at a documented bound even when setNextRequest creates a cycle or a request repeatedly fails, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/postman-api/SKILL.md",
+            "seed-skills/postman-newman-automation/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/postman-api-testing-guide, then open /skills and implement the Postman setNextRequest loop guard testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/postman-api/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Postman setNextRequest loop guard testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "normal acyclic request sequence",
+            "controlledSetup": "two requests that point to each other, a scoped execution counter, a maximum-iteration guard, an error branch, and a normal terminal request",
+            "expectedObservation": "execution order, counter values, selected next request, termination reason, Newman exit status, and report counts prove bounded behavior",
+            "failureSignal": "Observed state differs from the documented collection workflows terminate at a documented bound even when setNextRequest creates a cycle or a request repeatedly fails.",
+            "evidenceSource": "seed-skills/postman-api/SKILL.md"
+          },
+          {
+            "scenario": "two-request cycle below the guard",
+            "controlledSetup": "Change only the condition represented by \"two-request cycle below the guard\" while retaining the baseline fixture.",
+            "expectedObservation": "execution order, counter values, selected next request, termination reason, Newman exit status, and report counts prove bounded behavior",
+            "failureSignal": "Observed state differs from the documented collection workflows terminate at a documented bound even when setNextRequest creates a cycle or a request repeatedly fails.",
+            "evidenceSource": "seed-skills/postman-newman-automation/SKILL.md"
+          },
+          {
+            "scenario": "cycle reaches the maximum counter",
+            "controlledSetup": "Change only the condition represented by \"cycle reaches the maximum counter\" while retaining the baseline fixture.",
+            "expectedObservation": "execution order, counter values, selected next request, termination reason, Newman exit status, and report counts prove bounded behavior",
+            "failureSignal": "Observed state differs from the documented collection workflows terminate at a documented bound even when setNextRequest creates a cycle or a request repeatedly fails.",
+            "evidenceSource": "seed-skills/postman-api/SKILL.md"
+          },
+          {
+            "scenario": "request fails before counter update",
+            "controlledSetup": "Change only the condition represented by \"request fails before counter update\" while retaining the baseline fixture.",
+            "expectedObservation": "execution order, counter values, selected next request, termination reason, Newman exit status, and report counts prove bounded behavior",
+            "failureSignal": "Observed state differs from the documented collection workflows terminate at a documented bound even when setNextRequest creates a cycle or a request repeatedly fails.",
+            "evidenceSource": "seed-skills/postman-newman-automation/SKILL.md"
+          },
+          {
+            "scenario": "next-request name no longer exists",
+            "controlledSetup": "Change only the condition represented by \"next-request name no longer exists\" while retaining the baseline fixture.",
+            "expectedObservation": "execution order, counter values, selected next request, termination reason, Newman exit status, and report counts prove bounded behavior",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish counter reset in local scope, increment after a failing assertion, renamed requests, folder scope, parallel collection runs, and missing setNextRequest(null).",
+            "evidenceSource": "seed-skills/postman-api/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/postman-api/SKILL.md",
+          "seed-skills/postman-newman-automation/SKILL.md",
+          "https://learning.postman.com/docs/tests-and-scripts/write-scripts/postman-sandbox-api-reference/",
+          "https://learning.postman.com/docs/collections/running-collections/building-workflows/",
+          "https://learning.postman.com/docs/collections/using-newman-cli/newman-options/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Postman setNextRequest loop guard testing",
+        "steps": [
+          "Read seed-skills/postman-api/SKILL.md and seed-skills/postman-newman-automation/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using two requests that point to each other, a scoped execution counter, a maximum-iteration guard, an error branch, and a normal terminal request.",
+          "Run the positive case and capture execution order, counter values, selected next request, termination reason, Newman exit status, and report counts prove bounded behavior.",
+          "Inject one failure at a time from counter reset in local scope, increment after a failing assertion, renamed requests, folder scope, parallel collection runs, and missing setNextRequest(null), keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Postman setNextRequest loop guard testing baseline",
+          "language": "javascript",
+          "path": "seed-skills/postman-api/SKILL.md",
+          "focus": "Adapt Postman sandbox scripts to increment a collection-scoped guard before choosing the next request."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "javascript",
+          "path": "seed-skills/postman-newman-automation/SKILL.md",
+          "focus": "Use Newman automation to assert bounded execution counts, termination output, and report completeness."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/postman-api/SKILL.md",
+        "seed-skills/postman-newman-automation/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/postman-api-testing-guide",
+        "/blog/newman-postman-ci-automation-guide-2026",
+        "/blog/bruno-vs-postman-api-testing-2026",
+        "/blog/hoppscotch-vs-postman-2026",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "postman-api-testing-guide",
+        "newman-postman-ci-automation-guide-2026",
+        "bruno-vs-postman-api-testing-2026",
+        "hoppscotch-vs-postman-2026"
+      ],
+      "sources": [
+        "https://learning.postman.com/docs/tests-and-scripts/write-scripts/postman-sandbox-api-reference/",
+        "https://learning.postman.com/docs/collections/running-collections/building-workflows/",
+        "https://learning.postman.com/docs/collections/using-newman-cli/newman-options/"
+      ],
+      "faqQuestions": [
+        "How can a Postman collection use setNextRequest safely without accidental cycles or unbounded request loops?",
+        "What should an Postman setNextRequest loop fixture record?",
+        "Which failure proves collection workflow cycle guard is broken?",
+        "How do teams isolate stop Postman request loop?",
+        "Which assertion is strongest for Postman execution counter?",
+        "How should CI report setNextRequest termination test failures?"
+      ],
+      "cta": "Review /blog/postman-api-testing-guide, then open /skills and implement the Postman setNextRequest loop guard testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-43",
+      "batch": 49,
+      "batchPosition": 3,
+      "domain": "testing-frameworks",
+      "slug": "redirect-chain-security-header-testing",
+      "primaryKeyword": "redirect chain security header testing",
+      "title": "redirect chain security header testing",
+      "description": "redirect chain security header testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "Which security headers must survive each redirect hop, and how can tests catch protection applied only to the final response?",
+      "intentBoundary": "The nearest page covers a broader security workflow. This candidate owns header coverage on intermediate redirect responses.",
+      "secondaryKeywords": [
+        "security headers redirect chain",
+        "HSTS redirect hop test",
+        "CSP on redirect response",
+        "redirect Referrer-Policy test",
+        "header audit every location"
+      ],
+      "outline": [
+        {
+          "heading": "What does redirect chain security header testing verify?",
+          "question": true,
+          "coverage": "Answer \"Which security headers must survive each redirect hop, and how can tests catch protection applied only to the final response?\" in 40 to 60 words. Define the observable contract: every redirect hop is inspected against an explicit header policy instead of checking only the final response. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an security headers redirect chain?",
+          "question": true,
+          "secondaryKeyword": "security headers redirect chain",
+          "coverage": "Describe this exact fixture: HTTP-to-HTTPS, same-origin, cross-origin, temporary, permanent, and error-ending redirect chains with controllable headers at each hop. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/security-best-practices/SKILL.md"]
+        },
+        {
+          "heading": "What breaks HSTS redirect hop test?",
+          "question": true,
+          "secondaryKeyword": "HSTS redirect hop test",
+          "coverage": "Explain the failure mechanics behind automatic redirect following, credentials crossing origins, protection added only at the destination, malformed Location values, and looped redirects. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "CSP on redirect response fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "CSP on redirect response",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use HTTP-to-HTTPS, same-origin, cross-origin, temporary, permanent, and error-ending redirect chains with controllable headers at each hop, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/owasp-security/SKILL.md"]
+        },
+        {
+          "heading": "How should redirect Referrer-Policy test be asserted?",
+          "question": true,
+          "secondaryKeyword": "redirect Referrer-Policy test",
+          "coverage": "Build the oracle from manual redirect responses record status, Location, origin, HSTS, CSP, Referrer-Policy, cookies, and final destination for policy comparison. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "header audit every location in CI",
+          "question": false,
+          "secondaryKeyword": "header audit every location",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to security-best-practices and owasp-security.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "redirect chain security header testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: HTTP to HTTPS entry redirect; same-origin temporary redirect; cross-origin redirect; multi-hop chain with one missing policy header; redirect loop or invalid Location. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement redirect chain security header testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within every redirect hop is inspected against an explicit header policy instead of checking only the final response, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/security-testing-complete-guide, then open /skills and implement the redirect chain security header testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/security-best-practices/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "redirect chain security header testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "HTTP to HTTPS entry redirect",
+            "controlledSetup": "HTTP-to-HTTPS, same-origin, cross-origin, temporary, permanent, and error-ending redirect chains with controllable headers at each hop",
+            "expectedObservation": "manual redirect responses record status, Location, origin, HSTS, CSP, Referrer-Policy, cookies, and final destination for policy comparison",
+            "failureSignal": "Observed state differs from the documented every redirect hop is inspected against an explicit header policy instead of checking only the final response.",
+            "evidenceSource": "seed-skills/security-best-practices/SKILL.md"
+          },
+          {
+            "scenario": "same-origin temporary redirect",
+            "controlledSetup": "Change only the condition represented by \"same-origin temporary redirect\" while retaining the baseline fixture.",
+            "expectedObservation": "manual redirect responses record status, Location, origin, HSTS, CSP, Referrer-Policy, cookies, and final destination for policy comparison",
+            "failureSignal": "Observed state differs from the documented every redirect hop is inspected against an explicit header policy instead of checking only the final response.",
+            "evidenceSource": "seed-skills/owasp-security/SKILL.md"
+          },
+          {
+            "scenario": "cross-origin redirect",
+            "controlledSetup": "Change only the condition represented by \"cross-origin redirect\" while retaining the baseline fixture.",
+            "expectedObservation": "manual redirect responses record status, Location, origin, HSTS, CSP, Referrer-Policy, cookies, and final destination for policy comparison",
+            "failureSignal": "Observed state differs from the documented every redirect hop is inspected against an explicit header policy instead of checking only the final response.",
+            "evidenceSource": "seed-skills/security-best-practices/SKILL.md"
+          },
+          {
+            "scenario": "multi-hop chain with one missing policy header",
+            "controlledSetup": "Change only the condition represented by \"multi-hop chain with one missing policy header\" while retaining the baseline fixture.",
+            "expectedObservation": "manual redirect responses record status, Location, origin, HSTS, CSP, Referrer-Policy, cookies, and final destination for policy comparison",
+            "failureSignal": "Observed state differs from the documented every redirect hop is inspected against an explicit header policy instead of checking only the final response.",
+            "evidenceSource": "seed-skills/owasp-security/SKILL.md"
+          },
+          {
+            "scenario": "redirect loop or invalid Location",
+            "controlledSetup": "Change only the condition represented by \"redirect loop or invalid Location\" while retaining the baseline fixture.",
+            "expectedObservation": "manual redirect responses record status, Location, origin, HSTS, CSP, Referrer-Policy, cookies, and final destination for policy comparison",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish automatic redirect following, credentials crossing origins, protection added only at the destination, malformed Location values, and looped redirects.",
+            "evidenceSource": "seed-skills/security-best-practices/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/security-best-practices/SKILL.md",
+          "seed-skills/owasp-security/SKILL.md",
+          "https://www.w3.org/TR/CSP3/",
+          "https://fetch.spec.whatwg.org/",
+          "https://www.rfc-editor.org/info/rfc9700",
+          "https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run redirect chain security header testing",
+        "steps": [
+          "Read seed-skills/security-best-practices/SKILL.md and seed-skills/owasp-security/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using HTTP-to-HTTPS, same-origin, cross-origin, temporary, permanent, and error-ending redirect chains with controllable headers at each hop.",
+          "Run the positive case and capture manual redirect responses record status, Location, origin, HSTS, CSP, Referrer-Policy, cookies, and final destination for policy comparison.",
+          "Inject one failure at a time from automatic redirect following, credentials crossing origins, protection added only at the destination, malformed Location values, and looped redirects, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the redirect chain security header testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/security-best-practices/SKILL.md",
+          "focus": "Adapt security header assertions to a manual-follow client that records every response before navigation continues."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/owasp-security/SKILL.md",
+          "focus": "Use OWASP checks to define per-hop expectations without claiming every header belongs on every response."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/security-best-practices/SKILL.md",
+        "seed-skills/owasp-security/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/security-testing-complete-guide",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/owasp-zap-api-security-testing-guide-2026",
+        "/blog/authentication-authorization-testing-guide",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "security-testing-complete-guide",
+        "api-security-testing-checklist-2026",
+        "owasp-zap-api-security-testing-guide-2026",
+        "authentication-authorization-testing-guide"
+      ],
+      "sources": [
+        "https://www.w3.org/TR/CSP3/",
+        "https://fetch.spec.whatwg.org/",
+        "https://www.rfc-editor.org/info/rfc9700",
+        "https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html"
+      ],
+      "faqQuestions": [
+        "Which security headers must survive each redirect hop, and how can tests catch protection applied only to the final response?",
+        "What should an security headers redirect chain fixture record?",
+        "Which failure proves HSTS redirect hop test is broken?",
+        "How do teams isolate CSP on redirect response?",
+        "Which assertion is strongest for redirect Referrer-Policy test?",
+        "How should CI report header audit every location failures?"
+      ],
+      "cta": "Review /blog/security-testing-complete-guide, then open /skills and implement the redirect chain security header testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-50",
+      "batch": 49,
+      "batchPosition": 4,
+      "domain": "testing-frameworks",
+      "slug": "resource-timing-cache-attribution-testing",
+      "primaryKeyword": "resource timing cache attribution testing",
+      "title": "resource timing cache attribution testing",
+      "description": "resource timing cache attribution testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How can Resource Timing distinguish memory cache, disk cache, network transfer, and opaque cross-origin resources?",
+      "intentBoundary": "The nearest page covers a broader performance workflow. This candidate owns cache-source attribution from Resource Timing entries.",
+      "secondaryKeywords": [
+        "Resource Timing cache detection",
+        "transferSize cache test",
+        "encodedBodySize resource timing",
+        "cross origin timing allow origin",
+        "browser cache attribution metrics"
+      ],
+      "outline": [
+        {
+          "heading": "What does resource timing cache attribution testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can Resource Timing distinguish memory cache, disk cache, network transfer, and opaque cross-origin resources?\" in 40 to 60 words. Define the observable contract: Resource Timing evidence separates transferred resources from likely cache reuse while clearly marking cases that cannot be attributed. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an Resource Timing cache detection?",
+          "question": true,
+          "secondaryKeyword": "Resource Timing cache detection",
+          "coverage": "Describe this exact fixture: cold and warm page loads for same-origin and cross-origin resources with controlled cache headers and Timing-Allow-Origin coverage. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/web-vitals-testing/SKILL.md"]
+        },
+        {
+          "heading": "What breaks transferSize cache test?",
+          "question": true,
+          "secondaryKeyword": "transferSize cache test",
+          "coverage": "Explain the failure mechanics behind browser-specific memory and disk behavior, opaque cross-origin entries, service workers, preloads, revalidation, and overconfident zero-size interpretation. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "encodedBodySize resource timing fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "encodedBodySize resource timing",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use cold and warm page loads for same-origin and cross-origin resources with controlled cache headers and Timing-Allow-Origin coverage, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/performance-budget-testing/SKILL.md"]
+        },
+        {
+          "heading": "How should cross origin timing allow origin be asserted?",
+          "question": true,
+          "secondaryKeyword": "cross origin timing allow origin",
+          "coverage": "Build the oracle from transferSize, encodedBodySize, decodedBodySize, duration, initiator type, response timing, and origin access explain each attribution. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "browser cache attribution metrics in CI",
+          "question": false,
+          "secondaryKeyword": "browser cache attribution metrics",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to web-vitals-testing and performance-budget-testing.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "resource timing cache attribution testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: cold same-origin resource load; warm load with a reusable response; revalidated response; cross-origin resource with Timing-Allow-Origin; cross-origin resource without timing permission. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement resource timing cache attribution testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within Resource Timing evidence separates transferred resources from likely cache reuse while clearly marking cases that cannot be attributed, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/performance-testing-complete-guide, then open /skills and implement the resource timing cache attribution testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/web-vitals-testing/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "resource timing cache attribution testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "cold same-origin resource load",
+            "controlledSetup": "cold and warm page loads for same-origin and cross-origin resources with controlled cache headers and Timing-Allow-Origin coverage",
+            "expectedObservation": "transferSize, encodedBodySize, decodedBodySize, duration, initiator type, response timing, and origin access explain each attribution",
+            "failureSignal": "Observed state differs from the documented Resource Timing evidence separates transferred resources from likely cache reuse while clearly marking cases that cannot be attributed.",
+            "evidenceSource": "seed-skills/web-vitals-testing/SKILL.md"
+          },
+          {
+            "scenario": "warm load with a reusable response",
+            "controlledSetup": "Change only the condition represented by \"warm load with a reusable response\" while retaining the baseline fixture.",
+            "expectedObservation": "transferSize, encodedBodySize, decodedBodySize, duration, initiator type, response timing, and origin access explain each attribution",
+            "failureSignal": "Observed state differs from the documented Resource Timing evidence separates transferred resources from likely cache reuse while clearly marking cases that cannot be attributed.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          },
+          {
+            "scenario": "revalidated response",
+            "controlledSetup": "Change only the condition represented by \"revalidated response\" while retaining the baseline fixture.",
+            "expectedObservation": "transferSize, encodedBodySize, decodedBodySize, duration, initiator type, response timing, and origin access explain each attribution",
+            "failureSignal": "Observed state differs from the documented Resource Timing evidence separates transferred resources from likely cache reuse while clearly marking cases that cannot be attributed.",
+            "evidenceSource": "seed-skills/web-vitals-testing/SKILL.md"
+          },
+          {
+            "scenario": "cross-origin resource with Timing-Allow-Origin",
+            "controlledSetup": "Change only the condition represented by \"cross-origin resource with Timing-Allow-Origin\" while retaining the baseline fixture.",
+            "expectedObservation": "transferSize, encodedBodySize, decodedBodySize, duration, initiator type, response timing, and origin access explain each attribution",
+            "failureSignal": "Observed state differs from the documented Resource Timing evidence separates transferred resources from likely cache reuse while clearly marking cases that cannot be attributed.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          },
+          {
+            "scenario": "cross-origin resource without timing permission",
+            "controlledSetup": "Change only the condition represented by \"cross-origin resource without timing permission\" while retaining the baseline fixture.",
+            "expectedObservation": "transferSize, encodedBodySize, decodedBodySize, duration, initiator type, response timing, and origin access explain each attribution",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish browser-specific memory and disk behavior, opaque cross-origin entries, service workers, preloads, revalidation, and overconfident zero-size interpretation.",
+            "evidenceSource": "seed-skills/web-vitals-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/web-vitals-testing/SKILL.md",
+          "seed-skills/performance-budget-testing/SKILL.md",
+          "https://web.dev/articles/bfcache",
+          "https://www.w3.org/TR/resource-timing-2/",
+          "https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md",
+          "https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run resource timing cache attribution testing",
+        "steps": [
+          "Read seed-skills/web-vitals-testing/SKILL.md and seed-skills/performance-budget-testing/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using cold and warm page loads for same-origin and cross-origin resources with controlled cache headers and Timing-Allow-Origin coverage.",
+          "Run the positive case and capture transferSize, encodedBodySize, decodedBodySize, duration, initiator type, response timing, and origin access explain each attribution.",
+          "Inject one failure at a time from browser-specific memory and disk behavior, opaque cross-origin entries, service workers, preloads, revalidation, and overconfident zero-size interpretation, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the resource timing cache attribution testing baseline",
+          "language": "javascript",
+          "path": "seed-skills/web-vitals-testing/SKILL.md",
+          "focus": "Adapt the Web Vitals resource collection to retain all Resource Timing size and origin fields."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "javascript",
+          "path": "seed-skills/performance-budget-testing/SKILL.md",
+          "focus": "Use performance budget logic to classify transferred, reused, revalidated, and unattributable entries conservatively."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/web-vitals-testing/SKILL.md",
+        "seed-skills/performance-budget-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/performance-testing",
+        "/blog/performance-testing-complete-guide",
+        "/blog/lighthouse-ci-performance-budget-gates-guide-2026",
+        "/blog/core-web-vitals-testing-guide-2026",
+        "/blog/sitespeed-io-performance-testing-guide-2026",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "performance-testing-complete-guide",
+        "lighthouse-ci-performance-budget-gates-guide-2026",
+        "core-web-vitals-testing-guide-2026",
+        "sitespeed-io-performance-testing-guide-2026"
+      ],
+      "sources": [
+        "https://web.dev/articles/bfcache",
+        "https://www.w3.org/TR/resource-timing-2/",
+        "https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md",
+        "https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver"
+      ],
+      "faqQuestions": [
+        "How can Resource Timing distinguish memory cache, disk cache, network transfer, and opaque cross-origin resources?",
+        "What should an Resource Timing cache detection fixture record?",
+        "Which failure proves transferSize cache test is broken?",
+        "How do teams isolate encodedBodySize resource timing?",
+        "Which assertion is strongest for cross origin timing allow origin?",
+        "How should CI report browser cache attribution metrics failures?"
+      ],
+      "cta": "Review /blog/performance-testing-complete-guide, then open /skills and implement the resource timing cache attribution testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-34",
+      "batch": 49,
+      "batchPosition": 5,
+      "domain": "testing-frameworks",
+      "slug": "rest-assured-multipart-boundary-testing",
+      "primaryKeyword": "REST Assured multipart boundary testing",
+      "title": "REST Assured multipart boundary testing",
+      "description": "REST Assured multipart boundary testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How can REST Assured verify multipart boundaries, repeated fields, filenames, and content types at the server boundary?",
+      "intentBoundary": "The nearest page covers a broader rest workflow. This candidate owns wire-level multipart construction and server parsing.",
+      "secondaryKeywords": [
+        "REST Assured multipart boundary",
+        "multipart repeated field test",
+        "REST Assured file upload headers",
+        "multipart filename encoding",
+        "API multipart content type"
+      ],
+      "outline": [
+        {
+          "heading": "What does REST Assured multipart boundary testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can REST Assured verify multipart boundaries, repeated fields, filenames, and content types at the server boundary?\" in 40 to 60 words. Define the observable contract: the multipart request declares a boundary that matches the encoded body and preserves repeated fields, filenames, and part content types. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/restassured-api-framework/SKILL.md",
+            "seed-skills/rest-assured-api/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an REST Assured multipart boundary?",
+          "question": true,
+          "secondaryKeyword": "REST Assured multipart boundary",
+          "coverage": "Describe this exact fixture: a capture server receiving text parts, repeated names, binary files, Unicode filenames, empty parts, and an intentionally malformed boundary. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/restassured-api-framework/SKILL.md"]
+        },
+        {
+          "heading": "What breaks multipart repeated field test?",
+          "question": true,
+          "secondaryKeyword": "multipart repeated field test",
+          "coverage": "Explain the failure mechanics behind manually forcing Content-Type, boundary mismatch, filename encoding, newline normalization, duplicate-field collapse, and proxy body rewriting. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/restassured-api-framework/SKILL.md",
+            "seed-skills/rest-assured-api/SKILL.md"
+          ]
+        },
+        {
+          "heading": "REST Assured file upload headers fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "REST Assured file upload headers",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a capture server receiving text parts, repeated names, binary files, Unicode filenames, empty parts, and an intentionally malformed boundary, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/rest-assured-api/SKILL.md"]
+        },
+        {
+          "heading": "How should multipart filename encoding be asserted?",
+          "question": true,
+          "secondaryKeyword": "multipart filename encoding",
+          "coverage": "Build the oracle from raw Content-Type, body delimiters, parsed part order, names, filenames, media types, and bytes expose client or server encoding drift. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/restassured-api-framework/SKILL.md",
+            "seed-skills/rest-assured-api/SKILL.md"
+          ]
+        },
+        {
+          "heading": "API multipart content type in CI",
+          "question": false,
+          "secondaryKeyword": "API multipart content type",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to restassured-api-framework and rest-assured-api.",
+          "repoEvidence": [
+            "seed-skills/restassured-api-framework/SKILL.md",
+            "seed-skills/rest-assured-api/SKILL.md"
+          ]
+        },
+        {
+          "heading": "REST Assured multipart boundary testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: single text field and file; two parts with the same field name; binary file with explicit media type; Unicode and quoted filename; declared boundary that does not match the body. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/restassured-api-framework/SKILL.md",
+            "seed-skills/rest-assured-api/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement REST Assured multipart boundary testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/restassured-api-framework/SKILL.md",
+            "seed-skills/rest-assured-api/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the multipart request declares a boundary that matches the encoded body and preserves repeated fields, filenames, and part content types, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/restassured-api-framework/SKILL.md",
+            "seed-skills/rest-assured-api/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/rest-assured-java-api-testing, then open /skills and implement the REST Assured multipart boundary testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/restassured-api-framework/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "REST Assured multipart boundary testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "single text field and file",
+            "controlledSetup": "a capture server receiving text parts, repeated names, binary files, Unicode filenames, empty parts, and an intentionally malformed boundary",
+            "expectedObservation": "raw Content-Type, body delimiters, parsed part order, names, filenames, media types, and bytes expose client or server encoding drift",
+            "failureSignal": "Observed state differs from the documented the multipart request declares a boundary that matches the encoded body and preserves repeated fields, filenames, and part content types.",
+            "evidenceSource": "seed-skills/restassured-api-framework/SKILL.md"
+          },
+          {
+            "scenario": "two parts with the same field name",
+            "controlledSetup": "Change only the condition represented by \"two parts with the same field name\" while retaining the baseline fixture.",
+            "expectedObservation": "raw Content-Type, body delimiters, parsed part order, names, filenames, media types, and bytes expose client or server encoding drift",
+            "failureSignal": "Observed state differs from the documented the multipart request declares a boundary that matches the encoded body and preserves repeated fields, filenames, and part content types.",
+            "evidenceSource": "seed-skills/rest-assured-api/SKILL.md"
+          },
+          {
+            "scenario": "binary file with explicit media type",
+            "controlledSetup": "Change only the condition represented by \"binary file with explicit media type\" while retaining the baseline fixture.",
+            "expectedObservation": "raw Content-Type, body delimiters, parsed part order, names, filenames, media types, and bytes expose client or server encoding drift",
+            "failureSignal": "Observed state differs from the documented the multipart request declares a boundary that matches the encoded body and preserves repeated fields, filenames, and part content types.",
+            "evidenceSource": "seed-skills/restassured-api-framework/SKILL.md"
+          },
+          {
+            "scenario": "Unicode and quoted filename",
+            "controlledSetup": "Change only the condition represented by \"Unicode and quoted filename\" while retaining the baseline fixture.",
+            "expectedObservation": "raw Content-Type, body delimiters, parsed part order, names, filenames, media types, and bytes expose client or server encoding drift",
+            "failureSignal": "Observed state differs from the documented the multipart request declares a boundary that matches the encoded body and preserves repeated fields, filenames, and part content types.",
+            "evidenceSource": "seed-skills/rest-assured-api/SKILL.md"
+          },
+          {
+            "scenario": "declared boundary that does not match the body",
+            "controlledSetup": "Change only the condition represented by \"declared boundary that does not match the body\" while retaining the baseline fixture.",
+            "expectedObservation": "raw Content-Type, body delimiters, parsed part order, names, filenames, media types, and bytes expose client or server encoding drift",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish manually forcing Content-Type, boundary mismatch, filename encoding, newline normalization, duplicate-field collapse, and proxy body rewriting.",
+            "evidenceSource": "seed-skills/restassured-api-framework/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/restassured-api-framework/SKILL.md",
+          "seed-skills/rest-assured-api/SKILL.md",
+          "https://github.com/rest-assured/rest-assured/wiki/Usage",
+          "https://www.rfc-editor.org/info/rfc9110",
+          "https://www.rfc-editor.org/info/rfc7578"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run REST Assured multipart boundary testing",
+        "steps": [
+          "Read seed-skills/restassured-api-framework/SKILL.md and seed-skills/rest-assured-api/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a capture server receiving text parts, repeated names, binary files, Unicode filenames, empty parts, and an intentionally malformed boundary.",
+          "Run the positive case and capture raw Content-Type, body delimiters, parsed part order, names, filenames, media types, and bytes expose client or server encoding drift.",
+          "Inject one failure at a time from manually forcing Content-Type, boundary mismatch, filename encoding, newline normalization, duplicate-field collapse, and proxy body rewriting, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the REST Assured multipart boundary testing baseline",
+          "language": "java",
+          "path": "seed-skills/restassured-api-framework/SKILL.md",
+          "focus": "Adapt REST Assured multiPart examples and let the client generate the matching boundary."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "java",
+          "path": "seed-skills/rest-assured-api/SKILL.md",
+          "focus": "Use the second framework skill to capture and assert raw headers, parsed parts, filenames, and payload bytes."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/restassured-api-framework/SKILL.md",
+        "seed-skills/rest-assured-api/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/rest-assured-java-api-testing",
+        "/blog/rest-assured-json-schema-validation-guide",
+        "/blog/rest-assured-vs-karate-detailed-comparison-2026",
+        "/blog/api-testing-best-practices-guide",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "rest-assured-java-api-testing",
+        "rest-assured-json-schema-validation-guide",
+        "rest-assured-vs-karate-detailed-comparison-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://github.com/rest-assured/rest-assured/wiki/Usage",
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://www.rfc-editor.org/info/rfc7578"
+      ],
+      "faqQuestions": [
+        "How can REST Assured verify multipart boundaries, repeated fields, filenames, and content types at the server boundary?",
+        "What should an REST Assured multipart boundary fixture record?",
+        "Which failure proves multipart repeated field test is broken?",
+        "How do teams isolate REST Assured file upload headers?",
+        "Which assertion is strongest for multipart filename encoding?",
+        "How should CI report API multipart content type failures?"
+      ],
+      "cta": "Review /blog/rest-assured-java-api-testing, then open /skills and implement the REST Assured multipart boundary testing matrix in the next test run."
+    }
+  ]
+}

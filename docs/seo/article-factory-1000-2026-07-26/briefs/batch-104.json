@@ -1,0 +1,1163 @@
+{
+  "batch": 104,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-091",
+      "batch": 104,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "android-talkback-traversal-order-testing",
+      "primaryKeyword": "Android TalkBack traversal order testing",
+      "title": "Android Talkback Traversal Order Testing",
+      "description": "Android TalkBack traversal order testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify semantic focus follows task order across dynamic native screens?",
+      "intentBoundary": "Owns Android screen-reader traversal, not keyboard tab order in web pages.",
+      "secondaryKeywords": [
+        "TalkBack focus sequence",
+        "accessibility traversalAfter",
+        "dynamic content order",
+        "Android TalkBack traversal order testing checklist",
+        "Android TalkBack traversal order testing CI strategy",
+        "Android TalkBack traversal order testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Android TalkBack traversal order testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify semantic focus follows task order across dynamic native screens?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build TalkBack focus sequence?",
+          "question": true,
+          "secondaryKeyword": "TalkBack focus sequence",
+          "coverage": "Create an isolated fixture for TalkBack focus sequence. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks accessibility traversalAfter?",
+          "question": true,
+          "secondaryKeyword": "accessibility traversalAfter",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for accessibility traversalAfter. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts",
+            "seed-skills/mobile-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Dynamic content order fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "dynamic content order",
+          "coverage": "Turn dynamic content order into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Android TalkBack traversal order testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Android TalkBack traversal order testing checklist",
+          "coverage": "Build the oracle for Android TalkBack traversal order testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Android TalkBack traversal order testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Android TalkBack traversal order testing CI strategy",
+          "coverage": "Package Android TalkBack traversal order testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts",
+            "seed-skills/mobile-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Android Talkback Traversal Order Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Android TalkBack traversal order testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/mobile-accessibility-testing/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Android Talkback Traversal Order Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/mobile-accessibility-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android TalkBack traversal order testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/mobile-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "TalkBack focus sequence",
+            "controlledSetup": "Change only the condition represented by \"TalkBack focus sequence\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android TalkBack traversal order testing.",
+            "failureSignal": "The observed result differs from the approved TalkBack focus sequence contract.",
+            "evidenceSource": "seed-skills/wcag-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "accessibility traversalAfter",
+            "controlledSetup": "Change only the condition represented by \"accessibility traversalAfter\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android TalkBack traversal order testing.",
+            "failureSignal": "The observed result differs from the approved accessibility traversalAfter contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android TalkBack traversal order testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/mobile-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Android TalkBack traversal order testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/wcag-accessibility-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/mobile-accessibility-testing/SKILL.md",
+          "seed-skills/wcag-accessibility-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts",
+          "https://www.w3.org/TR/WCAG22/",
+          "https://www.w3.org/WAI/standards-guidelines/mobile/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Android TalkBack traversal order testing",
+        "steps": [
+          "Read seed-skills/mobile-accessibility-testing/SKILL.md and seed-skills/wcag-accessibility-testing/SKILL.md and packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Android TalkBack traversal order testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for TalkBack focus sequence, accessibility traversalAfter, dynamic content order, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Android TalkBack traversal order testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/mobile-accessibility-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Android TalkBack traversal order testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/wcag-accessibility-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/mobile-accessibility-testing/SKILL.md",
+        "seed-skills/wcag-accessibility-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/mobile-accessibility-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/accessibility-testing",
+        "/blog/mobile-accessibility-testing-guide",
+        "/blog/accessibility-testing-automation-guide",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-accessibility-testing-guide",
+        "accessibility-testing-automation-guide",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://www.w3.org/TR/WCAG22/",
+        "https://www.w3.org/WAI/standards-guidelines/mobile/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify semantic focus follows task order across dynamic native screens?",
+        "What should a TalkBack focus sequence fixture record?",
+        "Which failure proves accessibility traversalAfter is broken?",
+        "How do teams isolate dynamic content order?",
+        "Which assertion is strongest for Android TalkBack traversal order testing checklist?",
+        "How should CI report Android TalkBack traversal order testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-accessibility-testing-guide, then open /skills and add the Android TalkBack traversal order testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-038",
+      "batch": 104,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "k6-connection-reuse-performance-testing",
+      "primaryKeyword": "k6 connection reuse performance testing",
+      "title": "K6 Connection Reuse Performance Testing",
+      "description": "k6 connection reuse performance testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams measure how keep-alive and connection reuse settings change latency and sockets?",
+      "intentBoundary": "Owns transport connection reuse, not application cache performance.",
+      "secondaryKeywords": [
+        "noConnectionReuse impact",
+        "keep alive load test",
+        "socket churn measurement",
+        "k6 connection reuse performance testing checklist",
+        "k6 connection reuse performance testing CI strategy",
+        "k6 connection reuse performance testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does k6 connection reuse performance testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams measure how keep-alive and connection reuse settings change latency and sockets?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build noConnectionReuse impact?",
+          "question": true,
+          "secondaryKeyword": "noConnectionReuse impact",
+          "coverage": "Create an isolated fixture for noConnectionReuse impact. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks keep alive load test?",
+          "question": true,
+          "secondaryKeyword": "keep alive load test",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for keep alive load test. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts",
+            "seed-skills/k6-performance/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Socket churn measurement fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "socket churn measurement",
+          "coverage": "Turn socket churn measurement into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should k6 connection reuse performance testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "k6 connection reuse performance testing checklist",
+          "coverage": "Build the oracle for k6 connection reuse performance testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          ]
+        },
+        {
+          "heading": "K6 connection reuse performance testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "k6 connection reuse performance testing CI strategy",
+          "coverage": "Package k6 connection reuse performance testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts",
+            "seed-skills/k6-performance/SKILL.md"
+          ]
+        },
+        {
+          "heading": "K6 Connection Reuse Performance Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement k6 connection reuse performance testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/performance-test-scenario-generator/SKILL.md",
+            "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "K6 Connection Reuse Performance Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/k6-performance/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by k6 connection reuse performance testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/k6-performance/SKILL.md"
+          },
+          {
+            "scenario": "noConnectionReuse impact",
+            "controlledSetup": "Change only the condition represented by \"noConnectionReuse impact\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by k6 connection reuse performance testing.",
+            "failureSignal": "The observed result differs from the approved noConnectionReuse impact contract.",
+            "evidenceSource": "seed-skills/performance-test-scenario-generator/SKILL.md"
+          },
+          {
+            "scenario": "keep alive load test",
+            "controlledSetup": "Change only the condition represented by \"keep alive load test\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by k6 connection reuse performance testing.",
+            "failureSignal": "The observed result differs from the approved keep alive load test contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by k6 connection reuse performance testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/k6-performance/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by k6 connection reuse performance testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/performance-test-scenario-generator/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/k6-performance/SKILL.md",
+          "seed-skills/performance-test-scenario-generator/SKILL.md",
+          "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts",
+          "https://grafana.com/docs/k6/latest/using-k6/scenarios/",
+          "https://grafana.com/docs/k6/latest/using-k6/metrics/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run k6 connection reuse performance testing",
+        "steps": [
+          "Read seed-skills/k6-performance/SKILL.md and seed-skills/performance-test-scenario-generator/SKILL.md and packages/web/src/app/blog/posts/load-testing-beginners-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for k6 connection reuse performance testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for noConnectionReuse impact, keep alive load test, socket churn measurement, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the k6 connection reuse performance testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/k6-performance/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated k6 connection reuse performance testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/performance-test-scenario-generator/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/k6-performance/SKILL.md",
+        "seed-skills/performance-test-scenario-generator/SKILL.md",
+        "packages/web/src/app/blog/posts/load-testing-beginners-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/performance-testing",
+        "/blog/load-testing-beginners-guide",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "load-testing-beginners-guide",
+        "chaos-engineering-resilience-testing",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://grafana.com/docs/k6/latest/using-k6/scenarios/",
+        "https://grafana.com/docs/k6/latest/using-k6/metrics/"
+      ],
+      "faqQuestions": [
+        "How can QA teams measure how keep-alive and connection reuse settings change latency and sockets?",
+        "What should a noConnectionReuse impact fixture record?",
+        "Which failure proves keep alive load test is broken?",
+        "How do teams isolate socket churn measurement?",
+        "Which assertion is strongest for k6 connection reuse performance testing checklist?",
+        "How should CI report k6 connection reuse performance testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/load-testing-beginners-guide, then open /skills and add the k6 connection reuse performance testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-120",
+      "batch": 104,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "kafka-consumer-offset-reset-testing",
+      "primaryKeyword": "Kafka consumer offset reset testing",
+      "title": "Kafka Consumer Offset Reset Testing",
+      "description": "Kafka consumer offset reset testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify earliest, latest, and missing-offset policies produce expected replay windows?",
+      "intentBoundary": "Owns offset reset behavior, not normal committed-offset recovery or rebalance.",
+      "secondaryKeywords": [
+        "auto.offset.reset policy",
+        "expired consumer offset",
+        "replay window assertion",
+        "Kafka consumer offset reset testing checklist",
+        "Kafka consumer offset reset testing CI strategy",
+        "Kafka consumer offset reset testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Kafka consumer offset reset testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify earliest, latest, and missing-offset policies produce expected replay windows?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build auto.offset.reset policy?",
+          "question": true,
+          "secondaryKeyword": "auto.offset.reset policy",
+          "coverage": "Create an isolated fixture for auto.offset.reset policy. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks expired consumer offset?",
+          "question": true,
+          "secondaryKeyword": "expired consumer offset",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for expired consumer offset. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts",
+            "seed-skills/kafka-event-driven-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Replay window assertion fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "replay window assertion",
+          "coverage": "Turn replay window assertion into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Kafka consumer offset reset testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Kafka consumer offset reset testing checklist",
+          "coverage": "Build the oracle for Kafka consumer offset reset testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Kafka consumer offset reset testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Kafka consumer offset reset testing CI strategy",
+          "coverage": "Package Kafka consumer offset reset testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts",
+            "seed-skills/kafka-event-driven-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Kafka Consumer Offset Reset Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Kafka consumer offset reset testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/kafka-event-driven-testing/SKILL.md",
+            "seed-skills/data-pipeline-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Kafka Consumer Offset Reset Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/kafka-event-driven-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka consumer offset reset testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/kafka-event-driven-testing/SKILL.md"
+          },
+          {
+            "scenario": "auto.offset.reset policy",
+            "controlledSetup": "Change only the condition represented by \"auto.offset.reset policy\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka consumer offset reset testing.",
+            "failureSignal": "The observed result differs from the approved auto.offset.reset policy contract.",
+            "evidenceSource": "seed-skills/data-pipeline-testing/SKILL.md"
+          },
+          {
+            "scenario": "expired consumer offset",
+            "controlledSetup": "Change only the condition represented by \"expired consumer offset\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka consumer offset reset testing.",
+            "failureSignal": "The observed result differs from the approved expired consumer offset contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka consumer offset reset testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/kafka-event-driven-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kafka consumer offset reset testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/data-pipeline-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/kafka-event-driven-testing/SKILL.md",
+          "seed-skills/data-pipeline-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts",
+          "https://kafka.apache.org/documentation/#semantics",
+          "https://kafka.apache.org/documentation/#consumerconfigs"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Kafka consumer offset reset testing",
+        "steps": [
+          "Read seed-skills/kafka-event-driven-testing/SKILL.md and seed-skills/data-pipeline-testing/SKILL.md and packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Kafka consumer offset reset testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for auto.offset.reset policy, expired consumer offset, replay window assertion, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Kafka consumer offset reset testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/kafka-event-driven-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Kafka consumer offset reset testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/data-pipeline-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/kafka-event-driven-testing/SKILL.md",
+        "seed-skills/data-pipeline-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/data-contract-testing-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/database-testing-automation-guide",
+        "/blog/data-contract-testing-guide-2026",
+        "/blog/event-driven-architecture-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "database-testing-automation-guide",
+        "data-contract-testing-guide-2026",
+        "event-driven-architecture-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://kafka.apache.org/documentation/#semantics",
+        "https://kafka.apache.org/documentation/#consumerconfigs"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify earliest, latest, and missing-offset policies produce expected replay windows?",
+        "What should a auto.offset.reset policy fixture record?",
+        "Which failure proves expired consumer offset is broken?",
+        "How do teams isolate replay window assertion?",
+        "Which assertion is strongest for Kafka consumer offset reset testing checklist?",
+        "How should CI report Kafka consumer offset reset testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/database-testing-automation-guide, then open /skills and add the Kafka consumer offset reset testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-101",
+      "batch": 104,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "audio-transcript-synchronization-testing",
+      "primaryKeyword": "audio transcript synchronization testing",
+      "title": "Audio Transcript Synchronization Testing",
+      "description": "audio transcript synchronization testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify transcript segments align with spoken content and remain navigable?",
+      "intentBoundary": "Owns transcript timing and text agreement, not speech recognition model benchmarking.",
+      "secondaryKeywords": [
+        "transcript timestamp drift",
+        "speaker identification",
+        "searchable audio transcript",
+        "audio transcript synchronization testing checklist",
+        "audio transcript synchronization testing CI strategy",
+        "audio transcript synchronization testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does audio transcript synchronization testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify transcript segments align with spoken content and remain navigable?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build transcript timestamp drift?",
+          "question": true,
+          "secondaryKeyword": "transcript timestamp drift",
+          "coverage": "Create an isolated fixture for transcript timestamp drift. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks speaker identification?",
+          "question": true,
+          "secondaryKeyword": "speaker identification",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for speaker identification. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts",
+            "seed-skills/accessibility-manual-audit/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Searchable audio transcript fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "searchable audio transcript",
+          "coverage": "Turn searchable audio transcript into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should audio transcript synchronization testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "audio transcript synchronization testing checklist",
+          "coverage": "Build the oracle for audio transcript synchronization testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Audio transcript synchronization testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "audio transcript synchronization testing CI strategy",
+          "coverage": "Package audio transcript synchronization testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts",
+            "seed-skills/accessibility-manual-audit/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Audio Transcript Synchronization Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement audio transcript synchronization testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/wcag-accessibility-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/accessibility-manual-audit/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Audio Transcript Synchronization Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/accessibility-manual-audit/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by audio transcript synchronization testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/accessibility-manual-audit/SKILL.md"
+          },
+          {
+            "scenario": "transcript timestamp drift",
+            "controlledSetup": "Change only the condition represented by \"transcript timestamp drift\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by audio transcript synchronization testing.",
+            "failureSignal": "The observed result differs from the approved transcript timestamp drift contract.",
+            "evidenceSource": "seed-skills/wcag-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "speaker identification",
+            "controlledSetup": "Change only the condition represented by \"speaker identification\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by audio transcript synchronization testing.",
+            "failureSignal": "The observed result differs from the approved speaker identification contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by audio transcript synchronization testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/accessibility-manual-audit/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by audio transcript synchronization testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/wcag-accessibility-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/accessibility-manual-audit/SKILL.md",
+          "seed-skills/wcag-accessibility-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts",
+          "https://www.w3.org/WAI/media/av/",
+          "https://www.w3.org/TR/WCAG22/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run audio transcript synchronization testing",
+        "steps": [
+          "Read seed-skills/accessibility-manual-audit/SKILL.md and seed-skills/wcag-accessibility-testing/SKILL.md and packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for audio transcript synchronization testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for transcript timestamp drift, speaker identification, searchable audio transcript, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the audio transcript synchronization testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/accessibility-manual-audit/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated audio transcript synchronization testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/wcag-accessibility-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/accessibility-manual-audit/SKILL.md",
+        "seed-skills/wcag-accessibility-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/accessibility-testing-automation-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/accessibility-testing",
+        "/blog/mobile-accessibility-testing-guide",
+        "/blog/accessibility-testing-automation-guide",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-accessibility-testing-guide",
+        "accessibility-testing-automation-guide",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://www.w3.org/WAI/media/av/",
+        "https://www.w3.org/TR/WCAG22/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify transcript segments align with spoken content and remain navigable?",
+        "What should a transcript timestamp drift fixture record?",
+        "Which failure proves speaker identification is broken?",
+        "How do teams isolate searchable audio transcript?",
+        "Which assertion is strongest for audio transcript synchronization testing checklist?",
+        "How should CI report audio transcript synchronization testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-accessibility-testing-guide, then open /skills and add the audio transcript synchronization testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-161",
+      "batch": 104,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "ci-test-result-merge-completeness",
+      "primaryKeyword": "CI test result merge completeness",
+      "title": "CI Test Result Merge Completeness",
+      "description": "CI test result merge completeness: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify every shard contributes one report before aggregate status passes?",
+      "intentBoundary": "Owns report aggregation completeness, not shard allocation or artifact retention.",
+      "secondaryKeywords": [
+        "missing JUnit shard",
+        "duplicate test result",
+        "aggregate report gate",
+        "CI test result merge completeness checklist",
+        "CI test result merge completeness CI strategy",
+        "CI test result merge completeness failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does CI test result merge completeness verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify every shard contributes one report before aggregate status passes?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/github-actions-testing/SKILL.md",
+            "seed-skills/cicd-pipeline/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build missing JUnit shard?",
+          "question": true,
+          "secondaryKeyword": "missing JUnit shard",
+          "coverage": "Create an isolated fixture for missing JUnit shard. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/cicd-pipeline/SKILL.md",
+            "packages/web/src/app/blog/posts/cicd-testing-pipeline-github-actions.ts"
+          ]
+        },
+        {
+          "heading": "What breaks duplicate test result?",
+          "question": true,
+          "secondaryKeyword": "duplicate test result",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for duplicate test result. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/cicd-testing-pipeline-github-actions.ts",
+            "seed-skills/github-actions-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Aggregate report gate fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "aggregate report gate",
+          "coverage": "Turn aggregate report gate into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/github-actions-testing/SKILL.md",
+            "seed-skills/cicd-pipeline/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should CI test result merge completeness checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "CI test result merge completeness checklist",
+          "coverage": "Build the oracle for CI test result merge completeness checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/cicd-pipeline/SKILL.md",
+            "packages/web/src/app/blog/posts/cicd-testing-pipeline-github-actions.ts"
+          ]
+        },
+        {
+          "heading": "CI test result merge completeness CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "CI test result merge completeness CI strategy",
+          "coverage": "Package CI test result merge completeness CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/cicd-testing-pipeline-github-actions.ts",
+            "seed-skills/github-actions-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "CI Test Result Merge Completeness comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/github-actions-testing/SKILL.md",
+            "seed-skills/cicd-pipeline/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement CI test result merge completeness?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/github-actions-testing/SKILL.md",
+            "seed-skills/cicd-pipeline/SKILL.md",
+            "packages/web/src/app/blog/posts/cicd-testing-pipeline-github-actions.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/cicd-pipeline/SKILL.md",
+            "packages/web/src/app/blog/posts/cicd-testing-pipeline-github-actions.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/github-actions-testing/SKILL.md",
+            "seed-skills/cicd-pipeline/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "CI Test Result Merge Completeness scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/github-actions-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by CI test result merge completeness.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/github-actions-testing/SKILL.md"
+          },
+          {
+            "scenario": "missing JUnit shard",
+            "controlledSetup": "Change only the condition represented by \"missing JUnit shard\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by CI test result merge completeness.",
+            "failureSignal": "The observed result differs from the approved missing JUnit shard contract.",
+            "evidenceSource": "seed-skills/cicd-pipeline/SKILL.md"
+          },
+          {
+            "scenario": "duplicate test result",
+            "controlledSetup": "Change only the condition represented by \"duplicate test result\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by CI test result merge completeness.",
+            "failureSignal": "The observed result differs from the approved duplicate test result contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/cicd-testing-pipeline-github-actions.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by CI test result merge completeness.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/github-actions-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by CI test result merge completeness.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/cicd-pipeline/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/github-actions-testing/SKILL.md",
+          "seed-skills/cicd-pipeline/SKILL.md",
+          "packages/web/src/app/blog/posts/cicd-testing-pipeline-github-actions.ts",
+          "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax",
+          "https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-jobs"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run CI test result merge completeness",
+        "steps": [
+          "Read seed-skills/github-actions-testing/SKILL.md and seed-skills/cicd-pipeline/SKILL.md and packages/web/src/app/blog/posts/cicd-testing-pipeline-github-actions.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for CI test result merge completeness with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for missing JUnit shard, duplicate test result, aggregate report gate, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the CI test result merge completeness baseline",
+          "language": "typescript",
+          "path": "seed-skills/github-actions-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated CI test result merge completeness fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/cicd-pipeline/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/github-actions-testing/SKILL.md",
+        "seed-skills/cicd-pipeline/SKILL.md",
+        "packages/web/src/app/blog/posts/cicd-testing-pipeline-github-actions.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/cicd-testing-pipeline-github-actions",
+        "/blog/devops-testing-strategy-guide",
+        "/blog/github-actions-testing-ci-cd-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "cicd-testing-pipeline-github-actions",
+        "devops-testing-strategy-guide",
+        "github-actions-testing-ci-cd-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax",
+        "https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-jobs"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify every shard contributes one report before aggregate status passes?",
+        "What should a missing JUnit shard fixture record?",
+        "Which failure proves duplicate test result is broken?",
+        "How do teams isolate aggregate report gate?",
+        "Which assertion is strongest for CI test result merge completeness checklist?",
+        "How should CI report CI test result merge completeness CI strategy failures?"
+      ],
+      "cta": "Read /blog/cicd-testing-pipeline-github-actions, then open /skills and add the CI test result merge completeness checks to the next QA run."
+    }
+  ]
+}

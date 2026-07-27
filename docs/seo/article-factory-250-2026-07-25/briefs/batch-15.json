@@ -1,0 +1,755 @@
+{
+  "batch": 15,
+  "briefs": [
+    {
+      "batch": 15,
+      "batchPosition": 1,
+      "domain": "data-search-cache",
+      "sourceTopicId": "review-04",
+      "slug": "review-list-aggregate-consistency-testing",
+      "primaryKeyword": "review list aggregate consistency testing",
+      "title": "review list aggregate consistency testing",
+      "description": "Use review list aggregate consistency testing to detect count and average values that describe a different snapshot from the returned reviews.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you detect a review list and its total or average describing different snapshots when they come from separate queries?",
+      "secondaryKeywords": [
+        "review count list mismatch",
+        "aggregate snapshot consistency test",
+        "concurrent review GET race",
+        "Postgres separate query consistency",
+        "average rating stale response"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Review List Aggregate Consistency Testing Detect?",
+          "question": true,
+          "coverage": "Define response invariants between review rows, totalReviews, and averageRating when the endpoint executes two database statements."
+        },
+        {
+          "heading": "How Do You Detect a Review Count List Mismatch?",
+          "question": true,
+          "secondaryKeyword": "review count list mismatch",
+          "coverage": "Assert totalReviews equals the relevant returned rows for an unpaginated response and account for rows excluded by the user inner join."
+        },
+        {
+          "heading": "What Is an Aggregate Snapshot Consistency Test?",
+          "question": true,
+          "secondaryKeyword": "aggregate snapshot consistency test",
+          "coverage": "Coordinate a write between the list query and aggregate query and verify whether one response can combine different committed states."
+        },
+        {
+          "heading": "Concurrent Review GET Race Scenarios",
+          "question": false,
+          "secondaryKeyword": "concurrent review GET race",
+          "coverage": "Cover insert, update, and delete timing around both reads, with barriers that make the race deterministic rather than probabilistic."
+        },
+        {
+          "heading": "How Does Postgres Separate Query Consistency Behave?",
+          "question": true,
+          "secondaryKeyword": "Postgres separate query consistency",
+          "coverage": "Explain statement snapshots under the configured isolation assumptions and why a transaction may be needed for one-response consistency."
+        },
+        {
+          "heading": "Average Rating Stale Response Detection",
+          "question": false,
+          "secondaryKeyword": "average rating stale response",
+          "coverage": "Recalculate the expected average from returned ratings and identify legitimate differences versus snapshot drift."
+        },
+        {
+          "heading": "Interleaving, List State, and Aggregate State Matrix",
+          "question": false,
+          "coverage": "Present deterministic write timing and the list, count, average, invariant, and expected test outcome."
+        },
+        {
+          "heading": "How Do You Run a Deterministic Consistency Procedure?",
+          "question": true,
+          "coverage": "Use query barriers or transaction hooks to place one write between reads, assert the response invariant, and repeat under a chosen isolation level."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about snapshots, inner joins, transaction isolation, pagination assumptions, stale averages, and retrying reads."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "State the response-level invariant and direct readers to database and API testing skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Review read interleaving and consistency matrix",
+        "columns": [
+          "Write timing",
+          "List snapshot",
+          "Aggregate snapshot",
+          "Returned count",
+          "Calculated average",
+          "Invariant holds"
+        ],
+        "rows": [
+          "no concurrent write",
+          "insert before list",
+          "insert between queries",
+          "delete between queries",
+          "rating update between queries"
+        ],
+        "sources": [
+          "packages/web/src/app/api/reviews/route.ts",
+          "https://www.postgresql.org/docs/current/transaction-iso.html",
+          "https://orm.drizzle.team/docs/transactions"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to test list and aggregate snapshot consistency",
+        "steps": [
+          "Seed reviews with a known count and calculable average.",
+          "Install a deterministic barrier after the list query completes.",
+          "Insert, update, or delete a review while the request waits.",
+          "Release the aggregate query and capture the combined response.",
+          "Compare totalReviews with list length and recalculate the average.",
+          "Repeat inside a transaction using the intended isolation level."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Coordinate the two GET queries",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/reviews/route.ts",
+          "focus": "Place a test barrier between reviewRows and statsResult to reproduce mixed snapshots."
+        },
+        {
+          "title": "Create concurrent review mutations",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/relations.ts",
+          "focus": "Insert, update, and delete review rows with known ratings while the GET request is paused."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/reviews/route.ts",
+        "packages/web/src/db/schema/relations.ts",
+        "packages/web/src/components/skills/review-section.tsx"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/api-testing-complete-guide",
+        "/blog/database-testing-automation-guide",
+        "/blog/authentication-authorization-testing-guide",
+        "/blog/error-handling-testing-patterns"
+      ],
+      "relatedSlugs": [
+        "api-testing-complete-guide",
+        "database-testing-automation-guide",
+        "authentication-authorization-testing-guide",
+        "error-handling-testing-patterns"
+      ],
+      "sources": [
+        "https://www.postgresql.org/docs/current/transaction-iso.html",
+        "https://orm.drizzle.team/docs/transactions"
+      ],
+      "cta": "Browse database and API testing skills at /skills before adding a concurrent snapshot fixture."
+    },
+    {
+      "batch": 15,
+      "batchPosition": 2,
+      "domain": "data-search-cache",
+      "sourceTopicId": "artifact-06",
+      "slug": "skill-content-fallback-outage-testing",
+      "primaryKeyword": "skill content fallback outage testing",
+      "title": "skill content fallback outage testing",
+      "description": "Use skill content fallback outage testing to prove playwright-cli remains downloadable while other skills preserve correct 404 and 500 responses.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you prove playwright-cli content remains downloadable on a database miss or exception while other skills retain 404 or 500 semantics?",
+      "secondaryKeywords": [
+        "playwright-cli content fallback test",
+        "database outage skill download",
+        "content API fallback matrix",
+        "404 versus 500 download test",
+        "local seed markdown availability"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Skill Content Fallback Outage Testing Prove?",
+          "question": true,
+          "coverage": "Define the narrowly scoped playwright-cli fallback for both empty query results and caught failures, plus normal semantics for every other ID."
+        },
+        {
+          "heading": "How Do You Write a Playwright-CLI Content Fallback Test?",
+          "question": true,
+          "secondaryKeyword": "playwright-cli content fallback test",
+          "coverage": "Mock the database to miss and throw, then assert status, markdown content type, and nonempty local SKILL.md output."
+        },
+        {
+          "heading": "What Happens to a Database Outage Skill Download?",
+          "question": true,
+          "secondaryKeyword": "database outage skill download",
+          "coverage": "Compare playwright-cli and an arbitrary skill slug when the select query rejects, without treating all skills as locally recoverable."
+        },
+        {
+          "heading": "Content API Fallback Matrix",
+          "question": false,
+          "secondaryKeyword": "content API fallback matrix",
+          "coverage": "Cover database hit, miss, exception, fallback file success, fallback file absence, UUID input, and unrelated slug input."
+        },
+        {
+          "heading": "How Do You Run a 404 Versus 500 Download Test?",
+          "question": true,
+          "secondaryKeyword": "404 versus 500 download test",
+          "coverage": "Assert a clean miss returns 404 for other skills while a database exception returns 500, each with the expected JSON error."
+        },
+        {
+          "heading": "Local Seed Markdown Availability",
+          "question": false,
+          "secondaryKeyword": "local seed markdown availability",
+          "coverage": "Trace the fallback helper to the seeded playwright-cli content and test exact availability rather than substituting fixture text."
+        },
+        {
+          "heading": "Database State, Skill ID, and Response Matrix",
+          "question": false,
+          "coverage": "Present the status, content type, body source, and fallback decision for every supported branch."
+        },
+        {
+          "heading": "How Do You Run the Outage Simulation Procedure?",
+          "question": true,
+          "coverage": "Execute hit, miss, and exception cases with isolated mocks, then validate the real fallback file in a repository integration test."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about why one skill has a fallback, UUID behavior, content type, seed files, 404 versus 500, and artifact route differences."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the narrow recovery contract and link to the playwright-cli skill."
+        }
+      ],
+      "tablePlan": {
+        "title": "Skill content fallback decision matrix",
+        "columns": [
+          "Requested ID",
+          "Database outcome",
+          "Fallback available",
+          "Expected status",
+          "Content type",
+          "Body source"
+        ],
+        "rows": [
+          "playwright-cli hit",
+          "playwright-cli miss",
+          "playwright-cli exception",
+          "other slug miss",
+          "other slug exception",
+          "UUID miss"
+        ],
+        "sources": [
+          "packages/web/src/app/api/skills/[id]/content/route.ts",
+          "packages/web/src/lib/fallback-skill-detail.ts",
+          "https://nextjs.org/docs/app/building-your-application/routing/route-handlers",
+          "https://www.rfc-editor.org/info/rfc9110"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to verify content fallback behavior",
+        "steps": [
+          "Assert the real playwright-cli fallback markdown can be read from the repository.",
+          "Mock a database hit and verify canonical generated markdown wins.",
+          "Mock an empty result for playwright-cli and assert the local markdown response.",
+          "Mock a thrown query for playwright-cli and assert the same fallback response.",
+          "Repeat miss and exception cases with an unrelated slug.",
+          "Assert exact 404 and 500 JSON semantics for the unrelated slug."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Exercise miss and exception fallback branches",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/skills/[id]/content/route.ts",
+          "focus": "Verify fallbackContent is limited to playwright-cli and invoked on both failure paths."
+        },
+        {
+          "title": "Read the real local playwright-cli markdown",
+          "language": "typescript",
+          "path": "packages/web/src/lib/fallback-skill-detail.ts",
+          "focus": "Assert the fallback helper resolves and returns the seeded SKILL.md rather than test-only text."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/content/route.ts",
+        "packages/web/src/lib/fallback-skill-detail.ts",
+        "seed-skills/playwright-cli/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/skills/Pramod/playwright-cli",
+        "/categories/api-testing",
+        "/blog/playwright-cli-install-quickstart-2026",
+        "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip"
+      ],
+      "relatedSlugs": [
+        "playwright-cli-install-quickstart-2026",
+        "qaskills-cli-download-fallback-github-content-metadata",
+        "testing-versioned-zip-artifact-sha256-etag",
+        "testing-skill-md-yaml-frontmatter-roundtrip"
+      ],
+      "sources": [
+        "https://nextjs.org/docs/app/building-your-application/routing/route-handlers",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "cta": "Open the Playwright CLI skill at /skills/Pramod/playwright-cli and verify its outage fallback."
+    },
+    {
+      "batch": 15,
+      "batchPosition": 3,
+      "domain": "data-search-cache",
+      "sourceTopicId": "leaderboard-03",
+      "slug": "trending-recency-tie-testing",
+      "primaryKeyword": "trending leaderboard recency tie testing",
+      "title": "trending leaderboard recency tie testing",
+      "description": "Use trending leaderboard recency tie testing to prove newer skills win equal weekly-install counts and expose unresolved timestamp ties in CI.",
+      "intent": "how-to",
+      "coreQuestion": "How do you prove newer skills win weekly-install ties and identify residual ties when createdAt is also equal?",
+      "secondaryKeywords": [
+        "weekly installs recency tiebreaker",
+        "trending rank same count test",
+        "createdAt secondary sort QA",
+        "new skill trending order",
+        "leaderboard residual tie test"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Trending Leaderboard Recency Tie Testing Prove?",
+          "question": true,
+          "coverage": "Define weeklyInstalls as the primary key, createdAt descending as the secondary key, and the residual nondeterminism when both values match."
+        },
+        {
+          "heading": "How Does the Weekly Installs Recency Tiebreaker Work?",
+          "question": true,
+          "secondaryKeyword": "weekly installs recency tiebreaker",
+          "coverage": "Seed equal weekly counts with distinct timestamps and assert the newer record receives the lower rank number."
+        },
+        {
+          "heading": "What Is a Trending Rank Same Count Test?",
+          "question": true,
+          "secondaryKeyword": "trending rank same count test",
+          "coverage": "Use three or more tied rows to prove ordering is based on recency rather than insertion sequence or UUID."
+        },
+        {
+          "heading": "CreatedAt Secondary Sort QA",
+          "question": false,
+          "secondaryKeyword": "createdAt secondary sort QA",
+          "coverage": "Test timezone-equivalent timestamps, millisecond differences, and identical timestamp fixtures against descending order."
+        },
+        {
+          "heading": "How Do You Assert New Skill Trending Order?",
+          "question": true,
+          "secondaryKeyword": "new skill trending order",
+          "coverage": "Compare trending with all, hot, and new filters so the recency rule is asserted only where the route defines it."
+        },
+        {
+          "heading": "Leaderboard Residual Tie Test",
+          "question": false,
+          "secondaryKeyword": "leaderboard residual tie test",
+          "coverage": "Repeat requests for rows tied on both fields and document the need for a unique final tiebreaker without claiming one exists."
+        },
+        {
+          "heading": "Weekly Counts, Timestamps, and Expected Ranks",
+          "question": false,
+          "coverage": "Present fixtures and expected order for unique counts, recency ties, exact ties, and the top-50 boundary."
+        },
+        {
+          "heading": "How Do You Run the Ranking Procedure?",
+          "question": true,
+          "coverage": "Seed timestamp-controlled rows, clear the filter-specific cache, request trending, and assert ordered IDs and contiguous ranks."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about descending order, cache effects, timestamp precision, exact ties, filter differences, and deterministic SQL."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Summarize the documented and residual tie behavior and link to leaderboard testing skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Trending leaderboard tie fixtures",
+        "columns": [
+          "Skill",
+          "weeklyInstalls",
+          "createdAt",
+          "Expected rank",
+          "Tie resolved",
+          "Reason"
+        ],
+        "rows": [
+          "unique weekly count",
+          "older tied skill",
+          "newer tied skill",
+          "same timestamp tie A",
+          "same timestamp tie B"
+        ],
+        "sources": [
+          "packages/web/src/app/api/leaderboard/route.ts",
+          "packages/web/src/db/schema/skills.ts",
+          "https://www.postgresql.org/docs/current/queries-order.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to test trending tie order",
+        "steps": [
+          "Seed skills with controlled weeklyInstalls and createdAt combinations.",
+          "Delete the leaderboard:trending cache key before each assertion.",
+          "Request the trending leaderboard and collect returned IDs and ranks.",
+          "Assert higher weekly counts sort first.",
+          "Assert newer timestamps sort first when weekly counts tie.",
+          "Repeat exact ties and record whether a unique final tiebreaker is needed."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Assert the trending orderBy sequence",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/leaderboard/route.ts",
+          "focus": "Exercise weeklyInstalls descending followed by createdAt descending and rank assignment."
+        },
+        {
+          "title": "Seed equal counts and controlled timestamps",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/skills.ts",
+          "focus": "Create fixtures that isolate primary, secondary, and residual tie behavior."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/leaderboard/route.ts",
+        "packages/web/src/db/schema/skills.ts",
+        "packages/web/src/lib/cache.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/leaderboard",
+        "/categories/api-testing",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "/blog/database-testing-automation-guide",
+        "/blog/api-testing-complete-guide",
+        "/blog/redis-cache-testing-guide"
+      ],
+      "relatedSlugs": [
+        "testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "database-testing-automation-guide",
+        "api-testing-complete-guide",
+        "redis-cache-testing-guide"
+      ],
+      "sources": [
+        "https://www.postgresql.org/docs/current/queries-order.html",
+        "https://orm.drizzle.team/docs/select"
+      ],
+      "cta": "Open /leaderboard and use QA skills from /skills to automate the recency tie checks."
+    },
+    {
+      "batch": 15,
+      "batchPosition": 4,
+      "domain": "data-search-cache",
+      "sourceTopicId": "data-02",
+      "slug": "postgres-pagination-count-consistency",
+      "primaryKeyword": "Postgres pagination count consistency",
+      "title": "Postgres pagination count consistency",
+      "description": "Use Postgres pagination count consistency tests to expose page rows and total counts taken from different snapshots during concurrent writes.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you detect inconsistent total counts when the page query and count query run in parallel during concurrent writes?",
+      "secondaryKeywords": [
+        "parallel count query race",
+        "pagination total mismatch test",
+        "Postgres snapshot consistency API",
+        "Drizzle count and rows query",
+        "concurrent insert pagination drift"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Postgres Pagination Count Consistency Prove?",
+          "question": true,
+          "coverage": "Define invariants among returned rows, total, page, limit, and totalPages while acknowledging that two statements may observe different commits."
+        },
+        {
+          "heading": "How Do You Reproduce a Parallel Count Query Race?",
+          "question": true,
+          "secondaryKeyword": "parallel count query race",
+          "coverage": "Pause the page and count branches independently and insert or delete matching rows between their snapshots."
+        },
+        {
+          "heading": "What Is a Pagination Total Mismatch Test?",
+          "question": true,
+          "secondaryKeyword": "pagination total mismatch test",
+          "coverage": "Assert total is compatible with the page contents, offset, and limit, especially on the final page and after concurrent changes."
+        },
+        {
+          "heading": "Postgres Snapshot Consistency API Choices",
+          "question": false,
+          "secondaryKeyword": "Postgres snapshot consistency API",
+          "coverage": "Compare current Promise.all statements with a transaction snapshot and a single window-count query as testable designs."
+        },
+        {
+          "heading": "How Do You Test the Drizzle Count and Rows Query?",
+          "question": true,
+          "secondaryKeyword": "Drizzle count and rows query",
+          "coverage": "Verify both branches receive identical where conditions and that count conversion and totalPages calculations are correct."
+        },
+        {
+          "heading": "Concurrent Insert Pagination Drift Cases",
+          "question": false,
+          "secondaryKeyword": "concurrent insert pagination drift",
+          "coverage": "Use matching and nonmatching inserts, deletes, and updates around first, middle, and final pages."
+        },
+        {
+          "heading": "Interleaving, Page Length, Total, and TotalPages Matrix",
+          "question": false,
+          "coverage": "Present controlled write timing and exact response expectations for each pagination state."
+        },
+        {
+          "heading": "How Do You Run the Count Consistency Procedure?",
+          "question": true,
+          "coverage": "Create enough rows for multiple pages, coordinate query barriers, mutate data, and validate response arithmetic and snapshot assumptions."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about Promise.all, statement snapshots, window counts, final-page invariants, deterministic order, and transaction cost."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "State the pagination consistency oracle and direct readers to database skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Pagination query interleaving matrix",
+        "columns": [
+          "Mutation",
+          "Mutation timing",
+          "Page rows",
+          "Count result",
+          "totalPages",
+          "Consistency assertion"
+        ],
+        "rows": [
+          "no mutation",
+          "matching insert",
+          "nonmatching insert",
+          "matching delete",
+          "filter-changing update",
+          "final-page insert"
+        ],
+        "sources": [
+          "packages/web/src/app/api/skills/route.ts",
+          "packages/web/src/db/schema/skills.ts",
+          "https://www.postgresql.org/docs/current/transaction-iso.html",
+          "https://www.postgresql.org/docs/current/functions-aggregate.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to test page and count consistency",
+        "steps": [
+          "Seed at least three pages of skills matching one filter.",
+          "Place independent barriers around the rows and count queries.",
+          "Start the API request and release one query first.",
+          "Insert, delete, or update one matching row before releasing the other query.",
+          "Assert rows, total, and totalPages against the chosen snapshot contract.",
+          "Repeat inside a transaction or with a single-query alternative for comparison."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Coordinate Promise.all pagination queries",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/skills/route.ts",
+          "focus": "Instrument the rows and count branches while preserving their shared whereClause."
+        },
+        {
+          "title": "Create timestamped concurrent skill fixtures",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/skills.ts",
+          "focus": "Insert and mutate rows that do and do not match the active filter."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts",
+        "packages/web/src/db/schema/skills.ts",
+        "packages/web/src/db/index.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide",
+        "/blog/postgres-migration-testing-guide",
+        "/blog/testing-postgresql-jsonb-multiselect-filters-drizzle",
+        "/blog/testing-lazy-neon-database-initialization-nextjs-build"
+      ],
+      "relatedSlugs": [
+        "database-testing-automation-guide",
+        "postgres-migration-testing-guide",
+        "testing-postgresql-jsonb-multiselect-filters-drizzle",
+        "testing-lazy-neon-database-initialization-nextjs-build"
+      ],
+      "sources": [
+        "https://www.postgresql.org/docs/current/transaction-iso.html",
+        "https://orm.drizzle.team/docs/transactions",
+        "https://www.postgresql.org/docs/current/functions-aggregate.html"
+      ],
+      "cta": "Browse database testing skills at /skills and add a controlled pagination race to CI."
+    },
+    {
+      "batch": 15,
+      "batchPosition": 5,
+      "domain": "data-search-cache",
+      "sourceTopicId": "category-02",
+      "slug": "unknown-category-type-handling-testing",
+      "primaryKeyword": "unknown category type handling testing",
+      "title": "unknown category type handling testing",
+      "description": "Use unknown category type handling testing to detect taxonomy rows silently omitted when unrestricted database values miss four API groups early.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you detect category rows silently omitted because their unrestricted type does not match one of four response groups?",
+      "secondaryKeywords": [
+        "invalid category type test",
+        "silent taxonomy row omission",
+        "category enum constraint testing",
+        "unknown grouping key QA",
+        "database API completeness check"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Unknown Category Type Handling Testing Detect?",
+          "question": true,
+          "coverage": "Define the four recognized group keys and show how an unrestricted text value can be skipped without an error."
+        },
+        {
+          "heading": "How Do You Write an Invalid Category Type Test?",
+          "question": true,
+          "secondaryKeyword": "invalid category type test",
+          "coverage": "Insert a uniquely named category with an unsupported type, call the endpoint, and assert the omission is visible to the test oracle."
+        },
+        {
+          "heading": "What Causes Silent Taxonomy Row Omission?",
+          "question": true,
+          "secondaryKeyword": "silent taxonomy row omission",
+          "coverage": "Trace the grouped[row.type] guard and explain why the loop neither returns the row nor reports an invalid type."
+        },
+        {
+          "heading": "Category Enum Constraint Testing Options",
+          "question": false,
+          "secondaryKeyword": "category enum constraint testing",
+          "coverage": "Compare a PostgreSQL check constraint, enum, application validation, and explicit unknown group as alternative contracts."
+        },
+        {
+          "heading": "How Do You Run Unknown Grouping Key QA?",
+          "question": true,
+          "secondaryKeyword": "unknown grouping key QA",
+          "coverage": "Use empty, case-variant, whitespace, typo, and future category types to expose silent data loss."
+        },
+        {
+          "heading": "Database API Completeness Check",
+          "question": false,
+          "secondaryKeyword": "database API completeness check",
+          "coverage": "Compare the count and IDs from the category table with the union of response arrays, then report omitted IDs."
+        },
+        {
+          "heading": "Stored Types, Response Groups, and Outcomes",
+          "question": false,
+          "coverage": "Present recognized and unsupported values with group destination, inclusion status, and recommended assertion."
+        },
+        {
+          "heading": "How Do You Implement the Completeness Procedure?",
+          "question": true,
+          "coverage": "Seed one row per valid type plus invalid controls, clear the categories cache, call GET, and compare database and response ID sets."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about text columns, enums, forward compatibility, cache invalidation, omissions, and API schema stability."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "State the completeness invariant and link to taxonomy and database testing resources."
+        }
+      ],
+      "tablePlan": {
+        "title": "Category type grouping outcomes",
+        "columns": [
+          "Stored type",
+          "Recognized",
+          "Response group",
+          "Row returned",
+          "Completeness delta",
+          "Suggested control"
+        ],
+        "rows": [
+          "testingType",
+          "framework",
+          "language",
+          "domain",
+          "case variant",
+          "unknown text",
+          "empty text"
+        ],
+        "sources": [
+          "packages/web/src/app/api/categories/route.ts",
+          "packages/web/src/db/schema/categories.ts",
+          "https://www.postgresql.org/docs/current/ddl-constraints.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to test unknown category types",
+        "steps": [
+          "Seed one category for each recognized type and two unsupported controls.",
+          "Delete the categories:all cache key.",
+          "Call the categories endpoint and collect every returned category ID.",
+          "Query all seeded category IDs directly from PostgreSQL.",
+          "Compare both sets and identify omitted unsupported rows.",
+          "Add the chosen schema or API control and rerun the completeness assertion."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Assert category response completeness",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/categories/route.ts",
+          "focus": "Exercise the four initialized groups and detect rows skipped by the key guard."
+        },
+        {
+          "title": "Seed unsupported text values",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/categories.ts",
+          "focus": "Use the unrestricted type column to create typo, case, and future-value fixtures."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/categories/route.ts",
+        "packages/web/src/db/schema/categories.ts",
+        "packages/web/src/lib/cache.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide",
+        "/blog/api-testing-complete-guide",
+        "/blog/testing-postgresql-jsonb-multiselect-filters-drizzle",
+        "/blog/redis-cache-testing-guide"
+      ],
+      "relatedSlugs": [
+        "database-testing-automation-guide",
+        "api-testing-complete-guide",
+        "testing-postgresql-jsonb-multiselect-filters-drizzle",
+        "redis-cache-testing-guide"
+      ],
+      "sources": [
+        "https://www.postgresql.org/docs/current/ddl-constraints.html",
+        "https://orm.drizzle.team/docs/column-types/pg"
+      ],
+      "cta": "Open /categories, browse QA skills at /skills, and add the completeness check to your API tests."
+    }
+  ]
+}

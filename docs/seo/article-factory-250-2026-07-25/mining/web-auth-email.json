@@ -1,0 +1,2091 @@
+{
+  "metadata": {
+    "generatedAt": "2026-07-25",
+    "domain": "Next.js web APIs, Clerk auth and middleware, user recovery, email and Resend, unsubscribe, cron, webhooks, API auth, preferences, caching, and request behavior",
+    "inventoryPath": "/tmp/qaskills-seo-final-inventory-20260725.json",
+    "inventoryItems": 1528,
+    "registryPostsBeforeFactory": 1466,
+    "registryPostsAfterFactory": 1491,
+    "collisionRules": [
+      "Reject equal, containing, or contained slugs",
+      "Reject title token overlap above 0.60 after stopword removal",
+      "Reject exact primary keyword matches",
+      "Reject matching searcher intent even when wording differs",
+      "Reject self-cannibalization inside this candidate set"
+    ],
+    "validation": {
+      "jsonValid": true,
+      "inventoryCollisionHits": 0,
+      "registryCollisionHits": 0,
+      "selfCollisionHits": 0,
+      "requiredFieldFailures": 0,
+      "registryPostsChecked": 1491,
+      "internalRouteReferencesChecked": 192,
+      "uniqueInternalRoutesChecked": 35,
+      "missingInternalRoutes": 0,
+      "authoritativeSourceReferencesChecked": 129,
+      "uniqueAuthoritativeSourcesChecked": 39,
+      "unreachableAuthoritativeSources": 0,
+      "maximumTitleLength": 42,
+      "primaryKeywordWordRange": [4, 5]
+    },
+    "survivorCount": 64,
+    "rejectedCount": 14
+  },
+  "candidates": [
+    {
+      "id": "WEB-001",
+      "cluster": "middleware-auth",
+      "primaryKeyword": "clerk protected route matrix tests",
+      "slug": "clerk-protected-route-matrix-tests",
+      "title": "Test Clerk Protected Route Matrices",
+      "intent": "how-to",
+      "exactQuestion": "How do you test that Clerk protects every intended dashboard and API route without blocking public QASkills routes?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/middleware.ts:isProtectedRoute,authenticatedMiddleware",
+        "packages/web/e2e/post-flow.e2e.ts:protected and public browser flows"
+      ],
+      "secondaryKeywords": [
+        "clerk route matcher test cases",
+        "nextjs protected route matrix",
+        "test auth protect middleware",
+        "dashboard route authorization tests",
+        "api subtree protection tests"
+      ],
+      "internalRoutes": [
+        "/blog/testing-clerk-user-created-webhook-idempotency",
+        "/dashboard/preferences",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": [
+        "https://clerk.com/docs/reference/nextjs/clerk-middleware",
+        "https://clerk.com/docs/reference/nextjs/app-router/auth"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-002",
+      "cluster": "middleware-auth",
+      "primaryKeyword": "clerk webhook middleware bypass tests",
+      "slug": "clerk-webhook-middleware-bypass-tests",
+      "title": "Test Clerk Webhook Middleware Bypass",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove Clerk webhook requests bypass session protection while every webhook payload still reaches its own validation boundary?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/middleware.ts:isPublicWebhook",
+        "packages/web/src/app/api/webhooks/clerk/route.ts:POST"
+      ],
+      "secondaryKeywords": [
+        "public webhook route clerk",
+        "exclude webhook from auth middleware",
+        "nextjs webhook bypass testing",
+        "clerk webhook endpoint protection",
+        "webhook route matcher tests"
+      ],
+      "internalRoutes": [
+        "/blog/testing-clerk-user-created-webhook-idempotency",
+        "/blog/webhook-testing-complete-guide-2026",
+        "/blog/api-security-testing-checklist-2026"
+      ],
+      "authoritativeSources": [
+        "https://clerk.com/docs/guides/development/webhooks/syncing",
+        "https://clerk.com/docs/reference/nextjs/clerk-middleware"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-003",
+      "cluster": "middleware-auth",
+      "primaryKeyword": "nextjs static asset matcher tests",
+      "slug": "nextjs-static-asset-matcher-tests",
+      "title": "Test Next.js Static Asset Matchers",
+      "intent": "how-to",
+      "exactQuestion": "How do you test a Next.js middleware matcher that skips static files but still evaluates requests whose query strings contain file-like names?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/middleware.ts:config.matcher",
+        "packages/web/src/app/robots.ts:robots"
+      ],
+      "secondaryKeywords": [
+        "nextjs middleware regex tests",
+        "exclude static files middleware",
+        "middleware matcher query string",
+        "nextjs asset bypass matrix",
+        "test middleware file extensions"
+      ],
+      "internalRoutes": ["/blog", "/skills", "/getting-started"],
+      "authoritativeSources": [
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware",
+        "https://clerk.com/docs/reference/nextjs/clerk-middleware"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-004",
+      "cluster": "middleware-auth",
+      "primaryKeyword": "nextjs api middleware matcher tests",
+      "slug": "nextjs-api-middleware-matcher-tests",
+      "title": "Test Middleware Across API Routes",
+      "intent": "how-to",
+      "exactQuestion": "How do you verify that the broad API matcher invokes middleware for every API method while protection remains route-specific?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/middleware.ts:config.matcher,authenticatedMiddleware",
+        "packages/web/src/app/api/user/preferences/route.ts:GET,PATCH"
+      ],
+      "secondaryKeywords": [
+        "nextjs api matcher coverage",
+        "middleware all http methods",
+        "route handler middleware tests",
+        "api matcher protected routes",
+        "nextjs request path matrix"
+      ],
+      "internalRoutes": [
+        "/blog/api-testing-best-practices-guide",
+        "/blog/authentication-authorization-testing-guide",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": [
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware",
+        "https://clerk.com/docs/reference/nextjs/clerk-middleware"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-005",
+      "cluster": "middleware-auth",
+      "primaryKeyword": "disable clerk auth environment tests",
+      "slug": "disable-clerk-auth-environment-tests",
+      "title": "Test the Clerk Auth Disable Flag",
+      "intent": "how-to",
+      "exactQuestion": "How do you test an environment-controlled Clerk bypass without allowing the test-only branch to weaken production authentication?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/middleware.ts:testMiddleware,QASKILLS_DISABLE_AUTH",
+        "packages/web/src/lib/post-flow-config.test.ts:auth-disabled post-flow configuration"
+      ],
+      "secondaryKeywords": [
+        "qaskills disable auth tests",
+        "test only auth bypass",
+        "environment auth branch testing",
+        "prevent production auth bypass",
+        "nextjs middleware test mode"
+      ],
+      "internalRoutes": [
+        "/blog/authentication-authorization-testing-guide",
+        "/getting-started",
+        "/skills"
+      ],
+      "authoritativeSources": [
+        "https://clerk.com/docs/reference/nextjs/clerk-middleware",
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-006",
+      "cluster": "middleware-auth",
+      "primaryKeyword": "clerk auth request context tests",
+      "slug": "clerk-auth-request-context-tests",
+      "title": "Test Clerk Auth Request Context",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test that Clerk auth helpers share the middleware request context inside Next.js route handlers?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/lib/api-auth.ts:getAuthUser static Clerk import",
+        "packages/web/src/middleware.ts:authenticatedMiddleware"
+      ],
+      "secondaryKeywords": [
+        "clerk async local storage",
+        "auth helper request context",
+        "nextjs clerk route handler auth",
+        "clerk middleware context error",
+        "static import clerk auth"
+      ],
+      "internalRoutes": [
+        "/blog/testing-missed-clerk-webhook-user-recovery",
+        "/blog/authentication-authorization-testing-guide",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": [
+        "https://clerk.com/docs/reference/nextjs/app-router/auth",
+        "https://clerk.com/docs/reference/nextjs/clerk-middleware"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-007",
+      "cluster": "middleware-auth",
+      "primaryKeyword": "clerk auth exception fallback tests",
+      "slug": "clerk-auth-exception-fallback-tests",
+      "title": "Test Clerk Auth Exception Fallbacks",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you verify that thrown Clerk auth errors become a controlled unauthenticated result instead of crashing a publishing API?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/lib/api-auth.ts:getAuthUser nested auth try-catch",
+        "packages/web/src/app/api/skills/route.ts:POST authentication branch"
+      ],
+      "secondaryKeywords": [
+        "clerk auth throws error",
+        "nextjs auth fail closed",
+        "api auth fallback testing",
+        "clerk outage route behavior",
+        "unauthenticated error contract"
+      ],
+      "internalRoutes": [
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/testing-missed-clerk-webhook-user-recovery",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": [
+        "https://clerk.com/docs/reference/nextjs/app-router/auth",
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-008",
+      "cluster": "middleware-auth",
+      "primaryKeyword": "layered clerk api authorization tests",
+      "slug": "layered-clerk-api-authorization-tests",
+      "title": "Test Layered Clerk API Authorization",
+      "intent": "informational",
+      "exactQuestion": "How should tests divide responsibility between Clerk middleware, route-level auth helpers, and database user checks?",
+      "scores": { "relevance": 10, "specificity": 8, "intentFit": 10, "coverage": 10 },
+      "repoEvidence": [
+        "packages/web/src/middleware.ts:isProtectedRoute",
+        "packages/web/src/lib/auth.ts:getAuthUserId,requireAuth",
+        "packages/web/src/lib/api-auth.ts:getAuthUser"
+      ],
+      "secondaryKeywords": [
+        "middleware versus route auth",
+        "clerk defense in depth tests",
+        "nextjs api authorization layers",
+        "database user authorization check",
+        "resource level auth testing"
+      ],
+      "internalRoutes": [
+        "/blog/authentication-authorization-testing-guide",
+        "/blog/api-security-testing-checklist-2026",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": [
+        "https://clerk.com/docs/reference/nextjs/clerk-middleware",
+        "https://clerk.com/docs/reference/nextjs/app-router/auth",
+        "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-009",
+      "cluster": "clerk-webhooks",
+      "primaryKeyword": "clerk user updated webhook tests",
+      "slug": "clerk-user-updated-webhook-tests",
+      "title": "Test Clerk user.updated Webhooks",
+      "intent": "how-to",
+      "exactQuestion": "How do you test Clerk user.updated mapping so email, username, name, avatar, and updatedAt stay synchronized?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/webhooks/clerk/route.ts:user.updated branch",
+        "packages/web/src/db/schema/users.ts:users"
+      ],
+      "secondaryKeywords": [
+        "clerk profile sync tests",
+        "user updated webhook mapping",
+        "clerk email update database",
+        "webhook updatedAt assertion",
+        "clerk avatar sync testing"
+      ],
+      "internalRoutes": [
+        "/blog/testing-clerk-user-created-webhook-idempotency",
+        "/blog/testing-missed-clerk-webhook-user-recovery",
+        "/blog/webhook-testing-complete-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://clerk.com/docs/guides/development/webhooks/overview",
+        "https://clerk.com/docs/guides/development/webhooks/syncing"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-010",
+      "cluster": "clerk-webhooks",
+      "primaryKeyword": "clerk webhook payload fallback tests",
+      "slug": "clerk-webhook-payload-fallback-tests",
+      "title": "Test Clerk Webhook Field Fallbacks",
+      "intent": "how-to",
+      "exactQuestion": "How do you test missing optional Clerk fields and verify the route's exact empty-string, ID, and trimmed-name fallbacks?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/webhooks/clerk/route.ts:user.created and user.updated field mapping",
+        "packages/web/src/db/schema/users.ts:not-null defaults and unique fields"
+      ],
+      "secondaryKeywords": [
+        "clerk missing profile fields",
+        "webhook optional field tests",
+        "clerk username id fallback",
+        "empty email webhook test",
+        "trim clerk user name"
+      ],
+      "internalRoutes": [
+        "/blog/testing-clerk-user-created-webhook-idempotency",
+        "/blog/testing-missed-clerk-webhook-user-recovery",
+        "/blog/webhook-testing-complete-guide-2026"
+      ],
+      "authoritativeSources": [
+        "https://clerk.com/docs/guides/development/webhooks/overview",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-011",
+      "cluster": "clerk-webhooks",
+      "primaryKeyword": "clerk github account mapping tests",
+      "slug": "clerk-github-account-mapping-tests",
+      "title": "Test Clerk GitHub Account Mapping",
+      "intent": "how-to",
+      "exactQuestion": "How do you verify that only the oauth_github external account supplies the stored GitHub handle during Clerk user creation?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 8 },
+      "repoEvidence": [
+        "packages/web/src/app/api/webhooks/clerk/route.ts:external_accounts lookup",
+        "packages/web/src/lib/api-auth.ts:githubAccount recovery lookup"
+      ],
+      "secondaryKeywords": [
+        "clerk oauth github username",
+        "external account mapping tests",
+        "github handle webhook sync",
+        "multiple clerk providers test",
+        "clerk provider selection"
+      ],
+      "internalRoutes": [
+        "/blog/testing-missed-clerk-webhook-user-recovery",
+        "/blog/testing-clerk-user-created-webhook-idempotency",
+        "/getting-started"
+      ],
+      "authoritativeSources": [
+        "https://clerk.com/docs/guides/development/webhooks/overview",
+        "https://clerk.com/docs/reference/nextjs/app-router/current-user"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-012",
+      "cluster": "clerk-webhooks",
+      "primaryKeyword": "clerk unsupported event response tests",
+      "slug": "clerk-unsupported-event-response-tests",
+      "title": "Test Unsupported Clerk Webhook Events",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test the response and persistence behavior when a Clerk webhook type has no implemented handler?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 8 },
+      "repoEvidence": [
+        "packages/web/src/app/api/webhooks/clerk/route.ts:type branches and success response",
+        "packages/web/src/db/schema/users.ts:users"
+      ],
+      "secondaryKeywords": [
+        "clerk unknown webhook event",
+        "user deleted webhook behavior",
+        "webhook ignored event tests",
+        "unsupported event acknowledgment",
+        "clerk event catalog coverage"
+      ],
+      "internalRoutes": [
+        "/blog/webhook-testing-complete-guide-2026",
+        "/blog/testing-webhook-out-of-order-delivery",
+        "/blog/testing-clerk-user-created-webhook-idempotency"
+      ],
+      "authoritativeSources": [
+        "https://clerk.com/docs/guides/development/webhooks/overview",
+        "https://clerk.com/docs/guides/development/webhooks/syncing"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-013",
+      "cluster": "clerk-webhooks",
+      "primaryKeyword": "clerk malformed webhook response tests",
+      "slug": "clerk-malformed-webhook-response-tests",
+      "title": "Test Malformed Clerk Webhook Responses",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you verify the 500 response contract for malformed JSON and malformed Clerk event shapes, including provider retry implications?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/webhooks/clerk/route.ts:POST catch response",
+        "packages/web/src/middleware.ts:isPublicWebhook"
+      ],
+      "secondaryKeywords": [
+        "clerk webhook invalid json",
+        "webhook 500 retry tests",
+        "malformed event payload testing",
+        "nextjs webhook error response",
+        "clerk webhook failure contract"
+      ],
+      "internalRoutes": [
+        "/blog/webhook-testing-complete-guide-2026",
+        "/blog/testing-webhook-replay-attack-protection",
+        "/blog/api-security-testing-checklist-2026"
+      ],
+      "authoritativeSources": [
+        "https://clerk.com/docs/guides/development/webhooks/syncing",
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-014",
+      "cluster": "clerk-webhooks",
+      "primaryKeyword": "clerk welcome email isolation tests",
+      "slug": "clerk-welcome-email-isolation-tests",
+      "title": "Isolate Welcome Email Webhook Failures",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove that a welcome-email rejection is logged without converting a successful Clerk user creation into a failed webhook response?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/webhooks/clerk/route.ts:sendWelcomeEmail catch",
+        "packages/web/src/lib/email/send.ts:sendWelcomeEmail"
+      ],
+      "secondaryKeywords": [
+        "webhook email side effect test",
+        "welcome email rejection handling",
+        "nonblocking webhook email",
+        "clerk user creation email failure",
+        "email failure webhook response"
+      ],
+      "internalRoutes": [
+        "/blog/testing-clerk-user-created-webhook-idempotency",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled",
+        "/blog/testing-lazy-resend-initialization-nextjs-build"
+      ],
+      "authoritativeSources": [
+        "https://clerk.com/docs/guides/development/webhooks/syncing",
+        "https://resend.com/docs/api-reference/emails/send-email"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-015",
+      "cluster": "clerk-webhooks",
+      "primaryKeyword": "clerk default preference provisioning tests",
+      "slug": "clerk-default-preference-provisioning-tests",
+      "title": "Test Clerk Preference Provisioning",
+      "intent": "how-to",
+      "exactQuestion": "How do you verify that a newly inserted Clerk user receives all four default email preferences and no duplicate preference row?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/webhooks/clerk/route.ts:userPreferences insert",
+        "packages/web/src/db/schema/users.ts:userPreferences"
+      ],
+      "secondaryKeywords": [
+        "clerk user default preferences",
+        "webhook preference row tests",
+        "email opt in defaults",
+        "user created preferences insert",
+        "drizzle preference provisioning"
+      ],
+      "internalRoutes": [
+        "/blog/testing-clerk-user-created-webhook-idempotency",
+        "/dashboard/preferences",
+        "/unsubscribe"
+      ],
+      "authoritativeSources": [
+        "https://clerk.com/docs/guides/development/webhooks/syncing",
+        "https://orm.drizzle.team/docs/insert"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-016",
+      "cluster": "preferences",
+      "primaryKeyword": "default user preference api tests",
+      "slug": "default-user-preference-api-tests",
+      "title": "Test Default Preference API Creation",
+      "intent": "how-to",
+      "exactQuestion": "How do you test the GET preference endpoint when an authenticated database user has no preference row yet?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/user/preferences/route.ts:GET default insert",
+        "packages/web/src/db/schema/users.ts:userPreferences defaults"
+      ],
+      "secondaryKeywords": [
+        "preferences api missing row",
+        "create defaults on get",
+        "nextjs preference endpoint test",
+        "drizzle returning default row",
+        "email preference bootstrap"
+      ],
+      "internalRoutes": [
+        "/dashboard/preferences",
+        "/unsubscribe",
+        "/blog/testing-clerk-user-created-webhook-idempotency"
+      ],
+      "authoritativeSources": [
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware",
+        "https://orm.drizzle.team/docs/insert"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-017",
+      "cluster": "preferences",
+      "primaryKeyword": "preference patch upsert api tests",
+      "slug": "preference-patch-upsert-api-tests",
+      "title": "Test Preference PATCH Upserts",
+      "intent": "how-to",
+      "exactQuestion": "How do you test both the update and create branches of a PATCH preference endpoint that emulates an upsert?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/user/preferences/route.ts:PATCH update and insert branches",
+        "packages/web/src/db/schema/users.ts:userPreferences"
+      ],
+      "secondaryKeywords": [
+        "nextjs patch upsert testing",
+        "drizzle update returning empty",
+        "preference create after update",
+        "api update or insert tests",
+        "email settings upsert"
+      ],
+      "internalRoutes": [
+        "/dashboard/preferences",
+        "/unsubscribe",
+        "/blog/testing-missed-clerk-webhook-user-recovery"
+      ],
+      "authoritativeSources": [
+        "https://orm.drizzle.team/docs/update",
+        "https://orm.drizzle.team/docs/insert"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-018",
+      "cluster": "preferences",
+      "primaryKeyword": "partial email preference patch tests",
+      "slug": "partial-email-preference-patch-tests",
+      "title": "Test Partial Email Preference PATCHes",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you verify whether omitted preference fields remain unchanged when a client sends a partial PATCH body?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/user/preferences/route.ts:PATCH body destructuring and set",
+        "packages/web/src/app/dashboard/preferences/page.tsx:savePreferences full payload"
+      ],
+      "secondaryKeywords": [
+        "partial patch undefined fields",
+        "drizzle update omitted values",
+        "email preference patch semantics",
+        "nextjs partial update contract",
+        "preserve unspecified preferences"
+      ],
+      "internalRoutes": [
+        "/dashboard/preferences",
+        "/unsubscribe",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "authoritativeSources": [
+        "https://orm.drizzle.team/docs/update",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-019",
+      "cluster": "preferences",
+      "primaryKeyword": "email preference payload validation tests",
+      "slug": "email-preference-payload-validation-tests",
+      "title": "Test Preference Payload Validation",
+      "intent": "how-to",
+      "exactQuestion": "How do you test boolean-only email preference contracts and expose malformed, extra, null, or string values before database writes?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 10 },
+      "repoEvidence": [
+        "packages/web/src/app/api/user/preferences/route.ts:PATCH request body",
+        "packages/web/src/db/schema/users.ts:boolean preference columns"
+      ],
+      "secondaryKeywords": [
+        "boolean api validation tests",
+        "invalid preference json body",
+        "email settings schema validation",
+        "reject string booleans api",
+        "nextjs patch input validation"
+      ],
+      "internalRoutes": [
+        "/dashboard/preferences",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "authoritativeSources": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+        "https://zod.dev/api"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-020",
+      "cluster": "preferences",
+      "primaryKeyword": "concurrent preference bootstrap tests",
+      "slug": "concurrent-preference-bootstrap-tests",
+      "title": "Test Concurrent Preference Bootstrap",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test two first-time preference requests racing to create the same user's settings row?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/user/preferences/route.ts:GET missing-row insert",
+        "packages/web/src/db/schema/users.ts:userPreferences userId definition"
+      ],
+      "secondaryKeywords": [
+        "preference creation race condition",
+        "concurrent api bootstrap test",
+        "duplicate user preference rows",
+        "drizzle insert race testing",
+        "first request concurrency"
+      ],
+      "internalRoutes": [
+        "/dashboard/preferences",
+        "/blog/testing-idempotency-key-concurrent-requests",
+        "/blog/testing-clerk-user-created-webhook-idempotency"
+      ],
+      "authoritativeSources": [
+        "https://orm.drizzle.team/docs/insert",
+        "https://www.postgresql.org/docs/current/ddl-constraints.html"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-021",
+      "cluster": "preferences",
+      "primaryKeyword": "preference api auth status tests",
+      "slug": "preference-api-auth-status-tests",
+      "title": "Test Preference API Auth Statuses",
+      "intent": "how-to",
+      "exactQuestion": "How do you test the difference between an unauthenticated Clerk request, a missing database user, and an internal preference failure?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 10 },
+      "repoEvidence": [
+        "packages/web/src/app/api/user/preferences/route.ts:GET and PATCH 401,404,500 branches",
+        "packages/web/src/middleware.ts:isProtectedRoute"
+      ],
+      "secondaryKeywords": [
+        "preferences api 401 404",
+        "clerk user missing database",
+        "nextjs auth error matrix",
+        "api status code assertions",
+        "preference endpoint failure tests"
+      ],
+      "internalRoutes": [
+        "/dashboard/preferences",
+        "/blog/authentication-authorization-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "authoritativeSources": [
+        "https://clerk.com/docs/reference/nextjs/app-router/current-user",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-022",
+      "cluster": "preferences",
+      "primaryKeyword": "user preference cascade delete tests",
+      "slug": "user-preference-cascade-delete-tests",
+      "title": "Test Preference Cascade Deletes",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove that deleting a user removes the dependent preference row without leaving subscription state behind?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/db/schema/users.ts:userPreferences.userId onDelete cascade",
+        "packages/web/src/db/schema/relations.ts:user preference relations"
+      ],
+      "secondaryKeywords": [
+        "postgres cascade delete test",
+        "drizzle foreign key cascade",
+        "delete user email preferences",
+        "subscription data cleanup test",
+        "user lifecycle database testing"
+      ],
+      "internalRoutes": [
+        "/dashboard/preferences",
+        "/blog/cleanup-orphaned-test-data-after-ci-failure",
+        "/blog/database-testing-automation-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.postgresql.org/docs/current/ddl-constraints.html",
+        "https://orm.drizzle.team/docs/data-querying"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-023",
+      "cluster": "preferences",
+      "primaryKeyword": "email master toggle delivery tests",
+      "slug": "email-master-toggle-delivery-tests",
+      "title": "Test Email Master Toggle Delivery",
+      "intent": "how-to",
+      "exactQuestion": "How do you verify that disabling the master email preference suppresses digest and alert delivery even when child toggles remain true?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 10 },
+      "repoEvidence": [
+        "packages/web/src/app/api/cron/weekly-digest/route.ts:subscriber where clause",
+        "packages/web/src/app/api/skills/route.ts:new skill alert subscriber where clause",
+        "packages/web/src/app/dashboard/preferences/page.tsx:master and child switches"
+      ],
+      "secondaryKeywords": [
+        "email master opt out test",
+        "weekly digest preference filter",
+        "new skill alert opt out",
+        "parent child preference testing",
+        "notification delivery matrix"
+      ],
+      "internalRoutes": [
+        "/dashboard/preferences",
+        "/unsubscribe",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled"
+      ],
+      "authoritativeSources": [
+        "https://orm.drizzle.team/docs/data-querying",
+        "https://resend.com/docs/api-reference/emails/send-email"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-024",
+      "cluster": "preferences",
+      "primaryKeyword": "accessible email preference switch tests",
+      "slug": "accessible-email-preference-switch-tests",
+      "title": "Test Accessible Preference Switches",
+      "intent": "how-to",
+      "exactQuestion": "How do you test role, aria-checked, disabled state, keyboard behavior, and visible state for email preference switches?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/dashboard/preferences/page.tsx:role switch controls",
+        "packages/web/src/components/ui/button.tsx:Button"
+      ],
+      "secondaryKeywords": [
+        "aria checked switch tests",
+        "disabled notification toggle test",
+        "keyboard switch accessibility",
+        "playwright preference switch test",
+        "react role switch testing"
+      ],
+      "internalRoutes": [
+        "/dashboard/preferences",
+        "/blog/accessibility-testing-automation-guide",
+        "/blog/testing-autocomplete-keyboard-accessibility"
+      ],
+      "authoritativeSources": [
+        "https://www.w3.org/WAI/ARIA/apg/patterns/switch/",
+        "https://playwright.dev/docs/accessibility-testing"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-025",
+      "cluster": "preferences",
+      "primaryKeyword": "preference fetch failure ui tests",
+      "slug": "preference-fetch-failure-ui-tests",
+      "title": "Test Preference Fetch Failure States",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test loading completion and retained defaults when the preference page receives an error or rejected fetch?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/dashboard/preferences/page.tsx:fetchPreferences",
+        "packages/web/src/app/api/user/preferences/route.ts:GET"
+      ],
+      "secondaryKeywords": [
+        "react fetch error state test",
+        "preference page loading test",
+        "failed settings request ui",
+        "default state after fetch error",
+        "nextjs client fetch testing"
+      ],
+      "internalRoutes": [
+        "/dashboard/preferences",
+        "/blog/error-handling-testing-patterns",
+        "/blog/react-nextjs-testing-complete-guide"
+      ],
+      "authoritativeSources": [
+        "https://react.dev/reference/react/useEffect",
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-026",
+      "cluster": "preferences",
+      "primaryKeyword": "preference save status lifecycle tests",
+      "slug": "preference-save-status-lifecycle-tests",
+      "title": "Test Preference Save Status Lifecycles",
+      "intent": "how-to",
+      "exactQuestion": "How do you test disabled saving, success and error messages, and five-second message cleanup around a preference PATCH?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/dashboard/preferences/page.tsx:savePreferences",
+        "packages/web/src/app/api/user/preferences/route.ts:PATCH"
+      ],
+      "secondaryKeywords": [
+        "saving button disabled test",
+        "success message fake timer",
+        "preference save error ui",
+        "react async status testing",
+        "notification message cleanup test"
+      ],
+      "internalRoutes": [
+        "/dashboard/preferences",
+        "/blog/react-nextjs-testing-complete-guide",
+        "/blog/error-handling-testing-patterns"
+      ],
+      "authoritativeSources": [
+        "https://react.dev/reference/react/useState",
+        "https://vitest.dev/guide/mocking/timers"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-027",
+      "cluster": "preferences",
+      "primaryKeyword": "preference analytics payload tests",
+      "slug": "preference-analytics-payload-tests",
+      "title": "Test Preference Analytics Payloads",
+      "intent": "how-to",
+      "exactQuestion": "How do you verify toggle and save analytics events without sending stale or incorrectly typed preference values?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 9, "coverage": 8 },
+      "repoEvidence": [
+        "packages/web/src/app/dashboard/preferences/page.tsx:togglePreference,savePreferences",
+        "packages/web/src/lib/analytics.ts:trackEvent"
+      ],
+      "secondaryKeywords": [
+        "email preference analytics test",
+        "posthog event payload assertion",
+        "react toggle tracking test",
+        "boolean string analytics values",
+        "settings save telemetry"
+      ],
+      "internalRoutes": [
+        "/dashboard/preferences",
+        "/blog/observability-driven-testing-guide",
+        "/blog/qa-metrics-kpis-dashboard-guide"
+      ],
+      "authoritativeSources": [
+        "https://posthog.com/docs/libraries/next-js",
+        "https://react.dev/reference/react/useState"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-028",
+      "cluster": "unsubscribe",
+      "primaryKeyword": "selective email unsubscribe api tests",
+      "slug": "selective-email-unsubscribe-api-tests",
+      "title": "Test Selective Email Unsubscribe APIs",
+      "intent": "how-to",
+      "exactQuestion": "How do you test all, weekly, and alert unsubscribe requests so each changes only the intended preference field?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 10 },
+      "repoEvidence": [
+        "packages/web/src/app/api/unsubscribe/route.ts:UnsubscribeType and switch",
+        "packages/web/src/lib/email/send.ts:buildUnsubscribeUrl"
+      ],
+      "secondaryKeywords": [
+        "weekly only unsubscribe test",
+        "new skill alert unsubscribe",
+        "all email opt out api",
+        "unsubscribe preference field matrix",
+        "type specific unsubscribe"
+      ],
+      "internalRoutes": [
+        "/unsubscribe",
+        "/dashboard/preferences",
+        "/blog/testing-hmac-unsubscribe-token-tampering-expiration"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc8058/",
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-029",
+      "cluster": "unsubscribe",
+      "primaryKeyword": "unsubscribe missing preference row tests",
+      "slug": "unsubscribe-missing-preference-row-tests",
+      "title": "Test Unsubscribe Without Preferences",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you verify that a valid unsubscribe request creates a missing preference row with the correct channel disabled?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/unsubscribe/route.ts:update returning and defaults insert",
+        "packages/web/src/db/schema/users.ts:userPreferences"
+      ],
+      "secondaryKeywords": [
+        "unsubscribe creates preferences",
+        "missing subscription row test",
+        "unsubscribe upsert behavior",
+        "email opt out bootstrap",
+        "drizzle update then insert"
+      ],
+      "internalRoutes": [
+        "/unsubscribe",
+        "/dashboard/preferences",
+        "/blog/testing-hmac-unsubscribe-token-tampering-expiration"
+      ],
+      "authoritativeSources": [
+        "https://orm.drizzle.team/docs/update",
+        "https://orm.drizzle.team/docs/insert"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-030",
+      "cluster": "unsubscribe",
+      "primaryKeyword": "unknown unsubscribe type regression tests",
+      "slug": "unknown-unsubscribe-type-regression-tests",
+      "title": "Test Unknown Unsubscribe Types",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test unknown unsubscribe types across existing-row and missing-row branches and detect inconsistent fallback behavior?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/unsubscribe/route.ts:switch default and defaults insert conditions",
+        "packages/web/src/app/unsubscribe/page.tsx:TYPE_LABELS fallback"
+      ],
+      "secondaryKeywords": [
+        "invalid unsubscribe type test",
+        "unsubscribe default branch regression",
+        "unknown email channel behavior",
+        "exhaustive unsubscribe enum tests",
+        "preference insert update mismatch"
+      ],
+      "internalRoutes": [
+        "/unsubscribe",
+        "/dashboard/preferences",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "authoritativeSources": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+        "https://zod.dev/api"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-031",
+      "cluster": "unsubscribe",
+      "primaryKeyword": "unsubscribe missing user response tests",
+      "slug": "unsubscribe-missing-user-response-tests",
+      "title": "Handle Deleted Users During Opt-Out",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test a valid signed unsubscribe token whose user row has already been deleted?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 8 },
+      "repoEvidence": [
+        "packages/web/src/app/api/unsubscribe/route.ts:user lookup and 404",
+        "packages/web/src/lib/email/unsubscribe-token.ts:verifyUnsubscribeToken"
+      ],
+      "secondaryKeywords": [
+        "unsubscribe deleted user test",
+        "valid token missing account",
+        "unsubscribe api 404",
+        "stale email link testing",
+        "deleted subscriber request"
+      ],
+      "internalRoutes": [
+        "/unsubscribe",
+        "/dashboard/preferences",
+        "/blog/testing-hmac-unsubscribe-token-tampering-expiration"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://www.rfc-editor.org/info/rfc8058/"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-032",
+      "cluster": "unsubscribe",
+      "primaryKeyword": "unsubscribe missing token ui tests",
+      "slug": "unsubscribe-missing-token-ui-tests",
+      "title": "Test Missing Unsubscribe Tokens",
+      "intent": "how-to",
+      "exactQuestion": "How do you test the unsubscribe page when no token query parameter exists, including the error state and absence of an API call?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/unsubscribe/page.tsx:UnsubscribeContent missing-token effect",
+        "packages/web/src/app/api/unsubscribe/route.ts:missing token 400"
+      ],
+      "secondaryKeywords": [
+        "unsubscribe link without token",
+        "nextjs search params test",
+        "missing token error state",
+        "prevent unsubscribe fetch call",
+        "unsubscribe api token required"
+      ],
+      "internalRoutes": [
+        "/unsubscribe",
+        "/dashboard/preferences",
+        "/blog/testing-hmac-unsubscribe-token-tampering-expiration"
+      ],
+      "authoritativeSources": [
+        "https://nextjs.org/docs/app/api-reference/functions/use-search-params",
+        "https://react.dev/reference/react/useEffect"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-033",
+      "cluster": "unsubscribe",
+      "primaryKeyword": "unsubscribe network failure ui tests",
+      "slug": "unsubscribe-network-failure-ui-tests",
+      "title": "Verify Unsubscribe Fetch Error States",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test rejected fetches, non-OK responses, backend error messages, and the final error UI in an unsubscribe flow?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/unsubscribe/page.tsx:unsubscribe async effect",
+        "packages/web/src/app/api/unsubscribe/route.ts:error responses"
+      ],
+      "secondaryKeywords": [
+        "unsubscribe fetch rejection test",
+        "email opt out error ui",
+        "backend unsubscribe error message",
+        "react network failure state",
+        "unsubscribe non ok response"
+      ],
+      "internalRoutes": [
+        "/unsubscribe",
+        "/dashboard/preferences",
+        "/blog/error-handling-testing-patterns"
+      ],
+      "authoritativeSources": [
+        "https://react.dev/reference/react/useEffect",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-034",
+      "cluster": "unsubscribe",
+      "primaryKeyword": "repeated unsubscribe request tests",
+      "slug": "repeated-unsubscribe-request-tests",
+      "title": "Test Repeated Unsubscribe Requests",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove that submitting the same valid unsubscribe request multiple times keeps the requested preference disabled without new side effects?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/unsubscribe/route.ts:idempotent boolean updates",
+        "packages/web/src/db/schema/users.ts:userPreferences"
+      ],
+      "secondaryKeywords": [
+        "unsubscribe idempotency test",
+        "repeat opt out request",
+        "duplicate unsubscribe click",
+        "email preference idempotent update",
+        "unsubscribe retry safety"
+      ],
+      "internalRoutes": [
+        "/unsubscribe",
+        "/blog/testing-idempotency-key-concurrent-requests",
+        "/blog/testing-hmac-unsubscribe-token-tampering-expiration"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc8058/",
+        "https://orm.drizzle.team/docs/update"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-035",
+      "cluster": "unsubscribe",
+      "primaryKeyword": "unsubscribe query type label tests",
+      "slug": "unsubscribe-query-type-label-tests",
+      "title": "Test Unsubscribe Type Labels",
+      "intent": "how-to",
+      "exactQuestion": "How do you test that weekly, alerts, all, missing, and unknown type query values produce accurate confirmation copy?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 9, "coverage": 8 },
+      "repoEvidence": [
+        "packages/web/src/app/unsubscribe/page.tsx:TYPE_LABELS and type fallback",
+        "packages/web/src/app/api/unsubscribe/route.ts:UnsubscribeType"
+      ],
+      "secondaryKeywords": [
+        "unsubscribe confirmation copy test",
+        "query parameter label mapping",
+        "weekly digest opt out message",
+        "alert unsubscribe success text",
+        "unknown type label fallback"
+      ],
+      "internalRoutes": [
+        "/unsubscribe",
+        "/dashboard/preferences",
+        "/blog/testing-hmac-unsubscribe-token-tampering-expiration"
+      ],
+      "authoritativeSources": [
+        "https://nextjs.org/docs/app/api-reference/functions/use-search-params",
+        "https://www.rfc-editor.org/info/rfc8058/"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-036",
+      "cluster": "cron-email",
+      "primaryKeyword": "vercel cron bearer authorization tests",
+      "slug": "vercel-cron-bearer-authorization-tests",
+      "title": "Test Vercel Cron Bearer Authorization",
+      "intent": "how-to",
+      "exactQuestion": "How do you test missing, malformed, incorrect, and correct Bearer authorization headers on a Vercel cron route?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 10 },
+      "repoEvidence": [
+        "packages/web/src/app/api/cron/weekly-digest/route.ts:GET authorization comparison",
+        "packages/web/vercel.json:weekly digest cron configuration"
+      ],
+      "secondaryKeywords": [
+        "vercel cron secret test",
+        "cron authorization header matrix",
+        "nextjs scheduled route security",
+        "bearer token cron endpoint",
+        "weekly digest unauthorized response"
+      ],
+      "internalRoutes": [
+        "/blog/api-security-testing-checklist-2026",
+        "/dashboard/preferences",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled"
+      ],
+      "authoritativeSources": [
+        "https://vercel.com/docs/cron-jobs/manage-cron-jobs",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Authorization"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-037",
+      "cluster": "cron-email",
+      "primaryKeyword": "missing cron secret security tests",
+      "slug": "missing-cron-secret-security-tests",
+      "title": "Test Missing CRON_SECRET Behavior",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test whether a cron endpoint fails open or fails closed when CRON_SECRET is absent from the runtime?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 10 },
+      "repoEvidence": [
+        "packages/web/src/app/api/cron/weekly-digest/route.ts:conditional cronSecret check",
+        "packages/web/vercel.json:cron path"
+      ],
+      "secondaryKeywords": [
+        "cron secret undefined test",
+        "vercel cron fail open",
+        "scheduled endpoint environment security",
+        "missing bearer secret regression",
+        "cron configuration negative test"
+      ],
+      "internalRoutes": [
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/authentication-authorization-testing-guide",
+        "/dashboard/preferences"
+      ],
+      "authoritativeSources": [
+        "https://vercel.com/docs/cron-jobs/manage-cron-jobs",
+        "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-038",
+      "cluster": "cron-email",
+      "primaryKeyword": "weekly digest email config tests",
+      "slug": "weekly-digest-email-config-tests",
+      "title": "Test Weekly Digest Email Configuration",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you verify that the digest cron returns its documented configuration error before querying or sending when RESEND_API_KEY is missing?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/cron/weekly-digest/route.ts:RESEND_API_KEY gate",
+        "packages/web/src/lib/email/client.ts:getResendClient"
+      ],
+      "secondaryKeywords": [
+        "weekly digest resend key",
+        "email service not configured test",
+        "cron config error response",
+        "prevent database query without email",
+        "resend environment gate"
+      ],
+      "internalRoutes": [
+        "/blog/testing-lazy-resend-initialization-nextjs-build",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled",
+        "/dashboard/preferences"
+      ],
+      "authoritativeSources": [
+        "https://resend.com/docs/api-reference/introduction",
+        "https://vercel.com/docs/cron-jobs/manage-cron-jobs"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-039",
+      "cluster": "cron-email",
+      "primaryKeyword": "weekly digest empty catalog tests",
+      "slug": "weekly-digest-empty-catalog-tests",
+      "title": "Test Empty Weekly Digest Catalogs",
+      "intent": "how-to",
+      "exactQuestion": "How do you test the no-skills short circuit so a weekly digest sends zero emails and returns stable response fields?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 9, "coverage": 8 },
+      "repoEvidence": [
+        "packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills empty branch",
+        "packages/web/src/db/schema/skills.ts:skills"
+      ],
+      "secondaryKeywords": [
+        "digest no skills response",
+        "cron empty database test",
+        "skip email when catalog empty",
+        "weekly digest sent zero",
+        "scheduled email short circuit"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/dashboard/preferences",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled"
+      ],
+      "authoritativeSources": [
+        "https://vercel.com/docs/cron-jobs",
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-040",
+      "cluster": "cron-email",
+      "primaryKeyword": "weekly digest ranking query tests",
+      "slug": "weekly-digest-ranking-query-tests",
+      "title": "Test Weekly Digest Skill Ranking",
+      "intent": "how-to",
+      "exactQuestion": "How do you verify that digest candidates are limited to ten and ordered by weekly installs before lifetime installs?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills query",
+        "packages/web/src/db/schema/skills.ts:weeklyInstalls,installCount"
+      ],
+      "secondaryKeywords": [
+        "weekly installs digest ranking",
+        "top ten skills email test",
+        "drizzle multi column order test",
+        "digest tie breaker testing",
+        "scheduled ranking query"
+      ],
+      "internalRoutes": [
+        "/leaderboard",
+        "/skills",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency"
+      ],
+      "authoritativeSources": [
+        "https://orm.drizzle.team/docs/data-querying",
+        "https://vercel.com/docs/cron-jobs"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-041",
+      "cluster": "cron-email",
+      "primaryKeyword": "weekly digest subscriber filter tests",
+      "slug": "weekly-digest-subscriber-filter-tests",
+      "title": "Test Weekly Digest Subscriber Filters",
+      "intent": "how-to",
+      "exactQuestion": "How do you test that only users with both the master email toggle and weekly digest toggle enabled are selected?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/cron/weekly-digest/route.ts:subscribers innerJoin and where",
+        "packages/web/src/db/schema/users.ts:userPreferences"
+      ],
+      "secondaryKeywords": [
+        "weekly digest opt in query",
+        "email subscriber filtering tests",
+        "drizzle boolean join filter",
+        "master toggle digest delivery",
+        "missing preference row subscriber"
+      ],
+      "internalRoutes": [
+        "/dashboard/preferences",
+        "/unsubscribe",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled"
+      ],
+      "authoritativeSources": [
+        "https://orm.drizzle.team/docs/data-querying",
+        "https://resend.com/docs/api-reference/emails/send-email"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-042",
+      "cluster": "cron-email",
+      "primaryKeyword": "weekly digest get post parity",
+      "slug": "weekly-digest-get-post-parity",
+      "title": "Test Weekly Digest GET and POST Parity",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove that manual POST execution and scheduled GET execution share authorization, data, side effects, and response semantics?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/cron/weekly-digest/route.ts:GET,POST",
+        "packages/web/vercel.json:GET cron invocation path"
+      ],
+      "secondaryKeywords": [
+        "cron post manual testing",
+        "nextjs route method parity",
+        "weekly digest post endpoint",
+        "shared handler contract tests",
+        "get versus post side effects"
+      ],
+      "internalRoutes": [
+        "/dashboard/preferences",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled"
+      ],
+      "authoritativeSources": [
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware",
+        "https://vercel.com/docs/cron-jobs"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-043",
+      "cluster": "cron-email",
+      "primaryKeyword": "weekly digest delivery counter tests",
+      "slug": "weekly-digest-delivery-counter-tests",
+      "title": "Test Weekly Digest Delivery Counters",
+      "intent": "how-to",
+      "exactQuestion": "How do you test sent, failed, total, and topSkills response counts against fulfilled errors, rejected promises, and empty batches?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/cron/weekly-digest/route.ts:sentCount,failedCount response",
+        "packages/web/src/lib/email/send.ts:sendWeeklyDigest result contract"
+      ],
+      "secondaryKeywords": [
+        "digest sent failed counts",
+        "promise result counter tests",
+        "cron email response summary",
+        "fulfilled false email result",
+        "weekly digest total assertion"
+      ],
+      "internalRoutes": [
+        "/blog/testing-batch-email-partial-failures-promise-allsettled",
+        "/dashboard/preferences",
+        "/blog/error-handling-testing-patterns"
+      ],
+      "authoritativeSources": [
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled",
+        "https://resend.com/docs/api-reference/errors"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-044",
+      "cluster": "cron-email",
+      "primaryKeyword": "weekly digest batch delay tests",
+      "slug": "weekly-digest-batch-delay-tests",
+      "title": "Test Weekly Digest Batch Delays",
+      "intent": "how-to",
+      "exactQuestion": "How do you test ten-recipient batching and one-second inter-batch delays with fake timers and no real waiting?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/cron/weekly-digest/route.ts:batchSize loop and setTimeout",
+        "packages/web/src/lib/email/send.ts:sendBatchEmails"
+      ],
+      "secondaryKeywords": [
+        "email batch fake timers",
+        "resend rate limit delay test",
+        "ten recipient batch test",
+        "settimeout cron testing",
+        "skip delay after final batch"
+      ],
+      "internalRoutes": [
+        "/blog/testing-batch-email-partial-failures-promise-allsettled",
+        "/blog/testing-lazy-resend-initialization-nextjs-build",
+        "/dashboard/preferences"
+      ],
+      "authoritativeSources": [
+        "https://vitest.dev/guide/mocking/timers",
+        "https://resend.com/docs/api-reference/errors"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-045",
+      "cluster": "cron-email",
+      "primaryKeyword": "iso week email subject tests",
+      "slug": "iso-week-email-subject-tests",
+      "title": "Test ISO Week Email Subjects",
+      "intent": "how-to",
+      "exactQuestion": "How do you test weekly digest subject lines across New Year, Sunday, Monday, leap year, and timezone boundaries?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/lib/email/send.ts:getWeekNumber,sendWeeklyDigest",
+        "packages/web/src/emails/weekly-digest.tsx:weekNumber,year"
+      ],
+      "secondaryKeywords": [
+        "javascript iso week number test",
+        "new year digest subject",
+        "utc week boundary testing",
+        "email date fake timer",
+        "weekly subject line regression"
+      ],
+      "internalRoutes": [
+        "/blog/testing-batch-email-partial-failures-promise-allsettled",
+        "/dashboard/preferences",
+        "/blog/error-handling-testing-patterns"
+      ],
+      "authoritativeSources": [
+        "https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-date-objects",
+        "https://vitest.dev/guide/mocking/timers"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-046",
+      "cluster": "cron-email",
+      "primaryKeyword": "resend send result contract tests",
+      "slug": "resend-send-result-contract-tests",
+      "title": "Test Resend Send Result Contracts",
+      "intent": "how-to",
+      "exactQuestion": "How do you test successful data, returned Resend errors, thrown exceptions, and missing-service results through one stable application contract?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 10 },
+      "repoEvidence": [
+        "packages/web/src/lib/email/send.ts:sendWelcomeEmail,sendNewSkillAlert,sendWeeklyDigest",
+        "packages/web/src/lib/email/client.ts:resend"
+      ],
+      "secondaryKeywords": [
+        "resend data error testing",
+        "email sender return contract",
+        "mock resend emails send",
+        "resend thrown exception test",
+        "email service result union"
+      ],
+      "internalRoutes": [
+        "/blog/testing-lazy-resend-initialization-nextjs-build",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled",
+        "/dashboard/preferences"
+      ],
+      "authoritativeSources": [
+        "https://resend.com/docs/api-reference/emails/send-email",
+        "https://resend.com/docs/api-reference/errors"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-047",
+      "cluster": "cron-email",
+      "primaryKeyword": "unsubscribe url missing user tests",
+      "slug": "unsubscribe-url-missing-user-tests",
+      "title": "Test Unsubscribe URLs Without User IDs",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you verify the safe unsubscribe URL fallback when an email recipient has no database user ID?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 8 },
+      "repoEvidence": [
+        "packages/web/src/lib/email/send.ts:buildUnsubscribeUrl missing userId",
+        "packages/web/src/emails/welcome.tsx:unsubscribeUrl"
+      ],
+      "secondaryKeywords": [
+        "unsubscribe link without token",
+        "email user id fallback",
+        "unsigned unsubscribe url test",
+        "welcome email fallback link",
+        "missing subscriber identity"
+      ],
+      "internalRoutes": [
+        "/unsubscribe",
+        "/dashboard/preferences",
+        "/blog/testing-hmac-unsubscribe-token-tampering-expiration"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc8058/",
+        "https://react.email/docs/components/link"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-048",
+      "cluster": "cron-email",
+      "primaryKeyword": "email specific unsubscribe link tests",
+      "slug": "email-specific-unsubscribe-link-tests",
+      "title": "Test Email-Specific Unsubscribe Links",
+      "intent": "how-to",
+      "exactQuestion": "How do you test that welcome, skill-alert, and digest emails generate signed unsubscribe links for the intended preference scope?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/lib/email/send.ts:buildUnsubscribeUrl call sites",
+        "packages/web/src/app/api/unsubscribe/route.ts:UnsubscribeType"
+      ],
+      "secondaryKeywords": [
+        "weekly unsubscribe link test",
+        "skill alert opt out link",
+        "welcome email unsubscribe all",
+        "signed email preference link",
+        "unsubscribe type query test"
+      ],
+      "internalRoutes": [
+        "/unsubscribe",
+        "/dashboard/preferences",
+        "/blog/testing-hmac-unsubscribe-token-tampering-expiration"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc8058/",
+        "https://nodejs.org/api/crypto.html"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-049",
+      "cluster": "cron-email",
+      "primaryKeyword": "new skill alert subscriber tests",
+      "slug": "new-skill-alert-subscriber-tests",
+      "title": "Test New Skill Alert Subscribers",
+      "intent": "how-to",
+      "exactQuestion": "How do you test the database join and two-toggle filter that selects recipients after a new skill is published?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:new skill alert subscriber query",
+        "packages/web/src/db/schema/users.ts:userPreferences"
+      ],
+      "secondaryKeywords": [
+        "new skill alerts opt in",
+        "skill publish subscriber query",
+        "email notification join test",
+        "newSkillAlerts preference filter",
+        "missing preferences alert delivery"
+      ],
+      "internalRoutes": ["/how-to-publish", "/dashboard/preferences", "/skills"],
+      "authoritativeSources": [
+        "https://orm.drizzle.team/docs/data-querying",
+        "https://resend.com/docs/api-reference/emails/send-email"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-050",
+      "cluster": "cron-email",
+      "primaryKeyword": "nonblocking skill alert dispatch tests",
+      "slug": "nonblocking-skill-alert-dispatch-tests",
+      "title": "Test Nonblocking Skill Alert Dispatch",
+      "intent": "how-to",
+      "exactQuestion": "How do you prove that skill creation returns 201 before subscriber lookup or email delivery succeeds or fails?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 10 },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:POST detached subscriber promise",
+        "packages/web/src/lib/email/send.ts:sendNewSkillAlert"
+      ],
+      "secondaryKeywords": [
+        "fire and forget email test",
+        "skill publish response timing",
+        "email side effect isolation",
+        "nonblocking resend dispatch",
+        "post response background promise"
+      ],
+      "internalRoutes": [
+        "/how-to-publish",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled",
+        "/skills"
+      ],
+      "authoritativeSources": [
+        "https://resend.com/docs/api-reference/emails/send-email",
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-051",
+      "cluster": "cron-email",
+      "primaryKeyword": "react email utm link tests",
+      "slug": "react-email-utm-link-tests",
+      "title": "Test React Email UTM Links",
+      "intent": "how-to",
+      "exactQuestion": "How do you render QASkills email templates and verify source, medium, campaign, and per-rank UTM parameters on every CTA?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/emails/welcome.tsx:utmParams",
+        "packages/web/src/emails/new-skill-alert.tsx:utmParams",
+        "packages/web/src/emails/weekly-digest.tsx:utmParams"
+      ],
+      "secondaryKeywords": [
+        "react email link testing",
+        "email utm campaign assertions",
+        "weekly digest utm content",
+        "skill alert tracking links",
+        "render email template tests"
+      ],
+      "internalRoutes": ["/getting-started", "/skills", "/dashboard/preferences"],
+      "authoritativeSources": [
+        "https://react.email/docs/components/link",
+        "https://react.email/components"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-052",
+      "cluster": "cron-email",
+      "primaryKeyword": "new skill email route tests",
+      "slug": "new-skill-email-route-tests",
+      "title": "Test New Skill Email Routes",
+      "intent": "how-to",
+      "exactQuestion": "How do you verify that author and slug values create a valid skill detail URL and matching CLI install command in alert emails?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/emails/new-skill-alert.tsx:skillUrl and quick install code",
+        "packages/web/src/app/skills/[author]/[slug]/page.tsx:skill detail route"
+      ],
+      "secondaryKeywords": [
+        "skill alert url test",
+        "author slug email link",
+        "qaskills cli command email",
+        "react email dynamic route",
+        "published skill cta assertion"
+      ],
+      "internalRoutes": ["/skills", "/how-to-publish", "/blog/qaskills-add-custom-directory-ci"],
+      "authoritativeSources": [
+        "https://react.email/docs/components/link",
+        "https://nextjs.org/docs/app/getting-started/layouts-and-pages"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-053",
+      "cluster": "cron-email",
+      "primaryKeyword": "weekly digest ranking link tests",
+      "slug": "weekly-digest-ranking-link-tests",
+      "title": "Verify Rank-Specific Digest CTAs",
+      "intent": "how-to",
+      "exactQuestion": "How do you test rank badges, author-qualified routes, and rank-specific utm_content values for every digest skill?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/emails/weekly-digest.tsx:skills map,rankBadge,skill URL",
+        "packages/web/src/app/api/cron/weekly-digest/route.ts:topSkills projection"
+      ],
+      "secondaryKeywords": [
+        "digest rank badge test",
+        "email skill order assertion",
+        "utm content skill rank",
+        "weekly digest author route",
+        "react email list rendering"
+      ],
+      "internalRoutes": ["/leaderboard", "/skills", "/dashboard/preferences"],
+      "authoritativeSources": [
+        "https://react.email/components",
+        "https://react.email/docs/components/link"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-054",
+      "cluster": "cron-email",
+      "primaryKeyword": "email footer preference route tests",
+      "slug": "email-footer-preference-route-tests",
+      "title": "Test Email Footer Preference Routes",
+      "intent": "how-to",
+      "exactQuestion": "How do you verify that every QASkills email footer links to an existing preference page and an appropriate unsubscribe target?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/emails/welcome.tsx:footer links",
+        "packages/web/src/emails/new-skill-alert.tsx:footer links",
+        "packages/web/src/emails/weekly-digest.tsx:footer links"
+      ],
+      "secondaryKeywords": [
+        "email footer link checker",
+        "preference page email link",
+        "unsubscribe footer route test",
+        "react email broken link test",
+        "email template route inventory"
+      ],
+      "internalRoutes": ["/dashboard/preferences", "/unsubscribe", "/getting-started"],
+      "authoritativeSources": [
+        "https://react.email/docs/components/link",
+        "https://www.rfc-editor.org/info/rfc8058/"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-055",
+      "cluster": "cache-request",
+      "primaryKeyword": "upstash cache configuration fallback tests",
+      "slug": "upstash-cache-configuration-fallback-tests",
+      "title": "Test Upstash Cache Configuration Fallbacks",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test absent, partial, and complete Upstash environment configuration while keeping cache reads and writes fail-soft?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/lib/cache.ts:getRedis,cacheGet,cacheSet,cacheDel",
+        "packages/web/src/app/api/categories/route.ts:cacheGetOrSet"
+      ],
+      "secondaryKeywords": [
+        "upstash environment variable tests",
+        "redis cache disabled fallback",
+        "cache read fail soft",
+        "cache write nonfatal test",
+        "lazy redis client configuration"
+      ],
+      "internalRoutes": ["/blog/redis-cache-testing-guide", "/categories", "/leaderboard"],
+      "authoritativeSources": [
+        "https://upstash.com/docs/redis/overall/getstarted",
+        "https://upstash.com/docs/redis/sdks/ts/commands/string/get"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-056",
+      "cluster": "cache-request",
+      "primaryKeyword": "category cache ttl grouping tests",
+      "slug": "taxonomy-cache-ttl-grouping-tests",
+      "title": "Test Taxonomy Cache TTL and Grouping",
+      "intent": "how-to",
+      "exactQuestion": "How do you test the one-hour categories cache, cache-aside behavior, four output groups, and ignored unknown category types?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/categories/route.ts:GET grouping and 3600 TTL",
+        "packages/web/src/lib/cache.ts:cacheGetOrSet"
+      ],
+      "secondaryKeywords": [
+        "categories api cache test",
+        "redis one hour ttl test",
+        "category type grouping assertion",
+        "unknown category type handling",
+        "cache aside fetcher test"
+      ],
+      "internalRoutes": ["/categories", "/blog/redis-cache-testing-guide", "/skills"],
+      "authoritativeSources": [
+        "https://upstash.com/docs/redis/sdks/ts/commands/string/get",
+        "https://upstash.com/docs/redis/sdks/ts/commands/string/set"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-057",
+      "cluster": "api-request",
+      "primaryKeyword": "skill publish validation response tests",
+      "slug": "skill-publish-validation-response-tests",
+      "title": "Test Skill Publish Validation Responses",
+      "intent": "how-to",
+      "exactQuestion": "How do you test every publish field boundary and verify the combined error message plus structured Zod issue array?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 10 },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:publishSkillSchema and POST safeParse",
+        "packages/shared/src/schemas/skill-schema.ts:shared skill validation"
+      ],
+      "secondaryKeywords": [
+        "zod api error response test",
+        "skill description length validation",
+        "github url validation test",
+        "publish request issue array",
+        "nextjs post schema testing"
+      ],
+      "internalRoutes": [
+        "/how-to-publish",
+        "/blog/skill-md-format-guide",
+        "/blog/how-to-write-high-quality-qa-skills"
+      ],
+      "authoritativeSources": [
+        "https://zod.dev/api",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-058",
+      "cluster": "api-request",
+      "primaryKeyword": "skill slug collision response tests",
+      "slug": "skill-slug-collision-response-tests",
+      "title": "Test Skill Slug Collision Responses",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test generated and supplied skill slugs, empty normalized names, and the duplicate-slug 409 response?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:generateSlug and uniqueness lookup",
+        "packages/web/src/db/schema/skills.ts:slug unique column"
+      ],
+      "secondaryKeywords": [
+        "duplicate skill slug 409",
+        "skill name slug normalization",
+        "empty generated slug test",
+        "publish slug uniqueness test",
+        "special character slug testing"
+      ],
+      "internalRoutes": ["/how-to-publish", "/blog/skill-md-format-guide", "/skills"],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://www.postgresql.org/docs/current/ddl-constraints.html"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-059",
+      "cluster": "api-request",
+      "primaryKeyword": "skill list database failure tests",
+      "slug": "skill-list-database-failure-tests",
+      "title": "Test Skill List Database Failures",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test the skill-list API's fail-soft 200 response when either the data query or count query rejects?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:GET Promise.all and catch response",
+        "packages/web/src/app/skills/page.tsx:skill list consumption"
+      ],
+      "secondaryKeywords": [
+        "skills api empty fallback",
+        "database outage response test",
+        "parallel count query failure",
+        "nextjs list endpoint resilience",
+        "fail soft api contract"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/error-handling-testing-patterns",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "authoritativeSources": [
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-060",
+      "cluster": "api-request",
+      "primaryKeyword": "install telemetry compatibility tests",
+      "slug": "install-telemetry-compatibility-tests",
+      "title": "Test Install Telemetry Compatibility",
+      "intent": "how-to",
+      "exactQuestion": "How do you test current, legacy, and upcoming CLI install payloads through one normalized telemetry event contract?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 10 },
+      "repoEvidence": [
+        "packages/web/src/lib/telemetry-normalize.ts:normalizeInstallEvent,isUuid",
+        "packages/web/src/lib/telemetry-normalize.test.ts:payload generations",
+        "packages/web/src/app/api/telemetry/install/route.ts:POST"
+      ],
+      "secondaryKeywords": [
+        "legacy cli telemetry payload",
+        "skill slug telemetry normalization",
+        "install action mapping tests",
+        "agent type fallback testing",
+        "telemetry schema compatibility"
+      ],
+      "internalRoutes": [
+        "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "/skills",
+        "/getting-started"
+      ],
+      "authoritativeSources": [
+        "https://nextjs.org/docs/15/app/getting-started/route-handlers-and-middleware",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-061",
+      "cluster": "api-request",
+      "primaryKeyword": "telemetry unknown skill response tests",
+      "slug": "telemetry-unknown-skill-response-tests",
+      "title": "Test Unknown Skill Telemetry Responses",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test slug, display-name, and UUID resolution when an install event cannot be matched to a stored skill?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 9, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/telemetry/install/route.ts:reference resolution and silent success",
+        "packages/web/src/lib/telemetry-normalize.ts:NormalizedInstallEvent"
+      ],
+      "secondaryKeywords": [
+        "unknown skill telemetry success",
+        "telemetry slug name lookup",
+        "install event uuid resolution",
+        "local github install telemetry",
+        "fail silent metrics endpoint"
+      ],
+      "internalRoutes": [
+        "/blog/qaskills-cli-disable-telemetry-do-not-track",
+        "/skills",
+        "/getting-started"
+      ],
+      "authoritativeSources": [
+        "https://orm.drizzle.team/docs/data-querying",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-062",
+      "cluster": "api-request",
+      "primaryKeyword": "review api validation matrix tests",
+      "slug": "review-api-validation-matrix-tests",
+      "title": "Test Review API Validation Matrices",
+      "intent": "how-to",
+      "exactQuestion": "How do you test invalid JSON, missing fields, integer rating bounds, comment limits, missing users, and missing skills in one review API matrix?",
+      "scores": { "relevance": 10, "specificity": 9, "intentFit": 10, "coverage": 10 },
+      "repoEvidence": [
+        "packages/web/src/app/api/reviews/route.ts:POST validation branches",
+        "packages/web/src/components/skills/review-section.tsx:review form"
+      ],
+      "secondaryKeywords": [
+        "review rating boundary tests",
+        "review comment length validation",
+        "invalid json review api",
+        "missing skill review response",
+        "authenticated review endpoint tests"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/api-security-testing-checklist-2026"
+      ],
+      "authoritativeSources": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-063",
+      "cluster": "api-request",
+      "primaryKeyword": "duplicate review conflict response tests",
+      "slug": "duplicate-review-conflict-response-tests",
+      "title": "Test Duplicate Review Conflicts",
+      "intent": "troubleshooting",
+      "exactQuestion": "How do you test one-review-per-user behavior, the pre-insert lookup, concurrent submissions, and the expected 409 response?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/reviews/route.ts:existingReview lookup and 409",
+        "packages/web/src/db/schema/relations.ts:review relations"
+      ],
+      "secondaryKeywords": [
+        "already reviewed skill test",
+        "review api 409 conflict",
+        "concurrent duplicate review",
+        "one review per user",
+        "review uniqueness regression"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/testing-idempotency-key-concurrent-requests",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://www.postgresql.org/docs/current/ddl-constraints.html"
+      ],
+      "collisionDecision": "survive"
+    },
+    {
+      "id": "WEB-064",
+      "cluster": "api-request",
+      "primaryKeyword": "skill detail uuid slug tests",
+      "slug": "skill-detail-uuid-slug-tests",
+      "title": "Test Skill Detail UUID and Slug Lookup",
+      "intent": "how-to",
+      "exactQuestion": "How do you test UUID detection, slug fallback, not-found responses, and database errors on the skill detail API?",
+      "scores": { "relevance": 10, "specificity": 10, "intentFit": 10, "coverage": 9 },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/route.ts:UUID_REGEX and GET",
+        "packages/web/src/app/api/skills/[id]/content/route.ts:UUID_REGEX and fallbackContent"
+      ],
+      "secondaryKeywords": [
+        "skill api uuid lookup",
+        "skill slug fallback test",
+        "dynamic route parameter testing",
+        "skill detail 404 response",
+        "uuid regex api branch"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/getting-started",
+        "/blog/qaskills-cli-download-fallback-github-content-metadata"
+      ],
+      "authoritativeSources": [
+        "https://nextjs.org/docs/app/getting-started/layouts-and-pages",
+        "https://www.rfc-editor.org/info/rfc9562"
+      ],
+      "collisionDecision": "survive"
+    }
+  ],
+  "rejected": [
+    {
+      "primaryKeyword": "clerk webhook idempotency testing",
+      "proposedSlug": "clerk-webhook-idempotency-testing",
+      "collidingRoute": "/blog/testing-clerk-user-created-webhook-idempotency",
+      "reason": "Exact primary intent and implementation path already covered.",
+      "gate": "primary keyword and intent"
+    },
+    {
+      "primaryKeyword": "missed clerk webhook recovery",
+      "proposedSlug": "missed-clerk-webhook-recovery",
+      "collidingRoute": "/blog/testing-missed-clerk-webhook-user-recovery",
+      "reason": "Exact user recovery question already has a codebase-driven article.",
+      "gate": "slug, title, and intent"
+    },
+    {
+      "primaryKeyword": "hmac unsubscribe token testing",
+      "proposedSlug": "hmac-unsubscribe-token-testing",
+      "collidingRoute": "/blog/testing-hmac-unsubscribe-token-tampering-expiration",
+      "reason": "Token signing, tampering, timing-safe comparison, and expiry are already covered.",
+      "gate": "primary keyword and intent"
+    },
+    {
+      "primaryKeyword": "batch email failure testing",
+      "proposedSlug": "batch-email-failure-testing",
+      "collidingRoute": "/blog/testing-batch-email-partial-failures-promise-allsettled",
+      "reason": "Promise.allSettled partial-failure behavior already answers this need.",
+      "gate": "primary keyword and intent"
+    },
+    {
+      "primaryKeyword": "resend nextjs build testing",
+      "proposedSlug": "resend-nextjs-build-testing",
+      "collidingRoute": "/blog/testing-lazy-resend-initialization-nextjs-build",
+      "reason": "Lazy Resend initialization and build-time safety are already covered.",
+      "gate": "primary keyword and intent"
+    },
+    {
+      "primaryKeyword": "leaderboard cache consistency testing",
+      "proposedSlug": "leaderboard-cache-consistency-testing",
+      "collidingRoute": "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+      "reason": "Filter-key isolation and ranking consistency already have a dedicated article.",
+      "gate": "primary keyword and intent"
+    },
+    {
+      "primaryKeyword": "redis cache testing guide",
+      "proposedSlug": "redis-cache-testing-guide",
+      "collidingRoute": "/blog/redis-cache-testing-guide",
+      "reason": "Exact slug and broad cache testing intent already exist.",
+      "gate": "slug and intent"
+    },
+    {
+      "primaryKeyword": "offset pagination duplicate testing",
+      "proposedSlug": "offset-pagination-duplicate-testing",
+      "collidingRoute": "/blog/testing-offset-pagination-duplicate-records",
+      "reason": "Deterministic offset pagination and duplicate-row prevention are already covered.",
+      "gate": "intent"
+    },
+    {
+      "primaryKeyword": "webhook replay attack testing",
+      "proposedSlug": "webhook-replay-attack-testing",
+      "collidingRoute": "/blog/testing-webhook-replay-attack-protection",
+      "reason": "Replay prevention and duplicate-delivery security already have a focused article.",
+      "gate": "intent"
+    },
+    {
+      "primaryKeyword": "webhook out of order testing",
+      "proposedSlug": "webhook-out-of-order-testing",
+      "collidingRoute": "/blog/testing-webhook-out-of-order-delivery",
+      "reason": "Out-of-order event delivery is already the existing page's primary need.",
+      "gate": "intent"
+    },
+    {
+      "primaryKeyword": "webhook redelivery signature testing",
+      "proposedSlug": "webhook-redelivery-signature-testing",
+      "collidingRoute": "/blog/testing-github-webhook-redelivery-signature",
+      "reason": "The provider differs, but the redelivery and signature test intent substantially overlaps.",
+      "gate": "intent cannibalization"
+    },
+    {
+      "primaryKeyword": "authentication authorization testing guide",
+      "proposedSlug": "authentication-authorization-testing-guide",
+      "collidingRoute": "/blog/authentication-authorization-testing-guide",
+      "reason": "Exact slug and broad auth testing intent already exist.",
+      "gate": "slug, title, and intent"
+    },
+    {
+      "primaryKeyword": "email inbox testing guide",
+      "proposedSlug": "email-inbox-testing-guide",
+      "collidingRoute": "/blog/mailpit-email-testing-guide",
+      "reason": "SMTP capture, inbox assertions, and transactional email inspection are already covered.",
+      "gate": "intent"
+    },
+    {
+      "primaryKeyword": "passwordless email authentication testing",
+      "proposedSlug": "passwordless-email-authentication-testing",
+      "collidingRoute": "/blog/testing-passwordless-email-magic-link-flow",
+      "reason": "Magic-link email authentication testing already answers the same searcher question.",
+      "gate": "intent"
+    }
+  ]
+}

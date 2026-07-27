@@ -1,0 +1,1147 @@
+{
+  "batch": 5,
+  "briefs": [
+    {
+      "id": "cli-sdk-046",
+      "batch": 5,
+      "batchPosition": 1,
+      "domain": "cli-sdk",
+      "slug": "qaskills-sdk-list-pagination-query",
+      "primaryKeyword": "QASkills SDK list pagination query",
+      "title": "QASkills SDK list pagination query",
+      "description": "QASkills SDK list pagination query: use repo paths, tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "how-to",
+      "coreQuestion": "How does QASkillsClient.skills.list serialize q, sort, page, and pageSize while omitting undefined values?",
+      "intentBoundary": "SDK list pagination and sort serialization, not CLI search limits or search-method option precedence.",
+      "secondaryKeywords": [
+        "QASkills SDK pagination",
+        "skills list query parameters",
+        "SDK pageSize test",
+        "URLSearchParams optional fields",
+        "qaskills sort query",
+        "skill catalog paging contract"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills SDK list pagination query guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How does QASkillsClient.skills.list serialize q, sort, page, and pageSize while omitting undefined values?\" in 40 to 60 words, define the observable contract, and state the boundary: SDK list pagination and sort serialization, not CLI search limits or search-method option precedence.",
+          "repoEvidence": [
+            "packages/sdk/src/index.ts#QASkillsClient.skills.list",
+            "packages/shared/src/types/skill.ts#SkillSearchParams"
+          ]
+        },
+        {
+          "heading": "How does QASkills SDK pagination work?",
+          "secondaryKeyword": "QASkills SDK pagination",
+          "coverage": "Walk through the production branch at packages/sdk/src/index.ts#QASkillsClient.skills.list, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/sdk/src/index.ts#QASkillsClient.skills.list"]
+        },
+        {
+          "heading": "Which cases define skills list query parameters?",
+          "secondaryKeyword": "skills list query parameters",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise SkillSearchParams; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/shared/src/types/skill.ts#SkillSearchParams",
+            "packages/shared/src/types/skill.ts#SkillSearchResult"
+          ]
+        },
+        {
+          "heading": "SDK pageSize test and the current QASkills contract",
+          "secondaryKeyword": "SDK pageSize test",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/shared/src/types/skill.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/shared/src/types/skill.ts#SkillSearchResult"]
+        },
+        {
+          "heading": "How do you test URLSearchParams optional fields?",
+          "secondaryKeyword": "URLSearchParams optional fields",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": [
+            "packages/sdk/src/index.ts#QASkillsClient.skills.list",
+            "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+          ]
+        },
+        {
+          "heading": "qaskills sort query failure and edge-case matrix",
+          "secondaryKeyword": "qaskills sort query",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": [
+            "packages/shared/src/types/skill.ts#SkillSearchParams",
+            "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+          ]
+        },
+        {
+          "heading": "How should skill catalog paging contract run in CI?",
+          "secondaryKeyword": "skill catalog paging contract",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": [
+            "packages/sdk/src/index.ts#QASkillsClient.skills.list",
+            "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+          ]
+        },
+        {
+          "heading": "Implementation checklist for QASkills SDK list pagination query",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /skills, /categories, /leaderboard.",
+          "repoEvidence": [
+            "packages/sdk/src/index.ts#QASkillsClient.skills.list",
+            "packages/shared/src/types/skill.ts#SkillSearchParams",
+            "packages/shared/src/types/skill.ts#SkillSearchResult"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": [
+            "packages/sdk/src/index.ts#QASkillsClient.skills.list",
+            "packages/shared/src/types/skill.ts#SkillSearchParams"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Open /skills to choose a stable fixture, then implement the SDK contract test described in this guide.",
+          "repoEvidence": ["packages/sdk/src/index.ts#QASkillsClient.skills.list"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills SDK list pagination query scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "QASkills SDK pagination",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at QASkillsClient.skills.list completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/sdk/src/index.ts#QASkillsClient.skills.list"
+          },
+          {
+            "scenario": "skills list query parameters",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at SkillSearchParams selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/shared/src/types/skill.ts#SkillSearchParams"
+          },
+          {
+            "scenario": "URLSearchParams optional fields",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/shared/src/types/skill.ts#SkillSearchResult"
+          },
+          {
+            "scenario": "skill catalog paging contract",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+          }
+        ],
+        "source": [
+          "packages/sdk/src/index.ts#QASkillsClient.skills.list",
+          "packages/shared/src/types/skill.ts#SkillSearchParams",
+          "packages/shared/src/types/skill.ts#SkillSearchResult",
+          "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/sdk/src/index.ts at QASkillsClient.skills.list and record the exact inputs, defaults, side effects, and output for \"QASkills SDK pagination\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"skills list query parameters\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to SkillSearchParams, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"URLSearchParams optional fields\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"skill catalog paging contract\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace QASkillsClient.skills.list in the current implementation",
+          "repoPath": "packages/sdk/src/index.ts",
+          "symbol": "QASkillsClient.skills.list",
+          "plan": "Quote the current QASkillsClient.skills.list branch and annotate how it implements \"QASkills SDK pagination\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for SkillSearchParams",
+          "repoPath": "packages/shared/src/types/skill.ts",
+          "symbol": "SkillSearchParams",
+          "plan": "Use the real SkillSearchParams contract to create an executable test for \"skills list query parameters\", then assert the related \"SDK pageSize test\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for SkillSearchResult",
+          "repoPath": "packages/shared/src/types/skill.ts",
+          "symbol": "SkillSearchResult",
+          "plan": "Use the real SkillSearchResult contract to create an executable test for \"SDK pageSize test\", then assert the related \"URLSearchParams optional fields\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/sdk/src/index.ts#QASkillsClient.skills.list",
+        "packages/shared/src/types/skill.ts#SkillSearchParams",
+        "packages/shared/src/types/skill.ts#SkillSearchResult",
+        "packages/shared/src/schemas/skill-schema.ts#skillSearchSchema"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/leaderboard",
+        "/blog/testing-cursor-pagination-api-boundaries",
+        "/blog",
+        "/getting-started",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "testing-cursor-pagination-api-boundaries",
+        "typescript-testing-patterns-guide",
+        "authentication-authorization-testing-guide",
+        "error-handling-testing-patterns"
+      ],
+      "sources": [
+        "https://nodejs.org/api/url.html#class-urlsearchparams",
+        "https://url.spec.whatwg.org/",
+        "https://www.rfc-editor.org/info/rfc3986"
+      ],
+      "faqQuestions": [
+        "What does QASkills SDK pagination verify in QASkills?",
+        "When should a team test skills list query parameters?",
+        "How can a fixture isolate SDK pageSize test?",
+        "Which assertion proves URLSearchParams optional fields?",
+        "What failure cases belong in qaskills sort query tests?",
+        "How should CI run skill catalog paging contract checks?"
+      ],
+      "cta": "Open /skills to choose a stable fixture, then implement the SDK contract test described in this guide."
+    },
+    {
+      "id": "cli-sdk-004",
+      "batch": 5,
+      "batchPosition": 2,
+      "domain": "cli-sdk",
+      "slug": "qaskills-global-project-agent-detection",
+      "primaryKeyword": "QASkills global project agent detection",
+      "title": "QASkills global project agent detection",
+      "description": "QASkills global project agent detection: use repo paths, tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "informational",
+      "coreQuestion": "How does QASkills distinguish home-directory agents from project-directory agents when resolving configuration and skill paths?",
+      "intentBoundary": "Scope classification and path resolution, not the separate config-file fallback or universal target.",
+      "secondaryKeywords": [
+        "global agent skills path",
+        "project agent config detection",
+        "qaskills agent scope",
+        "home directory agent rules",
+        "workspace agent skills folder",
+        "agent path resolution tests"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills global project agent detection guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How does QASkills distinguish home-directory agents from project-directory agents when resolving configuration and skill paths?\" in 40 to 60 words, define the observable contract, and state the boundary: Scope classification and path resolution, not the separate config-file fallback or universal target.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts#detectAgents",
+            "packages/cli/src/lib/agent-detector.ts#isGlobalPath"
+          ]
+        },
+        {
+          "heading": "How does global agent skills path work?",
+          "secondaryKeyword": "global agent skills path",
+          "coverage": "Walk through the production branch at packages/cli/src/lib/agent-detector.ts#detectAgents, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/cli/src/lib/agent-detector.ts#detectAgents"]
+        },
+        {
+          "heading": "Which cases define project agent config detection?",
+          "secondaryKeyword": "project agent config detection",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise isGlobalPath; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts#isGlobalPath",
+            "packages/cli/src/lib/agent-detector.ts#expandHome"
+          ]
+        },
+        {
+          "heading": "qaskills agent scope and the current QASkills contract",
+          "secondaryKeyword": "qaskills agent scope",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/cli/src/lib/agent-detector.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/cli/src/lib/agent-detector.ts#expandHome"]
+        },
+        {
+          "heading": "How do you test home directory agent rules?",
+          "secondaryKeyword": "home directory agent rules",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts#detectAgents",
+            "packages/shared/src/constants/agents.ts#AGENTS"
+          ]
+        },
+        {
+          "heading": "workspace agent skills folder failure and edge-case matrix",
+          "secondaryKeyword": "workspace agent skills folder",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts#isGlobalPath",
+            "packages/shared/src/constants/agents.ts#AGENTS"
+          ]
+        },
+        {
+          "heading": "How should agent path resolution tests run in CI?",
+          "secondaryKeyword": "agent path resolution tests",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts#detectAgents",
+            "packages/shared/src/constants/agents.ts#AGENTS"
+          ]
+        },
+        {
+          "heading": "Implementation checklist for QASkills global project agent detection",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /agents, /skills-for, /blog/how-to-install-skills-claude-code.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts#detectAgents",
+            "packages/cli/src/lib/agent-detector.ts#isGlobalPath",
+            "packages/cli/src/lib/agent-detector.ts#expandHome"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": [
+            "packages/cli/src/lib/agent-detector.ts#detectAgents",
+            "packages/cli/src/lib/agent-detector.ts#isGlobalPath"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Review the supported targets on /agents, then choose a QA package from /skills and test the documented detection case.",
+          "repoEvidence": ["packages/cli/src/lib/agent-detector.ts#detectAgents"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills global project agent detection scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "global agent skills path",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at detectAgents completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/cli/src/lib/agent-detector.ts#detectAgents"
+          },
+          {
+            "scenario": "project agent config detection",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at isGlobalPath selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/cli/src/lib/agent-detector.ts#isGlobalPath"
+          },
+          {
+            "scenario": "home directory agent rules",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/cli/src/lib/agent-detector.ts#expandHome"
+          },
+          {
+            "scenario": "agent path resolution tests",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/shared/src/constants/agents.ts#AGENTS"
+          }
+        ],
+        "source": [
+          "packages/cli/src/lib/agent-detector.ts#detectAgents",
+          "packages/cli/src/lib/agent-detector.ts#isGlobalPath",
+          "packages/cli/src/lib/agent-detector.ts#expandHome",
+          "packages/shared/src/constants/agents.ts#AGENTS"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/cli/src/lib/agent-detector.ts at detectAgents and record the exact inputs, defaults, side effects, and output for \"global agent skills path\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"project agent config detection\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to isGlobalPath, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"home directory agent rules\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"agent path resolution tests\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace detectAgents in the current implementation",
+          "repoPath": "packages/cli/src/lib/agent-detector.ts",
+          "symbol": "detectAgents",
+          "plan": "Quote the current detectAgents branch and annotate how it implements \"global agent skills path\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for isGlobalPath",
+          "repoPath": "packages/cli/src/lib/agent-detector.ts",
+          "symbol": "isGlobalPath",
+          "plan": "Use the real isGlobalPath contract to create an executable test for \"project agent config detection\", then assert the related \"qaskills agent scope\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for expandHome",
+          "repoPath": "packages/cli/src/lib/agent-detector.ts",
+          "symbol": "expandHome",
+          "plan": "Use the real expandHome contract to create an executable test for \"qaskills agent scope\", then assert the related \"home directory agent rules\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/agent-detector.ts#detectAgents",
+        "packages/cli/src/lib/agent-detector.ts#isGlobalPath",
+        "packages/cli/src/lib/agent-detector.ts#expandHome",
+        "packages/shared/src/constants/agents.ts#AGENTS"
+      ],
+      "internalRoutes": [
+        "/agents",
+        "/skills-for",
+        "/blog/how-to-install-skills-claude-code",
+        "/blog/how-to-install-skills-cursor",
+        "/skills",
+        "/blog",
+        "/getting-started",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "how-to-install-skills-claude-code",
+        "how-to-install-skills-cursor",
+        "skill-md-format-guide",
+        "ai-qa-skills-directory-2026"
+      ],
+      "sources": [
+        "https://nodejs.org/api/path.html",
+        "https://nodejs.org/api/os.html",
+        "https://agentskills.io/specification"
+      ],
+      "faqQuestions": [
+        "What does global agent skills path verify in QASkills?",
+        "When should a team test project agent config detection?",
+        "How can a fixture isolate qaskills agent scope?",
+        "Which assertion proves home directory agent rules?",
+        "What failure cases belong in workspace agent skills folder tests?",
+        "How should CI run agent path resolution tests checks?"
+      ],
+      "cta": "Review the supported targets on /agents, then choose a QA package from /skills and test the documented detection case."
+    },
+    {
+      "id": "cli-sdk-043",
+      "batch": 5,
+      "batchPosition": 3,
+      "domain": "cli-sdk",
+      "slug": "qaskills-cli-timeout-timer-cleanup",
+      "primaryKeyword": "QASkills CLI timeout timer cleanup",
+      "title": "QASkills CLI timeout timer cleanup",
+      "description": "QASkills CLI timeout timer cleanup: use repo paths, tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "how-to",
+      "coreQuestion": "How can fake-timer tests prove that the QASkills CLI aborts slow fetches and clears its timeout after success or failure?",
+      "intentBoundary": "Timer lifecycle in the QASkills CLI request helper, not generic MCP timeout handling or HTTP error body formatting.",
+      "secondaryKeywords": [
+        "AbortController fake timer test",
+        "clearTimeout fetch cleanup",
+        "qaskills request timeout",
+        "CLI hanging request test",
+        "abort signal assertion",
+        "timer leak regression test"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills CLI timeout timer cleanup guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How can fake-timer tests prove that the QASkills CLI aborts slow fetches and clears its timeout after success or failure?\" in 40 to 60 words, define the observable contract, and state the boundary: Timer lifecycle in the QASkills CLI request helper, not generic MCP timeout handling or HTTP error body formatting.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#request",
+            "packages/cli/src/lib/api-client.ts#DEFAULT_TIMEOUT_MS"
+          ]
+        },
+        {
+          "heading": "How does AbortController fake timer test work?",
+          "secondaryKeyword": "AbortController fake timer test",
+          "coverage": "Walk through the production branch at packages/cli/src/lib/api-client.ts#request, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/cli/src/lib/api-client.ts#request"]
+        },
+        {
+          "heading": "Which cases define clearTimeout fetch cleanup?",
+          "secondaryKeyword": "clearTimeout fetch cleanup",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise DEFAULT_TIMEOUT_MS; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#DEFAULT_TIMEOUT_MS",
+            "packages/cli/src/lib/api-client.ts#searchSkills"
+          ]
+        },
+        {
+          "heading": "qaskills request timeout and the current QASkills contract",
+          "secondaryKeyword": "qaskills request timeout",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/cli/src/lib/api-client.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/cli/src/lib/api-client.ts#searchSkills"]
+        },
+        {
+          "heading": "How do you test CLI hanging request test?",
+          "secondaryKeyword": "CLI hanging request test",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#request",
+            "packages/cli/src/lib/api-client.ts#getSkill"
+          ]
+        },
+        {
+          "heading": "abort signal assertion failure and edge-case matrix",
+          "secondaryKeyword": "abort signal assertion",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#DEFAULT_TIMEOUT_MS",
+            "packages/cli/src/lib/api-client.ts#getSkill"
+          ]
+        },
+        {
+          "heading": "How should timer leak regression test run in CI?",
+          "secondaryKeyword": "timer leak regression test",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#request",
+            "packages/cli/src/lib/api-client.ts#getSkill"
+          ]
+        },
+        {
+          "heading": "Implementation checklist for QASkills CLI timeout timer cleanup",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /getting-started, /skills, /blog/error-handling-testing-patterns.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#request",
+            "packages/cli/src/lib/api-client.ts#DEFAULT_TIMEOUT_MS",
+            "packages/cli/src/lib/api-client.ts#searchSkills"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": [
+            "packages/cli/src/lib/api-client.ts#request",
+            "packages/cli/src/lib/api-client.ts#DEFAULT_TIMEOUT_MS"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Follow /getting-started with a mock API, then confirm the same request contract against the public catalog at /skills.",
+          "repoEvidence": ["packages/cli/src/lib/api-client.ts#request"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills CLI timeout timer cleanup scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "AbortController fake timer test",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at request completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/cli/src/lib/api-client.ts#request"
+          },
+          {
+            "scenario": "clearTimeout fetch cleanup",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at DEFAULT_TIMEOUT_MS selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/cli/src/lib/api-client.ts#DEFAULT_TIMEOUT_MS"
+          },
+          {
+            "scenario": "CLI hanging request test",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/cli/src/lib/api-client.ts#searchSkills"
+          },
+          {
+            "scenario": "timer leak regression test",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/cli/src/lib/api-client.ts#getSkill"
+          }
+        ],
+        "source": [
+          "packages/cli/src/lib/api-client.ts#request",
+          "packages/cli/src/lib/api-client.ts#DEFAULT_TIMEOUT_MS",
+          "packages/cli/src/lib/api-client.ts#searchSkills",
+          "packages/cli/src/lib/api-client.ts#getSkill"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/cli/src/lib/api-client.ts at request and record the exact inputs, defaults, side effects, and output for \"AbortController fake timer test\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"clearTimeout fetch cleanup\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to DEFAULT_TIMEOUT_MS, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"CLI hanging request test\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"timer leak regression test\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace request in the current implementation",
+          "repoPath": "packages/cli/src/lib/api-client.ts",
+          "symbol": "request",
+          "plan": "Quote the current request branch and annotate how it implements \"AbortController fake timer test\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for DEFAULT_TIMEOUT_MS",
+          "repoPath": "packages/cli/src/lib/api-client.ts",
+          "symbol": "DEFAULT_TIMEOUT_MS",
+          "plan": "Use the real DEFAULT_TIMEOUT_MS contract to create an executable test for \"clearTimeout fetch cleanup\", then assert the related \"qaskills request timeout\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for searchSkills",
+          "repoPath": "packages/cli/src/lib/api-client.ts",
+          "symbol": "searchSkills",
+          "plan": "Use the real searchSkills contract to create an executable test for \"qaskills request timeout\", then assert the related \"CLI hanging request test\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/api-client.ts#request",
+        "packages/cli/src/lib/api-client.ts#DEFAULT_TIMEOUT_MS",
+        "packages/cli/src/lib/api-client.ts#searchSkills",
+        "packages/cli/src/lib/api-client.ts#getSkill"
+      ],
+      "internalRoutes": [
+        "/getting-started",
+        "/skills",
+        "/blog/error-handling-testing-patterns",
+        "/blog/mcp-api-timeout-abortcontroller-testing",
+        "/blog",
+        "/faq",
+        "/categories"
+      ],
+      "relatedSlugs": [
+        "error-handling-testing-patterns",
+        "mcp-api-timeout-abortcontroller-testing",
+        "test-environment-management-guide",
+        "typescript-testing-patterns-guide"
+      ],
+      "sources": [
+        "https://dom.spec.whatwg.org/#interface-abortcontroller",
+        "https://nodejs.org/api/globals.html#class-abortcontroller",
+        "https://vitest.dev/guide/mocking/timers"
+      ],
+      "faqQuestions": [
+        "What does AbortController fake timer test verify in QASkills?",
+        "When should a team test clearTimeout fetch cleanup?",
+        "How can a fixture isolate qaskills request timeout?",
+        "Which assertion proves CLI hanging request test?",
+        "What failure cases belong in abort signal assertion tests?",
+        "How should CI run timer leak regression test checks?"
+      ],
+      "cta": "Follow /getting-started with a mock API, then confirm the same request contract against the public catalog at /skills."
+    },
+    {
+      "id": "cli-sdk-029",
+      "batch": 5,
+      "batchPosition": 4,
+      "domain": "cli-sdk",
+      "slug": "qaskills-list-malformed-skill-folders",
+      "primaryKeyword": "QASkills list malformed skill folders",
+      "title": "QASkills list malformed skill folders",
+      "description": "QASkills list malformed skill folders: use repo paths, tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How does qaskills list handle a child folder with a missing, unreadable, or malformed SKILL.md while continuing to scan other skills?",
+      "intentBoundary": "Per-child parse failures inside an existing directory, not the missing parent directory or duplicate counting.",
+      "secondaryKeywords": [
+        "qaskills list malformed SKILL.md",
+        "skill folder parse failure",
+        "missing SKILL.md list output",
+        "continue after invalid skill",
+        "agent skills scan errors",
+        "CLI malformed package marker"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills list malformed skill folders guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How does qaskills list handle a child folder with a missing, unreadable, or malformed SKILL.md while continuing to scan other skills?\" in 40 to 60 words, define the observable contract, and state the boundary: Per-child parse failures inside an existing directory, not the missing parent directory or duplicate counting.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts#listCommand",
+            "packages/shared/src/parsers/skill-parser.ts#parseSkillMd"
+          ]
+        },
+        {
+          "heading": "How does qaskills list malformed SKILL.md work?",
+          "secondaryKeyword": "qaskills list malformed SKILL.md",
+          "coverage": "Walk through the production branch at packages/cli/src/commands/list.ts#listCommand, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/cli/src/commands/list.ts#listCommand"]
+        },
+        {
+          "heading": "Which cases define skill folder parse failure?",
+          "secondaryKeyword": "skill folder parse failure",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise parseSkillMd; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/shared/src/parsers/skill-parser.ts#parseSkillMd",
+            "packages/shared/src/schemas/skill-schema.ts#skillFrontmatterSchema"
+          ]
+        },
+        {
+          "heading": "missing SKILL.md list output and the current QASkills contract",
+          "secondaryKeyword": "missing SKILL.md list output",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/shared/src/schemas/skill-schema.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/shared/src/schemas/skill-schema.ts#skillFrontmatterSchema"]
+        },
+        {
+          "heading": "How do you test continue after invalid skill?",
+          "secondaryKeyword": "continue after invalid skill",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts#listCommand",
+            "packages/cli/src/lib/agent-detector.ts#detectAgents"
+          ]
+        },
+        {
+          "heading": "agent skills scan errors failure and edge-case matrix",
+          "secondaryKeyword": "agent skills scan errors",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": [
+            "packages/shared/src/parsers/skill-parser.ts#parseSkillMd",
+            "packages/cli/src/lib/agent-detector.ts#detectAgents"
+          ]
+        },
+        {
+          "heading": "How should CLI malformed package marker run in CI?",
+          "secondaryKeyword": "CLI malformed package marker",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts#listCommand",
+            "packages/cli/src/lib/agent-detector.ts#detectAgents"
+          ]
+        },
+        {
+          "heading": "Implementation checklist for QASkills list malformed skill folders",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /skills, /blog/skill-md-format-guide, /blog/malformed-skill-md-frontmatter-parser-tests.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts#listCommand",
+            "packages/shared/src/parsers/skill-parser.ts#parseSkillMd",
+            "packages/shared/src/schemas/skill-schema.ts#skillFrontmatterSchema"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": [
+            "packages/cli/src/commands/list.ts#listCommand",
+            "packages/shared/src/parsers/skill-parser.ts#parseSkillMd"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Use /getting-started to run the command, then compare its behavior with the current catalog on /skills.",
+          "repoEvidence": ["packages/cli/src/commands/list.ts#listCommand"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills list malformed skill folders scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "qaskills list malformed SKILL.md",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at listCommand completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/cli/src/commands/list.ts#listCommand"
+          },
+          {
+            "scenario": "skill folder parse failure",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at parseSkillMd selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/shared/src/parsers/skill-parser.ts#parseSkillMd"
+          },
+          {
+            "scenario": "continue after invalid skill",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/shared/src/schemas/skill-schema.ts#skillFrontmatterSchema"
+          },
+          {
+            "scenario": "CLI malformed package marker",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/cli/src/lib/agent-detector.ts#detectAgents"
+          }
+        ],
+        "source": [
+          "packages/cli/src/commands/list.ts#listCommand",
+          "packages/shared/src/parsers/skill-parser.ts#parseSkillMd",
+          "packages/shared/src/schemas/skill-schema.ts#skillFrontmatterSchema",
+          "packages/cli/src/lib/agent-detector.ts#detectAgents"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/cli/src/commands/list.ts at listCommand and record the exact inputs, defaults, side effects, and output for \"qaskills list malformed SKILL.md\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"skill folder parse failure\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to parseSkillMd, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"continue after invalid skill\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"CLI malformed package marker\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace listCommand in the current implementation",
+          "repoPath": "packages/cli/src/commands/list.ts",
+          "symbol": "listCommand",
+          "plan": "Quote the current listCommand branch and annotate how it implements \"qaskills list malformed SKILL.md\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for parseSkillMd",
+          "repoPath": "packages/shared/src/parsers/skill-parser.ts",
+          "symbol": "parseSkillMd",
+          "plan": "Use the real parseSkillMd contract to create an executable test for \"skill folder parse failure\", then assert the related \"missing SKILL.md list output\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for skillFrontmatterSchema",
+          "repoPath": "packages/shared/src/schemas/skill-schema.ts",
+          "symbol": "skillFrontmatterSchema",
+          "plan": "Use the real skillFrontmatterSchema contract to create an executable test for \"missing SKILL.md list output\", then assert the related \"continue after invalid skill\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/commands/list.ts#listCommand",
+        "packages/shared/src/parsers/skill-parser.ts#parseSkillMd",
+        "packages/shared/src/schemas/skill-schema.ts#skillFrontmatterSchema",
+        "packages/cli/src/lib/agent-detector.ts#detectAgents"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/skill-md-format-guide",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/getting-started",
+        "/blog",
+        "/faq",
+        "/categories"
+      ],
+      "relatedSlugs": [
+        "skill-md-format-guide",
+        "malformed-skill-md-frontmatter-parser-tests",
+        "error-handling-testing-patterns",
+        "qaskills-add-custom-directory-ci"
+      ],
+      "sources": [
+        "https://nodejs.org/api/fs.html",
+        "https://yaml.org/spec/1.2.2/",
+        "https://github.com/jonschlinkert/gray-matter"
+      ],
+      "faqQuestions": [
+        "What does qaskills list malformed SKILL.md verify in QASkills?",
+        "When should a team test skill folder parse failure?",
+        "How can a fixture isolate missing SKILL.md list output?",
+        "Which assertion proves continue after invalid skill?",
+        "What failure cases belong in agent skills scan errors tests?",
+        "How should CI run CLI malformed package marker checks?"
+      ],
+      "cta": "Use /getting-started to run the command, then compare its behavior with the current catalog on /skills."
+    },
+    {
+      "id": "cli-sdk-013",
+      "batch": 5,
+      "batchPosition": 5,
+      "domain": "cli-sdk",
+      "slug": "qaskills-cypress-project-detection",
+      "primaryKeyword": "QASkills Cypress project detection",
+      "title": "QASkills Cypress project detection",
+      "description": "QASkills Cypress project detection: use repo paths, tests, edge cases, and a repeatable workflow to verify QASkills behavior before release.",
+      "intent": "how-to",
+      "coreQuestion": "How does QASkills detect Cypress from a config file, a cypress directory, or package.json dependency evidence?",
+      "intentBoundary": "Cypress project evidence precedence only, not Cypress testing practices or comparisons.",
+      "secondaryKeywords": [
+        "detect cypress config",
+        "cypress directory detection",
+        "cypress dependency detection",
+        "qaskills cypress evidence",
+        "cypress.config.ts scanner",
+        "test cypress auto detection"
+      ],
+      "outline": [
+        {
+          "heading": "What does QASkills Cypress project detection guarantee?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How does QASkills detect Cypress from a config file, a cypress directory, or package.json dependency evidence?\" in 40 to 60 words, define the observable contract, and state the boundary: Cypress project evidence precedence only, not Cypress testing practices or comparisons.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#detectCypress",
+            "packages/cli/src/lib/framework-detector.ts#detectFrameworks"
+          ]
+        },
+        {
+          "heading": "How does detect cypress config work?",
+          "secondaryKeyword": "detect cypress config",
+          "coverage": "Walk through the production branch at packages/cli/src/lib/framework-detector.ts#detectCypress, identify its inputs and outputs, and separate direct code facts from test recommendations.",
+          "repoEvidence": ["packages/cli/src/lib/framework-detector.ts#detectCypress"]
+        },
+        {
+          "heading": "Which cases define cypress directory detection?",
+          "secondaryKeyword": "cypress directory detection",
+          "coverage": "Describe the positive, negative, boundary, and repeat-run fixtures that exercise detectFrameworks; include filesystem or HTTP setup when the code requires it.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+            "packages/cli/src/lib/framework-detector.ts#fileExists"
+          ]
+        },
+        {
+          "heading": "cypress dependency detection and the current QASkills contract",
+          "secondaryKeyword": "cypress dependency detection",
+          "coverage": "Map the long-tail query to the exact types, constants, command options, or request fields in packages/cli/src/lib/framework-detector.ts; call out defaults and omitted values.",
+          "repoEvidence": ["packages/cli/src/lib/framework-detector.ts#fileExists"]
+        },
+        {
+          "heading": "How do you test qaskills cypress evidence?",
+          "secondaryKeyword": "qaskills cypress evidence",
+          "coverage": "Provide the numbered procedure from this brief, show isolation and cleanup, and use the repository-backed examples rather than pseudocode-only advice.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#detectCypress",
+            "packages/cli/src/lib/framework-detector.ts#hasDep"
+          ]
+        },
+        {
+          "heading": "cypress.config.ts scanner failure and edge-case matrix",
+          "secondaryKeyword": "cypress.config.ts scanner",
+          "coverage": "Present the planned table with success, malformed, missing, repeated, and transport or filesystem failure cases as applicable to this implementation.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+            "packages/cli/src/lib/framework-detector.ts#hasDep"
+          ]
+        },
+        {
+          "heading": "How should test cypress auto detection run in CI?",
+          "secondaryKeyword": "test cypress auto detection",
+          "coverage": "Turn the local regression test into a deterministic package or workflow gate, list required cleanup, and avoid credentials or live state unless the existing workflow requires them.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#detectCypress",
+            "packages/cli/src/lib/framework-detector.ts#hasDep"
+          ]
+        },
+        {
+          "heading": "Implementation checklist for QASkills Cypress project detection",
+          "secondaryKeyword": null,
+          "coverage": "Summarize contract assertions, fixture isolation, exact error or output checks, source citations, and verified internal links including /categories/e2e-testing, /skills, /blog/cypress-tutorial-beginners-2026.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#detectCypress",
+            "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+            "packages/cli/src/lib/framework-detector.ts#fileExists"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep every answer scoped to the current QASkills implementation and cited platform specifications.",
+          "repoEvidence": [
+            "packages/cli/src/lib/framework-detector.ts#detectCypress",
+            "packages/cli/src/lib/framework-detector.ts#detectFrameworks"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified behavior, identify the next regression check, and close with this route-backed CTA: Browse /categories for the detected framework, then select a matching package from /skills and run the fixture matrix.",
+          "repoEvidence": ["packages/cli/src/lib/framework-detector.ts#detectCypress"]
+        }
+      ],
+      "tablePlan": {
+        "title": "QASkills Cypress project detection scenario and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Fixture or input",
+          "Expected observable result",
+          "Failure signal",
+          "Repository source"
+        ],
+        "rows": [
+          {
+            "scenario": "detect cypress config",
+            "fixture": "Minimal valid fixture or request",
+            "expected": "The branch at detectCypress completes with its documented output.",
+            "failureSignal": "Unexpected return value, path, request, output, or exit state",
+            "source": "packages/cli/src/lib/framework-detector.ts#detectCypress"
+          },
+          {
+            "scenario": "cypress directory detection",
+            "fixture": "Boundary value or alternate supported configuration",
+            "expected": "The contract at detectFrameworks selects the intended supported branch.",
+            "failureSignal": "Wrong branch, ordering, omission, or target selection",
+            "source": "packages/cli/src/lib/framework-detector.ts#detectFrameworks"
+          },
+          {
+            "scenario": "qaskills cypress evidence",
+            "fixture": "Malformed, missing, repeated, or rejected input",
+            "expected": "The implementation reports or contains the failure exactly as the current command or client defines.",
+            "failureSignal": "Silent mutation, misleading success, uncaught parser error, or leaked state",
+            "source": "packages/cli/src/lib/framework-detector.ts#fileExists"
+          },
+          {
+            "scenario": "test cypress auto detection",
+            "fixture": "Repeatable CI fixture with isolated environment and cleanup",
+            "expected": "The same assertions pass without dependence on developer home state or prior test order.",
+            "failureSignal": "Flaky ordering, open timer, stale directory, shared credential, or network dependency",
+            "source": "packages/cli/src/lib/framework-detector.ts#hasDep"
+          }
+        ],
+        "source": [
+          "packages/cli/src/lib/framework-detector.ts#detectCypress",
+          "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+          "packages/cli/src/lib/framework-detector.ts#fileExists",
+          "packages/cli/src/lib/framework-detector.ts#hasDep"
+        ]
+      },
+      "procedurePlan": [
+        {
+          "step": 1,
+          "action": "Read packages/cli/src/lib/framework-detector.ts at detectCypress and record the exact inputs, defaults, side effects, and output for \"detect cypress config\"."
+        },
+        {
+          "step": 2,
+          "action": "Create an isolated fixture for \"cypress directory detection\" using a temporary directory, mocked fetch response, package fixture, or environment override that matches the real dependency."
+        },
+        {
+          "step": 3,
+          "action": "Invoke the public command or SDK path connected to detectFrameworks, then capture the returned value, request URL, headers, console output, filesystem change, or exit status."
+        },
+        {
+          "step": 4,
+          "action": "Add the \"qaskills cypress evidence\" negative case and compare it with the success case in the planned scenario table."
+        },
+        {
+          "step": 5,
+          "action": "Run the relevant package test or smoke gate, clean timers and temporary files, and preserve assertions for \"test cypress auto detection\" in CI."
+        }
+      ],
+      "codeExamples": [
+        {
+          "title": "Trace detectCypress in the current implementation",
+          "repoPath": "packages/cli/src/lib/framework-detector.ts",
+          "symbol": "detectCypress",
+          "plan": "Quote the current detectCypress branch and annotate how it implements \"detect cypress config\", including its inputs, defaults, branch conditions, and observable result."
+        },
+        {
+          "title": "Build a regression fixture for detectFrameworks",
+          "repoPath": "packages/cli/src/lib/framework-detector.ts",
+          "symbol": "detectFrameworks",
+          "plan": "Use the real detectFrameworks contract to create an executable test for \"cypress directory detection\", then assert the related \"cypress dependency detection\" success or failure behavior without inventing an API."
+        },
+        {
+          "title": "Build a regression fixture for fileExists",
+          "repoPath": "packages/cli/src/lib/framework-detector.ts",
+          "symbol": "fileExists",
+          "plan": "Use the real fileExists contract to create an executable test for \"cypress dependency detection\", then assert the related \"qaskills cypress evidence\" success or failure behavior without inventing an API."
+        }
+      ],
+      "repoEvidence": [
+        "packages/cli/src/lib/framework-detector.ts#detectCypress",
+        "packages/cli/src/lib/framework-detector.ts#detectFrameworks",
+        "packages/cli/src/lib/framework-detector.ts#fileExists",
+        "packages/cli/src/lib/framework-detector.ts#hasDep"
+      ],
+      "internalRoutes": [
+        "/categories/e2e-testing",
+        "/skills",
+        "/blog/cypress-tutorial-beginners-2026",
+        "/compare/playwright-vs-cypress-skills",
+        "/blog",
+        "/getting-started",
+        "/faq",
+        "/categories"
+      ],
+      "relatedSlugs": [
+        "cypress-tutorial-beginners-2026",
+        "test-automation-framework-architecture",
+        "hybrid-automation-framework-guide",
+        "playwright-e2e-complete-guide"
+      ],
+      "sources": [
+        "https://docs.cypress.io/app/references/configuration",
+        "https://nodejs.org/api/fs.html",
+        "https://docs.npmjs.com/cli/v11/configuring-npm/package-json"
+      ],
+      "faqQuestions": [
+        "What does detect cypress config verify in QASkills?",
+        "When should a team test cypress directory detection?",
+        "How can a fixture isolate cypress dependency detection?",
+        "Which assertion proves qaskills cypress evidence?",
+        "What failure cases belong in cypress.config.ts scanner tests?",
+        "How should CI run test cypress auto detection checks?"
+      ],
+      "cta": "Browse /categories for the detected framework, then select a matching package from /skills and run the fixture matrix."
+    }
+  ]
+}

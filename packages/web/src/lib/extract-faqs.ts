@@ -41,7 +41,7 @@ export interface FAQItem {
 //   ## Common Questions
 //   ## Q & A
 const FAQ_SECTION_REGEX =
-  /^##\s+(?:\d+\.\s+)?(?:frequently\s+asked\s+questions|faqs?|q\s*&\s*a|common\s+questions|questions?\s*&\s*answers?|questions?)\b/im;
+  /^##\s+(?:\d+\.\s+)?(?:frequently\s+asked\s+questions(?:\s+(?:about|for|on)\s+[^\n]+)?|faqs?(?:\s*:\s*[^\n]+)?|q\s*&\s*a|common\s+questions|questions?\s*&\s*answers?|questions?)\s*$/im;
 
 /**
  * Find FAQ section in markdown body. Returns the text after the heading up to
@@ -81,7 +81,10 @@ function parseH3FAQs(section: string): FAQItem[] {
   for (const block of blocks) {
     const lineEnd = block.indexOf('\n');
     if (lineEnd === -1) continue;
-    const q = block.slice(0, lineEnd).trim().replace(/[.?:]*$/, '?');
+    const q = block
+      .slice(0, lineEnd)
+      .trim()
+      .replace(/[.?:]*$/, '?');
     if (!q || q.length < 8) continue;
 
     const rest = block.slice(lineEnd + 1).trim();
@@ -108,17 +111,12 @@ function parseH3FAQs(section: string): FAQItem[] {
  */
 function parseBoldQAFAQs(section: string): FAQItem[] {
   const items: FAQItem[] = [];
-  const qaRegex =
-    /\*\*Q:\s*([^*]+?)\*\*\s*\n+A:\s*([\s\S]+?)(?=\n\s*\*\*Q:|\n##|$)/gi;
+  const qaRegex = /\*\*Q:\s*([^*]+?)\*\*\s*\n+A:\s*([\s\S]+?)(?=\n\s*\*\*Q:|\n##|$)/gi;
 
   let m: RegExpExecArray | null;
   while ((m = qaRegex.exec(section)) !== null) {
     const q = m[1].trim().replace(/[.?:]*$/, '?');
-    const a = m[2]
-      .replace(/\s+/g, ' ')
-      .replace(/`/g, '')
-      .trim()
-      .slice(0, 800);
+    const a = m[2].replace(/\s+/g, ' ').replace(/`/g, '').trim().slice(0, 800);
     if (q && a && a.length >= 20) items.push({ q, a });
   }
 
@@ -130,17 +128,12 @@ function parseBoldQAFAQs(section: string): FAQItem[] {
  */
 function parsePlainQAFAQs(section: string): FAQItem[] {
   const items: FAQItem[] = [];
-  const qaRegex =
-    /^\s*Q:\s*([^\n]+?)\s*\n+A:\s*([\s\S]+?)(?=\n\s*Q:|\n##|$)/gim;
+  const qaRegex = /^\s*Q:\s*([^\n]+?)\s*\n+A:\s*([\s\S]+?)(?=\n\s*Q:|\n##|$)/gim;
 
   let m: RegExpExecArray | null;
   while ((m = qaRegex.exec(section)) !== null) {
     const q = m[1].trim().replace(/[.?:]*$/, '?');
-    const a = m[2]
-      .replace(/\s+/g, ' ')
-      .replace(/`/g, '')
-      .trim()
-      .slice(0, 800);
+    const a = m[2].replace(/\s+/g, ' ').replace(/`/g, '').trim().slice(0, 800);
     if (q && a && a.length >= 20) items.push({ q, a });
   }
 

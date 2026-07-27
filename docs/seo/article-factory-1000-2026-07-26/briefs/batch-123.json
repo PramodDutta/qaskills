@@ -1,0 +1,1160 @@
+{
+  "batch": 123,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-200",
+      "batch": 123,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "dark-launch-traffic-segregation-testing",
+      "primaryKeyword": "dark launch traffic segregation testing",
+      "title": "Dark Launch Traffic Segregation Testing",
+      "description": "dark launch traffic segregation testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify hidden production paths receive intended traffic without user-visible effects?",
+      "intentBoundary": "Owns dark-launch routing and isolation, not canary comparison or shadow replay.",
+      "secondaryKeywords": [
+        "dark traffic routing",
+        "hidden service response suppression",
+        "launch cohort isolation",
+        "dark launch traffic segregation testing checklist",
+        "dark launch traffic segregation testing CI strategy",
+        "dark launch traffic segregation testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does dark launch traffic segregation testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify hidden production paths receive intended traffic without user-visible effects?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/testing-in-production/SKILL.md",
+            "seed-skills/production-smoke-suite/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build dark traffic routing?",
+          "question": true,
+          "secondaryKeyword": "dark traffic routing",
+          "coverage": "Create an isolated fixture for dark traffic routing. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/production-smoke-suite/SKILL.md",
+            "packages/web/src/app/blog/posts/testing-in-production-strategies.ts"
+          ]
+        },
+        {
+          "heading": "What breaks hidden service response suppression?",
+          "question": true,
+          "secondaryKeyword": "hidden service response suppression",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for hidden service response suppression. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/testing-in-production-strategies.ts",
+            "seed-skills/testing-in-production/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Launch cohort isolation fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "launch cohort isolation",
+          "coverage": "Turn launch cohort isolation into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/testing-in-production/SKILL.md",
+            "seed-skills/production-smoke-suite/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should dark launch traffic segregation testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "dark launch traffic segregation testing checklist",
+          "coverage": "Build the oracle for dark launch traffic segregation testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/production-smoke-suite/SKILL.md",
+            "packages/web/src/app/blog/posts/testing-in-production-strategies.ts"
+          ]
+        },
+        {
+          "heading": "Dark launch traffic segregation testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "dark launch traffic segregation testing CI strategy",
+          "coverage": "Package dark launch traffic segregation testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/testing-in-production-strategies.ts",
+            "seed-skills/testing-in-production/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Dark Launch Traffic Segregation Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/testing-in-production/SKILL.md",
+            "seed-skills/production-smoke-suite/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement dark launch traffic segregation testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/testing-in-production/SKILL.md",
+            "seed-skills/production-smoke-suite/SKILL.md",
+            "packages/web/src/app/blog/posts/testing-in-production-strategies.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/production-smoke-suite/SKILL.md",
+            "packages/web/src/app/blog/posts/testing-in-production-strategies.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/testing-in-production/SKILL.md",
+            "seed-skills/production-smoke-suite/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Dark Launch Traffic Segregation Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/testing-in-production/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by dark launch traffic segregation testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/testing-in-production/SKILL.md"
+          },
+          {
+            "scenario": "dark traffic routing",
+            "controlledSetup": "Change only the condition represented by \"dark traffic routing\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by dark launch traffic segregation testing.",
+            "failureSignal": "The observed result differs from the approved dark traffic routing contract.",
+            "evidenceSource": "seed-skills/production-smoke-suite/SKILL.md"
+          },
+          {
+            "scenario": "hidden service response suppression",
+            "controlledSetup": "Change only the condition represented by \"hidden service response suppression\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by dark launch traffic segregation testing.",
+            "failureSignal": "The observed result differs from the approved hidden service response suppression contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/testing-in-production-strategies.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by dark launch traffic segregation testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/testing-in-production/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by dark launch traffic segregation testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/production-smoke-suite/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/testing-in-production/SKILL.md",
+          "seed-skills/production-smoke-suite/SKILL.md",
+          "packages/web/src/app/blog/posts/testing-in-production-strategies.ts",
+          "https://sre.google/workbook/canarying-releases/",
+          "https://sre.google/workbook/monitoring/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run dark launch traffic segregation testing",
+        "steps": [
+          "Read seed-skills/testing-in-production/SKILL.md and seed-skills/production-smoke-suite/SKILL.md and packages/web/src/app/blog/posts/testing-in-production-strategies.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for dark launch traffic segregation testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for dark traffic routing, hidden service response suppression, launch cohort isolation, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the dark launch traffic segregation testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/testing-in-production/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated dark launch traffic segregation testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/production-smoke-suite/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/testing-in-production/SKILL.md",
+        "seed-skills/production-smoke-suite/SKILL.md",
+        "packages/web/src/app/blog/posts/testing-in-production-strategies.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/testing-in-production-strategies",
+        "/blog/incident-driven-test-creation-guide",
+        "/blog/microservices-testing-strategies",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "testing-in-production-strategies",
+        "incident-driven-test-creation-guide",
+        "microservices-testing-strategies",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://sre.google/workbook/canarying-releases/",
+        "https://sre.google/workbook/monitoring/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify hidden production paths receive intended traffic without user-visible effects?",
+        "What should a dark traffic routing fixture record?",
+        "Which failure proves hidden service response suppression is broken?",
+        "How do teams isolate launch cohort isolation?",
+        "Which assertion is strongest for dark launch traffic segregation testing checklist?",
+        "How should CI report dark launch traffic segregation testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/testing-in-production-strategies, then open /skills and add the dark launch traffic segregation testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-123",
+      "batch": 123,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "dbt-incremental-late-data-testing",
+      "primaryKeyword": "dbt incremental late data testing",
+      "title": "Dbt Incremental Late Data Testing",
+      "description": "dbt incremental late data testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify lookback windows capture late rows without duplicating transformed data?",
+      "intentBoundary": "Owns dbt incremental late arrivals, not stream watermarks or full-refresh correctness.",
+      "secondaryKeywords": [
+        "incremental lookback window",
+        "unique_key merge",
+        "late arriving fact",
+        "dbt incremental late data testing checklist",
+        "dbt incremental late data testing CI strategy",
+        "dbt incremental late data testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does dbt incremental late data testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify lookback windows capture late rows without duplicating transformed data?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "seed-skills/pipeline-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build incremental lookback window?",
+          "question": true,
+          "secondaryKeyword": "incremental lookback window",
+          "coverage": "Create an isolated fixture for incremental lookback window. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/metamorphic-testing-data-pipelines-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks unique_key merge?",
+          "question": true,
+          "secondaryKeyword": "unique_key merge",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for unique_key merge. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/metamorphic-testing-data-pipelines-guide.ts",
+            "seed-skills/data-pipeline-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Late arriving fact fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "late arriving fact",
+          "coverage": "Turn late arriving fact into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "seed-skills/pipeline-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should dbt incremental late data testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "dbt incremental late data testing checklist",
+          "coverage": "Build the oracle for dbt incremental late data testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/metamorphic-testing-data-pipelines-guide.ts"
+          ]
+        },
+        {
+          "heading": "Dbt incremental late data testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "dbt incremental late data testing CI strategy",
+          "coverage": "Package dbt incremental late data testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/metamorphic-testing-data-pipelines-guide.ts",
+            "seed-skills/data-pipeline-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Dbt Incremental Late Data Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "seed-skills/pipeline-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement dbt incremental late data testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "seed-skills/pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/metamorphic-testing-data-pipelines-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/pipeline-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/metamorphic-testing-data-pipelines-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/data-pipeline-testing/SKILL.md",
+            "seed-skills/pipeline-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Dbt Incremental Late Data Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/data-pipeline-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by dbt incremental late data testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/data-pipeline-testing/SKILL.md"
+          },
+          {
+            "scenario": "incremental lookback window",
+            "controlledSetup": "Change only the condition represented by \"incremental lookback window\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by dbt incremental late data testing.",
+            "failureSignal": "The observed result differs from the approved incremental lookback window contract.",
+            "evidenceSource": "seed-skills/pipeline-testing/SKILL.md"
+          },
+          {
+            "scenario": "unique_key merge",
+            "controlledSetup": "Change only the condition represented by \"unique_key merge\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by dbt incremental late data testing.",
+            "failureSignal": "The observed result differs from the approved unique_key merge contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/metamorphic-testing-data-pipelines-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by dbt incremental late data testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/data-pipeline-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by dbt incremental late data testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/pipeline-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/data-pipeline-testing/SKILL.md",
+          "seed-skills/pipeline-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/metamorphic-testing-data-pipelines-guide.ts",
+          "https://docs.getdbt.com/docs/build/incremental-models",
+          "https://docs.getdbt.com/docs/build/data-tests"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run dbt incremental late data testing",
+        "steps": [
+          "Read seed-skills/data-pipeline-testing/SKILL.md and seed-skills/pipeline-testing/SKILL.md and packages/web/src/app/blog/posts/metamorphic-testing-data-pipelines-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for dbt incremental late data testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for incremental lookback window, unique_key merge, late arriving fact, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the dbt incremental late data testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/data-pipeline-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated dbt incremental late data testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/pipeline-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/data-pipeline-testing/SKILL.md",
+        "seed-skills/pipeline-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/metamorphic-testing-data-pipelines-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/database-testing-automation-guide",
+        "/blog/data-contract-testing-guide-2026",
+        "/blog/event-driven-architecture-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "database-testing-automation-guide",
+        "data-contract-testing-guide-2026",
+        "event-driven-architecture-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://docs.getdbt.com/docs/build/incremental-models",
+        "https://docs.getdbt.com/docs/build/data-tests"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify lookback windows capture late rows without duplicating transformed data?",
+        "What should a incremental lookback window fixture record?",
+        "Which failure proves unique_key merge is broken?",
+        "How do teams isolate late arriving fact?",
+        "Which assertion is strongest for dbt incremental late data testing checklist?",
+        "How should CI report dbt incremental late data testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/database-testing-automation-guide, then open /skills and add the dbt incremental late data testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-150",
+      "batch": 123,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "slo-burn-rate-window-testing",
+      "primaryKeyword": "SLO burn rate window testing",
+      "title": "Slo Burn Rate Window Testing",
+      "description": "SLO burn rate window testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified cleanup.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify fast and slow burn alerts trigger at exact error-budget boundaries?",
+      "intentBoundary": "Owns multi-window burn-rate math, not broad SLA monitoring or load thresholds.",
+      "secondaryKeywords": [
+        "multiwindow burn rate",
+        "error budget alert",
+        "SLO threshold boundary",
+        "SLO burn rate window testing checklist",
+        "SLO burn rate window testing CI strategy",
+        "SLO burn rate window testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does SLO burn rate window testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify fast and slow burn alerts trigger at exact error-budget boundaries?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/sla-testing/SKILL.md",
+            "seed-skills/alerting-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build multiwindow burn rate?",
+          "question": true,
+          "secondaryKeyword": "multiwindow burn rate",
+          "coverage": "Create an isolated fixture for multiwindow burn rate. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/shift-right-testing-observability-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks error budget alert?",
+          "question": true,
+          "secondaryKeyword": "error budget alert",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for error budget alert. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/shift-right-testing-observability-guide-2026.ts",
+            "seed-skills/sla-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "SLO threshold boundary fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "SLO threshold boundary",
+          "coverage": "Turn SLO threshold boundary into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/sla-testing/SKILL.md",
+            "seed-skills/alerting-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should SLO burn rate window testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "SLO burn rate window testing checklist",
+          "coverage": "Build the oracle for SLO burn rate window testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/shift-right-testing-observability-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "SLO burn rate window testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "SLO burn rate window testing CI strategy",
+          "coverage": "Package SLO burn rate window testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/shift-right-testing-observability-guide-2026.ts",
+            "seed-skills/sla-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Slo Burn Rate Window Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/sla-testing/SKILL.md",
+            "seed-skills/alerting-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement SLO burn rate window testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/sla-testing/SKILL.md",
+            "seed-skills/alerting-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/shift-right-testing-observability-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/shift-right-testing-observability-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/sla-testing/SKILL.md",
+            "seed-skills/alerting-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Slo Burn Rate Window Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/sla-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by SLO burn rate window testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/sla-testing/SKILL.md"
+          },
+          {
+            "scenario": "multiwindow burn rate",
+            "controlledSetup": "Change only the condition represented by \"multiwindow burn rate\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by SLO burn rate window testing.",
+            "failureSignal": "The observed result differs from the approved multiwindow burn rate contract.",
+            "evidenceSource": "seed-skills/alerting-testing/SKILL.md"
+          },
+          {
+            "scenario": "error budget alert",
+            "controlledSetup": "Change only the condition represented by \"error budget alert\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by SLO burn rate window testing.",
+            "failureSignal": "The observed result differs from the approved error budget alert contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/shift-right-testing-observability-guide-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by SLO burn rate window testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/sla-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by SLO burn rate window testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/alerting-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/sla-testing/SKILL.md",
+          "seed-skills/alerting-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/shift-right-testing-observability-guide-2026.ts",
+          "https://sre.google/workbook/alerting-on-slos/",
+          "https://sre.google/workbook/implementing-slos/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run SLO burn rate window testing",
+        "steps": [
+          "Read seed-skills/sla-testing/SKILL.md and seed-skills/alerting-testing/SKILL.md and packages/web/src/app/blog/posts/shift-right-testing-observability-guide-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for SLO burn rate window testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for multiwindow burn rate, error budget alert, SLO threshold boundary, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the SLO burn rate window testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/sla-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated SLO burn rate window testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/alerting-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/sla-testing/SKILL.md",
+        "seed-skills/alerting-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/shift-right-testing-observability-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/observability-driven-testing-guide",
+        "/blog/trace-based-testing-opentelemetry-2026",
+        "/blog/shift-right-testing-observability-guide-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "observability-driven-testing-guide",
+        "trace-based-testing-opentelemetry-2026",
+        "shift-right-testing-observability-guide-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://sre.google/workbook/alerting-on-slos/",
+        "https://sre.google/workbook/implementing-slos/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify fast and slow burn alerts trigger at exact error-budget boundaries?",
+        "What should a multiwindow burn rate fixture record?",
+        "Which failure proves error budget alert is broken?",
+        "How do teams isolate SLO threshold boundary?",
+        "Which assertion is strongest for SLO burn rate window testing checklist?",
+        "How should CI report SLO burn rate window testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/observability-driven-testing-guide, then open /skills and add the SLO burn rate window testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-152",
+      "batch": 123,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "telemetry-cardinality-budget-testing",
+      "primaryKeyword": "telemetry cardinality budget testing",
+      "title": "Telemetry Cardinality Budget Testing",
+      "description": "telemetry cardinality budget testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify dimensions stay bounded before metrics backends overload?",
+      "intentBoundary": "Owns label and attribute cardinality, not traffic volume or storage retention alone.",
+      "secondaryKeywords": [
+        "high cardinality label",
+        "attribute allowlist",
+        "time series budget",
+        "telemetry cardinality budget testing checklist",
+        "telemetry cardinality budget testing CI strategy",
+        "telemetry cardinality budget testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does telemetry cardinality budget testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify dimensions stay bounded before metrics backends overload?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build high cardinality label?",
+          "question": true,
+          "secondaryKeyword": "high cardinality label",
+          "coverage": "Create an isolated fixture for high cardinality label. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks attribute allowlist?",
+          "question": true,
+          "secondaryKeyword": "attribute allowlist",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for attribute allowlist. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts",
+            "seed-skills/alerting-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Time series budget fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "time series budget",
+          "coverage": "Turn time series budget into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should telemetry cardinality budget testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "telemetry cardinality budget testing checklist",
+          "coverage": "Build the oracle for telemetry cardinality budget testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Telemetry cardinality budget testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "telemetry cardinality budget testing CI strategy",
+          "coverage": "Package telemetry cardinality budget testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts",
+            "seed-skills/alerting-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Telemetry Cardinality Budget Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement telemetry cardinality budget testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/test-observability/SKILL.md",
+            "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/alerting-testing/SKILL.md",
+            "seed-skills/test-observability/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Telemetry Cardinality Budget Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/alerting-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by telemetry cardinality budget testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/alerting-testing/SKILL.md"
+          },
+          {
+            "scenario": "high cardinality label",
+            "controlledSetup": "Change only the condition represented by \"high cardinality label\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by telemetry cardinality budget testing.",
+            "failureSignal": "The observed result differs from the approved high cardinality label contract.",
+            "evidenceSource": "seed-skills/test-observability/SKILL.md"
+          },
+          {
+            "scenario": "attribute allowlist",
+            "controlledSetup": "Change only the condition represented by \"attribute allowlist\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by telemetry cardinality budget testing.",
+            "failureSignal": "The observed result differs from the approved attribute allowlist contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by telemetry cardinality budget testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/alerting-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by telemetry cardinality budget testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/test-observability/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/alerting-testing/SKILL.md",
+          "seed-skills/test-observability/SKILL.md",
+          "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts",
+          "https://opentelemetry.io/docs/specs/otel/metrics/",
+          "https://opentelemetry.io/docs/specs/otel/logs/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run telemetry cardinality budget testing",
+        "steps": [
+          "Read seed-skills/alerting-testing/SKILL.md and seed-skills/test-observability/SKILL.md and packages/web/src/app/blog/posts/observability-driven-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for telemetry cardinality budget testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for high cardinality label, attribute allowlist, time series budget, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the telemetry cardinality budget testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/alerting-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated telemetry cardinality budget testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/test-observability/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/alerting-testing/SKILL.md",
+        "seed-skills/test-observability/SKILL.md",
+        "packages/web/src/app/blog/posts/observability-driven-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/observability-driven-testing-guide",
+        "/blog/trace-based-testing-opentelemetry-2026",
+        "/blog/shift-right-testing-observability-guide-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "observability-driven-testing-guide",
+        "trace-based-testing-opentelemetry-2026",
+        "shift-right-testing-observability-guide-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://opentelemetry.io/docs/specs/otel/metrics/",
+        "https://opentelemetry.io/docs/specs/otel/logs/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify dimensions stay bounded before metrics backends overload?",
+        "What should a high cardinality label fixture record?",
+        "Which failure proves attribute allowlist is broken?",
+        "How do teams isolate time series budget?",
+        "Which assertion is strongest for telemetry cardinality budget testing checklist?",
+        "How should CI report telemetry cardinality budget testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/observability-driven-testing-guide, then open /skills and add the telemetry cardinality budget testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-138",
+      "batch": 123,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "terraform-state-lock-recovery-testing",
+      "primaryKeyword": "Terraform state lock recovery testing",
+      "title": "Terraform State Lock Recovery Testing",
+      "description": "Terraform state lock recovery testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify crashed applies leave recoverable locks without enabling concurrent writes?",
+      "intentBoundary": "Owns backend lock recovery, not state migration or drift detection.",
+      "secondaryKeywords": [
+        "stale state lock",
+        "force-unlock safety",
+        "concurrent apply rejection",
+        "Terraform state lock recovery testing checklist",
+        "Terraform state lock recovery testing CI strategy",
+        "Terraform state lock recovery testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Terraform state lock recovery testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify crashed applies leave recoverable locks without enabling concurrent writes?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/terraform-testing/SKILL.md",
+            "seed-skills/infrastructure-drift-detection/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build stale state lock?",
+          "question": true,
+          "secondaryKeyword": "stale state lock",
+          "coverage": "Create an isolated fixture for stale state lock. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/infrastructure-drift-detection/SKILL.md",
+            "packages/web/src/app/blog/posts/docker-testing-strategies-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks force-unlock safety?",
+          "question": true,
+          "secondaryKeyword": "force-unlock safety",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for force-unlock safety. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/docker-testing-strategies-guide.ts",
+            "seed-skills/terraform-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Concurrent apply rejection fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "concurrent apply rejection",
+          "coverage": "Turn concurrent apply rejection into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/terraform-testing/SKILL.md",
+            "seed-skills/infrastructure-drift-detection/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Terraform state lock recovery testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Terraform state lock recovery testing checklist",
+          "coverage": "Build the oracle for Terraform state lock recovery testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/infrastructure-drift-detection/SKILL.md",
+            "packages/web/src/app/blog/posts/docker-testing-strategies-guide.ts"
+          ]
+        },
+        {
+          "heading": "Terraform state lock recovery testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Terraform state lock recovery testing CI strategy",
+          "coverage": "Package Terraform state lock recovery testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/docker-testing-strategies-guide.ts",
+            "seed-skills/terraform-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Terraform State Lock Recovery Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/terraform-testing/SKILL.md",
+            "seed-skills/infrastructure-drift-detection/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Terraform state lock recovery testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/terraform-testing/SKILL.md",
+            "seed-skills/infrastructure-drift-detection/SKILL.md",
+            "packages/web/src/app/blog/posts/docker-testing-strategies-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/infrastructure-drift-detection/SKILL.md",
+            "packages/web/src/app/blog/posts/docker-testing-strategies-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/terraform-testing/SKILL.md",
+            "seed-skills/infrastructure-drift-detection/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Terraform State Lock Recovery Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/terraform-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Terraform state lock recovery testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/terraform-testing/SKILL.md"
+          },
+          {
+            "scenario": "stale state lock",
+            "controlledSetup": "Change only the condition represented by \"stale state lock\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Terraform state lock recovery testing.",
+            "failureSignal": "The observed result differs from the approved stale state lock contract.",
+            "evidenceSource": "seed-skills/infrastructure-drift-detection/SKILL.md"
+          },
+          {
+            "scenario": "force-unlock safety",
+            "controlledSetup": "Change only the condition represented by \"force-unlock safety\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Terraform state lock recovery testing.",
+            "failureSignal": "The observed result differs from the approved force-unlock safety contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/docker-testing-strategies-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Terraform state lock recovery testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/terraform-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Terraform state lock recovery testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/infrastructure-drift-detection/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/terraform-testing/SKILL.md",
+          "seed-skills/infrastructure-drift-detection/SKILL.md",
+          "packages/web/src/app/blog/posts/docker-testing-strategies-guide.ts",
+          "https://developer.hashicorp.com/terraform/language/tests",
+          "https://developer.hashicorp.com/terraform/language/state/locking"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Terraform state lock recovery testing",
+        "steps": [
+          "Read seed-skills/terraform-testing/SKILL.md and seed-skills/infrastructure-drift-detection/SKILL.md and packages/web/src/app/blog/posts/docker-testing-strategies-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Terraform state lock recovery testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for stale state lock, force-unlock safety, concurrent apply rejection, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Terraform state lock recovery testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/terraform-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Terraform state lock recovery testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/infrastructure-drift-detection/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/terraform-testing/SKILL.md",
+        "seed-skills/infrastructure-drift-detection/SKILL.md",
+        "packages/web/src/app/blog/posts/docker-testing-strategies-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/chaos-mesh-kubernetes-testing-guide",
+        "/blog/docker-testing-strategies-guide",
+        "/blog/cloudflare-workers-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "chaos-mesh-kubernetes-testing-guide",
+        "docker-testing-strategies-guide",
+        "cloudflare-workers-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://developer.hashicorp.com/terraform/language/tests",
+        "https://developer.hashicorp.com/terraform/language/state/locking"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify crashed applies leave recoverable locks without enabling concurrent writes?",
+        "What should a stale state lock fixture record?",
+        "Which failure proves force-unlock safety is broken?",
+        "How do teams isolate concurrent apply rejection?",
+        "Which assertion is strongest for Terraform state lock recovery testing checklist?",
+        "How should CI report Terraform state lock recovery testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/chaos-mesh-kubernetes-testing-guide, then open /skills and add the Terraform state lock recovery testing checks to the next QA run."
+    }
+  ]
+}

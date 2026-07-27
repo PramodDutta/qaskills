@@ -1,0 +1,1106 @@
+{
+  "batch": 47,
+  "briefs": [
+    {
+      "sourceTopicId": "testing-frameworks-46",
+      "batch": 47,
+      "batchPosition": 1,
+      "domain": "testing-frameworks",
+      "slug": "forced-colors-visual-accessibility-testing",
+      "primaryKeyword": "forced colors visual accessibility testing",
+      "title": "forced colors visual accessibility testing",
+      "description": "forced colors visual accessibility testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How should QA verify controls, focus indicators, icons, and selected states when Windows forced-colors mode overrides CSS?",
+      "intentBoundary": "The nearest page covers a broader a11y workflow. This candidate owns forced-color rendering and state visibility.",
+      "secondaryKeywords": [
+        "forced colors accessibility test",
+        "Windows high contrast QA",
+        "forced-color-adjust regression",
+        "focus indicator forced colors",
+        "icon visibility high contrast"
+      ],
+      "outline": [
+        {
+          "heading": "What does forced colors visual accessibility testing verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA verify controls, focus indicators, icons, and selected states when Windows forced-colors mode overrides CSS?\" in 40 to 60 words. Define the observable contract: controls, icons, focus indicators, disabled states, and selections remain distinguishable when forced-colors mode replaces authored colors. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an forced colors accessibility test?",
+          "question": true,
+          "secondaryKeyword": "forced colors accessibility test",
+          "coverage": "Describe this exact fixture: a component gallery containing links, buttons, custom checkboxes, selected tabs, disabled controls, icons, and visible focus states. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/accessibility-a11y-enhanced/SKILL.md"]
+        },
+        {
+          "heading": "What breaks Windows high contrast QA?",
+          "question": true,
+          "secondaryKeyword": "Windows high contrast QA",
+          "coverage": "Explain the failure mechanics behind background-only icons, transparent borders, color-only selection, hidden focus rings, inappropriate forced-color-adjust, and OS variation. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "forced-color-adjust regression fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "forced-color-adjust regression",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a component gallery containing links, buttons, custom checkboxes, selected tabs, disabled controls, icons, and visible focus states, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/wcag-accessibility-testing/SKILL.md"]
+        },
+        {
+          "heading": "How should focus indicator forced colors be asserted?",
+          "question": true,
+          "secondaryKeyword": "focus indicator forced colors",
+          "coverage": "Build the oracle from forced-colors media state, computed styles, screenshots, keyboard traversal, and manual high-contrast review expose lost boundaries or states. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "icon visibility high contrast in CI",
+          "question": false,
+          "secondaryKeyword": "icon visibility high contrast",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to accessibility-a11y-enhanced and wcag-accessibility-testing.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "forced colors visual accessibility testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: normal colors versus forced colors; keyboard focus on every control; selected and unselected custom controls; enabled and disabled states; icon rendered by background image versus currentColor. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement forced colors visual accessibility testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within controls, icons, focus indicators, disabled states, and selections remain distinguishable when forced-colors mode replaces authored colors, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/accessibility-testing-automation-guide, then open /skills and implement the forced colors visual accessibility testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/accessibility-a11y-enhanced/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "forced colors visual accessibility testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "normal colors versus forced colors",
+            "controlledSetup": "a component gallery containing links, buttons, custom checkboxes, selected tabs, disabled controls, icons, and visible focus states",
+            "expectedObservation": "forced-colors media state, computed styles, screenshots, keyboard traversal, and manual high-contrast review expose lost boundaries or states",
+            "failureSignal": "Observed state differs from the documented controls, icons, focus indicators, disabled states, and selections remain distinguishable when forced-colors mode replaces authored colors.",
+            "evidenceSource": "seed-skills/accessibility-a11y-enhanced/SKILL.md"
+          },
+          {
+            "scenario": "keyboard focus on every control",
+            "controlledSetup": "Change only the condition represented by \"keyboard focus on every control\" while retaining the baseline fixture.",
+            "expectedObservation": "forced-colors media state, computed styles, screenshots, keyboard traversal, and manual high-contrast review expose lost boundaries or states",
+            "failureSignal": "Observed state differs from the documented controls, icons, focus indicators, disabled states, and selections remain distinguishable when forced-colors mode replaces authored colors.",
+            "evidenceSource": "seed-skills/wcag-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "selected and unselected custom controls",
+            "controlledSetup": "Change only the condition represented by \"selected and unselected custom controls\" while retaining the baseline fixture.",
+            "expectedObservation": "forced-colors media state, computed styles, screenshots, keyboard traversal, and manual high-contrast review expose lost boundaries or states",
+            "failureSignal": "Observed state differs from the documented controls, icons, focus indicators, disabled states, and selections remain distinguishable when forced-colors mode replaces authored colors.",
+            "evidenceSource": "seed-skills/accessibility-a11y-enhanced/SKILL.md"
+          },
+          {
+            "scenario": "enabled and disabled states",
+            "controlledSetup": "Change only the condition represented by \"enabled and disabled states\" while retaining the baseline fixture.",
+            "expectedObservation": "forced-colors media state, computed styles, screenshots, keyboard traversal, and manual high-contrast review expose lost boundaries or states",
+            "failureSignal": "Observed state differs from the documented controls, icons, focus indicators, disabled states, and selections remain distinguishable when forced-colors mode replaces authored colors.",
+            "evidenceSource": "seed-skills/wcag-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "icon rendered by background image versus currentColor",
+            "controlledSetup": "Change only the condition represented by \"icon rendered by background image versus currentColor\" while retaining the baseline fixture.",
+            "expectedObservation": "forced-colors media state, computed styles, screenshots, keyboard traversal, and manual high-contrast review expose lost boundaries or states",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish background-only icons, transparent borders, color-only selection, hidden focus rings, inappropriate forced-color-adjust, and OS variation.",
+            "evidenceSource": "seed-skills/accessibility-a11y-enhanced/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+          "seed-skills/wcag-accessibility-testing/SKILL.md",
+          "https://www.w3.org/TR/accname-1.2/",
+          "https://www.w3.org/TR/mediaqueries-5/",
+          "https://www.w3.org/WAI/WCAG21/Techniques/general/G1"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run forced colors visual accessibility testing",
+        "steps": [
+          "Read seed-skills/accessibility-a11y-enhanced/SKILL.md and seed-skills/wcag-accessibility-testing/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a component gallery containing links, buttons, custom checkboxes, selected tabs, disabled controls, icons, and visible focus states.",
+          "Run the positive case and capture forced-colors media state, computed styles, screenshots, keyboard traversal, and manual high-contrast review expose lost boundaries or states.",
+          "Inject one failure at a time from background-only icons, transparent borders, color-only selection, hidden focus rings, inappropriate forced-color-adjust, and OS variation, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the forced colors visual accessibility testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+          "focus": "Adapt the accessibility component audit to run keyboard and visual checks under forced-colors media."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/wcag-accessibility-testing/SKILL.md",
+          "focus": "Use the WCAG testing workflow to document the manual Windows high-contrast verification step."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+        "seed-skills/wcag-accessibility-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/accessibility-testing",
+        "/blog/accessibility-testing-automation-guide",
+        "/blog/mobile-accessibility-testing-guide",
+        "/blog/axe-core-playwright-accessibility-testing-2026",
+        "/blog/wcag-2-2-testing-checklist-qa-engineers",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "accessibility-testing-automation-guide",
+        "mobile-accessibility-testing-guide",
+        "axe-core-playwright-accessibility-testing-2026",
+        "wcag-2-2-testing-checklist-qa-engineers"
+      ],
+      "sources": [
+        "https://www.w3.org/TR/accname-1.2/",
+        "https://www.w3.org/TR/mediaqueries-5/",
+        "https://www.w3.org/WAI/WCAG21/Techniques/general/G1"
+      ],
+      "faqQuestions": [
+        "How should QA verify controls, focus indicators, icons, and selected states when Windows forced-colors mode overrides CSS?",
+        "What should an forced colors accessibility test fixture record?",
+        "Which failure proves Windows high contrast QA is broken?",
+        "How do teams isolate forced-color-adjust regression?",
+        "Which assertion is strongest for focus indicator forced colors?",
+        "How should CI report icon visibility high contrast failures?"
+      ],
+      "cta": "Review /blog/accessibility-testing-automation-guide, then open /skills and implement the forced colors visual accessibility testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-65",
+      "batch": 47,
+      "batchPosition": 2,
+      "domain": "testing-frameworks",
+      "slug": "hermetic-test-random-seed-control",
+      "primaryKeyword": "hermetic test random seed control",
+      "title": "hermetic test random seed control",
+      "description": "hermetic test random seed control: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How can a hermetic suite control random seeds, print them on failure, and replay the exact generated sequence?",
+      "intentBoundary": "The nearest page covers a broader qa workflow. This candidate owns cross-framework seed ownership for hermetic fixtures.",
+      "secondaryKeywords": [
+        "hermetic test random seed",
+        "replay randomized test failure",
+        "print seed in CI logs",
+        "deterministic random test data",
+        "seeded fixture generation"
+      ],
+      "outline": [
+        {
+          "heading": "What does hermetic test random seed control verify?",
+          "question": true,
+          "coverage": "Answer \"How can a hermetic suite control random seeds, print them on failure, and replay the exact generated sequence?\" in 40 to 60 words. Define the observable contract: one explicit seed owns all generated values, appears in failure output, and reproduces the same sequence in isolation and CI. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/mutation-testing-advanced/SKILL.md",
+            "seed-skills/test-hermetic-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an hermetic test random seed?",
+          "question": true,
+          "secondaryKeyword": "hermetic test random seed",
+          "coverage": "Describe this exact fixture: a generated-data test whose seed can come from a command option, environment variable, or captured failure artifact. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/mutation-testing-advanced/SKILL.md"]
+        },
+        {
+          "heading": "What breaks replay randomized test failure?",
+          "question": true,
+          "secondaryKeyword": "replay randomized test failure",
+          "coverage": "Explain the failure mechanics behind direct Math.random use, time-derived values, per-worker seed collisions, unlogged shrink paths, locale differences, and shared generator state. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/mutation-testing-advanced/SKILL.md",
+            "seed-skills/test-hermetic-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "print seed in CI logs fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "print seed in CI logs",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a generated-data test whose seed can come from a command option, environment variable, or captured failure artifact, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/test-hermetic-patterns/SKILL.md"]
+        },
+        {
+          "heading": "How should deterministic random test data be asserted?",
+          "question": true,
+          "secondaryKeyword": "deterministic random test data",
+          "coverage": "Build the oracle from input snapshots, generator sequence hashes, failing case identity, and replay output prove deterministic reconstruction. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/mutation-testing-advanced/SKILL.md",
+            "seed-skills/test-hermetic-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "seeded fixture generation in CI",
+          "question": false,
+          "secondaryKeyword": "seeded fixture generation",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to mutation-testing-advanced and test-hermetic-patterns.",
+          "repoEvidence": [
+            "seed-skills/mutation-testing-advanced/SKILL.md",
+            "seed-skills/test-hermetic-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "hermetic test random seed control comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: same seed in two local runs; same seed on local and CI runners; different seed with the same test count; parallel workers deriving child seeds; replay of a minimized failing case. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/mutation-testing-advanced/SKILL.md",
+            "seed-skills/test-hermetic-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement hermetic test random seed control?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/mutation-testing-advanced/SKILL.md",
+            "seed-skills/test-hermetic-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within one explicit seed owns all generated values, appears in failure output, and reproduces the same sequence in isolation and CI, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/mutation-testing-advanced/SKILL.md",
+            "seed-skills/test-hermetic-patterns/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/mutation-testing-stryker-guide, then open /skills and implement the hermetic test random seed control matrix in the next test run.",
+          "repoEvidence": ["seed-skills/mutation-testing-advanced/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "hermetic test random seed control scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "same seed in two local runs",
+            "controlledSetup": "a generated-data test whose seed can come from a command option, environment variable, or captured failure artifact",
+            "expectedObservation": "input snapshots, generator sequence hashes, failing case identity, and replay output prove deterministic reconstruction",
+            "failureSignal": "Observed state differs from the documented one explicit seed owns all generated values, appears in failure output, and reproduces the same sequence in isolation and CI.",
+            "evidenceSource": "seed-skills/mutation-testing-advanced/SKILL.md"
+          },
+          {
+            "scenario": "same seed on local and CI runners",
+            "controlledSetup": "Change only the condition represented by \"same seed on local and CI runners\" while retaining the baseline fixture.",
+            "expectedObservation": "input snapshots, generator sequence hashes, failing case identity, and replay output prove deterministic reconstruction",
+            "failureSignal": "Observed state differs from the documented one explicit seed owns all generated values, appears in failure output, and reproduces the same sequence in isolation and CI.",
+            "evidenceSource": "seed-skills/test-hermetic-patterns/SKILL.md"
+          },
+          {
+            "scenario": "different seed with the same test count",
+            "controlledSetup": "Change only the condition represented by \"different seed with the same test count\" while retaining the baseline fixture.",
+            "expectedObservation": "input snapshots, generator sequence hashes, failing case identity, and replay output prove deterministic reconstruction",
+            "failureSignal": "Observed state differs from the documented one explicit seed owns all generated values, appears in failure output, and reproduces the same sequence in isolation and CI.",
+            "evidenceSource": "seed-skills/mutation-testing-advanced/SKILL.md"
+          },
+          {
+            "scenario": "parallel workers deriving child seeds",
+            "controlledSetup": "Change only the condition represented by \"parallel workers deriving child seeds\" while retaining the baseline fixture.",
+            "expectedObservation": "input snapshots, generator sequence hashes, failing case identity, and replay output prove deterministic reconstruction",
+            "failureSignal": "Observed state differs from the documented one explicit seed owns all generated values, appears in failure output, and reproduces the same sequence in isolation and CI.",
+            "evidenceSource": "seed-skills/test-hermetic-patterns/SKILL.md"
+          },
+          {
+            "scenario": "replay of a minimized failing case",
+            "controlledSetup": "Change only the condition represented by \"replay of a minimized failing case\" while retaining the baseline fixture.",
+            "expectedObservation": "input snapshots, generator sequence hashes, failing case identity, and replay output prove deterministic reconstruction",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish direct Math.random use, time-derived values, per-worker seed collisions, unlogged shrink paths, locale differences, and shared generator state.",
+            "evidenceSource": "seed-skills/mutation-testing-advanced/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/mutation-testing-advanced/SKILL.md",
+          "seed-skills/test-hermetic-patterns/SKILL.md",
+          "https://stryker-mutator.io/docs/mutation-testing-elements/mutant-states-and-metrics/",
+          "https://testing.googleblog.com/2012/10/hermetic-servers.html",
+          "https://martinfowler.com/articles/nonDeterminism.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run hermetic test random seed control",
+        "steps": [
+          "Read seed-skills/mutation-testing-advanced/SKILL.md and seed-skills/test-hermetic-patterns/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a generated-data test whose seed can come from a command option, environment variable, or captured failure artifact.",
+          "Run the positive case and capture input snapshots, generator sequence hashes, failing case identity, and replay output prove deterministic reconstruction.",
+          "Inject one failure at a time from direct Math.random use, time-derived values, per-worker seed collisions, unlogged shrink paths, locale differences, and shared generator state, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the hermetic test random seed control baseline",
+          "language": "typescript",
+          "path": "seed-skills/mutation-testing-advanced/SKILL.md",
+          "focus": "Adapt the mutation-testing fixture controls to record deterministic inputs and the active seed."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/test-hermetic-patterns/SKILL.md",
+          "focus": "Use hermetic test patterns to isolate time, process state, worker IDs, and generator ownership."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/mutation-testing-advanced/SKILL.md",
+        "seed-skills/test-hermetic-patterns/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/mutation-testing-stryker-guide",
+        "/blog/property-based-testing-complete-guide",
+        "/blog/pairwise-combinatorial-testing-guide-2026",
+        "/blog/faker-deterministic-seed-parallel-tests",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "mutation-testing-stryker-guide",
+        "property-based-testing-complete-guide",
+        "pairwise-combinatorial-testing-guide-2026",
+        "faker-deterministic-seed-parallel-tests"
+      ],
+      "sources": [
+        "https://stryker-mutator.io/docs/mutation-testing-elements/mutant-states-and-metrics/",
+        "https://testing.googleblog.com/2012/10/hermetic-servers.html",
+        "https://martinfowler.com/articles/nonDeterminism.html"
+      ],
+      "faqQuestions": [
+        "How can a hermetic suite control random seeds, print them on failure, and replay the exact generated sequence?",
+        "What should an hermetic test random seed fixture record?",
+        "Which failure proves replay randomized test failure is broken?",
+        "How do teams isolate print seed in CI logs?",
+        "Which assertion is strongest for deterministic random test data?",
+        "How should CI report seeded fixture generation failures?"
+      ],
+      "cta": "Review /blog/mutation-testing-stryker-guide, then open /skills and implement the hermetic test random seed control matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-01",
+      "batch": 47,
+      "batchPosition": 3,
+      "domain": "testing-frameworks",
+      "slug": "jest-bail-exit-code-testing",
+      "primaryKeyword": "Jest bail exit code testing",
+      "title": "Jest bail exit code testing",
+      "description": "Jest bail exit code testing: use repo fixtures, focused assertions, and CI checks to expose failures and prevent regressions before release.",
+      "intent": "how-to",
+      "coreQuestion": "How should QA verify Jest bail counts, remaining test behavior, and process exit codes without hiding the first failure?",
+      "intentBoundary": "The nearest page covers a broader jest workflow. This candidate owns bail-count and exit-status contracts rather than process teardown.",
+      "secondaryKeywords": [
+        "Jest bail option behavior",
+        "Jest exit code assertion",
+        "stop after first failure",
+        "Jest CI bail count",
+        "partial Jest run reporting"
+      ],
+      "outline": [
+        {
+          "heading": "What does Jest bail exit code testing verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA verify Jest bail counts, remaining test behavior, and process exit codes without hiding the first failure?\" in 40 to 60 words. Define the observable contract: Jest returns a failing exit status, reports the triggering failure, and applies the configured bail threshold without hiding useful partial results. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/jest-unit/SKILL.md",
+            "seed-skills/test-isolation-strategies/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an Jest bail option behavior?",
+          "question": true,
+          "secondaryKeyword": "Jest bail option behavior",
+          "coverage": "Describe this exact fixture: multiple deterministic test files with ordered passing and failing cases, run in band and with workers under several bail values. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/jest-unit/SKILL.md"]
+        },
+        {
+          "heading": "What breaks Jest exit code assertion?",
+          "question": true,
+          "secondaryKeyword": "Jest exit code assertion",
+          "coverage": "Explain the failure mechanics behind assuming exact order under workers, conflating bail with forceExit, reporter truncation, shell exit masking, and watch-mode behavior. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/jest-unit/SKILL.md",
+            "seed-skills/test-isolation-strategies/SKILL.md"
+          ]
+        },
+        {
+          "heading": "stop after first failure fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "stop after first failure",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use multiple deterministic test files with ordered passing and failing cases, run in band and with workers under several bail values, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/test-isolation-strategies/SKILL.md"]
+        },
+        {
+          "heading": "How should Jest CI bail count be asserted?",
+          "question": true,
+          "secondaryKeyword": "Jest CI bail count",
+          "coverage": "Build the oracle from spawned process exit code, reporter output, executed-test markers, and result JSON expose what started, completed, skipped, or remained unscheduled. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/jest-unit/SKILL.md",
+            "seed-skills/test-isolation-strategies/SKILL.md"
+          ]
+        },
+        {
+          "heading": "partial Jest run reporting in CI",
+          "question": false,
+          "secondaryKeyword": "partial Jest run reporting",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to jest-unit and test-isolation-strategies.",
+          "repoEvidence": [
+            "seed-skills/jest-unit/SKILL.md",
+            "seed-skills/test-isolation-strategies/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Jest bail exit code testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: bail disabled with two failures; bail after the first failure in band; bail count greater than one; parallel workers with tests already started; wrapper script that incorrectly masks the exit code. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/jest-unit/SKILL.md",
+            "seed-skills/test-isolation-strategies/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Jest bail exit code testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/jest-unit/SKILL.md",
+            "seed-skills/test-isolation-strategies/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within Jest returns a failing exit status, reports the triggering failure, and applies the configured bail threshold without hiding useful partial results, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/jest-unit/SKILL.md",
+            "seed-skills/test-isolation-strategies/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/jest-async-await-testing-promises-guide, then open /skills and implement the Jest bail exit code testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/jest-unit/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Jest bail exit code testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "bail disabled with two failures",
+            "controlledSetup": "multiple deterministic test files with ordered passing and failing cases, run in band and with workers under several bail values",
+            "expectedObservation": "spawned process exit code, reporter output, executed-test markers, and result JSON expose what started, completed, skipped, or remained unscheduled",
+            "failureSignal": "Observed state differs from the documented Jest returns a failing exit status, reports the triggering failure, and applies the configured bail threshold without hiding useful partial results.",
+            "evidenceSource": "seed-skills/jest-unit/SKILL.md"
+          },
+          {
+            "scenario": "bail after the first failure in band",
+            "controlledSetup": "Change only the condition represented by \"bail after the first failure in band\" while retaining the baseline fixture.",
+            "expectedObservation": "spawned process exit code, reporter output, executed-test markers, and result JSON expose what started, completed, skipped, or remained unscheduled",
+            "failureSignal": "Observed state differs from the documented Jest returns a failing exit status, reports the triggering failure, and applies the configured bail threshold without hiding useful partial results.",
+            "evidenceSource": "seed-skills/test-isolation-strategies/SKILL.md"
+          },
+          {
+            "scenario": "bail count greater than one",
+            "controlledSetup": "Change only the condition represented by \"bail count greater than one\" while retaining the baseline fixture.",
+            "expectedObservation": "spawned process exit code, reporter output, executed-test markers, and result JSON expose what started, completed, skipped, or remained unscheduled",
+            "failureSignal": "Observed state differs from the documented Jest returns a failing exit status, reports the triggering failure, and applies the configured bail threshold without hiding useful partial results.",
+            "evidenceSource": "seed-skills/jest-unit/SKILL.md"
+          },
+          {
+            "scenario": "parallel workers with tests already started",
+            "controlledSetup": "Change only the condition represented by \"parallel workers with tests already started\" while retaining the baseline fixture.",
+            "expectedObservation": "spawned process exit code, reporter output, executed-test markers, and result JSON expose what started, completed, skipped, or remained unscheduled",
+            "failureSignal": "Observed state differs from the documented Jest returns a failing exit status, reports the triggering failure, and applies the configured bail threshold without hiding useful partial results.",
+            "evidenceSource": "seed-skills/test-isolation-strategies/SKILL.md"
+          },
+          {
+            "scenario": "wrapper script that incorrectly masks the exit code",
+            "controlledSetup": "Change only the condition represented by \"wrapper script that incorrectly masks the exit code\" while retaining the baseline fixture.",
+            "expectedObservation": "spawned process exit code, reporter output, executed-test markers, and result JSON expose what started, completed, skipped, or remained unscheduled",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish assuming exact order under workers, conflating bail with forceExit, reporter truncation, shell exit masking, and watch-mode behavior.",
+            "evidenceSource": "seed-skills/jest-unit/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/jest-unit/SKILL.md",
+          "seed-skills/test-isolation-strategies/SKILL.md",
+          "https://jestjs.io/docs/cli",
+          "https://jestjs.io/docs/configuration"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Jest bail exit code testing",
+        "steps": [
+          "Read seed-skills/jest-unit/SKILL.md and seed-skills/test-isolation-strategies/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using multiple deterministic test files with ordered passing and failing cases, run in band and with workers under several bail values.",
+          "Run the positive case and capture spawned process exit code, reporter output, executed-test markers, and result JSON expose what started, completed, skipped, or remained unscheduled.",
+          "Inject one failure at a time from assuming exact order under workers, conflating bail with forceExit, reporter truncation, shell exit masking, and watch-mode behavior, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Jest bail exit code testing baseline",
+          "language": "javascript",
+          "path": "seed-skills/jest-unit/SKILL.md",
+          "focus": "Adapt the Jest command patterns into child-process checks for bail values, output, and exit status."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "javascript",
+          "path": "seed-skills/test-isolation-strategies/SKILL.md",
+          "focus": "Use isolation guidance to create deterministic files and avoid depending on cross-file execution order."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/jest-unit/SKILL.md",
+        "seed-skills/test-isolation-strategies/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/unit-testing",
+        "/blog/jest-async-await-testing-promises-guide",
+        "/blog/jest-module-isolation-resetmodules-guide",
+        "/blog/jest-did-not-exit-one-second-after-test-run-fix",
+        "/blog/jest-open-handles-flaky-tests-guide",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "jest-async-await-testing-promises-guide",
+        "jest-module-isolation-resetmodules-guide",
+        "jest-did-not-exit-one-second-after-test-run-fix",
+        "jest-open-handles-flaky-tests-guide"
+      ],
+      "sources": ["https://jestjs.io/docs/cli", "https://jestjs.io/docs/configuration"],
+      "faqQuestions": [
+        "How should QA verify Jest bail counts, remaining test behavior, and process exit codes without hiding the first failure?",
+        "What should an Jest bail option behavior fixture record?",
+        "Which failure proves Jest exit code assertion is broken?",
+        "How do teams isolate stop after first failure?",
+        "Which assertion is strongest for Jest CI bail count?",
+        "How should CI report partial Jest run reporting failures?"
+      ],
+      "cta": "Review /blog/jest-async-await-testing-promises-guide, then open /skills and implement the Jest bail exit code testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-25",
+      "batch": 47,
+      "batchPosition": 4,
+      "domain": "testing-frameworks",
+      "slug": "jmeter-correlation-extractor-failure-testing",
+      "primaryKeyword": "JMeter correlation extractor failure testing",
+      "title": "JMeter correlation extractor failure testing",
+      "description": "JMeter correlation extractor failure testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you detect a failed JMeter extractor before an empty or stale correlation value reaches the next request?",
+      "intentBoundary": "The nearest page covers a broader jmeter workflow. This candidate owns fail-fast checks for missing or stale correlation values.",
+      "secondaryKeywords": [
+        "JMeter correlation extractor failure",
+        "JSON Extractor default value",
+        "stale variable JMeter test",
+        "regex extractor missing match",
+        "JMeter correlation assertion"
+      ],
+      "outline": [
+        {
+          "heading": "What does JMeter correlation extractor failure testing verify?",
+          "question": true,
+          "coverage": "Answer \"How do you detect a failed JMeter extractor before an empty or stale correlation value reaches the next request?\" in 40 to 60 words. Define the observable contract: a missing or stale extracted value fails immediately before any downstream sampler can send an invalid correlated request. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an JMeter correlation extractor failure?",
+          "question": true,
+          "secondaryKeyword": "JMeter correlation extractor failure",
+          "coverage": "Describe this exact fixture: responses where the JSON or regex value is present, absent, malformed, empty, repeated, or left over from a prior loop iteration. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/jmeter-load/SKILL.md"]
+        },
+        {
+          "heading": "What breaks JSON Extractor default value?",
+          "question": true,
+          "secondaryKeyword": "JSON Extractor default value",
+          "coverage": "Explain the failure mechanics behind blank default values, stale variables, wrong extractor scope, multiple matches, response encoding, and downstream requests running after failure. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "stale variable JMeter test fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "stale variable JMeter test",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use responses where the JSON or regex value is present, absent, malformed, empty, repeated, or left over from a prior loop iteration, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/performance-test-scenario-generator/SKILL.md"]
+        },
+        {
+          "heading": "How should regex extractor missing match be asserted?",
+          "question": true,
+          "secondaryKeyword": "regex extractor missing match",
+          "coverage": "Build the oracle from extractor match variables, an explicit sentinel default, assertion results, sampler labels, and downstream request capture locate the failure. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "JMeter correlation assertion in CI",
+          "question": false,
+          "secondaryKeyword": "JMeter correlation assertion",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to jmeter-load and performance-test-scenario-generator.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "JMeter correlation extractor failure testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: single valid extracted token; missing path with sentinel default; empty extracted value; stale value from a previous iteration; multiple matches when one value is expected. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement JMeter correlation extractor failure testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within a missing or stale extracted value fails immediately before any downstream sampler can send an invalid correlated request, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/jmeter-load/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/jmeter-distributed-load-testing-complete-guide, then open /skills and implement the JMeter correlation extractor failure testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/jmeter-load/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "JMeter correlation extractor failure testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "single valid extracted token",
+            "controlledSetup": "responses where the JSON or regex value is present, absent, malformed, empty, repeated, or left over from a prior loop iteration",
+            "expectedObservation": "extractor match variables, an explicit sentinel default, assertion results, sampler labels, and downstream request capture locate the failure",
+            "failureSignal": "Observed state differs from the documented a missing or stale extracted value fails immediately before any downstream sampler can send an invalid correlated request.",
+            "evidenceSource": "seed-skills/jmeter-load/SKILL.md"
+          },
+          {
+            "scenario": "missing path with sentinel default",
+            "controlledSetup": "Change only the condition represented by \"missing path with sentinel default\" while retaining the baseline fixture.",
+            "expectedObservation": "extractor match variables, an explicit sentinel default, assertion results, sampler labels, and downstream request capture locate the failure",
+            "failureSignal": "Observed state differs from the documented a missing or stale extracted value fails immediately before any downstream sampler can send an invalid correlated request.",
+            "evidenceSource": "seed-skills/performance-test-scenario-generator/SKILL.md"
+          },
+          {
+            "scenario": "empty extracted value",
+            "controlledSetup": "Change only the condition represented by \"empty extracted value\" while retaining the baseline fixture.",
+            "expectedObservation": "extractor match variables, an explicit sentinel default, assertion results, sampler labels, and downstream request capture locate the failure",
+            "failureSignal": "Observed state differs from the documented a missing or stale extracted value fails immediately before any downstream sampler can send an invalid correlated request.",
+            "evidenceSource": "seed-skills/jmeter-load/SKILL.md"
+          },
+          {
+            "scenario": "stale value from a previous iteration",
+            "controlledSetup": "Change only the condition represented by \"stale value from a previous iteration\" while retaining the baseline fixture.",
+            "expectedObservation": "extractor match variables, an explicit sentinel default, assertion results, sampler labels, and downstream request capture locate the failure",
+            "failureSignal": "Observed state differs from the documented a missing or stale extracted value fails immediately before any downstream sampler can send an invalid correlated request.",
+            "evidenceSource": "seed-skills/performance-test-scenario-generator/SKILL.md"
+          },
+          {
+            "scenario": "multiple matches when one value is expected",
+            "controlledSetup": "Change only the condition represented by \"multiple matches when one value is expected\" while retaining the baseline fixture.",
+            "expectedObservation": "extractor match variables, an explicit sentinel default, assertion results, sampler labels, and downstream request capture locate the failure",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish blank default values, stale variables, wrong extractor scope, multiple matches, response encoding, and downstream requests running after failure.",
+            "evidenceSource": "seed-skills/jmeter-load/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/jmeter-load/SKILL.md",
+          "seed-skills/performance-test-scenario-generator/SKILL.md",
+          "https://jmeter.apache.org/usermanual/component_reference.html",
+          "https://jmeter.apache.org/usermanual/remote-test.html",
+          "https://jmeter.apache.org/usermanual/best-practices.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run JMeter correlation extractor failure testing",
+        "steps": [
+          "Read seed-skills/jmeter-load/SKILL.md and seed-skills/performance-test-scenario-generator/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using responses where the JSON or regex value is present, absent, malformed, empty, repeated, or left over from a prior loop iteration.",
+          "Run the positive case and capture extractor match variables, an explicit sentinel default, assertion results, sampler labels, and downstream request capture locate the failure.",
+          "Inject one failure at a time from blank default values, stale variables, wrong extractor scope, multiple matches, response encoding, and downstream requests running after failure, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the JMeter correlation extractor failure testing baseline",
+          "language": "xml",
+          "path": "seed-skills/jmeter-load/SKILL.md",
+          "focus": "Adapt the JMeter extractor and assertion examples to use an unmistakable default sentinel and fail-fast check."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "xml",
+          "path": "seed-skills/performance-test-scenario-generator/SKILL.md",
+          "focus": "Use the scenario generator guidance to prevent the next request from running with missing correlation data."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/jmeter-load/SKILL.md",
+        "seed-skills/performance-test-scenario-generator/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/performance-testing",
+        "/blog/jmeter-distributed-load-testing-complete-guide",
+        "/blog/jmeter-response-assertion-jmx-guide",
+        "/blog/jmeter-vs-k6-vs-gatling-2026",
+        "/blog/jmeter-vs-locust-vs-gatling-comparison",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "jmeter-distributed-load-testing-complete-guide",
+        "jmeter-response-assertion-jmx-guide",
+        "jmeter-vs-k6-vs-gatling-2026",
+        "jmeter-vs-locust-vs-gatling-comparison"
+      ],
+      "sources": [
+        "https://jmeter.apache.org/usermanual/component_reference.html",
+        "https://jmeter.apache.org/usermanual/remote-test.html",
+        "https://jmeter.apache.org/usermanual/best-practices.html"
+      ],
+      "faqQuestions": [
+        "How do you detect a failed JMeter extractor before an empty or stale correlation value reaches the next request?",
+        "What should an JMeter correlation extractor failure fixture record?",
+        "Which failure proves JSON Extractor default value is broken?",
+        "How do teams isolate stale variable JMeter test?",
+        "Which assertion is strongest for regex extractor missing match?",
+        "How should CI report JMeter correlation assertion failures?"
+      ],
+      "cta": "Review /blog/jmeter-distributed-load-testing-complete-guide, then open /skills and implement the JMeter correlation extractor failure testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-22",
+      "batch": 47,
+      "batchPosition": 5,
+      "domain": "testing-frameworks",
+      "slug": "k6-scenario-graceful-stop-testing",
+      "primaryKeyword": "k6 scenario graceful stop testing",
+      "title": "k6 scenario graceful stop testing",
+      "description": "k6 scenario graceful stop testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should k6 gracefulStop and gracefulRampDown be tested so in-flight iterations finish without hiding overload?",
+      "intentBoundary": "The nearest page covers a broader k6 workflow. This candidate owns shutdown semantics for active iterations.",
+      "secondaryKeywords": [
+        "k6 gracefulStop behavior",
+        "gracefulRampDown test",
+        "in-flight iteration completion",
+        "k6 scenario shutdown timing",
+        "load test interrupted iterations"
+      ],
+      "outline": [
+        {
+          "heading": "What does k6 scenario graceful stop testing verify?",
+          "question": true,
+          "coverage": "Answer \"How should k6 gracefulStop and gracefulRampDown be tested so in-flight iterations finish without hiding overload?\" in 40 to 60 words. Define the observable contract: gracefulStop and gracefulRampDown give eligible in-flight iterations time to finish while making interrupted work and overload visible. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an k6 gracefulStop behavior?",
+          "question": true,
+          "secondaryKeyword": "k6 gracefulStop behavior",
+          "coverage": "Describe this exact fixture: scenarios with controlled iteration durations shorter than, equal to, and longer than each grace window. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/k6-performance/SKILL.md"]
+        },
+        {
+          "heading": "What breaks gracefulRampDown test?",
+          "question": true,
+          "secondaryKeyword": "gracefulRampDown test",
+          "coverage": "Explain the failure mechanics behind grace windows that hide slow service behavior, external process termination, mixed executors, sleep-based assumptions, and missing end summaries. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "in-flight iteration completion fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "in-flight iteration completion",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use scenarios with controlled iteration durations shorter than, equal to, and longer than each grace window, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/performance-test-scenario-generator/SKILL.md"]
+        },
+        {
+          "heading": "How should k6 scenario shutdown timing be asserted?",
+          "question": true,
+          "secondaryKeyword": "k6 scenario shutdown timing",
+          "coverage": "Build the oracle from completed iteration counters, interrupted iteration signals, scenario duration, dropped iterations, and threshold results explain shutdown behavior. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "load test interrupted iterations in CI",
+          "question": false,
+          "secondaryKeyword": "load test interrupted iterations",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to k6-performance and performance-test-scenario-generator.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "k6 scenario graceful stop testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: iteration finishes before gracefulStop; iteration exceeds gracefulStop; ramping VUs complete inside gracefulRampDown; ramping VUs exceed gracefulRampDown; process receives an external termination signal. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement k6 scenario graceful stop testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within gracefulStop and gracefulRampDown give eligible in-flight iterations time to finish while making interrupted work and overload visible, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/k6-performance/SKILL.md",
+            "seed-skills/performance-test-scenario-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/k6-load-testing-guide-2026, then open /skills and implement the k6 scenario graceful stop testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/k6-performance/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "k6 scenario graceful stop testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "iteration finishes before gracefulStop",
+            "controlledSetup": "scenarios with controlled iteration durations shorter than, equal to, and longer than each grace window",
+            "expectedObservation": "completed iteration counters, interrupted iteration signals, scenario duration, dropped iterations, and threshold results explain shutdown behavior",
+            "failureSignal": "Observed state differs from the documented gracefulStop and gracefulRampDown give eligible in-flight iterations time to finish while making interrupted work and overload visible.",
+            "evidenceSource": "seed-skills/k6-performance/SKILL.md"
+          },
+          {
+            "scenario": "iteration exceeds gracefulStop",
+            "controlledSetup": "Change only the condition represented by \"iteration exceeds gracefulStop\" while retaining the baseline fixture.",
+            "expectedObservation": "completed iteration counters, interrupted iteration signals, scenario duration, dropped iterations, and threshold results explain shutdown behavior",
+            "failureSignal": "Observed state differs from the documented gracefulStop and gracefulRampDown give eligible in-flight iterations time to finish while making interrupted work and overload visible.",
+            "evidenceSource": "seed-skills/performance-test-scenario-generator/SKILL.md"
+          },
+          {
+            "scenario": "ramping VUs complete inside gracefulRampDown",
+            "controlledSetup": "Change only the condition represented by \"ramping VUs complete inside gracefulRampDown\" while retaining the baseline fixture.",
+            "expectedObservation": "completed iteration counters, interrupted iteration signals, scenario duration, dropped iterations, and threshold results explain shutdown behavior",
+            "failureSignal": "Observed state differs from the documented gracefulStop and gracefulRampDown give eligible in-flight iterations time to finish while making interrupted work and overload visible.",
+            "evidenceSource": "seed-skills/k6-performance/SKILL.md"
+          },
+          {
+            "scenario": "ramping VUs exceed gracefulRampDown",
+            "controlledSetup": "Change only the condition represented by \"ramping VUs exceed gracefulRampDown\" while retaining the baseline fixture.",
+            "expectedObservation": "completed iteration counters, interrupted iteration signals, scenario duration, dropped iterations, and threshold results explain shutdown behavior",
+            "failureSignal": "Observed state differs from the documented gracefulStop and gracefulRampDown give eligible in-flight iterations time to finish while making interrupted work and overload visible.",
+            "evidenceSource": "seed-skills/performance-test-scenario-generator/SKILL.md"
+          },
+          {
+            "scenario": "process receives an external termination signal",
+            "controlledSetup": "Change only the condition represented by \"process receives an external termination signal\" while retaining the baseline fixture.",
+            "expectedObservation": "completed iteration counters, interrupted iteration signals, scenario duration, dropped iterations, and threshold results explain shutdown behavior",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish grace windows that hide slow service behavior, external process termination, mixed executors, sleep-based assumptions, and missing end summaries.",
+            "evidenceSource": "seed-skills/k6-performance/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/k6-performance/SKILL.md",
+          "seed-skills/performance-test-scenario-generator/SKILL.md",
+          "https://grafana.com/docs/k6/latest/using-k6/scenarios/concepts/dropped-iterations/",
+          "https://grafana.com/docs/k6/latest/using-k6/thresholds/",
+          "https://grafana.com/docs/k6/latest/results-output/end-of-test/custom-summary/",
+          "https://grafana.com/docs/k6/latest/using-k6/scenarios/concepts/graceful-stop/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run k6 scenario graceful stop testing",
+        "steps": [
+          "Read seed-skills/k6-performance/SKILL.md and seed-skills/performance-test-scenario-generator/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using scenarios with controlled iteration durations shorter than, equal to, and longer than each grace window.",
+          "Run the positive case and capture completed iteration counters, interrupted iteration signals, scenario duration, dropped iterations, and threshold results explain shutdown behavior.",
+          "Inject one failure at a time from grace windows that hide slow service behavior, external process termination, mixed executors, sleep-based assumptions, and missing end summaries, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the k6 scenario graceful stop testing baseline",
+          "language": "javascript",
+          "path": "seed-skills/k6-performance/SKILL.md",
+          "focus": "Adapt the k6 scenario configuration with controlled iteration durations and explicit grace windows."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "javascript",
+          "path": "seed-skills/performance-test-scenario-generator/SKILL.md",
+          "focus": "Use performance scenario guidance to report completed, dropped, and interrupted work beside thresholds."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/k6-performance/SKILL.md",
+        "seed-skills/performance-test-scenario-generator/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/performance-testing",
+        "/blog/k6-load-testing-guide-2026",
+        "/blog/k6-load-testing-p95-p99-guide",
+        "/blog/k6-thresholds-checks-complete-guide",
+        "/blog/k6-browser-module-testing-guide",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "k6-load-testing-guide-2026",
+        "k6-load-testing-p95-p99-guide",
+        "k6-thresholds-checks-complete-guide",
+        "k6-browser-module-testing-guide"
+      ],
+      "sources": [
+        "https://grafana.com/docs/k6/latest/using-k6/scenarios/concepts/dropped-iterations/",
+        "https://grafana.com/docs/k6/latest/using-k6/thresholds/",
+        "https://grafana.com/docs/k6/latest/results-output/end-of-test/custom-summary/",
+        "https://grafana.com/docs/k6/latest/using-k6/scenarios/concepts/graceful-stop/"
+      ],
+      "faqQuestions": [
+        "How should k6 gracefulStop and gracefulRampDown be tested so in-flight iterations finish without hiding overload?",
+        "What should an k6 gracefulStop behavior fixture record?",
+        "Which failure proves gracefulRampDown test is broken?",
+        "How do teams isolate in-flight iteration completion?",
+        "Which assertion is strongest for k6 scenario shutdown timing?",
+        "How should CI report load test interrupted iterations failures?"
+      ],
+      "cta": "Review /blog/k6-load-testing-guide-2026, then open /skills and implement the k6 scenario graceful stop testing matrix in the next test run."
+    }
+  ]
+}

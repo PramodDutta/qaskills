@@ -36,13 +36,15 @@ export function hasOrderedProcedure(content: string): boolean {
 }
 
 export function extractInternalLinks(content: string): string[] {
-  return Array.from(content.matchAll(/\[[^\]]+\]\((\/[a-z0-9][^)#?]*)[^)]*\)/gi), (match) =>
+  const withoutCode = content.replace(FENCED_CODE_PATTERN, ' ');
+  return Array.from(withoutCode.matchAll(/\[[^\]]+\]\((\/[a-z0-9][^)#?]*)[^)]*\)/gi), (match) =>
     match[1].replace(/\/$/, ''),
   );
 }
 
 export function extractExternalLinks(content: string): string[] {
-  return Array.from(content.matchAll(/\[[^\]]+\]\((https:\/\/[^)]+)\)/gi), (match) => match[1]);
+  const withoutCode = content.replace(FENCED_CODE_PATTERN, ' ');
+  return Array.from(withoutCode.matchAll(/\[[^\]]+\]\((https:\/\/[^)]+)\)/gi), (match) => match[1]);
 }
 
 export function getKeywordDensity(content: string, keyword: string): number {

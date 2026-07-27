@@ -9,6 +9,7 @@ import { extractFAQs } from '@/lib/extract-faqs';
 import { getCanonicalBlogSlug } from '@/lib/blog-canonical';
 import { getRelatedPosts } from '@/lib/related-posts';
 import { posts } from '../posts';
+import { countProseWords } from '../posts/article-factory-quality';
 import { seoWaveOneArticles2026 } from '../posts/seo-wave-one-articles-2026';
 import { BlogContent } from '@/components/blog/blog-content';
 import { CourseAd } from '@/components/course-ad';
@@ -98,7 +99,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     ...posts[relatedSlug],
   }));
 
-  const wordCount = post.content.trim().split(/\s+/).filter(Boolean).length;
+  const wordCount = countProseWords(post.content);
   const schemaImage = post.image
     ? post.image.startsWith('http')
       ? post.image

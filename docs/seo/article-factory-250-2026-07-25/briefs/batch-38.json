@@ -1,0 +1,1085 @@
+{
+  "batch": 38,
+  "briefs": [
+    {
+      "batch": 38,
+      "batchPosition": 1,
+      "domain": "ai-llm-rag",
+      "slug": "agent-tool-result-truncation-testing",
+      "primaryKeyword": "Agent tool result truncation testing",
+      "title": "Agent tool result truncation testing",
+      "description": "Agent tool result truncation testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you truncate oversized tool results at controlled boundaries and verify the agent detects incomplete data instead of producing confident answers?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you truncate oversized tool results at controlled boundaries and verify the agent detects incomplete data instead of producing confident answers?\" State the observable success condition, not a general introduction: The agent recognizes the truncation marker, avoids unsupported claims, and requests another bounded result or reports that evidence is incomplete.",
+      "intentBoundary": "The existing guide validates calls sent to tools. This candidate owns incomplete and oversized data returned from a valid tool.",
+      "secondaryKeywords": [
+        "how to agent tool result truncation testing",
+        "agent tool result truncation testing example",
+        "LLM tool response token limit",
+        "truncated function result test",
+        "agent incomplete evidence handling"
+      ],
+      "outline": [
+        {
+          "heading": "What must Agent tool result truncation testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you truncate oversized tool results at controlled boundaries and verify the agent detects incomplete data instead of producing confident answers?\" in 40 to 60 words. Define the observable contract as: The agent recognizes the truncation marker, avoids unsupported claims, and requests another bounded result or reports that evidence is incomplete. Keep the scope inside this intent boundary: The existing guide validates calls sent to tools. This candidate owns incomplete and oversized data returned from a valid tool.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md:65-70 treats schema, citation, and token budgets as deterministic gates.",
+            "seed-skills/ai-agent-eval/SKILL.md:21-27 requires separate correctness, safety, latency, cost, and completion dimensions."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md:65-70 treats schema, citation, and token budgets as deterministic gates.",
+            "seed-skills/ai-agent-eval/SKILL.md:21-27 requires separate correctness, safety, latency, cost, and completion dimensions."
+          ]
+        },
+        {
+          "heading": "How to agent tool result truncation testing?",
+          "secondaryKeyword": "how to agent tool result truncation testing",
+          "coverage": "Build the primary positive fixture with this harness: Stub one tool with the same structured result cut at byte, token, field, and record boundaries, then capture the agent decision and final answer. The decisive success oracle is: The agent recognizes the truncation marker, avoids unsupported claims, and requests another bounded result or reports that evidence is incomplete.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Agent tool result truncation testing example: scenario and assertion matrix",
+          "secondaryKeyword": "agent tool result truncation testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose LLM tool response token limit?",
+          "secondaryKeyword": "LLM tool response token limit",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: A cut payload is treated as complete, boundary metadata disappears, or the agent gives a confident answer from missing records. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should truncated function result test run in CI?",
+          "secondaryKeyword": "truncated function result test",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify agent incomplete evidence handling?",
+          "secondaryKeyword": "agent incomplete evidence handling",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: A cut payload is treated as complete, boundary metadata disappears, or the agent gives a confident answer from missing records.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/how-to-test-llm-tool-calling-accuracy before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-agent-eval/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Agent tool result truncation testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: The agent recognizes the truncation marker, avoids unsupported claims, and requests another bounded result or reports that evidence is incomplete.",
+          "Boundary case for agent tool result truncation testing example with an exact pass or fail oracle",
+          "Negative case: A cut payload is treated as complete, boundary metadata disappears, or the agent gives a confident answer from missing records.",
+          "Repeated and concurrent execution for truncated function result test",
+          "CI evidence and ownership for agent incomplete evidence handling"
+        ],
+        "sources": [
+          "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "seed-skills/ai-agent-eval/SKILL.md",
+          "https://platform.openai.com/docs/guides/function-calling",
+          "https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken",
+          "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Agent tool result truncation testing in six steps",
+        "steps": [
+          "Read seed-skills/ai-system-quality-engineer/SKILL.md:65-70 and seed-skills/ai-agent-eval/SKILL.md:21-27, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to agent tool result truncation testing and agent tool result truncation testing example without calling production services or mutating shared state.",
+          "Build the harness: Stub one tool with the same structured result cut at byte, token, field, and record boundaries, then capture the agent decision and final answer.",
+          "Run the expected path and assert: The agent recognizes the truncation marker, avoids unsupported claims, and requests another bounded result or reports that evidence is incomplete.",
+          "Inject boundary and failure cases and assert: A cut payload is treated as complete, boundary metadata disappears, or the agent gives a confident answer from missing records.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to agent tool result truncation testing positive contract",
+          "repositoryPath": "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "repositoryLines": "65-70",
+          "exactEvidence": "treats schema, citation, and token budgets as deterministic gates.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: The agent recognizes the truncation marker, avoids unsupported claims, and requests another bounded result or reports that evidence is incomplete.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "LLM tool response token limit negative contract",
+          "repositoryPath": "seed-skills/ai-agent-eval/SKILL.md",
+          "repositoryLines": "21-27",
+          "exactEvidence": "requires separate correctness, safety, latency, cost, and completion dimensions.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: A cut payload is treated as complete, boundary metadata disappears, or the agent gives a confident answer from missing records.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/ai-system-quality-engineer/SKILL.md",
+        "seed-skills/ai-agent-eval/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/how-to-test-llm-tool-calling-accuracy",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/ai-agent-eval-testing-guide",
+        "/blog/openai-trace-grading-tutorial-2026"
+      ],
+      "relatedSlugs": [
+        "how-to-test-llm-tool-calling-accuracy",
+        "agent-tool-use-regression-testing-guide-2026",
+        "ai-agent-eval-testing-guide",
+        "openai-trace-grading-tutorial-2026"
+      ],
+      "sources": [
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://cookbook.openai.com/examples/how_to_count_tokens_with_tiktoken",
+        "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
+      ],
+      "faqQuestions": [
+        "How do you truncate oversized tool results at controlled boundaries and verify the agent detects incomplete data instead of producing confident answers?",
+        "What fixture best tests how to agent tool result truncation testing?",
+        "Which failure signal proves agent tool result truncation testing example?",
+        "How should CI report LLM tool response token limit?",
+        "When should truncated function result test block a release?",
+        "How can teams keep agent incomplete evidence handling repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/how-to-test-llm-tool-calling-accuracy before implementing this regression gate."
+    },
+    {
+      "batch": 38,
+      "batchPosition": 2,
+      "domain": "ai-llm-rag",
+      "slug": "deepeval-retrieval-context-validation",
+      "primaryKeyword": "DeepEval retrieval context validation",
+      "title": "DeepEval retrieval context validation",
+      "description": "DeepEval retrieval context validation: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you fail a DeepEval test before scoring when retrieval_context is missing, empty, malformed, or unrelated to the evaluated answer?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you fail a DeepEval test before scoring when retrieval_context is missing, empty, malformed, or unrelated to the evaluated answer?\" State the observable success condition, not a general introduction: A preflight validator accepts relevant nonempty context arrays and rejects missing, empty, malformed, or unrelated retrieval context before metric scoring starts.",
+      "intentBoundary": "The existing guide introduces DeepEval broadly. This candidate owns pre-score validation of the retrieval_context contract and its failure diagnostics.",
+      "secondaryKeywords": [
+        "how to deepeval retrieval context validation",
+        "deepeval retrieval context validation example",
+        "DeepEval faithfulness missing context",
+        "LLMTestCase retrieval_context test",
+        "validate RAG context before eval"
+      ],
+      "outline": [
+        {
+          "heading": "What must DeepEval retrieval context validation prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you fail a DeepEval test before scoring when retrieval_context is missing, empty, malformed, or unrelated to the evaluated answer?\" in 40 to 60 words. Define the observable contract as: A preflight validator accepts relevant nonempty context arrays and rejects missing, empty, malformed, or unrelated retrieval context before metric scoring starts. Keep the scope inside this intent boundary: The existing guide introduces DeepEval broadly. This candidate owns pre-score validation of the retrieval_context contract and its failure diagnostics.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md:64-78 constructs LLMTestCase with retrieval_context for faithfulness.",
+            "seed-skills/deepeval-llm-evaluation/SKILL.md:142-148 names missing retrieval_context as a common evaluation mistake."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md:64-78 constructs LLMTestCase with retrieval_context for faithfulness.",
+            "seed-skills/deepeval-llm-evaluation/SKILL.md:142-148 names missing retrieval_context as a common evaluation mistake."
+          ]
+        },
+        {
+          "heading": "How to deepeval retrieval context validation?",
+          "secondaryKeyword": "how to deepeval retrieval context validation",
+          "coverage": "Build the primary positive fixture with this harness: Parameterize LLMTestCase fixtures for valid, absent, empty, wrong-type, and unrelated retrieval_context values, then spy on the evaluation entry point. The decisive success oracle is: A preflight validator accepts relevant nonempty context arrays and rejects missing, empty, malformed, or unrelated retrieval context before metric scoring starts.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Deepeval retrieval context validation example: scenario and assertion matrix",
+          "secondaryKeyword": "deepeval retrieval context validation example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose DeepEval faithfulness missing context?",
+          "secondaryKeyword": "DeepEval faithfulness missing context",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: DeepEval receives an invalid test case, an empty array is scored as valid evidence, or unrelated context produces a misleading faithfulness result. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should LLMTestCase retrieval_context test run in CI?",
+          "secondaryKeyword": "LLMTestCase retrieval_context test",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify validate RAG context before eval?",
+          "secondaryKeyword": "validate RAG context before eval",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: DeepEval receives an invalid test case, an empty array is scored as valid evidence, or unrelated context produces a misleading faithfulness result.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use Python and pytest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/deepeval-pytest-llm-testing-guide before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/rag-regression-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "DeepEval retrieval context validation: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: A preflight validator accepts relevant nonempty context arrays and rejects missing, empty, malformed, or unrelated retrieval context before metric scoring starts.",
+          "Boundary case for deepeval retrieval context validation example with an exact pass or fail oracle",
+          "Negative case: DeepEval receives an invalid test case, an empty array is scored as valid evidence, or unrelated context produces a misleading faithfulness result.",
+          "Repeated and concurrent execution for LLMTestCase retrieval_context test",
+          "CI evidence and ownership for validate RAG context before eval"
+        ],
+        "sources": [
+          "seed-skills/deepeval-llm-evaluation/SKILL.md",
+          "seed-skills/rag-regression-testing/SKILL.md",
+          "https://deepeval.com/docs/evaluation-test-cases",
+          "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+          "https://deepeval.com/docs/evaluation-datasets"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement DeepEval retrieval context validation in six steps",
+        "steps": [
+          "Read seed-skills/deepeval-llm-evaluation/SKILL.md:64-78 and seed-skills/deepeval-llm-evaluation/SKILL.md:142-148, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to deepeval retrieval context validation and deepeval retrieval context validation example without calling production services or mutating shared state.",
+          "Build the harness: Parameterize LLMTestCase fixtures for valid, absent, empty, wrong-type, and unrelated retrieval_context values, then spy on the evaluation entry point.",
+          "Run the expected path and assert: A preflight validator accepts relevant nonempty context arrays and rejects missing, empty, malformed, or unrelated retrieval context before metric scoring starts.",
+          "Inject boundary and failure cases and assert: DeepEval receives an invalid test case, an empty array is scored as valid evidence, or unrelated context produces a misleading faithfulness result.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to deepeval retrieval context validation positive contract",
+          "repositoryPath": "seed-skills/deepeval-llm-evaluation/SKILL.md",
+          "repositoryLines": "64-78",
+          "exactEvidence": "constructs LLMTestCase with retrieval_context for faithfulness.",
+          "plannedSnippet": "Python and pytest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: A preflight validator accepts relevant nonempty context arrays and rejects missing, empty, malformed, or unrelated retrieval context before metric scoring starts.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "DeepEval faithfulness missing context negative contract",
+          "repositoryPath": "seed-skills/deepeval-llm-evaluation/SKILL.md",
+          "repositoryLines": "142-148",
+          "exactEvidence": "names missing retrieval_context as a common evaluation mistake.",
+          "plannedSnippet": "Python and pytest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: DeepEval receives an invalid test case, an empty array is scored as valid evidence, or unrelated context produces a misleading faithfulness result.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md",
+        "seed-skills/rag-regression-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates",
+        "/blog/deepeval-metrics-complete-guide-2026"
+      ],
+      "relatedSlugs": [
+        "deepeval-pytest-llm-testing-guide",
+        "testing-llm-applications-guide",
+        "llm-evaluation-ci-cd-quality-gates",
+        "deepeval-metrics-complete-guide-2026"
+      ],
+      "sources": [
+        "https://deepeval.com/docs/evaluation-test-cases",
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+        "https://deepeval.com/docs/evaluation-datasets"
+      ],
+      "faqQuestions": [
+        "How do you fail a DeepEval test before scoring when retrieval_context is missing, empty, malformed, or unrelated to the evaluated answer?",
+        "What fixture best tests how to deepeval retrieval context validation?",
+        "Which failure signal proves deepeval retrieval context validation example?",
+        "How should CI report DeepEval faithfulness missing context?",
+        "When should LLMTestCase retrieval_context test block a release?",
+        "How can teams keep validate RAG context before eval repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/deepeval-pytest-llm-testing-guide before implementing this regression gate."
+    },
+    {
+      "batch": 38,
+      "batchPosition": 3,
+      "domain": "ai-llm-rag",
+      "slug": "destructive-tool-confirmation-testing",
+      "primaryKeyword": "Destructive tool confirmation testing",
+      "title": "Destructive tool confirmation testing",
+      "description": "Destructive tool confirmation testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "how-to",
+      "coreQuestion": "How do you prove destructive agent actions require fresh, scoped human confirmation and cannot reuse stale approval or ambiguous language?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you prove destructive agent actions require fresh, scoped human confirmation and cannot reuse stale approval or ambiguous language?\" State the observable success condition, not a general introduction: A destructive call runs only after fresh approval names the exact action, target, scope, and expiry, while every mismatch requires new confirmation.",
+      "intentBoundary": "The permission article tests authorization. This candidate owns the separate fresh-consent state machine for destructive but authorized operations.",
+      "secondaryKeywords": [
+        "how to destructive tool confirmation testing",
+        "destructive tool confirmation testing example",
+        "agent human approval test",
+        "confirm destructive function call",
+        "stale tool consent rejection"
+      ],
+      "outline": [
+        {
+          "heading": "What must Destructive tool confirmation testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you prove destructive agent actions require fresh, scoped human confirmation and cannot reuse stale approval or ambiguous language?\" in 40 to 60 words. Define the observable contract as: A destructive call runs only after fresh approval names the exact action, target, scope, and expiry, while every mismatch requires new confirmation. Keep the scope inside this intent boundary: The permission article tests authorization. This candidate owns the separate fresh-consent state machine for destructive but authorized operations.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md:138-145 requires destructive tools to run only in a controlled sandbox.",
+            "seed-skills/ai-release-guardian/SKILL.md:19-24 reserves merge, deploy, tag, and approval decisions for humans."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md:138-145 requires destructive tools to run only in a controlled sandbox.",
+            "seed-skills/ai-release-guardian/SKILL.md:19-24 reserves merge, deploy, tag, and approval decisions for humans."
+          ]
+        },
+        {
+          "heading": "How to destructive tool confirmation testing?",
+          "secondaryKeyword": "how to destructive tool confirmation testing",
+          "coverage": "Build the primary positive fixture with this harness: Use a fake destructive tool, deterministic clock, approval ledger, and table-driven consent states so no real resource can be changed. The decisive success oracle is: A destructive call runs only after fresh approval names the exact action, target, scope, and expiry, while every mismatch requires new confirmation.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-release-guardian/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Destructive tool confirmation testing example: scenario and assertion matrix",
+          "secondaryKeyword": "destructive tool confirmation testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-release-guardian/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose agent human approval test?",
+          "secondaryKeyword": "agent human approval test",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: Stale consent, approval for another target, vague wording, replayed approval, or an expired confirmation authorizes the destructive operation. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-release-guardian/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should confirm destructive function call run in CI?",
+          "secondaryKeyword": "confirm destructive function call",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-release-guardian/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify stale tool consent rejection?",
+          "secondaryKeyword": "stale tool consent rejection",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: Stale consent, approval for another target, vague wording, replayed approval, or an expired confirmation authorizes the destructive operation.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-release-guardian/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-release-guardian/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-release-guardian/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-release-guardian/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/how-to-test-llm-tool-calling-accuracy before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/ai-system-quality-engineer/SKILL.md",
+            "seed-skills/ai-release-guardian/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Destructive tool confirmation testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: A destructive call runs only after fresh approval names the exact action, target, scope, and expiry, while every mismatch requires new confirmation.",
+          "Boundary case for destructive tool confirmation testing example with an exact pass or fail oracle",
+          "Negative case: Stale consent, approval for another target, vague wording, replayed approval, or an expired confirmation authorizes the destructive operation.",
+          "Repeated and concurrent execution for confirm destructive function call",
+          "CI evidence and ownership for stale tool consent rejection"
+        ],
+        "sources": [
+          "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "seed-skills/ai-release-guardian/SKILL.md",
+          "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/",
+          "https://platform.openai.com/docs/guides/function-calling",
+          "https://www.nist.gov/itl/ai-risk-management-framework"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement Destructive tool confirmation testing in six steps",
+        "steps": [
+          "Read seed-skills/ai-system-quality-engineer/SKILL.md:138-145 and seed-skills/ai-release-guardian/SKILL.md:19-24, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to destructive tool confirmation testing and destructive tool confirmation testing example without calling production services or mutating shared state.",
+          "Build the harness: Use a fake destructive tool, deterministic clock, approval ledger, and table-driven consent states so no real resource can be changed.",
+          "Run the expected path and assert: A destructive call runs only after fresh approval names the exact action, target, scope, and expiry, while every mismatch requires new confirmation.",
+          "Inject boundary and failure cases and assert: Stale consent, approval for another target, vague wording, replayed approval, or an expired confirmation authorizes the destructive operation.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to destructive tool confirmation testing positive contract",
+          "repositoryPath": "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "repositoryLines": "138-145",
+          "exactEvidence": "requires destructive tools to run only in a controlled sandbox.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: A destructive call runs only after fresh approval names the exact action, target, scope, and expiry, while every mismatch requires new confirmation.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "agent human approval test negative contract",
+          "repositoryPath": "seed-skills/ai-release-guardian/SKILL.md",
+          "repositoryLines": "19-24",
+          "exactEvidence": "reserves merge, deploy, tag, and approval decisions for humans.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: Stale consent, approval for another target, vague wording, replayed approval, or an expired confirmation authorizes the destructive operation.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/ai-system-quality-engineer/SKILL.md",
+        "seed-skills/ai-release-guardian/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/how-to-test-llm-tool-calling-accuracy",
+        "/blog/agent-tool-use-regression-testing-guide-2026",
+        "/blog/ai-agent-eval-testing-guide",
+        "/blog/testing-agent-permission-boundary-violations"
+      ],
+      "relatedSlugs": [
+        "how-to-test-llm-tool-calling-accuracy",
+        "agent-tool-use-regression-testing-guide-2026",
+        "ai-agent-eval-testing-guide",
+        "testing-agent-permission-boundary-violations"
+      ],
+      "sources": [
+        "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/",
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://www.nist.gov/itl/ai-risk-management-framework"
+      ],
+      "faqQuestions": [
+        "How do you prove destructive agent actions require fresh, scoped human confirmation and cannot reuse stale approval or ambiguous language?",
+        "What fixture best tests how to destructive tool confirmation testing?",
+        "Which failure signal proves destructive tool confirmation testing example?",
+        "How should CI report agent human approval test?",
+        "When should confirm destructive function call block a release?",
+        "How can teams keep stale tool consent rejection repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/how-to-test-llm-tool-calling-accuracy before implementing this regression gate."
+    },
+    {
+      "batch": 38,
+      "batchPosition": 4,
+      "domain": "ai-llm-rag",
+      "slug": "deepeval-parallel-provider-backoff-testing",
+      "primaryKeyword": "DeepEval parallel provider backoff testing",
+      "title": "DeepEval parallel provider backoff testing",
+      "description": "DeepEval parallel provider backoff testing: use repo evidence, fixtures, code examples, and CI checks to expose AI contract failures before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you test DeepEval parallel workers against scripted provider throttling without hiding lost cases, duplicate evaluations, or unbounded retries?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you test DeepEval parallel workers against scripted provider throttling without hiding lost cases, duplicate evaluations, or unbounded retries?\" State the observable success condition, not a general introduction: Every evaluation case completes exactly once after bounded backoff, honors the provider retry signal, and remains attributable to its original case ID.",
+      "intentBoundary": "The existing cost and latency guide measures budgets. This candidate owns correctness under throttling when parallel DeepEval workers back off and retry.",
+      "secondaryKeywords": [
+        "how to deepeval parallel provider backoff testing",
+        "deepeval parallel provider backoff testing example",
+        "DeepEval parallel rate limit test",
+        "deepeval worker retry behavior",
+        "LLM eval 429 backoff"
+      ],
+      "outline": [
+        {
+          "heading": "What must DeepEval parallel provider backoff testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you test DeepEval parallel workers against scripted provider throttling without hiding lost cases, duplicate evaluations, or unbounded retries?\" in 40 to 60 words. Define the observable contract as: Every evaluation case completes exactly once after bounded backoff, honors the provider retry signal, and remains attributable to its original case ID. Keep the scope inside this intent boundary: The existing cost and latency guide measures budgets. This candidate owns correctness under throttling when parallel DeepEval workers back off and retry.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md:97-98 documents parallel DeepEval execution with multiple workers.",
+            "seed-skills/prompt-testing/SKILL.md:737-741 recommends tiered expensive runs, caching, and pinned model versions."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md:97-98 documents parallel DeepEval execution with multiple workers.",
+            "seed-skills/prompt-testing/SKILL.md:737-741 recommends tiered expensive runs, caching, and pinned model versions."
+          ]
+        },
+        {
+          "heading": "How to deepeval parallel provider backoff testing?",
+          "secondaryKeyword": "how to deepeval parallel provider backoff testing",
+          "coverage": "Build the primary positive fixture with this harness: Run parallel DeepEval workers against a scripted provider that returns ordered 429 and success responses while a virtual clock records retry timing. The decisive success oracle is: Every evaluation case completes exactly once after bounded backoff, honors the provider retry signal, and remains attributable to its original case ID.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Deepeval parallel provider backoff testing example: scenario and assertion matrix",
+          "secondaryKeyword": "deepeval parallel provider backoff testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose DeepEval parallel rate limit test?",
+          "secondaryKeyword": "DeepEval parallel rate limit test",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: Parallel workers drop cases, score a case twice, retry without a limit, ignore Retry-After, or report success with missing results. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should deepeval worker retry behavior run in CI?",
+          "secondaryKeyword": "deepeval worker retry behavior",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify LLM eval 429 backoff?",
+          "secondaryKeyword": "LLM eval 429 backoff",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: Parallel workers drop cases, score a case twice, retry without a limit, ignore Retry-After, or report success with missing results.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use Python and pytest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/deepeval-pytest-llm-testing-guide before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/deepeval-llm-evaluation/SKILL.md",
+            "seed-skills/prompt-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "DeepEval parallel provider backoff testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: Every evaluation case completes exactly once after bounded backoff, honors the provider retry signal, and remains attributable to its original case ID.",
+          "Boundary case for deepeval parallel provider backoff testing example with an exact pass or fail oracle",
+          "Negative case: Parallel workers drop cases, score a case twice, retry without a limit, ignore Retry-After, or report success with missing results.",
+          "Repeated and concurrent execution for deepeval worker retry behavior",
+          "CI evidence and ownership for LLM eval 429 backoff"
+        ],
+        "sources": [
+          "seed-skills/deepeval-llm-evaluation/SKILL.md",
+          "seed-skills/prompt-testing/SKILL.md",
+          "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+          "https://deepeval.com/docs/introduction",
+          "https://www.rfc-editor.org/info/rfc9110"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement DeepEval parallel provider backoff testing in six steps",
+        "steps": [
+          "Read seed-skills/deepeval-llm-evaluation/SKILL.md:97-98 and seed-skills/prompt-testing/SKILL.md:737-741, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to deepeval parallel provider backoff testing and deepeval parallel provider backoff testing example without calling production services or mutating shared state.",
+          "Build the harness: Run parallel DeepEval workers against a scripted provider that returns ordered 429 and success responses while a virtual clock records retry timing.",
+          "Run the expected path and assert: Every evaluation case completes exactly once after bounded backoff, honors the provider retry signal, and remains attributable to its original case ID.",
+          "Inject boundary and failure cases and assert: Parallel workers drop cases, score a case twice, retry without a limit, ignore Retry-After, or report success with missing results.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to deepeval parallel provider backoff testing positive contract",
+          "repositoryPath": "seed-skills/deepeval-llm-evaluation/SKILL.md",
+          "repositoryLines": "97-98",
+          "exactEvidence": "documents parallel DeepEval execution with multiple workers.",
+          "plannedSnippet": "Python and pytest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: Every evaluation case completes exactly once after bounded backoff, honors the provider retry signal, and remains attributable to its original case ID.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "DeepEval parallel rate limit test negative contract",
+          "repositoryPath": "seed-skills/prompt-testing/SKILL.md",
+          "repositoryLines": "737-741",
+          "exactEvidence": "recommends tiered expensive runs, caching, and pinned model versions.",
+          "plannedSnippet": "Python and pytest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: Parallel workers drop cases, score a case twice, retry without a limit, ignore Retry-After, or report success with missing results.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/deepeval-llm-evaluation/SKILL.md",
+        "seed-skills/prompt-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/deepeval-pytest-llm-testing-guide",
+        "/blog/testing-llm-applications-guide",
+        "/blog/llm-evaluation-ci-cd-quality-gates",
+        "/blog/llm-eval-cost-latency-testing-guide-2026"
+      ],
+      "relatedSlugs": [
+        "deepeval-pytest-llm-testing-guide",
+        "testing-llm-applications-guide",
+        "llm-evaluation-ci-cd-quality-gates",
+        "llm-eval-cost-latency-testing-guide-2026"
+      ],
+      "sources": [
+        "https://deepeval.com/docs/evaluation-end-to-end-single-turn",
+        "https://deepeval.com/docs/introduction",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "faqQuestions": [
+        "How do you test DeepEval parallel workers against scripted provider throttling without hiding lost cases, duplicate evaluations, or unbounded retries?",
+        "What fixture best tests how to deepeval parallel provider backoff testing?",
+        "Which failure signal proves deepeval parallel provider backoff testing example?",
+        "How should CI report DeepEval parallel rate limit test?",
+        "When should deepeval worker retry behavior block a release?",
+        "How can teams keep LLM eval 429 backoff repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/deepeval-pytest-llm-testing-guide before implementing this regression gate."
+    },
+    {
+      "batch": 38,
+      "batchPosition": 5,
+      "domain": "ai-llm-rag",
+      "slug": "llm-provider-schema-drift-testing",
+      "primaryKeyword": "LLM provider schema drift testing",
+      "title": "LLM provider schema drift testing",
+      "description": "LLM provider schema drift testing: use repo evidence, focused fixtures, code examples, and CI checks to expose contract failures before release.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you contract-test an LLM provider adapter when response fields, nullability, usage objects, finish reasons, or error envelopes change?",
+      "answerFirstPlan": "Open with a 40 to 60 word direct answer to \"How do you contract-test an LLM provider adapter when response fields, nullability, usage objects, finish reasons, or error envelopes change?\" State the observable success condition, not a general introduction: The adapter validates and normalizes each supported response envelope while rejecting missing required fields, invalid nulls, and unknown incompatible shapes.",
+      "intentBoundary": "The structured-output article validates model-generated business data. This candidate owns the provider transport and metadata envelope itself.",
+      "secondaryKeywords": [
+        "how to llm provider schema drift testing",
+        "llm provider schema drift testing example",
+        "LLM API response contract test",
+        "provider finish reason schema",
+        "token usage response drift"
+      ],
+      "outline": [
+        {
+          "heading": "What must LLM provider schema drift testing prove?",
+          "secondaryKeyword": null,
+          "coverage": "Answer \"How do you contract-test an LLM provider adapter when response fields, nullability, usage objects, finish reasons, or error envelopes change?\" in 40 to 60 words. Define the observable contract as: The adapter validates and normalizes each supported response envelope while rejecting missing required fields, invalid nulls, and unknown incompatible shapes. Keep the scope inside this intent boundary: The structured-output article validates model-generated business data. This candidate owns the provider transport and metadata envelope itself.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md:469-526 consumes provider response quality, latency, usage, and cost fields.",
+            "seed-skills/prompt-testing/SKILL.md:541-588 validates structured outputs and malformed JSON edge cases."
+          ]
+        },
+        {
+          "heading": "Which repository behavior defines the test contract?",
+          "secondaryKeyword": null,
+          "coverage": "Walk through the cited repository lines in execution order. Separate repository facts from source requirements, identify inputs and outputs, and name the state, trace, score, artifact, or error that the test can observe.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md:469-526 consumes provider response quality, latency, usage, and cost fields.",
+            "seed-skills/prompt-testing/SKILL.md:541-588 validates structured outputs and malformed JSON edge cases."
+          ]
+        },
+        {
+          "heading": "How to llm provider schema drift testing?",
+          "secondaryKeyword": "how to llm provider schema drift testing",
+          "coverage": "Build the primary positive fixture with this harness: Replay versioned provider JSON fixtures through the adapter and compare validation errors plus normalized results against an explicit schema contract. The decisive success oracle is: The adapter validates and normalizes each supported response envelope while rejecting missing required fields, invalid nulls, and unknown incompatible shapes.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Llm provider schema drift testing example: scenario and assertion matrix",
+          "secondaryKeyword": "llm provider schema drift testing example",
+          "coverage": "Use the planned table to compare the baseline, exact boundary, malformed or stale input, repeated execution, and dependency-failure cases. Every row must cite repository evidence or an approved external source and name a stable assertion.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "What failures expose LLM API response contract test?",
+          "secondaryKeyword": "LLM API response contract test",
+          "coverage": "Inject negative cases without changing production behavior. The central failure oracle is: Renamed fields, changed nullability, usage drift, finish-reason drift, or a new error envelope silently corrupts normalized output or telemetry. Preserve diagnostic evidence and verify that an empty, partial, or skipped run cannot pass.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should provider finish reason schema run in CI?",
+          "secondaryKeyword": "provider finish reason schema",
+          "coverage": "Define deterministic fixtures, dependency isolation, timeouts, cleanup, artifact retention, and the focused CI command. State which contract failures block release and how reports preserve case or trace identity.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Which assertions verify token usage response drift?",
+          "secondaryKeyword": "token usage response drift",
+          "coverage": "Assert exact values, ordering, cardinality, provenance, state, and absence of unrelated effects where the contract requires them. Explain why existence-only checks would miss this failure: Renamed fields, changed nullability, usage drift, finish-reason drift, or a new error envelope silently corrupts normalized output or telemetry.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Step-by-step test implementation",
+          "secondaryKeyword": null,
+          "coverage": "Follow the six-step procedure from repository baseline through fixtures, execution, failure injection, cleanup, and CI. Use TypeScript and Vitest and preserve the exact API, configuration, and data shapes shown in the cited repository examples.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Failure triage and regression ownership",
+          "secondaryKeyword": null,
+          "coverage": "Map each failed assertion to application input, model or evaluator configuration, tool execution, retrieval data, observability, provider behavior, or CI ownership. Include a compact decision path based on captured evidence rather than model prose.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "secondaryKeyword": null,
+          "coverage": "Answer the six planned questions in 40 to 60 words each. Keep answers within the approved intent, cite only listed sources, and avoid broad claims that belong to rejected or existing topics.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "secondaryKeyword": null,
+          "coverage": "Restate the verified contract and its release signal, then use the route-backed CTA: Open /skills to choose an AI testing skill, then read /blog/golden-dataset-llm-evaluation-guide before implementing this regression gate.",
+          "evidence": [
+            "seed-skills/prompt-testing/SKILL.md",
+            "seed-skills/ai-system-quality-engineer/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "LLM provider schema drift testing: evidence and assertion matrix",
+        "columns": [
+          "Scenario",
+          "Controlled fixture",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rowTopics": [
+          "Baseline: The adapter validates and normalizes each supported response envelope while rejecting missing required fields, invalid nulls, and unknown incompatible shapes.",
+          "Boundary case for llm provider schema drift testing example with an exact pass or fail oracle",
+          "Negative case: Renamed fields, changed nullability, usage drift, finish-reason drift, or a new error envelope silently corrupts normalized output or telemetry.",
+          "Repeated and concurrent execution for provider finish reason schema",
+          "CI evidence and ownership for token usage response drift"
+        ],
+        "sources": [
+          "seed-skills/prompt-testing/SKILL.md",
+          "seed-skills/ai-system-quality-engineer/SKILL.md",
+          "https://json-schema.org/draft/2020-12/json-schema-core",
+          "https://platform.openai.com/docs/guides/function-calling",
+          "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/"
+        ]
+      },
+      "procedurePlan": {
+        "title": "Implement LLM provider schema drift testing in six steps",
+        "steps": [
+          "Read seed-skills/prompt-testing/SKILL.md:469-526 and seed-skills/prompt-testing/SKILL.md:541-588, then record the exact production or documented contract.",
+          "Create isolated fixtures for how to llm provider schema drift testing and llm provider schema drift testing example without calling production services or mutating shared state.",
+          "Build the harness: Replay versioned provider JSON fixtures through the adapter and compare validation errors plus normalized results against an explicit schema contract.",
+          "Run the expected path and assert: The adapter validates and normalizes each supported response envelope while rejecting missing required fields, invalid nulls, and unknown incompatible shapes.",
+          "Inject boundary and failure cases and assert: Renamed fields, changed nullability, usage drift, finish-reason drift, or a new error envelope silently corrupts normalized output or telemetry.",
+          "Run the focused suite in CI, retain case-level evidence, clean temporary state, and assign failures to the owning layer."
+        ]
+      },
+      "codeExamples": [
+        {
+          "name": "how to llm provider schema drift testing positive contract",
+          "repositoryPath": "seed-skills/prompt-testing/SKILL.md",
+          "repositoryLines": "469-526",
+          "exactEvidence": "consumes provider response quality, latency, usage, and cost fields.",
+          "plannedSnippet": "TypeScript and Vitest example derived from the cited repository code or configuration, followed by an executable positive fixture.",
+          "testGoal": "Prove the expected path: The adapter validates and normalizes each supported response envelope while rejecting missing required fields, invalid nulls, and unknown incompatible shapes.",
+          "requiredAssertions": [
+            "exact result or score shape",
+            "expected state or trace evidence",
+            "absence of unrelated side effects"
+          ]
+        },
+        {
+          "name": "LLM API response contract test negative contract",
+          "repositoryPath": "seed-skills/prompt-testing/SKILL.md",
+          "repositoryLines": "541-588",
+          "exactEvidence": "validates structured outputs and malformed JSON edge cases.",
+          "plannedSnippet": "TypeScript and Vitest failure-injection example that preserves the repository API and data shape while replacing external boundaries with deterministic fixtures.",
+          "testGoal": "Force and diagnose the rejected path: Renamed fields, changed nullability, usage drift, finish-reason drift, or a new error envelope silently corrupts normalized output or telemetry.",
+          "requiredAssertions": [
+            "stable failure signal",
+            "complete case accounting",
+            "cleanup and unchanged-state guarantees"
+          ]
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/prompt-testing/SKILL.md",
+        "seed-skills/ai-system-quality-engineer/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/golden-dataset-llm-evaluation-guide",
+        "/blog/eval-dataset-versioning-guide-2026",
+        "/blog/testing-llm-applications-guide",
+        "/blog/testing-llm-structured-output-json-schema-guide"
+      ],
+      "relatedSlugs": [
+        "golden-dataset-llm-evaluation-guide",
+        "eval-dataset-versioning-guide-2026",
+        "testing-llm-applications-guide",
+        "testing-llm-structured-output-json-schema-guide"
+      ],
+      "sources": [
+        "https://json-schema.org/draft/2020-12/json-schema-core",
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/"
+      ],
+      "faqQuestions": [
+        "How do you contract-test an LLM provider adapter when response fields, nullability, usage objects, finish reasons, or error envelopes change?",
+        "What fixture best tests how to llm provider schema drift testing?",
+        "Which failure signal proves llm provider schema drift testing example?",
+        "How should CI report LLM API response contract test?",
+        "When should provider finish reason schema block a release?",
+        "How can teams keep token usage response drift repeatable?"
+      ],
+      "cta": "Open /skills to choose an AI testing skill, then read /blog/golden-dataset-llm-evaluation-guide before implementing this regression gate."
+    }
+  ]
+}

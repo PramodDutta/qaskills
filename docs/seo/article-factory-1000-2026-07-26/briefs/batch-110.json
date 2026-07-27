@@ -1,0 +1,1161 @@
+{
+  "batch": 110,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-165",
+      "batch": 110,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "dns-negative-cache-ttl-testing",
+      "primaryKeyword": "DNS negative cache TTL testing",
+      "title": "Dns Negative Cache Ttl Testing",
+      "description": "DNS negative cache TTL testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified cleanup.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify NXDOMAIN and NODATA responses expire according to authoritative policy?",
+      "intentBoundary": "Owns negative caching, not positive DNS load-test caching.",
+      "secondaryKeywords": [
+        "NXDOMAIN cache expiry",
+        "SOA minimum TTL",
+        "NODATA retry timing",
+        "DNS negative cache TTL testing checklist",
+        "DNS negative cache TTL testing CI strategy",
+        "DNS negative cache TTL testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does DNS negative cache TTL testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify NXDOMAIN and NODATA responses expire according to authoritative policy?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/dns-testing/SKILL.md",
+            "seed-skills/network-latency-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build NXDOMAIN cache expiry?",
+          "question": true,
+          "secondaryKeyword": "NXDOMAIN cache expiry",
+          "coverage": "Create an isolated fixture for NXDOMAIN cache expiry. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/network-latency-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts"
+          ]
+        },
+        {
+          "heading": "What breaks SOA minimum TTL?",
+          "question": true,
+          "secondaryKeyword": "SOA minimum TTL",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for SOA minimum TTL. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts",
+            "seed-skills/dns-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "NODATA retry timing fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "NODATA retry timing",
+          "coverage": "Turn NODATA retry timing into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/dns-testing/SKILL.md",
+            "seed-skills/network-latency-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should DNS negative cache TTL testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "DNS negative cache TTL testing checklist",
+          "coverage": "Build the oracle for DNS negative cache TTL testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/network-latency-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts"
+          ]
+        },
+        {
+          "heading": "DNS negative cache TTL testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "DNS negative cache TTL testing CI strategy",
+          "coverage": "Package DNS negative cache TTL testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts",
+            "seed-skills/dns-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Dns Negative Cache Ttl Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/dns-testing/SKILL.md",
+            "seed-skills/network-latency-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement DNS negative cache TTL testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/dns-testing/SKILL.md",
+            "seed-skills/network-latency-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/network-latency-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/dns-testing/SKILL.md",
+            "seed-skills/network-latency-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Dns Negative Cache Ttl Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/dns-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by DNS negative cache TTL testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/dns-testing/SKILL.md"
+          },
+          {
+            "scenario": "NXDOMAIN cache expiry",
+            "controlledSetup": "Change only the condition represented by \"NXDOMAIN cache expiry\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by DNS negative cache TTL testing.",
+            "failureSignal": "The observed result differs from the approved NXDOMAIN cache expiry contract.",
+            "evidenceSource": "seed-skills/network-latency-testing/SKILL.md"
+          },
+          {
+            "scenario": "SOA minimum TTL",
+            "controlledSetup": "Change only the condition represented by \"SOA minimum TTL\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by DNS negative cache TTL testing.",
+            "failureSignal": "The observed result differs from the approved SOA minimum TTL contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by DNS negative cache TTL testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/dns-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by DNS negative cache TTL testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/network-latency-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/dns-testing/SKILL.md",
+          "seed-skills/network-latency-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts",
+          "https://www.rfc-editor.org/rfc/rfc2308.html",
+          "https://www.rfc-editor.org/rfc/rfc8767.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run DNS negative cache TTL testing",
+        "steps": [
+          "Read seed-skills/dns-testing/SKILL.md and seed-skills/network-latency-testing/SKILL.md and packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for DNS negative cache TTL testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for NXDOMAIN cache expiry, SOA minimum TTL, NODATA retry timing, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the DNS negative cache TTL testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/dns-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated DNS negative cache TTL testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/network-latency-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/dns-testing/SKILL.md",
+        "seed-skills/network-latency-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/chaos-engineering-resilience-testing.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/microservices-testing-strategies",
+        "/blog/api-testing-complete-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "chaos-engineering-resilience-testing",
+        "microservices-testing-strategies",
+        "api-testing-complete-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc2308.html",
+        "https://www.rfc-editor.org/rfc/rfc8767.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify NXDOMAIN and NODATA responses expire according to authoritative policy?",
+        "What should a NXDOMAIN cache expiry fixture record?",
+        "Which failure proves SOA minimum TTL is broken?",
+        "How do teams isolate NODATA retry timing?",
+        "Which assertion is strongest for DNS negative cache TTL testing checklist?",
+        "How should CI report DNS negative cache TTL testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/chaos-engineering-resilience-testing, then open /skills and add the DNS negative cache TTL testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-185",
+      "batch": 110,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "gdpr-erasure-backup-propagation-testing",
+      "primaryKeyword": "GDPR erasure backup propagation testing",
+      "title": "Gdpr Erasure Backup Propagation Testing",
+      "description": "GDPR erasure backup propagation testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify deletion requests remain effective after backup restoration and retention expiry?",
+      "intentBoundary": "Owns erasure propagation into backup workflows, not production-data anonymization.",
+      "secondaryKeywords": [
+        "backup restore re-delete",
+        "erasure retention schedule",
+        "deleted subject recovery",
+        "GDPR erasure backup propagation testing checklist",
+        "GDPR erasure backup propagation testing CI strategy",
+        "GDPR erasure backup propagation testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does GDPR erasure backup propagation testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify deletion requests remain effective after backup restoration and retention expiry?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/gdpr-compliance-testing/SKILL.md",
+            "seed-skills/compliance-as-code/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build backup restore re-delete?",
+          "question": true,
+          "secondaryKeyword": "backup restore re-delete",
+          "coverage": "Create an isolated fixture for backup restore re-delete. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/compliance-as-code/SKILL.md",
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks erasure retention schedule?",
+          "question": true,
+          "secondaryKeyword": "erasure retention schedule",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for erasure retention schedule. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts",
+            "seed-skills/gdpr-compliance-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Deleted subject recovery fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "deleted subject recovery",
+          "coverage": "Turn deleted subject recovery into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/gdpr-compliance-testing/SKILL.md",
+            "seed-skills/compliance-as-code/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should GDPR erasure backup propagation testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "GDPR erasure backup propagation testing checklist",
+          "coverage": "Build the oracle for GDPR erasure backup propagation testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/compliance-as-code/SKILL.md",
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "GDPR erasure backup propagation testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "GDPR erasure backup propagation testing CI strategy",
+          "coverage": "Package GDPR erasure backup propagation testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts",
+            "seed-skills/gdpr-compliance-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Gdpr Erasure Backup Propagation Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/gdpr-compliance-testing/SKILL.md",
+            "seed-skills/compliance-as-code/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement GDPR erasure backup propagation testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/gdpr-compliance-testing/SKILL.md",
+            "seed-skills/compliance-as-code/SKILL.md",
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/compliance-as-code/SKILL.md",
+            "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/gdpr-compliance-testing/SKILL.md",
+            "seed-skills/compliance-as-code/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Gdpr Erasure Backup Propagation Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/gdpr-compliance-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by GDPR erasure backup propagation testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/gdpr-compliance-testing/SKILL.md"
+          },
+          {
+            "scenario": "backup restore re-delete",
+            "controlledSetup": "Change only the condition represented by \"backup restore re-delete\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by GDPR erasure backup propagation testing.",
+            "failureSignal": "The observed result differs from the approved backup restore re-delete contract.",
+            "evidenceSource": "seed-skills/compliance-as-code/SKILL.md"
+          },
+          {
+            "scenario": "erasure retention schedule",
+            "controlledSetup": "Change only the condition represented by \"erasure retention schedule\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by GDPR erasure backup propagation testing.",
+            "failureSignal": "The observed result differs from the approved erasure retention schedule contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by GDPR erasure backup propagation testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/gdpr-compliance-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by GDPR erasure backup propagation testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/compliance-as-code/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/gdpr-compliance-testing/SKILL.md",
+          "seed-skills/compliance-as-code/SKILL.md",
+          "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts",
+          "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+          "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run GDPR erasure backup propagation testing",
+        "steps": [
+          "Read seed-skills/gdpr-compliance-testing/SKILL.md and seed-skills/compliance-as-code/SKILL.md and packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for GDPR erasure backup propagation testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for backup restore re-delete, erasure retention schedule, deleted subject recovery, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the GDPR erasure backup propagation testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/gdpr-compliance-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated GDPR erasure backup propagation testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/compliance-as-code/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/gdpr-compliance-testing/SKILL.md",
+        "seed-skills/compliance-as-code/SKILL.md",
+        "packages/web/src/app/blog/posts/fintech-qa-compliance-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/fintech-qa-compliance-testing-guide",
+        "/blog/healthcare-qa-compliance-testing-guide",
+        "/blog/european-accessibility-act-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "fintech-qa-compliance-testing-guide",
+        "healthcare-qa-compliance-testing-guide",
+        "european-accessibility-act-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/individual-rights/right-to-erasure/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify deletion requests remain effective after backup restoration and retention expiry?",
+        "What should a backup restore re-delete fixture record?",
+        "Which failure proves erasure retention schedule is broken?",
+        "How do teams isolate deleted subject recovery?",
+        "Which assertion is strongest for GDPR erasure backup propagation testing checklist?",
+        "How should CI report GDPR erasure backup propagation testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/fintech-qa-compliance-testing-guide, then open /skills and add the GDPR erasure backup propagation testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-153",
+      "batch": 110,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "github-actions-oidc-claim-testing",
+      "primaryKeyword": "GitHub Actions OIDC claim testing",
+      "title": "Github Actions Oidc Claim Testing",
+      "description": "GitHub Actions OIDC claim testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify cloud trust policies accept only intended repositories, refs, and workflows?",
+      "intentBoundary": "Owns OIDC token claims, not stored secret masking or package publishing.",
+      "secondaryKeywords": [
+        "sub claim pattern",
+        "workflow_ref claim",
+        "pull request trust policy",
+        "GitHub Actions OIDC claim testing checklist",
+        "GitHub Actions OIDC claim testing CI strategy",
+        "GitHub Actions OIDC claim testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does GitHub Actions OIDC claim testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify cloud trust policies accept only intended repositories, refs, and workflows?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/compliance-as-code/SKILL.md",
+            "seed-skills/codeql-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build sub claim pattern?",
+          "question": true,
+          "secondaryKeyword": "sub claim pattern",
+          "coverage": "Create an isolated fixture for sub claim pattern. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/codeql-security/SKILL.md",
+            "packages/web/src/app/blog/posts/devops-testing-strategy-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks workflow_ref claim?",
+          "question": true,
+          "secondaryKeyword": "workflow_ref claim",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for workflow_ref claim. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/devops-testing-strategy-guide.ts",
+            "seed-skills/compliance-as-code/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Pull request trust policy fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "pull request trust policy",
+          "coverage": "Turn pull request trust policy into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/compliance-as-code/SKILL.md",
+            "seed-skills/codeql-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should GitHub Actions OIDC claim testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "GitHub Actions OIDC claim testing checklist",
+          "coverage": "Build the oracle for GitHub Actions OIDC claim testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/codeql-security/SKILL.md",
+            "packages/web/src/app/blog/posts/devops-testing-strategy-guide.ts"
+          ]
+        },
+        {
+          "heading": "GitHub Actions OIDC claim testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "GitHub Actions OIDC claim testing CI strategy",
+          "coverage": "Package GitHub Actions OIDC claim testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/devops-testing-strategy-guide.ts",
+            "seed-skills/compliance-as-code/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Github Actions Oidc Claim Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/compliance-as-code/SKILL.md",
+            "seed-skills/codeql-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement GitHub Actions OIDC claim testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/compliance-as-code/SKILL.md",
+            "seed-skills/codeql-security/SKILL.md",
+            "packages/web/src/app/blog/posts/devops-testing-strategy-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/codeql-security/SKILL.md",
+            "packages/web/src/app/blog/posts/devops-testing-strategy-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/compliance-as-code/SKILL.md",
+            "seed-skills/codeql-security/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Github Actions Oidc Claim Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/compliance-as-code/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by GitHub Actions OIDC claim testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/compliance-as-code/SKILL.md"
+          },
+          {
+            "scenario": "sub claim pattern",
+            "controlledSetup": "Change only the condition represented by \"sub claim pattern\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by GitHub Actions OIDC claim testing.",
+            "failureSignal": "The observed result differs from the approved sub claim pattern contract.",
+            "evidenceSource": "seed-skills/codeql-security/SKILL.md"
+          },
+          {
+            "scenario": "workflow_ref claim",
+            "controlledSetup": "Change only the condition represented by \"workflow_ref claim\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by GitHub Actions OIDC claim testing.",
+            "failureSignal": "The observed result differs from the approved workflow_ref claim contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/devops-testing-strategy-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by GitHub Actions OIDC claim testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/compliance-as-code/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by GitHub Actions OIDC claim testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/codeql-security/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/compliance-as-code/SKILL.md",
+          "seed-skills/codeql-security/SKILL.md",
+          "packages/web/src/app/blog/posts/devops-testing-strategy-guide.ts",
+          "https://docs.github.com/en/actions/concepts/security/openid-connect",
+          "https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run GitHub Actions OIDC claim testing",
+        "steps": [
+          "Read seed-skills/compliance-as-code/SKILL.md and seed-skills/codeql-security/SKILL.md and packages/web/src/app/blog/posts/devops-testing-strategy-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for GitHub Actions OIDC claim testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for sub claim pattern, workflow_ref claim, pull request trust policy, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the GitHub Actions OIDC claim testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/compliance-as-code/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated GitHub Actions OIDC claim testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/codeql-security/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/compliance-as-code/SKILL.md",
+        "seed-skills/codeql-security/SKILL.md",
+        "packages/web/src/app/blog/posts/devops-testing-strategy-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/cicd-testing-pipeline-github-actions",
+        "/blog/devops-testing-strategy-guide",
+        "/blog/github-actions-testing-ci-cd-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "cicd-testing-pipeline-github-actions",
+        "devops-testing-strategy-guide",
+        "github-actions-testing-ci-cd-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://docs.github.com/en/actions/concepts/security/openid-connect",
+        "https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify cloud trust policies accept only intended repositories, refs, and workflows?",
+        "What should a sub claim pattern fixture record?",
+        "Which failure proves workflow_ref claim is broken?",
+        "How do teams isolate pull request trust policy?",
+        "Which assertion is strongest for GitHub Actions OIDC claim testing checklist?",
+        "How should CI report GitHub Actions OIDC claim testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/cicd-testing-pipeline-github-actions, then open /skills and add the GitHub Actions OIDC claim testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-029",
+      "batch": 110,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "grpc-health-transition-testing",
+      "primaryKeyword": "gRPC health transition testing",
+      "title": "Grpc Health Transition Testing",
+      "description": "gRPC health transition testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified cleanup.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify serving status changes propagate per service during startup and drain?",
+      "intentBoundary": "Owns gRPC health service transitions, not Kubernetes probe configuration.",
+      "secondaryKeywords": [
+        "SERVING status change",
+        "Watch health stream",
+        "service drain health state",
+        "gRPC health transition testing checklist",
+        "gRPC health transition testing CI strategy",
+        "gRPC health transition testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does gRPC health transition testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify serving status changes propagate per service during startup and drain?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/grpc-testing/SKILL.md",
+            "seed-skills/microservices-contract-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build SERVING status change?",
+          "question": true,
+          "secondaryKeyword": "SERVING status change",
+          "coverage": "Create an isolated fixture for SERVING status change. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/microservices-contract-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/grpc-api-testing-complete-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks Watch health stream?",
+          "question": true,
+          "secondaryKeyword": "Watch health stream",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for Watch health stream. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/grpc-api-testing-complete-guide-2026.ts",
+            "seed-skills/grpc-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Service drain health state fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "service drain health state",
+          "coverage": "Turn service drain health state into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/grpc-testing/SKILL.md",
+            "seed-skills/microservices-contract-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should gRPC health transition testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "gRPC health transition testing checklist",
+          "coverage": "Build the oracle for gRPC health transition testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/microservices-contract-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/grpc-api-testing-complete-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "GRPC health transition testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "gRPC health transition testing CI strategy",
+          "coverage": "Package gRPC health transition testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/grpc-api-testing-complete-guide-2026.ts",
+            "seed-skills/grpc-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Grpc Health Transition Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/grpc-testing/SKILL.md",
+            "seed-skills/microservices-contract-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement gRPC health transition testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/grpc-testing/SKILL.md",
+            "seed-skills/microservices-contract-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/grpc-api-testing-complete-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/microservices-contract-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/grpc-api-testing-complete-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/grpc-testing/SKILL.md",
+            "seed-skills/microservices-contract-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Grpc Health Transition Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/grpc-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by gRPC health transition testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/grpc-testing/SKILL.md"
+          },
+          {
+            "scenario": "SERVING status change",
+            "controlledSetup": "Change only the condition represented by \"SERVING status change\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by gRPC health transition testing.",
+            "failureSignal": "The observed result differs from the approved SERVING status change contract.",
+            "evidenceSource": "seed-skills/microservices-contract-testing/SKILL.md"
+          },
+          {
+            "scenario": "Watch health stream",
+            "controlledSetup": "Change only the condition represented by \"Watch health stream\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by gRPC health transition testing.",
+            "failureSignal": "The observed result differs from the approved Watch health stream contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/grpc-api-testing-complete-guide-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by gRPC health transition testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/grpc-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by gRPC health transition testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/microservices-contract-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/grpc-testing/SKILL.md",
+          "seed-skills/microservices-contract-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/grpc-api-testing-complete-guide-2026.ts",
+          "https://grpc.io/docs/what-is-grpc/core-concepts/",
+          "https://grpc.io/docs/guides/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run gRPC health transition testing",
+        "steps": [
+          "Read seed-skills/grpc-testing/SKILL.md and seed-skills/microservices-contract-testing/SKILL.md and packages/web/src/app/blog/posts/grpc-api-testing-complete-guide-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for gRPC health transition testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for SERVING status change, Watch health stream, service drain health state, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the gRPC health transition testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/grpc-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated gRPC health transition testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/microservices-contract-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/grpc-testing/SKILL.md",
+        "seed-skills/microservices-contract-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/grpc-api-testing-complete-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/categories/api-testing",
+        "/blog/api-testing-complete-guide",
+        "/blog/api-contract-testing-microservices",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/performance-testing-complete-guide"
+      ],
+      "relatedSlugs": [
+        "api-testing-complete-guide",
+        "api-contract-testing-microservices",
+        "api-testing-best-practices-guide",
+        "performance-testing-complete-guide"
+      ],
+      "sources": [
+        "https://grpc.io/docs/what-is-grpc/core-concepts/",
+        "https://grpc.io/docs/guides/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify serving status changes propagate per service during startup and drain?",
+        "What should a SERVING status change fixture record?",
+        "Which failure proves Watch health stream is broken?",
+        "How do teams isolate service drain health state?",
+        "Which assertion is strongest for gRPC health transition testing checklist?",
+        "How should CI report gRPC health transition testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-testing-complete-guide, then open /skills and add the gRPC health transition testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-135",
+      "batch": 110,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "kubernetes-topology-spread-testing",
+      "primaryKeyword": "Kubernetes topology spread testing",
+      "title": "Kubernetes Topology Spread Testing",
+      "description": "Kubernetes topology spread testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify pods distribute across zones and react predictably to unsatisfiable constraints?",
+      "intentBoundary": "Owns topology spread constraints, not multi-region database consistency.",
+      "secondaryKeywords": [
+        "maxSkew assertion",
+        "whenUnsatisfiable behavior",
+        "zone distribution test",
+        "Kubernetes topology spread testing checklist",
+        "Kubernetes topology spread testing CI strategy",
+        "Kubernetes topology spread testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does Kubernetes topology spread testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify pods distribute across zones and react predictably to unsatisfiable constraints?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build maxSkew assertion?",
+          "question": true,
+          "secondaryKeyword": "maxSkew assertion",
+          "coverage": "Create an isolated fixture for maxSkew assertion. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks whenUnsatisfiable behavior?",
+          "question": true,
+          "secondaryKeyword": "whenUnsatisfiable behavior",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for whenUnsatisfiable behavior. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts",
+            "seed-skills/kubernetes-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Zone distribution test fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "zone distribution test",
+          "coverage": "Turn zone distribution test into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should Kubernetes topology spread testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "Kubernetes topology spread testing checklist",
+          "coverage": "Build the oracle for Kubernetes topology spread testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Kubernetes topology spread testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "Kubernetes topology spread testing CI strategy",
+          "coverage": "Package Kubernetes topology spread testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts",
+            "seed-skills/kubernetes-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Kubernetes Topology Spread Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Kubernetes topology spread testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/chaos-testing-kubernetes/SKILL.md",
+            "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/kubernetes-testing/SKILL.md",
+            "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Kubernetes Topology Spread Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/kubernetes-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes topology spread testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/kubernetes-testing/SKILL.md"
+          },
+          {
+            "scenario": "maxSkew assertion",
+            "controlledSetup": "Change only the condition represented by \"maxSkew assertion\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes topology spread testing.",
+            "failureSignal": "The observed result differs from the approved maxSkew assertion contract.",
+            "evidenceSource": "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          },
+          {
+            "scenario": "whenUnsatisfiable behavior",
+            "controlledSetup": "Change only the condition represented by \"whenUnsatisfiable behavior\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes topology spread testing.",
+            "failureSignal": "The observed result differs from the approved whenUnsatisfiable behavior contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes topology spread testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/kubernetes-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by Kubernetes topology spread testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/chaos-testing-kubernetes/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/kubernetes-testing/SKILL.md",
+          "seed-skills/chaos-testing-kubernetes/SKILL.md",
+          "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts",
+          "https://kubernetes.io/docs/concepts/workloads/pods/disruptions/",
+          "https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Kubernetes topology spread testing",
+        "steps": [
+          "Read seed-skills/kubernetes-testing/SKILL.md and seed-skills/chaos-testing-kubernetes/SKILL.md and packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for Kubernetes topology spread testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for maxSkew assertion, whenUnsatisfiable behavior, zone distribution test, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Kubernetes topology spread testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/kubernetes-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated Kubernetes topology spread testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/chaos-testing-kubernetes/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/kubernetes-testing/SKILL.md",
+        "seed-skills/chaos-testing-kubernetes/SKILL.md",
+        "packages/web/src/app/blog/posts/chaos-mesh-kubernetes-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/chaos-mesh-kubernetes-testing-guide",
+        "/blog/docker-testing-strategies-guide",
+        "/blog/cloudflare-workers-testing-guide",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "chaos-mesh-kubernetes-testing-guide",
+        "docker-testing-strategies-guide",
+        "cloudflare-workers-testing-guide",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://kubernetes.io/docs/concepts/workloads/pods/disruptions/",
+        "https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify pods distribute across zones and react predictably to unsatisfiable constraints?",
+        "What should a maxSkew assertion fixture record?",
+        "Which failure proves whenUnsatisfiable behavior is broken?",
+        "How do teams isolate zone distribution test?",
+        "Which assertion is strongest for Kubernetes topology spread testing checklist?",
+        "How should CI report Kubernetes topology spread testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/chaos-mesh-kubernetes-testing-guide, then open /skills and add the Kubernetes topology spread testing checks to the next QA run."
+    }
+  ]
+}

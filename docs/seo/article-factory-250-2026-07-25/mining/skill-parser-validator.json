@@ -1,0 +1,2476 @@
+{
+  "generatedAt": "2026-07-25",
+  "worktree": "/tmp/qaskills-seo-factory-20260725",
+  "domain": [
+    "SKILL.md parser and serializer",
+    "YAML frontmatter",
+    "Zod schemas",
+    "skill validator",
+    "quality scoring",
+    "static analysis",
+    "package provenance",
+    "skill security"
+  ],
+  "inventorySource": "/tmp/qaskills-seo-final-inventory-20260725.json",
+  "inventoryStats": {
+    "registeredArticles": 1491,
+    "staticRoutes": 37,
+    "inventoryRecordsBeforeThisMiningRun": 1503
+  },
+  "method": {
+    "mode": "read-only codebase mining",
+    "collisionChecks": [
+      "slug equality, containment, and reverse containment",
+      "title token overlap after stopword removal",
+      "exact primary keyword ownership",
+      "manual search-intent ownership",
+      "pairwise self-cannibalization review"
+    ],
+    "scoreScale": "Each of relevance, specificity, intentFit, and coverageAbility is scored from 0 to 10.",
+    "sourcePolicy": "Only official specifications, official project documentation, standards bodies, or first-party repositories are included."
+  },
+  "verifiedInternalRouteCatalog": [
+    "/blog/agent-skill-dangerous-command-static-analysis-tests",
+    "/blog/agent-skill-security-review-checklist",
+    "/blog/how-to-publish-ai-agent-skill-directory",
+    "/blog/how-to-write-high-quality-qa-skills",
+    "/blog/malformed-skill-md-frontmatter-parser-tests",
+    "/blog/qaskills-cli-download-fallback-github-content-metadata",
+    "/blog/qaskills-cli-extract-skill-package-github",
+    "/blog/seed-skill-catalog-parser-regression-tests",
+    "/blog/skill-md-csv-yaml-array-normalization-tests",
+    "/blog/skill-md-format-guide",
+    "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+    "/blog/testing-versioned-zip-artifact-sha256-etag",
+    "/blog/validate-skill-md-in-ci-pipeline",
+    "/how-to-publish",
+    "/skills"
+  ],
+  "authoritativeSourceCatalog": [
+    "https://agentskills.io/specification",
+    "https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html",
+    "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+    "https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations",
+    "https://git-scm.com/docs/git-clone.html",
+    "https://github.com/jonschlinkert/gray-matter",
+    "https://nodejs.org/api/fs.html",
+    "https://nodejs.org/api/path.html",
+    "https://nodejs.org/api/process.html",
+    "https://semver.org/",
+    "https://slsa.dev/spec/v1.0/provenance",
+    "https://spdx.github.io/spdx-spec/v3.0.1/",
+    "https://stuk.github.io/jszip/documentation/api_jszip/generate_async.html",
+    "https://www.rfc-editor.org/info/rfc6266",
+    "https://www.unicode.org/reports/tr15/",
+    "https://yaml.org/spec/1.2.2/",
+    "https://zod.dev/api"
+  ],
+  "counts": {
+    "survivingCandidates": 55,
+    "rejectedCandidates": 20,
+    "uniqueIntentOwners": 55
+  },
+  "candidates": [
+    {
+      "id": "SPV-001",
+      "cluster": "parser",
+      "owner": "skill-md-raw-source-preservation",
+      "primaryKeyword": "SKILL.md raw source preservation",
+      "slug": "skill-md-raw-source-preservation",
+      "title": "Preserve Raw SKILL.md Source",
+      "intent": "how-to",
+      "exactQuestion": "How can tests prove parseSkillMd preserves the exact original SKILL.md in its raw field while returning normalized content separately?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:4-23 returns both content.trim() and the untouched raw argument.",
+        "packages/shared/src/types/skill.ts:58-62 defines raw as a distinct ParsedSkill contract field."
+      ],
+      "secondaryKeywords": [
+        "raw field parser tests",
+        "exact markdown source retention",
+        "ParsedSkill raw contract",
+        "SKILL.md byte integrity",
+        "normalized content comparison"
+      ],
+      "internalRoutes": [
+        "/blog/skill-md-format-guide",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "/blog/validate-skill-md-in-ci-pipeline"
+      ],
+      "authoritativeSources": [
+        "https://github.com/jonschlinkert/gray-matter",
+        "https://yaml.org/spec/1.2.2/"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "distinction": "The existing page owns parse-serialize metadata equality. This intent owns exact source retention through the separate raw field."
+      }
+    },
+    {
+      "id": "SPV-002",
+      "cluster": "parser",
+      "owner": "skill-md-body-whitespace-trimming",
+      "primaryKeyword": "SKILL.md body whitespace trimming",
+      "slug": "skill-md-body-whitespace-trimming",
+      "title": "Test SKILL.md Body Whitespace",
+      "intent": "troubleshooting",
+      "exactQuestion": "Which leading and trailing whitespace does parseSkillMd remove from the Markdown body, and how should regression tests lock that behavior?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 8,
+        "coverageAbility": 8,
+        "total": 35
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:5 and 23 parse with gray-matter and apply content.trim().",
+        "packages/web/src/lib/skill-markdown.ts:54-59 adds a canonical trailing newline when rebuilding content."
+      ],
+      "secondaryKeywords": [
+        "Markdown body trim tests",
+        "SKILL.md leading blank lines",
+        "SKILL.md trailing newline policy",
+        "gray-matter content whitespace",
+        "parser whitespace regression"
+      ],
+      "internalRoutes": [
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/skill-md-format-guide"
+      ],
+      "authoritativeSources": [
+        "https://github.com/jonschlinkert/gray-matter",
+        "https://yaml.org/spec/1.2.2/"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "distinction": "This topic is limited to body whitespace semantics, not frontmatter value equality or scalar escaping."
+      }
+    },
+    {
+      "id": "SPV-003",
+      "cluster": "parser",
+      "owner": "skill-md-byte-order-mark-handling",
+      "primaryKeyword": "SKILL.md byte order mark handling",
+      "slug": "skill-md-byte-order-mark-handling",
+      "title": "Test SKILL.md BOM Handling",
+      "intent": "troubleshooting",
+      "exactQuestion": "How should the SKILL.md parser and file validator behave when a UTF-8 byte order mark appears before the opening frontmatter delimiter?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 8,
+        "coverageAbility": 8,
+        "total": 35
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:4-5 passes the complete input directly to gray-matter.",
+        "packages/skill-validator/src/index.ts:47-50 reads the file as utf-8 before parsing it."
+      ],
+      "secondaryKeywords": [
+        "UTF-8 BOM frontmatter",
+        "gray-matter BOM parsing",
+        "SKILL.md encoding tests",
+        "frontmatter delimiter not detected",
+        "validator BOM regression"
+      ],
+      "internalRoutes": [
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/seed-skill-catalog-parser-regression-tests",
+        "/blog/validate-skill-md-in-ci-pipeline"
+      ],
+      "authoritativeSources": [
+        "https://github.com/jonschlinkert/gray-matter",
+        "https://nodejs.org/api/fs.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "distinction": "The existing malformed-input page owns YAML syntax failures. This topic owns the encoding prefix before otherwise valid YAML."
+      }
+    },
+    {
+      "id": "SPV-004",
+      "cluster": "parser",
+      "owner": "skill-md-crlf-parser-compatibility",
+      "primaryKeyword": "SKILL.md CRLF parser compatibility",
+      "slug": "skill-md-crlf-parser-compatibility",
+      "title": "Check Windows Frontmatter Parsing",
+      "intent": "troubleshooting",
+      "exactQuestion": "Why can one QASkills parser accept CRLF SKILL.md files while a seed discovery regex rejects them, and how should compatibility tests expose the difference?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/db/seed.ts:19-21 and 49-51 use newline-specific frontmatter regexes containing literal line-feed boundaries.",
+        "packages/web/src/lib/fallback-skill-detail.ts:25-27 explicitly accepts either CRLF or LF with carriage-return-optional expressions."
+      ],
+      "secondaryKeywords": [
+        "Windows SKILL.md line endings",
+        "CRLF frontmatter delimiter",
+        "seed parser newline mismatch",
+        "cross-platform skill validation",
+        "LF CRLF regression matrix"
+      ],
+      "internalRoutes": [
+        "/blog/seed-skill-catalog-parser-regression-tests",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip"
+      ],
+      "authoritativeSources": ["https://yaml.org/spec/1.2.2/", "https://nodejs.org/api/fs.html"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/seed-skill-catalog-parser-regression-tests",
+        "distinction": "The catalog page owns broad seed scanning. This intent owns the proven cross-platform line-ending disagreement among three parsers."
+      }
+    },
+    {
+      "id": "SPV-005",
+      "cluster": "parser",
+      "owner": "skill-md-duplicate-yaml-key-policy",
+      "primaryKeyword": "SKILL.md duplicate YAML key policy",
+      "slug": "skill-md-duplicate-yaml-key-policy",
+      "title": "Define Duplicate SKILL.md Key Policy",
+      "intent": "troubleshooting",
+      "exactQuestion": "Should duplicate frontmatter keys fail validation or use one parsed value, and how can tests make that policy explicit?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:4-20 consumes the single data object returned by gray-matter without duplicate-key diagnostics.",
+        "packages/shared/src/schemas/skill-schema.ts:3-17 validates parsed values after YAML key resolution has already occurred."
+      ],
+      "secondaryKeywords": [
+        "duplicate frontmatter field",
+        "YAML mapping key collision",
+        "gray-matter duplicate keys",
+        "SKILL.md ambiguous metadata",
+        "duplicate key validator test"
+      ],
+      "internalRoutes": [
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "/blog/validate-skill-md-in-ci-pipeline"
+      ],
+      "authoritativeSources": [
+        "https://yaml.org/spec/1.2.2/",
+        "https://github.com/jonschlinkert/gray-matter"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "distinction": "Duplicate mapping keys can be syntactically parseable, so this is a semantic ambiguity policy rather than malformed YAML handling."
+      }
+    },
+    {
+      "id": "SPV-006",
+      "cluster": "parser-security",
+      "owner": "skill-md-yaml-alias-expansion-limits",
+      "primaryKeyword": "SKILL.md YAML alias expansion limits",
+      "slug": "skill-md-yaml-alias-expansion-limits",
+      "title": "Bound Frontmatter Alias Expansion",
+      "intent": "how-to",
+      "exactQuestion": "How should QASkills test and bound YAML anchors and aliases before an untrusted SKILL.md consumes excessive parser resources?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:4-5 parses the complete raw document before any size or structure checks.",
+        "packages/skill-validator/src/index.ts:82-98 applies line and token warnings only after parsing succeeds."
+      ],
+      "secondaryKeywords": [
+        "YAML anchor denial of service",
+        "SKILL.md alias bomb test",
+        "frontmatter expansion limit",
+        "untrusted YAML resource exhaustion",
+        "gray-matter security boundary"
+      ],
+      "internalRoutes": [
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/validate-skill-md-in-ci-pipeline"
+      ],
+      "authoritativeSources": [
+        "https://yaml.org/spec/1.2.2/",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/agent-skill-security-review-checklist",
+        "distinction": "The checklist owns broad install risk. This intent owns parser resource exhaustion through YAML graph features."
+      }
+    },
+    {
+      "id": "SPV-007",
+      "cluster": "parser-security",
+      "owner": "skill-md-custom-yaml-tag-rejection",
+      "primaryKeyword": "SKILL.md custom YAML tag rejection",
+      "slug": "skill-md-custom-yaml-tag-rejection",
+      "title": "Block Explicit Frontmatter Tags",
+      "intent": "how-to",
+      "exactQuestion": "Which explicit or custom YAML tags should a SKILL.md validator reject before schema validation, and what fixtures prove fail-closed behavior?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:4-20 accepts whatever JavaScript values gray-matter returns from YAML.",
+        "packages/shared/src/schemas/skill-schema.ts:3-17 validates the resulting object but does not inspect source-level YAML tags."
+      ],
+      "secondaryKeywords": [
+        "explicit YAML tag security",
+        "untrusted frontmatter tags",
+        "SKILL.md deserialization policy",
+        "gray-matter custom types",
+        "fail closed YAML parsing"
+      ],
+      "internalRoutes": [
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/skill-md-format-guide"
+      ],
+      "authoritativeSources": [
+        "https://yaml.org/spec/1.2.2/",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "distinction": "The existing page owns syntax and Zod failures. This topic owns source-level type tags that may parse before Zod sees them."
+      }
+    },
+    {
+      "id": "SPV-008",
+      "cluster": "parser",
+      "owner": "skill-md-multiline-description-parsing",
+      "primaryKeyword": "SKILL.md multiline description parsing",
+      "slug": "skill-md-multiline-description-parsing",
+      "title": "Parse Multiline SKILL.md Descriptions",
+      "intent": "how-to",
+      "exactQuestion": "How do folded and literal YAML description scalars reach parseSkillMd and the 500-character Zod boundary?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 35
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:7-10 copies data.description directly into SkillFrontmatter.",
+        "packages/shared/src/schemas/skill-schema.ts:4-6 enforces string length after YAML folding or literal preservation."
+      ],
+      "secondaryKeywords": [
+        "folded YAML description",
+        "literal frontmatter scalar",
+        "multiline skill metadata",
+        "description length after folding",
+        "gray-matter block scalar"
+      ],
+      "internalRoutes": [
+        "/blog/skill-md-format-guide",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "/blog/validate-skill-md-in-ci-pipeline"
+      ],
+      "authoritativeSources": [
+        "https://yaml.org/spec/1.2.2/",
+        "https://github.com/jonschlinkert/gray-matter"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "distinction": "The existing article owns quote and colon round trips. This intent owns YAML block-scalar folding and post-parse length."
+      }
+    },
+    {
+      "id": "SPV-009",
+      "cluster": "parser",
+      "owner": "skill-md-multi-document-stream-handling",
+      "primaryKeyword": "SKILL.md multi document stream handling",
+      "slug": "skill-md-multi-document-stream-handling",
+      "title": "Test Multi-Document SKILL.md Input",
+      "intent": "troubleshooting",
+      "exactQuestion": "What should happen when a SKILL.md contains additional YAML document markers, and how can tests prevent metadata from being interpreted as body content?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 8,
+        "coverageAbility": 8,
+        "total": 35
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:4-23 expects one gray-matter data object and one Markdown content string.",
+        "packages/web/src/db/seed.ts:19-21 strips only the first frontmatter block with a single regex match."
+      ],
+      "secondaryKeywords": [
+        "YAML document marker tests",
+        "multiple frontmatter blocks",
+        "SKILL.md stream parsing",
+        "extra delimiter handling",
+        "frontmatter body confusion"
+      ],
+      "internalRoutes": [
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/seed-skill-catalog-parser-regression-tests",
+        "/blog/skill-md-format-guide"
+      ],
+      "authoritativeSources": [
+        "https://yaml.org/spec/1.2.2/",
+        "https://github.com/jonschlinkert/gray-matter"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "distinction": "This is a document-stream boundary and body-confusion intent, not a malformed scalar or delimiter recovery guide."
+      }
+    },
+    {
+      "id": "SPV-010",
+      "cluster": "serializer",
+      "owner": "skill-md-comment-preservation-policy",
+      "primaryKeyword": "SKILL.md comment preservation policy",
+      "slug": "skill-md-comment-preservation-policy",
+      "title": "Test SKILL.md Comment Preservation",
+      "intent": "how-to",
+      "exactQuestion": "When QASkills parses and serializes a SKILL.md, which YAML comments are intentionally lost and which original text remains recoverable?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 9,
+        "intentFit": 8,
+        "coverageAbility": 8,
+        "total": 34
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:23 retains raw source alongside parsed metadata.",
+        "packages/shared/src/parsers/skill-parser.ts:32-61 rebuilds YAML from selected fields and has no comment representation."
+      ],
+      "secondaryKeywords": [
+        "frontmatter comment loss",
+        "YAML comment round trip",
+        "SKILL.md source fidelity",
+        "serializer comment policy",
+        "raw metadata preservation"
+      ],
+      "internalRoutes": [
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "/blog/skill-md-format-guide",
+        "/blog/validate-skill-md-in-ci-pipeline"
+      ],
+      "authoritativeSources": [
+        "https://yaml.org/spec/1.2.2/",
+        "https://github.com/jonschlinkert/gray-matter"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "distinction": "Metadata equality does not cover presentation comments. This intent defines comment loss and raw-source recovery."
+      }
+    },
+    {
+      "id": "SPV-011",
+      "cluster": "serializer",
+      "owner": "skill-md-token-limits-round-trip",
+      "primaryKeyword": "SKILL.md token limits round trip",
+      "slug": "skill-md-token-limits-round-trip",
+      "title": "Round-Trip SKILL.md Token Limits",
+      "intent": "troubleshooting",
+      "exactQuestion": "Why do minTokens and maxTokens parse successfully but disappear when serializeSkillMd rebuilds the same SKILL.md?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:19-20 reads numeric minTokens and maxTokens.",
+        "packages/shared/src/parsers/skill-parser.ts:32-61 serializes standard metadata arrays but never emits either token field."
+      ],
+      "secondaryKeywords": [
+        "minTokens serializer bug",
+        "maxTokens metadata loss",
+        "token budget frontmatter",
+        "SKILL.md field parity",
+        "parser serializer contract test"
+      ],
+      "internalRoutes": [
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/skill-md-format-guide"
+      ],
+      "authoritativeSources": [
+        "https://agentskills.io/specification",
+        "https://yaml.org/spec/1.2.2/"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "distinction": "The existing article covers serialized fields broadly. This intent owns a concrete asymmetric pair of parsed but omitted token fields."
+      }
+    },
+    {
+      "id": "SPV-012",
+      "cluster": "serializer-security",
+      "owner": "skill-md-scalar-newline-escaping",
+      "primaryKeyword": "SKILL.md scalar newline escaping",
+      "slug": "skill-md-scalar-newline-escaping",
+      "title": "Escape Newlines in SKILL.md Scalars",
+      "intent": "how-to",
+      "exactQuestion": "How should serializeSkillMd escape embedded line breaks in name, description, author, and license so one scalar cannot create new YAML keys?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:35-39 interpolates scalar values inside double quotes without escaping line breaks or backslashes.",
+        "packages/cli/src/lib/installer.ts:207-215 has a separate scalar escaper that handles slashes and quotes but not newlines."
+      ],
+      "secondaryKeywords": [
+        "YAML newline injection",
+        "frontmatter scalar escaping",
+        "SKILL.md metadata injection",
+        "quoted YAML line break",
+        "serializer security tests"
+      ],
+      "internalRoutes": [
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/validate-skill-md-in-ci-pipeline"
+      ],
+      "authoritativeSources": [
+        "https://yaml.org/spec/1.2.2/",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "distinction": "The existing article owns ordinary quotes and colons. This intent owns structural newline injection into emitted YAML."
+      }
+    },
+    {
+      "id": "SPV-013",
+      "cluster": "serializer-security",
+      "owner": "skill-md-list-item-escaping",
+      "primaryKeyword": "SKILL.md list item escaping",
+      "slug": "skill-md-list-item-escaping",
+      "title": "Escape SKILL.md List Items Safely",
+      "intent": "how-to",
+      "exactQuestion": "How should QASkills quote and escape list values that contain hashes, colons, brackets, commas, or YAML-looking booleans?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:40-55 emits block-list items without YAML quoting.",
+        "packages/web/src/lib/skill-markdown.ts:45-50 joins array values into an unquoted inline YAML sequence."
+      ],
+      "secondaryKeywords": [
+        "YAML list scalar quoting",
+        "frontmatter hash in tag",
+        "colon in framework name",
+        "inline array escaping",
+        "SKILL.md list injection"
+      ],
+      "internalRoutes": [
+        "/blog/skill-md-csv-yaml-array-normalization-tests",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "/blog/agent-skill-security-review-checklist"
+      ],
+      "authoritativeSources": [
+        "https://yaml.org/spec/1.2.2/",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/skill-md-csv-yaml-array-normalization-tests",
+        "distinction": "The existing page owns input normalization. This intent owns safe output encoding for list values."
+      }
+    },
+    {
+      "id": "SPV-014",
+      "cluster": "serializer",
+      "owner": "skill-md-serializer-parity-testing",
+      "primaryKeyword": "SKILL.md serializer parity testing",
+      "slug": "skill-md-serializer-parity-testing",
+      "title": "Compare Three Skill Serializers",
+      "intent": "how-to",
+      "exactQuestion": "How can contract tests keep the shared serializer, CLI metadata fallback, and web artifact builder from emitting incompatible SKILL.md files?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:32-61 emits quoted scalars and block arrays.",
+        "packages/cli/src/lib/installer.ts:195-223 and packages/web/src/lib/skill-markdown.ts:25-59 implement two additional, different YAML builders."
+      ],
+      "secondaryKeywords": [
+        "three SKILL.md serializers",
+        "canonical skill markdown builder",
+        "CLI web serializer drift",
+        "frontmatter output contract",
+        "cross-package serialization tests"
+      ],
+      "internalRoutes": [
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "/blog/testing-versioned-zip-artifact-sha256-etag"
+      ],
+      "authoritativeSources": [
+        "https://agentskills.io/specification",
+        "https://yaml.org/spec/1.2.2/"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "distinction": "The fallback page owns delivery recovery. This intent owns output equivalence across three implementations."
+      }
+    },
+    {
+      "id": "SPV-015",
+      "cluster": "parser",
+      "owner": "skill-md-null-scalar-default-behavior",
+      "primaryKeyword": "SKILL.md null scalar default behavior",
+      "slug": "skill-md-null-scalar-default-behavior",
+      "title": "Test Null SKILL.md Metadata Defaults",
+      "intent": "troubleshooting",
+      "exactQuestion": "Which defaults does parseSkillMd apply when YAML metadata is null, and which null values should instead fail schema validation?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:7-18 uses logical-or defaults for scalar fields and array normalization for list fields.",
+        "packages/shared/src/schemas/skill-schema.ts:3-17 receives already-defaulted values rather than the original YAML nulls."
+      ],
+      "secondaryKeywords": [
+        "null YAML frontmatter",
+        "parser default semantics",
+        "missing versus null metadata",
+        "SKILL.md null license",
+        "Zod after parser defaults"
+      ],
+      "internalRoutes": [
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "/blog/skill-md-format-guide"
+      ],
+      "authoritativeSources": ["https://yaml.org/spec/1.2.2/", "https://zod.dev/api"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "distinction": "The existing page owns missing fields and invalid syntax. This intent owns the valid YAML null type and default substitution semantics."
+      }
+    },
+    {
+      "id": "SPV-016",
+      "cluster": "schema",
+      "owner": "skill-md-semantic-version-compatibility",
+      "primaryKeyword": "SKILL.md semantic version compatibility",
+      "slug": "skill-md-semantic-version-compatibility",
+      "title": "Validate SKILL.md SemVer Compatibility",
+      "intent": "troubleshooting",
+      "exactQuestion": "Why does the QASkills frontmatter schema reject valid Semantic Versioning prerelease and build metadata, and what compatibility policy should tests enforce?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts:6 accepts only three dot-separated numeric groups.",
+        "packages/web/src/app/api/skills/route.ts:22 applies only a 20-character maximum to published versions, creating a second contract."
+      ],
+      "secondaryKeywords": [
+        "SKILL.md prerelease version",
+        "semantic version build metadata",
+        "Zod semver regex",
+        "version schema compatibility",
+        "skill release version tests"
+      ],
+      "internalRoutes": [
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": ["https://semver.org/", "https://zod.dev/api"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/mcp-package-registry-version-drift-tests",
+        "distinction": "The MCP page owns version parity among manifests. This intent owns accepted SKILL.md version syntax across QASkills schemas."
+      }
+    },
+    {
+      "id": "SPV-017",
+      "cluster": "schema",
+      "owner": "skill-md-unknown-field-handling",
+      "primaryKeyword": "SKILL.md unknown field handling",
+      "slug": "skill-md-unknown-field-handling",
+      "title": "Test Unknown SKILL.md Fields",
+      "intent": "how-to",
+      "exactQuestion": "Should unknown SKILL.md frontmatter fields be preserved, stripped, warned about, or rejected as the Agent Skills specification evolves?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:7-20 copies a fixed list of known keys and drops every other parsed field.",
+        "packages/shared/src/schemas/skill-schema.ts:3-17 uses a standard Zod object without an explicit strict or passthrough policy."
+      ],
+      "secondaryKeywords": [
+        "Zod unknown keys",
+        "frontmatter forward compatibility",
+        "SKILL.md metadata passthrough",
+        "unsupported skill fields",
+        "strict schema migration"
+      ],
+      "internalRoutes": [
+        "/blog/skill-md-format-guide",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/seed-skill-catalog-parser-regression-tests"
+      ],
+      "authoritativeSources": ["https://zod.dev/api", "https://agentskills.io/specification"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/skill-md-format-guide",
+        "distinction": "The format guide documents known fields. This intent owns compatibility behavior for unknown and future fields."
+      }
+    },
+    {
+      "id": "SPV-018",
+      "cluster": "schema",
+      "owner": "skill-md-token-range-invariants",
+      "primaryKeyword": "SKILL.md token range invariants",
+      "slug": "skill-md-token-range-invariants",
+      "title": "Validate SKILL.md Token Ranges",
+      "intent": "how-to",
+      "exactQuestion": "How should the schema enforce minTokens less than or equal to maxTokens while allowing either bound to remain optional?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts:15-16 validates minTokens and maxTokens independently with no cross-field refinement.",
+        "packages/shared/src/types/skill.ts:13-14 models both limits as optional numbers."
+      ],
+      "secondaryKeywords": [
+        "minTokens maxTokens validation",
+        "Zod cross field refinement",
+        "token budget ordering",
+        "optional numeric range",
+        "SKILL.md token invariant tests"
+      ],
+      "internalRoutes": [
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/skill-md-format-guide"
+      ],
+      "authoritativeSources": ["https://zod.dev/api", "https://agentskills.io/specification"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/validate-skill-md-in-ci-pipeline",
+        "distinction": "The CI guide owns general schema execution. This intent owns the semantic relationship between two optional numeric fields."
+      }
+    },
+    {
+      "id": "SPV-019",
+      "cluster": "schema",
+      "owner": "skill-md-integer-token-constraints",
+      "primaryKeyword": "SKILL.md integer token constraints",
+      "slug": "skill-md-integer-token-constraints",
+      "title": "Require Integer SKILL.md Token Limits",
+      "intent": "how-to",
+      "exactQuestion": "How should tests reject fractional, zero, and negative minTokens or maxTokens values when the schema currently accepts optional numbers?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts:15-16 uses z.number().optional() without integer or positive constraints.",
+        "packages/shared/src/parsers/skill-parser.ts:19-20 accepts any JavaScript number returned by YAML parsing."
+      ],
+      "secondaryKeywords": [
+        "positive token limit",
+        "fractional minTokens rejection",
+        "Zod integer frontmatter",
+        "negative token budget",
+        "token constraint boundary tests"
+      ],
+      "internalRoutes": [
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip"
+      ],
+      "authoritativeSources": [
+        "https://zod.dev/api",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "skill-md-token-range-invariants",
+        "distinction": "SPV-018 owns ordering between fields. This intent owns the scalar domain of each field before comparison."
+      }
+    },
+    {
+      "id": "SPV-020",
+      "cluster": "schema",
+      "owner": "skill-md-whitespace-only-metadata",
+      "primaryKeyword": "SKILL.md whitespace only metadata",
+      "slug": "skill-md-whitespace-only-metadata",
+      "title": "Reject Blank SKILL.md Metadata",
+      "intent": "troubleshooting",
+      "exactQuestion": "Why can whitespace-only name, author, license, or description values satisfy minimum string lengths, and where should trimming occur?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 36
+      },
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts:4-8 applies min and max lengths without trim transformations.",
+        "packages/shared/src/parsers/skill-parser.ts:7-12 copies scalar strings without trimming them."
+      ],
+      "secondaryKeywords": [
+        "Zod trim nonempty string",
+        "blank frontmatter values",
+        "whitespace author validation",
+        "empty skill description",
+        "metadata canonicalization tests"
+      ],
+      "internalRoutes": [
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": [
+        "https://zod.dev/api",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "distinction": "The existing article owns absent and type-invalid metadata. This intent owns strings that are type-valid but semantically blank."
+      }
+    },
+    {
+      "id": "SPV-021",
+      "cluster": "schema",
+      "owner": "skill-md-duplicate-list-value-validation",
+      "primaryKeyword": "SKILL.md duplicate list value validation",
+      "slug": "skill-md-duplicate-list-value-validation",
+      "title": "Reject Duplicate SKILL.md List Values",
+      "intent": "how-to",
+      "exactQuestion": "How should QASkills normalize and reject duplicate tags, testing types, frameworks, languages, domains, or agents before scoring and storage?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:26-29 converts list values without deduplicating them.",
+        "packages/shared/src/utils/quality-score.ts:51-56 awards completeness from raw array lengths, so duplicates can affect thresholds."
+      ],
+      "secondaryKeywords": [
+        "duplicate SKILL.md tags",
+        "unique Zod arrays",
+        "agent list deduplication",
+        "taxonomy normalization",
+        "duplicate metadata scoring"
+      ],
+      "internalRoutes": [
+        "/blog/skill-md-csv-yaml-array-normalization-tests",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/seed-skill-catalog-parser-regression-tests"
+      ],
+      "authoritativeSources": [
+        "https://zod.dev/api",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/skill-md-csv-yaml-array-normalization-tests",
+        "distinction": "The existing page owns syntax normalization to arrays. This intent owns uniqueness after normalization and its scoring impact."
+      }
+    },
+    {
+      "id": "SPV-022",
+      "cluster": "schema",
+      "owner": "skill-md-taxonomy-allowlist-validation",
+      "primaryKeyword": "SKILL.md taxonomy allowlist validation",
+      "slug": "skill-md-taxonomy-allowlist-validation",
+      "title": "Allowlist SKILL.md Taxonomy Values",
+      "intent": "how-to",
+      "exactQuestion": "How can the frontmatter schema reject unknown testing types, frameworks, languages, and domains using the repository's canonical constants?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts:9-14 accepts arrays of arbitrary strings.",
+        "packages/shared/src/constants/testing-types.ts, frameworks.ts, languages.ts, and domains.ts define the canonical vocabularies."
+      ],
+      "secondaryKeywords": [
+        "testing type enum validation",
+        "framework ID allowlist",
+        "language taxonomy schema",
+        "domain value validation",
+        "unknown skill category"
+      ],
+      "internalRoutes": [
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/seed-skill-catalog-parser-regression-tests",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": [
+        "https://zod.dev/api",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/seed-skill-catalog-parser-regression-tests",
+        "distinction": "The catalog page owns broad validity scanning. This intent owns vocabulary membership for four metadata dimensions."
+      }
+    },
+    {
+      "id": "SPV-023",
+      "cluster": "schema",
+      "owner": "skill-md-agent-identifier-validation",
+      "primaryKeyword": "SKILL.md agent identifier validation",
+      "slug": "skill-md-agent-identifier-validation",
+      "title": "Validate SKILL.md Agent Identifiers",
+      "intent": "how-to",
+      "exactQuestion": "How should the schema verify each agents value against the supported AgentDefinition slugs without blocking the universal target?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts:14 accepts every string in agents.",
+        "packages/shared/src/constants/agents.ts:1-338 defines supported agent slugs and the universal entry."
+      ],
+      "secondaryKeywords": [
+        "agent slug allowlist",
+        "unsupported AI agent metadata",
+        "AgentDefinition schema validation",
+        "universal agent compatibility",
+        "SKILL.md agents enum"
+      ],
+      "internalRoutes": [
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/seed-skill-catalog-parser-regression-tests",
+        "/skills"
+      ],
+      "authoritativeSources": ["https://zod.dev/api", "https://agentskills.io/specification"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "skill-md-taxonomy-allowlist-validation",
+        "distinction": "SPV-022 owns QA category vocabularies. This intent owns agent compatibility identifiers and the universal compatibility case."
+      }
+    },
+    {
+      "id": "SPV-024",
+      "cluster": "schema",
+      "owner": "skill-md-name-directory-matching",
+      "primaryKeyword": "SKILL.md name directory matching",
+      "slug": "skill-md-name-directory-matching",
+      "title": "Match SKILL.md Name to Directory",
+      "intent": "how-to",
+      "exactQuestion": "How can file-level validation compare the SKILL.md name with its parent directory instead of validating content without path context?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/skill-validator/src/index.ts:47-50 resolves and reads a file path but passes only raw text into validateSkillContent.",
+        "packages/skill-validator/src/index.ts:53-127 performs no parent-directory comparison."
+      ],
+      "secondaryKeywords": [
+        "skill folder name validation",
+        "parent directory mismatch",
+        "Agent Skills name rule",
+        "path aware skill validator",
+        "SKILL.md package identity"
+      ],
+      "internalRoutes": [
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/qaskills-cli-extract-skill-package-github",
+        "/blog/skill-md-format-guide"
+      ],
+      "authoritativeSources": [
+        "https://agentskills.io/specification",
+        "https://nodejs.org/api/path.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/qaskills-cli-extract-skill-package-github",
+        "distinction": "The extraction page owns file selection and package layout. This intent owns identity equality between selected file metadata and its directory."
+      }
+    },
+    {
+      "id": "SPV-025",
+      "cluster": "schema",
+      "owner": "skill-md-name-character-rules",
+      "primaryKeyword": "SKILL.md name character rules",
+      "slug": "skill-md-name-character-rules",
+      "title": "Enforce SKILL.md Name Rules",
+      "intent": "troubleshooting",
+      "exactQuestion": "Which lowercase, digit, hyphen, length, and boundary rules from the Agent Skills specification are missing from the QASkills name schema?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts:4 permits any nonempty string up to 100 characters.",
+        "packages/shared/src/utils/slug.ts:1-5 later transforms names, so accepted identity and generated slug can differ."
+      ],
+      "secondaryKeywords": [
+        "lowercase skill name regex",
+        "consecutive hyphen validation",
+        "64 character skill name",
+        "invalid SKILL.md identifier",
+        "skill slug name parity"
+      ],
+      "internalRoutes": [
+        "/blog/skill-md-format-guide",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": ["https://agentskills.io/specification", "https://zod.dev/api"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "skill-md-name-directory-matching",
+        "distinction": "SPV-024 owns equality with the directory. This intent owns lexical validity of the name itself."
+      }
+    },
+    {
+      "id": "SPV-026",
+      "cluster": "schema-provenance",
+      "owner": "skill-md-spdx-license-validation",
+      "primaryKeyword": "SKILL.md SPDX license validation",
+      "slug": "skill-md-spdx-license-validation",
+      "title": "Validate SKILL.md SPDX Licenses",
+      "intent": "how-to",
+      "exactQuestion": "How should QASkills distinguish SPDX license expressions, bundled license file references, and arbitrary nonempty strings in frontmatter?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts:8 validates license only as a nonempty string.",
+        "packages/web/src/db/schema/skills.ts:10-12 stores a license string with MIT as the database default."
+      ],
+      "secondaryKeywords": [
+        "SPDX expression parser",
+        "skill license identifier",
+        "bundled license file reference",
+        "invalid license metadata",
+        "agent skill licensing tests"
+      ],
+      "internalRoutes": [
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/how-to-publish-ai-agent-skill-directory",
+        "/blog/skill-md-format-guide"
+      ],
+      "authoritativeSources": [
+        "https://spdx.github.io/spdx-spec/v3.0.1/",
+        "https://agentskills.io/specification"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/agent-skill-security-review-checklist",
+        "distinction": "The checklist asks reviewers to inspect licensing. This intent owns machine validation of license syntax and reference forms."
+      }
+    },
+    {
+      "id": "SPV-027",
+      "cluster": "schema",
+      "owner": "skill-md-description-limit-portability",
+      "primaryKeyword": "SKILL.md description limit portability",
+      "slug": "skill-md-description-limit-portability",
+      "title": "Test SKILL.md Description Portability",
+      "intent": "comparison",
+      "exactQuestion": "How should publishers handle descriptions that satisfy the Agent Skills 1024-character limit but exceed QASkills' 500-character schema limit?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts:5 caps descriptions at 500 characters.",
+        "packages/web/src/app/api/skills/route.ts:15 enforces the same 500-character publish boundary."
+      ],
+      "secondaryKeywords": [
+        "Agent Skills description limit",
+        "QASkills metadata portability",
+        "500 versus 1024 characters",
+        "cross-agent frontmatter compatibility",
+        "description truncation policy"
+      ],
+      "internalRoutes": [
+        "/blog/skill-md-format-guide",
+        "/blog/how-to-publish-ai-agent-skill-directory",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": ["https://agentskills.io/specification", "https://zod.dev/api"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/agent-skills-open-standard-portability",
+        "distinction": "The portability page owns the broad standard. This intent owns one proven cross-schema length incompatibility and migration policy."
+      }
+    },
+    {
+      "id": "SPV-028",
+      "cluster": "schema",
+      "owner": "skill-md-parser-default-masking",
+      "primaryKeyword": "SKILL.md parser default masking",
+      "slug": "skill-md-parser-default-masking",
+      "title": "Test Parser Defaults Before Validation",
+      "intent": "troubleshooting",
+      "exactQuestion": "Which required-field failures are hidden because parseSkillMd inserts version and license defaults before Zod validates the frontmatter?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/shared/src/parsers/skill-parser.ts:10-12 defaults version to 1.0.0 and license to MIT.",
+        "packages/shared/src/schemas/skill-schema.ts:6-8 marks both fields as required but receives the substituted values."
+      ],
+      "secondaryKeywords": [
+        "validation default ordering",
+        "missing version accepted",
+        "missing license accepted",
+        "parser schema responsibility",
+        "frontmatter default masking tests"
+      ],
+      "internalRoutes": [
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/testing-skill-md-yaml-frontmatter-roundtrip"
+      ],
+      "authoritativeSources": ["https://zod.dev/api", "https://agentskills.io/specification"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "distinction": "The existing page observes missing fields. This intent owns responsibility ordering when parser substitution changes schema outcomes."
+      }
+    },
+    {
+      "id": "SPV-029",
+      "cluster": "schema",
+      "owner": "skill-md-publish-schema-drift",
+      "primaryKeyword": "SKILL.md publish schema drift",
+      "slug": "skill-md-publish-schema-drift",
+      "title": "Detect SKILL.md Publish Schema Drift",
+      "intent": "how-to",
+      "exactQuestion": "How can contract tests prove that local frontmatter validation and the web publish API accept and reject the same skill metadata?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts:3-17 requires testingTypes and languages and applies a strict numeric version regex.",
+        "packages/web/src/app/api/skills/route.ts:12-26 defaults arrays to empty and validates version only by maximum length."
+      ],
+      "secondaryKeywords": [
+        "frontmatter API contract parity",
+        "local publish validation mismatch",
+        "shared Zod schema reuse",
+        "skill creator server drift",
+        "publish contract regression test"
+      ],
+      "internalRoutes": [
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/how-to-publish-ai-agent-skill-directory",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": ["https://zod.dev/api", "https://agentskills.io/specification"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/validate-skill-md-in-ci-pipeline",
+        "distinction": "The CI page owns running validation. This intent owns behavioral equivalence between two independent production schemas."
+      }
+    },
+    {
+      "id": "SPV-030",
+      "cluster": "schema-security",
+      "owner": "skill-md-unicode-normalization-collisions",
+      "primaryKeyword": "SKILL.md Unicode normalization collisions",
+      "slug": "skill-md-unicode-normalization-collisions",
+      "title": "Prevent Unicode Metadata Collisions",
+      "intent": "how-to",
+      "exactQuestion": "How should QASkills normalize canonically equivalent Unicode metadata before validation, slug generation, uniqueness checks, and display?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/shared/src/schemas/skill-schema.ts:4-8 accepts general JavaScript strings without Unicode normalization.",
+        "packages/shared/src/utils/slug.ts:1-5 drops every character outside ASCII lowercase letters and digits after lowercasing."
+      ],
+      "secondaryKeywords": [
+        "Unicode NFC skill names",
+        "confusable frontmatter metadata",
+        "canonical equivalence slug collision",
+        "international author normalization",
+        "Unicode input validation"
+      ],
+      "internalRoutes": [
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/how-to-publish-ai-agent-skill-directory"
+      ],
+      "authoritativeSources": [
+        "https://www.unicode.org/reports/tr15/",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/agent-skill-security-review-checklist",
+        "distinction": "The checklist owns broad identity review. This intent owns Unicode canonicalization before slug and uniqueness decisions."
+      }
+    },
+    {
+      "id": "SPV-031",
+      "cluster": "validator",
+      "owner": "skill-md-warning-error-policy",
+      "primaryKeyword": "SKILL.md warning error policy",
+      "slug": "skill-md-warning-error-policy",
+      "title": "Define SKILL.md Warning Failure Policy",
+      "intent": "how-to",
+      "exactQuestion": "Which validator findings should block publication, and why do oversized, short, or dangerous skills remain valid when they produce warnings only?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/skill-validator/src/index.ts:82-116 records content limits and safety matches as warnings.",
+        "packages/skill-validator/src/index.ts:121-127 defines valid solely from whether the errors array is empty."
+      ],
+      "secondaryKeywords": [
+        "validator warnings versus errors",
+        "skill publication failure policy",
+        "dangerous skill still valid",
+        "quality warning CI gate",
+        "SKILL.md severity levels"
+      ],
+      "internalRoutes": [
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/agent-skill-dangerous-command-static-analysis-tests",
+        "/blog/agent-skill-security-review-checklist"
+      ],
+      "authoritativeSources": ["https://zod.dev/api", "https://agentskills.io/specification"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/validate-skill-md-in-ci-pipeline",
+        "distinction": "The CI page owns command integration. This intent owns the severity model that determines a validator exit result."
+      }
+    },
+    {
+      "id": "SPV-032",
+      "cluster": "validator",
+      "owner": "skill-md-500-line-boundary",
+      "primaryKeyword": "SKILL.md 500 line boundary",
+      "slug": "skill-md-500-line-boundary",
+      "title": "Test the 500-Line SKILL.md Boundary",
+      "intent": "how-to",
+      "exactQuestion": "How should tests count exactly 500 lines when files have trailing newlines, CRLF endings, or an empty final segment?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/shared/src/constants/index.ts:8 defines MAX_SKILL_LINES as 500.",
+        "packages/skill-validator/src/index.ts:82-89 computes raw.split('\\n').length and warns only when the result exceeds the constant."
+      ],
+      "secondaryKeywords": [
+        "MAX_SKILL_LINES test",
+        "trailing newline line count",
+        "CRLF line boundary",
+        "500 versus 501 lines",
+        "skill validator off by one"
+      ],
+      "internalRoutes": [
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/seed-skill-catalog-parser-regression-tests",
+        "/blog/skill-md-format-guide"
+      ],
+      "authoritativeSources": [
+        "https://agentskills.io/specification",
+        "https://nodejs.org/api/fs.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/validate-skill-md-in-ci-pipeline",
+        "distinction": "The existing page owns broad limits in CI. This intent owns exact line-count semantics and off-by-one fixtures."
+      }
+    },
+    {
+      "id": "SPV-033",
+      "cluster": "validator",
+      "owner": "skill-md-token-estimate-calibration",
+      "primaryKeyword": "SKILL.md token estimate calibration",
+      "slug": "skill-md-token-estimate-calibration",
+      "title": "Calibrate SKILL.md Token Estimates",
+      "intent": "how-to",
+      "exactQuestion": "How accurately does the validator's one-token-per-four-characters estimate model ASCII, code, and multilingual SKILL.md content near 5,000 tokens?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/shared/src/constants/index.ts:9 defines MAX_SKILL_TOKENS as 5000.",
+        "packages/skill-validator/src/index.ts:91-98 estimates tokens with Math.ceil(raw.length / 4)."
+      ],
+      "secondaryKeywords": [
+        "four characters per token",
+        "multilingual token estimate",
+        "code token budget test",
+        "MAX_SKILL_TOKENS warning",
+        "skill context size calibration"
+      ],
+      "internalRoutes": [
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/skill-md-format-guide",
+        "/blog/seed-skill-catalog-parser-regression-tests"
+      ],
+      "authoritativeSources": [
+        "https://agentskills.io/specification",
+        "https://www.unicode.org/reports/tr15/"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/validate-skill-md-in-ci-pipeline",
+        "distinction": "The CI guide owns enforcement. This intent owns empirical calibration of the estimator that supplies the warning."
+      }
+    },
+    {
+      "id": "SPV-034",
+      "cluster": "validator-security",
+      "owner": "skill-md-oversized-input-memory-testing",
+      "primaryKeyword": "SKILL.md oversized input memory testing",
+      "slug": "skill-md-oversized-input-memory-testing",
+      "title": "Test Oversized SKILL.md Inputs",
+      "intent": "how-to",
+      "exactQuestion": "How can the validator reject an extremely large SKILL.md before reading and parsing the entire file into memory?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 10,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/skill-validator/src/index.ts:47-50 reads the entire resolved file as a UTF-8 string.",
+        "packages/skill-validator/src/index.ts:57-98 parses first and applies line and token warnings afterward."
+      ],
+      "secondaryKeywords": [
+        "SKILL.md file size limit",
+        "validator memory exhaustion",
+        "preparse size check",
+        "untrusted Markdown denial of service",
+        "bounded file read validation"
+      ],
+      "internalRoutes": [
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/malformed-skill-md-frontmatter-parser-tests"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "skill-md-yaml-alias-expansion-limits",
+        "distinction": "SPV-006 owns compact YAML graph expansion. This intent owns raw file size and full-buffer allocation before any parse."
+      }
+    },
+    {
+      "id": "SPV-035",
+      "cluster": "validator",
+      "owner": "skill-md-invalid-utf8-validation",
+      "primaryKeyword": "SKILL.md invalid UTF-8 validation",
+      "slug": "skill-md-invalid-utf8-validation",
+      "title": "Test Invalid UTF-8 SKILL.md Files",
+      "intent": "troubleshooting",
+      "exactQuestion": "How should validateSkillFile detect malformed UTF-8 bytes instead of silently validating replacement characters produced during string decoding?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 8,
+        "coverageAbility": 8,
+        "total": 35
+      },
+      "repoEvidence": [
+        "packages/skill-validator/src/index.ts:47-50 calls fs.readFile with the utf-8 encoding and receives a string.",
+        "packages/shared/src/parsers/skill-parser.ts:4-5 has no byte-level validation because it accepts an already-decoded string."
+      ],
+      "secondaryKeywords": [
+        "malformed UTF-8 skill file",
+        "replacement character validation",
+        "byte level SKILL.md check",
+        "frontmatter encoding failure",
+        "strict text decoder tests"
+      ],
+      "internalRoutes": [
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/seed-skill-catalog-parser-regression-tests"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://www.unicode.org/reports/tr15/"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "skill-md-byte-order-mark-handling",
+        "distinction": "SPV-003 owns a valid UTF-8 signature prefix. This intent owns invalid byte sequences and decoding diagnostics."
+      }
+    },
+    {
+      "id": "SPV-036",
+      "cluster": "validator-security",
+      "owner": "skill-md-symlink-validation-boundary",
+      "primaryKeyword": "SKILL.md symlink validation boundary",
+      "slug": "skill-md-symlink-validation-boundary",
+      "title": "Test SKILL.md Symlink Boundaries",
+      "intent": "how-to",
+      "exactQuestion": "Should validateSkillFile follow a SKILL.md symlink outside the requested package root, and how can tests enforce the chosen containment policy?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/skill-validator/src/index.ts:47-50 applies path.resolve and then fs.readFile without checking realpath containment.",
+        "packages/cli/src/lib/installer.ts:225-237 recursively copies files with fs.copyFile and does not branch on symbolic-link directory entries."
+      ],
+      "secondaryKeywords": [
+        "SKILL.md symlink escape",
+        "realpath containment test",
+        "validator package root",
+        "symbolic link skill security",
+        "path traversal file validation"
+      ],
+      "internalRoutes": [
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/qaskills-cli-extract-skill-package-github",
+        "/blog/validate-skill-md-in-ci-pipeline"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/path.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/qaskills-cli-extract-skill-package-github",
+        "distinction": "The extraction page owns bounded directory walking. This intent owns filesystem indirection and package-root containment."
+      }
+    },
+    {
+      "id": "SPV-037",
+      "cluster": "quality-score",
+      "owner": "skill-md-documentation-score-boundaries",
+      "primaryKeyword": "SKILL.md documentation score boundaries",
+      "slug": "skill-md-documentation-score-boundaries",
+      "title": "Test Documentation Score Boundaries",
+      "intent": "how-to",
+      "exactQuestion": "Which scores should content receive at exactly 100, 500, and 1,000 characters, and are the current greater-than comparisons intentional?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/shared/src/utils/quality-score.ts:37-46 awards documentation points only when content length is greater than 100, 500, and 1000.",
+        "packages/skill-validator/src/index.ts:100-106 uses less than 100 for the short-content warning, leaving a separate exact-boundary policy."
+      ],
+      "secondaryKeywords": [
+        "quality score off by one",
+        "100 character skill content",
+        "500 character documentation score",
+        "1000 character score threshold",
+        "boundary value quality tests"
+      ],
+      "internalRoutes": [
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/blog/seed-skill-catalog-parser-regression-tests"
+      ],
+      "authoritativeSources": ["https://agentskills.io/specification", "https://zod.dev/api"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/how-to-write-high-quality-qa-skills",
+        "distinction": "The publisher guide owns authoring advice. This intent owns executable boundary tests for three scoring comparisons."
+      }
+    },
+    {
+      "id": "SPV-038",
+      "cluster": "quality-score",
+      "owner": "skill-md-quality-score-gaming",
+      "primaryKeyword": "SKILL.md quality score gaming",
+      "slug": "skill-md-quality-score-gaming",
+      "title": "Detect Heuristic Score Gaming",
+      "intent": "how-to",
+      "exactQuestion": "Can meaningless headings, an empty code fence, or one bullet raise the documentation score, and how should tests resist marker-only gaming?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/shared/src/utils/quality-score.ts:43-45 awards points from simple substring checks for headings, code fences, and list markers.",
+        "packages/shared/src/utils/quality-score.ts:37-46 does not evaluate whether those structures contain useful instructions."
+      ],
+      "secondaryKeywords": [
+        "quality metric gaming tests",
+        "empty code fence score",
+        "fake heading quality points",
+        "skill documentation heuristics",
+        "adversarial quality scoring"
+      ],
+      "internalRoutes": [
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/agent-skill-security-review-checklist"
+      ],
+      "authoritativeSources": [
+        "https://agentskills.io/specification",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/how-to-write-high-quality-qa-skills",
+        "distinction": "The existing guide owns positive authoring practices. This intent owns adversarial inputs against the scoring algorithm."
+      }
+    },
+    {
+      "id": "SPV-039",
+      "cluster": "quality-score",
+      "owner": "skill-md-freshness-score-validation",
+      "primaryKeyword": "SKILL.md freshness score validation",
+      "slug": "skill-md-freshness-score-validation",
+      "title": "Test Fixed SKILL.md Freshness Scores",
+      "intent": "troubleshooting",
+      "exactQuestion": "Why does every parsed skill receive 15 freshness points regardless of version or timestamps, and what test contract should replace that placeholder?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/shared/src/utils/quality-score.ts:11-19 sets freshness to the constant 15 and notes that a real score would use timestamps.",
+        "packages/shared/src/types/skill.ts:39-40 exposes createdAt and updatedAt on stored skills, but ParsedSkill has neither."
+      ],
+      "secondaryKeywords": [
+        "constant freshness points",
+        "skill updatedAt scoring",
+        "version freshness metric",
+        "quality score timestamp test",
+        "stale skill detection"
+      ],
+      "internalRoutes": [
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/skills"
+      ],
+      "authoritativeSources": ["https://semver.org/", "https://agentskills.io/specification"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/how-to-write-high-quality-qa-skills",
+        "distinction": "The existing guide owns quality practices. This intent owns the fixed freshness component and its missing data contract."
+      }
+    },
+    {
+      "id": "SPV-040",
+      "cluster": "quality-score",
+      "owner": "invalid-skill-md-quality-scoring",
+      "primaryKeyword": "invalid SKILL.md quality scoring",
+      "slug": "invalid-skill-md-quality-scoring",
+      "title": "Handle Scores After Schema Failure",
+      "intent": "troubleshooting",
+      "exactQuestion": "Why does validateSkillContent calculate and return a nonzero quality score even when frontmatter schema validation has failed?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/skill-validator/src/index.ts:71-79 records schema issues but continues processing.",
+        "packages/skill-validator/src/index.ts:118-127 calculates quality for the parsed skill and returns it alongside valid false."
+      ],
+      "secondaryKeywords": [
+        "quality score after Zod failure",
+        "invalid skill nonzero score",
+        "validator scoring order",
+        "schema error quality policy",
+        "failed skill ranking prevention"
+      ],
+      "internalRoutes": [
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/seed-skill-catalog-parser-regression-tests"
+      ],
+      "authoritativeSources": [
+        "https://zod.dev/api",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "distinction": "The existing page owns error diagnostics. This intent owns post-failure scoring semantics and downstream ranking risk."
+      }
+    },
+    {
+      "id": "SPV-041",
+      "cluster": "quality-score",
+      "owner": "skill-md-agent-completeness-thresholds",
+      "primaryKeyword": "SKILL.md agent completeness thresholds",
+      "slug": "skill-md-agent-completeness-thresholds",
+      "title": "Test Agent Completeness Thresholds",
+      "intent": "how-to",
+      "exactQuestion": "How should completeness scoring behave at 2, 3, 9, and 10 agents, especially when duplicate or unsupported agent IDs are present?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 9,
+        "coverageAbility": 8,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/shared/src/utils/quality-score.ts:49-57 awards separate five-point bonuses at three and ten agents.",
+        "packages/shared/src/schemas/skill-schema.ts:14 accepts arbitrary agent strings and does not enforce uniqueness."
+      ],
+      "secondaryKeywords": [
+        "three agent score boundary",
+        "ten agent completeness bonus",
+        "duplicate agents quality score",
+        "unsupported agent scoring",
+        "skill compatibility score test"
+      ],
+      "internalRoutes": [
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/seed-skill-catalog-parser-regression-tests"
+      ],
+      "authoritativeSources": ["https://agentskills.io/specification", "https://zod.dev/api"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "skill-md-agent-identifier-validation",
+        "distinction": "SPV-023 owns identifier validity. This intent owns the scoring discontinuities created by list cardinality."
+      }
+    },
+    {
+      "id": "SPV-042",
+      "cluster": "quality-score",
+      "owner": "skill-md-quality-score-monotonicity",
+      "primaryKeyword": "SKILL.md quality score monotonicity",
+      "slug": "skill-md-quality-score-monotonicity",
+      "title": "Property-Test SKILL.md Quality Scores",
+      "intent": "how-to",
+      "exactQuestion": "How can property tests prove that adding valid documentation or metadata never lowers a SKILL.md quality score and totals never exceed 100?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 9,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/shared/src/utils/quality-score.ts:11-19 sums four components and caps the total at 100.",
+        "packages/shared/src/utils/quality-score.ts:22-57 uses additive thresholds that can be checked as monotonic invariants."
+      ],
+      "secondaryKeywords": [
+        "quality score property testing",
+        "monotonic scoring invariant",
+        "score never exceeds 100",
+        "metadata mutation tests",
+        "quality scorer fuzz testing"
+      ],
+      "internalRoutes": [
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/seed-skill-catalog-parser-regression-tests"
+      ],
+      "authoritativeSources": ["https://zod.dev/api", "https://agentskills.io/specification"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "skill-md-documentation-score-boundaries",
+        "distinction": "SPV-037 owns three examples. This intent owns general algebraic properties across generated ParsedSkill inputs."
+      }
+    },
+    {
+      "id": "SPV-043",
+      "cluster": "validator-cli",
+      "owner": "skill-md-validator-json-contract",
+      "primaryKeyword": "SKILL.md validator JSON contract",
+      "slug": "skill-md-validator-json-contract",
+      "title": "Test Validator JSON Output Contracts",
+      "intent": "how-to",
+      "exactQuestion": "How can CI consumers lock the validator's JSON fields, error paths, warning shape, score breakdown, and exit codes as a versioned contract?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/skill-validator/src/index.ts:11-33 defines ValidationResult, ValidationError, and ValidationWarning.",
+        "packages/skill-validator/src/cli.ts:21-26 prints JSON and exits with status 0 or 1 based on valid."
+      ],
+      "secondaryKeywords": [
+        "qaskills validate JSON schema",
+        "validator exit code tests",
+        "CI validation result contract",
+        "stable Zod error paths",
+        "quality breakdown JSON"
+      ],
+      "internalRoutes": [
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": ["https://nodejs.org/api/process.html", "https://zod.dev/api"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/validate-skill-md-in-ci-pipeline",
+        "distinction": "The CI article owns invoking the validator. This intent owns the machine-readable response and process-status API."
+      }
+    },
+    {
+      "id": "SPV-044",
+      "cluster": "validator-cli",
+      "owner": "skill-md-file-error-diagnostics",
+      "primaryKeyword": "SKILL.md file error diagnostics",
+      "slug": "skill-md-file-error-diagnostics",
+      "title": "Improve SKILL.md File Error Diagnostics",
+      "intent": "troubleshooting",
+      "exactQuestion": "How should the validator distinguish missing files, permission failures, directories, broken symlinks, and read errors instead of reporting one generic CLI failure?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/skill-validator/src/index.ts:47-50 lets path resolution and file-read errors escape validateSkillFile.",
+        "packages/skill-validator/src/cli.ts:60-62 catches every failure and prints only the Error message or Unknown error."
+      ],
+      "secondaryKeywords": [
+        "SKILL.md ENOENT error",
+        "validator permission denied",
+        "directory instead of file",
+        "broken symlink diagnostic",
+        "qaskills validate error codes"
+      ],
+      "internalRoutes": [
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": [
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/process.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/malformed-skill-md-frontmatter-parser-tests",
+        "distinction": "The existing page owns content parse diagnostics. This intent owns filesystem failures before content is available."
+      }
+    },
+    {
+      "id": "SPV-045",
+      "cluster": "quality-score",
+      "owner": "skill-md-quality-score-parity",
+      "primaryKeyword": "SKILL.md quality score parity",
+      "slug": "skill-md-quality-score-parity",
+      "title": "Test SKILL.md Quality Score Parity",
+      "intent": "comparison",
+      "exactQuestion": "Why can the same skill receive different quality scores from the shared validator and the publish API, and how should one canonical scorer replace both?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/shared/src/utils/quality-score.ts:11-57 scores schema, documentation, completeness, and fixed freshness.",
+        "packages/web/src/app/api/skills/route.ts:38-55 uses a separate seven-condition scoring algorithm during publication."
+      ],
+      "secondaryKeywords": [
+        "duplicate quality score implementations",
+        "validator publish score mismatch",
+        "canonical skill scorer",
+        "quality ranking contract test",
+        "shared scoring function migration"
+      ],
+      "internalRoutes": [
+        "/blog/how-to-write-high-quality-qa-skills",
+        "/blog/validate-skill-md-in-ci-pipeline",
+        "/blog/how-to-publish-ai-agent-skill-directory"
+      ],
+      "authoritativeSources": ["https://zod.dev/api", "https://agentskills.io/specification"],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/how-to-write-high-quality-qa-skills",
+        "distinction": "The existing guide owns content improvement. This intent owns numeric parity between two production scoring implementations."
+      }
+    },
+    {
+      "id": "SPV-046",
+      "cluster": "package-provenance",
+      "owner": "agent-skill-git-commit-pinning",
+      "primaryKeyword": "agent skill Git commit pinning",
+      "slug": "agent-skill-git-commit-pinning",
+      "title": "Pin Agent Skill Git Commits",
+      "intent": "how-to",
+      "exactQuestion": "How can QASkills install an exact reviewed Git commit instead of cloning whichever default-branch tip exists at install time?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/cli/src/lib/installer.ts:45-53 runs git clone with depth 1 but no branch, revision, tag, or commit selector.",
+        "packages/cli/src/lib/installer.ts:62-79 repeats the unpinned clone for registry-provided githubUrl values."
+      ],
+      "secondaryKeywords": [
+        "pin SKILL.md repository SHA",
+        "immutable agent skill install",
+        "git clone reviewed revision",
+        "skill supply chain reproducibility",
+        "registry source commit"
+      ],
+      "internalRoutes": [
+        "/blog/qaskills-cli-extract-skill-package-github",
+        "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "/blog/agent-skill-security-review-checklist"
+      ],
+      "authoritativeSources": [
+        "https://git-scm.com/docs/git-clone.html",
+        "https://slsa.dev/spec/v1.0/provenance"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/qaskills-cli-extract-skill-package-github",
+        "distinction": "The extraction page owns locating files after clone. This intent owns immutable source selection before clone."
+      }
+    },
+    {
+      "id": "SPV-047",
+      "cluster": "package-security",
+      "owner": "agent-skill-source-host-allowlisting",
+      "primaryKeyword": "agent skill source host allowlisting",
+      "slug": "agent-skill-source-host-allowlisting",
+      "title": "Allowlist Agent Skill Source Hosts",
+      "intent": "how-to",
+      "exactQuestion": "How should QASkills constrain registry githubUrl values to approved HTTPS hosts before passing them to git clone?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:24 accepts any syntactically valid URL despite naming the field githubUrl.",
+        "packages/cli/src/lib/installer.ts:62-66 passes registry-provided data.githubUrl directly as a git clone argument."
+      ],
+      "secondaryKeywords": [
+        "githubUrl hostname validation",
+        "skill source URL allowlist",
+        "HTTPS repository policy",
+        "git clone untrusted URL",
+        "registry source validation"
+      ],
+      "internalRoutes": [
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "/blog/how-to-publish-ai-agent-skill-directory"
+      ],
+      "authoritativeSources": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+        "https://slsa.dev/spec/v1.0/provenance"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/agent-skill-security-review-checklist",
+        "distinction": "The checklist owns manual provenance review. This intent owns server and client enforcement of the source-host boundary."
+      }
+    },
+    {
+      "id": "SPV-048",
+      "cluster": "package-provenance",
+      "owner": "agent-skill-metadata-source-mismatch",
+      "primaryKeyword": "agent skill metadata source mismatch",
+      "slug": "agent-skill-metadata-source-mismatch",
+      "title": "Detect Skill Metadata Source Mismatch",
+      "intent": "troubleshooting",
+      "exactQuestion": "How can an installer detect when registry metadata disagrees with the SKILL.md cloned from the linked repository?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 40
+      },
+      "repoEvidence": [
+        "packages/cli/src/lib/installer.ts:57-79 fetches registry JSON and then prefers a linked GitHub repository when extraction succeeds.",
+        "packages/cli/src/lib/installer.ts:81-92 uses registry content or metadata only when the clone path fails, with no metadata comparison."
+      ],
+      "secondaryKeywords": [
+        "registry SKILL.md mismatch",
+        "cloned skill identity check",
+        "author version metadata parity",
+        "source registry drift",
+        "skill install trust decision"
+      ],
+      "internalRoutes": [
+        "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "/blog/qaskills-cli-extract-skill-package-github",
+        "/blog/agent-skill-security-review-checklist"
+      ],
+      "authoritativeSources": [
+        "https://agentskills.io/specification",
+        "https://slsa.dev/spec/v1.0/provenance"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/qaskills-cli-download-fallback-github-content-metadata",
+        "distinction": "The fallback page owns availability ordering. This intent owns identity disagreement when multiple sources are all available."
+      }
+    },
+    {
+      "id": "SPV-049",
+      "cluster": "package-provenance",
+      "owner": "agent-skill-author-provenance-verification",
+      "primaryKeyword": "agent skill author provenance verification",
+      "slug": "agent-skill-author-provenance-verification",
+      "title": "Prove Skill Publisher Identity",
+      "intent": "how-to",
+      "exactQuestion": "How can QASkills prove the authenticated publisher, database author, frontmatter author, and source repository owner refer to the same trusted identity?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts:123-143 stores authorName from the authenticated user rather than request frontmatter.",
+        "packages/web/src/lib/skill-markdown.ts:25-32 later emits the database authorName as frontmatter author."
+      ],
+      "secondaryKeywords": [
+        "skill publisher identity proof",
+        "frontmatter author mismatch",
+        "repository owner verification",
+        "agent skill impersonation test",
+        "publisher provenance chain"
+      ],
+      "internalRoutes": [
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/how-to-publish-ai-agent-skill-directory",
+        "/how-to-publish"
+      ],
+      "authoritativeSources": [
+        "https://slsa.dev/spec/v1.0/provenance",
+        "https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/agent-skill-security-review-checklist",
+        "distinction": "The checklist owns reviewer questions. This intent owns a concrete identity chain across auth, database, emitted metadata, and source."
+      }
+    },
+    {
+      "id": "SPV-050",
+      "cluster": "package-provenance",
+      "owner": "agent-skill-license-provenance-verification",
+      "primaryKeyword": "agent skill license provenance verification",
+      "slug": "agent-skill-license-provenance-verification",
+      "title": "Trace Skill License Evidence",
+      "intent": "how-to",
+      "exactQuestion": "How can installers verify that frontmatter license metadata agrees with the source repository and any bundled license file shipped with the skill?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 10,
+        "total": 38
+      },
+      "repoEvidence": [
+        "packages/cli/src/lib/installer.ts:106-107 allowlists references, scripts, and assets as package directories but does not include a root license file.",
+        "packages/web/src/lib/skill-markdown.ts:26-32 emits a database license string into reconstructed SKILL.md artifacts."
+      ],
+      "secondaryKeywords": [
+        "SKILL.md license mismatch",
+        "bundled LICENSE file verification",
+        "SPDX skill provenance",
+        "repository license comparison",
+        "agent skill legal metadata"
+      ],
+      "internalRoutes": [
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/qaskills-cli-extract-skill-package-github",
+        "/blog/how-to-publish-ai-agent-skill-directory"
+      ],
+      "authoritativeSources": [
+        "https://spdx.github.io/spdx-spec/v3.0.1/",
+        "https://agentskills.io/specification"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "skill-md-spdx-license-validation",
+        "distinction": "SPV-026 owns license syntax. This intent owns evidence that a valid declaration matches the distributed source package."
+      }
+    },
+    {
+      "id": "SPV-051",
+      "cluster": "package-provenance",
+      "owner": "agent-skill-artifact-attestation-testing",
+      "primaryKeyword": "agent skill artifact attestation testing",
+      "slug": "agent-skill-artifact-attestation-testing",
+      "title": "Test Agent Skill Artifact Attestations",
+      "intent": "how-to",
+      "exactQuestion": "How can QASkills generate and verify provenance attestations that bind a downloadable skill ZIP to its source and build workflow?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 9,
+        "intentFit": 10,
+        "coverageAbility": 10,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:54-64 builds a ZIP at request time and computes a SHA-256 digest.",
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:66-76 returns checksum and version headers but no signed provenance statement."
+      ],
+      "secondaryKeywords": [
+        "skill ZIP provenance attestation",
+        "SLSA agent skill artifact",
+        "GitHub artifact attestation",
+        "verify skill build origin",
+        "signed SKILL.md package"
+      ],
+      "internalRoutes": [
+        "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/how-to-publish-ai-agent-skill-directory"
+      ],
+      "authoritativeSources": [
+        "https://slsa.dev/spec/v1.0/provenance",
+        "https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "distinction": "The checksum page owns byte integrity and ETag behavior. This intent owns signed origin and build-process evidence."
+      }
+    },
+    {
+      "id": "SPV-052",
+      "cluster": "package-provenance",
+      "owner": "agent-skill-package-sbom-generation",
+      "primaryKeyword": "agent skill package SBOM generation",
+      "slug": "agent-skill-package-sbom-generation",
+      "title": "Generate Agent Skill Package SBOMs",
+      "intent": "how-to",
+      "exactQuestion": "How can a skill package inventory list SKILL.md, scripts, references, assets, licenses, hashes, and source relationships before installation?",
+      "scores": {
+        "relevance": 9,
+        "specificity": 9,
+        "intentFit": 9,
+        "coverageAbility": 10,
+        "total": 37
+      },
+      "repoEvidence": [
+        "packages/cli/src/lib/installer.ts:106-164 extracts SKILL.md plus three companion directory classes without producing a manifest.",
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:56-64 currently packages only one SKILL.md file and hashes the resulting ZIP."
+      ],
+      "secondaryKeywords": [
+        "agent skill file inventory",
+        "SKILL.md package manifest",
+        "skill scripts SBOM",
+        "artifact component hashes",
+        "skill supply chain inventory"
+      ],
+      "internalRoutes": [
+        "/blog/qaskills-cli-extract-skill-package-github",
+        "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "/blog/agent-skill-security-review-checklist"
+      ],
+      "authoritativeSources": [
+        "https://spdx.github.io/spdx-spec/v3.0.1/",
+        "https://slsa.dev/spec/v1.0/provenance"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/qaskills-cli-extract-skill-package-github",
+        "distinction": "The extraction page owns which files are copied. This intent owns machine-readable inventory and per-file provenance after selection."
+      }
+    },
+    {
+      "id": "SPV-053",
+      "cluster": "package-security",
+      "owner": "agent-skill-zip-path-traversal",
+      "primaryKeyword": "agent skill ZIP path traversal",
+      "slug": "agent-skill-zip-path-traversal",
+      "title": "Test Agent Skill ZIP Path Traversal",
+      "intent": "how-to",
+      "exactQuestion": "How should the artifact route constrain custom skill slugs before using them as ZIP entry paths?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:56-58 uses row.slug directly in the archive entry path.",
+        "packages/web/src/app/api/skills/route.ts:14 and 89-95 accept a custom slug with only a maximum-length check and a nonempty check."
+      ],
+      "secondaryKeywords": [
+        "ZIP entry slug validation",
+        "skill archive zip slip test",
+        "path traversal artifact name",
+        "JSZip untrusted filename",
+        "safe skill ZIP structure"
+      ],
+      "internalRoutes": [
+        "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/how-to-publish-ai-agent-skill-directory"
+      ],
+      "authoritativeSources": [
+        "https://stuk.github.io/jszip/documentation/api_jszip/generate_async.html",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "distinction": "The existing artifact page owns expected archive layout. This intent owns hostile path components derived from publisher-controlled slugs."
+      }
+    },
+    {
+      "id": "SPV-054",
+      "cluster": "package-provenance",
+      "owner": "agent-skill-deterministic-zip-builds",
+      "primaryKeyword": "agent skill deterministic ZIP builds",
+      "slug": "agent-skill-deterministic-zip-builds",
+      "title": "Build Deterministic Agent Skill ZIPs",
+      "intent": "how-to",
+      "exactQuestion": "How can repeated artifact requests for unchanged SKILL.md content produce identical ZIP bytes, SHA-256 values, and ETags?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:56-62 creates a fresh JSZip archive and supplies compression options but no fixed file timestamp.",
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:64-75 hashes complete ZIP bytes and exposes that hash as the ETag."
+      ],
+      "secondaryKeywords": [
+        "reproducible JSZip output",
+        "stable skill artifact checksum",
+        "deterministic ZIP timestamp",
+        "repeatable ETag generation",
+        "byte identical skill package"
+      ],
+      "internalRoutes": [
+        "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/how-to-publish-ai-agent-skill-directory"
+      ],
+      "authoritativeSources": [
+        "https://stuk.github.io/jszip/documentation/api_jszip/generate_async.html",
+        "https://slsa.dev/spec/v1.0/provenance"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "distinction": "The existing page checks one response checksum. This intent owns repeatability across separately generated responses for unchanged inputs."
+      }
+    },
+    {
+      "id": "SPV-055",
+      "cluster": "package-security",
+      "owner": "agent-skill-download-header-injection",
+      "primaryKeyword": "agent skill download header injection",
+      "slug": "agent-skill-download-header-injection",
+      "title": "Test Skill Download Header Injection",
+      "intent": "how-to",
+      "exactQuestion": "How should the artifact route encode publisher-controlled slug and version values before placing them in Content-Disposition and custom headers?",
+      "scores": {
+        "relevance": 10,
+        "specificity": 10,
+        "intentFit": 10,
+        "coverageAbility": 9,
+        "total": 39
+      },
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/[id]/artifact/route.ts:69-75 interpolates row.slug and currentVersion into response header values.",
+        "packages/web/src/app/api/skills/route.ts:14 and 22 constrain only maximum lengths for custom slug and version values."
+      ],
+      "secondaryKeywords": [
+        "Content-Disposition filename security",
+        "skill slug response splitting",
+        "artifact version header validation",
+        "safe download filename encoding",
+        "HTTP header injection tests"
+      ],
+      "internalRoutes": [
+        "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "/blog/agent-skill-security-review-checklist",
+        "/blog/how-to-publish-ai-agent-skill-directory"
+      ],
+      "authoritativeSources": [
+        "https://www.rfc-editor.org/info/rfc6266",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+      ],
+      "collisionAudit": {
+        "status": "pass",
+        "nearestExistingOwner": "/blog/testing-versioned-zip-artifact-sha256-etag",
+        "distinction": "The existing article owns correct response metadata. This intent owns hostile filename and version characters at the HTTP header boundary."
+      }
+    }
+  ],
+  "rejections": [
+    {
+      "primaryKeyword": "SKILL.md format complete guide",
+      "proposedSlug": "skill-md-format-complete-guide",
+      "collisionType": "intent",
+      "owner": "/blog/skill-md-format-guide",
+      "reason": "The existing page already owns the broad file structure, frontmatter schema, body, validation, and publishing intent."
+    },
+    {
+      "primaryKeyword": "validate SKILL.md in CI",
+      "proposedSlug": "validate-skill-md-in-ci",
+      "collisionType": "slug and intent",
+      "owner": "/blog/validate-skill-md-in-ci-pipeline",
+      "reason": "The proposed slug is contained in the existing slug, and the page already answers the same CI validation need."
+    },
+    {
+      "primaryKeyword": "SKILL.md YAML round trip",
+      "proposedSlug": "skill-md-yaml-round-trip",
+      "collisionType": "primary keyword",
+      "owner": "/blog/testing-skill-md-yaml-frontmatter-roundtrip",
+      "reason": "The existing article already owns parse-serialize equality, scalar escaping, arrays, and metadata preservation."
+    },
+    {
+      "primaryKeyword": "SKILL.md array normalization tests",
+      "proposedSlug": "skill-md-array-normalization-tests",
+      "collisionType": "title and intent",
+      "owner": "/blog/skill-md-csv-yaml-array-normalization-tests",
+      "reason": "The existing article covers YAML lists, inline arrays, CSV strings, mixed values, trimming, and empty arrays."
+    },
+    {
+      "primaryKeyword": "malformed SKILL.md parser tests",
+      "proposedSlug": "malformed-skill-md-parser-tests",
+      "collisionType": "slug and intent",
+      "owner": "/blog/malformed-skill-md-frontmatter-parser-tests",
+      "reason": "The existing article owns invalid YAML, missing metadata, delimiter failures, Zod errors, diagnostics, and recovery."
+    },
+    {
+      "primaryKeyword": "agent skill dangerous command regex",
+      "proposedSlug": "agent-skill-dangerous-command-regex",
+      "collisionType": "intent",
+      "owner": "/blog/agent-skill-dangerous-command-static-analysis-tests",
+      "reason": "The existing article already covers dangerous command patterns, bypasses, false positives, multiline cases, and mutation tests."
+    },
+    {
+      "primaryKeyword": "SKILL.md catalog parser regression",
+      "proposedSlug": "skill-md-catalog-parser-regression",
+      "collisionType": "primary keyword",
+      "owner": "/blog/seed-skill-catalog-parser-regression-tests",
+      "reason": "The existing article owns scanning all seed skills, aggregate failures, duplicate slugs, schema checks, and quality boundaries."
+    },
+    {
+      "primaryKeyword": "extract SKILL.md from GitHub",
+      "proposedSlug": "extract-skill-md-from-github",
+      "collisionType": "intent",
+      "owner": "/blog/qaskills-cli-extract-skill-package-github",
+      "reason": "The existing article owns bounded traversal, shallowest-file selection, companion directories, and temporary package staging."
+    },
+    {
+      "primaryKeyword": "QASkills download fallback testing",
+      "proposedSlug": "qaskills-download-fallback-testing",
+      "collisionType": "intent",
+      "owner": "/blog/qaskills-cli-download-fallback-github-content-metadata",
+      "reason": "The existing article owns GitHub clone failure, content endpoint recovery, metadata reconstruction, cleanup, and empty download checks."
+    },
+    {
+      "primaryKeyword": "skill ZIP checksum testing",
+      "proposedSlug": "skill-zip-checksum-testing",
+      "collisionType": "primary keyword",
+      "owner": "/blog/testing-versioned-zip-artifact-sha256-etag",
+      "reason": "The existing article owns SHA-256 headers, ETags, version pins, archive paths, caching, content, and error responses."
+    },
+    {
+      "primaryKeyword": "agent skill security checklist",
+      "proposedSlug": "agent-skill-security-checklist",
+      "collisionType": "slug and intent",
+      "owner": "/blog/agent-skill-security-review-checklist",
+      "reason": "The existing page owns broad provenance, tools, secrets, dependencies, prompt injection, and publishing risk review."
+    },
+    {
+      "primaryKeyword": "write high quality QA skills",
+      "proposedSlug": "write-high-quality-qa-skills",
+      "collisionType": "slug and intent",
+      "owner": "/blog/how-to-write-high-quality-qa-skills",
+      "reason": "The existing publisher guide already owns quality-oriented authoring advice and workflow."
+    },
+    {
+      "primaryKeyword": "SKILL.md prerelease version validation",
+      "proposedSlug": "skill-md-prerelease-version-validation",
+      "collisionType": "self-cannibalization",
+      "owner": "skill-md-semantic-version-compatibility",
+      "reason": "Prerelease identifiers are one part of the broader SemVer compatibility intent owned by SPV-016."
+    },
+    {
+      "primaryKeyword": "SKILL.md build metadata validation",
+      "proposedSlug": "skill-md-build-metadata-validation",
+      "collisionType": "self-cannibalization",
+      "owner": "skill-md-semantic-version-compatibility",
+      "reason": "Build metadata answers the same valid-SemVer-versus-current-regex question as SPV-016."
+    },
+    {
+      "primaryKeyword": "minTokens maxTokens ordering tests",
+      "proposedSlug": "min-tokens-max-tokens-ordering-tests",
+      "collisionType": "self-cannibalization",
+      "owner": "skill-md-token-range-invariants",
+      "reason": "The exact minTokens and maxTokens relationship is already the primary intent of SPV-018."
+    },
+    {
+      "primaryKeyword": "SKILL.md YAML scalar injection",
+      "proposedSlug": "skill-md-yaml-scalar-injection",
+      "collisionType": "self-cannibalization",
+      "owner": "skill-md-scalar-newline-escaping",
+      "reason": "The broad injection phrase would compete with SPV-012, which owns the concrete structural newline mechanism."
+    },
+    {
+      "primaryKeyword": "Unicode skill slug collision testing",
+      "proposedSlug": "unicode-skill-slug-collision-testing",
+      "collisionType": "self-cannibalization",
+      "owner": "skill-md-unicode-normalization-collisions",
+      "reason": "Slug collision is one downstream effect of the normalization intent already owned by SPV-030."
+    },
+    {
+      "primaryKeyword": "agent skill license identifier testing",
+      "proposedSlug": "agent-skill-license-identifier-testing",
+      "collisionType": "self-cannibalization",
+      "owner": "skill-md-spdx-license-validation",
+      "reason": "License identifier syntax is already owned by SPV-026; provenance against source files remains separately owned by SPV-050."
+    },
+    {
+      "primaryKeyword": "reproducible skill ZIP checksum",
+      "proposedSlug": "reproducible-skill-zip-checksum",
+      "collisionType": "self-cannibalization",
+      "owner": "agent-skill-deterministic-zip-builds",
+      "reason": "The same searcher needs deterministic archive bytes, which is already owned by SPV-054."
+    },
+    {
+      "primaryKeyword": "unknown SKILL.md taxonomy values",
+      "proposedSlug": "unknown-skill-md-taxonomy-values",
+      "collisionType": "self-cannibalization",
+      "owner": "skill-md-taxonomy-allowlist-validation",
+      "reason": "Unknown category values are the negative case for the allowlist intent already owned by SPV-022."
+    }
+  ]
+}

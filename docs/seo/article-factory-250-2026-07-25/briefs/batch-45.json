@@ -1,0 +1,1112 @@
+{
+  "batch": 45,
+  "briefs": [
+    {
+      "sourceTopicId": "testing-frameworks-45",
+      "batch": 45,
+      "batchPosition": 1,
+      "domain": "testing-frameworks",
+      "slug": "accessible-name-computation-regression-tests",
+      "primaryKeyword": "accessible name computation regression tests",
+      "title": "accessible name computation regression tests",
+      "description": "accessible name computation regression tests: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How can automated and manual checks catch accessible-name changes caused by aria-labelledby order, hidden nodes, and fallback text?",
+      "intentBoundary": "The nearest page covers a broader a11y workflow. This candidate owns accessible-name algorithm regressions at component boundaries.",
+      "secondaryKeywords": [
+        "accessible name computation test",
+        "aria-labelledby order regression",
+        "hidden label accessibility test",
+        "button name fallback test",
+        "accessible description versus name"
+      ],
+      "outline": [
+        {
+          "heading": "What does accessible name computation regression tests verify?",
+          "question": true,
+          "coverage": "Answer \"How can automated and manual checks catch accessible-name changes caused by aria-labelledby order, hidden nodes, and fallback text?\" in 40 to 60 words. Define the observable contract: the computed name follows the expected source order for aria-labelledby, aria-label, native labels, visible text, and descriptions. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an accessible name computation test?",
+          "question": true,
+          "secondaryKeyword": "accessible name computation test",
+          "coverage": "Describe this exact fixture: a minimal component set with reversed aria-labelledby IDs, hidden referenced nodes, empty labels, duplicate text, and aria-describedby controls. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/accessibility-a11y-enhanced/SKILL.md"]
+        },
+        {
+          "heading": "What breaks aria-labelledby order regression?",
+          "question": true,
+          "secondaryKeyword": "aria-labelledby order regression",
+          "coverage": "Explain the failure mechanics behind ID order changes, hidden-node handling, empty author labels, fallback text changes, and confusion between a name and a description. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "hidden label accessibility test fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "hidden label accessibility test",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a minimal component set with reversed aria-labelledby IDs, hidden referenced nodes, empty labels, duplicate text, and aria-describedby controls, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/wcag-accessibility-testing/SKILL.md"]
+        },
+        {
+          "heading": "How should button name fallback test be asserted?",
+          "question": true,
+          "secondaryKeyword": "button name fallback test",
+          "coverage": "Build the oracle from role queries, accessibility snapshots, and a manual keyboard check agree on the name exposed to assistive technology. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "accessible description versus name in CI",
+          "question": false,
+          "secondaryKeyword": "accessible description versus name",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to accessibility-a11y-enhanced and wcag-accessibility-testing.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "accessible name computation regression tests comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: two aria-labelledby IDs in each order; visible and hidden referenced labels; empty aria-label with visible button text; aria-describedby without an explicit name; native label plus author-provided label. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement accessible name computation regression tests?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the computed name follows the expected source order for aria-labelledby, aria-label, native labels, visible text, and descriptions, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+            "seed-skills/wcag-accessibility-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/accessibility-testing-automation-guide, then open /skills and implement the accessible name computation regression tests matrix in the next test run.",
+          "repoEvidence": ["seed-skills/accessibility-a11y-enhanced/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "accessible name computation regression tests scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "two aria-labelledby IDs in each order",
+            "controlledSetup": "a minimal component set with reversed aria-labelledby IDs, hidden referenced nodes, empty labels, duplicate text, and aria-describedby controls",
+            "expectedObservation": "role queries, accessibility snapshots, and a manual keyboard check agree on the name exposed to assistive technology",
+            "failureSignal": "Observed state differs from the documented the computed name follows the expected source order for aria-labelledby, aria-label, native labels, visible text, and descriptions.",
+            "evidenceSource": "seed-skills/accessibility-a11y-enhanced/SKILL.md"
+          },
+          {
+            "scenario": "visible and hidden referenced labels",
+            "controlledSetup": "Change only the condition represented by \"visible and hidden referenced labels\" while retaining the baseline fixture.",
+            "expectedObservation": "role queries, accessibility snapshots, and a manual keyboard check agree on the name exposed to assistive technology",
+            "failureSignal": "Observed state differs from the documented the computed name follows the expected source order for aria-labelledby, aria-label, native labels, visible text, and descriptions.",
+            "evidenceSource": "seed-skills/wcag-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "empty aria-label with visible button text",
+            "controlledSetup": "Change only the condition represented by \"empty aria-label with visible button text\" while retaining the baseline fixture.",
+            "expectedObservation": "role queries, accessibility snapshots, and a manual keyboard check agree on the name exposed to assistive technology",
+            "failureSignal": "Observed state differs from the documented the computed name follows the expected source order for aria-labelledby, aria-label, native labels, visible text, and descriptions.",
+            "evidenceSource": "seed-skills/accessibility-a11y-enhanced/SKILL.md"
+          },
+          {
+            "scenario": "aria-describedby without an explicit name",
+            "controlledSetup": "Change only the condition represented by \"aria-describedby without an explicit name\" while retaining the baseline fixture.",
+            "expectedObservation": "role queries, accessibility snapshots, and a manual keyboard check agree on the name exposed to assistive technology",
+            "failureSignal": "Observed state differs from the documented the computed name follows the expected source order for aria-labelledby, aria-label, native labels, visible text, and descriptions.",
+            "evidenceSource": "seed-skills/wcag-accessibility-testing/SKILL.md"
+          },
+          {
+            "scenario": "native label plus author-provided label",
+            "controlledSetup": "Change only the condition represented by \"native label plus author-provided label\" while retaining the baseline fixture.",
+            "expectedObservation": "role queries, accessibility snapshots, and a manual keyboard check agree on the name exposed to assistive technology",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish ID order changes, hidden-node handling, empty author labels, fallback text changes, and confusion between a name and a description.",
+            "evidenceSource": "seed-skills/accessibility-a11y-enhanced/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+          "seed-skills/wcag-accessibility-testing/SKILL.md",
+          "https://www.w3.org/TR/accname-1.2/",
+          "https://www.w3.org/TR/mediaqueries-5/",
+          "https://www.w3.org/WAI/WCAG21/Techniques/general/G1"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run accessible name computation regression tests",
+        "steps": [
+          "Read seed-skills/accessibility-a11y-enhanced/SKILL.md and seed-skills/wcag-accessibility-testing/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a minimal component set with reversed aria-labelledby IDs, hidden referenced nodes, empty labels, duplicate text, and aria-describedby controls.",
+          "Run the positive case and capture role queries, accessibility snapshots, and a manual keyboard check agree on the name exposed to assistive technology.",
+          "Inject one failure at a time from ID order changes, hidden-node handling, empty author labels, fallback text changes, and confusion between a name and a description, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the accessible name computation regression tests baseline",
+          "language": "typescript",
+          "path": "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+          "focus": "Adapt the role, name, and axe checks to assert a small accessible-name precedence fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/wcag-accessibility-testing/SKILL.md",
+          "focus": "Use the WCAG workflow to pair automated name assertions with a repeatable manual screen reader check."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/accessibility-a11y-enhanced/SKILL.md",
+        "seed-skills/wcag-accessibility-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/accessibility-testing",
+        "/blog/accessibility-testing-automation-guide",
+        "/blog/mobile-accessibility-testing-guide",
+        "/blog/axe-core-playwright-accessibility-testing-2026",
+        "/blog/wcag-2-2-testing-checklist-qa-engineers",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "accessibility-testing-automation-guide",
+        "mobile-accessibility-testing-guide",
+        "axe-core-playwright-accessibility-testing-2026",
+        "wcag-2-2-testing-checklist-qa-engineers"
+      ],
+      "sources": [
+        "https://www.w3.org/TR/accname-1.2/",
+        "https://www.w3.org/TR/mediaqueries-5/",
+        "https://www.w3.org/WAI/WCAG21/Techniques/general/G1"
+      ],
+      "faqQuestions": [
+        "How can automated and manual checks catch accessible-name changes caused by aria-labelledby order, hidden nodes, and fallback text?",
+        "What should an accessible name computation test fixture record?",
+        "Which failure proves aria-labelledby order regression is broken?",
+        "How do teams isolate hidden label accessibility test?",
+        "Which assertion is strongest for button name fallback test?",
+        "How should CI report accessible description versus name failures?"
+      ],
+      "cta": "Review /blog/accessibility-testing-automation-guide, then open /skills and implement the accessible name computation regression tests matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-37",
+      "batch": 45,
+      "batchPosition": 2,
+      "domain": "testing-frameworks",
+      "slug": "api-duplicate-header-normalization-testing",
+      "primaryKeyword": "API duplicate header normalization testing",
+      "title": "API duplicate header normalization testing",
+      "description": "API duplicate header normalization testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How should an API test repeated request and response headers when runtimes join, preserve, or reject duplicates?",
+      "intentBoundary": "The nearest page covers a broader api workflow. This candidate owns duplicate-header normalization and exception rules.",
+      "secondaryKeywords": [
+        "API duplicate header handling",
+        "repeated HTTP header test",
+        "header normalization behavior",
+        "Set-Cookie duplicate preservation",
+        "comma joined header validation"
+      ],
+      "outline": [
+        {
+          "heading": "What does API duplicate header normalization testing verify?",
+          "question": true,
+          "coverage": "Answer \"How should an API test repeated request and response headers when runtimes join, preserve, or reject duplicates?\" in 40 to 60 words. Define the observable contract: repeated headers are joined, preserved, or rejected according to the field definition, while Set-Cookie remains independently observable. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/api-testing-rest/SKILL.md",
+            "seed-skills/api-test-suite-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an API duplicate header handling?",
+          "question": true,
+          "secondaryKeyword": "API duplicate header handling",
+          "coverage": "Describe this exact fixture: an echo endpoint and raw response server that emit same-name headers with mixed casing, commas, whitespace, and multiple Set-Cookie values. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/api-testing-rest/SKILL.md"]
+        },
+        {
+          "heading": "What breaks repeated HTTP header test?",
+          "question": true,
+          "secondaryKeyword": "repeated HTTP header test",
+          "coverage": "Explain the failure mechanics behind case folding, comma ambiguity, order changes, runtime-specific joining, proxy rewriting, and accidental Set-Cookie collapse. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/api-testing-rest/SKILL.md",
+            "seed-skills/api-test-suite-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "header normalization behavior fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "header normalization behavior",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use an echo endpoint and raw response server that emit same-name headers with mixed casing, commas, whitespace, and multiple Set-Cookie values, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/api-test-suite-generator/SKILL.md"]
+        },
+        {
+          "heading": "How should Set-Cookie duplicate preservation be asserted?",
+          "question": true,
+          "secondaryKeyword": "Set-Cookie duplicate preservation",
+          "coverage": "Build the oracle from raw header pairs, normalized header access, cookie arrays, and server-received values expose exactly where normalization occurred. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/api-testing-rest/SKILL.md",
+            "seed-skills/api-test-suite-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "comma joined header validation in CI",
+          "question": false,
+          "secondaryKeyword": "comma joined header validation",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to api-testing-rest and api-test-suite-generator.",
+          "repoEvidence": [
+            "seed-skills/api-testing-rest/SKILL.md",
+            "seed-skills/api-test-suite-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "API duplicate header normalization testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: repeat a list-valued request header; repeat a non-list response header; return multiple Set-Cookie fields; mix header-name casing; send values containing commas and quoted text. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/api-testing-rest/SKILL.md",
+            "seed-skills/api-test-suite-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement API duplicate header normalization testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/api-testing-rest/SKILL.md",
+            "seed-skills/api-test-suite-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within repeated headers are joined, preserved, or rejected according to the field definition, while Set-Cookie remains independently observable, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/api-testing-rest/SKILL.md",
+            "seed-skills/api-test-suite-generator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/api-testing-complete-guide, then open /skills and implement the API duplicate header normalization testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/api-testing-rest/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "API duplicate header normalization testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "repeat a list-valued request header",
+            "controlledSetup": "an echo endpoint and raw response server that emit same-name headers with mixed casing, commas, whitespace, and multiple Set-Cookie values",
+            "expectedObservation": "raw header pairs, normalized header access, cookie arrays, and server-received values expose exactly where normalization occurred",
+            "failureSignal": "Observed state differs from the documented repeated headers are joined, preserved, or rejected according to the field definition, while Set-Cookie remains independently observable.",
+            "evidenceSource": "seed-skills/api-testing-rest/SKILL.md"
+          },
+          {
+            "scenario": "repeat a non-list response header",
+            "controlledSetup": "Change only the condition represented by \"repeat a non-list response header\" while retaining the baseline fixture.",
+            "expectedObservation": "raw header pairs, normalized header access, cookie arrays, and server-received values expose exactly where normalization occurred",
+            "failureSignal": "Observed state differs from the documented repeated headers are joined, preserved, or rejected according to the field definition, while Set-Cookie remains independently observable.",
+            "evidenceSource": "seed-skills/api-test-suite-generator/SKILL.md"
+          },
+          {
+            "scenario": "return multiple Set-Cookie fields",
+            "controlledSetup": "Change only the condition represented by \"return multiple Set-Cookie fields\" while retaining the baseline fixture.",
+            "expectedObservation": "raw header pairs, normalized header access, cookie arrays, and server-received values expose exactly where normalization occurred",
+            "failureSignal": "Observed state differs from the documented repeated headers are joined, preserved, or rejected according to the field definition, while Set-Cookie remains independently observable.",
+            "evidenceSource": "seed-skills/api-testing-rest/SKILL.md"
+          },
+          {
+            "scenario": "mix header-name casing",
+            "controlledSetup": "Change only the condition represented by \"mix header-name casing\" while retaining the baseline fixture.",
+            "expectedObservation": "raw header pairs, normalized header access, cookie arrays, and server-received values expose exactly where normalization occurred",
+            "failureSignal": "Observed state differs from the documented repeated headers are joined, preserved, or rejected according to the field definition, while Set-Cookie remains independently observable.",
+            "evidenceSource": "seed-skills/api-test-suite-generator/SKILL.md"
+          },
+          {
+            "scenario": "send values containing commas and quoted text",
+            "controlledSetup": "Change only the condition represented by \"send values containing commas and quoted text\" while retaining the baseline fixture.",
+            "expectedObservation": "raw header pairs, normalized header access, cookie arrays, and server-received values expose exactly where normalization occurred",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish case folding, comma ambiguity, order changes, runtime-specific joining, proxy rewriting, and accidental Set-Cookie collapse.",
+            "evidenceSource": "seed-skills/api-testing-rest/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/api-testing-rest/SKILL.md",
+          "seed-skills/api-test-suite-generator/SKILL.md",
+          "https://www.rfc-editor.org/info/rfc9110",
+          "https://www.rfc-editor.org/info/rfc9111",
+          "https://www.rfc-editor.org/info/rfc7578"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run API duplicate header normalization testing",
+        "steps": [
+          "Read seed-skills/api-testing-rest/SKILL.md and seed-skills/api-test-suite-generator/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using an echo endpoint and raw response server that emit same-name headers with mixed casing, commas, whitespace, and multiple Set-Cookie values.",
+          "Run the positive case and capture raw header pairs, normalized header access, cookie arrays, and server-received values expose exactly where normalization occurred.",
+          "Inject one failure at a time from case folding, comma ambiguity, order changes, runtime-specific joining, proxy rewriting, and accidental Set-Cookie collapse, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the API duplicate header normalization testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/api-testing-rest/SKILL.md",
+          "focus": "Extend the REST request examples with duplicate request headers and inspect the echo response."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/api-test-suite-generator/SKILL.md",
+          "focus": "Generate positive and negative duplicate-header cases while retaining raw and normalized observations."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/api-testing-rest/SKILL.md",
+        "seed-skills/api-test-suite-generator/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/api-testing-complete-guide",
+        "/blog/api-testing-best-practices-guide",
+        "/blog/testing-content-negotiation-accept-header",
+        "/blog/testing-problem-details-rfc-9457-errors",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "api-testing-complete-guide",
+        "api-testing-best-practices-guide",
+        "testing-content-negotiation-accept-header",
+        "testing-problem-details-rfc-9457-errors"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/info/rfc9110",
+        "https://www.rfc-editor.org/info/rfc9111",
+        "https://www.rfc-editor.org/info/rfc7578"
+      ],
+      "faqQuestions": [
+        "How should an API test repeated request and response headers when runtimes join, preserve, or reject duplicates?",
+        "What should an API duplicate header handling fixture record?",
+        "Which failure proves repeated HTTP header test is broken?",
+        "How do teams isolate header normalization behavior?",
+        "Which assertion is strongest for Set-Cookie duplicate preservation?",
+        "How should CI report comma joined header validation failures?"
+      ],
+      "cta": "Review /blog/api-testing-complete-guide, then open /skills and implement the API duplicate header normalization testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-16",
+      "batch": 45,
+      "batchPosition": 3,
+      "domain": "testing-frameworks",
+      "slug": "appium-context-switch-timeout-testing",
+      "primaryKeyword": "Appium context switch timeout testing",
+      "title": "Appium context switch timeout testing",
+      "description": "Appium context switch timeout testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How can an Appium hybrid test distinguish a missing webview, a late context, and a failed context switch?",
+      "intentBoundary": "The nearest page covers a broader appium workflow. This candidate owns hybrid-context availability and switch timeout diagnosis.",
+      "secondaryKeywords": [
+        "Appium context switch timeout",
+        "wait for WEBVIEW context",
+        "hybrid app context test",
+        "Appium get contexts failure",
+        "webview attach timing"
+      ],
+      "outline": [
+        {
+          "heading": "What does Appium context switch timeout testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can an Appium hybrid test distinguish a missing webview, a late context, and a failed context switch?\" in 40 to 60 words. Define the observable contract: the test distinguishes context discovery, delayed WEBVIEW attachment, successful switching, stale context handles, and true switch failure. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an Appium context switch timeout?",
+          "question": true,
+          "secondaryKeyword": "Appium context switch timeout",
+          "coverage": "Describe this exact fixture: a hybrid test app that opens a webview immediately, after a controlled delay, never, and after a native-screen transition. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/appium-mobile/SKILL.md"]
+        },
+        {
+          "heading": "What breaks wait for WEBVIEW context?",
+          "question": true,
+          "secondaryKeyword": "wait for WEBVIEW context",
+          "coverage": "Explain the failure mechanics behind fixed sleeps, matching the wrong WEBVIEW, stale handles, driver startup delay, platform differences, and native fallback after navigation. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "hybrid app context test fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "hybrid app context test",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a hybrid test app that opens a webview immediately, after a controlled delay, never, and after a native-screen transition, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/mobile-device-farm/SKILL.md"]
+        },
+        {
+          "heading": "How should Appium get contexts failure be asserted?",
+          "question": true,
+          "secondaryKeyword": "Appium get contexts failure",
+          "coverage": "Build the oracle from available context names, polling timestamps, the current context, and a DOM assertion identify the exact failed phase. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "webview attach timing in CI",
+          "question": false,
+          "secondaryKeyword": "webview attach timing",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to appium-mobile and mobile-device-farm.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Appium context switch timeout testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: WEBVIEW present before polling starts; WEBVIEW appears inside the timeout; WEBVIEW appears after the timeout; context handle disappears before switching; switch succeeds but the expected DOM is absent. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Appium context switch timeout testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the test distinguishes context discovery, delayed WEBVIEW attachment, successful switching, stale context handles, and true switch failure, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/appium-mobile-testing-complete-guide, then open /skills and implement the Appium context switch timeout testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/appium-mobile/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Appium context switch timeout testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "WEBVIEW present before polling starts",
+            "controlledSetup": "a hybrid test app that opens a webview immediately, after a controlled delay, never, and after a native-screen transition",
+            "expectedObservation": "available context names, polling timestamps, the current context, and a DOM assertion identify the exact failed phase",
+            "failureSignal": "Observed state differs from the documented the test distinguishes context discovery, delayed WEBVIEW attachment, successful switching, stale context handles, and true switch failure.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "WEBVIEW appears inside the timeout",
+            "controlledSetup": "Change only the condition represented by \"WEBVIEW appears inside the timeout\" while retaining the baseline fixture.",
+            "expectedObservation": "available context names, polling timestamps, the current context, and a DOM assertion identify the exact failed phase",
+            "failureSignal": "Observed state differs from the documented the test distinguishes context discovery, delayed WEBVIEW attachment, successful switching, stale context handles, and true switch failure.",
+            "evidenceSource": "seed-skills/mobile-device-farm/SKILL.md"
+          },
+          {
+            "scenario": "WEBVIEW appears after the timeout",
+            "controlledSetup": "Change only the condition represented by \"WEBVIEW appears after the timeout\" while retaining the baseline fixture.",
+            "expectedObservation": "available context names, polling timestamps, the current context, and a DOM assertion identify the exact failed phase",
+            "failureSignal": "Observed state differs from the documented the test distinguishes context discovery, delayed WEBVIEW attachment, successful switching, stale context handles, and true switch failure.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "context handle disappears before switching",
+            "controlledSetup": "Change only the condition represented by \"context handle disappears before switching\" while retaining the baseline fixture.",
+            "expectedObservation": "available context names, polling timestamps, the current context, and a DOM assertion identify the exact failed phase",
+            "failureSignal": "Observed state differs from the documented the test distinguishes context discovery, delayed WEBVIEW attachment, successful switching, stale context handles, and true switch failure.",
+            "evidenceSource": "seed-skills/mobile-device-farm/SKILL.md"
+          },
+          {
+            "scenario": "switch succeeds but the expected DOM is absent",
+            "controlledSetup": "Change only the condition represented by \"switch succeeds but the expected DOM is absent\" while retaining the baseline fixture.",
+            "expectedObservation": "available context names, polling timestamps, the current context, and a DOM assertion identify the exact failed phase",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish fixed sleeps, matching the wrong WEBVIEW, stale handles, driver startup delay, platform differences, and native fallback after navigation.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/appium-mobile/SKILL.md",
+          "seed-skills/mobile-device-farm/SKILL.md",
+          "https://appium.io/docs/en/latest/guides/caps/",
+          "https://appium.io/docs/en/latest/guides/context/",
+          "https://appium.io/docs/en/latest/ecosystem/",
+          "https://www.w3.org/TR/webdriver2/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Appium context switch timeout testing",
+        "steps": [
+          "Read seed-skills/appium-mobile/SKILL.md and seed-skills/mobile-device-farm/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a hybrid test app that opens a webview immediately, after a controlled delay, never, and after a native-screen transition.",
+          "Run the positive case and capture available context names, polling timestamps, the current context, and a DOM assertion identify the exact failed phase.",
+          "Inject one failure at a time from fixed sleeps, matching the wrong WEBVIEW, stale handles, driver startup delay, platform differences, and native fallback after navigation, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Appium context switch timeout testing baseline",
+          "language": "java",
+          "path": "seed-skills/appium-mobile/SKILL.md",
+          "focus": "Adapt the hybrid-app driver flow into bounded context discovery, switch, and DOM verification steps."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "java",
+          "path": "seed-skills/mobile-device-farm/SKILL.md",
+          "focus": "Use device-farm setup guidance to record device, platform, webview, and timing evidence for failures."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/appium-mobile/SKILL.md",
+        "seed-skills/mobile-device-farm/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/appium-mobile-testing-complete-guide",
+        "/blog/appium-3-migration-guide-2026",
+        "/blog/mobile-testing-automation-guide",
+        "/blog/appium-2-mobile-automation-reference-2026",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "appium-mobile-testing-complete-guide",
+        "appium-3-migration-guide-2026",
+        "mobile-testing-automation-guide",
+        "appium-2-mobile-automation-reference-2026"
+      ],
+      "sources": [
+        "https://appium.io/docs/en/latest/guides/caps/",
+        "https://appium.io/docs/en/latest/guides/context/",
+        "https://appium.io/docs/en/latest/ecosystem/",
+        "https://www.w3.org/TR/webdriver2/"
+      ],
+      "faqQuestions": [
+        "How can an Appium hybrid test distinguish a missing webview, a late context, and a failed context switch?",
+        "What should an Appium context switch timeout fixture record?",
+        "Which failure proves wait for WEBVIEW context is broken?",
+        "How do teams isolate hybrid app context test?",
+        "Which assertion is strongest for Appium get contexts failure?",
+        "How should CI report webview attach timing failures?"
+      ],
+      "cta": "Review /blog/appium-mobile-testing-complete-guide, then open /skills and implement the Appium context switch timeout testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-48",
+      "batch": 45,
+      "batchPosition": 4,
+      "domain": "testing-frameworks",
+      "slug": "back-forward-cache-eligibility-testing",
+      "primaryKeyword": "back forward cache eligibility testing",
+      "title": "back forward cache eligibility testing",
+      "description": "back forward cache eligibility testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How can browser tests identify pages blocked from the back-forward cache and verify state after a successful restoration?",
+      "intentBoundary": "The nearest page covers a broader performance workflow. This candidate owns bfcache eligibility and restored-state correctness.",
+      "secondaryKeywords": [
+        "bfcache eligibility test",
+        "pageshow persisted assertion",
+        "back forward cache blockers",
+        "pagehide event QA",
+        "bfcache state restoration"
+      ],
+      "outline": [
+        {
+          "heading": "What does back forward cache eligibility testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can browser tests identify pages blocked from the back-forward cache and verify state after a successful restoration?\" in 40 to 60 words. Define the observable contract: a browser test identifies whether a history navigation restored from bfcache and verifies user-visible state after restoration. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an bfcache eligibility test?",
+          "question": true,
+          "secondaryKeyword": "bfcache eligibility test",
+          "coverage": "Describe this exact fixture: two same-origin pages with controlled form state, event listeners, navigation, and an optional feature that makes restoration ineligible. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/web-vitals-testing/SKILL.md"]
+        },
+        {
+          "heading": "What breaks pageshow persisted assertion?",
+          "question": true,
+          "secondaryKeyword": "pageshow persisted assertion",
+          "coverage": "Explain the failure mechanics behind unsupported browser behavior, unload handlers, open resources, state reset, hidden reloads, and assertions made before pageshow. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "back forward cache blockers fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "back forward cache blockers",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use two same-origin pages with controlled form state, event listeners, navigation, and an optional feature that makes restoration ineligible, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/performance-budget-testing/SKILL.md"]
+        },
+        {
+          "heading": "How should pagehide event QA be asserted?",
+          "question": true,
+          "secondaryKeyword": "pagehide event QA",
+          "coverage": "Build the oracle from pageshow.persisted, navigation timing, event logs, and restored DOM state separate a cache restore from a full reload. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "bfcache state restoration in CI",
+          "question": false,
+          "secondaryKeyword": "bfcache state restoration",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to web-vitals-testing and performance-budget-testing.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "back forward cache eligibility testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: eligible page with preserved form state; page with a known eligibility blocker; back navigation after a same-origin transition; forward navigation after state mutation; browser run where bfcache is unavailable. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement back forward cache eligibility testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within a browser test identifies whether a history navigation restored from bfcache and verifies user-visible state after restoration, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/web-vitals-testing/SKILL.md",
+            "seed-skills/performance-budget-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/performance-testing-complete-guide, then open /skills and implement the back forward cache eligibility testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/web-vitals-testing/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "back forward cache eligibility testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "eligible page with preserved form state",
+            "controlledSetup": "two same-origin pages with controlled form state, event listeners, navigation, and an optional feature that makes restoration ineligible",
+            "expectedObservation": "pageshow.persisted, navigation timing, event logs, and restored DOM state separate a cache restore from a full reload",
+            "failureSignal": "Observed state differs from the documented a browser test identifies whether a history navigation restored from bfcache and verifies user-visible state after restoration.",
+            "evidenceSource": "seed-skills/web-vitals-testing/SKILL.md"
+          },
+          {
+            "scenario": "page with a known eligibility blocker",
+            "controlledSetup": "Change only the condition represented by \"page with a known eligibility blocker\" while retaining the baseline fixture.",
+            "expectedObservation": "pageshow.persisted, navigation timing, event logs, and restored DOM state separate a cache restore from a full reload",
+            "failureSignal": "Observed state differs from the documented a browser test identifies whether a history navigation restored from bfcache and verifies user-visible state after restoration.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          },
+          {
+            "scenario": "back navigation after a same-origin transition",
+            "controlledSetup": "Change only the condition represented by \"back navigation after a same-origin transition\" while retaining the baseline fixture.",
+            "expectedObservation": "pageshow.persisted, navigation timing, event logs, and restored DOM state separate a cache restore from a full reload",
+            "failureSignal": "Observed state differs from the documented a browser test identifies whether a history navigation restored from bfcache and verifies user-visible state after restoration.",
+            "evidenceSource": "seed-skills/web-vitals-testing/SKILL.md"
+          },
+          {
+            "scenario": "forward navigation after state mutation",
+            "controlledSetup": "Change only the condition represented by \"forward navigation after state mutation\" while retaining the baseline fixture.",
+            "expectedObservation": "pageshow.persisted, navigation timing, event logs, and restored DOM state separate a cache restore from a full reload",
+            "failureSignal": "Observed state differs from the documented a browser test identifies whether a history navigation restored from bfcache and verifies user-visible state after restoration.",
+            "evidenceSource": "seed-skills/performance-budget-testing/SKILL.md"
+          },
+          {
+            "scenario": "browser run where bfcache is unavailable",
+            "controlledSetup": "Change only the condition represented by \"browser run where bfcache is unavailable\" while retaining the baseline fixture.",
+            "expectedObservation": "pageshow.persisted, navigation timing, event logs, and restored DOM state separate a cache restore from a full reload",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish unsupported browser behavior, unload handlers, open resources, state reset, hidden reloads, and assertions made before pageshow.",
+            "evidenceSource": "seed-skills/web-vitals-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/web-vitals-testing/SKILL.md",
+          "seed-skills/performance-budget-testing/SKILL.md",
+          "https://web.dev/articles/bfcache",
+          "https://www.w3.org/TR/resource-timing-2/",
+          "https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md",
+          "https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run back forward cache eligibility testing",
+        "steps": [
+          "Read seed-skills/web-vitals-testing/SKILL.md and seed-skills/performance-budget-testing/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using two same-origin pages with controlled form state, event listeners, navigation, and an optional feature that makes restoration ineligible.",
+          "Run the positive case and capture pageshow.persisted, navigation timing, event logs, and restored DOM state separate a cache restore from a full reload.",
+          "Inject one failure at a time from unsupported browser behavior, unload handlers, open resources, state reset, hidden reloads, and assertions made before pageshow, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the back forward cache eligibility testing baseline",
+          "language": "javascript",
+          "path": "seed-skills/web-vitals-testing/SKILL.md",
+          "focus": "Adapt the Web Vitals browser instrumentation to capture pageshow and navigation timing evidence."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "javascript",
+          "path": "seed-skills/performance-budget-testing/SKILL.md",
+          "focus": "Turn the performance budget workflow into a nonblocking bfcache eligibility and restored-state CI report."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/web-vitals-testing/SKILL.md",
+        "seed-skills/performance-budget-testing/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/performance-testing",
+        "/blog/performance-testing-complete-guide",
+        "/blog/lighthouse-ci-performance-budget-gates-guide-2026",
+        "/blog/core-web-vitals-testing-guide-2026",
+        "/blog/sitespeed-io-performance-testing-guide-2026",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "performance-testing-complete-guide",
+        "lighthouse-ci-performance-budget-gates-guide-2026",
+        "core-web-vitals-testing-guide-2026",
+        "sitespeed-io-performance-testing-guide-2026"
+      ],
+      "sources": [
+        "https://web.dev/articles/bfcache",
+        "https://www.w3.org/TR/resource-timing-2/",
+        "https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md",
+        "https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver"
+      ],
+      "faqQuestions": [
+        "How can browser tests identify pages blocked from the back-forward cache and verify state after a successful restoration?",
+        "What should an bfcache eligibility test fixture record?",
+        "Which failure proves pageshow persisted assertion is broken?",
+        "How do teams isolate back forward cache blockers?",
+        "Which assertion is strongest for pagehide event QA?",
+        "How should CI report bfcache state restoration failures?"
+      ],
+      "cta": "Review /blog/performance-testing-complete-guide, then open /skills and implement the back forward cache eligibility testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-63",
+      "batch": 45,
+      "batchPosition": 5,
+      "domain": "testing-frameworks",
+      "slug": "ci-artifact-retention-expiration-testing",
+      "primaryKeyword": "CI artifact retention expiration testing",
+      "title": "CI artifact retention expiration testing",
+      "description": "CI artifact retention expiration testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How can a pipeline verify test artifacts remain available for the configured retention period and disappear on schedule?",
+      "intentBoundary": "The nearest page covers a broader ci workflow. This candidate owns artifact expiry and retrieval contracts.",
+      "secondaryKeywords": [
+        "CI artifact retention test",
+        "GitHub artifact expires_at",
+        "retention-days validation",
+        "test report expiration check",
+        "artifact lifecycle monitoring"
+      ],
+      "outline": [
+        {
+          "heading": "What does CI artifact retention expiration testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can a pipeline verify test artifacts remain available for the configured retention period and disappear on schedule?\" in 40 to 60 words. Define the observable contract: an uploaded test artifact remains downloadable for the configured retention window and reports an expiration consistent with repository policy. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/github-actions-testing/SKILL.md",
+            "seed-skills/quality-gates-ci/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an CI artifact retention test?",
+          "question": true,
+          "secondaryKeyword": "CI artifact retention test",
+          "coverage": "Describe this exact fixture: a small uniquely named report uploaded by a disposable workflow run with explicit retention-days and recorded run metadata. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/github-actions-testing/SKILL.md"]
+        },
+        {
+          "heading": "What breaks GitHub artifact expires_at?",
+          "question": true,
+          "secondaryKeyword": "GitHub artifact expires_at",
+          "coverage": "Explain the failure mechanics behind repository retention caps, organization policy, rerun name collisions, token permissions, clock boundaries, and deleted workflow runs. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/github-actions-testing/SKILL.md",
+            "seed-skills/quality-gates-ci/SKILL.md"
+          ]
+        },
+        {
+          "heading": "retention-days validation fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "retention-days validation",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a small uniquely named report uploaded by a disposable workflow run with explicit retention-days and recorded run metadata, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/quality-gates-ci/SKILL.md"]
+        },
+        {
+          "heading": "How should test report expiration check be asserted?",
+          "question": true,
+          "secondaryKeyword": "test report expiration check",
+          "coverage": "Build the oracle from workflow logs, artifact API metadata, expires_at, download status, and a later lifecycle check prove availability and expiry behavior. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/github-actions-testing/SKILL.md",
+            "seed-skills/quality-gates-ci/SKILL.md"
+          ]
+        },
+        {
+          "heading": "artifact lifecycle monitoring in CI",
+          "question": false,
+          "secondaryKeyword": "artifact lifecycle monitoring",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to github-actions-testing and quality-gates-ci.",
+          "repoEvidence": [
+            "seed-skills/github-actions-testing/SKILL.md",
+            "seed-skills/quality-gates-ci/SKILL.md"
+          ]
+        },
+        {
+          "heading": "CI artifact retention expiration testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: default repository retention; explicit short retention-days; value above the repository maximum; rerun with the same artifact name; download check before and after expires_at. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/github-actions-testing/SKILL.md",
+            "seed-skills/quality-gates-ci/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement CI artifact retention expiration testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/github-actions-testing/SKILL.md",
+            "seed-skills/quality-gates-ci/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within an uploaded test artifact remains downloadable for the configured retention window and reports an expiration consistent with repository policy, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/github-actions-testing/SKILL.md",
+            "seed-skills/quality-gates-ci/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/cicd-testing-pipeline-github-actions, then open /skills and implement the CI artifact retention expiration testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/github-actions-testing/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "CI artifact retention expiration testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "default repository retention",
+            "controlledSetup": "a small uniquely named report uploaded by a disposable workflow run with explicit retention-days and recorded run metadata",
+            "expectedObservation": "workflow logs, artifact API metadata, expires_at, download status, and a later lifecycle check prove availability and expiry behavior",
+            "failureSignal": "Observed state differs from the documented an uploaded test artifact remains downloadable for the configured retention window and reports an expiration consistent with repository policy.",
+            "evidenceSource": "seed-skills/github-actions-testing/SKILL.md"
+          },
+          {
+            "scenario": "explicit short retention-days",
+            "controlledSetup": "Change only the condition represented by \"explicit short retention-days\" while retaining the baseline fixture.",
+            "expectedObservation": "workflow logs, artifact API metadata, expires_at, download status, and a later lifecycle check prove availability and expiry behavior",
+            "failureSignal": "Observed state differs from the documented an uploaded test artifact remains downloadable for the configured retention window and reports an expiration consistent with repository policy.",
+            "evidenceSource": "seed-skills/quality-gates-ci/SKILL.md"
+          },
+          {
+            "scenario": "value above the repository maximum",
+            "controlledSetup": "Change only the condition represented by \"value above the repository maximum\" while retaining the baseline fixture.",
+            "expectedObservation": "workflow logs, artifact API metadata, expires_at, download status, and a later lifecycle check prove availability and expiry behavior",
+            "failureSignal": "Observed state differs from the documented an uploaded test artifact remains downloadable for the configured retention window and reports an expiration consistent with repository policy.",
+            "evidenceSource": "seed-skills/github-actions-testing/SKILL.md"
+          },
+          {
+            "scenario": "rerun with the same artifact name",
+            "controlledSetup": "Change only the condition represented by \"rerun with the same artifact name\" while retaining the baseline fixture.",
+            "expectedObservation": "workflow logs, artifact API metadata, expires_at, download status, and a later lifecycle check prove availability and expiry behavior",
+            "failureSignal": "Observed state differs from the documented an uploaded test artifact remains downloadable for the configured retention window and reports an expiration consistent with repository policy.",
+            "evidenceSource": "seed-skills/quality-gates-ci/SKILL.md"
+          },
+          {
+            "scenario": "download check before and after expires_at",
+            "controlledSetup": "Change only the condition represented by \"download check before and after expires_at\" while retaining the baseline fixture.",
+            "expectedObservation": "workflow logs, artifact API metadata, expires_at, download status, and a later lifecycle check prove availability and expiry behavior",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish repository retention caps, organization policy, rerun name collisions, token permissions, clock boundaries, and deleted workflow runs.",
+            "evidenceSource": "seed-skills/github-actions-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/github-actions-testing/SKILL.md",
+          "seed-skills/quality-gates-ci/SKILL.md",
+          "https://docs.github.com/en/actions/reference/workflows-and-actions/dependency-caching",
+          "https://docs.github.com/en/actions/tutorials/store-and-share-data",
+          "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run CI artifact retention expiration testing",
+        "steps": [
+          "Read seed-skills/github-actions-testing/SKILL.md and seed-skills/quality-gates-ci/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a small uniquely named report uploaded by a disposable workflow run with explicit retention-days and recorded run metadata.",
+          "Run the positive case and capture workflow logs, artifact API metadata, expires_at, download status, and a later lifecycle check prove availability and expiry behavior.",
+          "Inject one failure at a time from repository retention caps, organization policy, rerun name collisions, token permissions, clock boundaries, and deleted workflow runs, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the CI artifact retention expiration testing baseline",
+          "language": "yaml",
+          "path": "seed-skills/github-actions-testing/SKILL.md",
+          "focus": "Adapt the artifact upload workflow and retain the artifact ID, run ID, name, and configured retention."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "yaml",
+          "path": "seed-skills/quality-gates-ci/SKILL.md",
+          "focus": "Add a quality-gate job that compares policy, API metadata, and retrieval status without storing secrets in logs."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/github-actions-testing/SKILL.md",
+        "seed-skills/quality-gates-ci/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/cicd-testing-pipeline-github-actions",
+        "/blog/github-actions-playwright-matrix-guide-2026",
+        "/blog/ci-cache-pnpm-store-github-actions",
+        "/blog/ci-upload-artifacts-only-on-test-failure",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "cicd-testing-pipeline-github-actions",
+        "github-actions-playwright-matrix-guide-2026",
+        "ci-cache-pnpm-store-github-actions",
+        "ci-upload-artifacts-only-on-test-failure"
+      ],
+      "sources": [
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/dependency-caching",
+        "https://docs.github.com/en/actions/tutorials/store-and-share-data",
+        "https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs"
+      ],
+      "faqQuestions": [
+        "How can a pipeline verify test artifacts remain available for the configured retention period and disappear on schedule?",
+        "What should an CI artifact retention test fixture record?",
+        "Which failure proves GitHub artifact expires_at is broken?",
+        "How do teams isolate retention-days validation?",
+        "Which assertion is strongest for test report expiration check?",
+        "How should CI report artifact lifecycle monitoring failures?"
+      ],
+      "cta": "Review /blog/cicd-testing-pipeline-github-actions, then open /skills and implement the CI artifact retention expiration testing matrix in the next test run."
+    }
+  ]
+}

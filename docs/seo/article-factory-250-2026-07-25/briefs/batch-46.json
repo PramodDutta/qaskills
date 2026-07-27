@@ -1,0 +1,1088 @@
+{
+  "batch": 46,
+  "briefs": [
+    {
+      "sourceTopicId": "testing-frameworks-59",
+      "batch": 46,
+      "batchPosition": 1,
+      "domain": "testing-frameworks",
+      "slug": "contract-response-header-optionality-testing",
+      "primaryKeyword": "contract response header optionality testing",
+      "title": "contract response header optionality testing",
+      "description": "contract response header optionality testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How should contracts distinguish required, optional, repeated, and case-insensitive response headers without overconstraining providers?",
+      "intentBoundary": "The nearest page covers a broader contract workflow. This candidate owns response-header optionality and normalization rules.",
+      "secondaryKeywords": [
+        "contract response header rules",
+        "optional API header contract",
+        "repeated response header test",
+        "header case contract testing",
+        "Pact response header matcher"
+      ],
+      "outline": [
+        {
+          "heading": "What does contract response header optionality testing verify?",
+          "question": true,
+          "coverage": "Answer \"How should contracts distinguish required, optional, repeated, and case-insensitive response headers without overconstraining providers?\" in 40 to 60 words. Define the observable contract: consumer contracts distinguish required, optional, repeated, and case-insensitive response headers without constraining unrelated values. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/contract-testing-pact/SKILL.md",
+            "seed-skills/api-contract-validator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an contract response header rules?",
+          "question": true,
+          "secondaryKeyword": "contract response header rules",
+          "coverage": "Describe this exact fixture: provider responses that omit optional fields, omit required fields, vary header casing, repeat values, and change only unrelated headers. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/contract-testing-pact/SKILL.md"]
+        },
+        {
+          "heading": "What breaks optional API header contract?",
+          "question": true,
+          "secondaryKeyword": "optional API header contract",
+          "coverage": "Explain the failure mechanics behind treating optional as required, matching all headers exactly, ignoring repeated values, case-sensitive names, and permissive wildcard matchers. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/contract-testing-pact/SKILL.md",
+            "seed-skills/api-contract-validator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "repeated response header test fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "repeated response header test",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use provider responses that omit optional fields, omit required fields, vary header casing, repeat values, and change only unrelated headers, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/api-contract-validator/SKILL.md"]
+        },
+        {
+          "heading": "How should header case contract testing be asserted?",
+          "question": true,
+          "secondaryKeyword": "header case contract testing",
+          "coverage": "Build the oracle from Pact interaction verification and focused negative examples show which header differences must fail and which remain compatible. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/contract-testing-pact/SKILL.md",
+            "seed-skills/api-contract-validator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Pact response header matcher in CI",
+          "question": false,
+          "secondaryKeyword": "Pact response header matcher",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to contract-testing-pact and api-contract-validator.",
+          "repoEvidence": [
+            "seed-skills/contract-testing-pact/SKILL.md",
+            "seed-skills/api-contract-validator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "contract response header optionality testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: required header present with expected value; required header absent; optional header absent; same header name with different casing; repeated header values in a different order. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/contract-testing-pact/SKILL.md",
+            "seed-skills/api-contract-validator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement contract response header optionality testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/contract-testing-pact/SKILL.md",
+            "seed-skills/api-contract-validator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within consumer contracts distinguish required, optional, repeated, and case-insensitive response headers without constraining unrelated values, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/contract-testing-pact/SKILL.md",
+            "seed-skills/api-contract-validator/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/api-contract-testing-microservices, then open /skills and implement the contract response header optionality testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/contract-testing-pact/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "contract response header optionality testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "required header present with expected value",
+            "controlledSetup": "provider responses that omit optional fields, omit required fields, vary header casing, repeat values, and change only unrelated headers",
+            "expectedObservation": "Pact interaction verification and focused negative examples show which header differences must fail and which remain compatible",
+            "failureSignal": "Observed state differs from the documented consumer contracts distinguish required, optional, repeated, and case-insensitive response headers without constraining unrelated values.",
+            "evidenceSource": "seed-skills/contract-testing-pact/SKILL.md"
+          },
+          {
+            "scenario": "required header absent",
+            "controlledSetup": "Change only the condition represented by \"required header absent\" while retaining the baseline fixture.",
+            "expectedObservation": "Pact interaction verification and focused negative examples show which header differences must fail and which remain compatible",
+            "failureSignal": "Observed state differs from the documented consumer contracts distinguish required, optional, repeated, and case-insensitive response headers without constraining unrelated values.",
+            "evidenceSource": "seed-skills/api-contract-validator/SKILL.md"
+          },
+          {
+            "scenario": "optional header absent",
+            "controlledSetup": "Change only the condition represented by \"optional header absent\" while retaining the baseline fixture.",
+            "expectedObservation": "Pact interaction verification and focused negative examples show which header differences must fail and which remain compatible",
+            "failureSignal": "Observed state differs from the documented consumer contracts distinguish required, optional, repeated, and case-insensitive response headers without constraining unrelated values.",
+            "evidenceSource": "seed-skills/contract-testing-pact/SKILL.md"
+          },
+          {
+            "scenario": "same header name with different casing",
+            "controlledSetup": "Change only the condition represented by \"same header name with different casing\" while retaining the baseline fixture.",
+            "expectedObservation": "Pact interaction verification and focused negative examples show which header differences must fail and which remain compatible",
+            "failureSignal": "Observed state differs from the documented consumer contracts distinguish required, optional, repeated, and case-insensitive response headers without constraining unrelated values.",
+            "evidenceSource": "seed-skills/api-contract-validator/SKILL.md"
+          },
+          {
+            "scenario": "repeated header values in a different order",
+            "controlledSetup": "Change only the condition represented by \"repeated header values in a different order\" while retaining the baseline fixture.",
+            "expectedObservation": "Pact interaction verification and focused negative examples show which header differences must fail and which remain compatible",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish treating optional as required, matching all headers exactly, ignoring repeated values, case-sensitive names, and permissive wildcard matchers.",
+            "evidenceSource": "seed-skills/contract-testing-pact/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/contract-testing-pact/SKILL.md",
+          "seed-skills/api-contract-validator/SKILL.md",
+          "https://docs.pact.io/implementation_guides/javascript/docs/matching",
+          "https://docs.pact.io/getting_started/matching",
+          "https://www.rfc-editor.org/info/rfc9110"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run contract response header optionality testing",
+        "steps": [
+          "Read seed-skills/contract-testing-pact/SKILL.md and seed-skills/api-contract-validator/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using provider responses that omit optional fields, omit required fields, vary header casing, repeat values, and change only unrelated headers.",
+          "Run the positive case and capture Pact interaction verification and focused negative examples show which header differences must fail and which remain compatible.",
+          "Inject one failure at a time from treating optional as required, matching all headers exactly, ignoring repeated values, case-sensitive names, and permissive wildcard matchers, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the contract response header optionality testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/contract-testing-pact/SKILL.md",
+          "focus": "Adapt the Pact response examples to isolate exact, regex, and optional header expectations."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/api-contract-validator/SKILL.md",
+          "focus": "Use the API validator patterns to add negative provider fixtures for missing and repeated headers."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/contract-testing-pact/SKILL.md",
+        "seed-skills/api-contract-validator/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/api-contract-testing-microservices",
+        "/blog/contract-testing-pact-complete-guide",
+        "/blog/bidirectional-contract-testing-pact-2026",
+        "/blog/contract-testing-pact-vs-spring-cloud-contract-2026",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "api-contract-testing-microservices",
+        "contract-testing-pact-complete-guide",
+        "bidirectional-contract-testing-pact-2026",
+        "contract-testing-pact-vs-spring-cloud-contract-2026"
+      ],
+      "sources": [
+        "https://docs.pact.io/implementation_guides/javascript/docs/matching",
+        "https://docs.pact.io/getting_started/matching",
+        "https://www.rfc-editor.org/info/rfc9110"
+      ],
+      "faqQuestions": [
+        "How should contracts distinguish required, optional, repeated, and case-insensitive response headers without overconstraining providers?",
+        "What should an contract response header rules fixture record?",
+        "Which failure proves optional API header contract is broken?",
+        "How do teams isolate repeated response header test?",
+        "Which assertion is strongest for header case contract testing?",
+        "How should CI report Pact response header matcher failures?"
+      ],
+      "cta": "Review /blog/api-contract-testing-microservices, then open /skills and implement the contract response header optionality testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-40",
+      "batch": 46,
+      "batchPosition": 2,
+      "domain": "testing-frameworks",
+      "slug": "cors-preflight-cache-policy-testing",
+      "primaryKeyword": "CORS preflight cache policy testing",
+      "title": "CORS preflight cache policy testing",
+      "description": "CORS preflight cache policy testing: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA validate CORS preflight cache duration, invalidation, origin separation, and changed server policy?",
+      "intentBoundary": "The nearest page covers a broader security workflow. This candidate owns preflight-cache policy and invalidation rather than basic CORS headers.",
+      "secondaryKeywords": [
+        "CORS preflight cache test",
+        "Access-Control-Max-Age validation",
+        "origin separated preflight cache",
+        "CORS policy change invalidation",
+        "OPTIONS request cache behavior"
+      ],
+      "outline": [
+        {
+          "heading": "What does CORS preflight cache policy testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA validate CORS preflight cache duration, invalidation, origin separation, and changed server policy?\" in 40 to 60 words. Define the observable contract: preflight reuse is scoped to the relevant origin, method, request headers, credentials mode, and server-advertised cache lifetime. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an CORS preflight cache test?",
+          "question": true,
+          "secondaryKeyword": "CORS preflight cache test",
+          "coverage": "Describe this exact fixture: two controlled origins calling one API while method, custom headers, credentials, Access-Control-Max-Age, and server policy change independently. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/security-best-practices/SKILL.md"]
+        },
+        {
+          "heading": "What breaks Access-Control-Max-Age validation?",
+          "question": true,
+          "secondaryKeyword": "Access-Control-Max-Age validation",
+          "coverage": "Explain the failure mechanics behind sharing cache state across origins, stale allowlists, browser caps, credential changes, hidden proxy caching, and counting actual requests as preflights. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "origin separated preflight cache fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "origin separated preflight cache",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use two controlled origins calling one API while method, custom headers, credentials, Access-Control-Max-Age, and server policy change independently, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/owasp-security/SKILL.md"]
+        },
+        {
+          "heading": "How should CORS policy change invalidation be asserted?",
+          "question": true,
+          "secondaryKeyword": "CORS policy change invalidation",
+          "coverage": "Build the oracle from captured OPTIONS counts, request tuples, response headers, and actual request results reveal cache hits, misses, and stale authorization. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "OPTIONS request cache behavior in CI",
+          "question": false,
+          "secondaryKeyword": "OPTIONS request cache behavior",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to security-best-practices and owasp-security.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "CORS preflight cache policy testing comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: same origin, method, and headers inside max age; different requesting origin; new custom request header; server policy change during the cache window; zero or expired Access-Control-Max-Age. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement CORS preflight cache policy testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within preflight reuse is scoped to the relevant origin, method, request headers, credentials mode, and server-advertised cache lifetime, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/security-testing-complete-guide, then open /skills and implement the CORS preflight cache policy testing matrix in the next test run.",
+          "repoEvidence": ["seed-skills/security-best-practices/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "CORS preflight cache policy testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "same origin, method, and headers inside max age",
+            "controlledSetup": "two controlled origins calling one API while method, custom headers, credentials, Access-Control-Max-Age, and server policy change independently",
+            "expectedObservation": "captured OPTIONS counts, request tuples, response headers, and actual request results reveal cache hits, misses, and stale authorization",
+            "failureSignal": "Observed state differs from the documented preflight reuse is scoped to the relevant origin, method, request headers, credentials mode, and server-advertised cache lifetime.",
+            "evidenceSource": "seed-skills/security-best-practices/SKILL.md"
+          },
+          {
+            "scenario": "different requesting origin",
+            "controlledSetup": "Change only the condition represented by \"different requesting origin\" while retaining the baseline fixture.",
+            "expectedObservation": "captured OPTIONS counts, request tuples, response headers, and actual request results reveal cache hits, misses, and stale authorization",
+            "failureSignal": "Observed state differs from the documented preflight reuse is scoped to the relevant origin, method, request headers, credentials mode, and server-advertised cache lifetime.",
+            "evidenceSource": "seed-skills/owasp-security/SKILL.md"
+          },
+          {
+            "scenario": "new custom request header",
+            "controlledSetup": "Change only the condition represented by \"new custom request header\" while retaining the baseline fixture.",
+            "expectedObservation": "captured OPTIONS counts, request tuples, response headers, and actual request results reveal cache hits, misses, and stale authorization",
+            "failureSignal": "Observed state differs from the documented preflight reuse is scoped to the relevant origin, method, request headers, credentials mode, and server-advertised cache lifetime.",
+            "evidenceSource": "seed-skills/security-best-practices/SKILL.md"
+          },
+          {
+            "scenario": "server policy change during the cache window",
+            "controlledSetup": "Change only the condition represented by \"server policy change during the cache window\" while retaining the baseline fixture.",
+            "expectedObservation": "captured OPTIONS counts, request tuples, response headers, and actual request results reveal cache hits, misses, and stale authorization",
+            "failureSignal": "Observed state differs from the documented preflight reuse is scoped to the relevant origin, method, request headers, credentials mode, and server-advertised cache lifetime.",
+            "evidenceSource": "seed-skills/owasp-security/SKILL.md"
+          },
+          {
+            "scenario": "zero or expired Access-Control-Max-Age",
+            "controlledSetup": "Change only the condition represented by \"zero or expired Access-Control-Max-Age\" while retaining the baseline fixture.",
+            "expectedObservation": "captured OPTIONS counts, request tuples, response headers, and actual request results reveal cache hits, misses, and stale authorization",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish sharing cache state across origins, stale allowlists, browser caps, credential changes, hidden proxy caching, and counting actual requests as preflights.",
+            "evidenceSource": "seed-skills/security-best-practices/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/security-best-practices/SKILL.md",
+          "seed-skills/owasp-security/SKILL.md",
+          "https://www.w3.org/TR/CSP3/",
+          "https://fetch.spec.whatwg.org/",
+          "https://www.rfc-editor.org/info/rfc9700",
+          "https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run CORS preflight cache policy testing",
+        "steps": [
+          "Read seed-skills/security-best-practices/SKILL.md and seed-skills/owasp-security/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using two controlled origins calling one API while method, custom headers, credentials, Access-Control-Max-Age, and server policy change independently.",
+          "Run the positive case and capture captured OPTIONS counts, request tuples, response headers, and actual request results reveal cache hits, misses, and stale authorization.",
+          "Inject one failure at a time from sharing cache state across origins, stale allowlists, browser caps, credential changes, hidden proxy caching, and counting actual requests as preflights, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the CORS preflight cache policy testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/security-best-practices/SKILL.md",
+          "focus": "Adapt the security header checks into a two-origin preflight fixture with a request counter."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/owasp-security/SKILL.md",
+          "focus": "Use OWASP-oriented negative cases to prove a stale cache cannot authorize a newly denied request tuple."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/security-best-practices/SKILL.md",
+        "seed-skills/owasp-security/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/security-testing-complete-guide",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/owasp-zap-api-security-testing-guide-2026",
+        "/blog/authentication-authorization-testing-guide",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "security-testing-complete-guide",
+        "api-security-testing-checklist-2026",
+        "owasp-zap-api-security-testing-guide-2026",
+        "authentication-authorization-testing-guide"
+      ],
+      "sources": [
+        "https://www.w3.org/TR/CSP3/",
+        "https://fetch.spec.whatwg.org/",
+        "https://www.rfc-editor.org/info/rfc9700",
+        "https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html"
+      ],
+      "faqQuestions": [
+        "How can QA validate CORS preflight cache duration, invalidation, origin separation, and changed server policy?",
+        "What should an CORS preflight cache test fixture record?",
+        "Which failure proves Access-Control-Max-Age validation is broken?",
+        "How do teams isolate origin separated preflight cache?",
+        "Which assertion is strongest for CORS policy change invalidation?",
+        "How should CI report OPTIONS request cache behavior failures?"
+      ],
+      "cta": "Review /blog/security-testing-complete-guide, then open /skills and implement the CORS preflight cache policy testing matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-41",
+      "batch": 46,
+      "batchPosition": 3,
+      "domain": "testing-frameworks",
+      "slug": "csp-nonce-reuse-detection-tests",
+      "primaryKeyword": "CSP nonce reuse detection tests",
+      "title": "CSP nonce reuse detection tests",
+      "description": "CSP nonce reuse detection tests: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How can security tests detect CSP nonce reuse across requests, cached HTML, concurrent sessions, and error pages?",
+      "intentBoundary": "The nearest page covers a broader security workflow. This candidate owns nonce uniqueness across response and caching paths.",
+      "secondaryKeywords": [
+        "CSP nonce reuse test",
+        "unique nonce per response",
+        "cached CSP nonce vulnerability",
+        "concurrent session nonce check",
+        "CSP error page security"
+      ],
+      "outline": [
+        {
+          "heading": "What does CSP nonce reuse detection tests verify?",
+          "question": true,
+          "coverage": "Answer \"How can security tests detect CSP nonce reuse across requests, cached HTML, concurrent sessions, and error pages?\" in 40 to 60 words. Define the observable contract: every HTML response receives a fresh nonce and every allowed inline script uses the nonce declared by that same response policy. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an CSP nonce reuse test?",
+          "question": true,
+          "secondaryKeyword": "CSP nonce reuse test",
+          "coverage": "Describe this exact fixture: serial, concurrent, cached, authenticated, anonymous, and error-page requests that expose the CSP header and script nonce attributes. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/security-best-practices/SKILL.md"]
+        },
+        {
+          "heading": "What breaks unique nonce per response?",
+          "question": true,
+          "secondaryKeyword": "unique nonce per response",
+          "coverage": "Explain the failure mechanics behind template-level nonce reuse, cached HTML, shared request state, missing error-page policy, concurrent collisions, and logging nonce values. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "cached CSP nonce vulnerability fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "cached CSP nonce vulnerability",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use serial, concurrent, cached, authenticated, anonymous, and error-page requests that expose the CSP header and script nonce attributes, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/owasp-security/SKILL.md"]
+        },
+        {
+          "heading": "How should concurrent session nonce check be asserted?",
+          "question": true,
+          "secondaryKeyword": "concurrent session nonce check",
+          "coverage": "Build the oracle from per-response nonce sets, header-to-DOM equality, uniqueness comparisons, and blocked-script observations reveal reuse or mismatch. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "CSP error page security in CI",
+          "question": false,
+          "secondaryKeyword": "CSP error page security",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to security-best-practices and owasp-security.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "CSP nonce reuse detection tests comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: two sequential successful responses; parallel responses from separate sessions; cached HTML response; server error page; CSP header nonce that differs from the script attribute. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement CSP nonce reuse detection tests?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within every HTML response receives a fresh nonce and every allowed inline script uses the nonce declared by that same response policy, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/security-best-practices/SKILL.md",
+            "seed-skills/owasp-security/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/security-testing-complete-guide, then open /skills and implement the CSP nonce reuse detection tests matrix in the next test run.",
+          "repoEvidence": ["seed-skills/security-best-practices/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "CSP nonce reuse detection tests scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "two sequential successful responses",
+            "controlledSetup": "serial, concurrent, cached, authenticated, anonymous, and error-page requests that expose the CSP header and script nonce attributes",
+            "expectedObservation": "per-response nonce sets, header-to-DOM equality, uniqueness comparisons, and blocked-script observations reveal reuse or mismatch",
+            "failureSignal": "Observed state differs from the documented every HTML response receives a fresh nonce and every allowed inline script uses the nonce declared by that same response policy.",
+            "evidenceSource": "seed-skills/security-best-practices/SKILL.md"
+          },
+          {
+            "scenario": "parallel responses from separate sessions",
+            "controlledSetup": "Change only the condition represented by \"parallel responses from separate sessions\" while retaining the baseline fixture.",
+            "expectedObservation": "per-response nonce sets, header-to-DOM equality, uniqueness comparisons, and blocked-script observations reveal reuse or mismatch",
+            "failureSignal": "Observed state differs from the documented every HTML response receives a fresh nonce and every allowed inline script uses the nonce declared by that same response policy.",
+            "evidenceSource": "seed-skills/owasp-security/SKILL.md"
+          },
+          {
+            "scenario": "cached HTML response",
+            "controlledSetup": "Change only the condition represented by \"cached HTML response\" while retaining the baseline fixture.",
+            "expectedObservation": "per-response nonce sets, header-to-DOM equality, uniqueness comparisons, and blocked-script observations reveal reuse or mismatch",
+            "failureSignal": "Observed state differs from the documented every HTML response receives a fresh nonce and every allowed inline script uses the nonce declared by that same response policy.",
+            "evidenceSource": "seed-skills/security-best-practices/SKILL.md"
+          },
+          {
+            "scenario": "server error page",
+            "controlledSetup": "Change only the condition represented by \"server error page\" while retaining the baseline fixture.",
+            "expectedObservation": "per-response nonce sets, header-to-DOM equality, uniqueness comparisons, and blocked-script observations reveal reuse or mismatch",
+            "failureSignal": "Observed state differs from the documented every HTML response receives a fresh nonce and every allowed inline script uses the nonce declared by that same response policy.",
+            "evidenceSource": "seed-skills/owasp-security/SKILL.md"
+          },
+          {
+            "scenario": "CSP header nonce that differs from the script attribute",
+            "controlledSetup": "Change only the condition represented by \"CSP header nonce that differs from the script attribute\" while retaining the baseline fixture.",
+            "expectedObservation": "per-response nonce sets, header-to-DOM equality, uniqueness comparisons, and blocked-script observations reveal reuse or mismatch",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish template-level nonce reuse, cached HTML, shared request state, missing error-page policy, concurrent collisions, and logging nonce values.",
+            "evidenceSource": "seed-skills/security-best-practices/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/security-best-practices/SKILL.md",
+          "seed-skills/owasp-security/SKILL.md",
+          "https://www.w3.org/TR/CSP3/",
+          "https://fetch.spec.whatwg.org/",
+          "https://www.rfc-editor.org/info/rfc9700",
+          "https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run CSP nonce reuse detection tests",
+        "steps": [
+          "Read seed-skills/security-best-practices/SKILL.md and seed-skills/owasp-security/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using serial, concurrent, cached, authenticated, anonymous, and error-page requests that expose the CSP header and script nonce attributes.",
+          "Run the positive case and capture per-response nonce sets, header-to-DOM equality, uniqueness comparisons, and blocked-script observations reveal reuse or mismatch.",
+          "Inject one failure at a time from template-level nonce reuse, cached HTML, shared request state, missing error-page policy, concurrent collisions, and logging nonce values, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the CSP nonce reuse detection tests baseline",
+          "language": "typescript",
+          "path": "seed-skills/security-best-practices/SKILL.md",
+          "focus": "Adapt the CSP header checks to collect and compare nonce values without persisting them in test output."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/owasp-security/SKILL.md",
+          "focus": "Use the OWASP security workflow to cover cache, concurrency, and error-response branches."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/security-best-practices/SKILL.md",
+        "seed-skills/owasp-security/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog/security-testing-complete-guide",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/owasp-zap-api-security-testing-guide-2026",
+        "/blog/authentication-authorization-testing-guide",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "security-testing-complete-guide",
+        "api-security-testing-checklist-2026",
+        "owasp-zap-api-security-testing-guide-2026",
+        "authentication-authorization-testing-guide"
+      ],
+      "sources": [
+        "https://www.w3.org/TR/CSP3/",
+        "https://fetch.spec.whatwg.org/",
+        "https://www.rfc-editor.org/info/rfc9700",
+        "https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html"
+      ],
+      "faqQuestions": [
+        "How can security tests detect CSP nonce reuse across requests, cached HTML, concurrent sessions, and error pages?",
+        "What should an CSP nonce reuse test fixture record?",
+        "Which failure proves unique nonce per response is broken?",
+        "How do teams isolate cached CSP nonce vulnerability?",
+        "Which assertion is strongest for concurrent session nonce check?",
+        "How should CI report CSP error page security failures?"
+      ],
+      "cta": "Review /blog/security-testing-complete-guide, then open /skills and implement the CSP nonce reuse detection tests matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-07",
+      "batch": 46,
+      "batchPosition": 4,
+      "domain": "testing-frameworks",
+      "slug": "cypress-device-pixel-ratio-screenshots",
+      "primaryKeyword": "Cypress device pixel ratio screenshots",
+      "title": "Cypress device pixel ratio screenshots",
+      "description": "Cypress device pixel ratio screenshots: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How should QA control viewport, browser scale, and device pixel ratio so Cypress screenshots remain comparable?",
+      "intentBoundary": "The nearest page covers a broader cypress workflow. This candidate owns device-pixel-ratio controls for Cypress screenshot baselines.",
+      "secondaryKeywords": [
+        "Cypress screenshot pixel ratio",
+        "device scale visual test",
+        "Cypress viewport screenshot stability",
+        "retina screenshot baseline Cypress",
+        "browser zoom visual regression"
+      ],
+      "outline": [
+        {
+          "heading": "What does Cypress device pixel ratio screenshots verify?",
+          "question": true,
+          "coverage": "Answer \"How should QA control viewport, browser scale, and device pixel ratio so Cypress screenshots remain comparable?\" in 40 to 60 words. Define the observable contract: screenshot baselines are compared only when viewport, browser, device scale, zoom, fonts, and capture mode are intentionally equivalent. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": [
+            "seed-skills/cypress-e2e/SKILL.md",
+            "seed-skills/screenshot-testing-ci/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build an Cypress screenshot pixel ratio?",
+          "question": true,
+          "secondaryKeyword": "Cypress screenshot pixel ratio",
+          "coverage": "Describe this exact fixture: a deterministic component page captured at fixed viewports under standard and high-density execution environments. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/cypress-e2e/SKILL.md"]
+        },
+        {
+          "heading": "What breaks device scale visual test?",
+          "question": true,
+          "secondaryKeyword": "device scale visual test",
+          "coverage": "Explain the failure mechanics behind retina versus standard runners, browser zoom, font rendering, scrollbar differences, capture scaling, and mixed baseline provenance. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": [
+            "seed-skills/cypress-e2e/SKILL.md",
+            "seed-skills/screenshot-testing-ci/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Cypress viewport screenshot stability fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "Cypress viewport screenshot stability",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a deterministic component page captured at fixed viewports under standard and high-density execution environments, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/screenshot-testing-ci/SKILL.md"]
+        },
+        {
+          "heading": "How should retina screenshot baseline Cypress be asserted?",
+          "question": true,
+          "secondaryKeyword": "retina screenshot baseline Cypress",
+          "coverage": "Build the oracle from image dimensions, browser metadata, devicePixelRatio, screenshot options, and visual diffs identify scale mismatch before pixel comparison. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": [
+            "seed-skills/cypress-e2e/SKILL.md",
+            "seed-skills/screenshot-testing-ci/SKILL.md"
+          ]
+        },
+        {
+          "heading": "browser zoom visual regression in CI",
+          "question": false,
+          "secondaryKeyword": "browser zoom visual regression",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to cypress-e2e and screenshot-testing-ci.",
+          "repoEvidence": [
+            "seed-skills/cypress-e2e/SKILL.md",
+            "seed-skills/screenshot-testing-ci/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Cypress device pixel ratio screenshots comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: same viewport and same device scale; same viewport with a different device scale; retina baseline on a standard CI runner; browser zoom changed from the baseline; element capture versus full-page capture. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": [
+            "seed-skills/cypress-e2e/SKILL.md",
+            "seed-skills/screenshot-testing-ci/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement Cypress device pixel ratio screenshots?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/cypress-e2e/SKILL.md",
+            "seed-skills/screenshot-testing-ci/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within screenshot baselines are compared only when viewport, browser, device scale, zoom, fonts, and capture mode are intentionally equivalent, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/cypress-e2e/SKILL.md",
+            "seed-skills/screenshot-testing-ci/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/cypress-best-practices-2026-guide, then open /skills and implement the Cypress device pixel ratio screenshots matrix in the next test run.",
+          "repoEvidence": ["seed-skills/cypress-e2e/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Cypress device pixel ratio screenshots scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "same viewport and same device scale",
+            "controlledSetup": "a deterministic component page captured at fixed viewports under standard and high-density execution environments",
+            "expectedObservation": "image dimensions, browser metadata, devicePixelRatio, screenshot options, and visual diffs identify scale mismatch before pixel comparison",
+            "failureSignal": "Observed state differs from the documented screenshot baselines are compared only when viewport, browser, device scale, zoom, fonts, and capture mode are intentionally equivalent.",
+            "evidenceSource": "seed-skills/cypress-e2e/SKILL.md"
+          },
+          {
+            "scenario": "same viewport with a different device scale",
+            "controlledSetup": "Change only the condition represented by \"same viewport with a different device scale\" while retaining the baseline fixture.",
+            "expectedObservation": "image dimensions, browser metadata, devicePixelRatio, screenshot options, and visual diffs identify scale mismatch before pixel comparison",
+            "failureSignal": "Observed state differs from the documented screenshot baselines are compared only when viewport, browser, device scale, zoom, fonts, and capture mode are intentionally equivalent.",
+            "evidenceSource": "seed-skills/screenshot-testing-ci/SKILL.md"
+          },
+          {
+            "scenario": "retina baseline on a standard CI runner",
+            "controlledSetup": "Change only the condition represented by \"retina baseline on a standard CI runner\" while retaining the baseline fixture.",
+            "expectedObservation": "image dimensions, browser metadata, devicePixelRatio, screenshot options, and visual diffs identify scale mismatch before pixel comparison",
+            "failureSignal": "Observed state differs from the documented screenshot baselines are compared only when viewport, browser, device scale, zoom, fonts, and capture mode are intentionally equivalent.",
+            "evidenceSource": "seed-skills/cypress-e2e/SKILL.md"
+          },
+          {
+            "scenario": "browser zoom changed from the baseline",
+            "controlledSetup": "Change only the condition represented by \"browser zoom changed from the baseline\" while retaining the baseline fixture.",
+            "expectedObservation": "image dimensions, browser metadata, devicePixelRatio, screenshot options, and visual diffs identify scale mismatch before pixel comparison",
+            "failureSignal": "Observed state differs from the documented screenshot baselines are compared only when viewport, browser, device scale, zoom, fonts, and capture mode are intentionally equivalent.",
+            "evidenceSource": "seed-skills/screenshot-testing-ci/SKILL.md"
+          },
+          {
+            "scenario": "element capture versus full-page capture",
+            "controlledSetup": "Change only the condition represented by \"element capture versus full-page capture\" while retaining the baseline fixture.",
+            "expectedObservation": "image dimensions, browser metadata, devicePixelRatio, screenshot options, and visual diffs identify scale mismatch before pixel comparison",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish retina versus standard runners, browser zoom, font rendering, scrollbar differences, capture scaling, and mixed baseline provenance.",
+            "evidenceSource": "seed-skills/cypress-e2e/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/cypress-e2e/SKILL.md",
+          "seed-skills/screenshot-testing-ci/SKILL.md",
+          "https://docs.cypress.io/app/core-concepts/test-isolation",
+          "https://docs.cypress.io/app/core-concepts/retry-ability",
+          "https://docs.cypress.io/api/commands/screenshot"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Cypress device pixel ratio screenshots",
+        "steps": [
+          "Read seed-skills/cypress-e2e/SKILL.md and seed-skills/screenshot-testing-ci/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a deterministic component page captured at fixed viewports under standard and high-density execution environments.",
+          "Run the positive case and capture image dimensions, browser metadata, devicePixelRatio, screenshot options, and visual diffs identify scale mismatch before pixel comparison.",
+          "Inject one failure at a time from retina versus standard runners, browser zoom, font rendering, scrollbar differences, capture scaling, and mixed baseline provenance, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Cypress device pixel ratio screenshots baseline",
+          "language": "typescript",
+          "path": "seed-skills/cypress-e2e/SKILL.md",
+          "focus": "Adapt Cypress viewport and screenshot commands to record dimensions and devicePixelRatio beside each artifact."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/screenshot-testing-ci/SKILL.md",
+          "focus": "Use the CI screenshot skill to reject incompatible baseline metadata before running visual comparison."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/cypress-e2e/SKILL.md",
+        "seed-skills/screenshot-testing-ci/SKILL.md"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/e2e-testing",
+        "/blog/cypress-best-practices-2026-guide",
+        "/blog/cypress-intercept-network-stubbing-reference",
+        "/blog/cypress-image-snapshot-visual-guide",
+        "/blog/cypress-percy-visual-testing-guide",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "cypress-best-practices-2026-guide",
+        "cypress-intercept-network-stubbing-reference",
+        "cypress-image-snapshot-visual-guide",
+        "cypress-percy-visual-testing-guide"
+      ],
+      "sources": [
+        "https://docs.cypress.io/app/core-concepts/test-isolation",
+        "https://docs.cypress.io/app/core-concepts/retry-ability",
+        "https://docs.cypress.io/api/commands/screenshot"
+      ],
+      "faqQuestions": [
+        "How should QA control viewport, browser scale, and device pixel ratio so Cypress screenshots remain comparable?",
+        "What should an Cypress screenshot pixel ratio fixture record?",
+        "Which failure proves device scale visual test is broken?",
+        "How do teams isolate Cypress viewport screenshot stability?",
+        "Which assertion is strongest for retina screenshot baseline Cypress?",
+        "How should CI report browser zoom visual regression failures?"
+      ],
+      "cta": "Review /blog/cypress-best-practices-2026-guide, then open /skills and implement the Cypress device pixel ratio screenshots matrix in the next test run."
+    },
+    {
+      "sourceTopicId": "testing-frameworks-04",
+      "batch": 46,
+      "batchPosition": 5,
+      "domain": "testing-frameworks",
+      "slug": "vitest-module-reset-dynamic-imports",
+      "primaryKeyword": "Vitest module reset dynamic imports",
+      "title": "Vitest module reset dynamic imports",
+      "description": "Vitest module reset dynamic imports: use repo fixtures, edge cases, and CI assertions to expose failures and protect the intended test contract.",
+      "intent": "how-to",
+      "coreQuestion": "How can Vitest tests reset module state and use dynamic imports so each case receives a fresh module instance?",
+      "intentBoundary": "The nearest page covers a broader vitest workflow. This candidate owns dynamic-import timing after module cache reset.",
+      "secondaryKeywords": [
+        "Vitest resetModules dynamic import",
+        "fresh module instance Vitest",
+        "Vitest module cache isolation",
+        "dynamic import after reset",
+        "Vitest singleton reset test"
+      ],
+      "outline": [
+        {
+          "heading": "What does Vitest module reset dynamic imports verify?",
+          "question": true,
+          "coverage": "Answer \"How can Vitest tests reset module state and use dynamic imports so each case receives a fresh module instance?\" in 40 to 60 words. Define the observable contract: each test resets the module registry before a dynamic import so stateful modules evaluate against that test case configuration. Separate repository facts from the article's recommended regression checks.",
+          "repoEvidence": ["seed-skills/vitest-testing/SKILL.md", "seed-skills/vitest/SKILL.md"]
+        },
+        {
+          "heading": "How do you build an Vitest resetModules dynamic import?",
+          "question": true,
+          "secondaryKeyword": "Vitest resetModules dynamic import",
+          "coverage": "Describe this exact fixture: a singleton module that reads an environment value at evaluation time and increments module-local state. Name setup, isolation, controlled inputs, cleanup, and the first assertion that proves the positive path.",
+          "repoEvidence": ["seed-skills/vitest-testing/SKILL.md"]
+        },
+        {
+          "heading": "What breaks fresh module instance Vitest?",
+          "question": true,
+          "secondaryKeyword": "fresh module instance Vitest",
+          "coverage": "Explain the failure mechanics behind static imports before reset, hoisted mocks, shared environment mutation, unresolved dynamic imports, and concurrent tests touching one module. Show which observation distinguishes an application defect from test setup, runner, browser, device, or protocol behavior.",
+          "repoEvidence": ["seed-skills/vitest-testing/SKILL.md", "seed-skills/vitest/SKILL.md"]
+        },
+        {
+          "heading": "Vitest module cache isolation fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "Vitest module cache isolation",
+          "coverage": "Turn the scenario into positive, negative, boundary, repeated-run, and cleanup controls. Use a singleton module that reads an environment value at evaluation time and increments module-local state, then record enough evidence to reproduce the failure without shared state.",
+          "repoEvidence": ["seed-skills/vitest/SKILL.md"]
+        },
+        {
+          "heading": "How should dynamic import after reset be asserted?",
+          "question": true,
+          "secondaryKeyword": "dynamic import after reset",
+          "coverage": "Build the oracle from fresh imported namespaces, initial counter values, environment-dependent exports, and mock state prove whether evaluation occurred again. Explain exact equality, partial order, bounded timing, state transition, or compatibility assertions where each applies, and reject weak success-only checks.",
+          "repoEvidence": ["seed-skills/vitest-testing/SKILL.md", "seed-skills/vitest/SKILL.md"]
+        },
+        {
+          "heading": "Vitest singleton reset test in CI",
+          "question": false,
+          "secondaryKeyword": "Vitest singleton reset test",
+          "coverage": "Package the local check as a deterministic CI gate. Record fixture identity, runtime or device metadata, relevant output, cleanup status, and a concise diagnostic tied to vitest-testing and vitest.",
+          "repoEvidence": ["seed-skills/vitest-testing/SKILL.md", "seed-skills/vitest/SKILL.md"]
+        },
+        {
+          "heading": "Vitest module reset dynamic imports comparison matrix",
+          "question": false,
+          "coverage": "Present the planned comparison table across these cases: dynamic import without resetModules; resetModules before dynamic import; static import followed by resetModules; environment value changed before import; two concurrent tests importing the singleton. For each row, identify setup, expected observation, failure signal, and repository or external source.",
+          "repoEvidence": ["seed-skills/vitest-testing/SKILL.md", "seed-skills/vitest/SKILL.md"]
+        },
+        {
+          "heading": "How do you implement Vitest module reset dynamic imports?",
+          "question": true,
+          "coverage": "Follow the numbered procedure in this brief. Include two repository-backed code examples, run the positive case before fault injection, and preserve evidence that explains the first differing state.",
+          "repoEvidence": ["seed-skills/vitest-testing/SKILL.md", "seed-skills/vitest/SKILL.md"]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within each test resets the module registry before a dynamic import so stateful modules evaluate against that test case configuration, cite the approved sources, and state platform or framework limitations where the evidence does not support a universal rule.",
+          "repoEvidence": ["seed-skills/vitest-testing/SKILL.md", "seed-skills/vitest/SKILL.md"]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with this route-backed CTA: Review /blog/vitest-config-setup-guide-2026, then open /skills and implement the Vitest module reset dynamic imports matrix in the next test run.",
+          "repoEvidence": ["seed-skills/vitest-testing/SKILL.md"]
+        }
+      ],
+      "tablePlan": {
+        "title": "Vitest module reset dynamic imports scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "dynamic import without resetModules",
+            "controlledSetup": "a singleton module that reads an environment value at evaluation time and increments module-local state",
+            "expectedObservation": "fresh imported namespaces, initial counter values, environment-dependent exports, and mock state prove whether evaluation occurred again",
+            "failureSignal": "Observed state differs from the documented each test resets the module registry before a dynamic import so stateful modules evaluate against that test case configuration.",
+            "evidenceSource": "seed-skills/vitest-testing/SKILL.md"
+          },
+          {
+            "scenario": "resetModules before dynamic import",
+            "controlledSetup": "Change only the condition represented by \"resetModules before dynamic import\" while retaining the baseline fixture.",
+            "expectedObservation": "fresh imported namespaces, initial counter values, environment-dependent exports, and mock state prove whether evaluation occurred again",
+            "failureSignal": "Observed state differs from the documented each test resets the module registry before a dynamic import so stateful modules evaluate against that test case configuration.",
+            "evidenceSource": "seed-skills/vitest/SKILL.md"
+          },
+          {
+            "scenario": "static import followed by resetModules",
+            "controlledSetup": "Change only the condition represented by \"static import followed by resetModules\" while retaining the baseline fixture.",
+            "expectedObservation": "fresh imported namespaces, initial counter values, environment-dependent exports, and mock state prove whether evaluation occurred again",
+            "failureSignal": "Observed state differs from the documented each test resets the module registry before a dynamic import so stateful modules evaluate against that test case configuration.",
+            "evidenceSource": "seed-skills/vitest-testing/SKILL.md"
+          },
+          {
+            "scenario": "environment value changed before import",
+            "controlledSetup": "Change only the condition represented by \"environment value changed before import\" while retaining the baseline fixture.",
+            "expectedObservation": "fresh imported namespaces, initial counter values, environment-dependent exports, and mock state prove whether evaluation occurred again",
+            "failureSignal": "Observed state differs from the documented each test resets the module registry before a dynamic import so stateful modules evaluate against that test case configuration.",
+            "evidenceSource": "seed-skills/vitest/SKILL.md"
+          },
+          {
+            "scenario": "two concurrent tests importing the singleton",
+            "controlledSetup": "Change only the condition represented by \"two concurrent tests importing the singleton\" while retaining the baseline fixture.",
+            "expectedObservation": "fresh imported namespaces, initial counter values, environment-dependent exports, and mock state prove whether evaluation occurred again",
+            "failureSignal": "The edge case passes without the evidence needed to distinguish static imports before reset, hoisted mocks, shared environment mutation, unresolved dynamic imports, and concurrent tests touching one module.",
+            "evidenceSource": "seed-skills/vitest-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/vitest-testing/SKILL.md",
+          "seed-skills/vitest/SKILL.md",
+          "https://vitest.dev/config/sequence",
+          "https://vitest.dev/config/environment",
+          "https://vitest.dev/guide/mocking/modules"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run Vitest module reset dynamic imports",
+        "steps": [
+          "Read seed-skills/vitest-testing/SKILL.md and seed-skills/vitest/SKILL.md and record the exact supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated baseline using a singleton module that reads an environment value at evaluation time and increments module-local state.",
+          "Run the positive case and capture fresh imported namespaces, initial counter values, environment-dependent exports, and mock state prove whether evaluation occurred again.",
+          "Inject one failure at a time from static imports before reset, hoisted mocks, shared environment mutation, unresolved dynamic imports, and concurrent tests touching one module, keeping every unrelated input fixed.",
+          "Compare results with the five-row scenario matrix and report the first state or value that diverges from the contract.",
+          "Run the check in CI, retain only safe diagnostic evidence, clean temporary state, and link failures to the matching repository path."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the Vitest module reset dynamic imports baseline",
+          "language": "typescript",
+          "path": "seed-skills/vitest-testing/SKILL.md",
+          "focus": "Adapt vi.resetModules and mocking examples around a stateful dynamically imported fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/vitest/SKILL.md",
+          "focus": "Use the second Vitest skill to separate module registry reset from mock restoration and environment cleanup."
+        }
+      ],
+      "repoEvidence": ["seed-skills/vitest-testing/SKILL.md", "seed-skills/vitest/SKILL.md"],
+      "internalRoutes": [
+        "/skills",
+        "/categories/unit-testing",
+        "/blog/vitest-config-setup-guide-2026",
+        "/blog/jest-vs-vitest-2026",
+        "/blog/vitest-mocking-vi-mock-complete-guide",
+        "/blog/vitest-workspace-monorepo-testing-guide",
+        "/blog",
+        "/faq"
+      ],
+      "relatedSlugs": [
+        "vitest-config-setup-guide-2026",
+        "jest-vs-vitest-2026",
+        "vitest-mocking-vi-mock-complete-guide",
+        "vitest-workspace-monorepo-testing-guide"
+      ],
+      "sources": [
+        "https://vitest.dev/config/sequence",
+        "https://vitest.dev/config/environment",
+        "https://vitest.dev/guide/mocking/modules"
+      ],
+      "faqQuestions": [
+        "How can Vitest tests reset module state and use dynamic imports so each case receives a fresh module instance?",
+        "What should an Vitest resetModules dynamic import fixture record?",
+        "Which failure proves fresh module instance Vitest is broken?",
+        "How do teams isolate Vitest module cache isolation?",
+        "Which assertion is strongest for dynamic import after reset?",
+        "How should CI report Vitest singleton reset test failures?"
+      ],
+      "cta": "Review /blog/vitest-config-setup-guide-2026, then open /skills and implement the Vitest module reset dynamic imports matrix in the next test run."
+    }
+  ]
+}

@@ -1,0 +1,1160 @@
+{
+  "batch": 101,
+  "briefs": [
+    {
+      "sourceTopicId": "system-quality-179",
+      "batch": 101,
+      "batchPosition": 1,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "idempotent-consumer-duplicate-testing",
+      "primaryKeyword": "idempotent consumer duplicate testing",
+      "title": "Idempotent Consumer Duplicate Testing",
+      "description": "idempotent consumer duplicate testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify duplicate deliveries produce one durable business effect?",
+      "intentBoundary": "Owns consumer deduplication, not API idempotency keys or Kafka transactions.",
+      "secondaryKeywords": [
+        "message dedupe store",
+        "duplicate delivery race",
+        "consumer side effect idempotency",
+        "idempotent consumer duplicate testing checklist",
+        "idempotent consumer duplicate testing CI strategy",
+        "idempotent consumer duplicate testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does idempotent consumer duplicate testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify duplicate deliveries produce one durable business effect?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/queue-message-testing/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build message dedupe store?",
+          "question": true,
+          "secondaryKeyword": "message dedupe store",
+          "coverage": "Create an isolated fixture for message dedupe store. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "What breaks duplicate delivery race?",
+          "question": true,
+          "secondaryKeyword": "duplicate delivery race",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for duplicate delivery race. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts",
+            "seed-skills/queue-message-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Consumer side effect idempotency fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "consumer side effect idempotency",
+          "coverage": "Turn consumer side effect idempotency into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/queue-message-testing/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should idempotent consumer duplicate testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "idempotent consumer duplicate testing checklist",
+          "coverage": "Build the oracle for idempotent consumer duplicate testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Idempotent consumer duplicate testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "idempotent consumer duplicate testing CI strategy",
+          "coverage": "Package idempotent consumer duplicate testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts",
+            "seed-skills/queue-message-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Idempotent Consumer Duplicate Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/queue-message-testing/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement idempotent consumer duplicate testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/queue-message-testing/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/queue-message-testing/SKILL.md",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Idempotent Consumer Duplicate Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/queue-message-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by idempotent consumer duplicate testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/queue-message-testing/SKILL.md"
+          },
+          {
+            "scenario": "message dedupe store",
+            "controlledSetup": "Change only the condition represented by \"message dedupe store\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by idempotent consumer duplicate testing.",
+            "failureSignal": "The observed result differs from the approved message dedupe store contract.",
+            "evidenceSource": "seed-skills/retry-resilience-testing/SKILL.md"
+          },
+          {
+            "scenario": "duplicate delivery race",
+            "controlledSetup": "Change only the condition represented by \"duplicate delivery race\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by idempotent consumer duplicate testing.",
+            "failureSignal": "The observed result differs from the approved duplicate delivery race contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by idempotent consumer duplicate testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/queue-message-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by idempotent consumer duplicate testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/retry-resilience-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/queue-message-testing/SKILL.md",
+          "seed-skills/retry-resilience-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts",
+          "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/best-practices-message-deduplication.html",
+          "https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run idempotent consumer duplicate testing",
+        "steps": [
+          "Read seed-skills/queue-message-testing/SKILL.md and seed-skills/retry-resilience-testing/SKILL.md and packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for idempotent consumer duplicate testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for message dedupe store, duplicate delivery race, consumer side effect idempotency, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the idempotent consumer duplicate testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/queue-message-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated idempotent consumer duplicate testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/retry-resilience-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/queue-message-testing/SKILL.md",
+        "seed-skills/retry-resilience-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/event-driven-architecture-testing-guide.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/error-handling-testing-patterns",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/microservices-testing-strategies",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "error-handling-testing-patterns",
+        "chaos-engineering-resilience-testing",
+        "microservices-testing-strategies",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/best-practices-message-deduplication.html",
+        "https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify duplicate deliveries produce one durable business effect?",
+        "What should a message dedupe store fixture record?",
+        "Which failure proves duplicate delivery race is broken?",
+        "How do teams isolate consumer side effect idempotency?",
+        "Which assertion is strongest for idempotent consumer duplicate testing checklist?",
+        "How should CI report idempotent consumer duplicate testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/error-handling-testing-patterns, then open /skills and add the idempotent consumer duplicate testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-181",
+      "batch": 101,
+      "batchPosition": 2,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "graceful-degradation-stale-data-testing",
+      "primaryKeyword": "graceful degradation stale data testing",
+      "title": "Graceful Degradation Stale Data Testing",
+      "description": "graceful degradation stale data testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify stale responses remain bounded, labeled, and safer than total failure?",
+      "intentBoundary": "Owns intentional stale-data service, not ordinary cache-control correctness.",
+      "secondaryKeywords": [
+        "stale-if-error response",
+        "data age disclosure",
+        "degraded cache fallback",
+        "graceful degradation stale data testing checklist",
+        "graceful degradation stale data testing CI strategy",
+        "graceful degradation stale data testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does graceful degradation stale data testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify stale responses remain bounded, labeled, and safer than total failure?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build stale-if-error response?",
+          "question": true,
+          "secondaryKeyword": "stale-if-error response",
+          "coverage": "Create an isolated fixture for stale-if-error response. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/error-handling-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          ]
+        },
+        {
+          "heading": "What breaks data age disclosure?",
+          "question": true,
+          "secondaryKeyword": "data age disclosure",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for data age disclosure. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Degraded cache fallback fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "degraded cache fallback",
+          "coverage": "Turn degraded cache fallback into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should graceful degradation stale data testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "graceful degradation stale data testing checklist",
+          "coverage": "Build the oracle for graceful degradation stale data testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/error-handling-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          ]
+        },
+        {
+          "heading": "Graceful degradation stale data testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "graceful degradation stale data testing CI strategy",
+          "coverage": "Package graceful degradation stale data testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts",
+            "seed-skills/retry-resilience-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Graceful Degradation Stale Data Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement graceful degradation stale data testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/error-handling-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/retry-resilience-testing/SKILL.md",
+            "seed-skills/error-handling-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Graceful Degradation Stale Data Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/retry-resilience-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by graceful degradation stale data testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/retry-resilience-testing/SKILL.md"
+          },
+          {
+            "scenario": "stale-if-error response",
+            "controlledSetup": "Change only the condition represented by \"stale-if-error response\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by graceful degradation stale data testing.",
+            "failureSignal": "The observed result differs from the approved stale-if-error response contract.",
+            "evidenceSource": "seed-skills/error-handling-testing/SKILL.md"
+          },
+          {
+            "scenario": "data age disclosure",
+            "controlledSetup": "Change only the condition represented by \"data age disclosure\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by graceful degradation stale data testing.",
+            "failureSignal": "The observed result differs from the approved data age disclosure contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by graceful degradation stale data testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/retry-resilience-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by graceful degradation stale data testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/error-handling-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/retry-resilience-testing/SKILL.md",
+          "seed-skills/error-handling-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts",
+          "https://www.rfc-editor.org/rfc/rfc9111.html",
+          "https://sre.google/workbook/overload/"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run graceful degradation stale data testing",
+        "steps": [
+          "Read seed-skills/retry-resilience-testing/SKILL.md and seed-skills/error-handling-testing/SKILL.md and packages/web/src/app/blog/posts/error-handling-testing-patterns.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for graceful degradation stale data testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for stale-if-error response, data age disclosure, degraded cache fallback, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the graceful degradation stale data testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/retry-resilience-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated graceful degradation stale data testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/error-handling-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/retry-resilience-testing/SKILL.md",
+        "seed-skills/error-handling-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/error-handling-testing-patterns.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/error-handling-testing-patterns",
+        "/blog/chaos-engineering-resilience-testing",
+        "/blog/microservices-testing-strategies",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "error-handling-testing-patterns",
+        "chaos-engineering-resilience-testing",
+        "microservices-testing-strategies",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9111.html",
+        "https://sre.google/workbook/overload/"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify stale responses remain bounded, labeled, and safer than total failure?",
+        "What should a stale-if-error response fixture record?",
+        "Which failure proves data age disclosure is broken?",
+        "How do teams isolate degraded cache fallback?",
+        "Which assertion is strongest for graceful degradation stale data testing checklist?",
+        "How should CI report graceful degradation stale data testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/error-handling-testing-patterns, then open /skills and add the graceful degradation stale data testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-061",
+      "batch": 101,
+      "batchPosition": 3,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "jwt-audience-confusion-testing",
+      "primaryKeyword": "JWT audience confusion testing",
+      "title": "Jwt Audience Confusion Testing",
+      "description": "JWT audience confusion testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified cleanup.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify tokens for one API or tenant cannot authorize another resource server?",
+      "intentBoundary": "Owns aud claim isolation, not issuer validation or generic RBAC.",
+      "secondaryKeywords": [
+        "cross-service token replay",
+        "multiple audience claim",
+        "tenant audience binding",
+        "JWT audience confusion testing checklist",
+        "JWT audience confusion testing CI strategy",
+        "JWT audience confusion testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does JWT audience confusion testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify tokens for one API or tenant cannot authorize another resource server?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/jwt-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build cross-service token replay?",
+          "question": true,
+          "secondaryKeyword": "cross-service token replay",
+          "coverage": "Create an isolated fixture for cross-service token replay. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks multiple audience claim?",
+          "question": true,
+          "secondaryKeyword": "multiple audience claim",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for multiple audience claim. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/jwt-security-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Tenant audience binding fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "tenant audience binding",
+          "coverage": "Turn tenant audience binding into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/jwt-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should JWT audience confusion testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "JWT audience confusion testing checklist",
+          "coverage": "Build the oracle for JWT audience confusion testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "JWT audience confusion testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "JWT audience confusion testing CI strategy",
+          "coverage": "Package JWT audience confusion testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+            "seed-skills/jwt-security-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Jwt Audience Confusion Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/jwt-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement JWT audience confusion testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/jwt-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/authorization-testing/SKILL.md",
+            "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/jwt-security-testing/SKILL.md",
+            "seed-skills/authorization-testing/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Jwt Audience Confusion Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/jwt-security-testing/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JWT audience confusion testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/jwt-security-testing/SKILL.md"
+          },
+          {
+            "scenario": "cross-service token replay",
+            "controlledSetup": "Change only the condition represented by \"cross-service token replay\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JWT audience confusion testing.",
+            "failureSignal": "The observed result differs from the approved cross-service token replay contract.",
+            "evidenceSource": "seed-skills/authorization-testing/SKILL.md"
+          },
+          {
+            "scenario": "multiple audience claim",
+            "controlledSetup": "Change only the condition represented by \"multiple audience claim\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JWT audience confusion testing.",
+            "failureSignal": "The observed result differs from the approved multiple audience claim contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JWT audience confusion testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/jwt-security-testing/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by JWT audience confusion testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/authorization-testing/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/jwt-security-testing/SKILL.md",
+          "seed-skills/authorization-testing/SKILL.md",
+          "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts",
+          "https://www.rfc-editor.org/rfc/rfc7519.html",
+          "https://www.rfc-editor.org/rfc/rfc8725.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run JWT audience confusion testing",
+        "steps": [
+          "Read seed-skills/jwt-security-testing/SKILL.md and seed-skills/authorization-testing/SKILL.md and packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for JWT audience confusion testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for cross-service token replay, multiple audience claim, tenant audience binding, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the JWT audience confusion testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/jwt-security-testing/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated JWT audience confusion testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/authorization-testing/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/jwt-security-testing/SKILL.md",
+        "seed-skills/authorization-testing/SKILL.md",
+        "packages/web/src/app/blog/posts/api-security-testing-checklist-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/api-security-testing-checklist-2026",
+        "/blog/dast-vs-sast-vs-sca-qa-guide-2026",
+        "/blog/security-testing-ai-generated-code",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "api-security-testing-checklist-2026",
+        "dast-vs-sast-vs-sca-qa-guide-2026",
+        "security-testing-ai-generated-code",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc7519.html",
+        "https://www.rfc-editor.org/rfc/rfc8725.html"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify tokens for one API or tenant cannot authorize another resource server?",
+        "What should a cross-service token replay fixture record?",
+        "Which failure proves multiple audience claim is broken?",
+        "How do teams isolate tenant audience binding?",
+        "Which assertion is strongest for JWT audience confusion testing checklist?",
+        "How should CI report JWT audience confusion testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/api-security-testing-checklist-2026, then open /skills and add the JWT audience confusion testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-083",
+      "batch": 101,
+      "batchPosition": 4,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "ios-background-task-expiration-testing",
+      "primaryKeyword": "iOS background task expiration testing",
+      "title": "Ios Background Task Expiration Testing",
+      "description": "iOS background task expiration testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify work stops, saves state, and reports completion before iOS expiration?",
+      "intentBoundary": "Owns background-task expiry handlers, not push notification delivery.",
+      "secondaryKeywords": [
+        "BGTask expiration handler",
+        "background save deadline",
+        "task completion flag",
+        "iOS background task expiration testing checklist",
+        "iOS background task expiration testing CI strategy",
+        "iOS background task expiration testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does iOS background task expiration testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify work stops, saves state, and reports completion before iOS expiration?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build BGTask expiration handler?",
+          "question": true,
+          "secondaryKeyword": "BGTask expiration handler",
+          "coverage": "Create an isolated fixture for BGTask expiration handler. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/mobile-device-farm/SKILL.md",
+            "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks background save deadline?",
+          "question": true,
+          "secondaryKeyword": "background save deadline",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for background save deadline. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Task completion flag fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "task completion flag",
+          "coverage": "Turn task completion flag into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should iOS background task expiration testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "iOS background task expiration testing checklist",
+          "coverage": "Build the oracle for iOS background task expiration testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/mobile-device-farm/SKILL.md",
+            "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "IOS background task expiration testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "iOS background task expiration testing CI strategy",
+          "coverage": "Package iOS background task expiration testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Ios Background Task Expiration Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement iOS background task expiration testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md",
+            "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/mobile-device-farm/SKILL.md",
+            "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Ios Background Task Expiration Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/appium-mobile/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by iOS background task expiration testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "BGTask expiration handler",
+            "controlledSetup": "Change only the condition represented by \"BGTask expiration handler\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by iOS background task expiration testing.",
+            "failureSignal": "The observed result differs from the approved BGTask expiration handler contract.",
+            "evidenceSource": "seed-skills/mobile-device-farm/SKILL.md"
+          },
+          {
+            "scenario": "background save deadline",
+            "controlledSetup": "Change only the condition represented by \"background save deadline\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by iOS background task expiration testing.",
+            "failureSignal": "The observed result differs from the approved background save deadline contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by iOS background task expiration testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by iOS background task expiration testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/mobile-device-farm/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/appium-mobile/SKILL.md",
+          "seed-skills/mobile-device-farm/SKILL.md",
+          "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts",
+          "https://developer.apple.com/documentation/backgroundtasks",
+          "https://developer.apple.com/documentation/uikit/extending-your-app-s-background-execution-time"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run iOS background task expiration testing",
+        "steps": [
+          "Read seed-skills/appium-mobile/SKILL.md and seed-skills/mobile-device-farm/SKILL.md and packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for iOS background task expiration testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for BGTask expiration handler, background save deadline, task completion flag, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the iOS background task expiration testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/appium-mobile/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated iOS background task expiration testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/mobile-device-farm/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/appium-mobile/SKILL.md",
+        "seed-skills/mobile-device-farm/SKILL.md",
+        "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/mobile-testing-automation-guide",
+        "/blog/appium-mobile-testing-complete-guide",
+        "/blog/mobile-device-farm-testing-strategy-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-testing-automation-guide",
+        "appium-mobile-testing-complete-guide",
+        "mobile-device-farm-testing-strategy-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://developer.apple.com/documentation/backgroundtasks",
+        "https://developer.apple.com/documentation/uikit/extending-your-app-s-background-execution-time"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify work stops, saves state, and reports completion before iOS expiration?",
+        "What should a BGTask expiration handler fixture record?",
+        "Which failure proves background save deadline is broken?",
+        "How do teams isolate task completion flag?",
+        "Which assertion is strongest for iOS background task expiration testing checklist?",
+        "How should CI report iOS background task expiration testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-testing-automation-guide, then open /skills and add the iOS background task expiration testing checks to the next QA run."
+    },
+    {
+      "sourceTopicId": "system-quality-084",
+      "batch": 101,
+      "batchPosition": 5,
+      "domain": "system-quality",
+      "campaignCluster": "system-quality",
+      "slug": "ios-universal-link-fallback-testing",
+      "primaryKeyword": "iOS universal link fallback testing",
+      "title": "Ios Universal Link Fallback Testing",
+      "description": "iOS universal link fallback testing: test the contract with controlled fixtures, exact assertions, clear failure diagnostics, safe evidence, verified.",
+      "intent": "how-to",
+      "coreQuestion": "How can QA teams verify associated-domain failures fall back without loops or lost intent?",
+      "intentBoundary": "Owns iOS association and fallback behavior, not Android App Links or cold starts.",
+      "secondaryKeywords": [
+        "apple-app-site-association failure",
+        "Safari fallback loop",
+        "universal link intent",
+        "iOS universal link fallback testing checklist",
+        "iOS universal link fallback testing CI strategy",
+        "iOS universal link fallback testing failure diagnosis"
+      ],
+      "outline": [
+        {
+          "heading": "What does iOS universal link fallback testing verify?",
+          "question": true,
+          "coverage": "Answer \"How can QA teams verify associated-domain failures fall back without loops or lost intent?\" in 40 to 60 words, then define the observable contract, scope, owner, inputs, outputs, and exclusions. Separate facts proved by the repository from the regression design recommended in this article.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you build apple-app-site-association failure?",
+          "question": true,
+          "secondaryKeyword": "apple-app-site-association failure",
+          "coverage": "Create an isolated fixture for apple-app-site-association failure. Name setup, controlled inputs, expected state, cleanup, and the first assertion that proves the positive path before any fault is injected.",
+          "repoEvidence": [
+            "seed-skills/mobile-device-farm/SKILL.md",
+            "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "What breaks Safari fallback loop?",
+          "question": true,
+          "secondaryKeyword": "Safari fallback loop",
+          "coverage": "Explain likely product, harness, environment, protocol, and data failure modes for Safari fallback loop. Tie each diagnosis to a concrete observation and reject success-only checks.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Universal link intent fixtures and controls",
+          "question": false,
+          "secondaryKeyword": "universal link intent",
+          "coverage": "Turn universal link intent into positive, negative, boundary, repeated-run, and cleanup controls. Preserve enough evidence to reproduce the first differing state without shared data or external timing assumptions.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How should iOS universal link fallback testing checklist be asserted?",
+          "question": true,
+          "secondaryKeyword": "iOS universal link fallback testing checklist",
+          "coverage": "Build the oracle for iOS universal link fallback testing checklist from exact values, allowed sets, state transitions, event order, or bounded timing as appropriate. Explain why each assertion distinguishes the intended contract from a false pass.",
+          "repoEvidence": [
+            "seed-skills/mobile-device-farm/SKILL.md",
+            "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "IOS universal link fallback testing CI strategy in CI",
+          "question": false,
+          "secondaryKeyword": "iOS universal link fallback testing CI strategy",
+          "coverage": "Package iOS universal link fallback testing CI strategy as a deterministic CI gate. Record fixture identity, runtime metadata, safe evidence, cleanup status, retry policy, and one concise diagnostic tied to repository evidence.",
+          "repoEvidence": [
+            "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts",
+            "seed-skills/appium-mobile/SKILL.md"
+          ]
+        },
+        {
+          "heading": "Ios Universal Link Fallback Testing comparison matrix",
+          "question": false,
+          "coverage": "Compare the positive baseline, negative case, boundary case, repeated run, and cleanup case. For each row, identify controlled setup, expected observation, failure signal, and the repository or official source that supports the check.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        },
+        {
+          "heading": "How do you implement iOS universal link fallback testing?",
+          "question": true,
+          "coverage": "Follow the numbered procedure, include two repository-backed code examples, run the positive case before fault injection, and retain evidence that explains the first differing state.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md",
+            "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer all six planned questions in 40 to 60 words each. Keep claims within the approved intent boundary, cite official sources, and state limitations when the evidence does not support a universal rule.",
+          "repoEvidence": [
+            "seed-skills/mobile-device-farm/SKILL.md",
+            "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts"
+          ]
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Restate the verified contract, name the next regression action, and close with a route-backed CTA to the related article and the QASkills directory.",
+          "repoEvidence": [
+            "seed-skills/appium-mobile/SKILL.md",
+            "seed-skills/mobile-device-farm/SKILL.md"
+          ]
+        }
+      ],
+      "tablePlan": {
+        "title": "Ios Universal Link Fallback Testing scenario and evidence matrix",
+        "columns": [
+          "Scenario",
+          "Controlled setup",
+          "Expected observation",
+          "Failure signal",
+          "Evidence source"
+        ],
+        "rows": [
+          {
+            "scenario": "positive baseline",
+            "controlledSetup": "Create the smallest isolated fixture supported by seed-skills/appium-mobile/SKILL.md.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by iOS universal link fallback testing.",
+            "failureSignal": "The observed result differs from the approved positive baseline contract.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "apple-app-site-association failure",
+            "controlledSetup": "Change only the condition represented by \"apple-app-site-association failure\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by iOS universal link fallback testing.",
+            "failureSignal": "The observed result differs from the approved apple-app-site-association failure contract.",
+            "evidenceSource": "seed-skills/mobile-device-farm/SKILL.md"
+          },
+          {
+            "scenario": "Safari fallback loop",
+            "controlledSetup": "Change only the condition represented by \"Safari fallback loop\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by iOS universal link fallback testing.",
+            "failureSignal": "The observed result differs from the approved Safari fallback loop contract.",
+            "evidenceSource": "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts"
+          },
+          {
+            "scenario": "boundary input",
+            "controlledSetup": "Change only the condition represented by \"boundary input\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by iOS universal link fallback testing.",
+            "failureSignal": "The observed result differs from the approved boundary input contract.",
+            "evidenceSource": "seed-skills/appium-mobile/SKILL.md"
+          },
+          {
+            "scenario": "cleanup and repeated run",
+            "controlledSetup": "Change only the condition represented by \"cleanup and repeated run\" while retaining the baseline fixture.",
+            "expectedObservation": "Capture the exact state, output, event order, and cleanup result required by iOS universal link fallback testing.",
+            "failureSignal": "The run passes without proving cleanup, isolation, or repeatability.",
+            "evidenceSource": "seed-skills/mobile-device-farm/SKILL.md"
+          }
+        ],
+        "sources": [
+          "seed-skills/appium-mobile/SKILL.md",
+          "seed-skills/mobile-device-farm/SKILL.md",
+          "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts",
+          "https://developer.apple.com/documentation/xcode/allowing-apps-and-websites-to-link-to-your-content",
+          "https://developer.apple.com/documentation/xcode/supporting-associated-domains"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to run iOS universal link fallback testing",
+        "steps": [
+          "Read seed-skills/appium-mobile/SKILL.md and seed-skills/mobile-device-farm/SKILL.md and packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts and record the supported workflow, inputs, outputs, and cleanup responsibilities.",
+          "Create an isolated positive baseline for iOS universal link fallback testing with deterministic data and one named owner.",
+          "Run the baseline first and capture exact values, state transitions, event order, and safe diagnostic evidence.",
+          "Inject one failure at a time for apple-app-site-association failure, Safari fallback loop, universal link intent, keeping every unrelated input fixed.",
+          "Compare the first differing state with the scenario matrix, classify the fault, and reject weak success-only evidence.",
+          "Run the gate in CI, retain only safe artifacts, clean temporary state, and link the failure to its repository evidence."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Build the iOS universal link fallback testing baseline",
+          "language": "typescript",
+          "path": "seed-skills/appium-mobile/SKILL.md",
+          "focus": "Adapt the repository workflow into an isolated iOS universal link fallback testing fixture."
+        },
+        {
+          "title": "Add negative cases and CI evidence",
+          "language": "typescript",
+          "path": "seed-skills/mobile-device-farm/SKILL.md",
+          "focus": "Add one fault at a time, exact assertions, safe evidence, and verified cleanup."
+        }
+      ],
+      "repoEvidence": [
+        "seed-skills/appium-mobile/SKILL.md",
+        "seed-skills/mobile-device-farm/SKILL.md",
+        "packages/web/src/app/blog/posts/earlgrey-ios-ui-testing-guide-2026.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/blog",
+        "/blog/mobile-testing-automation-guide",
+        "/blog/appium-mobile-testing-complete-guide",
+        "/blog/mobile-device-farm-testing-strategy-2026",
+        "/blog/api-testing-best-practices-guide"
+      ],
+      "relatedSlugs": [
+        "mobile-testing-automation-guide",
+        "appium-mobile-testing-complete-guide",
+        "mobile-device-farm-testing-strategy-2026",
+        "api-testing-best-practices-guide"
+      ],
+      "sources": [
+        "https://developer.apple.com/documentation/xcode/allowing-apps-and-websites-to-link-to-your-content",
+        "https://developer.apple.com/documentation/xcode/supporting-associated-domains"
+      ],
+      "faqQuestions": [
+        "How can QA teams verify associated-domain failures fall back without loops or lost intent?",
+        "What should a apple-app-site-association failure fixture record?",
+        "Which failure proves Safari fallback loop is broken?",
+        "How do teams isolate universal link intent?",
+        "Which assertion is strongest for iOS universal link fallback testing checklist?",
+        "How should CI report iOS universal link fallback testing CI strategy failures?"
+      ],
+      "cta": "Read /blog/mobile-testing-automation-guide, then open /skills and add the iOS universal link fallback testing checks to the next QA run."
+    }
+  ]
+}

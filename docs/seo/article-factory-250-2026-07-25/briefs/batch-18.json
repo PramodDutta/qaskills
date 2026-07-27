@@ -1,0 +1,768 @@
+{
+  "batch": 18,
+  "briefs": [
+    {
+      "batch": 18,
+      "batchPosition": 1,
+      "domain": "data-search-cache",
+      "sourceTopicId": "data-08",
+      "slug": "skill-publish-partial-failure-testing",
+      "primaryKeyword": "skill publish partial failure testing",
+      "title": "skill publish partial failure testing",
+      "description": "Use skill publish partial failure testing to verify consistency when skill creation succeeds but counters, email, or later side effects fail.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you test consistency when the skill insert succeeds but the author's published-skill counter update fails?",
+      "secondaryKeywords": [
+        "partial database write testing",
+        "skill counter consistency test",
+        "Drizzle transaction failure test",
+        "noncritical side effect failure",
+        "publish API consistency recovery"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Skill Publish Partial Failure Testing Prove?",
+          "question": true,
+          "coverage": "Define the committed skill insert, caught author-counter failure, asynchronous email work, and the 201 response as separate observable effects."
+        },
+        {
+          "heading": "How Do You Run Partial Database Write Testing?",
+          "question": true,
+          "secondaryKeyword": "partial database write testing",
+          "coverage": "Inject failure after the skill insert and assert exactly which database rows and counters persist."
+        },
+        {
+          "heading": "What Is a Skill Counter Consistency Test?",
+          "question": true,
+          "secondaryKeyword": "skill counter consistency test",
+          "coverage": "Compare the author's skillsPublished value with the actual count of owned skills after success, retry, and counter-update failure."
+        },
+        {
+          "heading": "Drizzle Transaction Failure Test Options",
+          "question": false,
+          "secondaryKeyword": "Drizzle transaction failure test",
+          "coverage": "Compare the current nontransactional contract with atomic insert-plus-counter behavior and test each design explicitly."
+        },
+        {
+          "heading": "How Should a Noncritical Side Effect Failure Behave?",
+          "question": true,
+          "secondaryKeyword": "noncritical side effect failure",
+          "coverage": "Verify logging and response behavior for counter and email failures without labeling a documented noncritical effect as a total request failure."
+        },
+        {
+          "heading": "Publish API Consistency Recovery",
+          "question": false,
+          "secondaryKeyword": "publish API consistency recovery",
+          "coverage": "Test reconciliation, idempotent retry, and derived counter repair while preventing duplicate skill creation."
+        },
+        {
+          "heading": "Failure Point, Persisted State, and Response Matrix",
+          "question": false,
+          "coverage": "Present insert, counter, subscriber query, batch email, and response failure points with committed state and recovery action."
+        },
+        {
+          "heading": "How Do You Run the Failure Injection Procedure?",
+          "question": true,
+          "coverage": "Mock one side effect at a time, call POST, query authoritative state, assert response and logs, then test recovery."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about transactions, noncritical errors, retries, duplicate slugs, counters, email side effects, and reconciliation."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "State the chosen consistency contract and direct readers to publication and database testing skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Skill publish partial-failure outcomes",
+        "columns": [
+          "Failure point",
+          "Skill row",
+          "Author counter",
+          "Email work",
+          "HTTP response",
+          "Recovery assertion"
+        ],
+        "rows": [
+          "skill insert fails",
+          "counter update fails",
+          "subscriber query fails",
+          "individual email fails",
+          "all side effects succeed",
+          "client retries after 201"
+        ],
+        "sources": [
+          "packages/web/src/app/api/skills/route.ts",
+          "packages/web/src/db/schema/skills.ts",
+          "packages/web/src/db/schema/users.ts",
+          "https://orm.drizzle.team/docs/transactions"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to test publish partial failures",
+        "steps": [
+          "Create an authenticated author fixture with a known published-skill count.",
+          "Inject a failure into the author counter update after the skill insert.",
+          "Call POST and capture the response plus error log.",
+          "Assert the new skill exists and the author counter remains unchanged.",
+          "Run the chosen reconciliation or transactional recovery path.",
+          "Retry safely and assert no duplicate slug or duplicate skill row is created."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Inject failure after skill creation",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/skills/route.ts",
+          "focus": "Exercise the skill insert, caught skillsPublished update failure, and final 201 response."
+        },
+        {
+          "title": "Compare skill rows with author counters",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/users.ts",
+          "focus": "Assert the derived number of owned skills against the stored skillsPublished field."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts",
+        "packages/web/src/db/schema/skills.ts",
+        "packages/web/src/db/schema/users.ts",
+        "packages/web/src/lib/email/send.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/how-to-publish",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide",
+        "/blog/api-testing-complete-guide",
+        "/blog/testing-batch-email-partial-failures-promise-allsettled",
+        "/blog/testing-typesense-multiselect-facet-filter-queries"
+      ],
+      "relatedSlugs": [
+        "database-testing-automation-guide",
+        "api-testing-complete-guide",
+        "testing-batch-email-partial-failures-promise-allsettled",
+        "testing-typesense-multiselect-facet-filter-queries"
+      ],
+      "sources": [
+        "https://orm.drizzle.team/docs/transactions",
+        "https://www.postgresql.org/docs/current/tutorial-transactions.html",
+        "https://www.postgresql.org/docs/current/transaction-iso.html"
+      ],
+      "cta": "Open /how-to-publish, browse QA skills at /skills, and add failure injection before the next release."
+    },
+    {
+      "batch": 18,
+      "batchPosition": 2,
+      "domain": "data-search-cache",
+      "sourceTopicId": "search-09",
+      "slug": "typesense-publish-index-freshness-testing",
+      "primaryKeyword": "Typesense publish index freshness testing",
+      "title": "Typesense publish index freshness testing",
+      "description": "Use Typesense publish index freshness testing to measure when a new Postgres skill becomes searchable and detect missing synchronization work.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you test whether a newly published Postgres skill becomes searchable when the publish route contains no visible Typesense indexing step?",
+      "secondaryKeywords": [
+        "Postgres Typesense sync test",
+        "new skill missing from search",
+        "search index freshness SLA",
+        "publish indexing integration test",
+        "database search eventual consistency"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Typesense Publish Index Freshness Testing Establish?",
+          "question": true,
+          "coverage": "Define the publish commit time, first searchable time, maximum observation window, and failure state without assuming an unproven sync mechanism."
+        },
+        {
+          "heading": "How Do You Run a Postgres Typesense Sync Test?",
+          "question": true,
+          "secondaryKeyword": "Postgres Typesense sync test",
+          "coverage": "Publish a uniquely searchable skill, verify its database row, then poll the actual Typesense query until found or timed out."
+        },
+        {
+          "heading": "Why Is a New Skill Missing from Search?",
+          "question": true,
+          "secondaryKeyword": "new skill missing from search",
+          "coverage": "Investigate absent indexing calls, asynchronous workers, failed document writes, schema rejection, stale aliases, and query field mismatch."
+        },
+        {
+          "heading": "Search Index Freshness SLA Measurement",
+          "question": false,
+          "secondaryKeyword": "search index freshness SLA",
+          "coverage": "Define a product-owned threshold, capture multiple samples, and report observed delay distributions without inventing a target."
+        },
+        {
+          "heading": "How Do You Build a Publish Indexing Integration Test?",
+          "question": true,
+          "secondaryKeyword": "publish indexing integration test",
+          "coverage": "Use real Postgres and disposable Typesense data, unique tokens, bounded polling, exact cleanup, and independent database assertions."
+        },
+        {
+          "heading": "Database Search Eventual Consistency Cases",
+          "question": false,
+          "secondaryKeyword": "database search eventual consistency",
+          "coverage": "Cover creation, update, deletion, indexing failure, delayed sync, duplicate delivery, and retry behavior as separate contracts."
+        },
+        {
+          "heading": "Publish State, Search State, and Freshness Timing",
+          "question": false,
+          "coverage": "Present database status, index status, first-hit delay, final outcome, and diagnostic evidence."
+        },
+        {
+          "heading": "How Do You Run the Freshness Procedure in CI?",
+          "question": true,
+          "coverage": "Create, commit, poll with backoff, fail with evidence, clean both stores, and retain timing artifacts."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about eventual consistency, polling, sync ownership, direct indexing, schema errors, retries, and cleanup."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "Turn freshness into a measurable contract and direct readers to search testing skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Skill publish and search-index freshness states",
+        "columns": [
+          "Scenario",
+          "Postgres row",
+          "Typesense document",
+          "First searchable delay",
+          "Expected outcome",
+          "Diagnostic"
+        ],
+        "rows": [
+          "successful immediate sync",
+          "delayed sync",
+          "missing sync",
+          "schema rejection",
+          "duplicate sync",
+          "delete propagation"
+        ],
+        "sources": [
+          "packages/web/src/app/api/skills/route.ts",
+          "packages/web/src/lib/typesense/search.ts",
+          "packages/web/src/lib/typesense/client.ts",
+          "https://typesense.org/docs/latest/api/documents.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to measure index freshness after publish",
+        "steps": [
+          "Create a publish payload with a unique token in a query_by field.",
+          "Record a monotonic timestamp immediately before the POST request.",
+          "Assert the 201 response and verify the row directly in PostgreSQL.",
+          "Poll Typesense for the unique token with bounded backoff.",
+          "Record the first successful hit or fail with database and index diagnostics.",
+          "Delete the test row and index document, then verify cleanup."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Publish a uniquely searchable skill",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/skills/route.ts",
+          "focus": "Exercise the Postgres insert and document that the visible route has no Typesense write."
+        },
+        {
+          "title": "Poll the production Typesense search path",
+          "language": "typescript",
+          "path": "packages/web/src/lib/typesense/search.ts",
+          "focus": "Search by a unique name or description token and measure first-hit timing."
+        },
+        {
+          "title": "Validate the indexed document schema",
+          "language": "typescript",
+          "path": "packages/web/src/lib/typesense/client.ts",
+          "focus": "Use skillsSchema to diagnose document rejection or missing fields."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/skills/route.ts",
+        "packages/web/src/lib/typesense/search.ts",
+        "packages/web/src/lib/typesense/client.ts",
+        "packages/web/src/db/schema/skills.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/categories/api-testing",
+        "/blog/testing-typesense-multiselect-facet-filter-queries",
+        "/blog/mcp-search-filter-schema-drift-contract-tests",
+        "/blog/mcp-search-response-normalization-contract-tests",
+        "/blog/database-testing-automation-guide"
+      ],
+      "relatedSlugs": [
+        "testing-typesense-multiselect-facet-filter-queries",
+        "mcp-search-filter-schema-drift-contract-tests",
+        "mcp-search-response-normalization-contract-tests",
+        "database-testing-automation-guide"
+      ],
+      "sources": [
+        "https://typesense.org/docs/latest/api/documents.html",
+        "https://typesense.org/docs/latest/api/search.html",
+        "https://www.postgresql.org/docs/current/mvcc-intro.html"
+      ],
+      "cta": "Browse search testing skills at /skills and define a measured publish-to-search freshness target."
+    },
+    {
+      "batch": 18,
+      "batchPosition": 3,
+      "domain": "data-search-cache",
+      "sourceTopicId": "cache-03",
+      "slug": "upstash-redis-read-outage-testing",
+      "primaryKeyword": "Upstash Redis read outage testing",
+      "title": "Upstash Redis read outage testing",
+      "description": "Use Upstash Redis read outage testing to prove a cache read exception becomes a miss and fresh database data still reaches the endpoint in CI.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you verify a Redis read exception becomes a cache miss and the endpoint still fetches fresh database data?",
+      "secondaryKeywords": [
+        "Upstash outage fallback test",
+        "Redis GET error cache miss",
+        "cache read failure graceful degradation",
+        "database fallback during Redis outage",
+        "fault injection Upstash test"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Upstash Redis Read Outage Testing Prove?",
+          "question": true,
+          "coverage": "Define the caught read error, null miss signal, source fetch, nonfatal write attempt, and endpoint response as one testable chain."
+        },
+        {
+          "heading": "How Do You Build an Upstash Outage Fallback Test?",
+          "question": true,
+          "secondaryKeyword": "Upstash outage fallback test",
+          "coverage": "Mock Redis GET to reject while keeping the source fetcher observable and assert fresh data is returned."
+        },
+        {
+          "heading": "What Does a Redis GET Error Cache Miss Mean?",
+          "question": true,
+          "secondaryKeyword": "Redis GET error cache miss",
+          "coverage": "Show that cacheGet catches every read exception and returns null, the same value used for a normal miss."
+        },
+        {
+          "heading": "Cache Read Failure Graceful Degradation",
+          "question": false,
+          "secondaryKeyword": "cache read failure graceful degradation",
+          "coverage": "Test successful source reads, source failures after cache errors, and cache write failures without hiding database errors."
+        },
+        {
+          "heading": "How Do You Verify Database Fallback During Redis Outage?",
+          "question": true,
+          "secondaryKeyword": "database fallback during Redis outage",
+          "coverage": "Use leaderboard or categories as a real consumer and assert the database query executes exactly once per uncached request."
+        },
+        {
+          "heading": "Fault Injection Upstash Test Design",
+          "question": false,
+          "secondaryKeyword": "fault injection Upstash test",
+          "coverage": "Inject timeout, rejection, malformed data, and recovery while avoiding dependency on a production Redis service."
+        },
+        {
+          "heading": "Cache Failure, Source Outcome, and Response Matrix",
+          "question": false,
+          "coverage": "Present read and write outcomes, fetcher calls, endpoint status, returned source, and diagnostic expectation."
+        },
+        {
+          "heading": "How Do You Run the Redis Outage Procedure?",
+          "question": true,
+          "coverage": "Stub GET failure, call the consumer, assert fresh data, test SET failure, restore Redis, and verify the next cache hit."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about fail-open caches, read versus write failures, stale data, source errors, timeouts, retries, and observability."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "State the cache-as-optimization contract and direct readers to reliability testing skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Redis outage fallback behavior",
+        "columns": [
+          "Cache read",
+          "Source fetch",
+          "Cache write",
+          "Fetcher calls",
+          "Endpoint outcome",
+          "Expected data source"
+        ],
+        "rows": [
+          "cache hit",
+          "normal miss",
+          "GET rejection",
+          "GET timeout",
+          "GET failure plus source failure",
+          "SET failure after fresh fetch"
+        ],
+        "sources": [
+          "packages/web/src/lib/cache.ts",
+          "packages/web/src/app/api/leaderboard/route.ts",
+          "packages/web/src/app/api/categories/route.ts",
+          "https://upstash.com/docs/redis/sdks/ts/troubleshooting"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to verify Redis read outage fallback",
+        "steps": [
+          "Seed deterministic database data for one cacheGetOrSet consumer.",
+          "Stub the Redis GET operation to reject with a controlled error.",
+          "Call the endpoint and assert its source query executes once.",
+          "Assert the endpoint returns the fresh database result successfully.",
+          "Stub the subsequent cache SET to fail and assert the response remains unchanged.",
+          "Restore Redis behavior and verify a populated cache prevents the source query."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Inject read and write failures into cache helpers",
+          "language": "typescript",
+          "path": "packages/web/src/lib/cache.ts",
+          "focus": "Exercise cacheGet catch behavior and cacheGetOrSet source fallback."
+        },
+        {
+          "title": "Verify a real cached endpoint still responds",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/leaderboard/route.ts",
+          "focus": "Assert the leaderboard database fetch runs and its JSON response survives Redis failure."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/lib/cache.ts",
+        "packages/web/src/app/api/leaderboard/route.ts",
+        "packages/web/src/app/api/categories/route.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/leaderboard",
+        "/categories",
+        "/blog/redis-cache-testing-guide",
+        "/blog/testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "/blog/testing-lazy-neon-database-initialization-nextjs-build",
+        "/blog/error-handling-testing-patterns"
+      ],
+      "relatedSlugs": [
+        "redis-cache-testing-guide",
+        "testing-leaderboard-cache-filter-isolation-ranking-consistency",
+        "testing-lazy-neon-database-initialization-nextjs-build",
+        "error-handling-testing-patterns"
+      ],
+      "sources": [
+        "https://upstash.com/docs/redis/sdks/ts/troubleshooting",
+        "https://upstash.com/docs/redis/sdks/ts/developing"
+      ],
+      "cta": "Browse cache and resilience testing skills at /skills and add controlled Redis fault injection."
+    },
+    {
+      "batch": 18,
+      "batchPosition": 4,
+      "domain": "data-search-cache",
+      "sourceTopicId": "review-03",
+      "slug": "review-average-rounding-contract-testing",
+      "primaryKeyword": "review average rounding contract testing",
+      "title": "review average rounding contract testing",
+      "description": "Use review average rounding contract testing to verify Postgres AVG values become numeric one-decimal ratings without binary rounding surprises.",
+      "intent": "how-to",
+      "coreQuestion": "How do you test Postgres average values and JavaScript conversion are rounded to exactly one decimal without binary surprises?",
+      "secondaryKeywords": [
+        "Postgres AVG rounding test",
+        "review average one decimal",
+        "JavaScript toFixed API contract",
+        "rating aggregate precision QA",
+        "empty average fallback test"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Review Average Rounding Contract Testing Prove?",
+          "question": true,
+          "coverage": "Define integer source ratings, PostgreSQL AVG output, Number conversion, toFixed(1), parseFloat, and numeric zero fallback."
+        },
+        {
+          "heading": "How Do You Build a Postgres AVG Rounding Test?",
+          "question": true,
+          "secondaryKeyword": "Postgres AVG rounding test",
+          "coverage": "Seed rating combinations with exact integers and calculate independent expected averages before calling the endpoint."
+        },
+        {
+          "heading": "What Does Review Average One Decimal Mean?",
+          "question": true,
+          "secondaryKeyword": "review average one decimal",
+          "coverage": "Assert numeric value rather than presentation zeros, because parseFloat converts a fixed string back to a number."
+        },
+        {
+          "heading": "JavaScript toFixed API Contract",
+          "question": false,
+          "secondaryKeyword": "JavaScript toFixed API contract",
+          "coverage": "Trace Number, toFixed, and parseFloat with boundary-like decimal values and avoid assuming decimal storage beyond integer inputs."
+        },
+        {
+          "heading": "How Do You Run Rating Aggregate Precision QA?",
+          "question": true,
+          "secondaryKeyword": "rating aggregate precision QA",
+          "coverage": "Use symmetric and asymmetric rating sets, repeat values, and large row counts while validating count and average together."
+        },
+        {
+          "heading": "Empty Average Fallback Test",
+          "question": false,
+          "secondaryKeyword": "empty average fallback test",
+          "coverage": "Verify null AVG becomes numeric zero and does not pass through Number, toFixed, or parseFloat as an invalid value."
+        },
+        {
+          "heading": "Rating Set, Raw Average, and API Value Matrix",
+          "question": false,
+          "coverage": "Present source ratings, exact fraction, database aggregate, one-decimal string, final JSON number, and expected assertion."
+        },
+        {
+          "heading": "How Do You Implement the Rounding Procedure?",
+          "question": true,
+          "coverage": "Seed one rating set at a time, query the database aggregate directly, call GET, and compare independent decimal expectations."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about AVG return types, toFixed strings, parseFloat, trailing zeros, empty sets, precision, and display formatting."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "State the numeric one-decimal API contract and link to review and database testing skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Review average conversion examples",
+        "columns": [
+          "Ratings",
+          "Exact average",
+          "Postgres AVG",
+          "toFixed(1)",
+          "JSON value",
+          "Expected type"
+        ],
+        "rows": [
+          "empty set",
+          "single rating",
+          "one and two",
+          "one, two, and two",
+          "one and five",
+          "repeated mixed ratings"
+        ],
+        "sources": [
+          "packages/web/src/app/api/reviews/route.ts",
+          "packages/web/src/db/schema/relations.ts",
+          "https://www.postgresql.org/docs/current/functions-aggregate.html",
+          "https://tc39.es/ecma262/multipage/numbers-and-dates.html"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to test review average rounding",
+        "steps": [
+          "Define rating arrays with independently calculated rational averages.",
+          "Seed one array for an isolated skill.",
+          "Query PostgreSQL AVG and count directly for diagnostic evidence.",
+          "Call the review GET endpoint for the same skill.",
+          "Assert totalReviews, numeric type, and the expected one-decimal value.",
+          "Repeat with an empty skill and assert numeric zero."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Assert the AVG conversion pipeline",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/reviews/route.ts",
+          "focus": "Exercise avg, Number, toFixed(1), parseFloat, and null fallback."
+        },
+        {
+          "title": "Seed integer rating combinations",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/relations.ts",
+          "focus": "Create deterministic review sets using the non-null integer rating column."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/reviews/route.ts",
+        "packages/web/src/db/schema/relations.ts",
+        "packages/web/src/components/skills/review-section.tsx"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories/api-testing",
+        "/blog/api-testing-complete-guide",
+        "/blog/database-testing-automation-guide",
+        "/blog/authentication-authorization-testing-guide",
+        "/blog/error-handling-testing-patterns"
+      ],
+      "relatedSlugs": [
+        "api-testing-complete-guide",
+        "database-testing-automation-guide",
+        "authentication-authorization-testing-guide",
+        "error-handling-testing-patterns"
+      ],
+      "sources": [
+        "https://www.postgresql.org/docs/current/functions-aggregate.html",
+        "https://tc39.es/ecma262/multipage/numbers-and-dates.html"
+      ],
+      "cta": "Browse API and database testing skills at /skills and add exact average fixtures to the review suite."
+    },
+    {
+      "batch": 18,
+      "batchPosition": 5,
+      "domain": "data-search-cache",
+      "sourceTopicId": "category-03",
+      "slug": "category-response-ordering-testing",
+      "primaryKeyword": "category response ordering testing",
+      "title": "category response ordering testing",
+      "description": "Use category response ordering testing to expose unstable taxonomy arrays when PostgreSQL returns rows without an explicit ORDER BY clause in CI.",
+      "intent": "troubleshooting",
+      "coreQuestion": "How do you test stable category array ordering when the database query has no ORDER BY clause?",
+      "secondaryKeywords": [
+        "Postgres unordered category results",
+        "stable taxonomy order test",
+        "category API flaky ordering",
+        "missing ORDER BY regression",
+        "deterministic category arrays"
+      ],
+      "outline": [
+        {
+          "heading": "What Must Category Response Ordering Testing Expose?",
+          "question": true,
+          "coverage": "Define that the current select has no ordering guarantee and the grouping loop preserves whatever row order the database supplies."
+        },
+        {
+          "heading": "How Do You Demonstrate Postgres Unordered Category Results?",
+          "question": true,
+          "secondaryKeyword": "Postgres unordered category results",
+          "coverage": "Use differing insertion patterns and query plans as evidence, without relying on nondeterminism as the only failing test mechanism."
+        },
+        {
+          "heading": "What Is a Stable Taxonomy Order Test?",
+          "question": true,
+          "secondaryKeyword": "stable taxonomy order test",
+          "coverage": "Choose an explicit product order such as name then ID, seed ties, and assert each response group independently."
+        },
+        {
+          "heading": "Category API Flaky Ordering Symptoms",
+          "question": false,
+          "secondaryKeyword": "category API flaky ordering",
+          "coverage": "Trace unstable arrays into snapshots, UI filter order, cache repopulation, and cross-environment differences."
+        },
+        {
+          "heading": "How Do You Catch a Missing ORDER BY Regression?",
+          "question": true,
+          "secondaryKeyword": "missing ORDER BY regression",
+          "coverage": "Inspect generated SQL or query construction and pair the structural check with behavior fixtures that defeat insertion-order assumptions."
+        },
+        {
+          "heading": "Deterministic Category Arrays",
+          "question": false,
+          "secondaryKeyword": "deterministic category arrays",
+          "coverage": "Compare database ordering before grouping with in-memory sorting after grouping and test the chosen contract for all four arrays."
+        },
+        {
+          "heading": "Fixture Order, Expected Sort, and Group Output",
+          "question": false,
+          "coverage": "Present insertion order, names, IDs, type groups, expected order, and actual order."
+        },
+        {
+          "heading": "How Do You Run the Ordering Procedure?",
+          "question": true,
+          "coverage": "Seed reverse and tied names, clear cache, call repeatedly, assert explicit order, rebuild cache, and rerun."
+        },
+        {
+          "heading": "Frequently Asked Questions",
+          "question": false,
+          "coverage": "Answer questions about SQL ordering guarantees, insertion order, cache effects, locale sorting, ID tiebreakers, and snapshots."
+        },
+        {
+          "heading": "Conclusion",
+          "question": false,
+          "coverage": "State the need for an explicit ordering contract and direct readers to taxonomy testing skills."
+        }
+      ],
+      "tablePlan": {
+        "title": "Category ordering fixture matrix",
+        "columns": [
+          "Inserted sequence",
+          "Category type",
+          "Name",
+          "Tie ID",
+          "Expected position",
+          "Observed position"
+        ],
+        "rows": [
+          "reverse alphabetical names",
+          "same name with different IDs",
+          "interleaved category types",
+          "cache repopulation run",
+          "repeated request run"
+        ],
+        "sources": [
+          "packages/web/src/app/api/categories/route.ts",
+          "packages/web/src/db/schema/categories.ts",
+          "https://www.postgresql.org/docs/current/queries-order.html",
+          "https://orm.drizzle.team/docs/select"
+        ]
+      },
+      "procedurePlan": {
+        "heading": "How to test deterministic category ordering",
+        "steps": [
+          "Define the expected sort fields and a unique final tiebreaker.",
+          "Seed categories in reverse order with duplicate sort values.",
+          "Delete the categories:all cache key.",
+          "Call the endpoint and assert order inside each of the four groups.",
+          "Repopulate the cache and repeat the same response assertion.",
+          "Inspect the query or in-memory sort to prove the ordering rule is explicit."
+        ]
+      },
+      "codeExamples": [
+        {
+          "title": "Assert ordering after category grouping",
+          "language": "typescript",
+          "path": "packages/web/src/app/api/categories/route.ts",
+          "focus": "Exercise the unordered select, grouping loop, cache population, and proposed explicit order."
+        },
+        {
+          "title": "Seed reverse-order and tied categories",
+          "language": "typescript",
+          "path": "packages/web/src/db/schema/categories.ts",
+          "focus": "Create names and UUIDs that require a clear primary and final tiebreaker."
+        }
+      ],
+      "repoEvidence": [
+        "packages/web/src/app/api/categories/route.ts",
+        "packages/web/src/db/schema/categories.ts",
+        "packages/web/src/lib/cache.ts"
+      ],
+      "internalRoutes": [
+        "/skills",
+        "/categories",
+        "/categories/api-testing",
+        "/blog/database-testing-automation-guide",
+        "/blog/api-testing-complete-guide",
+        "/blog/testing-postgresql-jsonb-multiselect-filters-drizzle",
+        "/blog/redis-cache-testing-guide"
+      ],
+      "relatedSlugs": [
+        "database-testing-automation-guide",
+        "api-testing-complete-guide",
+        "testing-postgresql-jsonb-multiselect-filters-drizzle",
+        "redis-cache-testing-guide"
+      ],
+      "sources": [
+        "https://www.postgresql.org/docs/current/queries-order.html",
+        "https://orm.drizzle.team/docs/select"
+      ],
+      "cta": "Open /categories, browse QA skills at /skills, and make the taxonomy order an explicit contract."
+    }
+  ]
+}
