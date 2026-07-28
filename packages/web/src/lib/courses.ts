@@ -61,7 +61,7 @@ export const COURSES: Record<CourseId, Course> = {
     ],
     discount: 'Up to 10% OFF',
     code: 'PROMODE',
-    cohort: 'Starts 11 Jul 2026',
+    cohort: 'Starts 1 Aug 2026',
     schedule: 'Tue/Thu/Sat 7:00–8:15 AM IST',
     baseUrl: 'https://class.thetestingacademy.com/playwright-automation-mastery-course',
     accent: 'emerald',
