@@ -1,7 +1,7 @@
 // Single source of truth for The Testing Academy course promos rendered across
 // the site: top PromoBanner, skill sidebars, blog inline slots, footer.
 // Update price/date/coupon HERE and every placement updates.
-// The banner derives its badge ("Starts 26 Jul") and date from `cohort`,
+// The banner derives its badge ("Starts 1 Aug") and date from `cohort`,
 // so cohort must stay in the exact form "Starts <D> <Mon> <YYYY>".
 
 export type CourseId = 'ai-tester' | 'playwright';
@@ -42,7 +42,7 @@ export const COURSES: Record<CourseId, Course> = {
     priceNew: '9,999',
     discount: '33% OFF',
     code: 'AITESTER',
-    cohort: 'Starts 26 Jul 2026',
+    cohort: 'Starts 1 Aug 2026',
     baseUrl: 'https://class.thetestingacademy.com/ai-powered-testing-mastery',
     accent: 'blue',
     bannerBg: 'from-blue-900 via-indigo-900 to-slate-900',

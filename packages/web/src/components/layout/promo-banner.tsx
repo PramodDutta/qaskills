@@ -12,8 +12,8 @@ const VARIANTS = [COURSES['ai-tester'], COURSES['playwright']].map((c) => ({
   emoji: c.emoji,
   title: c.title,
   titleShort: c.titleShort,
-  badge: c.cohort.replace(/ \d{4}$/, ''), // "Starts 26 Jul"
-  date: c.cohort.replace(/^Starts /, ''), // "26 Jul 2026"
+  badge: c.cohort.replace(/ \d{4}$/, ''), // "Starts 1 Aug"
+  date: c.cohort.replace(/^Starts /, ''), // "1 Aug 2026"
   schedule: c.schedule ?? '',
   priceOld: c.priceOld ?? '',
   priceNew: c.priceNew ?? '',
