@@ -5,7 +5,9 @@ import { X } from 'lucide-react';
 import { COURSES } from '@/lib/courses';
 
 const DISMISS_KEY = 'promo-banner-dismissed';
-const CAMPAIGN_ID = 'dual-jul-2026-v2';
+// Bump this whenever the cohort dates change: a new id makes the banner
+// reappear for everyone who dismissed the previous campaign.
+const CAMPAIGN_ID = 'dual-aug-2026-v1';
 
 // Derived from the single source of truth in lib/courses.ts; edit dates there.
 const VARIANTS = [COURSES['ai-tester'], COURSES['playwright']].map((c) => ({
