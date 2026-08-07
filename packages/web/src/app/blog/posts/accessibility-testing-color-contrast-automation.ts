@@ -142,9 +142,15 @@ async function scanTextContrast(page: Page, root = 'main'): Promise<ContrastFind
       if (!ctx) return null;
       ctx.fillStyle = '#000';
       ctx.fillStyle = input;
-      const computed = ctx.fillStyle;
-      // Browser normalizes to rgb(a)
-      const m = String(computed).match(
+      const computed = String(ctx.fillStyle);
+      // Canvas serializes fully opaque colors as #rrggbb and only uses
+      // rgba() when there is alpha, so handle both forms.
+      const hex = computed.match(/^#([0-9a-f]{6})$/i);
+      if (hex) {
+        const n = parseInt(hex[1], 16);
+        return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255, a: 1 };
+      }
+      const m = computed.match(
         /rgba?\\((\\d+),\\s*(\\d+),\\s*(\\d+)(?:,\\s*([\\d.]+))?\\)/i,
       );
       if (!m) return null;

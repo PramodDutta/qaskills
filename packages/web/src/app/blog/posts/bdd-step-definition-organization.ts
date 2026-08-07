@@ -598,7 +598,7 @@ When('the customer places the order', async function (this: CheckoutWorld) {
   await this.checkoutPage.placeOrder();
 });
 
-Then('the order status is paid', async function (this: CheckoutWorld) {
+Then('the order is finalized as paid', async function (this: CheckoutWorld) {
   const status = await this.checkoutPage.readStatus();
   assert.equal(status, 'paid');
 });

@@ -204,8 +204,8 @@ api_tests:
     POSTGRES_USER: app
     POSTGRES_PASSWORD: app
     POSTGRES_DB: app_template
-    TEST_DATABASE_NAME: "app_test_$CI_PIPELINE_ID_$CI_NODE_INDEX"
-    DATABASE_URL: "postgresql://app:app@postgres:5432/app_test_$CI_PIPELINE_ID_$CI_NODE_INDEX"
+    TEST_DATABASE_NAME: "app_test_\${CI_PIPELINE_ID}_\${CI_NODE_INDEX}"
+    DATABASE_URL: "postgresql://app:app@postgres:5432/app_test_\${CI_PIPELINE_ID}_\${CI_NODE_INDEX}"
   before_script:
     - npm ci
     - npm run db:create:test

@@ -218,7 +218,7 @@ export const paymentMethodSchema = {
       additionalProperties: false,
       properties: {
         kind: { const: 'card' },
-        last4: { type: 'string', pattern: '^\\d{4}$' },
+        last4: { type: 'string', pattern: '^\\\\d{4}$' },
       },
     },
     {

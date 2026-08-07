@@ -260,7 +260,7 @@ if (offenders.length > 0) {
 }
 \`\`\`
 
-This example avoids regex so it is easy to audit in a template-literal article and easy for teams to customize. In a real repository, extend it with your secret-scanning tool of choice and make sure generated artifacts are included.
+This example avoids regex so it is easy to audit and easy for teams to customize. In a real repository, extend it with your secret-scanning tool of choice and make sure generated artifacts are included.
 
 ## Revocation tests prove the old credential is actually dead
 

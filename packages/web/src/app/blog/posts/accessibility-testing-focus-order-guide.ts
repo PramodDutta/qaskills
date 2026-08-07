@@ -143,7 +143,7 @@ test('checkout follows the documented keyboard sequence', async ({ page }) => {
     trace.push(await activeFocus(page));
   }
 
-  expect(trace).toMatchSnapshot('checkout-focus-order.json');
+  expect(JSON.stringify(trace, null, 2)).toMatchSnapshot('checkout-focus-order.json');
 });
 \`\`\`
 

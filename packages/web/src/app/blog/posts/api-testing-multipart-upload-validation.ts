@@ -243,7 +243,7 @@ Now the API test can verify side effects without reaching a real cloud account. 
 
 | Storage check | Bug it catches | Example assertion |
 |---|---|---|
-| Key prefix includes user ID | Cross-tenant object visibility | \`expect(key).toMatch(/^users\\\\/user-123\\\\//)\` |
+| Key prefix includes user ID | Cross-tenant object visibility | \`expect(key).toMatch(/^users\\/user-123\\//)\` |
 | Metadata includes checksum | Processor cannot verify bytes later | \`expect(object.metadata.sha256).toEqual(hash)\` |
 | Content type is normalized | CDN serves unsafe type | \`expect(object.contentType).toBe('image/png')\` |
 | Failed validation leaves no key | Temporary object leaked | \`expect(storage.committedKeys()).toEqual([])\` |

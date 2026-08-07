@@ -147,20 +147,24 @@ jobs:
       - run: npm ci
       - name: Run package tests
         run: npm run test:ci --workspace \${{ matrix.package }}
+
+      - id: pkg
+        run: echo "slug=\${{ matrix.package }}" | tr '/' '-' >> "\$GITHUB_OUTPUT"
         env:
           TEST_SHARD: \${{ matrix.shard_index }}/\${{ matrix.shard_total }}
       - name: Upload test evidence
         if: \${{ always() }}
         uses: actions/upload-artifact@v4
         with:
-          name: test-\${{ matrix.package }}-\${{ matrix.shard_index }}-of-\${{ matrix.shard_total }}-attempt-\${{ github.run_attempt }}
+          # GitHub rejects '/' in artifact names, so flatten the package path first.
+          name: test-\${{ steps.pkg.outputs.slug }}-\${{ matrix.shard_index }}-of-\${{ matrix.shard_total }}-attempt-\${{ github.run_attempt }}
           path: |
             \${{ matrix.package }}/reports
             \${{ matrix.package }}/test-results
           if-no-files-found: ignore
 \`\`\`
 
-GitHub artifact names can contain slashes in some contexts but they are awkward to read and automate. A tiny package-name normalizer in your workflow or manifest script avoids that mess. The exact implementation can be as simple as replacing non-alphanumeric separators with hyphens. Do that in the artifact name and keep the original package path inside the manifest.
+GitHub rejects artifact names containing a forward slash, so a package path like apps/checkout-web cannot be used directly as an artifact name. A tiny package-name normalizer in your workflow or manifest script avoids that mess. The exact implementation can be as simple as replacing non-alphanumeric separators with hyphens. Do that in the artifact name and keep the original package path inside the manifest.
 
 ## Merge JUnit without losing package identity
 

@@ -195,7 +195,7 @@ test('invoice table pagination keeps context after page change', async ({ page }
 });
 \`\`\`
 
-This block contains one regular expression.
+
 
 ## Selection and bulk actions need row identity
 

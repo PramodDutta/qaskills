@@ -195,7 +195,7 @@ import { expect, it } from 'vitest';
 import request from 'supertest';
 import { app } from '../src/app';
 
-it('returns the current user's projects', async () => {
+it("returns the current user's projects", async () => {
   const response = await request(app)
     .get('/v1/projects')
     .set('Authorization', 'Bearer user-a');
