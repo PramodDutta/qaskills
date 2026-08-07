@@ -1224,6 +1224,139 @@ import { post as playwrightDropApiDragAndDrop } from './playwright-drop-api-drag
 import { post as playwrightStartharTracingGuide } from './playwright-starthar-tracing-guide';
 import { post as artilleryLoadTestingNodejsGuide } from './artillery-load-testing-nodejs-guide';
 import { post as playwrightTraceCliNpxGuide } from './playwright-trace-cli-npx-guide';
+import { post as b100_accessibilityTestingColorContrastAutomation } from './accessibility-testing-color-contrast-automation';
+import { post as b100_accessibilityTestingDataTableSemantics } from './accessibility-testing-data-table-semantics';
+import { post as b100_accessibilityTestingFocusOrderGuide } from './accessibility-testing-focus-order-guide';
+import { post as b100_accessibilityTestingFormErrorAnnouncement } from './accessibility-testing-form-error-announcement';
+import { post as b100_accessibilityTestingModalDialogAria } from './accessibility-testing-modal-dialog-aria';
+import { post as b100_accessibilityTestingReducedMotion } from './accessibility-testing-reduced-motion';
+import { post as b100_agentTestingMultiTurnStateDrift } from './agent-testing-multi-turn-state-drift';
+import { post as b100_agentTestingStepBudgetEnforcement } from './agent-testing-step-budget-enforcement';
+import { post as b100_agentTestingToolSelectionAccuracy } from './agent-testing-tool-selection-accuracy';
+import { post as b100_aiCodeReviewTestCoverageGaps } from './ai-code-review-test-coverage-gaps';
+import { post as b100_apiTestingBulkEndpointPartialFailure } from './api-testing-bulk-endpoint-partial-failure';
+import { post as b100_apiTestingConditionalRequestsEtagGuide } from './api-testing-conditional-requests-etag-guide';
+import { post as b100_apiTestingErrorEnvelopeContract } from './api-testing-error-envelope-contract';
+import { post as b100_apiTestingIdempotencyKeyPatterns } from './api-testing-idempotency-key-patterns';
+import { post as b100_apiTestingJsonSchemaValidationGuide } from './api-testing-json-schema-validation-guide';
+import { post as b100_apiTestingMultipartUploadValidation } from './api-testing-multipart-upload-validation';
+import { post as b100_apiTestingPaginationCursorVsOffset } from './api-testing-pagination-cursor-vs-offset';
+import { post as b100_bddScenarioOutlineDataTables } from './bdd-scenario-outline-data-tables';
+import { post as b100_bddStepDefinitionOrganization } from './bdd-step-definition-organization';
+import { post as b100_chaosTestingDependencyFailureInjection } from './chaos-testing-dependency-failure-injection';
+import { post as b100_chaosTestingNetworkPartitionSimulation } from './chaos-testing-network-partition-simulation';
+import { post as b100_ciArtifactRetentionCostOptimization } from './ci-artifact-retention-cost-optimization';
+import { post as b100_ciDockerLayerCacheTestImages } from './ci-docker-layer-cache-test-images';
+import { post as b100_ciFlakyTestAutoQuarantineWorkflow } from './ci-flaky-test-auto-quarantine-workflow';
+import { post as b100_ciParallelDatabasePerJob } from './ci-parallel-database-per-job';
+import { post as b100_ciSecretsRotationTestingPipeline } from './ci-secrets-rotation-testing-pipeline';
+import { post as b100_ciTestReportAggregationMonorepo } from './ci-test-report-aggregation-monorepo';
+import { post as b100_ciTestSelectionByGitDiff } from './ci-test-selection-by-git-diff';
+import { post as b100_claudeCodeTestRefactoringWorkflow } from './claude-code-test-refactoring-workflow';
+import { post as b100_codeCoverageBranchVsMutationTradeoff } from './code-coverage-branch-vs-mutation-tradeoff';
+import { post as b100_codeCoverageDiffCoverageEnforcement } from './code-coverage-diff-coverage-enforcement';
+import { post as b100_contractTestingConsumerVersionMatrix } from './contract-testing-consumer-version-matrix';
+import { post as b100_contractTestingSchemaEvolutionCompat } from './contract-testing-schema-evolution-compat';
+import { post as b100_copilotTestGenerationReviewWorkflow } from './copilot-test-generation-review-workflow';
+import { post as b100_cursorRulesTestGenerationPatterns } from './cursor-rules-test-generation-patterns';
+import { post as b100_cypressMultiDomainSessionGuide } from './cypress-multi-domain-session-guide';
+import { post as b100_cypressNetworkStubbingFixturesGuide } from './cypress-network-stubbing-fixtures-guide';
+import { post as b100_cypressRetryAbilityCustomCommands } from './cypress-retry-ability-custom-commands';
+import { post as b100_databaseTestingIndexRegressionDetection } from './database-testing-index-regression-detection';
+import { post as b100_databaseTestingMigrationRollbackSafety } from './database-testing-migration-rollback-safety';
+import { post as b100_databaseTestingSoftDeleteConstraints } from './database-testing-soft-delete-constraints';
+import { post as b100_databaseTestingTransactionIsolationLevels } from './database-testing-transaction-isolation-levels';
+import { post as b100_exploratoryTestingBugTriageWorkflow } from './exploratory-testing-bug-triage-workflow';
+import { post as b100_exploratoryTestingSessionCharterTemplates } from './exploratory-testing-session-charter-templates';
+import { post as b100_featureFlagTestingCombinatorialCoverage } from './feature-flag-testing-combinatorial-coverage';
+import { post as b100_featureFlagTestingRollbackSafety } from './feature-flag-testing-rollback-safety';
+import { post as b100_gatlingScenarioInjectionProfiles } from './gatling-scenario-injection-profiles';
+import { post as b100_graphqlTestingNPlusOneDetection } from './graphql-testing-n-plus-one-detection';
+import { post as b100_grpcTestingStreamingDeadlineGuide } from './grpc-testing-streaming-deadline-guide';
+import { post as b100_jestCustomMatchersTypescriptGuide } from './jest-custom-matchers-typescript-guide';
+import { post as b100_jestModuleNameMapperPathAliasFix } from './jest-module-name-mapper-path-alias-fix';
+import { post as b100_jestTransformIgnorePatternsEsmFix } from './jest-transform-ignore-patterns-esm-fix';
+import { post as b100_jestWorkerMemoryLeakHeapFix } from './jest-worker-memory-leak-heap-fix';
+import { post as b100_jmeterDistributedLoadTestingGuide } from './jmeter-distributed-load-testing-guide';
+import { post as b100_k6CustomMetricsTrendCounter } from './k6-custom-metrics-trend-counter';
+import { post as b100_k6ScenariosRampingArrivalRate } from './k6-scenarios-ramping-arrival-rate';
+import { post as b100_k6ThresholdsPerEndpointGuide } from './k6-thresholds-per-endpoint-guide';
+import { post as b100_lighthouseCiBudgetsAssertionsGuide } from './lighthouse-ci-budgets-assertions-guide';
+import { post as b100_llmEvalCostBudgetCiGate } from './llm-eval-cost-budget-ci-gate';
+import { post as b100_llmEvalGoldenDatasetVersioning } from './llm-eval-golden-dataset-versioning';
+import { post as b100_llmEvalJudgeModelDriftDetection } from './llm-eval-judge-model-drift-detection';
+import { post as b100_llmEvalRegressionBaselineComparison } from './llm-eval-regression-baseline-comparison';
+import { post as b100_llmTestingStreamingPartialJson } from './llm-testing-streaming-partial-json';
+import { post as b100_llmTestingTokenLimitTruncation } from './llm-testing-token-limit-truncation';
+import { post as b100_locustCustomLoadShapesGuide } from './locust-custom-load-shapes-guide';
+import { post as b100_mcpServerTestingErrorPropagation } from './mcp-server-testing-error-propagation';
+import { post as b100_mcpServerTestingToolSchemaValidation } from './mcp-server-testing-tool-schema-validation';
+import { post as b100_mobileTestingBiometricAuthFlows } from './mobile-testing-biometric-auth-flows';
+import { post as b100_mobileTestingDeepLinkValidation } from './mobile-testing-deep-link-validation';
+import { post as b100_mobileTestingOfflineModeSync } from './mobile-testing-offline-mode-sync';
+import { post as b100_mobileTestingPushNotificationFlows } from './mobile-testing-push-notification-flows';
+import { post as b100_monorepoTestingAffectedPackageDetection } from './monorepo-testing-affected-package-detection';
+import { post as b100_monorepoTestingSharedFixtureStrategy } from './monorepo-testing-shared-fixture-strategy';
+import { post as b100_observabilityTestingLogSchemaValidation } from './observability-testing-log-schema-validation';
+import { post as b100_observabilityTestingTraceAssertion } from './observability-testing-trace-assertion';
+import { post as b100_performanceTestingColdStartLatency } from './performance-testing-cold-start-latency';
+import { post as b100_performanceTestingConnectionPoolSaturation } from './performance-testing-connection-pool-saturation';
+import { post as b100_performanceTestingP99TailLatencyAnalysis } from './performance-testing-p99-tail-latency-analysis';
+import { post as b100_playwrightAssertCssComputedStyle } from './playwright-assert-css-computed-style';
+import { post as b100_playwrightBrowserContextPermissionsGeolocation } from './playwright-browser-context-permissions-geolocation';
+import { post as b100_playwrightComponentTestingVueGuide } from './playwright-component-testing-vue-guide';
+import { post as b100_playwrightCustomFixtureCompositionGuide } from './playwright-custom-fixture-composition-guide';
+import { post as b100_playwrightGlobalSetupTeardownPatterns } from './playwright-global-setup-teardown-patterns';
+import { post as b100_playwrightInterceptGraphqlBatchRequests } from './playwright-intercept-graphql-batch-requests';
+import { post as b100_playwrightMcpServerAgentTesting } from './playwright-mcp-server-agent-testing';
+import { post as b100_playwrightNetworkHarReplayTesting } from './playwright-network-har-replay-testing';
+import { post as b100_playwrightParametrizeTestsFromCsvJson } from './playwright-parametrize-tests-from-csv-json';
+import { post as b100_playwrightRetryOnlySpecificErrorTypes } from './playwright-retry-only-specific-error-types';
+import { post as b100_playwrightSlowTestAnnotationTimeoutBudget } from './playwright-slow-test-annotation-timeout-budget';
+import { post as b100_playwrightStorageStateMultipleRolesSetup } from './playwright-storage-state-multiple-roles-setup';
+import { post as b100_playwrightTestIsolationPerWorkerDatabase } from './playwright-test-isolation-per-worker-database';
+import { post as b100_playwrightTestShardBalancingUnevenSuites } from './playwright-test-shard-balancing-uneven-suites';
+import { post as b100_playwrightTestinfoAttachCustomArtifacts } from './playwright-testinfo-attach-custom-artifacts';
+import { post as b100_playwrightVisualMaskDynamicTimestamps } from './playwright-visual-mask-dynamic-timestamps';
+import { post as b100_promptTestingFewShotExampleDrift } from './prompt-testing-few-shot-example-drift';
+import { post as b100_qaMetricsEscapedDefectAnalysis } from './qa-metrics-escaped-defect-analysis';
+import { post as b100_qaMetricsTestEffectivenessScoring } from './qa-metrics-test-effectiveness-scoring';
+import { post as b100_ragTestingChunkSizeAblation } from './rag-testing-chunk-size-ablation';
+import { post as b100_ragTestingCitationAccuracyScoring } from './rag-testing-citation-accuracy-scoring';
+import { post as b100_ragTestingIndexFreshnessStaleness } from './rag-testing-index-freshness-staleness';
+import { post as b100_regressionTestingGoldenFileManagement } from './regression-testing-golden-file-management';
+import { post as b100_regressionTestingSuitePruningStrategy } from './regression-testing-suite-pruning-strategy';
+import { post as b100_sastTriageFalsePositiveWorkflow } from './sast-triage-false-positive-workflow';
+import { post as b100_securityTestingCorsMisconfiguration } from './security-testing-cors-misconfiguration';
+import { post as b100_securityTestingDependencyConfusion } from './security-testing-dependency-confusion';
+import { post as b100_securityTestingIdorEnumerationGuide } from './security-testing-idor-enumeration-guide';
+import { post as b100_securityTestingJwtAlgorithmConfusion } from './security-testing-jwt-algorithm-confusion';
+import { post as b100_securityTestingMassAssignmentApi } from './security-testing-mass-assignment-api';
+import { post as b100_securityTestingRateLimitBypass } from './security-testing-rate-limit-bypass';
+import { post as b100_securityTestingSsrfPayloadPatterns } from './security-testing-ssrf-payload-patterns';
+import { post as b100_seleniumGridDockerScalingGuide } from './selenium-grid-docker-scaling-guide';
+import { post as b100_smokeTestingPostDeployCanary } from './smoke-testing-post-deploy-canary';
+import { post as b100_smokeTestingSyntheticUserJourney } from './smoke-testing-synthetic-user-journey';
+import { post as b100_sseTestingReconnectLastEventId } from './sse-testing-reconnect-last-event-id';
+import { post as b100_testAutomationMaintenanceCostModel } from './test-automation-maintenance-cost-model';
+import { post as b100_testAutomationRoiMeasurement } from './test-automation-roi-measurement';
+import { post as b100_testDataReferentialIntegritySeeding } from './test-data-referential-integrity-seeding';
+import { post as b100_testDataSyntheticPiiGeneration } from './test-data-synthetic-pii-generation';
+import { post as b100_testStrategyRiskBasedPrioritization } from './test-strategy-risk-based-prioritization';
+import { post as b100_testStrategyShiftLeftMetrics } from './test-strategy-shift-left-metrics';
+import { post as b100_testcontainersNetworkAliasesGuide } from './testcontainers-network-aliases-guide';
+import { post as b100_testcontainersReusableContainersSpeed } from './testcontainers-reusable-containers-speed';
+import { post as b100_testingWebhookSignatureRotation } from './testing-webhook-signature-rotation';
+import { post as b100_visualTestingCrossBrowserBaselines } from './visual-testing-cross-browser-baselines';
+import { post as b100_visualTestingDynamicContentMasking } from './visual-testing-dynamic-content-masking';
+import { post as b100_vitestConcurrentTestsRaceSafety } from './vitest-concurrent-tests-race-safety';
+import { post as b100_vitestCoverageThresholdsPerDirectory } from './vitest-coverage-thresholds-per-directory';
+import { post as b100_vitestInlineSnapshotMigrationGuide } from './vitest-inline-snapshot-migration-guide';
+import { post as b100_vitestSetupFilesVsGlobalSetup } from './vitest-setup-files-vs-global-setup';
+import { post as b100_vitestSnapshotSerializersCustomGuide } from './vitest-snapshot-serializers-custom-guide';
+import { post as b100_webVitalsInpDebuggingGuide } from './web-vitals-inp-debugging-guide';
+import { post as b100_webdriverioServiceCustomPlugin } from './webdriverio-service-custom-plugin';
+import { post as b100_websocketTestingReconnectBackoff } from './websocket-testing-reconnect-backoff';
 
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
@@ -2619,6 +2752,139 @@ export const posts: Record<string, BlogPost> = {
   'playwright-starthar-tracing-guide': playwrightStartharTracingGuide,
   'artillery-load-testing-nodejs-guide': artilleryLoadTestingNodejsGuide,
   'playwright-trace-cli-npx-guide': playwrightTraceCliNpxGuide,
+  'accessibility-testing-color-contrast-automation': b100_accessibilityTestingColorContrastAutomation,
+  'accessibility-testing-data-table-semantics': b100_accessibilityTestingDataTableSemantics,
+  'accessibility-testing-focus-order-guide': b100_accessibilityTestingFocusOrderGuide,
+  'accessibility-testing-form-error-announcement': b100_accessibilityTestingFormErrorAnnouncement,
+  'accessibility-testing-modal-dialog-aria': b100_accessibilityTestingModalDialogAria,
+  'accessibility-testing-reduced-motion': b100_accessibilityTestingReducedMotion,
+  'agent-testing-multi-turn-state-drift': b100_agentTestingMultiTurnStateDrift,
+  'agent-testing-step-budget-enforcement': b100_agentTestingStepBudgetEnforcement,
+  'agent-testing-tool-selection-accuracy': b100_agentTestingToolSelectionAccuracy,
+  'ai-code-review-test-coverage-gaps': b100_aiCodeReviewTestCoverageGaps,
+  'api-testing-bulk-endpoint-partial-failure': b100_apiTestingBulkEndpointPartialFailure,
+  'api-testing-conditional-requests-etag-guide': b100_apiTestingConditionalRequestsEtagGuide,
+  'api-testing-error-envelope-contract': b100_apiTestingErrorEnvelopeContract,
+  'api-testing-idempotency-key-patterns': b100_apiTestingIdempotencyKeyPatterns,
+  'api-testing-json-schema-validation-guide': b100_apiTestingJsonSchemaValidationGuide,
+  'api-testing-multipart-upload-validation': b100_apiTestingMultipartUploadValidation,
+  'api-testing-pagination-cursor-vs-offset': b100_apiTestingPaginationCursorVsOffset,
+  'bdd-scenario-outline-data-tables': b100_bddScenarioOutlineDataTables,
+  'bdd-step-definition-organization': b100_bddStepDefinitionOrganization,
+  'chaos-testing-dependency-failure-injection': b100_chaosTestingDependencyFailureInjection,
+  'chaos-testing-network-partition-simulation': b100_chaosTestingNetworkPartitionSimulation,
+  'ci-artifact-retention-cost-optimization': b100_ciArtifactRetentionCostOptimization,
+  'ci-docker-layer-cache-test-images': b100_ciDockerLayerCacheTestImages,
+  'ci-flaky-test-auto-quarantine-workflow': b100_ciFlakyTestAutoQuarantineWorkflow,
+  'ci-parallel-database-per-job': b100_ciParallelDatabasePerJob,
+  'ci-secrets-rotation-testing-pipeline': b100_ciSecretsRotationTestingPipeline,
+  'ci-test-report-aggregation-monorepo': b100_ciTestReportAggregationMonorepo,
+  'ci-test-selection-by-git-diff': b100_ciTestSelectionByGitDiff,
+  'claude-code-test-refactoring-workflow': b100_claudeCodeTestRefactoringWorkflow,
+  'code-coverage-branch-vs-mutation-tradeoff': b100_codeCoverageBranchVsMutationTradeoff,
+  'code-coverage-diff-coverage-enforcement': b100_codeCoverageDiffCoverageEnforcement,
+  'contract-testing-consumer-version-matrix': b100_contractTestingConsumerVersionMatrix,
+  'contract-testing-schema-evolution-compat': b100_contractTestingSchemaEvolutionCompat,
+  'copilot-test-generation-review-workflow': b100_copilotTestGenerationReviewWorkflow,
+  'cursor-rules-test-generation-patterns': b100_cursorRulesTestGenerationPatterns,
+  'cypress-multi-domain-session-guide': b100_cypressMultiDomainSessionGuide,
+  'cypress-network-stubbing-fixtures-guide': b100_cypressNetworkStubbingFixturesGuide,
+  'cypress-retry-ability-custom-commands': b100_cypressRetryAbilityCustomCommands,
+  'database-testing-index-regression-detection': b100_databaseTestingIndexRegressionDetection,
+  'database-testing-migration-rollback-safety': b100_databaseTestingMigrationRollbackSafety,
+  'database-testing-soft-delete-constraints': b100_databaseTestingSoftDeleteConstraints,
+  'database-testing-transaction-isolation-levels': b100_databaseTestingTransactionIsolationLevels,
+  'exploratory-testing-bug-triage-workflow': b100_exploratoryTestingBugTriageWorkflow,
+  'exploratory-testing-session-charter-templates': b100_exploratoryTestingSessionCharterTemplates,
+  'feature-flag-testing-combinatorial-coverage': b100_featureFlagTestingCombinatorialCoverage,
+  'feature-flag-testing-rollback-safety': b100_featureFlagTestingRollbackSafety,
+  'gatling-scenario-injection-profiles': b100_gatlingScenarioInjectionProfiles,
+  'graphql-testing-n-plus-one-detection': b100_graphqlTestingNPlusOneDetection,
+  'grpc-testing-streaming-deadline-guide': b100_grpcTestingStreamingDeadlineGuide,
+  'jest-custom-matchers-typescript-guide': b100_jestCustomMatchersTypescriptGuide,
+  'jest-module-name-mapper-path-alias-fix': b100_jestModuleNameMapperPathAliasFix,
+  'jest-transform-ignore-patterns-esm-fix': b100_jestTransformIgnorePatternsEsmFix,
+  'jest-worker-memory-leak-heap-fix': b100_jestWorkerMemoryLeakHeapFix,
+  'jmeter-distributed-load-testing-guide': b100_jmeterDistributedLoadTestingGuide,
+  'k6-custom-metrics-trend-counter': b100_k6CustomMetricsTrendCounter,
+  'k6-scenarios-ramping-arrival-rate': b100_k6ScenariosRampingArrivalRate,
+  'k6-thresholds-per-endpoint-guide': b100_k6ThresholdsPerEndpointGuide,
+  'lighthouse-ci-budgets-assertions-guide': b100_lighthouseCiBudgetsAssertionsGuide,
+  'llm-eval-cost-budget-ci-gate': b100_llmEvalCostBudgetCiGate,
+  'llm-eval-golden-dataset-versioning': b100_llmEvalGoldenDatasetVersioning,
+  'llm-eval-judge-model-drift-detection': b100_llmEvalJudgeModelDriftDetection,
+  'llm-eval-regression-baseline-comparison': b100_llmEvalRegressionBaselineComparison,
+  'llm-testing-streaming-partial-json': b100_llmTestingStreamingPartialJson,
+  'llm-testing-token-limit-truncation': b100_llmTestingTokenLimitTruncation,
+  'locust-custom-load-shapes-guide': b100_locustCustomLoadShapesGuide,
+  'mcp-server-testing-error-propagation': b100_mcpServerTestingErrorPropagation,
+  'mcp-server-testing-tool-schema-validation': b100_mcpServerTestingToolSchemaValidation,
+  'mobile-testing-biometric-auth-flows': b100_mobileTestingBiometricAuthFlows,
+  'mobile-testing-deep-link-validation': b100_mobileTestingDeepLinkValidation,
+  'mobile-testing-offline-mode-sync': b100_mobileTestingOfflineModeSync,
+  'mobile-testing-push-notification-flows': b100_mobileTestingPushNotificationFlows,
+  'monorepo-testing-affected-package-detection': b100_monorepoTestingAffectedPackageDetection,
+  'monorepo-testing-shared-fixture-strategy': b100_monorepoTestingSharedFixtureStrategy,
+  'observability-testing-log-schema-validation': b100_observabilityTestingLogSchemaValidation,
+  'observability-testing-trace-assertion': b100_observabilityTestingTraceAssertion,
+  'performance-testing-cold-start-latency': b100_performanceTestingColdStartLatency,
+  'performance-testing-connection-pool-saturation': b100_performanceTestingConnectionPoolSaturation,
+  'performance-testing-p99-tail-latency-analysis': b100_performanceTestingP99TailLatencyAnalysis,
+  'playwright-assert-css-computed-style': b100_playwrightAssertCssComputedStyle,
+  'playwright-browser-context-permissions-geolocation': b100_playwrightBrowserContextPermissionsGeolocation,
+  'playwright-component-testing-vue-guide': b100_playwrightComponentTestingVueGuide,
+  'playwright-custom-fixture-composition-guide': b100_playwrightCustomFixtureCompositionGuide,
+  'playwright-global-setup-teardown-patterns': b100_playwrightGlobalSetupTeardownPatterns,
+  'playwright-intercept-graphql-batch-requests': b100_playwrightInterceptGraphqlBatchRequests,
+  'playwright-mcp-server-agent-testing': b100_playwrightMcpServerAgentTesting,
+  'playwright-network-har-replay-testing': b100_playwrightNetworkHarReplayTesting,
+  'playwright-parametrize-tests-from-csv-json': b100_playwrightParametrizeTestsFromCsvJson,
+  'playwright-retry-only-specific-error-types': b100_playwrightRetryOnlySpecificErrorTypes,
+  'playwright-slow-test-annotation-timeout-budget': b100_playwrightSlowTestAnnotationTimeoutBudget,
+  'playwright-storage-state-multiple-roles-setup': b100_playwrightStorageStateMultipleRolesSetup,
+  'playwright-test-isolation-per-worker-database': b100_playwrightTestIsolationPerWorkerDatabase,
+  'playwright-test-shard-balancing-uneven-suites': b100_playwrightTestShardBalancingUnevenSuites,
+  'playwright-testinfo-attach-custom-artifacts': b100_playwrightTestinfoAttachCustomArtifacts,
+  'playwright-visual-mask-dynamic-timestamps': b100_playwrightVisualMaskDynamicTimestamps,
+  'prompt-testing-few-shot-example-drift': b100_promptTestingFewShotExampleDrift,
+  'qa-metrics-escaped-defect-analysis': b100_qaMetricsEscapedDefectAnalysis,
+  'qa-metrics-test-effectiveness-scoring': b100_qaMetricsTestEffectivenessScoring,
+  'rag-testing-chunk-size-ablation': b100_ragTestingChunkSizeAblation,
+  'rag-testing-citation-accuracy-scoring': b100_ragTestingCitationAccuracyScoring,
+  'rag-testing-index-freshness-staleness': b100_ragTestingIndexFreshnessStaleness,
+  'regression-testing-golden-file-management': b100_regressionTestingGoldenFileManagement,
+  'regression-testing-suite-pruning-strategy': b100_regressionTestingSuitePruningStrategy,
+  'sast-triage-false-positive-workflow': b100_sastTriageFalsePositiveWorkflow,
+  'security-testing-cors-misconfiguration': b100_securityTestingCorsMisconfiguration,
+  'security-testing-dependency-confusion': b100_securityTestingDependencyConfusion,
+  'security-testing-idor-enumeration-guide': b100_securityTestingIdorEnumerationGuide,
+  'security-testing-jwt-algorithm-confusion': b100_securityTestingJwtAlgorithmConfusion,
+  'security-testing-mass-assignment-api': b100_securityTestingMassAssignmentApi,
+  'security-testing-rate-limit-bypass': b100_securityTestingRateLimitBypass,
+  'security-testing-ssrf-payload-patterns': b100_securityTestingSsrfPayloadPatterns,
+  'selenium-grid-docker-scaling-guide': b100_seleniumGridDockerScalingGuide,
+  'smoke-testing-post-deploy-canary': b100_smokeTestingPostDeployCanary,
+  'smoke-testing-synthetic-user-journey': b100_smokeTestingSyntheticUserJourney,
+  'sse-testing-reconnect-last-event-id': b100_sseTestingReconnectLastEventId,
+  'test-automation-maintenance-cost-model': b100_testAutomationMaintenanceCostModel,
+  'test-automation-roi-measurement': b100_testAutomationRoiMeasurement,
+  'test-data-referential-integrity-seeding': b100_testDataReferentialIntegritySeeding,
+  'test-data-synthetic-pii-generation': b100_testDataSyntheticPiiGeneration,
+  'test-strategy-risk-based-prioritization': b100_testStrategyRiskBasedPrioritization,
+  'test-strategy-shift-left-metrics': b100_testStrategyShiftLeftMetrics,
+  'testcontainers-network-aliases-guide': b100_testcontainersNetworkAliasesGuide,
+  'testcontainers-reusable-containers-speed': b100_testcontainersReusableContainersSpeed,
+  'testing-webhook-signature-rotation': b100_testingWebhookSignatureRotation,
+  'visual-testing-cross-browser-baselines': b100_visualTestingCrossBrowserBaselines,
+  'visual-testing-dynamic-content-masking': b100_visualTestingDynamicContentMasking,
+  'vitest-concurrent-tests-race-safety': b100_vitestConcurrentTestsRaceSafety,
+  'vitest-coverage-thresholds-per-directory': b100_vitestCoverageThresholdsPerDirectory,
+  'vitest-inline-snapshot-migration-guide': b100_vitestInlineSnapshotMigrationGuide,
+  'vitest-setup-files-vs-global-setup': b100_vitestSetupFilesVsGlobalSetup,
+  'vitest-snapshot-serializers-custom-guide': b100_vitestSnapshotSerializersCustomGuide,
+  'web-vitals-inp-debugging-guide': b100_webVitalsInpDebuggingGuide,
+  'webdriverio-service-custom-plugin': b100_webdriverioServiceCustomPlugin,
+  'websocket-testing-reconnect-backoff': b100_websocketTestingReconnectBackoff,
   ...Object.fromEntries(playwrightLongTail2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(generatedSeoBatch2026Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoPriorityOverrides2026.map(({ slug, post }) => [slug, post])),
@@ -5162,6 +5428,139 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
   { slug: 'playwright-starthar-tracing-guide', ...playwrightStartharTracingGuide },
   { slug: 'artillery-load-testing-nodejs-guide', ...artilleryLoadTestingNodejsGuide },
   { slug: 'playwright-trace-cli-npx-guide', ...playwrightTraceCliNpxGuide },
+  { slug: 'accessibility-testing-color-contrast-automation', ...b100_accessibilityTestingColorContrastAutomation },
+  { slug: 'accessibility-testing-data-table-semantics', ...b100_accessibilityTestingDataTableSemantics },
+  { slug: 'accessibility-testing-focus-order-guide', ...b100_accessibilityTestingFocusOrderGuide },
+  { slug: 'accessibility-testing-form-error-announcement', ...b100_accessibilityTestingFormErrorAnnouncement },
+  { slug: 'accessibility-testing-modal-dialog-aria', ...b100_accessibilityTestingModalDialogAria },
+  { slug: 'accessibility-testing-reduced-motion', ...b100_accessibilityTestingReducedMotion },
+  { slug: 'agent-testing-multi-turn-state-drift', ...b100_agentTestingMultiTurnStateDrift },
+  { slug: 'agent-testing-step-budget-enforcement', ...b100_agentTestingStepBudgetEnforcement },
+  { slug: 'agent-testing-tool-selection-accuracy', ...b100_agentTestingToolSelectionAccuracy },
+  { slug: 'ai-code-review-test-coverage-gaps', ...b100_aiCodeReviewTestCoverageGaps },
+  { slug: 'api-testing-bulk-endpoint-partial-failure', ...b100_apiTestingBulkEndpointPartialFailure },
+  { slug: 'api-testing-conditional-requests-etag-guide', ...b100_apiTestingConditionalRequestsEtagGuide },
+  { slug: 'api-testing-error-envelope-contract', ...b100_apiTestingErrorEnvelopeContract },
+  { slug: 'api-testing-idempotency-key-patterns', ...b100_apiTestingIdempotencyKeyPatterns },
+  { slug: 'api-testing-json-schema-validation-guide', ...b100_apiTestingJsonSchemaValidationGuide },
+  { slug: 'api-testing-multipart-upload-validation', ...b100_apiTestingMultipartUploadValidation },
+  { slug: 'api-testing-pagination-cursor-vs-offset', ...b100_apiTestingPaginationCursorVsOffset },
+  { slug: 'bdd-scenario-outline-data-tables', ...b100_bddScenarioOutlineDataTables },
+  { slug: 'bdd-step-definition-organization', ...b100_bddStepDefinitionOrganization },
+  { slug: 'chaos-testing-dependency-failure-injection', ...b100_chaosTestingDependencyFailureInjection },
+  { slug: 'chaos-testing-network-partition-simulation', ...b100_chaosTestingNetworkPartitionSimulation },
+  { slug: 'ci-artifact-retention-cost-optimization', ...b100_ciArtifactRetentionCostOptimization },
+  { slug: 'ci-docker-layer-cache-test-images', ...b100_ciDockerLayerCacheTestImages },
+  { slug: 'ci-flaky-test-auto-quarantine-workflow', ...b100_ciFlakyTestAutoQuarantineWorkflow },
+  { slug: 'ci-parallel-database-per-job', ...b100_ciParallelDatabasePerJob },
+  { slug: 'ci-secrets-rotation-testing-pipeline', ...b100_ciSecretsRotationTestingPipeline },
+  { slug: 'ci-test-report-aggregation-monorepo', ...b100_ciTestReportAggregationMonorepo },
+  { slug: 'ci-test-selection-by-git-diff', ...b100_ciTestSelectionByGitDiff },
+  { slug: 'claude-code-test-refactoring-workflow', ...b100_claudeCodeTestRefactoringWorkflow },
+  { slug: 'code-coverage-branch-vs-mutation-tradeoff', ...b100_codeCoverageBranchVsMutationTradeoff },
+  { slug: 'code-coverage-diff-coverage-enforcement', ...b100_codeCoverageDiffCoverageEnforcement },
+  { slug: 'contract-testing-consumer-version-matrix', ...b100_contractTestingConsumerVersionMatrix },
+  { slug: 'contract-testing-schema-evolution-compat', ...b100_contractTestingSchemaEvolutionCompat },
+  { slug: 'copilot-test-generation-review-workflow', ...b100_copilotTestGenerationReviewWorkflow },
+  { slug: 'cursor-rules-test-generation-patterns', ...b100_cursorRulesTestGenerationPatterns },
+  { slug: 'cypress-multi-domain-session-guide', ...b100_cypressMultiDomainSessionGuide },
+  { slug: 'cypress-network-stubbing-fixtures-guide', ...b100_cypressNetworkStubbingFixturesGuide },
+  { slug: 'cypress-retry-ability-custom-commands', ...b100_cypressRetryAbilityCustomCommands },
+  { slug: 'database-testing-index-regression-detection', ...b100_databaseTestingIndexRegressionDetection },
+  { slug: 'database-testing-migration-rollback-safety', ...b100_databaseTestingMigrationRollbackSafety },
+  { slug: 'database-testing-soft-delete-constraints', ...b100_databaseTestingSoftDeleteConstraints },
+  { slug: 'database-testing-transaction-isolation-levels', ...b100_databaseTestingTransactionIsolationLevels },
+  { slug: 'exploratory-testing-bug-triage-workflow', ...b100_exploratoryTestingBugTriageWorkflow },
+  { slug: 'exploratory-testing-session-charter-templates', ...b100_exploratoryTestingSessionCharterTemplates },
+  { slug: 'feature-flag-testing-combinatorial-coverage', ...b100_featureFlagTestingCombinatorialCoverage },
+  { slug: 'feature-flag-testing-rollback-safety', ...b100_featureFlagTestingRollbackSafety },
+  { slug: 'gatling-scenario-injection-profiles', ...b100_gatlingScenarioInjectionProfiles },
+  { slug: 'graphql-testing-n-plus-one-detection', ...b100_graphqlTestingNPlusOneDetection },
+  { slug: 'grpc-testing-streaming-deadline-guide', ...b100_grpcTestingStreamingDeadlineGuide },
+  { slug: 'jest-custom-matchers-typescript-guide', ...b100_jestCustomMatchersTypescriptGuide },
+  { slug: 'jest-module-name-mapper-path-alias-fix', ...b100_jestModuleNameMapperPathAliasFix },
+  { slug: 'jest-transform-ignore-patterns-esm-fix', ...b100_jestTransformIgnorePatternsEsmFix },
+  { slug: 'jest-worker-memory-leak-heap-fix', ...b100_jestWorkerMemoryLeakHeapFix },
+  { slug: 'jmeter-distributed-load-testing-guide', ...b100_jmeterDistributedLoadTestingGuide },
+  { slug: 'k6-custom-metrics-trend-counter', ...b100_k6CustomMetricsTrendCounter },
+  { slug: 'k6-scenarios-ramping-arrival-rate', ...b100_k6ScenariosRampingArrivalRate },
+  { slug: 'k6-thresholds-per-endpoint-guide', ...b100_k6ThresholdsPerEndpointGuide },
+  { slug: 'lighthouse-ci-budgets-assertions-guide', ...b100_lighthouseCiBudgetsAssertionsGuide },
+  { slug: 'llm-eval-cost-budget-ci-gate', ...b100_llmEvalCostBudgetCiGate },
+  { slug: 'llm-eval-golden-dataset-versioning', ...b100_llmEvalGoldenDatasetVersioning },
+  { slug: 'llm-eval-judge-model-drift-detection', ...b100_llmEvalJudgeModelDriftDetection },
+  { slug: 'llm-eval-regression-baseline-comparison', ...b100_llmEvalRegressionBaselineComparison },
+  { slug: 'llm-testing-streaming-partial-json', ...b100_llmTestingStreamingPartialJson },
+  { slug: 'llm-testing-token-limit-truncation', ...b100_llmTestingTokenLimitTruncation },
+  { slug: 'locust-custom-load-shapes-guide', ...b100_locustCustomLoadShapesGuide },
+  { slug: 'mcp-server-testing-error-propagation', ...b100_mcpServerTestingErrorPropagation },
+  { slug: 'mcp-server-testing-tool-schema-validation', ...b100_mcpServerTestingToolSchemaValidation },
+  { slug: 'mobile-testing-biometric-auth-flows', ...b100_mobileTestingBiometricAuthFlows },
+  { slug: 'mobile-testing-deep-link-validation', ...b100_mobileTestingDeepLinkValidation },
+  { slug: 'mobile-testing-offline-mode-sync', ...b100_mobileTestingOfflineModeSync },
+  { slug: 'mobile-testing-push-notification-flows', ...b100_mobileTestingPushNotificationFlows },
+  { slug: 'monorepo-testing-affected-package-detection', ...b100_monorepoTestingAffectedPackageDetection },
+  { slug: 'monorepo-testing-shared-fixture-strategy', ...b100_monorepoTestingSharedFixtureStrategy },
+  { slug: 'observability-testing-log-schema-validation', ...b100_observabilityTestingLogSchemaValidation },
+  { slug: 'observability-testing-trace-assertion', ...b100_observabilityTestingTraceAssertion },
+  { slug: 'performance-testing-cold-start-latency', ...b100_performanceTestingColdStartLatency },
+  { slug: 'performance-testing-connection-pool-saturation', ...b100_performanceTestingConnectionPoolSaturation },
+  { slug: 'performance-testing-p99-tail-latency-analysis', ...b100_performanceTestingP99TailLatencyAnalysis },
+  { slug: 'playwright-assert-css-computed-style', ...b100_playwrightAssertCssComputedStyle },
+  { slug: 'playwright-browser-context-permissions-geolocation', ...b100_playwrightBrowserContextPermissionsGeolocation },
+  { slug: 'playwright-component-testing-vue-guide', ...b100_playwrightComponentTestingVueGuide },
+  { slug: 'playwright-custom-fixture-composition-guide', ...b100_playwrightCustomFixtureCompositionGuide },
+  { slug: 'playwright-global-setup-teardown-patterns', ...b100_playwrightGlobalSetupTeardownPatterns },
+  { slug: 'playwright-intercept-graphql-batch-requests', ...b100_playwrightInterceptGraphqlBatchRequests },
+  { slug: 'playwright-mcp-server-agent-testing', ...b100_playwrightMcpServerAgentTesting },
+  { slug: 'playwright-network-har-replay-testing', ...b100_playwrightNetworkHarReplayTesting },
+  { slug: 'playwright-parametrize-tests-from-csv-json', ...b100_playwrightParametrizeTestsFromCsvJson },
+  { slug: 'playwright-retry-only-specific-error-types', ...b100_playwrightRetryOnlySpecificErrorTypes },
+  { slug: 'playwright-slow-test-annotation-timeout-budget', ...b100_playwrightSlowTestAnnotationTimeoutBudget },
+  { slug: 'playwright-storage-state-multiple-roles-setup', ...b100_playwrightStorageStateMultipleRolesSetup },
+  { slug: 'playwright-test-isolation-per-worker-database', ...b100_playwrightTestIsolationPerWorkerDatabase },
+  { slug: 'playwright-test-shard-balancing-uneven-suites', ...b100_playwrightTestShardBalancingUnevenSuites },
+  { slug: 'playwright-testinfo-attach-custom-artifacts', ...b100_playwrightTestinfoAttachCustomArtifacts },
+  { slug: 'playwright-visual-mask-dynamic-timestamps', ...b100_playwrightVisualMaskDynamicTimestamps },
+  { slug: 'prompt-testing-few-shot-example-drift', ...b100_promptTestingFewShotExampleDrift },
+  { slug: 'qa-metrics-escaped-defect-analysis', ...b100_qaMetricsEscapedDefectAnalysis },
+  { slug: 'qa-metrics-test-effectiveness-scoring', ...b100_qaMetricsTestEffectivenessScoring },
+  { slug: 'rag-testing-chunk-size-ablation', ...b100_ragTestingChunkSizeAblation },
+  { slug: 'rag-testing-citation-accuracy-scoring', ...b100_ragTestingCitationAccuracyScoring },
+  { slug: 'rag-testing-index-freshness-staleness', ...b100_ragTestingIndexFreshnessStaleness },
+  { slug: 'regression-testing-golden-file-management', ...b100_regressionTestingGoldenFileManagement },
+  { slug: 'regression-testing-suite-pruning-strategy', ...b100_regressionTestingSuitePruningStrategy },
+  { slug: 'sast-triage-false-positive-workflow', ...b100_sastTriageFalsePositiveWorkflow },
+  { slug: 'security-testing-cors-misconfiguration', ...b100_securityTestingCorsMisconfiguration },
+  { slug: 'security-testing-dependency-confusion', ...b100_securityTestingDependencyConfusion },
+  { slug: 'security-testing-idor-enumeration-guide', ...b100_securityTestingIdorEnumerationGuide },
+  { slug: 'security-testing-jwt-algorithm-confusion', ...b100_securityTestingJwtAlgorithmConfusion },
+  { slug: 'security-testing-mass-assignment-api', ...b100_securityTestingMassAssignmentApi },
+  { slug: 'security-testing-rate-limit-bypass', ...b100_securityTestingRateLimitBypass },
+  { slug: 'security-testing-ssrf-payload-patterns', ...b100_securityTestingSsrfPayloadPatterns },
+  { slug: 'selenium-grid-docker-scaling-guide', ...b100_seleniumGridDockerScalingGuide },
+  { slug: 'smoke-testing-post-deploy-canary', ...b100_smokeTestingPostDeployCanary },
+  { slug: 'smoke-testing-synthetic-user-journey', ...b100_smokeTestingSyntheticUserJourney },
+  { slug: 'sse-testing-reconnect-last-event-id', ...b100_sseTestingReconnectLastEventId },
+  { slug: 'test-automation-maintenance-cost-model', ...b100_testAutomationMaintenanceCostModel },
+  { slug: 'test-automation-roi-measurement', ...b100_testAutomationRoiMeasurement },
+  { slug: 'test-data-referential-integrity-seeding', ...b100_testDataReferentialIntegritySeeding },
+  { slug: 'test-data-synthetic-pii-generation', ...b100_testDataSyntheticPiiGeneration },
+  { slug: 'test-strategy-risk-based-prioritization', ...b100_testStrategyRiskBasedPrioritization },
+  { slug: 'test-strategy-shift-left-metrics', ...b100_testStrategyShiftLeftMetrics },
+  { slug: 'testcontainers-network-aliases-guide', ...b100_testcontainersNetworkAliasesGuide },
+  { slug: 'testcontainers-reusable-containers-speed', ...b100_testcontainersReusableContainersSpeed },
+  { slug: 'testing-webhook-signature-rotation', ...b100_testingWebhookSignatureRotation },
+  { slug: 'visual-testing-cross-browser-baselines', ...b100_visualTestingCrossBrowserBaselines },
+  { slug: 'visual-testing-dynamic-content-masking', ...b100_visualTestingDynamicContentMasking },
+  { slug: 'vitest-concurrent-tests-race-safety', ...b100_vitestConcurrentTestsRaceSafety },
+  { slug: 'vitest-coverage-thresholds-per-directory', ...b100_vitestCoverageThresholdsPerDirectory },
+  { slug: 'vitest-inline-snapshot-migration-guide', ...b100_vitestInlineSnapshotMigrationGuide },
+  { slug: 'vitest-setup-files-vs-global-setup', ...b100_vitestSetupFilesVsGlobalSetup },
+  { slug: 'vitest-snapshot-serializers-custom-guide', ...b100_vitestSnapshotSerializersCustomGuide },
+  { slug: 'web-vitals-inp-debugging-guide', ...b100_webVitalsInpDebuggingGuide },
+  { slug: 'webdriverio-service-custom-plugin', ...b100_webdriverioServiceCustomPlugin },
+  { slug: 'websocket-testing-reconnect-backoff', ...b100_websocketTestingReconnectBackoff },
   ...remainingGeneratedSeoBatch2026Posts.map(({ slug, post }) => ({
     slug,
     ...post,
