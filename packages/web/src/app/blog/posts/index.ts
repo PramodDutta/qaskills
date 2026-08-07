@@ -125,6 +125,7 @@ import { post as aiQaSkillsDirectoryGuide } from './ai-qa-skills-directory-2026'
 import { post as migratingFrameworksGuide } from './migrating-test-frameworks-guide';
 import { generatedSeoBatch2026Posts } from './generated-seo-batch-2026';
 import { articleFactoryBatch20260718Posts } from './_article-factory-batch-2026-07';
+import { articleFactoryBatch20260725Posts } from './_article-factory-batch-2026-07-25';
 import { playwrightLongTail2026Posts } from './playwright-long-tail-batch-2026';
 import { seoPriorityOverrides2026 } from './seo-priority-overrides-2026';
 import { seoWaveOneArticles2026 } from './seo-wave-one-articles-2026';
@@ -2893,6 +2894,7 @@ export const posts: Record<string, BlogPost> = {
   ...Object.fromEntries(gapfillBatch20260626Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoWaveOneArticles2026.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(articleFactoryBatch20260718Posts.map(({ slug, post }) => [slug, post])),
+  ...Object.fromEntries(articleFactoryBatch20260725Posts.map(({ slug, post }) => [slug, post])),
 };
 
 // Ordered list for the blog listing page (newest first)
@@ -5578,6 +5580,10 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
     ...post,
   })),
   ...articleFactoryBatch20260718Posts.map(({ slug, post }) => ({
+    slug,
+    ...post,
+  })),
+  ...articleFactoryBatch20260725Posts.map(({ slug, post }) => ({
     slug,
     ...post,
   })),
