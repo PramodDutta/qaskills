@@ -1357,6 +1357,130 @@ import { post as b100_vitestSnapshotSerializersCustomGuide } from './vitest-snap
 import { post as b100_webVitalsInpDebuggingGuide } from './web-vitals-inp-debugging-guide';
 import { post as b100_webdriverioServiceCustomPlugin } from './webdriverio-service-custom-plugin';
 import { post as b100_websocketTestingReconnectBackoff } from './websocket-testing-reconnect-backoff';
+import { post as b2_accessibility_testing_autocomplete_attributes } from './accessibility-testing-autocomplete-attributes';
+import { post as b2_accessibility_testing_language_attributes } from './accessibility-testing-language-attributes';
+import { post as b2_accessibility_testing_skip_links_landmarks } from './accessibility-testing-skip-links-landmarks';
+import { post as b2_accessibility_testing_status_role_announcements } from './accessibility-testing-status-role-announcements';
+import { post as b2_accessibility_testing_touch_target_size } from './accessibility-testing-touch-target-size';
+import { post as b2_accessibility_testing_video_captions_audio } from './accessibility-testing-video-captions-audio';
+import { post as b2_agent_testing_human_handoff_escalation } from './agent-testing-human-handoff-escalation';
+import { post as b2_agent_testing_memory_persistence_across_sessions } from './agent-testing-memory-persistence-across-sessions';
+import { post as b2_agent_testing_parallel_tool_call_safety } from './agent-testing-parallel-tool-call-safety';
+import { post as b2_ai_test_generation_review_checklist } from './ai-test-generation-review-checklist';
+import { post as b2_api_testing_batch_request_ordering } from './api-testing-batch-request-ordering';
+import { post as b2_api_testing_content_negotiation_accept } from './api-testing-content-negotiation-accept';
+import { post as b2_api_testing_deprecation_sunset_headers } from './api-testing-deprecation-sunset-headers';
+import { post as b2_api_testing_long_polling_timeout_behavior } from './api-testing-long-polling-timeout-behavior';
+import { post as b2_api_testing_openapi_spec_drift_detection } from './api-testing-openapi-spec-drift-detection';
+import { post as b2_api_testing_optimistic_concurrency_headers } from './api-testing-optimistic-concurrency-headers';
+import { post as b2_api_testing_partial_update_patch_semantics } from './api-testing-partial-update-patch-semantics';
+import { post as b2_bdd_living_documentation_reports } from './bdd-living-documentation-reports';
+import { post as b2_bdd_tag_based_execution_strategy } from './bdd-tag-based-execution-strategy';
+import { post as b2_chaos_testing_clock_skew_injection } from './chaos-testing-clock-skew-injection';
+import { post as b2_chaos_testing_resource_exhaustion } from './chaos-testing-resource-exhaustion';
+import { post as b2_ci_composite_action_shared_steps } from './ci-composite-action-shared-steps';
+import { post as b2_ci_concurrency_groups_deploy_safety } from './ci-concurrency-groups-deploy-safety';
+import { post as b2_ci_matrix_exclude_include_patterns } from './ci-matrix-exclude-include-patterns';
+import { post as b2_ci_required_checks_branch_protection } from './ci-required-checks-branch-protection';
+import { post as b2_ci_self_hosted_runner_isolation } from './ci-self-hosted-runner-isolation';
+import { post as b2_ci_test_impact_caching_strategy } from './ci-test-impact-caching-strategy';
+import { post as b2_ci_workflow_reusable_inputs_secrets } from './ci-workflow-reusable-inputs-secrets';
+import { post as b2_claude_skills_test_suite_generation } from './claude-skills-test-suite-generation';
+import { post as b2_code_coverage_instrumentation_overhead } from './code-coverage-instrumentation-overhead';
+import { post as b2_contract_testing_message_queue_pacts } from './contract-testing-message-queue-pacts';
+import { post as b2_contract_testing_provider_state_management } from './contract-testing-provider-state-management';
+import { post as b2_copilot_workspace_test_planning } from './copilot-workspace-test-planning';
+import { post as b2_cursor_composer_test_refactoring } from './cursor-composer-test-refactoring';
+import { post as b2_cypress_clock_tick_time_travel } from './cypress-clock-tick-time-travel';
+import { post as b2_cypress_custom_command_typescript_types } from './cypress-custom-command-typescript-types';
+import { post as b2_cypress_fixtures_dynamic_generation } from './cypress-fixtures-dynamic-generation';
+import { post as b2_cypress_viewport_responsive_assertions } from './cypress-viewport-responsive-assertions';
+import { post as b2_database_testing_cascade_delete_behavior } from './database-testing-cascade-delete-behavior';
+import { post as b2_database_testing_json_column_query_validation } from './database-testing-json-column-query-validation';
+import { post as b2_database_testing_partition_pruning_verification } from './database-testing-partition-pruning-verification';
+import { post as b2_database_testing_sequence_gap_handling } from './database-testing-sequence-gap-handling';
+import { post as b2_exploratory_testing_heuristics_cheatsheet } from './exploratory-testing-heuristics-cheatsheet';
+import { post as b2_feature_flag_testing_stale_flag_cleanup } from './feature-flag-testing-stale-flag-cleanup';
+import { post as b2_gatling_feeder_data_strategies } from './gatling-feeder-data-strategies';
+import { post as b2_graphql_testing_directive_skip_include } from './graphql-testing-directive-skip-include';
+import { post as b2_graphql_testing_fragment_composition } from './graphql-testing-fragment-composition';
+import { post as b2_grpc_testing_metadata_propagation } from './grpc-testing-metadata-propagation';
+import { post as b2_jest_fake_timers_modern_vs_legacy } from './jest-fake-timers-modern-vs-legacy';
+import { post as b2_jest_globalsetup_teardown_database } from './jest-globalsetup-teardown-database';
+import { post as b2_jest_projects_multi_config_monorepo } from './jest-projects-multi-config-monorepo';
+import { post as b2_jest_snapshot_obsolete_cleanup_ci } from './jest-snapshot-obsolete-cleanup-ci';
+import { post as b2_jmeter_correlation_dynamic_tokens } from './jmeter-correlation-dynamic-tokens';
+import { post as b2_k6_browser_module_web_vitals_capture } from './k6-browser-module-web-vitals-capture';
+import { post as b2_k6_execution_segments_distributed } from './k6-execution-segments-distributed';
+import { post as b2_lighthouse_treemap_bundle_analysis } from './lighthouse-treemap-bundle-analysis';
+import { post as b2_llm_eval_multilingual_quality_parity } from './llm-eval-multilingual-quality-parity';
+import { post as b2_llm_eval_prompt_injection_canary_tokens } from './llm-eval-prompt-injection-canary-tokens';
+import { post as b2_llm_eval_rubric_design_interrater_agreement } from './llm-eval-rubric-design-interrater-agreement';
+import { post as b2_llm_eval_sample_size_confidence_intervals } from './llm-eval-sample-size-confidence-intervals';
+import { post as b2_llm_testing_function_calling_schema_drift } from './llm-testing-function-calling-schema-drift';
+import { post as b2_llm_testing_refusal_rate_calibration } from './llm-testing-refusal-rate-calibration';
+import { post as b2_locust_distributed_worker_scaling } from './locust-distributed-worker-scaling';
+import { post as b2_mcp_testing_prompt_template_arguments } from './mcp-testing-prompt-template-arguments';
+import { post as b2_mcp_testing_resource_subscription_updates } from './mcp-testing-resource-subscription-updates';
+import { post as b2_mobile_testing_app_permissions_flows } from './mobile-testing-app-permissions-flows';
+import { post as b2_mobile_testing_background_foreground_lifecycle } from './mobile-testing-background-foreground-lifecycle';
+import { post as b2_mobile_testing_orientation_change_state } from './mobile-testing-orientation-change-state';
+import { post as b2_monorepo_testing_dependency_graph_ordering } from './monorepo-testing-dependency-graph-ordering';
+import { post as b2_observability_testing_alert_rule_validation } from './observability-testing-alert-rule-validation';
+import { post as b2_observability_testing_metric_cardinality } from './observability-testing-metric-cardinality';
+import { post as b2_performance_testing_cdn_cache_hit_ratio } from './performance-testing-cdn-cache-hit-ratio';
+import { post as b2_performance_testing_database_query_plan_regression } from './performance-testing-database-query-plan-regression';
+import { post as b2_performance_testing_memory_baseline_drift } from './performance-testing-memory-baseline-drift';
+import { post as b2_performance_testing_websocket_concurrency_limits } from './performance-testing-websocket-concurrency-limits';
+import { post as b2_playwright_browser_launch_args_hardening } from './playwright-browser-launch-args-hardening';
+import { post as b2_playwright_clock_fast_forward_polling_ui } from './playwright-clock-fast-forward-polling-ui';
+import { post as b2_playwright_download_suggested_filename_validation } from './playwright-download-suggested-filename-validation';
+import { post as b2_playwright_emulate_media_print_styles } from './playwright-emulate-media-print-styles';
+import { post as b2_playwright_expect_configure_custom_timeout } from './playwright-expect-configure-custom-timeout';
+import { post as b2_playwright_locator_and_or_filters_guide } from './playwright-locator-and-or-filters-guide';
+import { post as b2_playwright_locator_scroll_into_view_lazy_lists } from './playwright-locator-scroll-into-view-lazy-lists';
+import { post as b2_playwright_request_context_dispose_leaks } from './playwright-request-context-dispose-leaks';
+import { post as b2_playwright_route_abort_block_third_party } from './playwright-route-abort-block-third-party';
+import { post as b2_playwright_snapshot_path_template_config } from './playwright-snapshot-path-template-config';
+import { post as b2_playwright_test_fail_annotation_expected_failures } from './playwright-test-fail-annotation-expected-failures';
+import { post as b2_playwright_test_info_retry_aware_logging } from './playwright-test-info-retry-aware-logging';
+import { post as b2_playwright_test_project_dependencies_setup } from './playwright-test-project-dependencies-setup';
+import { post as b2_playwright_tracing_group_custom_steps } from './playwright-tracing-group-custom-steps';
+import { post as b2_playwright_webkit_specific_failures_debugging } from './playwright-webkit-specific-failures-debugging';
+import { post as b2_prompt_testing_system_prompt_regression } from './prompt-testing-system-prompt-regression';
+import { post as b2_qa_metrics_flake_rate_trending } from './qa-metrics-flake-rate-trending';
+import { post as b2_qa_metrics_lead_time_defect_correlation } from './qa-metrics-lead-time-defect-correlation';
+import { post as b2_rag_testing_embedding_dimension_migration } from './rag-testing-embedding-dimension-migration';
+import { post as b2_rag_testing_hybrid_retrieval_tuning } from './rag-testing-hybrid-retrieval-tuning';
+import { post as b2_rag_testing_negative_context_poisoning } from './rag-testing-negative-context-poisoning';
+import { post as b2_regression_testing_baseline_drift_detection } from './regression-testing-baseline-drift-detection';
+import { post as b2_security_testing_clickjacking_frame_options } from './security-testing-clickjacking-frame-options';
+import { post as b2_security_testing_file_upload_polyglot } from './security-testing-file-upload-polyglot';
+import { post as b2_security_testing_graphql_introspection_exposure } from './security-testing-graphql-introspection-exposure';
+import { post as b2_security_testing_open_redirect_patterns } from './security-testing-open-redirect-patterns';
+import { post as b2_security_testing_prototype_pollution_node } from './security-testing-prototype-pollution-node';
+import { post as b2_security_testing_secrets_in_git_history } from './security-testing-secrets-in-git-history';
+import { post as b2_security_testing_session_fixation } from './security-testing-session-fixation';
+import { post as b2_security_testing_subdomain_takeover } from './security-testing-subdomain-takeover';
+import { post as b2_selenium_shadow_dom_piercing } from './selenium-shadow-dom-piercing';
+import { post as b2_smoke_testing_dependency_health_checks } from './smoke-testing-dependency-health-checks';
+import { post as b2_test_data_multi_tenant_isolation } from './test-data-multi-tenant-isolation';
+import { post as b2_test_data_time_travel_fixtures } from './test-data-time-travel-fixtures';
+import { post as b2_test_strategy_legacy_code_characterization } from './test-strategy-legacy-code-characterization';
+import { post as b2_test_strategy_microservice_test_boundaries } from './test-strategy-microservice-test-boundaries';
+import { post as b2_testcontainers_init_script_ordering } from './testcontainers-init-script-ordering';
+import { post as b2_testcontainers_kafka_consumer_groups } from './testcontainers-kafka-consumer-groups';
+import { post as b2_visual_testing_animation_freeze_strategies } from './visual-testing-animation-freeze-strategies';
+import { post as b2_visual_testing_font_loading_flake } from './visual-testing-font-loading-flake';
+import { post as b2_vitest_alias_monorepo_workspace_resolution } from './vitest-alias-monorepo-workspace-resolution';
+import { post as b2_vitest_benchmark_mode_regression_tracking } from './vitest-benchmark-mode-regression-tracking';
+import { post as b2_vitest_environment_jsdom_vs_happy_dom } from './vitest-environment-jsdom-vs-happy-dom';
+import { post as b2_vitest_mock_reset_between_suites } from './vitest-mock-reset-between-suites';
+import { post as b2_vitest_typecheck_mode_type_tests } from './vitest-typecheck-mode-type-tests';
+import { post as b2_web_vitals_cls_layout_shift_debugging } from './web-vitals-cls-layout-shift-debugging';
+import { post as b2_webdriverio_mobile_gestures_actions } from './webdriverio-mobile-gestures-actions';
+import { post as b2_webhook_testing_delivery_ordering_guarantees } from './webhook-testing-delivery-ordering-guarantees';
+import { post as b2_websocket_testing_backpressure_limits } from './websocket-testing-backpressure-limits';
 
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
@@ -2893,6 +3017,130 @@ export const posts: Record<string, BlogPost> = {
   ...Object.fromEntries(gapfillBatch20260626Posts.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(seoWaveOneArticles2026.map(({ slug, post }) => [slug, post])),
   ...Object.fromEntries(articleFactoryBatch20260718Posts.map(({ slug, post }) => [slug, post])),
+  'accessibility-testing-autocomplete-attributes': b2_accessibility_testing_autocomplete_attributes,
+  'accessibility-testing-language-attributes': b2_accessibility_testing_language_attributes,
+  'accessibility-testing-skip-links-landmarks': b2_accessibility_testing_skip_links_landmarks,
+  'accessibility-testing-status-role-announcements': b2_accessibility_testing_status_role_announcements,
+  'accessibility-testing-touch-target-size': b2_accessibility_testing_touch_target_size,
+  'accessibility-testing-video-captions-audio': b2_accessibility_testing_video_captions_audio,
+  'agent-testing-human-handoff-escalation': b2_agent_testing_human_handoff_escalation,
+  'agent-testing-memory-persistence-across-sessions': b2_agent_testing_memory_persistence_across_sessions,
+  'agent-testing-parallel-tool-call-safety': b2_agent_testing_parallel_tool_call_safety,
+  'ai-test-generation-review-checklist': b2_ai_test_generation_review_checklist,
+  'api-testing-batch-request-ordering': b2_api_testing_batch_request_ordering,
+  'api-testing-content-negotiation-accept': b2_api_testing_content_negotiation_accept,
+  'api-testing-deprecation-sunset-headers': b2_api_testing_deprecation_sunset_headers,
+  'api-testing-long-polling-timeout-behavior': b2_api_testing_long_polling_timeout_behavior,
+  'api-testing-openapi-spec-drift-detection': b2_api_testing_openapi_spec_drift_detection,
+  'api-testing-optimistic-concurrency-headers': b2_api_testing_optimistic_concurrency_headers,
+  'api-testing-partial-update-patch-semantics': b2_api_testing_partial_update_patch_semantics,
+  'bdd-living-documentation-reports': b2_bdd_living_documentation_reports,
+  'bdd-tag-based-execution-strategy': b2_bdd_tag_based_execution_strategy,
+  'chaos-testing-clock-skew-injection': b2_chaos_testing_clock_skew_injection,
+  'chaos-testing-resource-exhaustion': b2_chaos_testing_resource_exhaustion,
+  'ci-composite-action-shared-steps': b2_ci_composite_action_shared_steps,
+  'ci-concurrency-groups-deploy-safety': b2_ci_concurrency_groups_deploy_safety,
+  'ci-matrix-exclude-include-patterns': b2_ci_matrix_exclude_include_patterns,
+  'ci-required-checks-branch-protection': b2_ci_required_checks_branch_protection,
+  'ci-self-hosted-runner-isolation': b2_ci_self_hosted_runner_isolation,
+  'ci-test-impact-caching-strategy': b2_ci_test_impact_caching_strategy,
+  'ci-workflow-reusable-inputs-secrets': b2_ci_workflow_reusable_inputs_secrets,
+  'claude-skills-test-suite-generation': b2_claude_skills_test_suite_generation,
+  'code-coverage-instrumentation-overhead': b2_code_coverage_instrumentation_overhead,
+  'contract-testing-message-queue-pacts': b2_contract_testing_message_queue_pacts,
+  'contract-testing-provider-state-management': b2_contract_testing_provider_state_management,
+  'copilot-workspace-test-planning': b2_copilot_workspace_test_planning,
+  'cursor-composer-test-refactoring': b2_cursor_composer_test_refactoring,
+  'cypress-clock-tick-time-travel': b2_cypress_clock_tick_time_travel,
+  'cypress-custom-command-typescript-types': b2_cypress_custom_command_typescript_types,
+  'cypress-fixtures-dynamic-generation': b2_cypress_fixtures_dynamic_generation,
+  'cypress-viewport-responsive-assertions': b2_cypress_viewport_responsive_assertions,
+  'database-testing-cascade-delete-behavior': b2_database_testing_cascade_delete_behavior,
+  'database-testing-json-column-query-validation': b2_database_testing_json_column_query_validation,
+  'database-testing-partition-pruning-verification': b2_database_testing_partition_pruning_verification,
+  'database-testing-sequence-gap-handling': b2_database_testing_sequence_gap_handling,
+  'exploratory-testing-heuristics-cheatsheet': b2_exploratory_testing_heuristics_cheatsheet,
+  'feature-flag-testing-stale-flag-cleanup': b2_feature_flag_testing_stale_flag_cleanup,
+  'gatling-feeder-data-strategies': b2_gatling_feeder_data_strategies,
+  'graphql-testing-directive-skip-include': b2_graphql_testing_directive_skip_include,
+  'graphql-testing-fragment-composition': b2_graphql_testing_fragment_composition,
+  'grpc-testing-metadata-propagation': b2_grpc_testing_metadata_propagation,
+  'jest-fake-timers-modern-vs-legacy': b2_jest_fake_timers_modern_vs_legacy,
+  'jest-globalsetup-teardown-database': b2_jest_globalsetup_teardown_database,
+  'jest-projects-multi-config-monorepo': b2_jest_projects_multi_config_monorepo,
+  'jest-snapshot-obsolete-cleanup-ci': b2_jest_snapshot_obsolete_cleanup_ci,
+  'jmeter-correlation-dynamic-tokens': b2_jmeter_correlation_dynamic_tokens,
+  'k6-browser-module-web-vitals-capture': b2_k6_browser_module_web_vitals_capture,
+  'k6-execution-segments-distributed': b2_k6_execution_segments_distributed,
+  'lighthouse-treemap-bundle-analysis': b2_lighthouse_treemap_bundle_analysis,
+  'llm-eval-multilingual-quality-parity': b2_llm_eval_multilingual_quality_parity,
+  'llm-eval-prompt-injection-canary-tokens': b2_llm_eval_prompt_injection_canary_tokens,
+  'llm-eval-rubric-design-interrater-agreement': b2_llm_eval_rubric_design_interrater_agreement,
+  'llm-eval-sample-size-confidence-intervals': b2_llm_eval_sample_size_confidence_intervals,
+  'llm-testing-function-calling-schema-drift': b2_llm_testing_function_calling_schema_drift,
+  'llm-testing-refusal-rate-calibration': b2_llm_testing_refusal_rate_calibration,
+  'locust-distributed-worker-scaling': b2_locust_distributed_worker_scaling,
+  'mcp-testing-prompt-template-arguments': b2_mcp_testing_prompt_template_arguments,
+  'mcp-testing-resource-subscription-updates': b2_mcp_testing_resource_subscription_updates,
+  'mobile-testing-app-permissions-flows': b2_mobile_testing_app_permissions_flows,
+  'mobile-testing-background-foreground-lifecycle': b2_mobile_testing_background_foreground_lifecycle,
+  'mobile-testing-orientation-change-state': b2_mobile_testing_orientation_change_state,
+  'monorepo-testing-dependency-graph-ordering': b2_monorepo_testing_dependency_graph_ordering,
+  'observability-testing-alert-rule-validation': b2_observability_testing_alert_rule_validation,
+  'observability-testing-metric-cardinality': b2_observability_testing_metric_cardinality,
+  'performance-testing-cdn-cache-hit-ratio': b2_performance_testing_cdn_cache_hit_ratio,
+  'performance-testing-database-query-plan-regression': b2_performance_testing_database_query_plan_regression,
+  'performance-testing-memory-baseline-drift': b2_performance_testing_memory_baseline_drift,
+  'performance-testing-websocket-concurrency-limits': b2_performance_testing_websocket_concurrency_limits,
+  'playwright-browser-launch-args-hardening': b2_playwright_browser_launch_args_hardening,
+  'playwright-clock-fast-forward-polling-ui': b2_playwright_clock_fast_forward_polling_ui,
+  'playwright-download-suggested-filename-validation': b2_playwright_download_suggested_filename_validation,
+  'playwright-emulate-media-print-styles': b2_playwright_emulate_media_print_styles,
+  'playwright-expect-configure-custom-timeout': b2_playwright_expect_configure_custom_timeout,
+  'playwright-locator-and-or-filters-guide': b2_playwright_locator_and_or_filters_guide,
+  'playwright-locator-scroll-into-view-lazy-lists': b2_playwright_locator_scroll_into_view_lazy_lists,
+  'playwright-request-context-dispose-leaks': b2_playwright_request_context_dispose_leaks,
+  'playwright-route-abort-block-third-party': b2_playwright_route_abort_block_third_party,
+  'playwright-snapshot-path-template-config': b2_playwright_snapshot_path_template_config,
+  'playwright-test-fail-annotation-expected-failures': b2_playwright_test_fail_annotation_expected_failures,
+  'playwright-test-info-retry-aware-logging': b2_playwright_test_info_retry_aware_logging,
+  'playwright-test-project-dependencies-setup': b2_playwright_test_project_dependencies_setup,
+  'playwright-tracing-group-custom-steps': b2_playwright_tracing_group_custom_steps,
+  'playwright-webkit-specific-failures-debugging': b2_playwright_webkit_specific_failures_debugging,
+  'prompt-testing-system-prompt-regression': b2_prompt_testing_system_prompt_regression,
+  'qa-metrics-flake-rate-trending': b2_qa_metrics_flake_rate_trending,
+  'qa-metrics-lead-time-defect-correlation': b2_qa_metrics_lead_time_defect_correlation,
+  'rag-testing-embedding-dimension-migration': b2_rag_testing_embedding_dimension_migration,
+  'rag-testing-hybrid-retrieval-tuning': b2_rag_testing_hybrid_retrieval_tuning,
+  'rag-testing-negative-context-poisoning': b2_rag_testing_negative_context_poisoning,
+  'regression-testing-baseline-drift-detection': b2_regression_testing_baseline_drift_detection,
+  'security-testing-clickjacking-frame-options': b2_security_testing_clickjacking_frame_options,
+  'security-testing-file-upload-polyglot': b2_security_testing_file_upload_polyglot,
+  'security-testing-graphql-introspection-exposure': b2_security_testing_graphql_introspection_exposure,
+  'security-testing-open-redirect-patterns': b2_security_testing_open_redirect_patterns,
+  'security-testing-prototype-pollution-node': b2_security_testing_prototype_pollution_node,
+  'security-testing-secrets-in-git-history': b2_security_testing_secrets_in_git_history,
+  'security-testing-session-fixation': b2_security_testing_session_fixation,
+  'security-testing-subdomain-takeover': b2_security_testing_subdomain_takeover,
+  'selenium-shadow-dom-piercing': b2_selenium_shadow_dom_piercing,
+  'smoke-testing-dependency-health-checks': b2_smoke_testing_dependency_health_checks,
+  'test-data-multi-tenant-isolation': b2_test_data_multi_tenant_isolation,
+  'test-data-time-travel-fixtures': b2_test_data_time_travel_fixtures,
+  'test-strategy-legacy-code-characterization': b2_test_strategy_legacy_code_characterization,
+  'test-strategy-microservice-test-boundaries': b2_test_strategy_microservice_test_boundaries,
+  'testcontainers-init-script-ordering': b2_testcontainers_init_script_ordering,
+  'testcontainers-kafka-consumer-groups': b2_testcontainers_kafka_consumer_groups,
+  'visual-testing-animation-freeze-strategies': b2_visual_testing_animation_freeze_strategies,
+  'visual-testing-font-loading-flake': b2_visual_testing_font_loading_flake,
+  'vitest-alias-monorepo-workspace-resolution': b2_vitest_alias_monorepo_workspace_resolution,
+  'vitest-benchmark-mode-regression-tracking': b2_vitest_benchmark_mode_regression_tracking,
+  'vitest-environment-jsdom-vs-happy-dom': b2_vitest_environment_jsdom_vs_happy_dom,
+  'vitest-mock-reset-between-suites': b2_vitest_mock_reset_between_suites,
+  'vitest-typecheck-mode-type-tests': b2_vitest_typecheck_mode_type_tests,
+  'web-vitals-cls-layout-shift-debugging': b2_web_vitals_cls_layout_shift_debugging,
+  'webdriverio-mobile-gestures-actions': b2_webdriverio_mobile_gestures_actions,
+  'webhook-testing-delivery-ordering-guarantees': b2_webhook_testing_delivery_ordering_guarantees,
+  'websocket-testing-backpressure-limits': b2_websocket_testing_backpressure_limits,
 };
 
 // Ordered list for the blog listing page (newest first)
@@ -5581,6 +5829,130 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
     slug,
     ...post,
   })),
+  { slug: 'accessibility-testing-autocomplete-attributes', ...b2_accessibility_testing_autocomplete_attributes },
+  { slug: 'accessibility-testing-language-attributes', ...b2_accessibility_testing_language_attributes },
+  { slug: 'accessibility-testing-skip-links-landmarks', ...b2_accessibility_testing_skip_links_landmarks },
+  { slug: 'accessibility-testing-status-role-announcements', ...b2_accessibility_testing_status_role_announcements },
+  { slug: 'accessibility-testing-touch-target-size', ...b2_accessibility_testing_touch_target_size },
+  { slug: 'accessibility-testing-video-captions-audio', ...b2_accessibility_testing_video_captions_audio },
+  { slug: 'agent-testing-human-handoff-escalation', ...b2_agent_testing_human_handoff_escalation },
+  { slug: 'agent-testing-memory-persistence-across-sessions', ...b2_agent_testing_memory_persistence_across_sessions },
+  { slug: 'agent-testing-parallel-tool-call-safety', ...b2_agent_testing_parallel_tool_call_safety },
+  { slug: 'ai-test-generation-review-checklist', ...b2_ai_test_generation_review_checklist },
+  { slug: 'api-testing-batch-request-ordering', ...b2_api_testing_batch_request_ordering },
+  { slug: 'api-testing-content-negotiation-accept', ...b2_api_testing_content_negotiation_accept },
+  { slug: 'api-testing-deprecation-sunset-headers', ...b2_api_testing_deprecation_sunset_headers },
+  { slug: 'api-testing-long-polling-timeout-behavior', ...b2_api_testing_long_polling_timeout_behavior },
+  { slug: 'api-testing-openapi-spec-drift-detection', ...b2_api_testing_openapi_spec_drift_detection },
+  { slug: 'api-testing-optimistic-concurrency-headers', ...b2_api_testing_optimistic_concurrency_headers },
+  { slug: 'api-testing-partial-update-patch-semantics', ...b2_api_testing_partial_update_patch_semantics },
+  { slug: 'bdd-living-documentation-reports', ...b2_bdd_living_documentation_reports },
+  { slug: 'bdd-tag-based-execution-strategy', ...b2_bdd_tag_based_execution_strategy },
+  { slug: 'chaos-testing-clock-skew-injection', ...b2_chaos_testing_clock_skew_injection },
+  { slug: 'chaos-testing-resource-exhaustion', ...b2_chaos_testing_resource_exhaustion },
+  { slug: 'ci-composite-action-shared-steps', ...b2_ci_composite_action_shared_steps },
+  { slug: 'ci-concurrency-groups-deploy-safety', ...b2_ci_concurrency_groups_deploy_safety },
+  { slug: 'ci-matrix-exclude-include-patterns', ...b2_ci_matrix_exclude_include_patterns },
+  { slug: 'ci-required-checks-branch-protection', ...b2_ci_required_checks_branch_protection },
+  { slug: 'ci-self-hosted-runner-isolation', ...b2_ci_self_hosted_runner_isolation },
+  { slug: 'ci-test-impact-caching-strategy', ...b2_ci_test_impact_caching_strategy },
+  { slug: 'ci-workflow-reusable-inputs-secrets', ...b2_ci_workflow_reusable_inputs_secrets },
+  { slug: 'claude-skills-test-suite-generation', ...b2_claude_skills_test_suite_generation },
+  { slug: 'code-coverage-instrumentation-overhead', ...b2_code_coverage_instrumentation_overhead },
+  { slug: 'contract-testing-message-queue-pacts', ...b2_contract_testing_message_queue_pacts },
+  { slug: 'contract-testing-provider-state-management', ...b2_contract_testing_provider_state_management },
+  { slug: 'copilot-workspace-test-planning', ...b2_copilot_workspace_test_planning },
+  { slug: 'cursor-composer-test-refactoring', ...b2_cursor_composer_test_refactoring },
+  { slug: 'cypress-clock-tick-time-travel', ...b2_cypress_clock_tick_time_travel },
+  { slug: 'cypress-custom-command-typescript-types', ...b2_cypress_custom_command_typescript_types },
+  { slug: 'cypress-fixtures-dynamic-generation', ...b2_cypress_fixtures_dynamic_generation },
+  { slug: 'cypress-viewport-responsive-assertions', ...b2_cypress_viewport_responsive_assertions },
+  { slug: 'database-testing-cascade-delete-behavior', ...b2_database_testing_cascade_delete_behavior },
+  { slug: 'database-testing-json-column-query-validation', ...b2_database_testing_json_column_query_validation },
+  { slug: 'database-testing-partition-pruning-verification', ...b2_database_testing_partition_pruning_verification },
+  { slug: 'database-testing-sequence-gap-handling', ...b2_database_testing_sequence_gap_handling },
+  { slug: 'exploratory-testing-heuristics-cheatsheet', ...b2_exploratory_testing_heuristics_cheatsheet },
+  { slug: 'feature-flag-testing-stale-flag-cleanup', ...b2_feature_flag_testing_stale_flag_cleanup },
+  { slug: 'gatling-feeder-data-strategies', ...b2_gatling_feeder_data_strategies },
+  { slug: 'graphql-testing-directive-skip-include', ...b2_graphql_testing_directive_skip_include },
+  { slug: 'graphql-testing-fragment-composition', ...b2_graphql_testing_fragment_composition },
+  { slug: 'grpc-testing-metadata-propagation', ...b2_grpc_testing_metadata_propagation },
+  { slug: 'jest-fake-timers-modern-vs-legacy', ...b2_jest_fake_timers_modern_vs_legacy },
+  { slug: 'jest-globalsetup-teardown-database', ...b2_jest_globalsetup_teardown_database },
+  { slug: 'jest-projects-multi-config-monorepo', ...b2_jest_projects_multi_config_monorepo },
+  { slug: 'jest-snapshot-obsolete-cleanup-ci', ...b2_jest_snapshot_obsolete_cleanup_ci },
+  { slug: 'jmeter-correlation-dynamic-tokens', ...b2_jmeter_correlation_dynamic_tokens },
+  { slug: 'k6-browser-module-web-vitals-capture', ...b2_k6_browser_module_web_vitals_capture },
+  { slug: 'k6-execution-segments-distributed', ...b2_k6_execution_segments_distributed },
+  { slug: 'lighthouse-treemap-bundle-analysis', ...b2_lighthouse_treemap_bundle_analysis },
+  { slug: 'llm-eval-multilingual-quality-parity', ...b2_llm_eval_multilingual_quality_parity },
+  { slug: 'llm-eval-prompt-injection-canary-tokens', ...b2_llm_eval_prompt_injection_canary_tokens },
+  { slug: 'llm-eval-rubric-design-interrater-agreement', ...b2_llm_eval_rubric_design_interrater_agreement },
+  { slug: 'llm-eval-sample-size-confidence-intervals', ...b2_llm_eval_sample_size_confidence_intervals },
+  { slug: 'llm-testing-function-calling-schema-drift', ...b2_llm_testing_function_calling_schema_drift },
+  { slug: 'llm-testing-refusal-rate-calibration', ...b2_llm_testing_refusal_rate_calibration },
+  { slug: 'locust-distributed-worker-scaling', ...b2_locust_distributed_worker_scaling },
+  { slug: 'mcp-testing-prompt-template-arguments', ...b2_mcp_testing_prompt_template_arguments },
+  { slug: 'mcp-testing-resource-subscription-updates', ...b2_mcp_testing_resource_subscription_updates },
+  { slug: 'mobile-testing-app-permissions-flows', ...b2_mobile_testing_app_permissions_flows },
+  { slug: 'mobile-testing-background-foreground-lifecycle', ...b2_mobile_testing_background_foreground_lifecycle },
+  { slug: 'mobile-testing-orientation-change-state', ...b2_mobile_testing_orientation_change_state },
+  { slug: 'monorepo-testing-dependency-graph-ordering', ...b2_monorepo_testing_dependency_graph_ordering },
+  { slug: 'observability-testing-alert-rule-validation', ...b2_observability_testing_alert_rule_validation },
+  { slug: 'observability-testing-metric-cardinality', ...b2_observability_testing_metric_cardinality },
+  { slug: 'performance-testing-cdn-cache-hit-ratio', ...b2_performance_testing_cdn_cache_hit_ratio },
+  { slug: 'performance-testing-database-query-plan-regression', ...b2_performance_testing_database_query_plan_regression },
+  { slug: 'performance-testing-memory-baseline-drift', ...b2_performance_testing_memory_baseline_drift },
+  { slug: 'performance-testing-websocket-concurrency-limits', ...b2_performance_testing_websocket_concurrency_limits },
+  { slug: 'playwright-browser-launch-args-hardening', ...b2_playwright_browser_launch_args_hardening },
+  { slug: 'playwright-clock-fast-forward-polling-ui', ...b2_playwright_clock_fast_forward_polling_ui },
+  { slug: 'playwright-download-suggested-filename-validation', ...b2_playwright_download_suggested_filename_validation },
+  { slug: 'playwright-emulate-media-print-styles', ...b2_playwright_emulate_media_print_styles },
+  { slug: 'playwright-expect-configure-custom-timeout', ...b2_playwright_expect_configure_custom_timeout },
+  { slug: 'playwright-locator-and-or-filters-guide', ...b2_playwright_locator_and_or_filters_guide },
+  { slug: 'playwright-locator-scroll-into-view-lazy-lists', ...b2_playwright_locator_scroll_into_view_lazy_lists },
+  { slug: 'playwright-request-context-dispose-leaks', ...b2_playwright_request_context_dispose_leaks },
+  { slug: 'playwright-route-abort-block-third-party', ...b2_playwright_route_abort_block_third_party },
+  { slug: 'playwright-snapshot-path-template-config', ...b2_playwright_snapshot_path_template_config },
+  { slug: 'playwright-test-fail-annotation-expected-failures', ...b2_playwright_test_fail_annotation_expected_failures },
+  { slug: 'playwright-test-info-retry-aware-logging', ...b2_playwright_test_info_retry_aware_logging },
+  { slug: 'playwright-test-project-dependencies-setup', ...b2_playwright_test_project_dependencies_setup },
+  { slug: 'playwright-tracing-group-custom-steps', ...b2_playwright_tracing_group_custom_steps },
+  { slug: 'playwright-webkit-specific-failures-debugging', ...b2_playwright_webkit_specific_failures_debugging },
+  { slug: 'prompt-testing-system-prompt-regression', ...b2_prompt_testing_system_prompt_regression },
+  { slug: 'qa-metrics-flake-rate-trending', ...b2_qa_metrics_flake_rate_trending },
+  { slug: 'qa-metrics-lead-time-defect-correlation', ...b2_qa_metrics_lead_time_defect_correlation },
+  { slug: 'rag-testing-embedding-dimension-migration', ...b2_rag_testing_embedding_dimension_migration },
+  { slug: 'rag-testing-hybrid-retrieval-tuning', ...b2_rag_testing_hybrid_retrieval_tuning },
+  { slug: 'rag-testing-negative-context-poisoning', ...b2_rag_testing_negative_context_poisoning },
+  { slug: 'regression-testing-baseline-drift-detection', ...b2_regression_testing_baseline_drift_detection },
+  { slug: 'security-testing-clickjacking-frame-options', ...b2_security_testing_clickjacking_frame_options },
+  { slug: 'security-testing-file-upload-polyglot', ...b2_security_testing_file_upload_polyglot },
+  { slug: 'security-testing-graphql-introspection-exposure', ...b2_security_testing_graphql_introspection_exposure },
+  { slug: 'security-testing-open-redirect-patterns', ...b2_security_testing_open_redirect_patterns },
+  { slug: 'security-testing-prototype-pollution-node', ...b2_security_testing_prototype_pollution_node },
+  { slug: 'security-testing-secrets-in-git-history', ...b2_security_testing_secrets_in_git_history },
+  { slug: 'security-testing-session-fixation', ...b2_security_testing_session_fixation },
+  { slug: 'security-testing-subdomain-takeover', ...b2_security_testing_subdomain_takeover },
+  { slug: 'selenium-shadow-dom-piercing', ...b2_selenium_shadow_dom_piercing },
+  { slug: 'smoke-testing-dependency-health-checks', ...b2_smoke_testing_dependency_health_checks },
+  { slug: 'test-data-multi-tenant-isolation', ...b2_test_data_multi_tenant_isolation },
+  { slug: 'test-data-time-travel-fixtures', ...b2_test_data_time_travel_fixtures },
+  { slug: 'test-strategy-legacy-code-characterization', ...b2_test_strategy_legacy_code_characterization },
+  { slug: 'test-strategy-microservice-test-boundaries', ...b2_test_strategy_microservice_test_boundaries },
+  { slug: 'testcontainers-init-script-ordering', ...b2_testcontainers_init_script_ordering },
+  { slug: 'testcontainers-kafka-consumer-groups', ...b2_testcontainers_kafka_consumer_groups },
+  { slug: 'visual-testing-animation-freeze-strategies', ...b2_visual_testing_animation_freeze_strategies },
+  { slug: 'visual-testing-font-loading-flake', ...b2_visual_testing_font_loading_flake },
+  { slug: 'vitest-alias-monorepo-workspace-resolution', ...b2_vitest_alias_monorepo_workspace_resolution },
+  { slug: 'vitest-benchmark-mode-regression-tracking', ...b2_vitest_benchmark_mode_regression_tracking },
+  { slug: 'vitest-environment-jsdom-vs-happy-dom', ...b2_vitest_environment_jsdom_vs_happy_dom },
+  { slug: 'vitest-mock-reset-between-suites', ...b2_vitest_mock_reset_between_suites },
+  { slug: 'vitest-typecheck-mode-type-tests', ...b2_vitest_typecheck_mode_type_tests },
+  { slug: 'web-vitals-cls-layout-shift-debugging', ...b2_web_vitals_cls_layout_shift_debugging },
+  { slug: 'webdriverio-mobile-gestures-actions', ...b2_webdriverio_mobile_gestures_actions },
+  { slug: 'webhook-testing-delivery-ordering-guarantees', ...b2_webhook_testing_delivery_ordering_guarantees },
+  { slug: 'websocket-testing-backpressure-limits', ...b2_websocket_testing_backpressure_limits },
 ];
 
 const seoWaveOneSlugs = new Set(seoWaveOneArticles2026.map(({ slug }) => slug));
