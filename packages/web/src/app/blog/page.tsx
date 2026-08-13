@@ -10,7 +10,7 @@ import { postList, posts } from './posts';
 const POSTS_PER_PAGE = 50;
 const PAGINATION_RADIUS = 2;
 const BLOG_DESCRIPTION =
-  'Expert QA testing tutorials, framework comparisons, and AI agent guides — Playwright, Cypress, Selenium, Jest, pytest, and 1,300+ testing topics.';
+  'Expert QA testing tutorials, framework comparisons, and AI agent guides — Playwright, Cypress, Selenium, Jest, pytest, and 1,600+ testing topics.';
 
 interface BlogPageProps {
   searchParams: Promise<{ page?: string }>;

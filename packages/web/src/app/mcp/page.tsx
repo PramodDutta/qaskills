@@ -4,12 +4,12 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'QASkills MCP Server: Install QA Skills From Any AI Agent',
   description:
-    'The QASkills MCP server lets Claude Code, Cursor, and any MCP client search, inspect, and install 400+ QA testing skills. One command to add it.',
+    'The QASkills MCP server lets Claude Code, Cursor, and any MCP client search, inspect, and install 450+ QA testing skills. One command to add it.',
   alternates: { canonical: 'https://qaskills.sh/mcp' },
   openGraph: {
     title: 'QASkills MCP Server',
     description:
-      'Search, inspect, and install 400+ QA testing skills from any MCP client. In the official MCP registry.',
+      'Search, inspect, and install 450+ QA testing skills from any MCP client. In the official MCP registry.',
     url: 'https://qaskills.sh/mcp',
     type: 'website',
   },
@@ -40,7 +40,7 @@ export default function McpPage() {
         QASkills MCP Server
       </h1>
       <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-        Give any AI coding agent the ability to search, read, and install 400+ QA testing skills
+        Give any AI coding agent the ability to search, read, and install 450+ QA testing skills
         without leaving the conversation. One stdio MCP server, six tools, zero config.
       </p>
 
@@ -114,7 +114,7 @@ export default function McpPage() {
         </Link>{' '}
         does the same thing from the command line, and you can{' '}
         <Link href="/skills" className="text-blue-600 underline dark:text-blue-400">
-          browse all 400+ skills
+          browse all 450+ skills
         </Link>{' '}
         on the site.
       </p>

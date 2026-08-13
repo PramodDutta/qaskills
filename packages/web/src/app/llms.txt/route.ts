@@ -14,7 +14,7 @@ export function GET() {
 - Site lives at https://qaskills.sh
 
 ## What Makes QASkills.sh Different
-QASkills.sh is the only directory that treats QA testing as a first-class agent skill domain. While general agent-skill platforms (~49,000 skills) carry only a handful of QA-specific entries, QASkills.sh focuses 100% on testing — Playwright, Cypress, Selenium, pytest, JUnit, REST Assured, Karate, k6, JMeter, Pact, Testcontainers, Selenide, Robot Framework, OpenAI Evals, Promptfoo, Ragas, and 480+ more. Each skill is a single SKILL.md file with YAML frontmatter that AI agents can read and apply immediately.
+QASkills.sh is the only directory that treats QA testing as a first-class agent skill domain. While general agent-skill platforms (~49,000 skills) carry only a handful of QA-specific entries, QASkills.sh focuses 100% on testing — Playwright, Cypress, Selenium, pytest, JUnit, REST Assured, Karate, k6, JMeter, Pact, Testcontainers, Selenide, Robot Framework, OpenAI Evals, Promptfoo, Ragas, and 450+ more. Each skill is a single SKILL.md file with YAML frontmatter that AI agents can read and apply immediately.
 
 ## Install Flow
 1. \`npx @qaskills/cli search <topic>\` — discover skills

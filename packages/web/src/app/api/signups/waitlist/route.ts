@@ -111,7 +111,7 @@ async function sendLeadMagnet(email: string) {
             The ZIP has 5 ready-to-install SKILL.md files for Claude Code: Playwright E2E, DeepEval, unit test generation, PR coverage review, and Jira workflows. Drop them into <code>.claude/skills/</code> or run <code>npx qaskills add &lt;skill&gt;</code>.
           </p>
           <p style="margin:0 0 12px;line-height:1.6;">
-            Explore all 400+ QA skills at <a href="${SITE}">qaskills.sh</a>.
+            Explore all 450+ QA skills at <a href="${SITE}">qaskills.sh</a>.
           </p>
           <p style="margin:16px 0 0;line-height:1.6;color:#475569;font-size:14px;">
             — Pramod, The Testing Academy / QASkills.sh
