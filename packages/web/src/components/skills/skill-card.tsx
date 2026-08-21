@@ -19,6 +19,7 @@ const typeAccents: Record<string, string> = {
   visual: 'bg-cyan-500',
   integration: 'bg-amber-500',
   mobile: 'bg-violet-500',
+  career: 'bg-sky-500',
 };
 
 interface SkillCardProps {
