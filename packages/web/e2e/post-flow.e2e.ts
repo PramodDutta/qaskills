@@ -87,9 +87,15 @@ test('all-time leaderboard ranks Playwright CLI exactly third and shows its prom
     await expect(rows.nth(index)).toHaveAttribute('href', href);
   }
   await expect(rows.nth(2).getByText('#3', { exact: true })).toBeVisible();
-  await expect(
-    rows.nth(2).getByText(expectedPlaywrightCliLabel, { exact: true }),
-  ).toBeVisible();
+  // The leaderboard suppresses the promotion badge inside the top 3 unless the
+  // skill is still NEW (see `promotionLabel && (isNew || rank > 3)`), so once the
+  // 30-day NEW window closes a rank-3 skill correctly shows no badge at all.
+  const promotionBadge = rows.nth(2).getByText(expectedPlaywrightCliLabel, { exact: true });
+  if (expectedPlaywrightCliLabel === 'NEW') {
+    await expect(promotionBadge).toBeVisible();
+  } else {
+    await expect(promotionBadge).toHaveCount(0);
+  }
 });
 
 test('Playwright CLI article CTA resolves to an installable skill and source artifact', async ({
