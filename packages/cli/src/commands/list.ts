@@ -3,7 +3,6 @@ import * as p from '@clack/prompts';
 import pc from 'picocolors';
 import fs from 'fs/promises';
 import path from 'path';
-import os from 'os';
 import { detectAgents } from '../lib/agent-detector';
 import { parseSkillMd } from '@qaskills/shared';
 

@@ -1,6 +1,14 @@
 import { expect, test } from '@playwright/test';
 import { articleFactoryBatch20260718Posts } from '../src/app/blog/posts/_article-factory-batch-2026-07';
 import { seoWaveOneArticles2026 } from '../src/app/blog/posts/seo-wave-one-articles-2026';
+import { getSkillPromotionLabel } from '../src/lib/skills-promotion';
+import { PLAYWRIGHT_CLI_LAUNCH_DATE } from '../src/lib/skill-launch-dates';
+
+// The promotion badge flips NEW -> HOT 30 days after launch, so asserting a
+// literal 'NEW' makes these tests expire on a date. Derive the expected label
+// from the same function the UI uses.
+const expectedPlaywrightCliLabel =
+  getSkillPromotionLabel('playwright-cli', PLAYWRIGHT_CLI_LAUNCH_DATE) ?? 'HOT';
 
 const playwrightLongTailPosts = [
   {
@@ -51,7 +59,9 @@ const expectedTopSkills = [
   '/skills/Pramod/playwright-cli',
 ];
 
-test('skills page ranks Playwright CLI exactly third and marks it NEW', async ({ page }) => {
+test('skills page ranks Playwright CLI exactly third and shows its promotion badge', async ({
+  page,
+}) => {
   await page.goto('/skills?sort=most_installed');
 
   await expect(page.getByRole('heading', { name: 'Browse QA Skills' })).toBeVisible();
@@ -60,10 +70,12 @@ test('skills page ranks Playwright CLI exactly third and marks it NEW', async ({
   for (const [index, href] of expectedTopSkills.entries()) {
     await expect(cards.nth(index)).toHaveAttribute('href', href);
   }
-  await expect(cards.nth(2).getByText('NEW', { exact: true })).toBeVisible();
+  await expect(
+    cards.nth(2).getByText(expectedPlaywrightCliLabel, { exact: true }),
+  ).toBeVisible();
 });
 
-test('all-time leaderboard ranks Playwright CLI exactly third and marks it NEW', async ({
+test('all-time leaderboard ranks Playwright CLI exactly third and shows its promotion badge', async ({
   page,
 }) => {
   await page.goto('/leaderboard?filter=all');
@@ -75,7 +87,9 @@ test('all-time leaderboard ranks Playwright CLI exactly third and marks it NEW',
     await expect(rows.nth(index)).toHaveAttribute('href', href);
   }
   await expect(rows.nth(2).getByText('#3', { exact: true })).toBeVisible();
-  await expect(rows.nth(2).getByText('NEW', { exact: true })).toBeVisible();
+  await expect(
+    rows.nth(2).getByText(expectedPlaywrightCliLabel, { exact: true }),
+  ).toBeVisible();
 });
 
 test('Playwright CLI article CTA resolves to an installable skill and source artifact', async ({
