@@ -139,7 +139,7 @@ If the user provides a JD but no company website, ask for it or fetch it before 
 
 ## Length Guidelines
 
-- **Ideal:** 200–300 words
+- **Ideal:** 200-300 words
 - **Maximum:** 400 words
 - **Minimum:** 150 words (don't strip out substance for brevity)
 
@@ -227,4 +227,33 @@ Cold outreach works unusually well in QA because you can attach proof nobody els
 
 ---
 
-*Adapted for QA professionals from [Resume Skills](https://github.com/Paramchoudhary/ResumeSkills) by Param Choudhary, MIT License. Modifications by thetestingacademy.*
+### License and attribution
+
+Adapted for QA professionals by The Testing Academy (thetestingacademy) from
+[Resume Skills](https://github.com/Paramchoudhary/ResumeSkills). The original work
+is used under the MIT License, reproduced in full below. Modifications to this file
+are released under the same license.
+
+```
+MIT License
+
+Copyright (c) 2026 Resume Skills
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

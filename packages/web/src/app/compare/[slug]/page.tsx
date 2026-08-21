@@ -353,7 +353,7 @@ export default async function ComparePage({ params }: CompareSlugPageProps) {
       {/* Warning footer */}
       <p className="mt-8 flex items-center justify-center gap-2 text-xs text-muted-foreground">
         <AlertCircle className="h-3 w-3" />
-        Comparisons reflect public information as of 2026-05. Tooling evolves quickly —
+        Comparisons reflect public information as of 2026-05. Tooling evolves quickly,
         verify current state on official docs before final decisions.
       </p>
     </div>
