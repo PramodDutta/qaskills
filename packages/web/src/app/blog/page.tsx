@@ -10,7 +10,7 @@ import { postList, posts } from './posts';
 const POSTS_PER_PAGE = 50;
 const PAGINATION_RADIUS = 2;
 const BLOG_DESCRIPTION =
-  'Expert QA testing tutorials, framework comparisons, and AI agent guides — Playwright, Cypress, Selenium, Jest, pytest, and 1,600+ testing topics.';
+  'Expert QA testing tutorials, framework comparisons, and AI agent guides, Playwright, Cypress, Selenium, Jest, pytest, and 1,600+ testing topics.';
 
 interface BlogPageProps {
   searchParams: Promise<{ page?: string }>;
@@ -40,7 +40,7 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
   const title =
     requestedPage === 1
       ? 'QA Testing Blog: Tutorials, Guides & AI Agent Tips'
-      : `QA Testing Blog Articles — Page ${requestedPage}`;
+      : `QA Testing Blog Articles, Page ${requestedPage}`;
   const canonical =
     requestedPage === 1
       ? 'https://qaskills.sh/blog'
@@ -72,7 +72,7 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
   };
 }
 
-// Curated high-demand guides — surfaced first to concentrate internal-link
+// Curated high-demand guides, surfaced first to concentrate internal-link
 // equity onto our highest-impression pages (GSC) and lift them out of page 2.
 const FEATURED_SLUGS = [
   'playwright-cli-complete-guide-2026',
@@ -89,7 +89,7 @@ const FEATURED_SLUGS = [
   'ragas-rag-evaluation-metrics-complete-guide',
   'playwright-trace-viewer-complete-guide-2026',
   'selenide-allure-integration-complete-reference',
-  // Keyword-gap batch (2026-06-15) — fresh pages targeting real GSC demand; featured to
+  // Keyword-gap batch (2026-06-15), fresh pages targeting real GSC demand; featured to
   // concentrate internal-link equity and accelerate indexing/ranking.
   'postman-vs-playwright-2026',
   'playwright-setinputfiles-file-upload-reference',

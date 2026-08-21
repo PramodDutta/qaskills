@@ -307,14 +307,14 @@ npx @qaskills/cli add playwright-e2e
       <div className="rounded-lg border border-border bg-card p-8 text-center">
         <h2 className="text-2xl font-bold">Ready to ship better tests?</h2>
         <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-          Install your first Claude Code testing skill in 5 seconds. Browse all 500+
+          Install your first Claude Code testing skill in 5 seconds. Browse all 450+
           skills or jump straight into the Playwright E2E skill — most popular pick
           for first-time users.
         </p>
         <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button size="lg" asChild>
             <Link href="/skills">
-              Browse 500+ Skills <ArrowRight className="h-4 w-4" />
+              Browse 450+ Skills <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
           <Button size="lg" variant="outline" asChild>

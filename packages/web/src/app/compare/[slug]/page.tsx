@@ -342,7 +342,7 @@ export default async function ComparePage({ params }: CompareSlugPageProps) {
         </p>
         <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button size="lg" asChild>
-            <Link href="/skills">Browse 500+ Skills</Link>
+            <Link href="/skills">Browse 450+ Skills</Link>
           </Button>
           <Button size="lg" variant="outline" asChild>
             <Link href="/compare">More Comparisons</Link>

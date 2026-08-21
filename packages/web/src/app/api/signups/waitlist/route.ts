@@ -10,7 +10,7 @@ const signupSchema = z.object({
   note: z.string().max(2000).optional(),
 });
 
-// Public email capture — allow cross-origin POSTs from static landing pages
+// Public email capture, allow cross-origin POSTs from static landing pages
 // (e.g. app.thetestingacademy.com hosting the QA Buddy page). No credentials.
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
 
     // Store the lead. Idempotent per (email, source): re-submitting is a no-op.
     // Never let a storage problem block delivery of a lead magnet the user
-    // already earned — capture failures are logged, not surfaced.
+    // already earned, capture failures are logged, not surfaced.
     try {
       await db
         .insert(landingSignups)
@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
       if (!isLeadMagnet) throw dbErr;
     }
 
-    // Fire-and-forget confirmation — never block the response on email failure.
+    // Fire-and-forget confirmation, never block the response on email failure.
     if (isLeadMagnet) {
       void sendLeadMagnet(email);
       return NextResponse.json({ ok: true, downloads: LEAD_MAGNET_DOWNLOADS }, { headers: CORS });
@@ -114,7 +114,7 @@ async function sendLeadMagnet(email: string) {
             Explore all 450+ QA skills at <a href="${SITE}">qaskills.sh</a>.
           </p>
           <p style="margin:16px 0 0;line-height:1.6;color:#475569;font-size:14px;">
-            — Pramod, The Testing Academy / QASkills.sh
+           , Pramod, The Testing Academy / QASkills.sh
           </p>
         </div>
       `,
@@ -146,7 +146,7 @@ async function sendConfirmation(email: string, source: string) {
             <strong>just ${product.ask}</strong>. Your answer = our roadmap.
           </p>
           <p style="margin:16px 0 0;line-height:1.6;color:#475569;font-size:14px;">
-            — Pramod, The Testing Academy / QASkills.sh
+           , Pramod, The Testing Academy / QASkills.sh
           </p>
         </div>
       `,

@@ -62,7 +62,7 @@ export default function SkillsForIndexPage() {
         <p className="text-sm text-muted-foreground">
           Looking for a different topic? Browse{' '}
           <Link href="/skills" className="text-primary hover:underline">
-            all 500+ skills
+            all 450+ skills
           </Link>{' '}
           or{' '}
           <Link href="/categories" className="text-primary hover:underline">
