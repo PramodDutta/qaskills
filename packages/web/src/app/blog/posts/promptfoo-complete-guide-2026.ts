@@ -529,7 +529,7 @@ tests:
         threshold: 0.8
 \`\`\`
 
-These assertions wrap Ragas-style metrics. For deeper coverage, pair Promptfoo with Ragas directly -- see our [Ragas RAG evaluation reference](/blog/ragas-rag-evaluation-metrics-2026).
+These assertions wrap Ragas-style metrics. For deeper coverage, pair Promptfoo with Ragas directly -- see our [Ragas RAG evaluation reference](/blog/ragas-rag-evaluation-metrics-complete-guide).
 
 ---
 
@@ -563,7 +563,7 @@ Also note that Promptfoo's default LLM-as-judge calls cost money. For a 500-test
 
 Promptfoo is the closest thing to a Jest or Pytest for LLM applications. The declarative YAML, broad provider support, built-in red teaming, and clean CI integration make it the default choice for production LLM teams in 2026. Install it, write 20 test cases against your prompt, and you will catch regressions before users do.
 
-For deeper dives, see our companion guides: [Promptfoo red teaming](/blog/promptfoo-red-teaming-llm-applications), [Promptfoo CI integration](/blog/promptfoo-ci-integration-github-actions), and the [Promptfoo vs DeepEval vs LangSmith comparison](/blog/promptfoo-vs-deepeval-vs-langsmith).
+For deeper dives, see our companion guides: [Promptfoo red teaming](/blog/promptfoo-red-teaming-llm-applications), [Promptfoo CI integration](/blog/promptfoo-complete-guide-2026), and the [Promptfoo vs DeepEval vs LangSmith comparison](/blog/promptfoo-vs-deepeval-vs-ragas-2026).
 
 ---
 

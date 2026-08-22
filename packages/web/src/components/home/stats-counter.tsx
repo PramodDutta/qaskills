@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from 'react';
 
 const stats = [
-  { label: 'QA Skills', target: 300, suffix: '+' },
+  { label: 'QA Skills', target: 450, suffix: '+' },
   { label: 'Agents Supported', target: 29, suffix: '' },
-  { label: 'Testing Types', target: 18, suffix: '' },
+  { label: 'Testing Types', target: 19, suffix: '' },
   { label: 'Installs', target: 2400, suffix: '+' },
 ];
 

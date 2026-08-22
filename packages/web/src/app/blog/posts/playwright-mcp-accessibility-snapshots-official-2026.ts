@@ -11,7 +11,7 @@ export const post: BlogPost = {
 
 Playwright MCP's accessibility snapshot is the feature that elevates the server from "browser remote control" to "model-friendly DOM interface". Instead of asking an AI agent to parse raw HTML, dig through tag soup, or guess at CSS selectors, the snapshot tool serializes the page as a structured accessibility tree: a YAML-like hierarchy of roles, names, levels, and stable refs. Every interactive element gets a unique \\\`ref\\\` that the agent can pass back to \\\`browser_click\\\`, \\\`browser_type\\\`, or \\\`browser_select_option\\\`. The result is dramatically more reliable agent driving, even on dynamic single-page apps where CSS selectors break after every deploy.
 
-This reference walks through the official 2026 snapshot format, how the ref system works, when to prefer snapshots over screenshots, and how to integrate the tool into Claude Desktop, Cursor, and custom MCP clients. Real bash invocations and TypeScript code accompany every section. We will also cover the two anti-patterns we see most often (relying on screenshots when a snapshot would do, and treating refs as long-lived identifiers) so you avoid them on your first install. For prerequisite context, start with [Playwright MCP install in Cursor](/blog/playwright-mcp-server-install-cursor-2026-step-by-step). For the broader flag catalog, see [Playwright MCP setup + configuration reference](/blog/playwright-mcp-server-setup-configuration-2026-reference).
+This reference walks through the official 2026 snapshot format, how the ref system works, when to prefer snapshots over screenshots, and how to integrate the tool into Claude Desktop, Cursor, and custom MCP clients. Real bash invocations and TypeScript code accompany every section. We will also cover the two anti-patterns we see most often (relying on screenshots when a snapshot would do, and treating refs as long-lived identifiers) so you avoid them on your first install. For prerequisite context, start with [Playwright MCP install in Cursor](/blog/playwright-mcp-cursor-tutorial-2026). For the broader flag catalog, see [Playwright MCP setup + configuration reference](/blog/playwright-mcp-server-setup-configuration-2026-reference).
 
 ## Key Takeaways
 
@@ -199,7 +199,7 @@ Navigate to https://example.com and give me an accessibility
 snapshot of the page. Then list every link and its href.
 \\\`\\\`\\\`
 
-Claude will call \\\`browser_navigate\\\`, then \\\`browser_snapshot\\\`, then parse and list links. The full setup walkthrough is in [Playwright MCP for Claude Desktop setup 2026](/blog/playwright-mcp-claude-desktop-setup-2026).
+Claude will call \\\`browser_navigate\\\`, then \\\`browser_snapshot\\\`, then parse and list links. The full setup walkthrough is in [Playwright MCP for Claude Desktop setup 2026](/blog/playwright-mcp-server-claude-code-setup).
 
 ## 10. Integrating with Cursor
 
@@ -365,6 +365,6 @@ Yes, partially. The structure exposed by the snapshot is exactly what assistive 
 
 ## Conclusion + CTA
 
-Accessibility snapshots are the single most leveraged feature of the Playwright MCP server. They reduce token costs by an order of magnitude, give the agent stable references for interaction, and produce a representation of the page that is closer to what users with assistive tech actually experience. Start every agent task with \\\`browser_snapshot\\\` and only reach for screenshots when visual context is genuinely required. For end-to-end setup, see [Playwright MCP install in Cursor](/blog/playwright-mcp-server-install-cursor-2026-step-by-step). To explore agent workflows built on top of snapshots, browse the [Playwright skills](/skills) and the [test automation tool comparison](/compare).
+Accessibility snapshots are the single most leveraged feature of the Playwright MCP server. They reduce token costs by an order of magnitude, give the agent stable references for interaction, and produce a representation of the page that is closer to what users with assistive tech actually experience. Start every agent task with \\\`browser_snapshot\\\` and only reach for screenshots when visual context is genuinely required. For end-to-end setup, see [Playwright MCP install in Cursor](/blog/playwright-mcp-cursor-tutorial-2026). To explore agent workflows built on top of snapshots, browse the [Playwright skills](/skills) and the [test automation tool comparison](/compare).
 `,
 };

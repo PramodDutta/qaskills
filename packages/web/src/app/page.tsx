@@ -51,13 +51,17 @@ const topSkills = [
   { rank: 10, name: 'Production Smoke Suite', slug: 'production-smoke-suite', type: 'E2E', installs: 62, quality: 88, author: 'Pramod', desc: 'Critical-path smoke tests for production deployments' },
 ];
 
+// The skills listing reads `testingType` (singular); the plural spelling is
+// ignored, so those links silently returned the whole unfiltered catalog.
+// Counts are rounded down and suffixed so they stay true as the catalog grows,
+// since this page is static and cannot query the database.
 const categories = [
-  { name: 'Bug Hunting', count: 11, href: '/skills?testingTypes=security', desc: 'Find race conditions, memory leaks, auth bypasses' },
-  { name: 'Test Generation', count: 14, href: '/skills?testingTypes=unit', desc: 'Auto-generate test cases, data factories, mutations' },
-  { name: 'Performance', count: 8, href: '/categories/performance-testing', desc: 'Page speed, N+1 queries, load testing' },
-  { name: 'Accessibility', count: 6, href: '/categories/accessibility-testing', desc: 'WCAG audits, screen readers, keyboard nav' },
-  { name: 'CI/CD', count: 8, href: '/skills?testingTypes=code-quality', desc: 'Flaky tests, coverage gaps, pipeline optimization' },
-  { name: 'E2E Testing', count: 20, href: '/categories/e2e-testing', desc: 'Playwright, Selenium, Cypress patterns' },
+  { name: 'Bug Hunting', count: '40+', href: '/skills?testingType=security', desc: 'Find race conditions, memory leaks, auth bypasses' },
+  { name: 'Test Generation', count: '100+', href: '/skills?testingType=unit', desc: 'Auto-generate test cases, data factories, mutations' },
+  { name: 'Performance', count: '40+', href: '/categories/performance-testing', desc: 'Page speed, N+1 queries, load testing' },
+  { name: 'Accessibility', count: '25+', href: '/categories/accessibility-testing', desc: 'WCAG audits, screen readers, keyboard nav' },
+  { name: 'CI/CD', count: '15+', href: '/skills?testingType=code-quality', desc: 'Flaky tests, coverage gaps, pipeline optimization' },
+  { name: 'E2E Testing', count: '150+', href: '/categories/e2e-testing', desc: 'Playwright, Selenium, Cypress patterns' },
 ];
 
 export default function HomePage() {

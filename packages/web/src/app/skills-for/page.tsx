@@ -6,7 +6,7 @@ import { generateBreadcrumbJsonLd } from '@/lib/json-ld';
 import { HUBS } from '@/lib/skills-for-hubs';
 
 export const metadata: Metadata = {
-  title: 'Skills For — Keyword-Targeted Hubs',
+  title: 'Skills For: Keyword-Targeted Hubs',
   description:
     'Browse QA testing skills by AI agent (Claude Code, Cursor, Copilot, Windsurf) and by topic (LLM evals, MCP). One command install via npx qaskills add.',
   alternates: { canonical: 'https://qaskills.sh/skills-for' },
@@ -32,7 +32,7 @@ export default function SkillsForIndexPage() {
           Skills Hubs
         </Badge>
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Skills For — Keyword-Targeted Hubs
+          Skills For: Keyword-Targeted Hubs
         </h1>
         <p className="mx-auto mt-3 max-w-2xl text-lg text-muted-foreground">
           Curated landings for each AI agent and testing topic. Install any skill in 5
@@ -62,7 +62,7 @@ export default function SkillsForIndexPage() {
         <p className="text-sm text-muted-foreground">
           Looking for a different topic? Browse{' '}
           <Link href="/skills" className="text-primary hover:underline">
-            all 500+ skills
+            all 450+ skills
           </Link>{' '}
           or{' '}
           <Link href="/categories" className="text-primary hover:underline">

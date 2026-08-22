@@ -14,6 +14,7 @@ const staticPages: MetadataRoute.Sitemap = [
   { url: `${baseUrl}/skills`, changeFrequency: 'daily', priority: 0.9 },
   { url: `${baseUrl}/blog`, changeFrequency: 'daily', priority: 0.9 },
   { url: `${baseUrl}/roadmaps`, changeFrequency: 'weekly', priority: 0.8 },
+  { url: `${baseUrl}/resume-skills`, changeFrequency: 'weekly', priority: 0.8 },
   {
     url: `${baseUrl}/getting-started`,
     changeFrequency: 'weekly',

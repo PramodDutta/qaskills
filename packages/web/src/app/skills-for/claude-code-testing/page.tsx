@@ -23,7 +23,7 @@ const CANONICAL = 'https://qaskills.sh/skills-for/claude-code-testing';
 export const metadata: Metadata = {
   title: 'Best Claude Code Skills for Testing & QA 2026',
   description:
-    '100+ Claude Code skills for testing and QA. Playwright, Cypress, Selenium, pytest, API contract, performance, security — install in one command.',
+    '100+ Claude Code skills for testing and QA. Playwright, Cypress, Selenium, pytest, API contract, performance, security. Install in one command.',
   alternates: { canonical: CANONICAL },
   openGraph: {
     title: 'Best Claude Code Skills for Testing & QA 2026',
@@ -63,7 +63,7 @@ const faqs = [
   },
   {
     q: 'Can I write my own Claude Code testing skill?',
-    a: 'Yes. See /how-to-publish — create a SKILL.md, validate with `npx @qaskills/skill-validator`, publish with `npx @qaskills/cli publish`. Your skill becomes installable by every QASkills.sh user within 30 seconds.',
+    a: 'Yes. See /how-to-publish: create a SKILL.md, validate with `npx @qaskills/skill-validator`, publish with `npx @qaskills/cli publish`. Your skill becomes installable by every QASkills.sh user within 30 seconds.',
   },
 ];
 
@@ -81,7 +81,7 @@ const valueProps = [
   {
     icon: Terminal,
     title: 'Real-world patterns',
-    body: 'Page Object Model, fixtures, contract testing, CI integration — not just docs.',
+    body: 'Page Object Model, fixtures, contract testing, CI integration, not just docs.',
   },
 ];
 
@@ -100,7 +100,7 @@ const relatedArticles = [
   },
   {
     slug: 'claude-for-qa-engineers-complete-guide',
-    title: 'Claude for QA Engineers — Complete Guide',
+    title: 'Claude for QA Engineers: Complete Guide',
   },
   {
     slug: 'claude-qa-agent-setup-guide',
@@ -307,14 +307,14 @@ npx @qaskills/cli add playwright-e2e
       <div className="rounded-lg border border-border bg-card p-8 text-center">
         <h2 className="text-2xl font-bold">Ready to ship better tests?</h2>
         <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-          Install your first Claude Code testing skill in 5 seconds. Browse all 500+
-          skills or jump straight into the Playwright E2E skill — most popular pick
+          Install your first Claude Code testing skill in 5 seconds. Browse all 450+
+          skills or jump straight into the Playwright E2E skill, most popular pick
           for first-time users.
         </p>
         <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button size="lg" asChild>
             <Link href="/skills">
-              Browse 500+ Skills <ArrowRight className="h-4 w-4" />
+              Browse 450+ Skills <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
           <Button size="lg" variant="outline" asChild>

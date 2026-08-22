@@ -342,7 +342,7 @@ export default async function ComparePage({ params }: CompareSlugPageProps) {
         </p>
         <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button size="lg" asChild>
-            <Link href="/skills">Browse 500+ Skills</Link>
+            <Link href="/skills">Browse 450+ Skills</Link>
           </Button>
           <Button size="lg" variant="outline" asChild>
             <Link href="/compare">More Comparisons</Link>
@@ -353,7 +353,7 @@ export default async function ComparePage({ params }: CompareSlugPageProps) {
       {/* Warning footer */}
       <p className="mt-8 flex items-center justify-center gap-2 text-xs text-muted-foreground">
         <AlertCircle className="h-3 w-3" />
-        Comparisons reflect public information as of 2026-05. Tooling evolves quickly —
+        Comparisons reflect public information as of 2026-05. Tooling evolves quickly,
         verify current state on official docs before final decisions.
       </p>
     </div>
