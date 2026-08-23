@@ -1503,6 +1503,13 @@ import { post as jun_artillery_load_testing_nodejs_complete_2026 } from './artil
 import { post as jun_playwright_framelocator_cross_origin_iframe_guide } from './playwright-framelocator-cross-origin-iframe-guide';
 import { post as jun_robot_framework_wait_until_keyword_succeeds_builtin_2026 } from './robot-framework-wait-until-keyword-succeeds-builtin-2026';
 import { post as jun_robot_framework_seleniumlibrary_link_locator_keyword_driven_2026 } from './robot-framework-seleniumlibrary-link-locator-keyword-driven-2026';
+import { post as gsc_alternatives_to_pytest_python_testing_frameworks } from './alternatives-to-pytest-python-testing-frameworks';
+import { post as gsc_claude_code_screenshot_frontend_verification_mcp } from './claude-code-screenshot-frontend-verification-mcp';
+import { post as gsc_k6_thresholds_abortonfail_delayaborteval_reference } from './k6-thresholds-abortonfail-delayaborteval-reference';
+import { post as gsc_load_testing_platform_data_model_schema_design } from './load-testing-platform-data-model-schema-design';
+import { post as gsc_qa_sdet_interview_format_feedback_standardization } from './qa-sdet-interview-format-feedback-standardization';
+import { post as gsc_robot_framework_run_keywords_control_flow_guide } from './robot-framework-run-keywords-control-flow-guide';
+import { post as gsc_vitest_4_json_reporter_changelog_guide } from './vitest-4-json-reporter-changelog-guide';
 
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
@@ -3185,6 +3192,13 @@ export const posts: Record<string, BlogPost> = {
   'playwright-framelocator-cross-origin-iframe-guide': jun_playwright_framelocator_cross_origin_iframe_guide,
   'robot-framework-wait-until-keyword-succeeds-builtin-2026': jun_robot_framework_wait_until_keyword_succeeds_builtin_2026,
   'robot-framework-seleniumlibrary-link-locator-keyword-driven-2026': jun_robot_framework_seleniumlibrary_link_locator_keyword_driven_2026,
+  'alternatives-to-pytest-python-testing-frameworks': gsc_alternatives_to_pytest_python_testing_frameworks,
+  'claude-code-screenshot-frontend-verification-mcp': gsc_claude_code_screenshot_frontend_verification_mcp,
+  'k6-thresholds-abortonfail-delayaborteval-reference': gsc_k6_thresholds_abortonfail_delayaborteval_reference,
+  'load-testing-platform-data-model-schema-design': gsc_load_testing_platform_data_model_schema_design,
+  'qa-sdet-interview-format-feedback-standardization': gsc_qa_sdet_interview_format_feedback_standardization,
+  'robot-framework-run-keywords-control-flow-guide': gsc_robot_framework_run_keywords_control_flow_guide,
+  'vitest-4-json-reporter-changelog-guide': gsc_vitest_4_json_reporter_changelog_guide,
 };
 
 // Ordered list for the blog listing page (newest first)
@@ -6019,6 +6033,13 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
   { slug: 'playwright-framelocator-cross-origin-iframe-guide', ...jun_playwright_framelocator_cross_origin_iframe_guide },
   { slug: 'robot-framework-wait-until-keyword-succeeds-builtin-2026', ...jun_robot_framework_wait_until_keyword_succeeds_builtin_2026 },
   { slug: 'robot-framework-seleniumlibrary-link-locator-keyword-driven-2026', ...jun_robot_framework_seleniumlibrary_link_locator_keyword_driven_2026 },
+  { slug: 'alternatives-to-pytest-python-testing-frameworks', ...gsc_alternatives_to_pytest_python_testing_frameworks },
+  { slug: 'claude-code-screenshot-frontend-verification-mcp', ...gsc_claude_code_screenshot_frontend_verification_mcp },
+  { slug: 'k6-thresholds-abortonfail-delayaborteval-reference', ...gsc_k6_thresholds_abortonfail_delayaborteval_reference },
+  { slug: 'load-testing-platform-data-model-schema-design', ...gsc_load_testing_platform_data_model_schema_design },
+  { slug: 'qa-sdet-interview-format-feedback-standardization', ...gsc_qa_sdet_interview_format_feedback_standardization },
+  { slug: 'robot-framework-run-keywords-control-flow-guide', ...gsc_robot_framework_run_keywords_control_flow_guide },
+  { slug: 'vitest-4-json-reporter-changelog-guide', ...gsc_vitest_4_json_reporter_changelog_guide },
 ];
 
 const seoWaveOneSlugs = new Set(seoWaveOneArticles2026.map(({ slug }) => slug));
