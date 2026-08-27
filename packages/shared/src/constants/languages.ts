@@ -6,6 +6,7 @@ export const LANGUAGES = [
   { id: 'csharp', name: 'C#', slug: 'csharp', icon: '🟣', color: '#512BD4' },
   { id: 'go', name: 'Go', slug: 'go', icon: '🔵', color: '#00ADD8' },
   { id: 'ruby', name: 'Ruby', slug: 'ruby', icon: '💎', color: '#CC342D' },
+  { id: 'markdown', name: 'Markdown', slug: 'markdown', icon: '📝', color: '#0EA5E9' },
 ] as const;
 
 export const LANGUAGE_IDS = LANGUAGES.map((l) => l.id);

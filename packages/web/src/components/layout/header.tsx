@@ -13,6 +13,7 @@ const navLinks = [
   { href: '/blog', label: 'Blog' },
   { href: '/agents', label: 'Agents' },
   { href: '/packs', label: 'Packs' },
+  { href: '/resume-skills', label: 'Resume' },
 ];
 
 export function Header() {

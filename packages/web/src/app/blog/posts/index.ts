@@ -1481,6 +1481,35 @@ import { post as b2_web_vitals_cls_layout_shift_debugging } from './web-vitals-c
 import { post as b2_webdriverio_mobile_gestures_actions } from './webdriverio-mobile-gestures-actions';
 import { post as b2_webhook_testing_delivery_ordering_guarantees } from './webhook-testing-delivery-ordering-guarantees';
 import { post as b2_websocket_testing_backpressure_limits } from './websocket-testing-backpressure-limits';
+import { post as jun_playwright_route_fulfill_network_mocking_reference } from './playwright-route-fulfill-network-mocking-reference';
+import { post as jun_playwright_show_trace_cli_reference } from './playwright-show-trace-cli-reference';
+import { post as jun_playwright_test_trace_viewer_official_2026 } from './playwright-test-trace-viewer-official-2026';
+import { post as jun_playwright_browser_contexts_incognito_guide } from './playwright-browser-contexts-incognito-guide';
+import { post as jun_playwright_clock_install_fakers_guide } from './playwright-clock-install-fakers-guide';
+import { post as jun_playwright_trace_attach_allure_export_guide } from './playwright-trace-attach-allure-export-guide';
+import { post as jun_playwright_apirequestcontext_storage_state_guide } from './playwright-apirequestcontext-storage-state-guide';
+import { post as jun_playwright_locator_best_practices_web_first_assertions_2026 } from './playwright-locator-best-practices-web-first-assertions-2026';
+import { post as jun_playwright_mcp_server_setup_configuration_2026_reference } from './playwright-mcp-server-setup-configuration-2026-reference';
+import { post as jun_testcontainers_withreuse_node_typescript_guide } from './testcontainers-withreuse-node-typescript-guide';
+import { post as jun_jmeter_5_6_3_response_assertion_jmx_xml_reference } from './jmeter-5-6-3-response-assertion-jmx-xml-reference';
+import { post as jun_percy_visual_testing_playwright_official_2026 } from './percy-visual-testing-playwright-official-2026';
+import { post as jun_locust_vs_jmeter_2026_which_load_testing } from './locust-vs-jmeter-2026-which-load-testing';
+import { post as jun_chromatic_visual_testing_storybook_turbosnap_2026 } from './chromatic-visual-testing-storybook-turbosnap-2026';
+import { post as jun_playwright_debug_mode_inspector_2026 } from './playwright-debug-mode-inspector-2026';
+import { post as jun_playwright_page_clock_waitfortimeout_reference } from './playwright-page-clock-waitfortimeout-reference';
+import { post as jun_testcontainers_mysql_postgres_node_startedcontainer_reference } from './testcontainers-mysql-postgres-node-startedcontainer-reference';
+import { post as jun_testcontainers_kafka_typescript_getbootstrapservers_reference } from './testcontainers-kafka-typescript-getbootstrapservers-reference';
+import { post as jun_artillery_load_testing_nodejs_complete_2026 } from './artillery-load-testing-nodejs-complete-2026';
+import { post as jun_playwright_framelocator_cross_origin_iframe_guide } from './playwright-framelocator-cross-origin-iframe-guide';
+import { post as jun_robot_framework_wait_until_keyword_succeeds_builtin_2026 } from './robot-framework-wait-until-keyword-succeeds-builtin-2026';
+import { post as jun_robot_framework_seleniumlibrary_link_locator_keyword_driven_2026 } from './robot-framework-seleniumlibrary-link-locator-keyword-driven-2026';
+import { post as gsc_alternatives_to_pytest_python_testing_frameworks } from './alternatives-to-pytest-python-testing-frameworks';
+import { post as gsc_claude_code_screenshot_frontend_verification_mcp } from './claude-code-screenshot-frontend-verification-mcp';
+import { post as gsc_k6_thresholds_abortonfail_delayaborteval_reference } from './k6-thresholds-abortonfail-delayaborteval-reference';
+import { post as gsc_load_testing_platform_data_model_schema_design } from './load-testing-platform-data-model-schema-design';
+import { post as gsc_qa_sdet_interview_format_feedback_standardization } from './qa-sdet-interview-format-feedback-standardization';
+import { post as gsc_robot_framework_run_keywords_control_flow_guide } from './robot-framework-run-keywords-control-flow-guide';
+import { post as gsc_vitest_4_json_reporter_changelog_guide } from './vitest-4-json-reporter-changelog-guide';
 
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
@@ -3141,6 +3170,35 @@ export const posts: Record<string, BlogPost> = {
   'webdriverio-mobile-gestures-actions': b2_webdriverio_mobile_gestures_actions,
   'webhook-testing-delivery-ordering-guarantees': b2_webhook_testing_delivery_ordering_guarantees,
   'websocket-testing-backpressure-limits': b2_websocket_testing_backpressure_limits,
+  'playwright-route-fulfill-network-mocking-reference': jun_playwright_route_fulfill_network_mocking_reference,
+  'playwright-show-trace-cli-reference': jun_playwright_show_trace_cli_reference,
+  'playwright-test-trace-viewer-official-2026': jun_playwright_test_trace_viewer_official_2026,
+  'playwright-browser-contexts-incognito-guide': jun_playwright_browser_contexts_incognito_guide,
+  'playwright-clock-install-fakers-guide': jun_playwright_clock_install_fakers_guide,
+  'playwright-trace-attach-allure-export-guide': jun_playwright_trace_attach_allure_export_guide,
+  'playwright-apirequestcontext-storage-state-guide': jun_playwright_apirequestcontext_storage_state_guide,
+  'playwright-locator-best-practices-web-first-assertions-2026': jun_playwright_locator_best_practices_web_first_assertions_2026,
+  'playwright-mcp-server-setup-configuration-2026-reference': jun_playwright_mcp_server_setup_configuration_2026_reference,
+  'testcontainers-withreuse-node-typescript-guide': jun_testcontainers_withreuse_node_typescript_guide,
+  'jmeter-5-6-3-response-assertion-jmx-xml-reference': jun_jmeter_5_6_3_response_assertion_jmx_xml_reference,
+  'percy-visual-testing-playwright-official-2026': jun_percy_visual_testing_playwright_official_2026,
+  'locust-vs-jmeter-2026-which-load-testing': jun_locust_vs_jmeter_2026_which_load_testing,
+  'chromatic-visual-testing-storybook-turbosnap-2026': jun_chromatic_visual_testing_storybook_turbosnap_2026,
+  'playwright-debug-mode-inspector-2026': jun_playwright_debug_mode_inspector_2026,
+  'playwright-page-clock-waitfortimeout-reference': jun_playwright_page_clock_waitfortimeout_reference,
+  'testcontainers-mysql-postgres-node-startedcontainer-reference': jun_testcontainers_mysql_postgres_node_startedcontainer_reference,
+  'testcontainers-kafka-typescript-getbootstrapservers-reference': jun_testcontainers_kafka_typescript_getbootstrapservers_reference,
+  'artillery-load-testing-nodejs-complete-2026': jun_artillery_load_testing_nodejs_complete_2026,
+  'playwright-framelocator-cross-origin-iframe-guide': jun_playwright_framelocator_cross_origin_iframe_guide,
+  'robot-framework-wait-until-keyword-succeeds-builtin-2026': jun_robot_framework_wait_until_keyword_succeeds_builtin_2026,
+  'robot-framework-seleniumlibrary-link-locator-keyword-driven-2026': jun_robot_framework_seleniumlibrary_link_locator_keyword_driven_2026,
+  'alternatives-to-pytest-python-testing-frameworks': gsc_alternatives_to_pytest_python_testing_frameworks,
+  'claude-code-screenshot-frontend-verification-mcp': gsc_claude_code_screenshot_frontend_verification_mcp,
+  'k6-thresholds-abortonfail-delayaborteval-reference': gsc_k6_thresholds_abortonfail_delayaborteval_reference,
+  'load-testing-platform-data-model-schema-design': gsc_load_testing_platform_data_model_schema_design,
+  'qa-sdet-interview-format-feedback-standardization': gsc_qa_sdet_interview_format_feedback_standardization,
+  'robot-framework-run-keywords-control-flow-guide': gsc_robot_framework_run_keywords_control_flow_guide,
+  'vitest-4-json-reporter-changelog-guide': gsc_vitest_4_json_reporter_changelog_guide,
 };
 
 // Ordered list for the blog listing page (newest first)
@@ -5953,6 +6011,35 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
   { slug: 'webdriverio-mobile-gestures-actions', ...b2_webdriverio_mobile_gestures_actions },
   { slug: 'webhook-testing-delivery-ordering-guarantees', ...b2_webhook_testing_delivery_ordering_guarantees },
   { slug: 'websocket-testing-backpressure-limits', ...b2_websocket_testing_backpressure_limits },
+  { slug: 'playwright-route-fulfill-network-mocking-reference', ...jun_playwright_route_fulfill_network_mocking_reference },
+  { slug: 'playwright-show-trace-cli-reference', ...jun_playwright_show_trace_cli_reference },
+  { slug: 'playwright-test-trace-viewer-official-2026', ...jun_playwright_test_trace_viewer_official_2026 },
+  { slug: 'playwright-browser-contexts-incognito-guide', ...jun_playwright_browser_contexts_incognito_guide },
+  { slug: 'playwright-clock-install-fakers-guide', ...jun_playwright_clock_install_fakers_guide },
+  { slug: 'playwright-trace-attach-allure-export-guide', ...jun_playwright_trace_attach_allure_export_guide },
+  { slug: 'playwright-apirequestcontext-storage-state-guide', ...jun_playwright_apirequestcontext_storage_state_guide },
+  { slug: 'playwright-locator-best-practices-web-first-assertions-2026', ...jun_playwright_locator_best_practices_web_first_assertions_2026 },
+  { slug: 'playwright-mcp-server-setup-configuration-2026-reference', ...jun_playwright_mcp_server_setup_configuration_2026_reference },
+  { slug: 'testcontainers-withreuse-node-typescript-guide', ...jun_testcontainers_withreuse_node_typescript_guide },
+  { slug: 'jmeter-5-6-3-response-assertion-jmx-xml-reference', ...jun_jmeter_5_6_3_response_assertion_jmx_xml_reference },
+  { slug: 'percy-visual-testing-playwright-official-2026', ...jun_percy_visual_testing_playwright_official_2026 },
+  { slug: 'locust-vs-jmeter-2026-which-load-testing', ...jun_locust_vs_jmeter_2026_which_load_testing },
+  { slug: 'chromatic-visual-testing-storybook-turbosnap-2026', ...jun_chromatic_visual_testing_storybook_turbosnap_2026 },
+  { slug: 'playwright-debug-mode-inspector-2026', ...jun_playwright_debug_mode_inspector_2026 },
+  { slug: 'playwright-page-clock-waitfortimeout-reference', ...jun_playwright_page_clock_waitfortimeout_reference },
+  { slug: 'testcontainers-mysql-postgres-node-startedcontainer-reference', ...jun_testcontainers_mysql_postgres_node_startedcontainer_reference },
+  { slug: 'testcontainers-kafka-typescript-getbootstrapservers-reference', ...jun_testcontainers_kafka_typescript_getbootstrapservers_reference },
+  { slug: 'artillery-load-testing-nodejs-complete-2026', ...jun_artillery_load_testing_nodejs_complete_2026 },
+  { slug: 'playwright-framelocator-cross-origin-iframe-guide', ...jun_playwright_framelocator_cross_origin_iframe_guide },
+  { slug: 'robot-framework-wait-until-keyword-succeeds-builtin-2026', ...jun_robot_framework_wait_until_keyword_succeeds_builtin_2026 },
+  { slug: 'robot-framework-seleniumlibrary-link-locator-keyword-driven-2026', ...jun_robot_framework_seleniumlibrary_link_locator_keyword_driven_2026 },
+  { slug: 'alternatives-to-pytest-python-testing-frameworks', ...gsc_alternatives_to_pytest_python_testing_frameworks },
+  { slug: 'claude-code-screenshot-frontend-verification-mcp', ...gsc_claude_code_screenshot_frontend_verification_mcp },
+  { slug: 'k6-thresholds-abortonfail-delayaborteval-reference', ...gsc_k6_thresholds_abortonfail_delayaborteval_reference },
+  { slug: 'load-testing-platform-data-model-schema-design', ...gsc_load_testing_platform_data_model_schema_design },
+  { slug: 'qa-sdet-interview-format-feedback-standardization', ...gsc_qa_sdet_interview_format_feedback_standardization },
+  { slug: 'robot-framework-run-keywords-control-flow-guide', ...gsc_robot_framework_run_keywords_control_flow_guide },
+  { slug: 'vitest-4-json-reporter-changelog-guide', ...gsc_vitest_4_json_reporter_changelog_guide },
 ];
 
 const seoWaveOneSlugs = new Set(seoWaveOneArticles2026.map(({ slug }) => slug));

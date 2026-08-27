@@ -17,6 +17,7 @@ export const TESTING_TYPES = [
   { id: 'browser-automation', name: 'Browser Automation', slug: 'browser-automation', description: 'Programmatic browser control and web scraping', icon: '🌐', color: '#3B82F6' },
   { id: 'tdd', name: 'TDD', slug: 'tdd', description: 'Test-driven development practices', icon: '🔴', color: '#DC2626' },
   { id: 'code-quality', name: 'Code Quality', slug: 'code-quality', description: 'Static analysis, linting, and code quality tools', icon: '✨', color: '#8B5CF6' },
+  { id: 'career', name: 'Career & Resume', slug: 'career', description: 'Resume, interview, and career development for QA professionals', icon: '📄', color: '#0EA5E9' },
 ] as const;
 
 export const TESTING_TYPE_IDS = TESTING_TYPES.map((t) => t.id);

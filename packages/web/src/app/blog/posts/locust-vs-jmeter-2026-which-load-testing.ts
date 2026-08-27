@@ -384,7 +384,7 @@ Yes, but JMeter uses real Java threads which carry more memory overhead. Per-mac
 
 ### Is k6 a better choice than either?
 
-k6 is a strong third option -- JavaScript-based, single binary, very fast. If your team writes TypeScript and your scenarios are HTTP-focused, k6 deserves a serious look. See our [k6 vs JMeter comparison](/blog/k6-vs-jmeter-2026-which-better) for details.
+k6 is a strong third option -- JavaScript-based, single binary, very fast. If your team writes TypeScript and your scenarios are HTTP-focused, k6 deserves a serious look. See our [k6 vs JMeter comparison](/blog/k6-vs-jmeter-2026) for details.
 
 ### How do I parameterize test data?
 

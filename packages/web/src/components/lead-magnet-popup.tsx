@@ -126,7 +126,7 @@ export function LeadMagnetPopup() {
               </a>
             </div>
             <p className="mt-4 text-center text-xs text-muted-foreground">
-              Install any of 400+ skills: <code className="font-mono">npx qaskills add &lt;skill&gt;</code>
+              Install any of 450+ skills: <code className="font-mono">npx qaskills add &lt;skill&gt;</code>
             </p>
           </div>
         ) : (
