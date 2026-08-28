@@ -1510,6 +1510,63 @@ import { post as gsc_load_testing_platform_data_model_schema_design } from './lo
 import { post as gsc_qa_sdet_interview_format_feedback_standardization } from './qa-sdet-interview-format-feedback-standardization';
 import { post as gsc_robot_framework_run_keywords_control_flow_guide } from './robot-framework-run-keywords-control-flow-guide';
 import { post as gsc_vitest_4_json_reporter_changelog_guide } from './vitest-4-json-reporter-changelog-guide';
+import { post as b50_accessibility_testing_focus_management_traps } from './accessibility-testing-focus-management-traps';
+import { post as b50_account_lockout_testing_brute_force_thresholds } from './account-lockout-testing-brute-force-thresholds';
+import { post as b50_ai_test_generation_prompt_library_qa } from './ai-test-generation-prompt-library-qa';
+import { post as b50_api_rate_limit_testing_429_retry_after } from './api-rate-limit-testing-429-retry-after';
+import { post as b50_app_upgrade_path_testing_migrations } from './app-upgrade-path-testing-migrations';
+import { post as b50_audit_log_testing_immutability_ordering } from './audit-log-testing-immutability-ordering';
+import { post as b50_clipboard_interactions_testing_permissions } from './clipboard-interactions-testing-permissions';
+import { post as b50_concurrency_testing_race_conditions_guide } from './concurrency-testing-race-conditions-guide';
+import { post as b50_content_negotiation_api_testing_accept } from './content-negotiation-api-testing-accept';
+import { post as b50_csv_export_testing_injection_encoding } from './csv-export-testing-injection-encoding';
+import { post as b50_database_trigger_testing_side_effects } from './database-trigger-testing-side-effects';
+import { post as b50_detecting_fake_otp_traffic_phone_verification } from './detecting-fake-otp-traffic-phone-verification';
+import { post as b50_docker_compose_test_environments_health_ordering } from './docker-compose-test-environments-health-ordering';
+import { post as b50_drag_and_drop_testing_html5_pointer } from './drag-and-drop-testing-html5-pointer';
+import { post as b50_email_template_rendering_testing_clients } from './email-template-rendering-testing-clients';
+import { post as b50_feature_flag_exposure_testing_data_model } from './feature-flag-exposure-testing-data-model';
+import { post as b50_flaky_test_tracking_data_model_quarantine } from './flaky-test-tracking-data-model-quarantine';
+import { post as b50_git_bisect_test_failures_guide } from './git-bisect-test-failures-guide';
+import { post as b50_github_actions_vs_azure_devops_test_pipelines } from './github-actions-vs-azure-devops-test-pipelines';
+import { post as b50_graphql_error_handling_testing_partial_data } from './graphql-error-handling-testing-partial-data';
+import { post as b50_guardrail_latency_testing_llm_pipelines } from './guardrail-latency-testing-llm-pipelines';
+import { post as b50_http_patch_method_api_testing_rfc_5789 } from './http-patch-method-api-testing-rfc-5789';
+import { post as b50_iframe_postmessage_testing_origins } from './iframe-postmessage-testing-origins';
+import { post as b50_job_scheduler_metrics_data_model_monitoring } from './job-scheduler-metrics-data-model-monitoring';
+import { post as b50_k6_executors_reference_arrival_rate_vus } from './k6-executors-reference-arrival-rate-vus';
+import { post as b50_llm_tool_call_parallelism_testing } from './llm-tool-call-parallelism-testing';
+import { post as b50_localstorage_schema_migration_testing } from './localstorage-schema-migration-testing';
+import { post as b50_merge_queue_testing_required_checks } from './merge-queue-testing-required-checks';
+import { post as b50_migration_rollback_testing_schema_changes } from './migration-rollback-testing-schema-changes';
+import { post as b50_mobile_offline_mode_testing_sync } from './mobile-offline-mode-testing-sync';
+import { post as b50_mobile_push_notification_testing_fcm_apns } from './mobile-push-notification-testing-fcm-apns';
+import { post as b50_notification_event_schema_testing_dedup } from './notification-event-schema-testing-dedup';
+import { post as b50_payment_webhook_testing_idempotency_replay } from './payment-webhook-testing-idempotency-replay';
+import { post as b50_pdf_generation_testing_rendering_fonts } from './pdf-generation-testing-rendering-fonts';
+import { post as b50_percy_browserstack_integration_visual_testing } from './percy-browserstack-integration-visual-testing';
+import { post as b50_percy_vs_applitools_vs_chromatic_2026 } from './percy-vs-applitools-vs-chromatic-2026';
+import { post as b50_playwright_1_61_whats_new_adoption_guide } from './playwright-1-61-whats-new-adoption-guide';
+import { post as b50_prompt_versioning_regression_testing } from './prompt-versioning-regression-testing';
+import { post as b50_rfc_7807_problem_details_api_error_testing } from './rfc-7807-problem-details-api-error-testing';
+import { post as b50_robot_framework_seleniumlibrary_keywords_reference } from './robot-framework-seleniumlibrary-keywords-reference';
+import { post as b50_search_relevance_testing_golden_queries } from './search-relevance-testing-golden-queries';
+import { post as b50_secrets_scanning_ci_gitleaks_baselines } from './secrets-scanning-ci-gitleaks-baselines';
+import { post as b50_security_headers_testing_hsts_permissions_policy } from './security-headers-testing-hsts-permissions-policy';
+import { post as b50_selenium_4_43_bidi_grid_kubernetes_notes } from './selenium-4-43-bidi-grid-kubernetes-notes';
+import { post as b50_semantic_cache_testing_llm_applications } from './semantic-cache-testing-llm-applications';
+import { post as b50_service_worker_testing_cache_update_flows } from './service-worker-testing-cache-update-flows';
+import { post as b50_session_token_lifecycle_testing_expiry_refresh } from './session-token-lifecycle-testing-expiry-refresh';
+import { post as b50_subresource_integrity_testing_sri } from './subresource-integrity-testing-sri';
+import { post as b50_test_data_anonymization_gdpr_production_clones } from './test-data-anonymization-gdpr-production-clones';
+import { post as b50_test_management_system_data_model_schema } from './test-management-system-data-model-schema';
+import { post as b50_test_results_warehouse_schema_ci_history } from './test-results-warehouse-schema-ci-history';
+import { post as b50_testing_csrf_protection_tokens_samesite } from './testing-csrf-protection-tokens-samesite';
+import { post as b50_testing_password_reset_flows_tokens } from './testing-password-reset-flows-tokens';
+import { post as b50_timezone_handling_testing_storage_display } from './timezone-handling-testing-storage-display';
+import { post as b50_two_factor_recovery_codes_testing } from './two-factor-recovery-codes-testing';
+import { post as b50_vitest_expecttypeof_matchers_reference } from './vitest-expecttypeof-matchers-reference';
+import { post as b50_web_push_notification_testing_permissions } from './web-push-notification-testing-permissions';
 
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
@@ -3199,6 +3256,63 @@ export const posts: Record<string, BlogPost> = {
   'qa-sdet-interview-format-feedback-standardization': gsc_qa_sdet_interview_format_feedback_standardization,
   'robot-framework-run-keywords-control-flow-guide': gsc_robot_framework_run_keywords_control_flow_guide,
   'vitest-4-json-reporter-changelog-guide': gsc_vitest_4_json_reporter_changelog_guide,
+  'accessibility-testing-focus-management-traps': b50_accessibility_testing_focus_management_traps,
+  'account-lockout-testing-brute-force-thresholds': b50_account_lockout_testing_brute_force_thresholds,
+  'ai-test-generation-prompt-library-qa': b50_ai_test_generation_prompt_library_qa,
+  'api-rate-limit-testing-429-retry-after': b50_api_rate_limit_testing_429_retry_after,
+  'app-upgrade-path-testing-migrations': b50_app_upgrade_path_testing_migrations,
+  'audit-log-testing-immutability-ordering': b50_audit_log_testing_immutability_ordering,
+  'clipboard-interactions-testing-permissions': b50_clipboard_interactions_testing_permissions,
+  'concurrency-testing-race-conditions-guide': b50_concurrency_testing_race_conditions_guide,
+  'content-negotiation-api-testing-accept': b50_content_negotiation_api_testing_accept,
+  'csv-export-testing-injection-encoding': b50_csv_export_testing_injection_encoding,
+  'database-trigger-testing-side-effects': b50_database_trigger_testing_side_effects,
+  'detecting-fake-otp-traffic-phone-verification': b50_detecting_fake_otp_traffic_phone_verification,
+  'docker-compose-test-environments-health-ordering': b50_docker_compose_test_environments_health_ordering,
+  'drag-and-drop-testing-html5-pointer': b50_drag_and_drop_testing_html5_pointer,
+  'email-template-rendering-testing-clients': b50_email_template_rendering_testing_clients,
+  'feature-flag-exposure-testing-data-model': b50_feature_flag_exposure_testing_data_model,
+  'flaky-test-tracking-data-model-quarantine': b50_flaky_test_tracking_data_model_quarantine,
+  'git-bisect-test-failures-guide': b50_git_bisect_test_failures_guide,
+  'github-actions-vs-azure-devops-test-pipelines': b50_github_actions_vs_azure_devops_test_pipelines,
+  'graphql-error-handling-testing-partial-data': b50_graphql_error_handling_testing_partial_data,
+  'guardrail-latency-testing-llm-pipelines': b50_guardrail_latency_testing_llm_pipelines,
+  'http-patch-method-api-testing-rfc-5789': b50_http_patch_method_api_testing_rfc_5789,
+  'iframe-postmessage-testing-origins': b50_iframe_postmessage_testing_origins,
+  'job-scheduler-metrics-data-model-monitoring': b50_job_scheduler_metrics_data_model_monitoring,
+  'k6-executors-reference-arrival-rate-vus': b50_k6_executors_reference_arrival_rate_vus,
+  'llm-tool-call-parallelism-testing': b50_llm_tool_call_parallelism_testing,
+  'localstorage-schema-migration-testing': b50_localstorage_schema_migration_testing,
+  'merge-queue-testing-required-checks': b50_merge_queue_testing_required_checks,
+  'migration-rollback-testing-schema-changes': b50_migration_rollback_testing_schema_changes,
+  'mobile-offline-mode-testing-sync': b50_mobile_offline_mode_testing_sync,
+  'mobile-push-notification-testing-fcm-apns': b50_mobile_push_notification_testing_fcm_apns,
+  'notification-event-schema-testing-dedup': b50_notification_event_schema_testing_dedup,
+  'payment-webhook-testing-idempotency-replay': b50_payment_webhook_testing_idempotency_replay,
+  'pdf-generation-testing-rendering-fonts': b50_pdf_generation_testing_rendering_fonts,
+  'percy-browserstack-integration-visual-testing': b50_percy_browserstack_integration_visual_testing,
+  'percy-vs-applitools-vs-chromatic-2026': b50_percy_vs_applitools_vs_chromatic_2026,
+  'playwright-1-61-whats-new-adoption-guide': b50_playwright_1_61_whats_new_adoption_guide,
+  'prompt-versioning-regression-testing': b50_prompt_versioning_regression_testing,
+  'rfc-7807-problem-details-api-error-testing': b50_rfc_7807_problem_details_api_error_testing,
+  'robot-framework-seleniumlibrary-keywords-reference': b50_robot_framework_seleniumlibrary_keywords_reference,
+  'search-relevance-testing-golden-queries': b50_search_relevance_testing_golden_queries,
+  'secrets-scanning-ci-gitleaks-baselines': b50_secrets_scanning_ci_gitleaks_baselines,
+  'security-headers-testing-hsts-permissions-policy': b50_security_headers_testing_hsts_permissions_policy,
+  'selenium-4-43-bidi-grid-kubernetes-notes': b50_selenium_4_43_bidi_grid_kubernetes_notes,
+  'semantic-cache-testing-llm-applications': b50_semantic_cache_testing_llm_applications,
+  'service-worker-testing-cache-update-flows': b50_service_worker_testing_cache_update_flows,
+  'session-token-lifecycle-testing-expiry-refresh': b50_session_token_lifecycle_testing_expiry_refresh,
+  'subresource-integrity-testing-sri': b50_subresource_integrity_testing_sri,
+  'test-data-anonymization-gdpr-production-clones': b50_test_data_anonymization_gdpr_production_clones,
+  'test-management-system-data-model-schema': b50_test_management_system_data_model_schema,
+  'test-results-warehouse-schema-ci-history': b50_test_results_warehouse_schema_ci_history,
+  'testing-csrf-protection-tokens-samesite': b50_testing_csrf_protection_tokens_samesite,
+  'testing-password-reset-flows-tokens': b50_testing_password_reset_flows_tokens,
+  'timezone-handling-testing-storage-display': b50_timezone_handling_testing_storage_display,
+  'two-factor-recovery-codes-testing': b50_two_factor_recovery_codes_testing,
+  'vitest-expecttypeof-matchers-reference': b50_vitest_expecttypeof_matchers_reference,
+  'web-push-notification-testing-permissions': b50_web_push_notification_testing_permissions,
 };
 
 // Ordered list for the blog listing page (newest first)
@@ -6040,6 +6154,63 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
   { slug: 'qa-sdet-interview-format-feedback-standardization', ...gsc_qa_sdet_interview_format_feedback_standardization },
   { slug: 'robot-framework-run-keywords-control-flow-guide', ...gsc_robot_framework_run_keywords_control_flow_guide },
   { slug: 'vitest-4-json-reporter-changelog-guide', ...gsc_vitest_4_json_reporter_changelog_guide },
+  { slug: 'accessibility-testing-focus-management-traps', ...b50_accessibility_testing_focus_management_traps },
+  { slug: 'account-lockout-testing-brute-force-thresholds', ...b50_account_lockout_testing_brute_force_thresholds },
+  { slug: 'ai-test-generation-prompt-library-qa', ...b50_ai_test_generation_prompt_library_qa },
+  { slug: 'api-rate-limit-testing-429-retry-after', ...b50_api_rate_limit_testing_429_retry_after },
+  { slug: 'app-upgrade-path-testing-migrations', ...b50_app_upgrade_path_testing_migrations },
+  { slug: 'audit-log-testing-immutability-ordering', ...b50_audit_log_testing_immutability_ordering },
+  { slug: 'clipboard-interactions-testing-permissions', ...b50_clipboard_interactions_testing_permissions },
+  { slug: 'concurrency-testing-race-conditions-guide', ...b50_concurrency_testing_race_conditions_guide },
+  { slug: 'content-negotiation-api-testing-accept', ...b50_content_negotiation_api_testing_accept },
+  { slug: 'csv-export-testing-injection-encoding', ...b50_csv_export_testing_injection_encoding },
+  { slug: 'database-trigger-testing-side-effects', ...b50_database_trigger_testing_side_effects },
+  { slug: 'detecting-fake-otp-traffic-phone-verification', ...b50_detecting_fake_otp_traffic_phone_verification },
+  { slug: 'docker-compose-test-environments-health-ordering', ...b50_docker_compose_test_environments_health_ordering },
+  { slug: 'drag-and-drop-testing-html5-pointer', ...b50_drag_and_drop_testing_html5_pointer },
+  { slug: 'email-template-rendering-testing-clients', ...b50_email_template_rendering_testing_clients },
+  { slug: 'feature-flag-exposure-testing-data-model', ...b50_feature_flag_exposure_testing_data_model },
+  { slug: 'flaky-test-tracking-data-model-quarantine', ...b50_flaky_test_tracking_data_model_quarantine },
+  { slug: 'git-bisect-test-failures-guide', ...b50_git_bisect_test_failures_guide },
+  { slug: 'github-actions-vs-azure-devops-test-pipelines', ...b50_github_actions_vs_azure_devops_test_pipelines },
+  { slug: 'graphql-error-handling-testing-partial-data', ...b50_graphql_error_handling_testing_partial_data },
+  { slug: 'guardrail-latency-testing-llm-pipelines', ...b50_guardrail_latency_testing_llm_pipelines },
+  { slug: 'http-patch-method-api-testing-rfc-5789', ...b50_http_patch_method_api_testing_rfc_5789 },
+  { slug: 'iframe-postmessage-testing-origins', ...b50_iframe_postmessage_testing_origins },
+  { slug: 'job-scheduler-metrics-data-model-monitoring', ...b50_job_scheduler_metrics_data_model_monitoring },
+  { slug: 'k6-executors-reference-arrival-rate-vus', ...b50_k6_executors_reference_arrival_rate_vus },
+  { slug: 'llm-tool-call-parallelism-testing', ...b50_llm_tool_call_parallelism_testing },
+  { slug: 'localstorage-schema-migration-testing', ...b50_localstorage_schema_migration_testing },
+  { slug: 'merge-queue-testing-required-checks', ...b50_merge_queue_testing_required_checks },
+  { slug: 'migration-rollback-testing-schema-changes', ...b50_migration_rollback_testing_schema_changes },
+  { slug: 'mobile-offline-mode-testing-sync', ...b50_mobile_offline_mode_testing_sync },
+  { slug: 'mobile-push-notification-testing-fcm-apns', ...b50_mobile_push_notification_testing_fcm_apns },
+  { slug: 'notification-event-schema-testing-dedup', ...b50_notification_event_schema_testing_dedup },
+  { slug: 'payment-webhook-testing-idempotency-replay', ...b50_payment_webhook_testing_idempotency_replay },
+  { slug: 'pdf-generation-testing-rendering-fonts', ...b50_pdf_generation_testing_rendering_fonts },
+  { slug: 'percy-browserstack-integration-visual-testing', ...b50_percy_browserstack_integration_visual_testing },
+  { slug: 'percy-vs-applitools-vs-chromatic-2026', ...b50_percy_vs_applitools_vs_chromatic_2026 },
+  { slug: 'playwright-1-61-whats-new-adoption-guide', ...b50_playwright_1_61_whats_new_adoption_guide },
+  { slug: 'prompt-versioning-regression-testing', ...b50_prompt_versioning_regression_testing },
+  { slug: 'rfc-7807-problem-details-api-error-testing', ...b50_rfc_7807_problem_details_api_error_testing },
+  { slug: 'robot-framework-seleniumlibrary-keywords-reference', ...b50_robot_framework_seleniumlibrary_keywords_reference },
+  { slug: 'search-relevance-testing-golden-queries', ...b50_search_relevance_testing_golden_queries },
+  { slug: 'secrets-scanning-ci-gitleaks-baselines', ...b50_secrets_scanning_ci_gitleaks_baselines },
+  { slug: 'security-headers-testing-hsts-permissions-policy', ...b50_security_headers_testing_hsts_permissions_policy },
+  { slug: 'selenium-4-43-bidi-grid-kubernetes-notes', ...b50_selenium_4_43_bidi_grid_kubernetes_notes },
+  { slug: 'semantic-cache-testing-llm-applications', ...b50_semantic_cache_testing_llm_applications },
+  { slug: 'service-worker-testing-cache-update-flows', ...b50_service_worker_testing_cache_update_flows },
+  { slug: 'session-token-lifecycle-testing-expiry-refresh', ...b50_session_token_lifecycle_testing_expiry_refresh },
+  { slug: 'subresource-integrity-testing-sri', ...b50_subresource_integrity_testing_sri },
+  { slug: 'test-data-anonymization-gdpr-production-clones', ...b50_test_data_anonymization_gdpr_production_clones },
+  { slug: 'test-management-system-data-model-schema', ...b50_test_management_system_data_model_schema },
+  { slug: 'test-results-warehouse-schema-ci-history', ...b50_test_results_warehouse_schema_ci_history },
+  { slug: 'testing-csrf-protection-tokens-samesite', ...b50_testing_csrf_protection_tokens_samesite },
+  { slug: 'testing-password-reset-flows-tokens', ...b50_testing_password_reset_flows_tokens },
+  { slug: 'timezone-handling-testing-storage-display', ...b50_timezone_handling_testing_storage_display },
+  { slug: 'two-factor-recovery-codes-testing', ...b50_two_factor_recovery_codes_testing },
+  { slug: 'vitest-expecttypeof-matchers-reference', ...b50_vitest_expecttypeof_matchers_reference },
+  { slug: 'web-push-notification-testing-permissions', ...b50_web_push_notification_testing_permissions },
 ];
 
 const seoWaveOneSlugs = new Set(seoWaveOneArticles2026.map(({ slug }) => slug));
