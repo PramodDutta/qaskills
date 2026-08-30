@@ -45,3 +45,43 @@ Momentic, Octomind, Spur, QA Wolf, Applitools, testRigor, Testsigma, Katalon: pa
 - 8 sent today. Cap: 50/day, but never pad with guessed addresses.
 - Personal Google Contacts (2,625) are NOT a target list: family + phone imports, no business segment.
 - Every claim must match the media kit. Opt-out line in every email.
+
+## LinkedIn DM drafts (2026-08-30, for Pramod to send from his own profile)
+
+Send the connection note first if not connected; the full DM goes after they accept (or as InMail). Fill the first-name placeholders from the profile before sending.
+
+### 1. TestSprite: Yunhao Jiao (CEO)
+
+Connection note (under 300 chars):
+"Hi Yunhao, Pramod here, founder of QASkills.sh (32K QA engineers/mo) and The Testing Academy. We already run affiliate + paid posts with your team. Have an idea to put TestSprite one install command away from every Claude Code user browsing QA skills. Worth connecting."
+
+Full DM after accept:
+"Thanks for connecting, Yunhao. Congrats on the seed round and the MCP launch, the Claude Code + Cursor positioning is exactly where my audience lives.
+
+Quick context: QASkills.sh had 32,000 QA engineers and SDETs active last month (+20.5% MoM), and we already work with your team on affiliate + paid posts. I emailed Adam an idea: a permanent sponsored TestSprite skill in the catalog, so anyone browsing QA skills can install a TestSprite workflow with one command, plus placement bundles with category exclusivity for AI testing agents.
+
+Media kit: qaskills.sh/qaskills-media-kit.html. If it is easier, 15 minutes this week and I will show you the mock of the TestSprite skill page. Either way, glad to be connected."
+
+### 2. Momentic: founder (fill name from profile)
+
+Connection note:
+"Hi <name>, Pramod, founder of QASkills.sh, the QA-skills directory for AI coding agents (32K QA engineers/mo). Momentic keeps coming up in our AI-testing coverage. Have a distribution idea that fits how you sell to agent-first teams. Worth connecting."
+
+Full DM after accept:
+"Thanks for connecting, <name>. QASkills.sh is where QA engineers pick tools for their coding agents: 32,000 active users last month, growing 20% MoM, and 5x Google reach last quarter.
+
+The idea: a sponsored Momentic skill + integration guide in the catalog, installable by every Claude Code and Cursor user in one command, plus placements with category exclusivity for AI-native testing. One QA newsletter slot costs $599 for a single send; our sitewide placement is $500 for the whole month at 3x the audience.
+
+Media kit: qaskills.sh/qaskills-media-kit.html. Happy to mock up the Momentic skill page before you commit to anything."
+
+### 3. Octomind: founder (fill name from profile)
+
+Connection note:
+"Hi <name>, Pramod, founder of QASkills.sh (32K QA engineers/mo, directory of QA skills for Claude Code and Cursor). Octomind's tester-agent-in-the-IDE story fits our audience exactly. Have a concrete distribution idea. Worth connecting."
+
+Full DM after accept:
+"Thanks for connecting, <name>. Quick pitch, then I will leave you alone: QASkills.sh is the QA-skills directory for AI coding agents. 32,000 QA engineers and SDETs used it last month, and our Playwright cluster is the most-installed part of the catalog, which is exactly where auto-generated Playwright tests land.
+
+Two options: a sponsored Octomind skill + integration guide (one install command for every Claude Code and Cursor user), or placements from $300/mo with category exclusivity. Media kit: qaskills.sh/qaskills-media-kit.html.
+
+If useful I will mock the Octomind skill page first so you can see it before spending anything."
