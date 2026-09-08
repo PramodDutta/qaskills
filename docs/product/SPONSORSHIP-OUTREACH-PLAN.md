@@ -8,10 +8,10 @@ Media kit (updated with verified numbers today): https://qaskills.sh/qaskills-me
 
 | Asset | Reach | Rate card |
 |---|---|---|
-| Sitewide top banner (sticky) | all 32,000 monthly users | $500/mo |
+| Sitewide top banner (sticky) | all 38,000 monthly users | $500/mo |
 | Blog inline network | 1,663 posts, ~20K/mo | $350/mo |
 | Claude Code page banner | flagship page, 39.9K impressions/qtr | $300/mo |
-| Skill sidebar network | 444 skill pages | $250/mo |
+| Skill sidebar network | 475 skill pages | $250/mo |
 | Homepage feature card | ~8K/mo | $250/mo |
 | Footer partner link | sitewide | $100/mo |
 | Sponsored skill or article (evergreen) | permanent, labeled | $400 one-time (see pricing note) |
@@ -19,12 +19,12 @@ Media kit (updated with verified numbers today): https://qaskills.sh/qaskills-me
 
 Delivery is real on day one: `PromoBanner`, `course-ad` inline slots, and the footer already run labeled `rel="sponsored nofollow"` placements with UTM tagging. Swapping in an external sponsor is configuration, not engineering.
 
-Verified traffic ammunition: 32,000 monthly active users (+20.5%), 2.19M search impressions/28d, 9,770 clicks/28d (+67%), position 7.1, 444 skills, 30+ agents.
+Verified traffic ammunition (pulled 6 Sep 2026): 38,000 monthly active users (+35.2%), 2.41M search impressions/28d, 11,300 clicks/28d, position 6.5 improving from 7.1, 475 skills, 30+ agents, and 627 skill-file downloads in 7 days (+88.9%).
 
 ## 2. The market proof (why vendors will say yes)
 
 - Software Testing Weekly sells a single newsletter link to 9,200 subscribers for $599 (top) / $249 (middle), and its "Trusted by" wall names 80+ paying vendors including Mabl, BrowserStack, Sauce Labs, Applitools, Testsigma, Cypress, k6, Checkly, LambdaTest, Testim, Katalon, Qase, testRigor, PractiTest, Testmo, ACCELQ, aqua cloud, Testkube, BugBug, MagicPod. Every one of those companies has already demonstrated willingness to pay for exactly our audience.
-- Pricing wedge: one STW top slot ($599, one send, ~4K opens) costs more than a FULL MONTH of our sitewide banner ($500) in front of 32,000 users. We are underpriced against the reference point buyers already know.
+- Pricing wedge: one STW top slot ($599, one send, ~4K opens) costs more than a FULL MONTH of our sitewide banner ($500) in front of 38,000 users. That is 4x the newsletter audience for less money, and ours is a month of exposure against a single send. We are underpriced against the reference point buyers already know.
 - The AI-testing category is freshly funded and fighting for the same developers: QA Wolf ($56M total), Momentic (~$18.7M), TestSprite ($8.1M), Octomind ($4.8M), Spur ($4.5M), CodeRabbit ($143M Series C, adjacent). They already publish head-to-head comparison pages against each other, which is what makes category exclusivity sellable.
 
 ## 3. TestSprite: the first pitch (custom terms already defined)
@@ -43,11 +43,11 @@ Contact path (verified): contact@testsprite.com, Calendly on their site, LinkedI
 
 ### Template 1: AI-testing startups (TestSprite, Momentic, Octomind, Ranger, Spur)
 
-Subject: 32,000 QA engineers/month, one command from installing your workflow
+Subject: 38,000 QA engineers/month, one command from installing your workflow
 
 Hi <name>,
 
-I run QASkills.sh, the largest directory of QA skills for AI coding agents (Claude Code, Cursor, Copilot). 32,000 QA engineers and SDETs used it in the last 30 days, up 20.5% month over month, and Google search reach grew 5x last quarter.
+I run QASkills.sh, the largest directory of QA skills for AI coding agents (Claude Code, Cursor, Copilot). 38,000 QA engineers and SDETs used it in the last 30 days, up 35% month over month, and Google search reach grew 5x last quarter.
 
 Your users and mine are the same people: developers wiring testing into AI agents. Two ways to put <company> in front of them:
 
@@ -63,13 +63,13 @@ Founder, QASkills.sh / The Testing Academy
 
 ### Template 2: established vendors already sponsoring QA content (Applitools, Testsigma, Qase, Checkly, Katalon, ...)
 
-Subject: Cheaper than one newsletter slot, in front of 32,000 QA engineers all month
+Subject: Cheaper than one newsletter slot, in front of 38,000 QA engineers all month
 
 Hi <name>,
 
 You sponsor QA content already (I have seen <company> in Software Testing Weekly), so I will keep this short and concrete.
 
-QASkills.sh is the QA-skills directory for AI coding agents: 32,000 monthly active users, all QA engineers and SDETs, growing 20% month over month. A single top slot in a QA newsletter runs $599 for one send. Our sitewide placement is $500 for the entire month, and the audience is 3x larger and always testing-intent.
+QASkills.sh is the QA-skills directory for AI coding agents: 38,000 monthly active users, all QA engineers and SDETs, growing 35% month over month. A single top slot in a QA newsletter runs $599 for one send. Our sitewide placement is $500 for the entire month, and the audience is 4x larger and always testing-intent.
 
 Rate card and verified numbers: https://qaskills.sh/qaskills-media-kit.html
 Placements from $100/mo. Category exclusivity available.

@@ -109,3 +109,57 @@ All 10 confirmed in Gmail Scheduled folder (count = 10), all set for Aug 31 09:0
 Dropped: Brainhub (sales@brainhub.eu) is a dev agency, not a QA tool vendor; weak fit, replaced by Katalon's real partnerships address. Frugal Testing and pCloudy were briefly throttled by the account classifier mid-batch, then went through on retry.
 
 Deliverability note: 10 scheduled today on top of 13 sent this week (23 total from a personal Gmail). This is the ceiling for cold outreach from one inbox. Do NOT schedule more from this account without a dedicated sending domain (the RESEND_API_KEY setup); further volume risks the account's deliverability.
+
+## Follow-up wave (drafted 2026-09-08, NOT SENT, awaiting approval)
+
+All 23 contacts are past the day-5 nudge in the policy above: batch 1 was due Sep 1,
+batch 2 Sep 2, batch 3 Sep 5. Rather than a bare "just bumping this", the September
+traffic pull gives a real reason for the touch, and the numbers moved in our favour.
+
+Verified 2026-09-08 against GA4 and Search Console:
+
+| Metric | In the original pitch | Now | Window |
+|---|---|---|---|
+| Monthly active users | 32,000 (+20.5%) | 38,000 (+35.2%) | GA4, 30d to Sep 6 |
+| Google clicks / 28d | 9,770 | 11,300 | GSC, Aug 10-Sep 6 |
+| Impressions / 28d | 2.19M | 2.41M | GSC, Aug 10-Sep 6 |
+| Average position | 7.1 | 6.5 | GSC, Aug 10-Sep 6 |
+| Skills in catalog | 444 | 475 | live /api/skills |
+| Skill downloads / 7d | not measured | 627 (+88.9%) | GA4 download_skill_md |
+
+The download number is the one to lead with. Everything else is reach; that one is
+intent, and it answers the only question a sponsor actually has.
+
+### Follow-up template (F1), one nudge then stop
+
+Subject: Re: <original subject>
+
+Hi <name>,
+
+Following up once on the note I sent on <date>, then I will leave you alone.
+
+The reason for the bump is that the numbers moved. I quoted 32,000 monthly users;
+the September pull is 38,000, up 35% month over month, with 11,300 Google clicks in
+the last 28 days and average position improved from 7.1 to 6.5.
+
+One figure I did not have when I wrote: 627 skill files were downloaded in the last
+seven days, up 89%. People do not only read the catalogue, they install from it. For
+a sponsor that is the number that matters, and it is why a placement here behaves
+more like distribution than advertising.
+
+Refreshed media kit, every figure a verified GA4 or Search Console pull:
+https://qaskills.sh/qaskills-media-kit.html
+
+If this is not a fit, one line saying so is genuinely useful and I will stop. If the
+timing was just wrong, tell me when to come back and I will.
+
+Pramod
+<opt-out line>
+
+### Sending constraint, unresolved
+
+The batch-3 note records the ceiling: 23 cold sends in one week from a personal Gmail
+is the limit, and more without a dedicated sending domain risks that account's
+deliverability. This wave is 23 follow-ups to people who already received one email,
+which is materially safer than 23 new cold contacts, but it is still volume from the
+same inbox. Resolve the Resend sending domain before any further NEW cold batch.
