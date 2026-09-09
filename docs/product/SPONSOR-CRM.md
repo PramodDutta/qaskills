@@ -31,10 +31,20 @@ Address sourcing: published emails only, verified on each vendor's own site 2026
 
 | Company | Contact | State |
 |---|---|---|
-| TestSprite | Adam | Aug 26: offered sponsored skill $400 ONE-TIME + bundle from $300/mo, on top of existing affiliate + paid-post arrangement. Awaiting reply |
-| BrowserStack | Utkarsh, Nirmal | Active thread (muted). HOLD per Pramod |
-| DataImpulse | Kateryna | Aug 26: "sponsorships are open" reply sent |
-| (jobs) | Tushar | Aug 26: small test on curated QA/SDET terms |
+| TestSprite | Adam | Aug 26: offered sponsored skill $400 ONE-TIME + bundle from $300/mo, on top of existing affiliate + paid-post arrangement. Day-13 follow-up sent Sep 9 (offered to mock the skill page). |
+| BrowserStack | Utkarsh, Nirmal | Active thread (muted). HOLD per Pramod (nudge deliberately NOT sent Sep 9 per Pramod). |
+| DataImpulse | Kateryna | Aug 26: "sponsorships are open" reply sent. Day-13 follow-up sent Sep 9 (named blog inline $350/mo or sponsored article $400 one-time, exclusivity open). |
+| (jobs) | Tushar | Aug 26: small test on curated QA/SDET terms. Day-13 follow-up sent Sep 9 (re-asked for roles preview + payout/reporting/payment terms). |
+
+## Follow-ups sent 2026-09-09 (in-thread replies, from contact@thetestingacademy.com via Gmail)
+
+The 4 Aug 28 sponsorship drafts no longer existed (the original pitches had already gone out Aug 26 and the drafts were cleared). Pramod approved sending in-thread day-13 nudges on the three live threads; BrowserStack held per his instruction. All three confirmed sent on screen.
+
+| Company | Contact | Thread | Status |
+|---|---|---|---|
+| TestSprite | adam@testsprite.com | QASkills.sh placements for TestSprite | SENT 20:43 IST |
+| jobs | tushar@artha-link.com | RE: Beyond sponsorships: sharing jobs | SENT 20:44 IST |
+| DataImpulse | kateryna.humenna@dataimpulse.io | Re: Collaboration with DataImpulse: formats and pricing | SENT 20:44 IST |
 
 ## Queue (contact forms, not yet reached)
 
