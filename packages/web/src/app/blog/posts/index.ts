@@ -1567,6 +1567,31 @@ import { post as b50_timezone_handling_testing_storage_display } from './timezon
 import { post as b50_two_factor_recovery_codes_testing } from './two-factor-recovery-codes-testing';
 import { post as b50_vitest_expecttypeof_matchers_reference } from './vitest-expecttypeof-matchers-reference';
 import { post as b50_web_push_notification_testing_permissions } from './web-push-notification-testing-permissions';
+import { post as b3_antithesis_deterministic_simulation_testing } from './antithesis-deterministic-simulation-testing';
+import { post as b3_azure_playwright_workspaces_migration_guide } from './azure-playwright-workspaces-migration-guide';
+import { post as b3_backstopjs_visual_regression_testing_guide } from './backstopjs-visual-regression-testing-guide';
+import { post as b3_bun_test_runner_guide_2026 } from './bun-test-runner-guide-2026';
+import { post as b3_cargo_nextest_rust_testing_guide } from './cargo-nextest-rust-testing-guide';
+import { post as b3_codeceptjs_e2e_testing_guide_2026 } from './codeceptjs-e2e-testing-guide-2026';
+import { post as b3_deno_test_runner_guide_2026 } from './deno-test-runner-guide-2026';
+import { post as b3_diffblue_cover_java_unit_test_generation } from './diffblue-cover-java-unit-test-generation';
+import { post as b3_fortio_load_testing_guide } from './fortio-load-testing-guide';
+import { post as b3_gatling_javascript_typescript_sdk_guide } from './gatling-javascript-typescript-sdk-guide';
+import { post as b3_jest_30_new_features_migration_guide } from './jest-30-new-features-migration-guide';
+import { post as b3_k6_operator_kubernetes_distributed_load_testing } from './k6-operator-kubernetes-distributed-load-testing';
+import { post as b3_k6_studio_record_load_tests_guide } from './k6-studio-record-load-tests-guide';
+import { post as b3_litmuschaos_kubernetes_chaos_testing_guide } from './litmuschaos-kubernetes-chaos-testing-guide';
+import { post as b3_node_test_runner_built_in_guide_2026 } from './node-test-runner-built-in-guide-2026';
+import { post as b3_playwright_1_62_new_features_2026 } from './playwright-1-62-new-features-2026';
+import { post as b3_playwright_1_63_new_features_2026 } from './playwright-1-63-new-features-2026';
+import { post as b3_pumba_docker_chaos_testing_guide } from './pumba-docker-chaos-testing-guide';
+import { post as b3_qodo_cover_ai_test_generation_guide } from './qodo-cover-ai-test-generation-guide';
+import { post as b3_skyvern_ai_browser_automation_guide } from './skyvern-ai-browser-automation-guide';
+import { post as b3_tracetest_trace_based_testing_opentelemetry } from './tracetest-trace-based-testing-opentelemetry';
+import { post as b3_trunk_flaky_tests_detection_guide } from './trunk-flaky-tests-detection-guide';
+import { post as b3_tunit_dotnet_testing_framework_guide } from './tunit-dotnet-testing-framework-guide';
+import { post as b3_unlighthouse_site_wide_lighthouse_audits } from './unlighthouse-site-wide-lighthouse-audits';
+import { post as b3_vegeta_http_load_testing_guide } from './vegeta-http-load-testing-guide';
 
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
@@ -3313,6 +3338,31 @@ export const posts: Record<string, BlogPost> = {
   'two-factor-recovery-codes-testing': b50_two_factor_recovery_codes_testing,
   'vitest-expecttypeof-matchers-reference': b50_vitest_expecttypeof_matchers_reference,
   'web-push-notification-testing-permissions': b50_web_push_notification_testing_permissions,
+  'antithesis-deterministic-simulation-testing': b3_antithesis_deterministic_simulation_testing,
+  'azure-playwright-workspaces-migration-guide': b3_azure_playwright_workspaces_migration_guide,
+  'backstopjs-visual-regression-testing-guide': b3_backstopjs_visual_regression_testing_guide,
+  'bun-test-runner-guide-2026': b3_bun_test_runner_guide_2026,
+  'cargo-nextest-rust-testing-guide': b3_cargo_nextest_rust_testing_guide,
+  'codeceptjs-e2e-testing-guide-2026': b3_codeceptjs_e2e_testing_guide_2026,
+  'deno-test-runner-guide-2026': b3_deno_test_runner_guide_2026,
+  'diffblue-cover-java-unit-test-generation': b3_diffblue_cover_java_unit_test_generation,
+  'fortio-load-testing-guide': b3_fortio_load_testing_guide,
+  'gatling-javascript-typescript-sdk-guide': b3_gatling_javascript_typescript_sdk_guide,
+  'jest-30-new-features-migration-guide': b3_jest_30_new_features_migration_guide,
+  'k6-operator-kubernetes-distributed-load-testing': b3_k6_operator_kubernetes_distributed_load_testing,
+  'k6-studio-record-load-tests-guide': b3_k6_studio_record_load_tests_guide,
+  'litmuschaos-kubernetes-chaos-testing-guide': b3_litmuschaos_kubernetes_chaos_testing_guide,
+  'node-test-runner-built-in-guide-2026': b3_node_test_runner_built_in_guide_2026,
+  'playwright-1-62-new-features-2026': b3_playwright_1_62_new_features_2026,
+  'playwright-1-63-new-features-2026': b3_playwright_1_63_new_features_2026,
+  'pumba-docker-chaos-testing-guide': b3_pumba_docker_chaos_testing_guide,
+  'qodo-cover-ai-test-generation-guide': b3_qodo_cover_ai_test_generation_guide,
+  'skyvern-ai-browser-automation-guide': b3_skyvern_ai_browser_automation_guide,
+  'tracetest-trace-based-testing-opentelemetry': b3_tracetest_trace_based_testing_opentelemetry,
+  'trunk-flaky-tests-detection-guide': b3_trunk_flaky_tests_detection_guide,
+  'tunit-dotnet-testing-framework-guide': b3_tunit_dotnet_testing_framework_guide,
+  'unlighthouse-site-wide-lighthouse-audits': b3_unlighthouse_site_wide_lighthouse_audits,
+  'vegeta-http-load-testing-guide': b3_vegeta_http_load_testing_guide,
 };
 
 // Ordered list for the blog listing page (newest first)
@@ -6211,6 +6261,31 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
   { slug: 'two-factor-recovery-codes-testing', ...b50_two_factor_recovery_codes_testing },
   { slug: 'vitest-expecttypeof-matchers-reference', ...b50_vitest_expecttypeof_matchers_reference },
   { slug: 'web-push-notification-testing-permissions', ...b50_web_push_notification_testing_permissions },
+  { slug: 'antithesis-deterministic-simulation-testing', ...b3_antithesis_deterministic_simulation_testing },
+  { slug: 'azure-playwright-workspaces-migration-guide', ...b3_azure_playwright_workspaces_migration_guide },
+  { slug: 'backstopjs-visual-regression-testing-guide', ...b3_backstopjs_visual_regression_testing_guide },
+  { slug: 'bun-test-runner-guide-2026', ...b3_bun_test_runner_guide_2026 },
+  { slug: 'cargo-nextest-rust-testing-guide', ...b3_cargo_nextest_rust_testing_guide },
+  { slug: 'codeceptjs-e2e-testing-guide-2026', ...b3_codeceptjs_e2e_testing_guide_2026 },
+  { slug: 'deno-test-runner-guide-2026', ...b3_deno_test_runner_guide_2026 },
+  { slug: 'diffblue-cover-java-unit-test-generation', ...b3_diffblue_cover_java_unit_test_generation },
+  { slug: 'fortio-load-testing-guide', ...b3_fortio_load_testing_guide },
+  { slug: 'gatling-javascript-typescript-sdk-guide', ...b3_gatling_javascript_typescript_sdk_guide },
+  { slug: 'jest-30-new-features-migration-guide', ...b3_jest_30_new_features_migration_guide },
+  { slug: 'k6-operator-kubernetes-distributed-load-testing', ...b3_k6_operator_kubernetes_distributed_load_testing },
+  { slug: 'k6-studio-record-load-tests-guide', ...b3_k6_studio_record_load_tests_guide },
+  { slug: 'litmuschaos-kubernetes-chaos-testing-guide', ...b3_litmuschaos_kubernetes_chaos_testing_guide },
+  { slug: 'node-test-runner-built-in-guide-2026', ...b3_node_test_runner_built_in_guide_2026 },
+  { slug: 'playwright-1-62-new-features-2026', ...b3_playwright_1_62_new_features_2026 },
+  { slug: 'playwright-1-63-new-features-2026', ...b3_playwright_1_63_new_features_2026 },
+  { slug: 'pumba-docker-chaos-testing-guide', ...b3_pumba_docker_chaos_testing_guide },
+  { slug: 'qodo-cover-ai-test-generation-guide', ...b3_qodo_cover_ai_test_generation_guide },
+  { slug: 'skyvern-ai-browser-automation-guide', ...b3_skyvern_ai_browser_automation_guide },
+  { slug: 'tracetest-trace-based-testing-opentelemetry', ...b3_tracetest_trace_based_testing_opentelemetry },
+  { slug: 'trunk-flaky-tests-detection-guide', ...b3_trunk_flaky_tests_detection_guide },
+  { slug: 'tunit-dotnet-testing-framework-guide', ...b3_tunit_dotnet_testing_framework_guide },
+  { slug: 'unlighthouse-site-wide-lighthouse-audits', ...b3_unlighthouse_site_wide_lighthouse_audits },
+  { slug: 'vegeta-http-load-testing-guide', ...b3_vegeta_http_load_testing_guide },
 ];
 
 const seoWaveOneSlugs = new Set(seoWaveOneArticles2026.map(({ slug }) => slug));
