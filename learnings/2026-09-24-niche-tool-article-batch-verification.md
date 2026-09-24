@@ -13,7 +13,7 @@
 
 ## Judgment calls
 
-- **Did not apply auditor findings blindly.** 6 of 17 flagged blockers were wrong. Examples: the auditor twice claimed Tracetest has no `-j` flag, but `resource_run_cmd.go` defines it. It rejected Pumba's `combine --rate-value` and Trunk's `swift-test-xunit-paths`, both of which are documented. It also rejected `import type` plus `typeof`, which is the exact pattern in Playwright's own docs.
+- **Did not apply auditor findings blindly.** Across two passes, 7 of 18 flagged blockers were wrong (4 distinct false claims, one of them repeated 4 times). Examples: the auditor twice claimed Tracetest has no `-j` flag, but `resource_run_cmd.go` defines it. It rejected Pumba's `combine --rate-value` and Trunk's `swift-test-xunit-paths`, both of which are documented. It also rejected `import type` plus `typeof`, which is the exact pattern in Playwright's own docs.
 - **Did not trust WebFetch summaries for adjudication.** The summarizer mixed 1.61 features into its 1.62 list. The raw `release-notes-js.md` settled it.
 - **Did not put "lessons from the last audit" into the writer prompt as bare rules.** Writers turned them into article content: DB rollback advice in a Playwright release post, and "don't use `-t`" asides everywhere. Keep such rules in the gate and audit, or mark them "constraints, never mention".
 - **Did not upgrade Grok or Codex when they failed.** Grok's free tier ran out and `gpt-6-astra` needs a newer CLI. Codex took over Grok's topics on `-m gpt-5.5`, because spending money is the user's call.
