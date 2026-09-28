@@ -1592,6 +1592,58 @@ import { post as b3_trunk_flaky_tests_detection_guide } from './trunk-flaky-test
 import { post as b3_tunit_dotnet_testing_framework_guide } from './tunit-dotnet-testing-framework-guide';
 import { post as b3_unlighthouse_site_wide_lighthouse_audits } from './unlighthouse-site-wide-lighthouse-audits';
 import { post as b3_vegeta_http_load_testing_guide } from './vegeta-http-load-testing-guide';
+import { post as b4_agenta_llm_evaluation_prompt_management_guide } from './agenta-llm-evaluation-prompt-management-guide';
+import { post as b4_airflow_dag_testing_guide } from './airflow-dag-testing-guide';
+import { post as b4_app_percy_mobile_visual_testing_guide } from './app-percy-mobile-visual-testing-guide';
+import { post as b4_archunit_architecture_testing_java_guide } from './archunit-architecture-testing-java-guide';
+import { post as b4_aws_fis_chaos_engineering_guide } from './aws-fis-chaos-engineering-guide';
+import { post as b4_bitrise_mobile_ci_testing_guide } from './bitrise-mobile-ci-testing-guide';
+import { post as b4_browserbase_headless_browser_infrastructure_guide } from './browserbase-headless-browser-infrastructure-guide';
+import { post as b4_cargo_mutants_rust_mutation_testing_guide } from './cargo-mutants-rust-mutation-testing-guide';
+import { post as b4_chaos_toolkit_chaos_engineering_guide } from './chaos-toolkit-chaos-engineering-guide';
+import { post as b4_cloudbees_smart_tests_predictive_test_selection } from './cloudbees-smart-tests-predictive-test-selection';
+import { post as b4_cypress_16_new_features_migration_guide } from './cypress-16-new-features-migration-guide';
+import { post as b4_cypress_cy_env_environment_variables_guide } from './cypress-cy-env-environment-variables-guide';
+import { post as b4_cypress_skills_ai_coding_agents_2026 } from './cypress-skills-ai-coding-agents-2026';
+import { post as b4_datadog_test_optimization_flaky_tests_guide } from './datadog-test-optimization-flaky-tests-guide';
+import { post as b4_dynamodb_local_testing_guide } from './dynamodb-local-testing-guide';
+import { post as b4_etl_testing_guide_2026 } from './etl-testing-guide-2026';
+import { post as b4_firebase_test_lab_mobile_testing_guide } from './firebase-test-lab-mobile-testing-guide';
+import { post as b4_flutter_golden_tests_visual_regression_guide } from './flutter-golden-tests-visual-regression-guide';
+import { post as b4_flutter_integration_testing_guide } from './flutter-integration-testing-guide';
+import { post as b4_flutter_widget_testing_guide } from './flutter-widget-testing-guide';
+import { post as b4_ghz_grpc_load_testing_guide } from './ghz-grpc-load-testing-guide';
+import { post as b4_github_actions_vs_gitlab_ci_test_automation_2026 } from './github-actions-vs-gitlab-ci-test-automation-2026';
+import { post as b4_gotestsum_go_test_reporting_ci_guide } from './gotestsum-go-test-reporting-ci-guide';
+import { post as b4_hoverfly_api_simulation_testing_guide } from './hoverfly-api-simulation-testing-guide';
+import { post as b4_ibm_equal_access_accessibility_checker_guide } from './ibm-equal-access-accessibility-checker-guide';
+import { post as b4_jbehave_vs_cucumber_java_bdd_2026 } from './jbehave-vs-cucumber-java-bdd-2026';
+import { post as b4_k6_2_migration_guide_breaking_changes } from './k6-2-migration-guide-breaking-changes';
+import { post as b4_k6_python_load_testing_options_guide } from './k6-python-load-testing-options-guide';
+import { post as b4_kaspresso_android_ui_testing_guide } from './kaspresso-android-ui-testing-guide';
+import { post as b4_kiwi_tcms_open_source_test_management_guide } from './kiwi-tcms-open-source-test-management-guide';
+import { post as b4_lightpanda_headless_browser_automation_guide } from './lightpanda-headless-browser-automation-guide';
+import { post as b4_mailosaur_email_sms_testing_guide } from './mailosaur-email-sms-testing-guide';
+import { post as b4_microcks_api_mocking_testing_guide } from './microcks-api-mocking-testing-guide';
+import { post as b4_nbomber_dotnet_load_testing_guide } from './nbomber-dotnet-load-testing-guide';
+import { post as b4_oha_http_load_testing_guide } from './oha-http-load-testing-guide';
+import { post as b4_patrol_flutter_e2e_testing_guide } from './patrol-flutter-e2e-testing-guide';
+import { post as b4_pitest_java_mutation_testing_guide } from './pitest-java-mutation-testing-guide';
+import { post as b4_playwright_devices_list_mobile_emulation_guide } from './playwright-devices-list-mobile-emulation-guide';
+import { post as b4_pyspark_testing_pytest_chispa_guide } from './pyspark-testing-pytest-chispa-guide';
+import { post as b4_seleniumbase_python_testing_guide } from './seleniumbase-python-testing-guide';
+import { post as b4_signadot_sandbox_microservices_testing_guide } from './signadot-sandbox-microservices-testing-guide';
+import { post as b4_skills_sh_agent_skills_directory_guide } from './skills-sh-agent-skills-directory-guide';
+import { post as b4_smtp4dev_email_testing_guide } from './smtp4dev-email-testing-guide';
+import { post as b4_specmatic_contract_testing_openapi_guide } from './specmatic-contract-testing-openapi-guide';
+import { post as b4_steadybit_chaos_engineering_guide } from './steadybit-chaos-engineering-guide';
+import { post as b4_taiko_browser_automation_guide } from './taiko-browser-automation-guide';
+import { post as b4_testkube_kubernetes_testing_guide } from './testkube-kubernetes-testing-guide';
+import { post as b4_trivy_container_security_scanning_ci_guide } from './trivy-container-security-scanning-ci-guide';
+import { post as b4_vcrpy_pytest_recording_http_replay_guide } from './vcrpy-pytest-recording-http-replay-guide';
+import { post as b4_vibium_ai_browser_automation_guide } from './vibium-ai-browser-automation-guide';
+import { post as b4_vitest_5_new_features_migration_guide } from './vitest-5-new-features-migration-guide';
+import { post as b4_vitest_vi_mocked_typescript_guide } from './vitest-vi-mocked-typescript-guide';
 
 const seoPriorityOverrideSlugs = new Set(seoPriorityOverrides2026.map(({ slug }) => slug));
 const remainingGeneratedSeoBatch2026Posts = generatedSeoBatch2026Posts.filter(
@@ -3363,6 +3415,58 @@ export const posts: Record<string, BlogPost> = {
   'tunit-dotnet-testing-framework-guide': b3_tunit_dotnet_testing_framework_guide,
   'unlighthouse-site-wide-lighthouse-audits': b3_unlighthouse_site_wide_lighthouse_audits,
   'vegeta-http-load-testing-guide': b3_vegeta_http_load_testing_guide,
+  'agenta-llm-evaluation-prompt-management-guide': b4_agenta_llm_evaluation_prompt_management_guide,
+  'airflow-dag-testing-guide': b4_airflow_dag_testing_guide,
+  'app-percy-mobile-visual-testing-guide': b4_app_percy_mobile_visual_testing_guide,
+  'archunit-architecture-testing-java-guide': b4_archunit_architecture_testing_java_guide,
+  'aws-fis-chaos-engineering-guide': b4_aws_fis_chaos_engineering_guide,
+  'bitrise-mobile-ci-testing-guide': b4_bitrise_mobile_ci_testing_guide,
+  'browserbase-headless-browser-infrastructure-guide': b4_browserbase_headless_browser_infrastructure_guide,
+  'cargo-mutants-rust-mutation-testing-guide': b4_cargo_mutants_rust_mutation_testing_guide,
+  'chaos-toolkit-chaos-engineering-guide': b4_chaos_toolkit_chaos_engineering_guide,
+  'cloudbees-smart-tests-predictive-test-selection': b4_cloudbees_smart_tests_predictive_test_selection,
+  'cypress-16-new-features-migration-guide': b4_cypress_16_new_features_migration_guide,
+  'cypress-cy-env-environment-variables-guide': b4_cypress_cy_env_environment_variables_guide,
+  'cypress-skills-ai-coding-agents-2026': b4_cypress_skills_ai_coding_agents_2026,
+  'datadog-test-optimization-flaky-tests-guide': b4_datadog_test_optimization_flaky_tests_guide,
+  'dynamodb-local-testing-guide': b4_dynamodb_local_testing_guide,
+  'etl-testing-guide-2026': b4_etl_testing_guide_2026,
+  'firebase-test-lab-mobile-testing-guide': b4_firebase_test_lab_mobile_testing_guide,
+  'flutter-golden-tests-visual-regression-guide': b4_flutter_golden_tests_visual_regression_guide,
+  'flutter-integration-testing-guide': b4_flutter_integration_testing_guide,
+  'flutter-widget-testing-guide': b4_flutter_widget_testing_guide,
+  'ghz-grpc-load-testing-guide': b4_ghz_grpc_load_testing_guide,
+  'github-actions-vs-gitlab-ci-test-automation-2026': b4_github_actions_vs_gitlab_ci_test_automation_2026,
+  'gotestsum-go-test-reporting-ci-guide': b4_gotestsum_go_test_reporting_ci_guide,
+  'hoverfly-api-simulation-testing-guide': b4_hoverfly_api_simulation_testing_guide,
+  'ibm-equal-access-accessibility-checker-guide': b4_ibm_equal_access_accessibility_checker_guide,
+  'jbehave-vs-cucumber-java-bdd-2026': b4_jbehave_vs_cucumber_java_bdd_2026,
+  'k6-2-migration-guide-breaking-changes': b4_k6_2_migration_guide_breaking_changes,
+  'k6-python-load-testing-options-guide': b4_k6_python_load_testing_options_guide,
+  'kaspresso-android-ui-testing-guide': b4_kaspresso_android_ui_testing_guide,
+  'kiwi-tcms-open-source-test-management-guide': b4_kiwi_tcms_open_source_test_management_guide,
+  'lightpanda-headless-browser-automation-guide': b4_lightpanda_headless_browser_automation_guide,
+  'mailosaur-email-sms-testing-guide': b4_mailosaur_email_sms_testing_guide,
+  'microcks-api-mocking-testing-guide': b4_microcks_api_mocking_testing_guide,
+  'nbomber-dotnet-load-testing-guide': b4_nbomber_dotnet_load_testing_guide,
+  'oha-http-load-testing-guide': b4_oha_http_load_testing_guide,
+  'patrol-flutter-e2e-testing-guide': b4_patrol_flutter_e2e_testing_guide,
+  'pitest-java-mutation-testing-guide': b4_pitest_java_mutation_testing_guide,
+  'playwright-devices-list-mobile-emulation-guide': b4_playwright_devices_list_mobile_emulation_guide,
+  'pyspark-testing-pytest-chispa-guide': b4_pyspark_testing_pytest_chispa_guide,
+  'seleniumbase-python-testing-guide': b4_seleniumbase_python_testing_guide,
+  'signadot-sandbox-microservices-testing-guide': b4_signadot_sandbox_microservices_testing_guide,
+  'skills-sh-agent-skills-directory-guide': b4_skills_sh_agent_skills_directory_guide,
+  'smtp4dev-email-testing-guide': b4_smtp4dev_email_testing_guide,
+  'specmatic-contract-testing-openapi-guide': b4_specmatic_contract_testing_openapi_guide,
+  'steadybit-chaos-engineering-guide': b4_steadybit_chaos_engineering_guide,
+  'taiko-browser-automation-guide': b4_taiko_browser_automation_guide,
+  'testkube-kubernetes-testing-guide': b4_testkube_kubernetes_testing_guide,
+  'trivy-container-security-scanning-ci-guide': b4_trivy_container_security_scanning_ci_guide,
+  'vcrpy-pytest-recording-http-replay-guide': b4_vcrpy_pytest_recording_http_replay_guide,
+  'vibium-ai-browser-automation-guide': b4_vibium_ai_browser_automation_guide,
+  'vitest-5-new-features-migration-guide': b4_vitest_5_new_features_migration_guide,
+  'vitest-vi-mocked-typescript-guide': b4_vitest_vi_mocked_typescript_guide,
 };
 
 // Ordered list for the blog listing page (newest first)
@@ -6286,6 +6390,58 @@ const legacyPostList: Array<{ slug: string } & BlogPost> = [
   { slug: 'tunit-dotnet-testing-framework-guide', ...b3_tunit_dotnet_testing_framework_guide },
   { slug: 'unlighthouse-site-wide-lighthouse-audits', ...b3_unlighthouse_site_wide_lighthouse_audits },
   { slug: 'vegeta-http-load-testing-guide', ...b3_vegeta_http_load_testing_guide },
+  { slug: 'agenta-llm-evaluation-prompt-management-guide', ...b4_agenta_llm_evaluation_prompt_management_guide },
+  { slug: 'airflow-dag-testing-guide', ...b4_airflow_dag_testing_guide },
+  { slug: 'app-percy-mobile-visual-testing-guide', ...b4_app_percy_mobile_visual_testing_guide },
+  { slug: 'archunit-architecture-testing-java-guide', ...b4_archunit_architecture_testing_java_guide },
+  { slug: 'aws-fis-chaos-engineering-guide', ...b4_aws_fis_chaos_engineering_guide },
+  { slug: 'bitrise-mobile-ci-testing-guide', ...b4_bitrise_mobile_ci_testing_guide },
+  { slug: 'browserbase-headless-browser-infrastructure-guide', ...b4_browserbase_headless_browser_infrastructure_guide },
+  { slug: 'cargo-mutants-rust-mutation-testing-guide', ...b4_cargo_mutants_rust_mutation_testing_guide },
+  { slug: 'chaos-toolkit-chaos-engineering-guide', ...b4_chaos_toolkit_chaos_engineering_guide },
+  { slug: 'cloudbees-smart-tests-predictive-test-selection', ...b4_cloudbees_smart_tests_predictive_test_selection },
+  { slug: 'cypress-16-new-features-migration-guide', ...b4_cypress_16_new_features_migration_guide },
+  { slug: 'cypress-cy-env-environment-variables-guide', ...b4_cypress_cy_env_environment_variables_guide },
+  { slug: 'cypress-skills-ai-coding-agents-2026', ...b4_cypress_skills_ai_coding_agents_2026 },
+  { slug: 'datadog-test-optimization-flaky-tests-guide', ...b4_datadog_test_optimization_flaky_tests_guide },
+  { slug: 'dynamodb-local-testing-guide', ...b4_dynamodb_local_testing_guide },
+  { slug: 'etl-testing-guide-2026', ...b4_etl_testing_guide_2026 },
+  { slug: 'firebase-test-lab-mobile-testing-guide', ...b4_firebase_test_lab_mobile_testing_guide },
+  { slug: 'flutter-golden-tests-visual-regression-guide', ...b4_flutter_golden_tests_visual_regression_guide },
+  { slug: 'flutter-integration-testing-guide', ...b4_flutter_integration_testing_guide },
+  { slug: 'flutter-widget-testing-guide', ...b4_flutter_widget_testing_guide },
+  { slug: 'ghz-grpc-load-testing-guide', ...b4_ghz_grpc_load_testing_guide },
+  { slug: 'github-actions-vs-gitlab-ci-test-automation-2026', ...b4_github_actions_vs_gitlab_ci_test_automation_2026 },
+  { slug: 'gotestsum-go-test-reporting-ci-guide', ...b4_gotestsum_go_test_reporting_ci_guide },
+  { slug: 'hoverfly-api-simulation-testing-guide', ...b4_hoverfly_api_simulation_testing_guide },
+  { slug: 'ibm-equal-access-accessibility-checker-guide', ...b4_ibm_equal_access_accessibility_checker_guide },
+  { slug: 'jbehave-vs-cucumber-java-bdd-2026', ...b4_jbehave_vs_cucumber_java_bdd_2026 },
+  { slug: 'k6-2-migration-guide-breaking-changes', ...b4_k6_2_migration_guide_breaking_changes },
+  { slug: 'k6-python-load-testing-options-guide', ...b4_k6_python_load_testing_options_guide },
+  { slug: 'kaspresso-android-ui-testing-guide', ...b4_kaspresso_android_ui_testing_guide },
+  { slug: 'kiwi-tcms-open-source-test-management-guide', ...b4_kiwi_tcms_open_source_test_management_guide },
+  { slug: 'lightpanda-headless-browser-automation-guide', ...b4_lightpanda_headless_browser_automation_guide },
+  { slug: 'mailosaur-email-sms-testing-guide', ...b4_mailosaur_email_sms_testing_guide },
+  { slug: 'microcks-api-mocking-testing-guide', ...b4_microcks_api_mocking_testing_guide },
+  { slug: 'nbomber-dotnet-load-testing-guide', ...b4_nbomber_dotnet_load_testing_guide },
+  { slug: 'oha-http-load-testing-guide', ...b4_oha_http_load_testing_guide },
+  { slug: 'patrol-flutter-e2e-testing-guide', ...b4_patrol_flutter_e2e_testing_guide },
+  { slug: 'pitest-java-mutation-testing-guide', ...b4_pitest_java_mutation_testing_guide },
+  { slug: 'playwright-devices-list-mobile-emulation-guide', ...b4_playwright_devices_list_mobile_emulation_guide },
+  { slug: 'pyspark-testing-pytest-chispa-guide', ...b4_pyspark_testing_pytest_chispa_guide },
+  { slug: 'seleniumbase-python-testing-guide', ...b4_seleniumbase_python_testing_guide },
+  { slug: 'signadot-sandbox-microservices-testing-guide', ...b4_signadot_sandbox_microservices_testing_guide },
+  { slug: 'skills-sh-agent-skills-directory-guide', ...b4_skills_sh_agent_skills_directory_guide },
+  { slug: 'smtp4dev-email-testing-guide', ...b4_smtp4dev_email_testing_guide },
+  { slug: 'specmatic-contract-testing-openapi-guide', ...b4_specmatic_contract_testing_openapi_guide },
+  { slug: 'steadybit-chaos-engineering-guide', ...b4_steadybit_chaos_engineering_guide },
+  { slug: 'taiko-browser-automation-guide', ...b4_taiko_browser_automation_guide },
+  { slug: 'testkube-kubernetes-testing-guide', ...b4_testkube_kubernetes_testing_guide },
+  { slug: 'trivy-container-security-scanning-ci-guide', ...b4_trivy_container_security_scanning_ci_guide },
+  { slug: 'vcrpy-pytest-recording-http-replay-guide', ...b4_vcrpy_pytest_recording_http_replay_guide },
+  { slug: 'vibium-ai-browser-automation-guide', ...b4_vibium_ai_browser_automation_guide },
+  { slug: 'vitest-5-new-features-migration-guide', ...b4_vitest_5_new_features_migration_guide },
+  { slug: 'vitest-vi-mocked-typescript-guide', ...b4_vitest_vi_mocked_typescript_guide },
 ];
 
 const seoWaveOneSlugs = new Set(seoWaveOneArticles2026.map(({ slug }) => slug));
