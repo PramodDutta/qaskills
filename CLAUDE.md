@@ -4,7 +4,7 @@ Operating manual for AI agents working in this repository. It is written so a mo
 
 ## What this is
 
-QASkills.sh is a QA-skills directory for AI coding agents ("npm for QA skills"). pnpm monorepo (pnpm 9.15.0, Node >= 20, Turborepo). Solo-founder operation: work lands directly on `main`, ships to production the same day, and growth is SEO-driven. The three recurring jobs, by frequency:
+QASkills.sh is a QA-skills directory for AI coding agents ("npm for QA skills"). pnpm monorepo (pnpm 9.15.0, Node >= 20 locally, production on Node 24.x, Turborepo). Solo-founder operation: work lands directly on `main`, ships to production the same day, and growth is SEO-driven. The three recurring jobs, by frequency:
 
 1. **Publish SEO articles** (near-daily batches of 10) -> use project skill `publish-seo-batch`
 2. **Add seed skills** to the catalog -> use project skill `add-seed-skills`
@@ -144,7 +144,7 @@ SKILL.md frontmatter -> `SkillFrontmatter` -> `SkillCreate` (Zod) -> DB row -> `
 11. **The multi-line frontmatter.** YAML block lists (`- item`) or wrapped descriptions in a seed SKILL.md parse as EMPTY via seed.ts regex; the skill seeds with no tags/types. Rule: single-line values, inline arrays `[a, b, c]` only.
 12. **The missing skill body.** Seed skill directory added with frontmatter-only SKILL.md; `fullDescription` is empty, the site page is bare, the CLI downloads a husk. Rule: every seed skill gets a real markdown body; it IS the product.
 13. **The webhook assumption.** Code assumes every Clerk user has a DB row. Rule: go through `getAuthUser()`; it auto-creates missing rows.
-14. **The Node 24 upgrade.** Neon driver breaks on Node 24. Rule: Node 20.x locally and in Vercel project settings; do not bump.
+14. **The Neon-on-Node-24 myth.** This repo once pinned Node 20 on the belief that the Neon driver breaks on Node 24, until Vercel stopped building Node 20 on 2026-10-01. The break is real only for the WebSocket path (`Pool`, `Client`, `neonConfig`); every DB call here (app and both seeders) uses the HTTP path (`neon()` + `drizzle-orm/neon-http`), verified on Node 24. Rule: production is pinned to `"engines": { "node": "24.x" }` in `packages/web/package.json` (exact major, never an open range). Before ever introducing `Pool`/`Client`/`neonConfig`, re-test it on the production Node version.
 15. **The manual npm publish.** Rule: the CLI ships only via CI on `cli-v*` tags: bump `packages/cli/package.json` AND `CLI_VERSION` in `packages/shared/src/constants/index.ts`, commit, `git tag cli-v<version>`, `git push origin main --tags`. Never `npm publish` by hand, and tag pushes need explicit user approval. Before pushing any `cli-v*` tag, run the full E2E gate locally and it must print "Gate PASSED": `pnpm --filter @qaskills/cli e2e` (unit tests + init regression pack + 5-10 random registry installs + content/artifact contracts). CI re-runs the same gate between build and publish and blocks the release if it fails; do not bypass it with workflow edits.
 16. **The quoted env value.** Exporting `DATABASE_URL` straight from `.env.local` keeps its double quotes and breaks connections (or worse, gets stored quoted via API). Rule: strip quotes when exporting; never wrap values in quotes when setting via the Vercel API.
 

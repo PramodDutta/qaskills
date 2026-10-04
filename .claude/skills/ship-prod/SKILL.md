@@ -11,7 +11,7 @@ Deploys COMMITTED HEAD only, to the correct Vercel project, then proves the depl
 
 - Project: `qaskills.sh`, project ID `prj_rDKli4AyhHoXZXV8NHrs92Ncbf4f`, org `team_DGM6VSs6vhASlhktmHkSqPwn`, account `luckydutta96`
 - A decoy project `qaskills` exists WITHOUT the domain. Never deploy there. Never accept interactive "link this directory?" defaults.
-- Build command lives in root `vercel.json` (`shared build && web build`); Node must stay 20.x (Neon driver breaks on 24)
+- Build command lives in root `vercel.json` (`shared build && web build`); Node is pinned to 24.x via `engines` in `packages/web/package.json` (Vercel stopped building 20.x on 2026-10-01; the Neon HTTP driver is verified on 24)
 - `vercel --prod` uploads the WORKING TREE, not git HEAD
 - `.vercel/project.json` is gitignored, so fresh worktrees are unlinked: explicit env IDs required there
 

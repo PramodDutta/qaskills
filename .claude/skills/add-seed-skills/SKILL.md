@@ -109,7 +109,7 @@ No web redeploy is needed for catalog changes (pages read the DB), but commit so
 | Skill page renders only the short description | Missing/empty markdown body | Write the body, re-seed (upsert refreshes fullDescription) |
 | Live `total` did not grow | Seeded the stale `.env.local` DB | Step 4.2, re-seed with the real prod URL |
 | Validator passes but seed drops fields | Validator parses real YAML, seed.ts regex does not | Obey the format contract, not just the validator |
-| Connection error on seed | Quoted URL or Node 24 | Strip quotes; use Node 20 |
+| Connection error on seed | Quoted URL | Strip the quotes from DATABASE_URL (Node 24 is fine: the seeder uses the Neon HTTP path) |
 
 ## Red flags
 
