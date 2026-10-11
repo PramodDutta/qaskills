@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { COURSES } from '@/lib/courses';
+import { currentWebinarSession } from '@/lib/webinar';
 
 const DISMISS_KEY = 'promo-banner-dismissed';
 // Bump this whenever the cohort dates change: a new id makes the banner
@@ -30,6 +31,8 @@ export function PromoBanner() {
   const [idx, setIdx] = useState(0);
 
   useEffect(() => {
+    // WebinarBanner owns the top slot until the webinar batch ends.
+    if (currentWebinarSession(Date.now())) return;
     try {
       if (localStorage.getItem(DISMISS_KEY) !== CAMPAIGN_ID) {
         setVisible(true);
