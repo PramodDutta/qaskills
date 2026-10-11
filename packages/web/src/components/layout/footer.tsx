@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Terminal } from 'lucide-react';
 import { COURSES, courseUrl } from '@/lib/courses';
+import { WebinarExitIntent } from '@/components/webinar/webinar-exit-intent';
 
 const footerLinks = {
   Product: [
@@ -110,6 +111,8 @@ export function Footer() {
           <p>&copy; {new Date().getFullYear()} The Testing Academy. All rights reserved.</p>
         </div>
       </div>
+      {/* Fixed-position dialog: mounted here so it covers every page. */}
+      <WebinarExitIntent />
     </footer>
   );
 }

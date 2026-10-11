@@ -14,6 +14,7 @@ vi.mock('lucide-react', () => ({ ArrowLeft: () => null }));
 vi.mock('@/components/ui/badge', () => ({ Badge: () => null }));
 vi.mock('@/components/blog/blog-content', () => ({ BlogContent: () => null }));
 vi.mock('@/components/course-ad', () => ({ CourseAd: () => null }));
+vi.mock('@/components/webinar/webinar-slot', () => ({ WebinarSlot: () => null }));
 vi.mock('@/lib/json-ld', () => ({
   generateBlogPostJsonLd: () => ({}),
   generateBreadcrumbJsonLd: () => ({}),

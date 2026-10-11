@@ -18,6 +18,7 @@ import { SkillDescription } from '@/components/skills/skill-description';
 import { SkillDownloadButtons } from '@/components/skills/skill-download-buttons';
 import { CloneButton } from '@/components/skills/clone-button';
 import { CourseAd } from '@/components/course-ad';
+import { WebinarSlot } from '@/components/webinar/webinar-slot';
 import { getFallbackSkillDetail } from '@/lib/fallback-skill-detail';
 
 // DB-driven page: render per-request (Vercel has DATABASE_URL at runtime;
@@ -297,13 +298,16 @@ export default async function SkillDetailPage({ params }: SkillPageProps) {
           {/* Compatibility */}
           <CompatibilityMatrix supportedAgents={agents} />
 
-          {/* Course promo (contextual: Playwright skills -> Playwright course) */}
-          <CourseAd
-            course="auto"
-            variant="sidebar"
-            slot="skill-sidebar"
-            ctx={{ frameworks, testingTypes, title: skill.name }}
-          />
+          {/* Course promo (contextual: Playwright skills -> Playwright course);
+              the live webinar borrows the slot while a session is upcoming. */}
+          <WebinarSlot placement="skill-sidebar" variant="sidebar">
+            <CourseAd
+              course="auto"
+              variant="sidebar"
+              slot="skill-sidebar"
+              ctx={{ frameworks, testingTypes, title: skill.name }}
+            />
+          </WebinarSlot>
         </div>
       </div>
     </div>

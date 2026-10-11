@@ -5,6 +5,7 @@ import { skills } from '@/db/schema';
 import { sql, desc } from 'drizzle-orm';
 import { SkillCard } from '@/components/skills/skill-card';
 import { generateBreadcrumbJsonLd } from '@/lib/json-ld';
+import { WebinarSlot } from '@/components/webinar/webinar-slot';
 
 // DB-driven page: render per-request (Vercel has DATABASE_URL at runtime;
 // CI build has none, so avoid build-time prerender against the DB).
@@ -89,7 +90,9 @@ export default async function ClaudeCodeAgentPage() {
         </div>
       </div>
 
-      {/* AI Tester Blueprint Batch Announcement */}
+      {/* AI Tester Blueprint Batch Announcement; the live webinar borrows this
+          slot while a session is upcoming. */}
+      <WebinarSlot placement="agents-inline" className="mb-8">
       <div className="mb-8 rounded-lg border-2 border-blue-500/30 bg-gradient-to-r from-blue-50 to-blue-50/50 dark:from-blue-950/20 dark:to-blue-950/10 p-6">
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0">
@@ -112,6 +115,7 @@ export default async function ClaudeCodeAgentPage() {
           </div>
         </div>
       </div>
+      </WebinarSlot>
 
       {/* Skills count */}
       <p className="text-sm text-muted-foreground mb-6">

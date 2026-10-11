@@ -12,6 +12,7 @@ import { posts } from '../posts';
 import { seoWaveOneArticles2026 } from '../posts/seo-wave-one-articles-2026';
 import { BlogContent } from '@/components/blog/blog-content';
 import { CourseAd } from '@/components/course-ad';
+import { WebinarSlot } from '@/components/webinar/webinar-slot';
 import { splitAtMidHeading } from '@/lib/split-content';
 
 interface BlogPostPageProps {
@@ -185,7 +186,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {secondHalf ? (
           <>
             <BlogContent content={firstHalf} />
-            <CourseAd course="auto" variant="inline" slot="blog-mid" ctx={adCtx} />
+            {/* The live webinar borrows this slot while a session is upcoming. */}
+            <WebinarSlot placement="blog-inline">
+              <CourseAd course="auto" variant="inline" slot="blog-mid" ctx={adCtx} />
+            </WebinarSlot>
             <BlogContent content={secondHalf} />
           </>
         ) : (
