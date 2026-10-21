@@ -17,7 +17,7 @@ export const WEBINAR = {
     '2026-10-13T14:30:00Z', // Tue 13 Oct
     '2026-10-17T14:30:00Z', // Sat 17 Oct
     '2026-10-20T14:30:00Z', // Tue 20 Oct
-    '2026-10-23T14:30:00Z', // Fri 23 Oct
+    '2026-10-25T14:30:00Z', // Sun 25 Oct
     '2026-10-27T14:30:00Z', // Tue 27 Oct
   ],
   // A session stays "live now" (and joinable) for this long after it starts.
