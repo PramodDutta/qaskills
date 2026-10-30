@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* next-themes toggles dark mode with a .dark class on <html>; without this,
+   dark: utilities would follow the OS color scheme instead of the site toggle. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-background: #ffffff;
   --color-foreground: #0a0a0a;
