@@ -20,13 +20,15 @@ interface CourseAdProps {
 
 const ACCENTS = {
   blue: {
-    wrap: 'border-blue-500/30 bg-gradient-to-br from-blue-50 to-indigo-50/40 dark:border-blue-500/25 dark:from-blue-950/20 dark:to-indigo-950/10',
+    // Opaque light fills: Chrome paints yellow specks at the rounded corners of
+    // gradients and translucent palette fills.
+    wrap: 'border-blue-500/30 bg-blue-50 dark:border-blue-500/25 dark:bg-blue-950/20',
     icon: 'bg-blue-500/15 text-blue-600 dark:text-blue-400',
     label: 'text-blue-700 dark:text-blue-300',
     btn: 'bg-blue-600 hover:bg-blue-700 text-white',
   },
   emerald: {
-    wrap: 'border-emerald-500/30 bg-gradient-to-br from-emerald-50 to-teal-50/40 dark:border-emerald-500/25 dark:from-emerald-950/20 dark:to-teal-950/10',
+    wrap: 'border-emerald-500/30 bg-emerald-50 dark:border-emerald-500/25 dark:bg-emerald-950/20',
     icon: 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400',
     label: 'text-emerald-700 dark:text-emerald-300',
     btn: 'bg-emerald-600 hover:bg-emerald-700 text-white',
