@@ -1,8 +1,8 @@
 // Single source of truth for The Testing Academy course promos rendered across
 // the site: top PromoBanner, skill sidebars, blog inline slots, footer.
-// Update price/date/coupon HERE and every placement updates.
-// The banner derives its badge ("Starts 1 Aug") and date from `cohort`,
-// so cohort must stay in the exact form "Starts <D> <Mon> <YYYY>".
+// Promos are evergreen: course information and links only. Cohort dates,
+// prices and coupon codes once went stale on every placement at the same
+// time; a dated campaign belongs in a self-expiring promo like lib/webinar.ts.
 
 export type CourseId = 'ai-tester' | 'playwright';
 
@@ -14,12 +14,6 @@ export interface Course {
   titleShort: string; // banner title on narrow screens
   tagline: string;
   bullets: string[];
-  priceOld?: string; // INR, no symbol
-  priceNew?: string; // INR, no symbol
-  discount: string;
-  code: string;
-  cohort: string; // "Starts <D> <Mon> <YYYY>"
-  schedule?: string; // banner-only session times
   baseUrl: string;
   accent: 'blue' | 'emerald';
   bannerBg: string; // banner gradient classes
@@ -38,11 +32,6 @@ export const COURSES: Record<CourseId, Course> = {
       'Playwright plus LLM evaluation pipelines',
       'Live sessions with lifetime recordings',
     ],
-    priceOld: '35,000',
-    priceNew: '9,999',
-    discount: '33% OFF',
-    code: 'AITESTER',
-    cohort: 'Starts 1 Aug 2026',
     baseUrl: 'https://class.thetestingacademy.com/ai-powered-testing-mastery',
     accent: 'blue',
     bannerBg: 'from-blue-900 via-indigo-900 to-slate-900',
@@ -57,12 +46,8 @@ export const COURSES: Record<CourseId, Course> = {
     bullets: [
       'Stable locators, POM, and fixtures',
       'Parallel runs and CI/CD integration',
-      'Live cohort, Tue/Thu/Sat 7:00 AM IST',
+      'Live cohort classes',
     ],
-    discount: 'Up to 10% OFF',
-    code: 'PROMODE',
-    cohort: 'Starts 31 Aug 2026',
-    schedule: 'Tue/Thu/Sat 7:00–8:15 AM IST',
     baseUrl: 'https://class.thetestingacademy.com/playwright-automation-mastery-course',
     accent: 'emerald',
     bannerBg: 'from-emerald-900 via-teal-900 to-slate-900',

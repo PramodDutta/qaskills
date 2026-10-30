@@ -6,22 +6,16 @@ import { COURSES } from '@/lib/courses';
 import { currentWebinarSession } from '@/lib/webinar';
 
 const DISMISS_KEY = 'promo-banner-dismissed';
-// Bump this whenever the cohort dates change: a new id makes the banner
-// reappear for everyone who dismissed the previous campaign.
+// Bump this when the banner content changes enough to show it again to
+// everyone who dismissed the previous campaign.
 const CAMPAIGN_ID = 'dual-aug-2026-v1';
 
-// Derived from the single source of truth in lib/courses.ts; edit dates there.
+// Derived from the single source of truth in lib/courses.ts; edit course info there.
 const VARIANTS = [COURSES['ai-tester'], COURSES['playwright']].map((c) => ({
   emoji: c.emoji,
   title: c.title,
   titleShort: c.titleShort,
-  badge: c.cohort.replace(/ \d{4}$/, ''), // "Starts 1 Aug"
-  date: c.cohort.replace(/^Starts /, ''), // "1 Aug 2026"
-  schedule: c.schedule ?? '',
-  priceOld: c.priceOld ?? '',
-  priceNew: c.priceNew ?? '',
-  discount: c.discount,
-  code: c.code,
+  tagline: c.tagline,
   url: c.baseUrl,
   bg: c.bannerBg,
 }));
@@ -83,46 +77,14 @@ export function PromoBanner() {
             <span className="lg:hidden">{v.titleShort}</span>
           </span>
 
-          {/* Badge */}
-          <span className="hidden shrink-0 rounded bg-amber-500 px-1.5 py-0.5 text-[10px] font-bold uppercase text-black sm:inline">
-            {v.badge}
-          </span>
-
-          {/* Date + schedule */}
-          <span className="hidden text-xs text-gray-300 md:inline">
-            {v.date}
-            {v.schedule ? ` · ${v.schedule}` : ''}
+          {/* Tagline */}
+          <span className="hidden min-w-0 truncate text-xs text-gray-300 md:block">
+            {v.tagline}
           </span>
         </a>
 
-        {/* Right: pricing + CTA */}
+        {/* Right: CTA */}
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-          {/* Pricing */}
-          <div className="hidden items-center gap-1.5 text-xs sm:flex">
-            {v.priceOld && (
-              <span className="text-gray-400 line-through">
-                {'₹'}{v.priceOld}
-              </span>
-            )}
-            {v.priceNew && (
-              <span className="font-bold text-green-400">
-                {'₹'}{v.priceNew}
-              </span>
-            )}
-            <span className="rounded bg-red-500/80 px-1 py-0.5 text-[10px] font-bold">
-              {v.discount}
-            </span>
-          </div>
-
-          {/* Coupon */}
-          <div className="hidden items-center gap-1 text-[10px] lg:flex">
-            <span className="text-yellow-300">&#9889;</span>
-            <span className="text-gray-400">Code:</span>
-            <span className="rounded bg-yellow-400/20 px-1.5 py-0.5 font-mono font-bold text-yellow-300">
-              {v.code}
-            </span>
-          </div>
-
           {/* Join */}
           <a
             href={v.url}

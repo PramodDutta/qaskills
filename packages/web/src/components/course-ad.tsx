@@ -23,14 +23,12 @@ const ACCENTS = {
     wrap: 'border-blue-500/30 bg-gradient-to-br from-blue-50 to-indigo-50/40 dark:border-blue-500/25 dark:from-blue-950/20 dark:to-indigo-950/10',
     icon: 'bg-blue-500/15 text-blue-600 dark:text-blue-400',
     label: 'text-blue-700 dark:text-blue-300',
-    badge: 'bg-blue-600/10 text-blue-700 dark:bg-blue-400/10 dark:text-blue-300',
     btn: 'bg-blue-600 hover:bg-blue-700 text-white',
   },
   emerald: {
     wrap: 'border-emerald-500/30 bg-gradient-to-br from-emerald-50 to-teal-50/40 dark:border-emerald-500/25 dark:from-emerald-950/20 dark:to-teal-950/10',
     icon: 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400',
     label: 'text-emerald-700 dark:text-emerald-300',
-    badge: 'bg-emerald-600/10 text-emerald-700 dark:bg-emerald-400/10 dark:text-emerald-300',
     btn: 'bg-emerald-600 hover:bg-emerald-700 text-white',
   },
 } as const;
@@ -69,14 +67,6 @@ export function CourseAd({ course = 'auto', variant = 'inline', slot, ctx }: Cou
             </li>
           ))}
         </ul>
-        <div className="mt-4 flex flex-wrap items-center gap-2">
-          <span className={`rounded px-2 py-0.5 text-[11px] font-semibold ${a.badge}`}>
-            {c.cohort}
-          </span>
-          <span className={`rounded px-2 py-0.5 text-[11px] font-semibold ${a.badge}`}>
-            {c.discount}
-          </span>
-        </div>
         <a
           href={href}
           target="_blank"
@@ -85,9 +75,6 @@ export function CourseAd({ course = 'auto', variant = 'inline', slot, ctx }: Cou
         >
           Enroll now &rarr;
         </a>
-        <p className="mt-2 text-center text-[11px] text-muted-foreground">
-          Use code <span className="font-mono font-semibold">{c.code}</span> at checkout
-        </p>
       </div>
     );
   }
@@ -110,17 +97,6 @@ export function CourseAd({ course = 'auto', variant = 'inline', slot, ctx }: Cou
         </span>
         <h3 className="mt-0.5 text-lg font-bold leading-tight text-foreground">{c.title}</h3>
         <p className="mt-1 text-sm text-muted-foreground">{c.tagline}</p>
-        <div className="mt-2 flex flex-wrap items-center gap-2">
-          <span className={`rounded px-2 py-0.5 text-[11px] font-semibold ${a.badge}`}>
-            {c.cohort}
-          </span>
-          <span className={`rounded px-2 py-0.5 text-[11px] font-semibold ${a.badge}`}>
-            {c.discount}
-          </span>
-          <span className="text-[11px] text-muted-foreground">
-            Code <span className="font-mono font-semibold">{c.code}</span>
-          </span>
-        </div>
       </div>
       <a
         href={href}
