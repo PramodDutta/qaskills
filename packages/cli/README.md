@@ -33,7 +33,7 @@ Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, Aider, Continue, Cline, Ze
 | `update [skill]` | Update skill(s) |
 | `info <skill>` | Show skill details |
 | `init` | Create a new SKILL.md |
-| `publish` | Validate and publish a skill |
+| `publish` | Validate SKILL.md for publication through the authenticated website; exits 1 until CLI upload is supported |
 
 ## Links
 

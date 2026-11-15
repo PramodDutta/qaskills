@@ -6,9 +6,12 @@ import path from 'path';
 import { parseSkillMd, skillFrontmatterSchema } from '@qaskills/shared';
 
 export const publishCommand = new Command('publish')
-  .description('Validate and publish your skill to qaskills.sh')
+  .description('Validate SKILL.md for website publication')
   .action(async () => {
     p.intro(pc.bgCyan(pc.black(' qaskills publish ')));
+
+    // CLI upload is pending authentication support. Set success only after a real API receipt.
+    process.exitCode = 1;
 
     const skillMdPath = path.join(process.cwd(), 'SKILL.md');
 
@@ -52,15 +55,7 @@ export const publishCommand = new Command('publish')
       `  Content: ${parsed.content.length} characters`,
     ].join('\n'));
 
-    // 4. Confirm
-    const confirm = await p.confirm({ message: 'Publish this skill to qaskills.sh?' });
-    if (p.isCancel(confirm) || !confirm) { p.cancel('Cancelled.'); process.exit(0); }
-
-    // 5. Publish
-    spinner.start('Publishing to qaskills.sh...');
-    // TODO: Implement actual API publish when auth is ready
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    spinner.stop(`${pc.green('✓')} Published successfully!`);
-
-    p.outro(`${pc.dim('View at: https://qaskills.sh/skills/' + parsed.frontmatter.name.toLowerCase().replace(/\s+/g, '-'))}`);
+    // 4. Use the supported authenticated publication route.
+    p.log.warn('CLI upload is not implemented. This skill has not been uploaded.');
+    p.outro(pc.dim('Publish through https://qaskills.sh/dashboard/publish'));
   });
