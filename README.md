@@ -217,9 +217,11 @@ npx @qaskills/cli init my-skill
 
 # Edit the generated SKILL.md with your testing patterns
 
-# Publish to the registry
+# Validate and preview the local SKILL.md
 npx @qaskills/cli publish
 ```
+
+Publication currently uses the authenticated website above. The CLI validates and previews the local file, performs no upload, and exits 1 while CLI authentication and publication are pending.
 
 ### SKILL.md Format
 
