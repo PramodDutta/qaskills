@@ -152,7 +152,7 @@ pip install schemathesis
 schemathesis run openapi.yaml \\
   --url https://staging.api.example.com/v1 \\
   --checks all \\
-  --hypothesis-max-examples 200
+  --max-examples 200
 \`\`\`
 
 The \`--checks all\` flag enables every built-in contract check: status code conformance, response schema conformance, content-type correctness, and header validation. Schemathesis fuzzes path parameters, query strings, and request bodies derived from your schemas, then verifies the server never returns something the spec disallows.
@@ -162,7 +162,7 @@ For richer control you can write a Python test using the Schemathesis pytest int
 \`\`\`python
 import schemathesis
 
-schema = schemathesis.from_uri(
+schema = schemathesis.openapi.from_url(
     "https://staging.api.example.com/v1/openapi.json"
 )
 
@@ -290,7 +290,7 @@ jobs:
 
 The \`needs: static-checks\` dependency ensures the cheap, server-free checks act as a gate before you spend time hitting staging. This ordering keeps the feedback loop fast: a malformed example fails in seconds, not minutes.
 
-A few hardening touches make this pipeline production-grade. Cache your dependencies with \`actions/setup-node\`'s built-in npm cache and pip's cache directory so installs do not dominate run time. Publish the Schemathesis and Dredd reports as artifacts with \`if: always()\` so a failing run still leaves you something to inspect. Pin \`--hypothesis-max-examples\` to a modest number on pull requests (say 100) for speed, and run a larger nightly job with 500+ examples that fuzzes more aggressively — property-based testing finds more bugs the longer it runs, so a deeper scheduled job catches the rare boundary case without slowing every PR. Finally, gate deployment on the contract job: if the spec no longer matches the service, the deploy should not proceed. That single rule prevents the most expensive class of API incident, the silent breaking change that ships on a Friday.
+A few hardening touches make this pipeline production-grade. Cache your dependencies with \`actions/setup-node\`'s built-in npm cache and pip's cache directory so installs do not dominate run time. Publish the Schemathesis and Dredd reports as artifacts with \`if: always()\` so a failing run still leaves you something to inspect. Pin \`--max-examples\` to a modest number on pull requests (say 100) for speed, and run a larger nightly job with 500+ examples that fuzzes more aggressively — property-based testing finds more bugs the longer it runs, so a deeper scheduled job catches the rare boundary case without slowing every PR. Finally, gate deployment on the contract job: if the spec no longer matches the service, the deploy should not proceed. That single rule prevents the most expensive class of API incident, the silent breaking change that ships on a Friday.
 
 ---
 

@@ -11,7 +11,7 @@ export const post: BlogPost = {
 
 Most API test suites only check the cases the developer thought of. You write a test that sends a valid payload, asserts a 200, sends one obviously-bad payload, and asserts a 400. That covers maybe a dozen of the billions of inputs your endpoint will actually receive in production. Schemathesis flips this model on its head. Instead of asking you to enumerate examples, it reads your OpenAPI (or GraphQL) schema, understands the shape of every parameter and request body, and then generates a flood of valid and invalid inputs automatically, hunting for the requests that crash your server, violate your own contract, or return responses that do not match what your schema promises. This is property-based testing applied to APIs, and it routinely finds bugs that hand-written tests never would: the integer field that overflows, the optional parameter that returns a 500 when omitted, the endpoint that claims to return JSON but returns an HTML error page under load.
 
-This tutorial is a complete, runnable walkthrough of Schemathesis from first install to CI integration. We start with the one-line CLI that points at a live OpenAPI document and immediately starts fuzzing. Then we move into the pytest plugin, where \`schemathesis.from_uri\` and the \`@schema.parametrize\` decorator turn your entire API surface into a parametrized test suite you control. We cover the built-in checks that define what "passing" means, the hooks that let you inject authentication and shape the generated data, stateful testing that chains requests together using the links declared in your schema, and the Hypothesis settings that tune how hard Schemathesis searches. Finally we wire the whole thing into a CI pipeline so every pull request gets fuzzed automatically. Every command and code block here is real and runs against any OpenAPI 3.x or Swagger 2.0 service.
+This tutorial is a complete, runnable walkthrough of Schemathesis from first install to CI integration. We start with the one-line CLI that points at a live OpenAPI document and immediately starts fuzzing. Then we move into the pytest plugin, where \`schemathesis.openapi.from_url\` and the \`@schema.parametrize\` decorator turn your entire API surface into a parametrized test suite you control. We cover the built-in checks that define what "passing" means, the hooks that let you inject authentication and shape the generated data, stateful testing that chains requests together using the links declared in your schema, and the Hypothesis settings that tune how hard Schemathesis searches. Finally we wire the whole thing into a CI pipeline so every pull request gets fuzzed automatically. Every command and code block here is real and runs against any OpenAPI 3.x or Swagger 2.0 service.
 
 ## What Schemathesis Actually Does
 
@@ -40,7 +40,7 @@ With that in place, the fastest possible smoke test is to point the CLI at a run
 st run http://localhost:8000/openapi.json
 
 # Or against a remote service
-st run https://api.example.com/openapi.json --base-url https://api.example.com
+st run https://api.example.com/openapi.json --url https://api.example.com
 \`\`\`
 
 That single command will, for every endpoint in the schema, generate a batch of inputs, send them, and report any request that triggered a failing check. The output groups failures by the check that failed and prints a minimal reproducing \`curl\` command for each one, so you can paste it into a terminal and watch the bug happen. This is the entire value proposition in one line: zero example-writing, immediate coverage of every documented operation.
@@ -58,7 +58,7 @@ st run http://localhost:8000/openapi.json --include-path /users --include-method
 
 # Pass authentication and a base URL
 st run http://localhost:8000/openapi.json \\
-  --base-url http://localhost:8000 \\
+  --url http://localhost:8000 \\
   --header "Authorization: Bearer \${API_TOKEN}"
 
 # Enable every built-in check explicitly
@@ -69,13 +69,13 @@ The table below summarizes the flags you will reach for most often when running 
 
 | Flag | Purpose | Typical value |
 |---|---|---|
-| \`--base-url\` | Where to send requests if it differs from the schema host | \`http://localhost:8000\` |
+| \`--url\` | Where to send requests if it differs from the schema host | \`http://localhost:8000\` |
 | \`--max-examples\` | Cap generated inputs per operation | \`50\` to \`200\` |
 | \`--checks\` | Which contract checks to run | \`all\` |
 | \`--include-path\` | Restrict to matching paths | \`/users\` |
 | \`--header\` | Inject auth or other headers | \`Authorization: Bearer ...\` |
 | \`--workers\` | Parallelize across operations | number of CPUs |
-| \`--hypothesis-seed\` | Reproduce a run deterministically | any integer |
+| \`--seed\` | Reproduce a run deterministically | any integer |
 
 ## Using Schemathesis as a Pytest Plugin
 
@@ -85,7 +85,7 @@ The CLI is perfect for smoke tests and CI gates, but for serious test suites you
 import schemathesis
 
 # Load the schema once at module import
-schema = schemathesis.from_uri("http://localhost:8000/openapi.json")
+schema = schemathesis.openapi.from_url("http://localhost:8000/openapi.json")
 
 
 @schema.parametrize()
@@ -103,12 +103,12 @@ import schemathesis
 from myapp.main import app  # a FastAPI/Starlette ASGI app
 
 # Test the app in-process, no running server needed
-schema = schemathesis.from_asgi("/openapi.json", app)
+schema = schemathesis.openapi.from_asgi("/openapi.json", app)
 
 
 @schema.parametrize()
 def test_api(case):
-    response = case.call_asgi()
+    response = case.call()
     case.validate_response(response)
 \`\`\`
 
@@ -116,7 +116,7 @@ Loading the app in-process is dramatically faster and removes an entire class of
 
 ## Built-in Checks Explained
 
-A "check" in Schemathesis is a function that inspects a response and decides whether the contract was honored. By default several run, and \`--checks all\` (or \`validate_response\`) runs the full set. Understanding what each one asserts tells you what kind of bug a failure represents.
+A "check" in Schemathesis is a function that inspects a response and decides whether the contract was honored. By default all of them run, both in the CLI and in \`validate_response\`. Understanding what each one asserts tells you what kind of bug a failure represents.
 
 | Check | What it verifies | Bug it catches |
 |---|---|---|
@@ -130,15 +130,10 @@ You can select a subset in the CLI with \`--checks not_a_server_error,response_s
 
 ## Authentication and Hooks
 
-Real APIs require authentication, and generated data often needs shaping to be useful. Schemathesis exposes hooks for exactly this. The simplest authentication approach passes a header through the schema loader so every generated case carries it.
+Real APIs require authentication, and generated data often needs shaping to be useful. Schemathesis exposes hooks for exactly this. The simplest authentication approach sets a header in \`schemathesis.toml\` so every generated case carries it.
 
-\`\`\`python
-import schemathesis
-
-schema = schemathesis.from_uri(
-    "http://localhost:8000/openapi.json",
-    headers={"Authorization": "Bearer test-token"},
-)
+\`\`\`toml
+headers = { Authorization = "Bearer test-token" }
 \`\`\`
 
 For more control, register hooks that run at specific points in the generation and call lifecycle. A common need is to replace generated values for a particular field with realistic ones, because a random string is not a valid user ID. The \`map_query\`, \`map_body\`, and related hooks let you transform the generated data before it is sent.
@@ -146,17 +141,17 @@ For more control, register hooks that run at specific points in the generation a
 \`\`\`python
 import schemathesis
 
-schema = schemathesis.from_uri("http://localhost:8000/openapi.json")
+schema = schemathesis.openapi.from_url("http://localhost:8000/openapi.json")
 
 
-@schema.hook
-def before_call(context, case):
+@schemathesis.hook
+def before_call(context, case, **kwargs):
     # Inject a fresh auth token on every request
     case.headers = case.headers or {}
     case.headers["Authorization"] = f"Bearer {get_fresh_token()}"
 
 
-@schema.hook
+@schemathesis.hook
 def map_body(context, body):
     # Force a valid, existing email domain into generated bodies
     if isinstance(body, dict) and "email" in body:
@@ -178,25 +173,21 @@ Single-request fuzzing is powerful, but many real bugs only appear in sequences:
 
 \`\`\`python
 import schemathesis
-from schemathesis.stateful import Stateful
 
-schema = schemathesis.from_uri("http://localhost:8000/openapi.json")
+schema = schemathesis.openapi.from_url("http://localhost:8000/openapi.json")
 
-
-@schema.parametrize()
-@schema.given(data=schemathesis.stateful)  # illustrative; see config below
-def test_stateful(case):
-    case.call_and_validate()
+# A pytest test class that runs link-driven request sequences
+TestStateful = schema.as_state_machine().TestCase
 \`\`\`
 
-In practice the cleanest way to run stateful tests is the test-suite generator the library exposes, or the CLI flag, which requires no extra code at all.
+The CLI runs the same sequences without any extra code.
 
 \`\`\`bash
-# Run stateful, link-driven sequences from the CLI
-st run http://localhost:8000/openapi.json --stateful=links --checks all
+# Run only the stateful, link-driven sequences from the CLI
+st run http://localhost:8000/openapi.json --phases stateful --checks all
 \`\`\`
 
-For stateful testing to find sequence bugs, your schema needs \`links\` defined on the relevant operations. If you have not declared them, single-request fuzzing still runs, you just do not get the chained exploration. Adding links is a one-time schema investment that pays off every run, and it doubles as living documentation of how your endpoints relate.
+Schemathesis infers links from your schema, so stateful testing runs even without declared \`links\`. Declaring them adds the connections it cannot infer, and doubles as living documentation of how your endpoints relate.
 
 ## Tuning with Hypothesis Settings
 
@@ -206,7 +197,7 @@ Because Schemathesis is built on Hypothesis, you control how hard it searches us
 import schemathesis
 from hypothesis import settings, HealthCheck
 
-schema = schemathesis.from_uri("http://localhost:8000/openapi.json")
+schema = schemathesis.openapi.from_url("http://localhost:8000/openapi.json")
 
 
 @schema.parametrize()
@@ -256,9 +247,8 @@ jobs:
         run: |
           st run http://localhost:8000/openapi.json \\
             --checks all \\
-            --stateful=links \\
             --max-examples 100 \\
-            --report
+            --report junit
 \`\`\`
 
 For teams that prefer the pytest plugin, the CI step is simply \`pytest\`, and the contract tests run alongside your unit and integration tests with the same reporting and the same exit-code semantics. Either way, the result is a gate that catches a server-crashing input or a schema-violating response before it merges. This is the property-based complement to consumer-driven contract testing; the [Pact contract testing complete guide](/blog/pact-contract-testing-complete-guide-2026) covers that consumer-provider side, and the two together give you both directions of contract confidence.
@@ -277,11 +267,11 @@ Schemathesis is a Python tool that performs property-based testing of web APIs. 
 
 ### How do I run Schemathesis from the command line?
 
-Install it with \`pip install schemathesis\`, then run \`st run http://localhost:8000/openapi.json\` against a live service. Add \`--checks all\` to enable every contract check, \`--base-url\` if the host differs from the schema, \`--header\` for authentication, and \`--max-examples\` to cap generated inputs. The CLI returns a non-zero exit code on failure, so it works directly as a CI gate without extra scripting.
+Install it with \`pip install schemathesis\`, then run \`st run http://localhost:8000/openapi.json\` against a live service. Add \`--checks all\` to enable every contract check, \`--url\` if the host differs from the schema, \`--header\` for authentication, and \`--max-examples\` to cap generated inputs. The CLI returns a non-zero exit code on failure, so it works directly as a CI gate without extra scripting.
 
 ### How do I use Schemathesis with pytest?
 
-Load your schema with \`schema = schemathesis.from_uri("http://localhost:8000/openapi.json")\`, then decorate a test function with \`@schema.parametrize()\`. Inside, call \`case.call()\` to send the generated request and \`case.validate_response(response)\` to run the checks. When you run \`pytest\`, the one function expands into a parametrized test per API operation, with Hypothesis driving many examples through each one.
+Load your schema with \`schema = schemathesis.openapi.from_url("http://localhost:8000/openapi.json")\`, then decorate a test function with \`@schema.parametrize()\`. Inside, call \`case.call()\` to send the generated request and \`case.validate_response(response)\` to run the checks. When you run \`pytest\`, the one function expands into a parametrized test per API operation, with Hypothesis driving many examples through each one.
 
 ### What is the difference between Schemathesis and example-based API tests?
 
@@ -289,18 +279,18 @@ Example-based tests assert that specific inputs produce specific outputs, so the
 
 ### What is stateful testing in Schemathesis?
 
-Stateful testing exercises sequences of requests rather than single calls. Schemathesis reads the \`links\` declared in your OpenAPI schema, which describe how one operation's output feeds another's input, and builds chains such as create then fetch then delete. Run it with \`st run ... --stateful=links\`. It catches sequence bugs like a resource that stays fetchable after deletion, which single-request fuzzing cannot find.
+Stateful testing exercises sequences of requests rather than single calls. Schemathesis uses the \`links\` declared in your OpenAPI schema or inferred from it, which describe how one operation's output feeds another's input, and builds chains such as create then fetch then delete. \`st run\` includes it by default. It catches sequence bugs like a resource that stays fetchable after deletion, which single-request fuzzing cannot find.
 
 ### How do I add authentication to Schemathesis tests?
 
-Pass a header through the loader with \`schemathesis.from_uri(url, headers={"Authorization": "Bearer token"})\`, which applies it to every generated request. For dynamic tokens, register a \`before_call\` hook that injects a fresh token on each request. Without authentication, fuzzing mostly returns 401s and never reaches your business logic, so wiring in auth is what lets Schemathesis exercise the interesting code paths.
+Set \`headers = { Authorization = "Bearer token" }\` in \`schemathesis.toml\`, which applies it to every generated request. For dynamic tokens, register a \`before_call\` hook that injects a fresh token on each request. Without authentication, fuzzing mostly returns 401s and never reaches your business logic, so wiring in auth is what lets Schemathesis exercise the interesting code paths.
 
 ### How do I make Schemathesis runs faster or more thorough?
 
-Tune the underlying Hypothesis settings. Lower \`max_examples\` (for example to 30) for fast pull-request gates, and raise it (to 200 or more) for deep nightly runs. Set \`deadline=None\` so slow but correct real-network calls are not flagged. Use \`--workers\` in the CLI to parallelize across operations, and set a fixed \`--hypothesis-seed\` when you need a failure to be reproducible by a teammate.
+Tune the underlying Hypothesis settings. Lower \`max_examples\` (for example to 30) for fast pull-request gates, and raise it (to 200 or more) for deep nightly runs. Set \`deadline=None\` so slow but correct real-network calls are not flagged. Use \`--workers\` in the CLI to parallelize across operations, and set a fixed \`--seed\` when you need a failure to be reproducible by a teammate.
 
 ## Conclusion
 
-Schemathesis closes the gap between what your API claims to do and what it actually does. By reading your OpenAPI schema and generating a flood of inputs no human would think to write, it finds the crashing requests, the contract violations, and the undocumented error paths that example-based tests systematically miss. The adoption path is gentle: start with the one-line CLI (\`st run http://localhost:8000/openapi.json\`) for an instant smoke test, graduate to the pytest plugin with \`schemathesis.from_uri\` and \`@schema.parametrize\` when you want assertions and fixtures, add hooks for authentication and data shaping, turn on stateful testing once your schema declares its links, and tune Hypothesis settings to balance speed against depth. Wire the CLI into CI and every pull request gets fuzzed automatically, catching server-crashing inputs before they merge. Pair it with consumer-driven approaches from the [API contract testing for microservices guide](/blog/api-contract-testing-microservices) and browse the [QA skills directory](/skills) for ready-to-use testing playbooks to round out a contract-testing strategy that covers both directions of trust between your services.
+Schemathesis closes the gap between what your API claims to do and what it actually does. By reading your OpenAPI schema and generating a flood of inputs no human would think to write, it finds the crashing requests, the contract violations, and the undocumented error paths that example-based tests systematically miss. The adoption path is gentle: start with the one-line CLI (\`st run http://localhost:8000/openapi.json\`) for an instant smoke test, graduate to the pytest plugin with \`schemathesis.openapi.from_url\` and \`@schema.parametrize\` when you want assertions and fixtures, add hooks for authentication and data shaping, turn on stateful testing once your schema declares its links, and tune Hypothesis settings to balance speed against depth. Wire the CLI into CI and every pull request gets fuzzed automatically, catching server-crashing inputs before they merge. Pair it with consumer-driven approaches from the [API contract testing for microservices guide](/blog/api-contract-testing-microservices) and browse the [QA skills directory](/skills) for ready-to-use testing playbooks to round out a contract-testing strategy that covers both directions of trust between your services.
 `,
 };

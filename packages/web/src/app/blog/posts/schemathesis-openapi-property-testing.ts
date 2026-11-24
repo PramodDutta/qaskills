@@ -46,7 +46,7 @@ schemathesis --version
 st --version   # 'st' is the short alias
 \`\`\`
 
-You need Python 3.8 or newer. If you only want the CLI and never touch pytest, you can also run it through Docker without polluting your environment:
+You need Python 3.11 or newer. If you only want the CLI and never touch pytest, you can also run it through Docker without polluting your environment:
 
 \`\`\`bash
 docker run --rm -it \\
@@ -127,7 +127,7 @@ The CLI is great for CI gates, but pytest integration gives you fine-grained con
 import schemathesis
 
 # Load the schema once at module level
-schema = schemathesis.from_uri("http://localhost:8000/openapi.json")
+schema = schemathesis.openapi.from_url("http://localhost:8000/openapi.json")
 
 
 @schema.parametrize()
@@ -162,18 +162,17 @@ def test_no_internal_leak(case):
 
 ### Handling Authentication
 
-Real APIs need credentials. Set a header on every generated case with a hook or by configuring the schema loader:
+Real APIs need credentials. Set a header on each generated case before sending it:
 
 \`\`\`python
 import schemathesis
 
-schema = schemathesis.from_uri(
+schema = schemathesis.openapi.from_url(
     "http://localhost:8000/openapi.json",
 )
 
 
 @schema.parametrize()
-@schema.hooks.apply
 def test_authenticated(case):
     case.headers = case.headers or {}
     case.headers["Authorization"] = "Bearer test-token-123"
@@ -194,11 +193,11 @@ st run \\
 
 Single-operation fuzzing finds crashes, but many real bugs live in sequences: create a resource, read it back, delete it, then read it again and expect a 404. Schemathesis reads OpenAPI \`links\` (and can infer some links heuristically) to build these chains automatically. It uses the output of one operation, say the \`id\` returned by \`POST /users\`, as the input to the next, \`GET /users/{id}\`.
 
-Enable stateful testing on the CLI:
+The CLI runs stateful testing by default. To run only that phase:
 
 \`\`\`bash
 st run \\
-  --experimental=stateful-test-suite \\
+  --phases stateful \\
   --url http://localhost:8000 \\
   ./openapi.yaml
 \`\`\`
@@ -294,7 +293,7 @@ jobs:
             ./openapi.yaml
 \`\`\`
 
-For flaky-free runs, pin \`--max-examples\` so the budget is deterministic, and consider \`--hypothesis-seed\` if you want fully reproducible generation. Keep the example count modest on pull requests (fast feedback) and run a heavier nightly job with thousands of examples.
+For flaky-free runs, pin \`--max-examples\` so the budget is deterministic, and consider \`--seed\` if you want fully reproducible generation. Keep the example count modest on pull requests (fast feedback) and run a heavier nightly job with thousands of examples.
 
 ## Tuning, Filtering, and Reducing Noise
 
@@ -306,7 +305,7 @@ Not every generated case is meaningful for every API. Schemathesis gives you lev
 | \`--exclude-path\` | Skip noisy or destructive endpoints |
 | \`--include-method\` | Restrict to GET/POST/etc. |
 | \`--max-examples\` | Set the Hypothesis generation budget per operation |
-| \`--hypothesis-seed\` | Fix the seed for reproducible runs |
+| \`--seed\` | Fix the seed for reproducible runs |
 | \`--report\` | Emit a machine-readable report (JUnit, VCR) |
 
 A common recipe is to exclude destructive endpoints from broad fuzzing while still stateful-testing the safe CRUD paths:
@@ -331,30 +330,30 @@ import schemathesis
 from myapp.main import app  # a FastAPI/Starlette instance
 
 # Load the schema straight from the ASGI app
-schema = schemathesis.from_asgi("/openapi.json", app)
+schema = schemathesis.openapi.from_asgi("/openapi.json", app)
 
 
 @schema.parametrize()
 def test_asgi(case):
-    # 'app' is passed so the call goes in-process, no network
-    response = case.call_asgi()
+    # The call goes in-process, no network
+    response = case.call()
     case.validate_response(response)
 \`\`\`
 
-For WSGI apps the pattern is \`from_wsgi\` and \`case.call_wsgi()\`. The trade-off is fidelity: in-process runs skip the real network, TLS, and any reverse proxy, so keep a smaller live-server run in CI for the checks that depend on the full stack (content types set by a gateway, for example). A common split is fast in-process runs on every push and a heavier live run nightly.
+For WSGI apps the pattern is \`schemathesis.openapi.from_wsgi\` with the same \`case.call()\`. The trade-off is fidelity: in-process runs skip the real network, TLS, and any reverse proxy, so keep a smaller live-server run in CI for the checks that depend on the full stack (content types set by a gateway, for example). A common split is fast in-process runs on every push and a heavier live run nightly.
 
 ## Generating Cases From Examples in the Spec
 
-If your OpenAPI spec includes \`example\` or \`examples\` values, Schemathesis can seed generation with them so realistic, hand-authored payloads are always exercised alongside the fuzzed ones. This matters when a field is technically "any string" in the schema but only a narrow set of values is meaningful, like a currency code or a country. Enable it explicitly:
+If your OpenAPI spec includes \`example\` or \`examples\` values, Schemathesis can seed generation with them so realistic, hand-authored payloads are always exercised alongside the fuzzed ones. This matters when a field is technically "any string" in the schema but only a narrow set of values is meaningful, like a currency code or a country. It runs by default; to run only these two phases:
 
 \`\`\`bash
 st run \\
-  --hypothesis-phases explicit,generate \\
+  --phases examples,fuzzing \\
   --url http://localhost:8000 \\
   ./openapi.yaml
 \`\`\`
 
-The \`explicit\` phase replays every example embedded in the spec; the \`generate\` phase adds the fuzzed cases on top. Keeping realistic examples in the spec therefore does double duty: it documents the API for humans and steers the fuzzer toward valid, meaningful inputs.
+The \`examples\` phase replays every example embedded in the spec; the \`fuzzing\` phase adds the fuzzed cases on top. Keeping realistic examples in the spec therefore does double duty: it documents the API for humans and steers the fuzzer toward valid, meaningful inputs.
 
 ## Reading and Acting on Results
 
