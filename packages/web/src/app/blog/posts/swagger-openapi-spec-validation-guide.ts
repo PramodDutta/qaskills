@@ -220,20 +220,20 @@ spec.validate_response(
 
 \`\`\`bash
 pip install schemathesis
-schemathesis run --base-url http://localhost:3000 openapi.yaml
+schemathesis run --url http://localhost:3000 openapi.yaml
 \`\`\`
 
 Schemathesis reads your spec and generates hundreds of automated tests with random inputs, looking for cases where the response doesn't match the schema.
 
 \`\`\`bash
 # Filter to specific endpoints
-schemathesis run --endpoint /users openapi.yaml
+schemathesis run --include-path /users openapi.yaml
 
 # Stop on first failure
-schemathesis run --exitfirst openapi.yaml
+schemathesis run --max-failures 1 openapi.yaml
 
-# Use stateful testing
-schemathesis run --stateful=links openapi.yaml
+# Run only stateful testing
+schemathesis run --phases stateful openapi.yaml
 \`\`\`
 
 ## Dredd
@@ -311,7 +311,7 @@ jobs:
       - run: |
           npm start &
           sleep 5
-          schemathesis run --base-url http://localhost:3000 --checks all openapi.yaml
+          schemathesis run --url http://localhost:3000 --checks all openapi.yaml
 \`\`\`
 
 ## Spec Generation From Code

@@ -27,7 +27,7 @@ Crucially, Schemathesis does not only generate *valid* data. With negative testi
 
 ## Installing Schemathesis
 
-Schemathesis ships as a Python package on PyPI and requires Python 3.8 or newer. Install it into a virtual environment so it does not pollute your system packages:
+Schemathesis ships as a Python package on PyPI and requires Python 3.11 or newer. Install it into a virtual environment so it does not pollute your system packages:
 
 \`\`\`bash
 # Create and activate a virtual environment
@@ -57,12 +57,9 @@ st run ./openapi.yaml --url http://localhost:8000
 
 # Limit how many examples are generated per operation (faster feedback)
 st run https://example.com/openapi.json --max-examples 50
-
-# Increase verbosity to see each generated request
-st run https://example.com/openapi.json --checks all --show-trace
 \`\`\`
 
-The \`--checks all\` flag enables every built-in property check rather than the default subset, which is what you want when you are hunting bugs. By default Schemathesis generates 100 examples per operation; \`--max-examples\` lets you trade thoroughness for speed during local iteration. As it runs, the CLI prints a live summary per operation and, on failure, the exact request that broke the property -- method, path, headers, and body -- so you can reproduce it immediately.
+The \`--checks all\` flag enables every built-in property check, which is also the default. By default Schemathesis generates 100 examples per operation; \`--max-examples\` lets you trade thoroughness for speed during local iteration. As it runs, the CLI prints a live summary per operation and, on failure, the exact request that broke the property -- method, path, headers, and body -- so you can reproduce it immediately.
 
 ## The Built-In Checks Schemathesis Runs
 
@@ -86,8 +83,9 @@ The CLI is great for CI and exploratory runs, but sometimes you want generated c
 import schemathesis
 
 # Load the schema once, from a URI or a local file
-schema = schemathesis.from_uri("https://example.com/openapi.json")
-# Or: schema = schemathesis.from_path("./openapi.yaml", base_url="http://localhost:8000")
+schema = schemathesis.openapi.from_url("https://example.com/openapi.json")
+# Or from a file, with base-url = "http://localhost:8000" in schemathesis.toml:
+# schema = schemathesis.openapi.from_path("./openapi.yaml")
 
 
 @schema.parametrize()
@@ -103,7 +101,7 @@ def test_api_with_custom_assertions(case):
     # Built-in conformance checks
     case.validate_response(response)
     # Your own domain-specific property
-    assert response.elapsed.total_seconds() < 2.0, "Endpoint too slow"
+    assert response.elapsed < 2.0, "Endpoint too slow"
 \`\`\`
 
 When you run \`pytest\` against this file, Schemathesis expands \`@schema.parametrize()\` into one parametrized test per operation in the schema. Each test invocation receives a freshly generated \`case\`, and Hypothesis runs each one many times with different inputs. \`case.call_and_validate()\` is the one-liner that sends the request and asserts every built-in check; \`case.call()\` plus \`case.validate_response()\` splits those steps so you can interleave your own assertions, exactly as in \`test_api_with_custom_assertions\` above. Because it is all standard pytest underneath, you get the usual fixtures, markers, parallelization with \`pytest-xdist\`, and reporting for free.
@@ -127,7 +125,7 @@ Notice the token is read from an environment variable (\`\${API_TOKEN}\`) rather
 \`\`\`python
 import schemathesis
 
-schema = schemathesis.from_uri("https://example.com/openapi.json")
+schema = schemathesis.openapi.from_url("https://example.com/openapi.json")
 
 
 @schemathesis.auth()
@@ -194,18 +192,18 @@ Individual-operation fuzzing finds crashes, but many real bugs only appear in *s
 \`\`\`python
 import schemathesis
 
-schema = schemathesis.from_uri("https://example.com/openapi.json")
+schema = schemathesis.openapi.from_url("https://example.com/openapi.json")
 
 # Build a stateful test that chains operations via declared links
 TestAPISequences = schema.as_state_machine().TestCase
 \`\`\`
 
 \`\`\`bash
-# Run stateful (link-based) testing from the CLI
-st run https://example.com/openapi.json --checks all --experimental=stateful-test-runner
+# Run only the stateful (link-based) phase from the CLI
+st run https://example.com/openapi.json --checks all --phases stateful
 \`\`\`
 
-The state machine explores chains of operations: it creates entities, captures the IDs your API returns, and uses them in subsequent calls, hunting for inconsistencies like a resource that still returns 200 after you deleted it, or pagination cursors that point at nothing. If your schema does not yet declare \`links\`, adding them is a one-time investment that pays off in this much deeper class of test.
+The state machine explores chains of operations: it creates entities, captures the IDs your API returns, and uses them in subsequent calls, hunting for inconsistencies like a resource that still returns 200 after you deleted it, or pagination cursors that point at nothing. Schemathesis infers links from your schema, and declaring \`links\` adds the connections it cannot infer.
 
 ## Integrating Schemathesis Into CI
 
@@ -276,7 +274,7 @@ Schemathesis automatically generates and runs API test cases from an OpenAPI or 
 
 ### Is Schemathesis free and open source?
 
-Yes. Schemathesis is open source under a permissive license and is freely available on PyPI -- install it with \`pip install schemathesis\`. There is an optional commercial SaaS offering with extra reporting and team features, but the full fuzzing engine, CLI, and pytest integration are free and require no account to use locally or in CI.
+Yes. Schemathesis is open source under a permissive license and is freely available on PyPI -- install it with \`pip install schemathesis\`. The full fuzzing engine, CLI, and pytest integration are free and require no account to use locally or in CI.
 
 ### Does Schemathesis support GraphQL as well as REST?
 
@@ -296,7 +294,7 @@ Every failure report includes the exact generated request, minimized by Hypothes
 
 ### Can I run Schemathesis inside my existing pytest suite?
 
-Yes. Import \`schemathesis\`, load your schema with \`schemathesis.from_uri()\` or \`from_path()\`, and decorate a test with \`@schema.parametrize()\`. Each operation becomes a parametrized pytest test, and calling \`case.call_and_validate()\` sends the generated request and runs every built-in check. You can add your own assertions, fixtures, and markers exactly as in any other pytest test.
+Yes. Import \`schemathesis\`, load your schema with \`schemathesis.openapi.from_url()\` or \`schemathesis.openapi.from_path()\`, and decorate a test with \`@schema.parametrize()\`. Each operation becomes a parametrized pytest test, and calling \`case.call_and_validate()\` sends the generated request and runs every built-in check. You can add your own assertions, fixtures, and markers exactly as in any other pytest test.
 
 ### How do I handle authentication with Schemathesis?
 

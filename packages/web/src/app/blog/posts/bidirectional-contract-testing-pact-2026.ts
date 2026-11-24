@@ -102,9 +102,9 @@ Several tools do this. **Schemathesis** generates property-based test cases dire
 \`\`\`bash
 # Provider self-verification with Schemathesis (property-based, from the spec)
 schemathesis run openapi.yaml \\
-  --base-url http://localhost:8080 \\
+  --url http://localhost:8080 \\
   --checks all \\
-  --report
+  --report-json-path schemathesis-report.json
 
 # Or with Dredd (endpoint-by-endpoint against the spec)
 dredd openapi.yaml http://localhost:8080
